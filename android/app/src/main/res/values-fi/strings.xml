@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">Tietoja yhteystietotilauksesta</string>
+    <string name="about_labels" formatted="false">Tietoja tunnisteista</string>
+    <string name="about_phone_subscription_rules" formatted="false">Tietoja puhelintilaussäännöistä</string>
+    <string name="about_sms_filter" formatted="false">Tietoja tekstiviestisuodatuksesta</string>
+    <string name="about_sms_subscription_rules" formatted="false">Tietoja tekstiviestitilaussäännöistä</string>
+    <string name="about_subtitle" formatted="false">Sovelluksen versio ja lakitiedot</string>
+    <string name="about_title" formatted="false">Tietoja</string>
+    <string name="access_target_url" formatted="false">Käytä kohde-URL-osoitetta</string>
+    <string name="action" formatted="false">Toiminto</string>
+    <string name="action_all" formatted="false">Kaikki</string>
+    <string name="action_allow" formatted="false">Salli</string>
+    <string name="action_block" formatted="false">Estä</string>
+    <string name="action_filter_title" formatted="false">Suodata toimintatyypin mukaan</string>
+    <string name="action_filter_tooltip" formatted="false">Toimintosuodatin</string>
+    <string name="action_none" formatted="false">Ei toimintoa</string>
+    <string name="action_silence" formatted="false">Hiljennä</string>
+    <string name="action_tag" formatted="false">Toiminto: {actionType}</string>
+    <string name="action_type" formatted="false">Toimintatyyppi</string>
+    <string name="action_unknown" formatted="false">Tuntematon</string>
+    <string name="active_proposals" formatted="false">Aktiivisia esityksiä</string>
+    <string name="add" formatted="false">Lisää</string>
+    <string name="add_allow_subscription" formatted="false">Lisää sallitut tilaus</string>
+    <string name="add_allowed_blocked_rule" formatted="false">Lisää sallitut/estetyt sääntö</string>
+    <string name="add_block_subscription" formatted="false">Lisää estetyt tilaus</string>
+    <string name="add_contact_button" formatted="false">Lisää yhteystieto</string>
+    <string name="add_contact_failed" formatted="false">Yhteystiedon lisäys epäonnistui: {error}</string>
+    <string name="add_label" formatted="false">Lisää tunniste</string>
+    <string name="add_label_button" formatted="false">Lisää tunniste</string>
+    <string name="add_label_failed" formatted="false">Tunnisteen lisäys epäonnistui: {error}</string>
+    <string name="add_name" formatted="false">Lisää nimi</string>
+    <string name="add_none_subscription" formatted="false">Lisää ei mitään tilausta</string>
+    <string name="add_phone_mark" formatted="false">Lisää puhelinmerkki</string>
+    <string name="add_phone_number_rule" formatted="false">Lisää puhelinnumerosääntö</string>
+    <string name="add_plugin" formatted="false">Lisää lisäosa</string>
+    <string name="add_plugin_failed" formatted="false">Lisäosan lisäys epäonnistui</string>
+    <string name="add_plugin_failed_with_error" formatted="false">Lisäosan lisäys epäonnistui: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">Lisää lisäosa paikallisesta tiedostosta</string>
+    <string name="add_plugin_from_url" formatted="false">Lisää lisäosa URL-osoitteesta</string>
+    <string name="add_regex_rule" formatted="false">Lisää säännöllinen lausekesääntö</string>
+    <string name="add_rule" formatted="false">Lisää sääntö</string>
+    <string name="add_rule_failed" formatted="false">Säännön lisäys epäonnistui: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">Lisää sääntö</string>
+    <string name="add_silence_subscription" formatted="false">Lisää hiljentävä tilaus</string>
+    <string name="add_sms_filter_rule" formatted="false">Lisää tekstiviestisuodatus sääntö</string>
+    <string name="add_sms_rule" formatted="false">Lisää tekstiviestisääntö</string>
+    <string name="add_sms_subscription" formatted="false">Lisää tekstiviestitilaus</string>
+    <string name="add_subscription" formatted="false">Lisää tilaus</string>
+    <string name="add_subscription_button" formatted="false">Lisää tilaus</string>
+    <string name="add_subscription_failed" formatted="false">Tilauksen lisäys epäonnistui: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">Lisää tilaus</string>
+    <string name="add_to_blacklist" formatted="false">Lisää estolistalle</string>
+    <string name="add_to_favorites" formatted="false">Lisää suosikkeihin</string>
+    <string name="add_to_rules" formatted="false">Lisää sääntöihin</string>
+    <string name="add_to_whitelist" formatted="false">Lisää sallittujen luetteloon</string>
+    <string name="added_to_favorites" formatted="false">Lisätty suosikkeihin</string>
+    <string name="advanced_mode" formatted="false">Lisäasetustila</string>
+    <string name="agent" formatted="false">Agentti</string>
+    <string name="agree_votes" formatted="false">Kyllä: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">Kaikki</string>
+    <string name="all_call_logs_cleared" formatted="false">Kaikki puhelulokit tyhjennetty</string>
+    <string name="all_calls_tab" formatted="false">Kaikki</string>
+    <string name="all_permissions_granted" formatted="false">Kaikki käyttöoikeudet myönnetty</string>
+    <string name="all_services_status_subtitle" formatted="false">Pilvipalveluiden kunkin tilan nykytila</string>
+    <string name="all_services_status_title" formatted="false">Nykyinen palvelutila</string>
+    <string name="all_settings_completed" formatted="false">Kaikki asetukset suoritettu.</string>
+    <string name="all_update_success" formatted="false">Kaikki päivitykset suoritettu ({count} sääntöä)</string>
+    <string name="allow" formatted="false">Salli</string>
+    <string name="allow_action_description" formatted="false">Puhelut sallitaan, vaikka numero olisi esto-listalla.</string>
+    <string name="allow_all_allow_rules" formatted="false">Ota kaikki sallitut säännöt käyttöön</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">Pääkytkin kaikkien määritettyjen sallittujen sääntöjen soveltamiseksi</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">Salli kaikki estolistalla olevat numerot</string>
+    <string name="allow_all_block_rules" formatted="false">Ota kaikki estösäännöt käyttöön</string>
+    <string name="allow_all_block_rules_desc" formatted="false">Pääkytkin kaikkien määritettyjen estösääntöjen soveltamiseksi</string>
+    <string name="allow_allowed_numbers" formatted="false">Salli kaikki hyväksytyt numerot</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">Salli kaikki saapuvat puhelut sallittujen luettelon numeroista</string>
+    <string name="allow_block" formatted="false">Salli/Estä</string>
+    <string name="allow_blocked_numbers" formatted="false">Keskeytä estolista</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">Salli väliaikaisesti puhelut estolistan numeroista</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">Salli rajat ylittämättömät numerot</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">Salli automaattisesti numerot, jotka eivät ylitä raja-arvoa</string>
+    <string name="allow_regex_allow_rules" formatted="false">Ota säännöllisten lausekkeiden sallitut säännöt käyttöön</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">Ota käyttöön säännöllisten lausekkeiden vastaavuus sallituissa säännöissä</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">Ota käyttöön säännöllisiin lausekkeisiin perustuvat sallitut säännöt</string>
+    <string name="allow_regex_block_rules" formatted="false">Ota säännöllisten lausekkeiden estösäännöt käyttöön</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">Ota käyttöön säännöllisten lausekkeiden vastaavuus estösäännöissä</string>
+    <string name="allow_regex_block_rules_description" formatted="false">Ota käyttöön säännöllisiin lausekkeisiin perustuvat estetyt säännöt</string>
+    <string name="allow_rule" formatted="false">Salli sääntö</string>
+    <string name="allow_rules" formatted="false">Salli säännöt</string>
+    <string name="allowed_blocked_rule" formatted="false">Salli/Estä sääntö</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">Muokkaa sallittu/estetty sääntöä</string>
+    <string name="allowed_blocked_rule_management" formatted="false">Salli/Estä sääntöjen hallinta</string>
+    <string name="allowed_blocked_rules_info" formatted="false">Sallitut/estetyt säännöt vastaavat puheluita tiettyihin puhelinnumeroihin, joilla on korkein prioriteetti.</string>
+    <string name="and_more_items" formatted="false">ja {count} muuta kohdetta</string>
+    <string name="answer_then_hangup" formatted="false">Vastaa ja katkaise puhelu</string>
+    <string name="answer_then_hangup_description" formatted="false">Vastaa puheluun ensin ja katkaise sitten heti.</string>
+    <string name="app_name" formatted="false">Sinun Puhelusi Sinun Sääntösi</string>
+    <string name="application_software" formatted="false">Sovellusohjelmisto</string>
+    <string name="apply" formatted="false">Käytä</string>
+    <string name="approved" formatted="false">HYVÄKSYTTY</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">Valtuutus epäonnistui: Tarkista asiakastunnus ja avain</string>
+    <string name="authorization_failed_message" formatted="false">Valtuutus epäonnistui</string>
+    <string name="authorization_success_message" formatted="false">Valtuutus onnistui</string>
+    <string name="authorize_login_button" formatted="false">Valtuuta kirjautuminen</string>
+    <string name="auto_cancel_notification" formatted="false">Automaattinen ilmoituksen peruutus</string>
+    <string name="auto_cancel_notification_description" formatted="false">Jos valittuna, ilmoitus hylätään automaattisesti, kun käyttäjä napauttaa sitä.</string>
+    <string name="auto_sync_label" formatted="false">Automaattinen synkronointi</string>
+    <string name="auto_update" formatted="false">Automaattinen päivitys</string>
+    <string name="auto_update_description" formatted="false">Aseta automaattiset päivitysvälit tilauksille tai päivitä manuaalisesti</string>
+    <string name="auto_update_settings" formatted="false">Automaattisen päivityksen asetukset</string>
+    <string name="auto_update_subtitle" formatted="false">Hallitse sääntöjen ja lisäosien automaattisia päivityksiä</string>
+    <string name="auto_update_title" formatted="false">Automaattinen päivitys</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">Autoteollisuus</string>
+    <string name="avatar" formatted="false">Profiilikuva</string>
+    <string name="avatar_border_color" formatted="false">Avatarin reunaväri</string>
+    <string name="avatar_border_size" formatted="false">Avatarin reunaviivan koko</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">Avatarin ja kuvakkeen koot</string>
+    <string name="avatar_position" formatted="false">Avatarin sijainti</string>
+    <string name="avatar_size" formatted="false">Avatarin koko</string>
+    <string name="axis_position" formatted="false">{axis}-sijainti</string>
+    <string name="background_gradient_setting" formatted="false">Taustagradientin asetus</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">Varmuuskopiointi</string>
+    <string name="backup_and_restore" formatted="false">Varmuuskopiointi ja palautus</string>
+    <string name="backup_and_restore_subtitle" formatted="false">Varmuuskopioi tai palauta sovelluksen tiedot</string>
+    <string name="backup_and_restore_title" formatted="false">Varmuuskopiointi ja palautus</string>
+    <string name="backup_failed" formatted="false">Varmuuskopiointi epäonnistui</string>
+    <string name="backup_settings" formatted="false">Varmuuskopiointiasetukset</string>
+    <string name="backup_to_cloud" formatted="false">Varmuuskopiointi pilveen</string>
+    <string name="backup_to_cloud_failed" formatted="false">Varmuuskopiointi pilveen epäonnistui: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">Varmuuskopiointi pilveen onnistui onnistuneesti</string>
+    <string name="bank" formatted="false">Pankki</string>
+    <string name="basic_info" formatted="false">Perustiedot</string>
+    <string name="basic_rule_filter" formatted="false">Perussääntösuodatin</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">Suodata puheluita mustan/valkoisen listan ja säännöllisten lausekkeiden avulla</string>
+    <string name="basic_rule_filtering" formatted="false">Perussääntöjen suodatus</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• Perussääntöjen suodatus: Sääntöjen suodatus mustan listan, valkoisen listan ja säännöllisten lausekkeiden perusteella</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">Haluatko varmasti poistaa {count} valittua kontaktia?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">Haluatko varmasti poistaa {count} valittua tunnusta?</string>
+    <string name="battery_optimization_permission" formatted="false">Akun optimointi</string>
+    <string name="battery_optimization_permission_description" formatted="false">Salli sovelluksen toimia taustalla tarjotakseen palveluita, kuten soittajan tunnistusta.</string>
+    <string name="black_white_list" formatted="false">Musta/valkoinen lista</string>
+    <string name="blacklist" formatted="false">Musta lista</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">Mustalle listalle lisääminen ja valkoiselle listalle lisääminen</string>
+    <string name="block" formatted="false">Estä</string>
+    <string name="block_action_description" formatted="false">Puhelut estetään ja näytetään puhelulokissa.</string>
+    <string name="block_calls" formatted="false">Estä puhelut</string>
+    <string name="block_international_calls" formatted="false">vastaa numeroita, jotka eivät ala + tai 00</string>
+    <string name="block_international_calls_title" formatted="false">Estä kansainväliset puhelut</string>
+    <string name="block_mobile_numbers" formatted="false">vastaa numeroita, jotka eivät ala 13-19</string>
+    <string name="block_mobile_numbers_title" formatted="false">Estä matkapuhelinnumerot</string>
+    <string name="block_number" formatted="false">Estä numero</string>
+    <string name="block_number_success" formatted="false">Numeron esto onnistui</string>
+    <string name="block_premium_rate_numbers" formatted="false">vastaa numeroita, jotka eivät ala 118 tai 120-190</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">Estä numerot, joilla on korkea hintaluokka</string>
+    <string name="block_rule" formatted="false">Estosääntö</string>
+    <string name="block_rules" formatted="false">Estosäännöt</string>
+    <string name="block_specific_area_codes" formatted="false">vastaa numeroita, jotka alkavat 0 + 2-3 numeroa</string>
+    <string name="block_specific_area_codes_title" formatted="false">Estä tietyt suuntanumerot:</string>
+    <string name="block_type_analysis_title" formatted="false">Estotyypin analyysi</string>
+    <string name="blocked" formatted="false">Estetty</string>
+    <string name="blocked_call_body" formatted="false">Estetty puhelu numerosta {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">Estettyjen puheluiden ilmoitukset</string>
+    <string name="blocked_call_notifications_description" formatted="false">Näyttää tiedot estetyistä puheluista.</string>
+    <string name="blocked_call_title" formatted="false">Estetty puhelu</string>
+    <string name="blocked_calls" formatted="false">Estetyt puhelut</string>
+    <string name="blocked_calls_title" formatted="false">Estetyt puhelut</string>
+    <string name="blocked_spam_calls" formatted="false">Estetyt roskapuhelut</string>
+    <string name="blocking_trend" formatted="false">Estotrendi</string>
+    <string name="both" formatted="false">Molempia</string>
+    <string name="bulk_delete" formatted="false">Useamman kontaktin poisto</string>
+    <string name="bulk_delete_contacts" formatted="false">Useamman kontaktin poisto</string>
+    <string name="bulk_delete_labels" formatted="false">Useamman tunnuksen poisto</string>
+    <string name="call" formatted="false">Puhelu</string>
+    <string name="call_blocking" formatted="false">Puheluiden esto</string>
+    <string name="call_details" formatted="false">Puhelun tiedot</string>
+    <string name="call_filter_rules" formatted="false">Puhelusuodatussäännöt</string>
+    <string name="call_filter_rules_description" formatted="false">Aseta perussäännöt puhelusuodatukselle</string>
+    <string name="call_filter_settings" formatted="false">Puhelusuodatusasetukset</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">Aseta puhelutiheysrajat ja esto-säännöt</string>
+    <string name="call_frequency_interception_title" formatted="false">Puhelutiheyden sieppaus</string>
+    <string name="call_history" formatted="false">Puheluhistoria</string>
+    <string name="call_history_info_desc" formatted="false">Tässä näkyy puheluhistoriasi, mukaan lukien saapuneet, lähteneet ja vastaamattomat puhelut.</string>
+    <string name="call_history_info_title" formatted="false">Puheluhistoria</string>
+    <string name="call_history_tab" formatted="false">Puheluhistoria</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">Puhelun seulontaoikeus</string>
+    <string name="call_screening_permission_description" formatted="false">Käytetään roskapuheluiden seulontaan ja estämiseen.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">Puhelun seulontaoikeutta ei ole myönnetty, mikä voi vaikuttaa sovelluksen toimintaan.</string>
+    <string name="call_statistics" formatted="false">Puhelutilastot</string>
+    <string name="call_time" formatted="false">Puheluaika</string>
+    <string name="call_type" formatted="false">Puhelutyyppi</string>
+    <string name="call_type_answered" formatted="false">Vastattu</string>
+    <string name="call_type_blocked" formatted="false">Estetty</string>
+    <string name="call_type_icon_color" formatted="false">Puhelutyypin kuvakkeen väri</string>
+    <string name="call_type_missed" formatted="false">Vastaamaton puhelu</string>
+    <string name="call_type_outgoing" formatted="false">Lähteneet</string>
+    <string name="call_type_position" formatted="false">Puhelutyypin sijainti</string>
+    <string name="call_type_rejected" formatted="false">Hylätty</string>
+    <string name="call_type_silenced" formatted="false">Mykistetty</string>
+    <string name="call_type_unknown" formatted="false">Tuntematon</string>
+    <string name="callback" formatted="false">Takaisinsoitto</string>
+    <string name="caller_id_app" formatted="false">Soittajan tunnuksen sovellus</string>
+    <string name="caller_id_customization_subtitle" formatted="false">Mukauta soittajan tunnistetietojen asettelua</string>
+    <string name="caller_id_customization_title" formatted="false">Soittajan tunnuksen mukauttaminen</string>
+    <string name="caller_id_display_mode" formatted="false">Puhelun tunnuksen näyttötila</string>
+    <string name="caller_id_enhancement" formatted="false">Soittajan tunnistetietojen parannus</string>
+    <string name="caller_id_marked_by_count" formatted="false">Merkitty {count} kertaa</string>
+    <string name="caller_id_notification_title" formatted="false">Saapuvan puhelun tiedot</string>
+    <string name="caller_id_preview" formatted="false">Puhelun tunnuksen esikatselu</string>
+    <string name="caller_id_settings_subtitle" formatted="false">Saapuvan puhelun ilmoituksen ja näyttötilan määrittämiseksi</string>
+    <string name="caller_id_settings_title" formatted="false">Soittajan tunnistetietojen asetukset</string>
+    <string name="calling_number_failed" formatted="false">Soitto numeroon epäonnistui</string>
+    <string name="cancel" formatted="false">Peruuta</string>
+    <string name="cancel_button" formatted="false">Peruuta</string>
+    <string name="cancel_local_notification" formatted="false">Sulje paikalliset ilmoitukset</string>
+    <string name="cancel_local_notification_description" formatted="false">Sulje paikalliset ilmoitukset automaattisesti</string>
+    <string name="car_rental" formatted="false">Autonvuokraus</string>
+    <string name="carrier" formatted="false">Operaattori</string>
+    <string name="carrier_color" formatted="false">Operaattorin väri</string>
+    <string name="carrier_font_size" formatted="false">Operaattorin fonttikoko</string>
+    <string name="carrier_position" formatted="false">Operaattorin sijainti</string>
+    <string name="change_label" formatted="false">Vaihda tunniste</string>
+    <string name="change_plugin_status_failed" formatted="false">Liitännäisen tilan muuttaminen epäonnistui: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">Tilauksen tilan muuttaminen epäonnistui: {error}</string>
+    <string name="charity" formatted="false">Hyväntekeväisyys</string>
+    <string name="chart_one_week_ago" formatted="false">1 viikko sitten</string>
+    <string name="chart_three_days_ago" formatted="false">3 päivää sitten</string>
+    <string name="chart_today" formatted="false">Tänään</string>
+    <string name="check_file_format" formatted="false">Tarkista tiedostomuoto tai käyttöoikeudet</string>
+    <string name="check_permission_failed" formatted="false">Käyttöoikeuksien tarkistus epäonnistui: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">Valitse oletus sieppaustoiminto</string>
+    <string name="clear_all_call_logs" formatted="false">Tyhjennä kaikki puhelulokit</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">Vahvista tyhjentää kaikki puhelulokit</string>
+    <string name="clear_all_notifications" formatted="false">Tyhjennä kaikki ilmoitukset</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">Vahvista tyhjentää kaikki ilmoitukset</string>
+    <string name="clear_button" formatted="false">Tyhjennä</string>
+    <string name="clear_filter" formatted="false">Tyhjennä suodatin</string>
+    <string name="clear_label_filter_button" formatted="false">Tyhjennä tunnistesuodatin</string>
+    <string name="close_button" formatted="false">Sulje</string>
+    <string name="cloud_backup" formatted="false">Pilvivarmuuskopiointi</string>
+    <string name="cloud_sync" formatted="false">Pilvisynkronointi</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">Pilvisynkronointi &amp; Varmuuskopiointi</string>
+    <string name="cloud_sync_service" formatted="false">Pilvisynkronointipalvelu</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">Määritä WebDAV, OneDrive ja Google Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">Pilvisynkronoinnin asetukset</string>
+    <string name="cloud_sync_title" formatted="false">Pilvisynkronointi</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">Velanperintä</string>
+    <string name="color_picker_title" formatted="false">Valitse väri</string>
+    <string name="community_impact" formatted="false">Yhteisövaikutus</string>
+    <string name="community_participation" formatted="false">Yhteisön osallistuminen</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">Yhteisön äänet</string>
+    <string name="community_voting_started" formatted="false">Yhteisöäänestys aloitettu</string>
+    <string name="community_voting_started_body" formatted="false">Uusi poistoesitys numerolle {phoneNumber} on nyt avoinna yhteisön äänestykselle.</string>
+    <string name="completed" formatted="false">VALMIS</string>
+    <string name="config_management" formatted="false">Konfiguraationhallinta</string>
+    <string name="config_saved" formatted="false">Asetukset tallennettu!</string>
+    <string name="config_updated" formatted="false">Konfiguraatio päivitetty</string>
+    <string name="configuration_advice" formatted="false">Asianmukaisella konfiguraatiolla voit asettaa erilaisia suodatusstrategioita työ- ja henkilökohtaisille SIM-korteille.</string>
+    <string name="configure_backup_options" formatted="false">Määritä varmuuskopiointivaihtoehdot</string>
+    <string name="configure_cloud_sync_service" formatted="false">Määritä pilvisynkronointipalvelu</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">Määritä pilvisynkronointipalvelu monilaitteisen synkronoinnin mahdollistamiseksi.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">Määritä SIM-kortin suodatussäännöt</string>
+    <string name="confirm" formatted="false">Vahvista</string>
+    <string name="confirm_button" formatted="false">Vahvista</string>
+    <string name="confirm_delete" formatted="false">Vahvista poisto</string>
+    <string name="confirm_delete_label" formatted="false">Oletko varma, että haluat poistaa tunnisteen &quot;{name}&quot;</string>
+    <string name="confirm_delete_plugin" formatted="false">Oletko varma, että haluat poistaa liitännäisen &quot;{name}&quot;?</string>
+    <string name="confirm_delete_plugins" formatted="false">Oletko varma, että haluat poistaa {count} liitännäistä?</string>
+    <string name="confirm_delete_rule_message" formatted="false">Oletko varma, että haluat poistaa tämän säännön? Tätä toimenpidettä ei voi peruuttaa.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">Oletko varma, että haluat poistaa tämän tekstiviestisuodatussäännön?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">Oletko varma, että haluat poistaa tämän tekstiviestin säännön?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">Oletko varma, että haluat poistaa {name}?</string>
+    <string name="confirm_password" formatted="false">Vahvista salasana</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">Yhdistetty</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">Yhteys epäonnistui: Tarkista palvelimen osoite, käyttäjänimi ja salasana</string>
+    <string name="connection_failed_message" formatted="false">Yhteys epäonnistui</string>
+    <string name="connection_status_label" formatted="false">Yhteyden tila</string>
+    <string name="connection_string" formatted="false">Yhteysmerkkijono (URI)</string>
+    <string name="connection_string_helper" formatted="false">Tarvitaan vain \'Alusta tietokanta\' -toiminnossa</string>
+    <string name="connection_success_message" formatted="false">Yhteys onnistui</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">Yhteyshenkilö lisätty onnistuneesti</string>
+    <string name="contact_deleted" formatted="false">Yhteyshenkilö poistettu</string>
+    <string name="contact_name_label" formatted="false">Nimi</string>
+    <string name="contact_not_found" formatted="false">Yhteyshenkilöä ei löydy</string>
+    <string name="contact_subscription_description" formatted="false">Tilaa yhteystietoluetteloita URL-osoitteen kautta, päivitä yhteystietoja ja tarroja automaattisesti. Tukee JSON-muotoista dataa.</string>
+    <string name="contact_update_success" formatted="false">Yhteystieto päivitetty onnistuneesti</string>
+    <string name="contact_us" formatted="false">Ota yhteyttä</string>
+    <string name="contacts" formatted="false">Yhteystiedot</string>
+    <string name="contacts_deleted" formatted="false">Poistettu {count} yhteystietoa</string>
+    <string name="contacts_management" formatted="false">Yhteystietojen hallinta</string>
+    <string name="contacts_permission" formatted="false">Yhteystietojen käyttöoikeus</string>
+    <string name="contacts_permission_description" formatted="false">Käytetään tunnistamaan yhteystietoihin liittyviä puheluita.</string>
+    <string name="contacts_tab" formatted="false">Yhteystiedot</string>
+    <string name="container_width" formatted="false">Säiliön leveys</string>
+    <string name="content" formatted="false">Sisältö</string>
+    <string name="content_regex" formatted="false">Sisällön säännöllinen lauseke</string>
+    <string name="count_color" formatted="false">Määrän väri</string>
+    <string name="count_font_size" formatted="false">Määrän fonttikoko</string>
+    <string name="count_position" formatted="false">Määrän sijainti</string>
+    <string name="count_threshold_description" formatted="false">Aseta vähimmäismääräraja, joka vaaditaan suodatustoimintojen käynnistämiseksi</string>
+    <string name="count_threshold_label" formatted="false">Määräraja</string>
+    <string name="country" formatted="false">Maa</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">esim. FI, DE, SE</string>
+    <string name="country_code_label" formatted="false">Maakoodi (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">Maakoodi on pakollinen</string>
+    <string name="country_code_two_letters" formatted="false">Maakoodi (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">Huomaa: Tietokanta ei välttämättä sisällä tietoja kaikista tietyistä maista tai alueista.</string>
+    <string name="country_name_color" formatted="false">Maan nimen väri</string>
+    <string name="country_name_font_size" formatted="false">Maan nimen fonttikoko</string>
+    <string name="country_region_name_position" formatted="false">Maan/alueen nimen sijainti</string>
+    <string name="country_sync_settings_subtitle" formatted="false">Valitse maat datan synkronointiin</string>
+    <string name="country_sync_settings_title" formatted="false">Maakohtaiset tietokannan synkronointiasetukset</string>
+    <string name="create_proposal" formatted="false">Luo esitys</string>
+    <string name="create_proposal_title" formatted="false">Luo poistoesitys</string>
+    <string name="created_at" formatted="false">Luotu: {date}</string>
+    <string name="created_rules" formatted="false">Luodut säännöt</string>
+    <string name="critical" formatted="false">Kriittinen</string>
+    <string name="critical_issues" formatted="false">Kriittiset ongelmat</string>
+    <string name="csv_format" formatted="false">CSV-muoto</string>
+    <string name="current_device_label" formatted="false">Nykyisen laitteen tarra</string>
+    <string name="current_device_title" formatted="false">Nykyinen laite</string>
+    <string name="current_language" formatted="false">Nykyinen kieli</string>
+    <string name="current_mark_count" formatted="false">Nykyinen pisteiden määrä</string>
+    <string name="custom" formatted="false">Mukautettu</string>
+    <string name="custom_action_description" formatted="false">Suorita mukautettu toimenpide.</string>
+    <string name="customer_service" formatted="false">Asiakaspalvelu</string>
+    <string name="dashboard_tab" formatted="false">Kojelauta</string>
+    <string name="data_analysis" formatted="false">Data-analyysi</string>
+    <string name="data_load_failure" formatted="false">Datan lataus epäonnistui: {error}</string>
+    <string name="data_loading_failed" formatted="false">Datan lataus epäonnistui: {error}</string>
+    <string name="data_migration" formatted="false">Datan siirto</string>
+    <string name="data_migration_description" formatted="false">Tämän ominaisuuden avulla voit siirtää kaiken datasi laitteiden välillä. Tällä hetkellä voit käyttää varmuuskopiointi- ja palautustoimintoja datan manuaaliseen siirtämiseen.</string>
+    <string name="data_source_disclaimer" formatted="false">Numerot on hankittu internetistä ja käyttäjien lähettämistä tiedoista. Emme voi taata, että poistettua numeroa eivät muut käyttäjät tai lähteet lähetä uudelleen. Hae ja tarkista tietoja aktiivisesti.</string>
+    <string name="data_source_reminder" formatted="false">Datalähteen muistutus</string>
+    <string name="database_sync_title" formatted="false">Tietokannan synkronointi</string>
+    <string name="days" formatted="false">{count, plural, =1{1 päivä} other{{count} päivää}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 päivä sitten} other{{count} päivää sitten}}</string>
+    <string name="days_vip" formatted="false">{days} Päivää VIP</string>
+    <string name="db_init_success" formatted="false">Tietokanta alustettu onnistuneesti!</string>
+    <string name="debt_collection" formatted="false">Velkojen perintä</string>
+    <string name="deep_link_confirm_button" formatted="false">Vahvista tuonti</string>
+    <string name="deep_link_default_plugin_name" formatted="false">Tuotu laajennus</string>
+    <string name="deep_link_default_sub_name" formatted="false">Tuotu tilaus</string>
+    <string name="deep_link_detected_title" formatted="false">Syvälinkki tunnistettu</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL ei voi olla tyhjä</string>
+    <string name="deep_link_import_failed" formatted="false">Tuonti epäonnistui: {error}</string>
+    <string name="deep_link_import_success" formatted="false">Tuotu onnistuneesti</string>
+    <string name="deep_link_import_title" formatted="false">Tuo määritys</string>
+    <string name="deep_link_name_label" formatted="false">Nimi</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Laajennuksen lataaminen epäonnistui: {error}</string>
+    <string name="deep_link_type_label" formatted="false">Tyyppi</string>
+    <string name="deep_link_type_plugin" formatted="false">Laajennus</string>
+    <string name="deep_link_type_subscription" formatted="false">Tilaus</string>
+    <string name="deep_link_url_label" formatted="false">URL</string>
+    <string name="default_notifications" formatted="false">Oletusilmoitukset</string>
+    <string name="default_notifications_description" formatted="false">Oletusilmoituskanava sovellukselle.</string>
+    <string name="delete" formatted="false">Poista</string>
+    <string name="delete_button" formatted="false">Poista</string>
+    <string name="delete_contact" formatted="false">Poista yhteyshenkilö</string>
+    <string name="delete_contact_confirm" formatted="false">Haluatko varmasti poistaa {name}?</string>
+    <string name="delete_failed" formatted="false">Poisto epäonnistui: {error}</string>
+    <string name="delete_label" formatted="false">Poista tarra</string>
+    <string name="delete_label_failed" formatted="false">Tarran poisto epäonnistui: {error}</string>
+    <string name="delete_plugin" formatted="false">Poista liitännäinen</string>
+    <string name="delete_plugin_failed" formatted="false">Liitännäisen poisto epäonnistui: {error}</string>
+    <string name="delete_plugins" formatted="false">Poista liitännäiset</string>
+    <string name="delete_plugins_failed" formatted="false">Liitännäisten poisto epäonnistui: {error}</string>
+    <string name="delete_rule" formatted="false">Poista sääntö</string>
+    <string name="delete_rule_failed" formatted="false">Poisto epäonnistui: {error}</string>
+    <string name="delete_selected" formatted="false">Poista valitut</string>
+    <string name="delete_subscription" formatted="false">Poista tilaus</string>
+    <string name="delete_subscription_confirm" formatted="false">Haluatko varmasti poistaa tilauksen &quot;{name}&quot;?</string>
+    <string name="delete_subscription_failed" formatted="false">Tilauksen poisto epäonnistui: {error}</string>
+    <string name="delete_success" formatted="false">Poisto onnistui</string>
+    <string name="deletion_proposal" formatted="false">Poistoesitys</string>
+    <string name="deletion_proposal_created" formatted="false">Poistoesitys luotu</string>
+    <string name="deletion_proposal_created_body" formatted="false">Poistoesityksesi numerolle {phoneNumber} on jätetty yhteisön tarkistettavaksi.</string>
+    <string name="deletion_proposal_description" formatted="false">Ehdottele numeroita poistettavaksi, jotka rikkovat yhteisön sääntöjä. Osallistumisesi auttaa pitämään alustan turvallisena.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">Ilmoitukset poistoesitysten äänestystuloksista ja päivityksistä.</string>
+    <string name="deletion_proposals" formatted="false">Poistoesitykset</string>
+    <string name="delivery" formatted="false">Toimitus</string>
+    <string name="description" formatted="false">Kuvaus</string>
+    <string name="detailed_settings_title" formatted="false">Yksityiskohtaiset asetukset</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">Laitetunnus</string>
+    <string name="device_management_subtitle" formatted="false">Hallitse monilaitetason synkronointia</string>
+    <string name="device_management_title" formatted="false">Laitteiston hallinta</string>
+    <string name="device_model_label" formatted="false">Laitteen malli</string>
+    <string name="device_name" formatted="false">Laitteen nimi</string>
+    <string name="device_name_label" formatted="false">Laitteen nimi</string>
+    <string name="device_renamed_successfully_message" formatted="false">Laite nimettiin uudelleen onnistuneesti</string>
+    <string name="device_unregistered_successfully_message" formatted="false">Laite poistettiin rekisteröinnistä onnistuneesti</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">Laitteet synkronoitiin onnistuneesti</string>
+    <string name="dialog_title" formatted="false">Säännöllisen lausekkeen kuvio selitys</string>
+    <string name="different_from_local_counter" formatted="false">Tämä ominaisuus eroaa paikallisesta laskurisuodattimesta, koska se keskittyy lyhyen ajan sisällä toistuviin puhekuvioihin pitkäaikaisen merkitsemismäärien sijaan.</string>
+    <string name="disable_global_plugins" formatted="false">Poista globaalit laajennukset käytöstä</string>
+    <string name="disabled" formatted="false">Poistettu käytöstä</string>
+    <string name="disabled_status" formatted="false">Poistettu käytöstä</string>
+    <string name="disconnect_button" formatted="false">Katkaise yhteys</string>
+    <string name="disconnect_failed_message" formatted="false">Yhteyden katkaisu epäonnistui</string>
+    <string name="disconnected_message" formatted="false">Yhteys katkaistu</string>
+    <string name="disconnected_status" formatted="false">Yhteys katkaistu</string>
+    <string name="done" formatted="false">Valmis</string>
+    <string name="dual_sim_advice" formatted="false">Tämä ominaisuus on erityisen hyödyllinen dual-SIM-puhelimille, jotta voit määrittää erilaisia suodatusstrategioita työ- ja henkilökohtaisille SIM-korteille.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">E164-numero</string>
+    <string name="earlier" formatted="false">Aiemmin</string>
+    <string name="earned_temp_vip" formatted="false">Ansaittu väliaikainen VIP</string>
+    <string name="ecommerce" formatted="false">Verkkokauppa</string>
+    <string name="edit" formatted="false">Muokkaa</string>
+    <string name="edit_contact" formatted="false">Muokkaa yhteystietoa</string>
+    <string name="edit_label" formatted="false">Muokkaa etikettiä</string>
+    <string name="edit_phone_rule" formatted="false">Muokkaa puhelusääntöä</string>
+    <string name="edit_rule" formatted="false">Muokkaa sääntöä</string>
+    <string name="edit_script" formatted="false">Muokkaa skriptiä</string>
+    <string name="edit_script_for" formatted="false">Muokkaa skriptiä kohteelle {pluginName}</string>
+    <string name="edit_subscription" formatted="false">Muokkaa tilausta</string>
+    <string name="education" formatted="false">Koulutus</string>
+    <string name="element_positions_setting" formatted="false">Elementtien sijainnit</string>
+    <string name="elements_settings_title" formatted="false">Elementtien asetukset</string>
+    <string name="email" formatted="false">Sähköposti</string>
+    <string name="enable_call_filter" formatted="false">Ota puhelusuodatus käyttöön</string>
+    <string name="enable_call_filter_description" formatted="false">Kun tämä on käytössä, saapuvat puhelut tarkistetaan alla olevan sääntölistan perusteella. Puhelun suodatussääntöjä ei synkronoida laitteiden välillä oletusarvoisesti.</string>
+    <string name="enable_encryption" formatted="false">Ota salaus käyttöön</string>
+    <string name="enable_encryption_description" formatted="false">Salaa varmuuskopiotiedostot</string>
+    <string name="enable_filtering" formatted="false">Ota suodatus käyttöön</string>
+    <string name="enable_fraud_alert" formatted="false">Ota petosvaroitus käyttöön</string>
+    <string name="enable_fraud_alert_description" formatted="false">Hälytys epäillyistä huijauspuheluista</string>
+    <string name="enable_global_plugins" formatted="false">Ota globaalit laajennukset käyttöön</string>
+    <string name="enable_local_count_filter" formatted="false">Ota paikallisen merkinnän kynnyssuojaus käyttöön</string>
+    <string name="enable_local_count_filter_description" formatted="false">Estä saapuvat puhelut, kun paikallinen raporttimäärä ylittää kynnyksen</string>
+    <string name="enable_local_notification" formatted="false">Käytä paikallista ilmoitusta</string>
+    <string name="enable_local_notification_description" formatted="false">Kun tämä on käytössä, suodatettujen viestien ilmoitukset näytetään laitteessa</string>
+    <string name="enable_location_summary" formatted="false">Sijainti</string>
+    <string name="enable_mute_rules" formatted="false">Mykistä siepatut puhelut</string>
+    <string name="enable_mute_rules_desc" formatted="false">Mykistä soittoääni siepatuille puheluille hylkäämisen sijaan</string>
+    <string name="enable_none_action_rules" formatted="false">Vain lokiin ja merkintä (Ei sieppausta)</string>
+    <string name="enable_none_action_rules_desc" formatted="false">Kirjaa ja merkitse vastaavat puhelut suorittamatta sieppaustoimintoa</string>
+    <string name="enable_remote_number_filter" formatted="false">Ota pilvikyselyn kynnyssuojaus käyttöön</string>
+    <string name="enable_remote_number_filter_description" formatted="false">Estä saapuvat puhelut, kun pilvikyselyn raporttimäärä ylittää kynnyksen</string>
+    <string name="enable_rule" formatted="false">Ota sääntö käyttöön</string>
+    <string name="enable_security_message" formatted="false">Ota turvallisuusviesti käyttöön</string>
+    <string name="enable_sms_filter" formatted="false">Ota tekstiviestien suodatus käyttöön</string>
+    <string name="enable_sms_filter_description" formatted="false">Kun tämä on käytössä, viestit suodatetaan automaattisesti sääntöjen mukaisesti</string>
+    <string name="enable_time_interception" formatted="false">Ota aikapoiminta käyttöön</string>
+    <string name="enable_time_interception_description" formatted="false">Estä saman numeron toistuvat puhelut lyhyessä ajassa</string>
+    <string name="enable_time_interceptor" formatted="false">Ota aikapoimija käyttöön</string>
+    <string name="enable_vibration" formatted="false">Ota värinä käyttöön</string>
+    <string name="enable_vibration_description" formatted="false">Värise, kun puhelu on epäilty huijauspuhelu</string>
+    <string name="enabled" formatted="false">Käytössä</string>
+    <string name="enabled_status" formatted="false">Käytössä</string>
+    <string name="end_call_immediately" formatted="false">Estä välittömästi</string>
+    <string name="end_color" formatted="false">Loppuväri</string>
+    <string name="end_date" formatted="false">Päättymispäivä</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">Tehostettu suodatusjärjestelmä ohjeet</string>
+    <string name="enhanced_filter_settings" formatted="false">Tehostetut suodatusasetukset</string>
+    <string name="enhanced_filter_settings_title" formatted="false">Tehostetut suodatusasetukset</string>
+    <string name="enhanced_filter_system_description" formatted="false">Tehostettu suodatusjärjestelmä tukee sekä globaaleja sääntöjä että SIM-korttikohtaisia suodatuskonfiguraatioita.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">Syötä sekä puhelinnumero että säännöllisen lausekkeen kuvio.</string>
+    <string name="enter_contact_name" formatted="false">Syötä yhteystiedon nimi</string>
+    <string name="enter_device_name" formatted="false">Syötä laitteen nimi</string>
+    <string name="enter_email_optional" formatted="false">Syötä sähköposti (valinnainen)</string>
+    <string name="enter_encryption_password_hint" formatted="false">Syötä salaus salasana</string>
+    <string name="enter_icon_code" formatted="false">Syötä kuvakekoodi</string>
+    <string name="enter_name" formatted="false">Syötä yhteystiedon nimi</string>
+    <string name="enter_new_device_name_hint" formatted="false">Syötä uusi nimi tälle laitteelle</string>
+    <string name="enter_password_again" formatted="false">Syötä salasana uudelleen</string>
+    <string name="enter_phone_number" formatted="false">Syötä puhelinnumero</string>
+    <string name="enter_phone_number_hint" formatted="false">Syötä puhelinnumero testattavaksi</string>
+    <string name="enter_phone_number_multiple" formatted="false">Syötä puhelinnumero, useita numeroita pilkuilla erotettuna</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">Syötä puhelinnumero haun aloittamiseksi</string>
+    <string name="enter_phone_number_to_verify" formatted="false">Syötä puhelinnumero varmistettavaksi</string>
+    <string name="enter_plugin_description" formatted="false">Syötä lisäosan kuvaus</string>
+    <string name="enter_plugin_name" formatted="false">Syötä laajennuksen nimi</string>
+    <string name="enter_plugin_url" formatted="false">Syötä laajennuksen URL-osoite</string>
+    <string name="enter_regex_hint" formatted="false">Syötä säännöllisen lausekkeen kuvio</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">Anna sekä säännön nimi että säännön malli.</string>
+    <string name="enter_rule_name_hint" formatted="false">Anna säännön nimi</string>
+    <string name="enter_search_content" formatted="false">Anna hakusisältö</string>
+    <string name="enter_subscription_name" formatted="false">Anna tilausnimi</string>
+    <string name="enter_subscription_url" formatted="false">Anna tilauksen URL</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">Anna synkronointikansion nimi (oletus: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">Anna kelvollinen nimi ja URL</string>
+    <string name="enter_valid_url" formatted="false">Anna kelvollinen URL</string>
+    <string name="enter_version" formatted="false">Anna versio</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">Anna WebDAV-salasana</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">Anna WebDAV-palvelimen osoite</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">Anna WebDAV-käyttäjänimi</string>
+    <string name="entertainment" formatted="false">Viihde</string>
+    <string name="entity_export_failed" formatted="false">{entityTypeName} vienti epäonnistui: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} viety onnistuneesti</string>
+    <string name="entity_import_failed" formatted="false">{entityTypeName} tuonti epäonnistui: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} tuotu onnistuneesti, yhteensä {count} tietue tuotu</string>
+    <string name="entry_point_view_title" formatted="false">Aloitusnäkymä</string>
+    <string name="error_loading_settings" formatted="false">Virhe ladattaessa asetuksia</string>
+    <string name="error_message" formatted="false">Virhe: {error}</string>
+    <string name="error_occurred_message" formatted="false">Tapahtui virhe: {error}</string>
+    <string name="error_prefix" formatted="false">Virhe</string>
+    <string name="error_renaming_device_message" formatted="false">Virhe nimetäessä laitetta uudelleen: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">Virhe synkronoidessa laitteita: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">Virhe poistettaessa laitteen rekisteröintiä: {error}</string>
+    <string name="example_block400_prefix" formatted="false">esim. 400-alkuisten numeroiden esto</string>
+    <string name="example_block_marketing_sms" formatted="false">esim. Markkinointi-SMS:ien esto</string>
+    <string name="example_content_regex_hint" formatted="false">Esimerkkisisällön malli</string>
+    <string name="example_coupon_promotion_discount" formatted="false">esim. .*(kuponki|tarjous|alennus).*</string>
+    <string name="example_family_friends" formatted="false">esim. Perhe, Ystävät, jne.</string>
+    <string name="example_phone_number" formatted="false">esim. 10086, 12345, jne.</string>
+    <string name="example_regex400_prefix" formatted="false">Esimerkkimalli 400-alkuisille numeroille</string>
+    <string name="example_sender_regex_hint" formatted="false">Esimerkki</string>
+    <string name="exchange" formatted="false">Vaihto</string>
+    <string name="exchange_failed" formatted="false">Vaihto epäonnistui: {error}</string>
+    <string name="exchange_now" formatted="false">Vaihda nyt</string>
+    <string name="exchange_success" formatted="false">Vaihdetty onnistuneesti kohteeseen {description}, vanhenee: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">Vaihda VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">Vanhenemisaika: {time}</string>
+    <string name="export" formatted="false">Vie</string>
+    <string name="export_all_application_settings" formatted="false">Vie kaikki sovellusasetukset</string>
+    <string name="export_all_rule_configurations" formatted="false">Vie kaikki sääntömääritykset</string>
+    <string name="export_config" formatted="false">Vie määritykset</string>
+    <string name="export_contacts" formatted="false">Vie yhteystiedot</string>
+    <string name="export_data" formatted="false">Vie tiedot</string>
+    <string name="export_entity" formatted="false">Vie {entityTypeName}</string>
+    <string name="export_failed" formatted="false">Vienti epäonnistui</string>
+    <string name="export_failure" formatted="false">Määritysten vienti epäonnistui</string>
+    <string name="export_feature_coming_soon" formatted="false">Vientitoiminto tulossa pian</string>
+    <string name="export_labels" formatted="false">Vie tunnisteet</string>
+    <string name="export_labels_failed" formatted="false">Tunnisteiden vienti epäonnistui: {error}</string>
+    <string name="export_plugin_list" formatted="false">Vie lisäosaluettelo</string>
+    <string name="export_plugin_list_failed" formatted="false">Lisäosaluettelon vienti epäonnistui: {error}</string>
+    <string name="export_rules" formatted="false">Vie säännöt</string>
+    <string name="export_sms_rules" formatted="false">Vie SMS-säännöt</string>
+    <string name="export_statistics_data" formatted="false">Vie tilastotiedot</string>
+    <string name="export_successlly" formatted="false">Määritykset viety onnistuneesti</string>
+    <string name="failed_to_add_rule" formatted="false">Säännön lisääminen epäonnistui: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">SMS-tilauksen lisääminen epäonnistui: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">Asetusten varmuuskopiointi epäonnistui: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">Varmuuskopiotiedoston purkaminen epäonnistui</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">SMS-säännön poistaminen epäonnistui: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">Sääntöjen vienti epäonnistui: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">Soittajan tunnustietojen hakeminen epäonnistui: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">Sääntöjen tuonti epäonnistui: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Asetusskeeman lataaminen epäonnistui: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">Asetusten palauttaminen epäonnistui</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">Asetusten palauttaminen epäonnistui: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">Säännön tilan vaihtaminen epäonnistui: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">Suosikkiyhteystiedot</string>
+    <string name="feature" formatted="false">Ominaisuus</string>
+    <string name="feature_add_rules" formatted="false">• Lisää puhelinnumerokohtaisia sääntöjä</string>
+    <string name="feature_center" formatted="false">Ominaisuuskeskus</string>
+    <string name="feature_enable_disable" formatted="false">• Ota käyttöön/poista käytöstä eri suodattimet SIM-korttia kohden</string>
+    <string name="feature_list_title" formatted="false">Ominaisuudet:</string>
+    <string name="feature_manage_rules" formatted="false">• Hallitse sääntölistoja SIM-korttia kohden</string>
+    <string name="features" formatted="false">Ominaisuudet</string>
+    <string name="fetching_caller_id_info" formatted="false">Haetaan soittajan tunnustietoja...</string>
+    <string name="field_is_required" formatted="false">Kenttä on pakollinen</string>
+    <string name="file_saved_to" formatted="false">Tiedosto tallennettu: {path}</string>
+    <string name="filter" formatted="false">Suodata</string>
+    <string name="filter_and_sort_title" formatted="false">Suodata ja järjestä</string>
+    <string name="filter_by" formatted="false">Suodata</string>
+    <string name="filter_by_action" formatted="false">Suodata toiminnon mukaan</string>
+    <string name="filter_by_label" formatted="false">Suodata tunnisteen mukaan</string>
+    <string name="filter_control_panel_title" formatted="false">Suodattimen ohjauspaneeli</string>
+    <string name="filter_control_subtitle" formatted="false">Hallitse kaikkien suodattimien tilaa (päällä/pois)</string>
+    <string name="filter_control_title" formatted="false">Suodatusohjaus</string>
+    <string name="filter_explanation" formatted="false">Suodatusselitys</string>
+    <string name="filter_management" formatted="false">Suodatuksen hallinta</string>
+    <string name="filter_management_description" formatted="false">Aseta puhelusuodattimet</string>
+    <string name="filter_name" formatted="false">Suodattimen nimi</string>
+    <string name="filter_priority_note" formatted="false">Huom: Suodattimilla on prioriteettisuhteita, katso lisätietoja ohjedokumentaatiosta</string>
+    <string name="filter_s_m_s" formatted="false">Suodata tekstiviestit</string>
+    <string name="filter_settings" formatted="false">Suodatusasetukset</string>
+    <string name="filter_settings_title" formatted="false">Suodatusasetukset</string>
+    <string name="filter_toggle_instructions" formatted="false">Ota käyttöön tai poista käytöstä suodattimet tälle SIM-paikalle:</string>
+    <string name="filter_toggle_status" formatted="false">Ota {status} suodatin käyttöön: {filterName}</string>
+    <string name="filter_type" formatted="false">Suodatintyyppi</string>
+    <string name="filter_verified_owner" formatted="false">Suodata vahvistettu omistaja</string>
+    <string name="filtered" formatted="false">Suodatettu</string>
+    <string name="final_risk" formatted="false">Lopullinen riski</string>
+    <string name="financial" formatted="false">Taloudellinen</string>
+    <string name="flexible_combination_feature" formatted="false">• Joustavat yhdistelmät: Ota käyttöön/poista käytöstä suodattimet SIM-paikkaa kohden</string>
+    <string name="font_sizes_setting" formatted="false">Fonttikoot</string>
+    <string name="found_rules" formatted="false">Löytyi {count} sääntöä</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">Aseta petosvaroitus</string>
+    <string name="fraud_aler_setting_title" formatted="false">Petosvaroitusasetus</string>
+    <string name="fraud_alert" formatted="false">PETOSVAROITUS - Katkaise puhelu</string>
+    <string name="fraud_alert_title" formatted="false">Petosvaroitus</string>
+    <string name="fraud_alerts" formatted="false">Petosvaroitukset</string>
+    <string name="fraud_alerts_description" formatted="false">Näyttää varoituksia mahdollisista petollisista puheluista.</string>
+    <string name="fraud_scam_likely" formatted="false">Petollinen huijaus todennäköinen</string>
+    <string name="free" formatted="false">Ilmainen</string>
+    <string name="function_settings_title" formatted="false">Toimintoasetukset</string>
+    <string name="general_update_failure" formatted="false">Päivitys epäonnistui: {error}</string>
+    <string name="get_free" formatted="false">Hanki ilmainen</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Määritä globaalit suodattimet kaikille SIM-korteille:</string>
+    <string name="global_filter_feature" formatted="false">• Globaalit suodattimet: Perussäännöt kaikille saapuville puheluille</string>
+    <string name="global_filter_settings" formatted="false">Globaalit suodatusasetukset</string>
+    <string name="global_settings" formatted="false">Globaalit asetukset</string>
+    <string name="google_drive_auth_description" formatted="false">Valtuuta käyttämällä järjestelmään määritettyä Google Drive -asiakastunnusta ja avainta</string>
+    <string name="google_drive_config_title" formatted="false">Google Drive -määritys</string>
+    <string name="government" formatted="false">Hallitus</string>
+    <string name="grant_necessary_permissions" formatted="false">Myönnä tarvittavat luvat</string>
+    <string name="grant_permissions" formatted="false">Myönnä luvat</string>
+    <string name="granted" formatted="false">Myönnetty</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">Sinulle on myönnetty {days} päivän väliaikaiset ostooikeudet. Vanhenee: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">Ohjeet</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">Sinulla on jo väliaikaiset oikeudet, vanhenee: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">Sinulla on jo VIP-oikeudet (mainoksia lukuun ottamatta)</string>
+    <string name="headhunter" formatted="false">Rekrytoija</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Korkeus</string>
+    <string name="high" formatted="false">Korkea</string>
+    <string name="high_risk" formatted="false">Korkea riski</string>
+    <string name="home_tab" formatted="false">Aloitus</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 tunti sitten} other{{count} tuntia sitten}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 tuntia} =1{1 tunti} other{{count} tuntia}}</string>
+    <string name="how_it_works_point1" formatted="false">• Järjestelmä sallii automaattisesti puhelut samasta numerosta asetetun aikarajan sisällä</string>
+    <string name="how_it_works_point2" formatted="false">• Lyhyemmät aikarajat johtavat tiukempaan estoon; pidemmät aikarajat johtavat löysempään estoon</string>
+    <string name="how_it_works_point3" formatted="false">• Järjestelmä tarkistaa puhelulokit määrittääkseen, onko kyseessä toistuva puhelu</string>
+    <string name="how_it_works_title" formatted="false">Kuinka se toimii:</string>
+    <string name="icon_code_optional" formatted="false">Kuvakkeen koodi (valinnainen)</string>
+    <string name="icon_size" formatted="false">Kuvakkeen koko</string>
+    <string name="import" formatted="false">Tuo</string>
+    <string name="import_config" formatted="false">Tuo määritys</string>
+    <string name="import_contacts" formatted="false">Tuo yhteystiedot</string>
+    <string name="import_entity" formatted="false">Tuo {entityTypeName}</string>
+    <string name="import_export" formatted="false">Tuo/Vie</string>
+    <string name="import_export_contacts" formatted="false">Tuo/vie yhteystiedot</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Tuo/vie yhteystiedot</string>
+    <string name="import_export_description" formatted="false">Tuo tai vie {entityTypeName} tietoja</string>
+    <string name="import_export_rules" formatted="false">Tuo/vie säännöt</string>
+    <string name="import_export_title" formatted="false">Tuo/Vie</string>
+    <string name="import_failed" formatted="false">Tuonti epäonnistui: {error}</string>
+    <string name="import_failure" formatted="false">Määrityksen tuonti epäonnistui</string>
+    <string name="import_feature_coming_soon" formatted="false">Tuontitoiminto tulossa pian</string>
+    <string name="import_labels" formatted="false">Tuo tunnisteet</string>
+    <string name="import_labels_failed" formatted="false">Tunnisteiden tuonti epäonnistui: {error}</string>
+    <string name="import_plugin_list" formatted="false">Tuo liitännäisluettelo</string>
+    <string name="import_plugin_list_failed" formatted="false">Liitännäisluettelon tuonti epäonnistui: {error}</string>
+    <string name="import_plugin_success" formatted="false">Onnistuneesti tuotu {count} liitännäistä</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Tuo sääntömääritykset tiedostosta</string>
+    <string name="import_rules" formatted="false">Tuo säännöt</string>
+    <string name="import_success" formatted="false">Tuonti onnistui</string>
+    <string name="important" formatted="false">Tärkeää</string>
+    <string name="important_notice_title" formatted="false">Tärkeä huomautus</string>
+    <string name="incoming_call_intercept_action" formatted="false">Saapuvan puhelun esto-toiminto</string>
+    <string name="incorrect_password" formatted="false">Väärä salasana</string>
+    <string name="init_db_button" formatted="false">Alusta tietokanta</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Syötä oman peilipalvelimen JSON-määrityksen URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Lataa määritys</string>
+    <string name="initial_setup_desc" formatted="false">Valitse alueelliset sääntökirjastot, jotka haluat estää. Nämä säännöt auttavat sinua estämään automaattisesti alueellasi yleiset myynti- ja huijauspuhelut.</string>
+    <string name="initial_setup_deselect_all" formatted="false">Tyhjennä valinta</string>
+    <string name="initial_setup_detected_location" formatted="false">Tunnistettu sijainti</string>
+    <string name="initial_setup_get_failed" formatted="false">Asetusten haku epäonnistui</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Siirry Asetuksiin</string>
+    <string name="initial_setup_retry" formatted="false">Yritä uudelleen</string>
+    <string name="initial_setup_save" formatted="false">Pika-asetus valittu</string>
+    <string name="initial_setup_save_failed" formatted="false">Asetusten tallennus epäonnistui: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Asetukset tallennetut onnistuneesti, säännöt haetaan automaattisesti pian</string>
+    <string name="initial_setup_saving" formatted="false">Tallennetaan...</string>
+    <string name="initial_setup_search_hint" formatted="false">Etsi sääntöjoukkoa tai maata...</string>
+    <string name="initial_setup_select_all" formatted="false">Valitse kaikki</string>
+    <string name="initial_setup_selected_count" formatted="false">{count} valittu</string>
+    <string name="initial_setup_settings_hint" formatted="false">Vinkki: Voit avata tämän määrityssivun uudelleen Asetuksista.</string>
+    <string name="initial_setup_skip" formatted="false">Ohita</string>
+    <string name="initial_setup_source_cdn" formatted="false">Peilattu CDN-kiihdytyslähde</string>
+    <string name="initial_setup_source_custom" formatted="false">Oma peilipalvelinlähde</string>
+    <string name="initial_setup_source_github" formatted="false">Virallinen GitHub-lähde</string>
+    <string name="initial_setup_source_title" formatted="false">Sääntötietokannan lähde</string>
+    <string name="initial_setup_title" formatted="false">Sääntökirjaston asetukset</string>
+    <string name="initializing" formatted="false">Alustetaan</string>
+    <string name="installed" formatted="false">Asennettu</string>
+    <string name="insufficient_marks" formatted="false">Riittämätön merkintöjä</string>
+    <string name="insurance" formatted="false">Vakuutus</string>
+    <string name="intercept_action" formatted="false">Estotoiminto</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Määritä, miten estetyt puhelut käsitellään</string>
+    <string name="interception_action_settings_title" formatted="false">Estotoiminnon asetukset</string>
+    <string name="interception_time_interval" formatted="false">Estoväli</string>
+    <string name="internet" formatted="false">Internet</string>
+    <string name="interval_set_success" formatted="false">{service} päivitysväliksi asetettu {days} päivää</string>
+    <string name="invalid_content_regex" formatted="false">Virheellinen sisältö-regex</string>
+    <string name="invalid_exchange_rule" formatted="false">Virheellinen vaihtosääntö</string>
+    <string name="invalid_label" formatted="false">Virheellinen merkintä</string>
+    <string name="invalid_regex_pattern" formatted="false">Virheellinen säännöllinen lauseke</string>
+    <string name="invalid_sender_regex" formatted="false">Virheellinen lähettäjän säännöllinen lauseke</string>
+    <string name="invalid_sim_data" formatted="false">Virheelliset SIM-tiedot</string>
+    <string name="ip_country" formatted="false">IP-maa</string>
+    <string name="is_number_match" formatted="false">Numeron osuma</string>
+    <string name="is_roaming" formatted="false">Roaming</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">Liity Telegram-kanavalle ja ryhmään saadaksesi lisätietoja</string>
+    <string name="json_format" formatted="false">JSON-muoto</string>
+    <string name="just_now" formatted="false">Juuri nyt</string>
+    <string name="keep_all_versions" formatted="false">Säilytä kaikki versiot</string>
+    <string name="keep_all_versions_description" formatted="false">Säilytä jokaisen varmuuskopion kaikki historialliset versiot</string>
+    <string name="label" formatted="false">Merkintä</string>
+    <string name="label_action_description" formatted="false">Lisää puheluun tunniste helppoa tunnistusta varten.</string>
+    <string name="label_added_successfully" formatted="false">Merkintä &quot;{name}&quot; lisätty onnistuneesti</string>
+    <string name="label_categories" formatted="false">Merkintäkategoriat</string>
+    <string name="label_deleted" formatted="false">Merkintä poistettu</string>
+    <string name="label_description" formatted="false">Merkinnät auttavat sinua hallitsemaan yhteystietojasi paremmin. Lisää mukautettuja merkintöjä puhelinnumeroihin puheluiden ja viestien helppoa tunnistamista varten.</string>
+    <string name="label_filter_tooltip" formatted="false">Merkintäsuodatin</string>
+    <string name="label_icon_color" formatted="false">Merkinnän kuvakkeen väri</string>
+    <string name="label_management" formatted="false">Merkinnän hallinta</string>
+    <string name="label_not_found" formatted="false">Merkintää ei löytynyt</string>
+    <string name="label_tag" formatted="false">Merkintä: {labelId}</string>
+    <string name="label_update_failed" formatted="false">Merkinnän päivittäminen epäonnistui: {error}</string>
+    <string name="label_update_success" formatted="false">Merkintä &quot;$labelText&quot; päivitetty onnistuneesti</string>
+    <string name="labels" formatted="false">Merkinnät</string>
+    <string name="labels_color" formatted="false">Merkintöjen väri</string>
+    <string name="labels_deleted" formatted="false">{count} merkintää poistettu</string>
+    <string name="labels_exported_successfully" formatted="false">Merkinnät viety onnistuneesti</string>
+    <string name="labels_font_size" formatted="false">Merkintöjen fonttikoko</string>
+    <string name="labels_imported_successfully" formatted="false">{count} merkintää tuotu onnistuneesti</string>
+    <string name="labels_position" formatted="false">Merkintöjen sijainti</string>
+    <string name="language_settings" formatted="false">Kieliasetukset</string>
+    <string name="language_settings_subtitle" formatted="false">Muuta sovelluksen näyttökieltä</string>
+    <string name="language_settings_title" formatted="false">Kieliasetukset</string>
+    <string name="last_sync_label" formatted="false">Viimeisin synkronointi</string>
+    <string name="last_updated" formatted="false">Viimeksi päivitetty: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Jätä tyhjäksi käyttääksesi oletusarvoa</string>
+    <string name="lifetime_membership" formatted="false">Elinikäinen jäsenyys</string>
+    <string name="lifetime_membership_description" formatted="false">Ein-kertainen ostos, avaa pysyvästi kaikki premium-ominaisuudet ja tulevat päivitykset</string>
+    <string name="list_view" formatted="false">Luettelonäkymä</string>
+    <string name="live_activities_settings_title" formatted="false">Live-aktiviteettien asetukset</string>
+    <string name="live_activities_test_end_activity" formatted="false">Lopeta aktiviteetti</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">Lähetä uusi aktiviteetti</string>
+    <string name="live_activities_test_title" formatted="false">Live-aktiviteettien testi</string>
+    <string name="live_activities_test_update_activity" formatted="false">Päivitä aktiviteetti</string>
+    <string name="live_activity_controls_title" formatted="false">Live-aktiviteetin hallinta</string>
+    <string name="live_activity_mode" formatted="false">Live-aktiviteetti</string>
+    <string name="live_activity_mode_description" formatted="false">Näyttää puhelutiedot pysyvänä ilmoituksena lukitusnäytössä ja Dynamic Islandissa (iOS).</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Mukauta live-ilmoitusten ulkoasua.</string>
+    <string name="live_notification_customization_title" formatted="false">Live-ilmoituksen mukauttaminen</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">Yhteystietojen lataaminen epäonnistui: {error}</string>
+    <string name="load_data_failed" formatted="false">Tietojen lataaminen epäonnistui</string>
+    <string name="load_label_failed" formatted="false">Merkintöjen lataaminen epäonnistui: {error}</string>
+    <string name="load_labels_failed" formatted="false">Merkintöjen lataaminen epäonnistui: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">Merkittyjen puhelinnumeroiden lataaminen epäonnistui: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">Merkittyjen puhelimien lataaminen epäonnistui: {error}</string>
+    <string name="load_plugins_failed" formatted="false">Lisäosien lataaminen epäonnistui: {error}</string>
+    <string name="load_settings_failed" formatted="false">Asetusten lataaminen epäonnistui: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">SMS-sääntöjen lataaminen epäonnistui: {error}</string>
+    <string name="load_status_failed_message" formatted="false">Tilan lataaminen epäonnistui</string>
+    <string name="load_subscriptions_failed" formatted="false">Tilausten lataaminen epäonnistui: {error}</string>
+    <string name="loading" formatted="false">Ladataan...</string>
+    <string name="loading_ad" formatted="false">Ladataan mainosta...</string>
+    <string name="loading_tags" formatted="false">Ladataan tunnisteita...</string>
+    <string name="loan" formatted="false">Laina</string>
+    <string name="local_count_filter" formatted="false">Paikallinen merkinnän kynnyssuojaus</string>
+    <string name="local_count_filter_description" formatted="false">Estä automaattisesti puhelut, jotka ylittävät paikallisen raporttikynnyksen</string>
+    <string name="local_count_filter_explanation_content" formatted="false">Paikallinen lukumääräsuodatin analysoi puheluhistorian tietueita tunnistaakseen ja estääkseen automaattisesti usein toistuvat roskapuhelut.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">Paikallinen lukumääräsuodattimen selitys</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• Määritä, estetäänkö perustuen numeron lukemien arvoon</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• Kun numeron lukema ylittää asetetun kynnyksen, voit valita sen estämisen automaattisesti</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• Voit valikoivasti sallia numerot, jotka eivät ylitä kynnystä</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• Voit valita, tallennetaanko kaikki kyselylokit</string>
+    <string name="local_count_filter_settings" formatted="false">Paikallisen lukumääräsuodattimen asetukset</string>
+    <string name="local_count_filter_use_cases" formatted="false">Tämä suodatin sopii erityisesti automaattivalintaisten roskapuheluiden ja markkinointipuheluiden tunnistamiseen.</string>
+    <string name="local_count_filtering" formatted="false">Paikallinen lukumääräsuodatus</string>
+    <string name="local_count_filtering_explanation" formatted="false">• Paikallinen lukumääräsuodatus: Suodatussäännöt perustuvat paikalliseen merkintöjen määrään</string>
+    <string name="local_counter_filter" formatted="false">Paikallinen laskurisuodatin</string>
+    <string name="local_counter_filter_subtitle" formatted="false">Suodata roskapuhelut automaattisesti puhelutiheyden perusteella</string>
+    <string name="local_database_sync_subtitle" formatted="false">Synkronoi tiedot laitteiden välillä</string>
+    <string name="local_database_sync_title" formatted="false">Paikallisen tietokannan synkronointi</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">Paikallisten suodattimien asetukset</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">Paikallinen ilmoitus poistettu käytöstä</string>
+    <string name="local_notification_enabled" formatted="false">Paikallinen ilmoitus käytössä</string>
+    <string name="local_services" formatted="false">Paikalliset palvelut</string>
+    <string name="location" formatted="false">Sijainti</string>
+    <string name="location_color" formatted="false">Sijainnin väri</string>
+    <string name="location_font_size" formatted="false">Sijainnin fonttikoko</string>
+    <string name="location_icon_color" formatted="false">Sijainnin kuvakkeen väri</string>
+    <string name="location_position" formatted="false">Sijainnin sijainti</string>
+    <string name="log" formatted="false">Lokita</string>
+    <string name="log_action_description" formatted="false">Tallenna puhelun tiedot lokiin ilman muita toimenpiteitä.</string>
+    <string name="log_all_local_queries" formatted="false">Kirjaa kaikki paikalliset kyselyt</string>
+    <string name="log_all_local_queries_description" formatted="false">Tallenna lokit kaikista paikallisista numerokyselyistä</string>
+    <string name="log_all_remote_queries" formatted="false">Kirjaa kaikki etäkyselyt</string>
+    <string name="log_all_remote_queries_description" formatted="false">Tallenna kaikki etänumeroitua koskevat kyselytoiminnot</string>
+    <string name="low" formatted="false">Matala</string>
+    <string name="low_risk" formatted="false">Matala riski</string>
+    <string name="manage" formatted="false">Hallitse yhteystietoja</string>
+    <string name="manage_favorite_contacts" formatted="false">Hallitse suosikkikontakteja</string>
+    <string name="manage_filter_rules" formatted="false">Hallitse suodatussääntöjä</string>
+    <string name="manage_filter_rules_description" formatted="false">Lisää, muokkaa tai poista SMS-suodatussääntöjä</string>
+    <string name="manual_entry" formatted="false">Manuaalinen syöttöinfo</string>
+    <string name="mark_count" formatted="false">Merkitty lukumäärä</string>
+    <string name="mark_counts" formatted="false">Merkittyjen lukumäärät</string>
+    <string name="mark_exchange" formatted="false">Merkinnän vaihto</string>
+    <string name="mark_more_numbers_for_more" formatted="false">Merkitse lisää numeroita saadaksesi lisää pisteitä</string>
+    <string name="mark_phone" formatted="false">Merkkaa puhelinnumero</string>
+    <string name="mark_phone_failed" formatted="false">Puhelinnumeron merkitseminen epäonnistui: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">Puhelinnumeroiden hallinta</string>
+    <string name="mark_phone_success" formatted="false">Puhelinnumero merkitty onnistuneesti</string>
+    <string name="marked_by_count" formatted="false">Merkitty {count} kertaa</string>
+    <string name="marked_phones_list" formatted="false">Merkityt puhelinnumerot</string>
+    <string name="marks_insufficient" formatted="false">Liian vähän pisteitä vaihdettavaksi</string>
+    <string name="master_and_overrides" formatted="false">Pääohjaimet</string>
+    <string name="master_and_overrides_desc" formatted="false">Globaalit sääntöasetukset</string>
+    <string name="master_device_help" formatted="false">Vain päälaite voi alustaa tietokantararakenteen.</string>
+    <string name="master_device_label" formatted="false">Päälaite (Ylläpitäjä)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">Täsmäytys epäonnistui.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">täsmää tiettyä numeromuotoa</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">Täsmäytä numerot erikoismerkeillä:</string>
+    <string name="match_specific_digit_patterns" formatted="false">täsmää XXX-XXXX-XXXX-muotoa</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">Täsmäytä tiettyjä numerokuvioita:</string>
+    <string name="match_successful_message" formatted="false">Täsmäytys onnistui!</string>
+    <string name="medical" formatted="false">Lääketieteellinen</string>
+    <string name="medium" formatted="false">Media</string>
+    <string name="medium_risk" formatted="false">Keskitason riski</string>
+    <string name="membership_center" formatted="false">Jäsenkeskus</string>
+    <string name="membership_privileges" formatted="false">Jäsenyyden edut</string>
+    <string name="message_background_color" formatted="false">Viestin taustaväri</string>
+    <string name="message_color" formatted="false">Viestin väri</string>
+    <string name="message_font_size" formatted="false">Viestin fonttikoko</string>
+    <string name="message_position" formatted="false">Viestin sijainti</string>
+    <string name="migration_tool" formatted="false">Siirtotyökalu</string>
+    <string name="minutes" formatted="false">minuuttia</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 minuutti sitten} other{{count} minuuttia sitten}}</string>
+    <string name="moderate" formatted="false">Kohtalainen</string>
+    <string name="month" formatted="false">Kuukausi</string>
+    <string name="monthly" formatted="false">Kuukausittainen</string>
+    <string name="monthly_call_count" formatted="false">Kuukausittaiset puhelut</string>
+    <string name="monthly_membership" formatted="false">Kuukausijäsenyys</string>
+    <string name="monthly_membership_description" formatted="false">Avaa kaikki premium-ominaisuudet, uusiutuu automaattisesti kuukausittain</string>
+    <string name="monthly_total" formatted="false">Kuukausisumma</string>
+    <string name="more_options" formatted="false">Lisää asetuksia</string>
+    <string name="mute" formatted="false">Mykistää</string>
+    <string name="name" formatted="false">Nimi</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">Nimi ja puhelinnumero eivät voi olla tyhjiä</string>
+    <string name="name_cannot_be_empty" formatted="false">Nimi ei voi olla tyhjä</string>
+    <string name="name_color" formatted="false">Nimen väri</string>
+    <string name="name_font_size" formatted="false">Nimen fonttikoko</string>
+    <string name="name_position" formatted="false">Nimen sijainti</string>
+    <string name="name_unknown" formatted="false">Nimi: Tuntematon</string>
+    <string name="national_number" formatted="false">Kansallinen numero</string>
+    <string name="need_vip_access" formatted="false">Tarvitset VIP-pääsyn käyttääksesi tätä ominaisuutta</string>
+    <string name="new_vote_received" formatted="false">Uusi ääni vastaanotettu</string>
+    <string name="new_vote_received_body" formatted="false">Joku äänesti numeron {phoneNumber} poiston puolesta {voteType}. Nykyiset äänet: {totalVotes}.</string>
+    <string name="next_step" formatted="false">Seuraava</string>
+    <string name="no_action" formatted="false">Ei toimintoa</string>
+    <string name="no_action_rules" formatted="false">Ei toimintosääntöjä</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">Ei aktiivista pilvisynkronointipalvelua</string>
+    <string name="no_activity" formatted="false">Ei toimintaa</string>
+    <string name="no_ads" formatted="false">Ei mainoksia</string>
+    <string name="no_allowed_blocked_rules" formatted="false">Sallittuja/estettyjä sääntöjä ei löydy</string>
+    <string name="no_blocked_type_data" formatted="false">Estettyjä tyyppitietoja ei saatavilla</string>
+    <string name="no_call_records" formatted="false">Ei puhelutietueita</string>
+    <string name="no_contacts_yet" formatted="false">Ei yhteystietoja vielä</string>
+    <string name="no_data" formatted="false">Ei tietoja</string>
+    <string name="no_devices_registered_message" formatted="false">Ei rekisteröityjä laitteita</string>
+    <string name="no_labels" formatted="false">Ei tunnisteita vielä</string>
+    <string name="no_marked_phones" formatted="false">Ei merkittyjä puhelinnumeroita</string>
+    <string name="no_matching_contacts_found" formatted="false">Ei vastaavia yhteystietoja löytynyt</string>
+    <string name="no_matching_numbers_found" formatted="false">Ei vastaavia numeroita löytynyt</string>
+    <string name="no_matching_rules" formatted="false">Ei vastaavia {ruleType}</string>
+    <string name="no_notifications" formatted="false">Ei ilmoituksia</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">Puhelin sääntöjä ei löydy</string>
+    <string name="no_plugins" formatted="false">Ei laajennuksia vielä</string>
+    <string name="no_proposals_found" formatted="false">Esityksiä ei löytynyt</string>
+    <string name="no_regex_rules" formatted="false">Regex sääntöjä ei löydy</string>
+    <string name="no_rules" formatted="false">Ei {ruleType} vielä</string>
+    <string name="no_rules_prompt" formatted="false">Ei sääntöjä löydy, lisää sääntöjä</string>
+    <string name="no_rules_to_export" formatted="false">Ei sääntöjä vietäväksi</string>
+    <string name="no_sim_card_detected" formatted="false">SIM-korttia ei havaittu</string>
+    <string name="no_sim_cards_detected" formatted="false">SIM-kortteja ei löydy</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">Ei SMS-suodatussääntöjä vielä</string>
+    <string name="no_sms_rules_yet" formatted="false">Ei SMS-sääntöjä vielä</string>
+    <string name="no_subscriptions" formatted="false">Ei tilauksia</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">Ei kelvollisia SMS-sääntöjä löytynyt tiedostosta</string>
+    <string name="none" formatted="false">Ei mitään</string>
+    <string name="none_action_description" formatted="false">Puhelulle ei tehdä erityistoimenpiteitä.</string>
+    <string name="none_service_type" formatted="false">Ei mitään</string>
+    <string name="normal_user" formatted="false">Normaali käyttäjä</string>
+    <string name="not_granted" formatted="false">Ei myönnetty</string>
+    <string name="not_verified_text" formatted="false">Ei varmistettu</string>
+    <string name="notification_frequency_hours" formatted="false">Ilmoitustiheys (Tuntia)</string>
+    <string name="notification_frequency_title" formatted="false">Ilmoitustiheys</string>
+    <string name="notification_mode" formatted="false">Ilmoitustila</string>
+    <string name="notification_mode_description" formatted="false">Näytä soittajan tiedot ilmoituspalkissa</string>
+    <string name="notification_permission" formatted="false">Ilmoituslupa</string>
+    <string name="notification_permission_description" formatted="false">Käytetään saapuvien puhelu- ja viesti-ilmoitusten näyttämiseen.</string>
+    <string name="notification_settings" formatted="false">Ilmoitusasetukset</string>
+    <string name="notification_settings_title" formatted="false">Ilmoitusasetukset</string>
+    <string name="notification_instructions" formatted="false">Ohjeet:
+1. Napauta &quot;LÄHETÄ&quot; luodaksesi tai päivittääksesi ilmoituksen.
+2. Siirry aloitusnäyttöön tai vedä ilmoituskeskus alas nähdäksesi tuloksen.
+3. Napauta &quot;LOPETA&quot; hylätäksesi ilmoituksen.</string>
+    <string name="notifications" formatted="false">Ilmoitukset</string>
+    <string name="notify" formatted="false">Ilmoita</string>
+    <string name="notify_action_description" formatted="false">Lähetä ilmoitus, kun puhelu vastaanotetaan.</string>
+    <string name="number" formatted="false">Numero</string>
+    <string name="number_color" formatted="false">Numeron väri</string>
+    <string name="number_font_size" formatted="false">Numeron fonttikoko</string>
+    <string name="number_format" formatted="false">Numeromuoto</string>
+    <string name="number_invalid_format" formatted="false">Virheellinen numeromuoto</string>
+    <string name="number_position" formatted="false">Numeron sijainti</string>
+    <string name="number_search" formatted="false">Numerohaku</string>
+    <string name="number_type_color" formatted="false">Numerotyypin väri</string>
+    <string name="number_type_font_size" formatted="false">Numerotyypin fonttikoko</string>
+    <string name="number_type_position" formatted="false">Numerotyypin sijainti</string>
+    <string name="ok_button" formatted="false">OK</string>
+    <string name="onboarding_complete_description" formatted="false">Puheluturvallisuushallintasi on valmis, nauti turvallisesta puhelukokemuksesta!</string>
+    <string name="onboarding_language_description" formatted="false">Valitse haluamasi kieli parhaan kokemuksen saavuttamiseksi.</string>
+    <string name="onboarding_permissions_description" formatted="false">Tarjotaksemme täyden palvelun tarvitsemme seuraavat luvat:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">Yhden napsautuksen roskapostipuheluiden ja -viestien estäminen, estosääntöjen mukauttaminen ja hiljaisen ympäristön tarjoaminen sinulle.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">Tunnista tuntemattomat puhelut automaattisesti, merkitse epäilyttävät numerot ja suojaa puhelusi.</string>
+    <string name="onboarding_welcome_description" formatted="false">Puhelunhallinta-asiantuntijasi tarjoaa kattavat puheluiden tunnistus- ja estopalvelut.</string>
+    <string name="one_drive_auth_description" formatted="false">Valtuuta järjestelmän määrittämää OneDrive-asiakasohjelman tunnusta ja avainta käyttäen</string>
+    <string name="one_drive_config_title" formatted="false">OneDrive-asetukset</string>
+    <string name="online_caller_id_subscription" formatted="false">Online Caller ID -tilaus</string>
+    <string name="open_app_settings" formatted="false">Avaa sovellusasetukset</string>
+    <string name="open_app_settings_failed" formatted="false">Sovellusasetusten avaaminen epäonnistui: {error}</string>
+    <string name="open_in_web_view" formatted="false">Avaa WebView-näkymässä</string>
+    <string name="operation_failed" formatted="false">Operaatio epäonnistui: {error}</string>
+    <string name="operation_failure" formatted="false">Operaatio epäonnistui</string>
+    <string name="operation_success" formatted="false">Operaatio onnistui</string>
+    <string name="oppose" formatted="false">Vastusta</string>
+    <string name="oppose_count" formatted="false">Vastustaa ({opposeCount})</string>
+    <string name="opposed" formatted="false">VASTUSTETTU</string>
+    <string name="other" formatted="false">Muu</string>
+    <string name="our_other_apps" formatted="false">Muut sovelluksemme</string>
+    <string name="overlay_mode" formatted="false">Kelluva ikkuna</string>
+    <string name="overlay_mode_description" formatted="false">Näytä soittajan tiedot kelluvassa ikkunassa</string>
+    <string name="overlay_permission" formatted="false">Käyttöliittymän lupa</string>
+    <string name="overlay_permission_description" formatted="false">Käytetään saapuvien puheluiden näyttöikkunan näyttämiseen.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">Yleiskatsaus</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">Salasana</string>
+    <string name="password_cannot_be_empty" formatted="false">Salasana ei voi olla tyhjä</string>
+    <string name="password_label" formatted="false">Salasana</string>
+    <string name="passwords_do_not_match" formatted="false">Salasanat eivät täsmää</string>
+    <string name="pattern" formatted="false">Kuvio</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">ODOTTAA</string>
+    <string name="pending_proposals" formatted="false">Odottaa ehdotuksia</string>
+    <string name="pending_proposals_body" formatted="false">Sinulla on {count, plural, =0 {ei odottavia ehdotuksia} one {1 odottava ehdotus} other {{count} odottavaa ehdotusta}}.</string>
+    <string name="pending_sync" formatted="false">Odottaa synkronointia</string>
+    <string name="period_month" formatted="false">Kuukausi</string>
+    <string name="period_week" formatted="false">Viikko</string>
+    <string name="period_year" formatted="false">Vuosi</string>
+    <string name="permission_denied" formatted="false">Lupapyyntö evätty</string>
+    <string name="permission_granted" formatted="false">Lupa myönnetty</string>
+    <string name="permission_management" formatted="false">Lupien hallinta</string>
+    <string name="permission_subtitle" formatted="false">Hallitse ylikalvo- ja akun optimointilupia</string>
+    <string name="permission_title" formatted="false">Erikoisluvat</string>
+    <string name="phone_calls_tab" formatted="false">Puhelut</string>
+    <string name="phone_number" formatted="false">Puhelinnumero</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">Puhelinnumero ei voi olla tyhjä</string>
+    <string name="phone_number_hint" formatted="false">Syötä puhelinnumero</string>
+    <string name="phone_number_label" formatted="false">Puhelinnumero</string>
+    <string name="phone_number_min_digits" formatted="false">Puhelinnumerossa on oltava vähintään 7 numeroa</string>
+    <string name="phone_number_required" formatted="false">Puhelinnumero vaaditaan</string>
+    <string name="phone_number_type" formatted="false">Puhelintyyppi</string>
+    <string name="phone_number_type_fixed_line" formatted="false">Lankapuhelin</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">Lankapuhelin tai matkapuhelin</string>
+    <string name="phone_number_type_mobile" formatted="false">Matkapuhelin</string>
+    <string name="phone_number_type_pager" formatted="false">Hakulaite</string>
+    <string name="phone_number_type_personal_number" formatted="false">Henkilökohtainen numero</string>
+    <string name="phone_number_type_premium_rate" formatted="false">Pricemail-numero</string>
+    <string name="phone_number_type_shared_cost" formatted="false">Jaettu kustannusnumero</string>
+    <string name="phone_number_type_toll_free" formatted="false">Maksuton numero</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">Tuntematon</string>
+    <string name="phone_number_type_voicemail" formatted="false">Vastaaja</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">Puhelimen käyttöoikeus</string>
+    <string name="phone_permission_description" formatted="false">Käytetään saapuvien puheluiden tunnistamiseen ja estämiseen.</string>
+    <string name="phone_rule" formatted="false">Puhelusääntö</string>
+    <string name="phone_rule_management" formatted="false">Puhelusääntöjen hallinta</string>
+    <string name="phone_rule_subscription" formatted="false">Puhelusääntöjen tilaus</string>
+    <string name="phone_rules_info" formatted="false">Puhelinsääntöjä käytetään vastaamaan puheluita tiettyihin puhelinnumeroihin, joilla on matalampi prioriteetti. Jotkut tulevat puhelinsääntötilauksista.</string>
+    <string name="phone_subscription" formatted="false">Puhelutilaus</string>
+    <string name="phone_subscription_rules_description" formatted="false">Tilaa puhelusääntölistoja URL-osoitteesta päivittääksesi automaattisesti sallittujen ja estettyjen listojen säännöt. Tukee JSON-muotoisia sääntötiedostoja.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">Syötä vähintään yksi numero.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">Valitse merkintä ja syötä kelvollinen puhelinnumero</string>
+    <string name="plugin_added_success" formatted="false">Lisäosa &quot;{name}&quot; lisätty onnistuneesti</string>
+    <string name="plugin_deleted" formatted="false">Lisäosa poistettu</string>
+    <string name="plugin_description" formatted="false">Lisäosan kuvaus</string>
+    <string name="plugin_i_d" formatted="false">Tunnus</string>
+    <string name="plugin_label" formatted="false">Lisäosan tunniste</string>
+    <string name="plugin_latest_version" formatted="false">Lisäosa on jo uusimmassa versiossa</string>
+    <string name="plugin_list_export_success" formatted="false">Lisäosaluettelo viety onnistuneesti</string>
+    <string name="plugin_management" formatted="false">Lisäosien hallinta</string>
+    <string name="plugin_management_subtitle" formatted="false">Hallitse ja konfiguroi kolmannen osapuolen lisäosia</string>
+    <string name="plugin_name" formatted="false">Lisäosan nimi</string>
+    <string name="plugin_rules_info" formatted="false">Turvallisuussyistä käytä vain luotetuista lähteistä peräisin olevia lisäosia. Luo vapaasti omia mukautettuja lisäosia malleillamme!</string>
+    <string name="plugin_service" formatted="false">Lisäosapalvelu</string>
+    <string name="plugin_test_page_title" formatted="false">Lisäosan testi</string>
+    <string name="plugin_u_r_l" formatted="false">URL-osoite</string>
+    <string name="plugin_update_success" formatted="false">Lisäosa päivitetty onnistuneesti</string>
+    <string name="plugin_url" formatted="false">Lisäosan URL</string>
+    <string name="plugin_version" formatted="false">Lisäosan versio</string>
+    <string name="plugins_deleted" formatted="false">{count} lisäosaa poistettu onnistuneesti.</string>
+    <string name="political" formatted="false">Poliittinen</string>
+    <string name="powerful_spam_blocking" formatted="false">Tehokas roskapostin esto</string>
+    <string name="previous_step" formatted="false">Edellinen</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">Aseta etätoimintojen etusijalle</string>
+    <string name="prioritize_remote_action_description" formatted="false">Aseta toimintojen etusijalle etädatabasesta</string>
+    <string name="processed" formatted="false">Käsitelty</string>
+    <string name="processing" formatted="false">Käsitellään...</string>
+    <string name="processing_operation" formatted="false">Käsitellään...</string>
+    <string name="proposal_approved" formatted="false">Esitys hyväksytty ✅</string>
+    <string name="proposal_approved_body" formatted="false">Yhteisö on hyväksynyt poistoesityksen numerolle {phoneNumber} ({supportPercentage}% kannatus, {totalVotes} ääntä).</string>
+    <string name="proposal_created" formatted="false">Esitys luotu onnistuneesti</string>
+    <string name="proposal_details" formatted="false">Ehdotuksen tiedot</string>
+    <string name="proposal_not_found" formatted="false">Ehdotusta ei löytynyt</string>
+    <string name="proposal_processed" formatted="false">Tämä esitys on käsitelty</string>
+    <string name="proposal_rejected" formatted="false">Esitys hylätty ❌</string>
+    <string name="proposal_rejected_body" formatted="false">Yhteisö on hylännyt poistoesityksen numerolle {phoneNumber} ({supportPercentage}% kannatus, {totalVotes} ääntä).</string>
+    <string name="proposal_statistics" formatted="false">Esitystilastot</string>
+    <string name="provide_detailed_explanation" formatted="false">Anna yksityiskohtainen selitys (vähintään 10 merkkiä)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">Osta</string>
+    <string name="purchase_subtitle" formatted="false">Palvelun ostamiseksi</string>
+    <string name="purchase_title" formatted="false">Osto</string>
+    <string name="quarterly_membership" formatted="false">Neljännesvuosijäsenyys</string>
+    <string name="quarterly_membership_description" formatted="false">Avaa kaikki premium-ominaisuudet, automaattinen uusinta neljännesvuosittain</string>
+    <string name="ready" formatted="false">Valmis!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">Syy</string>
+    <string name="reason_inaccurate_info" formatted="false">Virheellistä tietoa</string>
+    <string name="reason_min_characters" formatted="false">Syyn on oltava vähintään 10 merkkiä pitkä</string>
+    <string name="reason_not_in_service" formatted="false">Ei palvelussa</string>
+    <string name="reason_other" formatted="false">Muu</string>
+    <string name="reason_outdated" formatted="false">Vanhentunut numero</string>
+    <string name="reason_privacy" formatted="false">Yksityisyyskysymys</string>
+    <string name="reason_required" formatted="false">Syy on pakollinen</string>
+    <string name="reason_wrongly_identified" formatted="false">Väärin tunnistettu</string>
+    <string name="recruiter" formatted="false">Rekrytoija</string>
+    <string name="redeem_vip_with_marks" formatted="false">Lunasta VIP pisteillä</string>
+    <string name="redirect" formatted="false">Ohjaa</string>
+    <string name="redirect_action_description" formatted="false">Ohjaa puhelu määritettyyn numeroon.</string>
+    <string name="refresh" formatted="false">Päivitä</string>
+    <string name="refresh_permission_status" formatted="false">Päivitä lupatila</string>
+    <string name="refresh_proposals" formatted="false">Päivitä esitykset</string>
+    <string name="refresh_tooltip" formatted="false">Päivitä</string>
+    <string name="regex_error_message" formatted="false">Säännöllisen lausekkeen virhe: {error}</string>
+    <string name="regex_pattern" formatted="false">Säännön kuvio</string>
+    <string name="regex_pattern_explanation" formatted="false">Säännön kuvion selitys</string>
+    <string name="regex_pattern_explanation_button" formatted="false">Säännön kuvion selitys</string>
+    <string name="regex_pattern_label" formatted="false">Säännön kuvio</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">Puhelinnumeroiden vastaavuussäännöt</string>
+    <string name="regex_rule" formatted="false">Sääntö</string>
+    <string name="regex_rule_add_failed" formatted="false">Säännön lisääminen epäonnistui: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">Sääntö lisätty onnistuneesti</string>
+    <string name="regex_rule_management" formatted="false">Sääntöjen hallinta</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">Säännön nimi ja kuvio eivät saa olla tyhjiä</string>
+    <string name="regex_rules" formatted="false">Säännöt</string>
+    <string name="regex_rules_info" formatted="false">Säännöllisiä lausekkeita käytetään puheluiden suodattamiseen Regex-mallien perusteella.</string>
+    <string name="regex_tester_title" formatted="false">Regex-testausohjelma</string>
+    <string name="region" formatted="false">Alue</string>
+    <string name="registered_devices_title" formatted="false">Rekisteröidyt laitteet</string>
+    <string name="reject_all_calls" formatted="false">Hylkää kaikki puhelut</string>
+    <string name="reject_all_calls_description" formatted="false">Kun tämä on käytössä, kaikki puhelut hylätään korkeimmalla prioriteetilla</string>
+    <string name="reject_all_numbers" formatted="false">Hylkää kaikki saapuvat puhelut</string>
+    <string name="reject_all_numbers_desc" formatted="false">Hylkää kaikki saapuvat puhelut korkeimmalla prioriteetilla</string>
+    <string name="reject_exceeded_numbers" formatted="false">Hylkää ylittyneet numerot</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">Hylkää automaattisesti numerot, jotka ylittävät määrärajan</string>
+    <string name="rejected" formatted="false">Hylätty</string>
+    <string name="remote_filter_settings" formatted="false">Etäsuodatusasetukset</string>
+    <string name="remote_filter_settings_page_title" formatted="false">Etänumerosuodattimen asetukset</string>
+    <string name="remote_number_filter" formatted="false">Pilvikyselyn kynnyssuojaus</string>
+    <string name="remote_number_filter_description" formatted="false">Estä automaattisesti puhelut, jotka ylittävät pilviraporttikynnyksen</string>
+    <string name="remote_number_filter_subtitle" formatted="false">Tunnista roskapostipuhelut käyttämällä pilvitietokantaa ja yhteisöraportteja</string>
+    <string name="remote_number_filtering" formatted="false">Etäpuhelusuodatus</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• Etäpuhelusuodatus: Suodatus säännöt perustuen etä-tietokannan tietoihin</string>
+    <string name="remove_ads" formatted="false">Poista mainokset</string>
+    <string name="remove_ads_description" formatted="false">Poista kaikki mainokset sovelluksesta pysyvästi sujuvampaa käyttökokemusta varten</string>
+    <string name="remove_ads_title" formatted="false">Poista mainokset</string>
+    <string name="remove_from_favorites" formatted="false">Poista suosikeista</string>
+    <string name="removed_from_favorites" formatted="false">Poistettu suosikeista</string>
+    <string name="rename_device_title" formatted="false">Nimeä laite uudelleen</string>
+    <string name="reporting_guidelines" formatted="false">• Raportoi vain todella ongelmallisia numeroita
+• Anna tarkat ja yksityiskohtaiset syyt
+• Valitse asianmukainen riskitaso vakavuuden perusteella
+• Vääristä raportoinnista voi seurata tilin rajoituksia</string>
+    <string name="request_all_permissions" formatted="false">Pyydä kaikki käyttöoikeudet</string>
+    <string name="request_permission" formatted="false">Pyydä käyttöoikeus</string>
+    <string name="request_permission_failed" formatted="false">Käyttöoikeuden pyytäminen epäonnistui: {error}</string>
+    <string name="required_field" formatted="false">Pakollinen</string>
+    <string name="required_init_field" formatted="false">Pakollinen alustukselle</string>
+    <string name="required_marks" formatted="false">{count} Merkkiä</string>
+    <string name="reset" formatted="false">Nollaa</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">Palauta</string>
+    <string name="restore_application_settings_from_backup" formatted="false">Palauta sovelluksen asetukset varmuuskopiosta</string>
+    <string name="restore_from_cloud" formatted="false">Palauta pilvestä</string>
+    <string name="restore_from_cloud_failed" formatted="false">Palauttaminen pilvestä epäonnistui: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">Onnistuneesti palautettu pilvestä</string>
+    <string name="restore_purchases" formatted="false">Palauta ostokset</string>
+    <string name="restore_settings" formatted="false">Palauta asetukset</string>
+    <string name="restore_settings_confirmation" formatted="false">Tämä korvaa kaikki nykyiset asetuksesi. Haluatko varmasti jatkaa?</string>
+    <string name="result" formatted="false">Tulos</string>
+    <string name="retry" formatted="false">Yritä uudelleen</string>
+    <string name="rewarded_ad_service" formatted="false">Palkittu mainospalvelu</string>
+    <string name="ridesharing" formatted="false">Kyydinjakaminen</string>
+    <string name="risk" formatted="false">Riski</string>
+    <string name="risk_level" formatted="false">Riskitaso</string>
+    <string name="risk_level_critical" formatted="false">Kriittinen</string>
+    <string name="risk_level_high" formatted="false">Korkea</string>
+    <string name="risk_level_label" formatted="false">Riskitaso</string>
+    <string name="risk_level_low" formatted="false">Matala</string>
+    <string name="risk_level_medium" formatted="false">Keskisuuri</string>
+    <string name="risk_level_very_low" formatted="false">Erittäin matala</string>
+    <string name="robocall" formatted="false">Robopuhelu</string>
+    <string name="rule_action" formatted="false">Säännön toiminto</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">Sääntö lisätty onnistuneesti</string>
+    <string name="rule_added_success" formatted="false">Sääntö lisätty onnistuneesti</string>
+    <string name="rule_delete_confirm_content" formatted="false">Haluatko varmasti poistaa tämän {ruleType}?</string>
+    <string name="rule_delete_confirm_title" formatted="false">Poista sääntö</string>
+    <string name="rule_delete_failed" formatted="false">Säännön poistaminen epäonnistui: {error}</string>
+    <string name="rule_delete_success" formatted="false">Sääntö poistettu onnistuneesti</string>
+    <string name="rule_deleted_successfully" formatted="false">Sääntö poistettu onnistuneesti</string>
+    <string name="rule_disabled_successfully" formatted="false">Sääntö poistettu käytöstä onnistuneesti</string>
+    <string name="rule_enabled_successfully" formatted="false">Sääntö otettu käyttöön onnistuneesti</string>
+    <string name="rule_load_failed" formatted="false">Sääntöjen lataaminen epäonnistui: {error}</string>
+    <string name="rule_management" formatted="false">Sääntöjen hallinta</string>
+    <string name="rule_name" formatted="false">Säännön nimi</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">Säännön nimi ja sisältö regex eivät saa olla tyhjiä</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">Säännön nimi ja puhelinnumero eivät saa olla tyhjiä</string>
+    <string name="rule_name_hint" formatted="false">esim. Perhe, Ystävät, jne.</string>
+    <string name="rule_name_label" formatted="false">Säännön nimi</string>
+    <string name="rule_name_required" formatted="false">Säännön nimi ja puhelinnumero eivät saa olla tyhjiä</string>
+    <string name="rule_not_exist" formatted="false">Sääntöä ei löydy tai se on poistettu</string>
+    <string name="rule_not_found" formatted="false">Sääntöä ei löydy: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">Sääntö tallennettu onnistuneesti!</string>
+    <string name="rule_status_changed" formatted="false">Sääntö {status} onnistuneesti</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">Toiminto epäonnistui: {error}</string>
+    <string name="rule_toggle_success" formatted="false">Sääntö {status} onnistuneesti</string>
+    <string name="rule_type" formatted="false">Sääntötyyppi</string>
+    <string name="rule_update_failed" formatted="false">Säännön päivittäminen epäonnistui: {error}</string>
+    <string name="rule_update_success" formatted="false">Sääntö päivitetty onnistuneesti</string>
+    <string name="rule_verification" formatted="false">Säännön vahvistus</string>
+    <string name="rules_exported_successfully" formatted="false">Säännöt viety onnistuneesti</string>
+    <string name="rules_exported_to" formatted="false">Säännöt viety kohteeseen: {path}</string>
+    <string name="rules_imported" formatted="false">Säännöt tuotu onnistuneesti</string>
+    <string name="rules_imported_successfully" formatted="false">{count} sääntöä tuotu onnistuneesti</string>
+    <string name="save" formatted="false">Tallenna</string>
+    <string name="save_button" formatted="false">Tallenna</string>
+    <string name="save_button_text" formatted="false">Tallenna</string>
+    <string name="save_failed" formatted="false">Tallennus epäonnistui: {error}</string>
+    <string name="save_script" formatted="false">Tallenna skripti</string>
+    <string name="save_settings" formatted="false">Tallenna asetukset</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">Todennäköisesti huijaus</string>
+    <string name="script_saved" formatted="false">Skripti tallennettu</string>
+    <string name="scroll_speed" formatted="false">Vieritysnopeus</string>
+    <string name="scrolling_security_message_settings" formatted="false">Vierivän turvallisuusviestin asetukset</string>
+    <string name="search" formatted="false">Hae</string>
+    <string name="search_by_name_or_phone_number" formatted="false">Hae nimen tai puhelinnumeron perusteella</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">Hae yhteystilaus</string>
+    <string name="search_contacts" formatted="false">Etsi yhteystietoja</string>
+    <string name="search_error" formatted="false">Hakuvirhe: {error}</string>
+    <string name="search_hint" formatted="false">Hae...</string>
+    <string name="search_labels_hint" formatted="false">Hae tunnisteita</string>
+    <string name="search_marked_phones_hint" formatted="false">Hae merkittyjä puhelimia</string>
+    <string name="search_phone_rules_hint" formatted="false">Hae puhelinsääntöjä</string>
+    <string name="search_plugins_hint" formatted="false">Hae lisäosia</string>
+    <string name="search_proposals" formatted="false">Etsi esityksiä</string>
+    <string name="search_regex_rules_hint" formatted="false">Hae säännöllisten lausekkeiden sääntöjä</string>
+    <string name="search_subscriptions_hint" formatted="false">Hae tilauksia</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">Älä luota puheluihin. Varmista asiakaspalvelun numerot aina itsenäisesti. Älä koskaan jaa salasanoja, vahvistuskoodeja, korttinumeroita tai henkilökohtaisia tietoja.</string>
+    <string name="select_action" formatted="false">Valitse toiminto</string>
+    <string name="select_action_when_blocking_calls" formatted="false">Valitse toiminto puheluita estettäessä</string>
+    <string name="select_action_when_rule_matches" formatted="false">Valitse toiminto, kun sääntö täsmää</string>
+    <string name="select_all" formatted="false">Valitse kaikki</string>
+    <string name="select_country" formatted="false">Valitse maa</string>
+    <string name="select_export_format" formatted="false">Valitse vientimuoto</string>
+    <string name="select_label" formatted="false">Valitse luokka</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">Valitse luokka ja anna kelvollinen puhelinnumero</string>
+    <string name="select_language" formatted="false">Valitse kieli</string>
+    <string name="select_multiple" formatted="false">Valitse useita</string>
+    <string name="select_sim_card" formatted="false">Valitse SIM-kortti</string>
+    <string name="select_tags" formatted="false">Valitse tunnisteet</string>
+    <string name="select_target_service" formatted="false">Valitse kohdepalvelu</string>
+    <string name="select_trusted_data_source" formatted="false">Valitse luotettavat tietolähteet</string>
+    <string name="select_your_language" formatted="false">Valitse kielesi</string>
+    <string name="selected_items" formatted="false">{count} kohdetta valittu</string>
+    <string name="selected_label" formatted="false">Valittu:</string>
+    <string name="sender" formatted="false">Lähettäjä</string>
+    <string name="sender_regex_optional" formatted="false">Lähettäjän säännöllinen lauseke (valinnainen)</string>
+    <string name="separate_sims" formatted="false">Erilliset SIM-kortit</string>
+    <string name="separate_sims_desc" formatted="false">Ota käyttöön erilliset suodatussäännöt kullekin SIM-kortille</string>
+    <string name="server_address_label" formatted="false">Palvelimen osoite</string>
+    <string name="service_type_contact" formatted="false">Yhteystilaus</string>
+    <string name="service_type_label" formatted="false">Palvelutyyppi</string>
+    <string name="service_type_phone" formatted="false">Puhelintilaus</string>
+    <string name="service_type_plugin" formatted="false">Lisäosapäivitys</string>
+    <string name="service_type_sms" formatted="false">SMS-tilaus</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">Aseta viiveaika</string>
+    <string name="set_encryption_password" formatted="false">Aseta salaus salasana</string>
+    <string name="settings" formatted="false">Asetukset</string>
+    <string name="settings_backed_up_to" formatted="false">Asetukset varmuuskopioitu kohteeseen: {path}</string>
+    <string name="settings_backup" formatted="false">Asetusten varmuuskopiointi </string>
+    <string name="settings_restored_successfully" formatted="false">Asetukset palautettu onnistuneesti. Käynnistä sovellus uudelleen, jotta muutokset tulevat voimaan.</string>
+    <string name="settings_save_failed" formatted="false">Asetusten tallennus epäonnistui: {error}</string>
+    <string name="settings_saved" formatted="false">Asetukset tallennettu</string>
+    <string name="settings_tab" formatted="false">Asetukset</string>
+    <string name="settings_title" formatted="false">Asetukset</string>
+    <string name="setup" formatted="false">Asennus</string>
+    <string name="show_all_contacts" formatted="false">Näytä kaikki yhteystiedot</string>
+    <string name="show_favorites" formatted="false">Näytä suosikit</string>
+    <string name="silence" formatted="false">Hiljennä</string>
+    <string name="silence_action_description" formatted="false">Puhelut vaimennetaan, mutta näytetään puhelulokissa.</string>
+    <string name="silence_and_no_answer" formatted="false">Mykistä soittoääni</string>
+    <string name="silence_no_answer" formatted="false">Hiljennä, ei vastausta</string>
+    <string name="silent_call_voice_clone" formatted="false">Hiljaisen puhelun ääniklooni</string>
+    <string name="silent_rules" formatted="false">Hiljaiset säännöt</string>
+    <string name="sim_card" formatted="false">SIM-kortti {simNumber}</string>
+    <string name="sim_card_color" formatted="false">SIM-kortin väri</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• SIM-kortin kokoonpano: Aseta itsenäiset suodatussäännöt kullekin SIM-kortille</string>
+    <string name="sim_card_filter_rules" formatted="false">SIM-kortin suodatussäännöt</string>
+    <string name="sim_card_filter_rules_description" formatted="false">Aseta erilaiset suodatussäännöt SIM-korttipaikkojen perusteella</string>
+    <string name="sim_card_font_size" formatted="false">SIM-kortin fonttikoko</string>
+    <string name="sim_card_position" formatted="false">SIM-kortin sijainti</string>
+    <string name="sim_card_title" formatted="false">SIM-kortti</string>
+    <string name="sim_country" formatted="false">SIM-maa</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">SIM-paikkasäännöt antavat sinulle mahdollisuuden määrittää itsenäiset suodatussäännöt kullekin SIM-paikalle.</string>
+    <string name="sim_rule_instructions_title" formatted="false">SIM-paikkasäännöt</string>
+    <string name="sim_rules_not_found" formatted="false">SIM-sääntöjä ei löytynyt</string>
+    <string name="sim_slot" formatted="false">SIM-paikka</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">Määritä itsenäiset suodatussäännöt kullekin SIM-kortille:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">SIM-paikan {slotNumber} suodatusasetukset</string>
+    <string name="sim_slot_management" formatted="false">SIM-paikkojen hallinta</string>
+    <string name="sim_slot_position" formatted="false">SIM-paikan sijainti {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• SIM-paikkasäännöt: Itsenäiset suodatusstrategiat per SIM</string>
+    <string name="sim_slot_rule_list_title" formatted="false">SIM-paikkasääntöjen luettelo</string>
+    <string name="sim_slot_rule_management" formatted="false">SIM-paikkasäännöt</string>
+    <string name="sim_slot_rules" formatted="false">SIM-paikan säännöt</string>
+    <string name="sim_slot_title" formatted="false">SIM-paikka {slotNumber}</string>
+    <string name="sim_state" formatted="false">SIM-tila</string>
+    <string name="skip" formatted="false">Ohita</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">Älykäs puhelun tunnistus</string>
+    <string name="sms" formatted="false">Tekstiviesti</string>
+    <string name="sms_filter_description" formatted="false">Tekstiviestien suodatus auttaa sinua suodattamaan roskapostiviestit automaattisesti ja pitämään viestiluettelosi puhtaana. Voit asettaa suodatussääntöjä ja ilmoitusmenetelmiä.</string>
+    <string name="sms_filter_disabled" formatted="false">Tekstiviestien suodatus pois käytöstä</string>
+    <string name="sms_filter_enabled" formatted="false">Tekstiviestien suodatus käytössä</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">Tekstiviestien suodatussääntö lisätty onnistuneesti</string>
+    <string name="sms_filter_rules" formatted="false">Tekstiviestien suodatussäännöt</string>
+    <string name="sms_filter_settings" formatted="false">Tekstiviestien suodatusasetukset</string>
+    <string name="sms_management" formatted="false">Tekstiviestien hallinta</string>
+    <string name="sms_permission" formatted="false">Tekstiviestilupa</string>
+    <string name="sms_permission_description" formatted="false">Käytetään roskapostiviestien suodattamiseen.</string>
+    <string name="sms_rule_added_successfully" formatted="false">Tekstiviestisääntö lisätty onnistuneesti</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">Tekstiviestisääntö poistettu onnistuneesti</string>
+    <string name="sms_rule_load_failed" formatted="false">Tekstiviestisääntöjen lataaminen epäonnistui: {error}</string>
+    <string name="sms_rule_management" formatted="false">Tekstiviestisääntöjen hallinta</string>
+    <string name="sms_rule_subscription" formatted="false">Tekstiviestisääntöjen tilaus</string>
+    <string name="sms_subscription" formatted="false">Tekstiviestitilaus</string>
+    <string name="sms_subscription_added_successfully" formatted="false">Tekstiviestitilaus lisätty onnistuneesti</string>
+    <string name="sms_subscription_rules_description" formatted="false">Tilaa tekstiviestisääntölistoja URL-osoitteen kautta, tukee säännöllisiä lausekkeita. Voit asettaa esto- tai sallimistoimintoja.</string>
+    <string name="sms_tab" formatted="false">Tekstiviestit</string>
+    <string name="some_permissions_denied" formatted="false">Joitakin käyttöoikeuspyyntöjä evätty</string>
+    <string name="sort_by" formatted="false">Järjestä</string>
+    <string name="sort_least_popular" formatted="false">Järjestä vähiten suosittu</string>
+    <string name="sort_most_popular" formatted="false">Järjestä suosituin</string>
+    <string name="sort_newest" formatted="false">Järjestä uusin</string>
+    <string name="sort_oldest" formatted="false">Järjestä vanhin</string>
+    <string name="spam_likely" formatted="false">Todennäköisesti roskapostia</string>
+    <string name="start_color" formatted="false">Aloitusväri</string>
+    <string name="start_date" formatted="false">Aloituspäivämäärä</string>
+    <string name="start_using" formatted="false">Aloita käyttö</string>
+    <string name="stat_answered" formatted="false">Vastattu</string>
+    <string name="stat_blocked" formatted="false">Estetty</string>
+    <string name="statistics" formatted="false">Tilastot</string>
+    <string name="statistics_page_title" formatted="false">Data-analyysi</string>
+    <string name="status_connected" formatted="false">Yhdistetty / Määritetty</string>
+    <string name="status_label" formatted="false">Tila</string>
+    <string name="status_not_configured" formatted="false">Ei määritetty</string>
+    <string name="stir_color" formatted="false">STIR-väri</string>
+    <string name="stir_failed" formatted="false">Vahvistus epäonnistui</string>
+    <string name="stir_font_size" formatted="false">STIR-fonttikoko</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">STIR-sijainti</string>
+    <string name="stir_unknown" formatted="false">Tuntematon vahvistustila</string>
+    <string name="stir_verification" formatted="false">STIR/SHAKEN-varmennus</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} numerolle {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">Näyttää STIR/SHAKEN-varmennustulokset numeroille.</string>
+    <string name="stir_verification_title" formatted="false">STIR/SHAKEN-vahvistus</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">Tallennuslupa</string>
+    <string name="storage_permission_description" formatted="false">Käytetään asetusten ja sääntöjen tallentamiseen.</string>
+    <string name="submit" formatted="false">Lähetä</string>
+    <string name="subscribe" formatted="false">Tilaa</string>
+    <string name="subscription_add_success" formatted="false">Tilaus &quot;{name}&quot; lisätty onnistuneesti</string>
+    <string name="subscription_delete_confirm_content" formatted="false">Haluatko varmasti poistaa tämän tilauksen?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">Poista tilaus</string>
+    <string name="subscription_delete_failed" formatted="false">Tilauksen poistaminen epäonnistui: {error}</string>
+    <string name="subscription_delete_success" formatted="false">Tilaus poistettu</string>
+    <string name="subscription_deleted" formatted="false">Tilaus poistettu</string>
+    <string name="subscription_load_failed" formatted="false">Tilausten lataaminen epäonnistui: {error}</string>
+    <string name="subscription_name" formatted="false">Tilauksen nimi</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">Tilauksen nimi ja URL eivät voi olla tyhjiä</string>
+    <string name="subscription_name_hint" formatted="false">Syötä tilauksen nimi</string>
+    <string name="subscription_status_change_failed" formatted="false">Tilauksen tilan muuttaminen epäonnistui: {error}</string>
+    <string name="subscription_update_failed" formatted="false">Tilauksen päivittäminen epäonnistui: {error}</string>
+    <string name="subscription_update_success" formatted="false">Tilaus päivitetty onnistuneesti</string>
+    <string name="subscription_url" formatted="false">Tilauksen URL-osoite</string>
+    <string name="subscription_url_hint" formatted="false">Syötä tilauksen URL-osoite</string>
+    <string name="successfully_imported_rules" formatted="false">Onnistuneesti tuotu {count} sääntöä</string>
+    <string name="supabase_anon_key" formatted="false">Anonyymi avain</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, julkinen anonyymi avain</string>
+    <string name="supabase_project_url" formatted="false">Supabase-projektin URL</string>
+    <string name="support" formatted="false">Tuki</string>
+    <string name="support_count" formatted="false">Tukee ({supportCount})</string>
+    <string name="support_sync" formatted="false">Tuki synkronoinnille</string>
+    <string name="supported" formatted="false">TUETTU</string>
+    <string name="survey" formatted="false">Kysely</string>
+    <string name="sync_call_history" formatted="false">Synkronoi puheluhistoria</string>
+    <string name="sync_call_history_subtitle" formatted="false">Sisällytä yksityiset puhelulokit synkronointiin</string>
+    <string name="sync_devices_button" formatted="false">Synkronoi laitteet</string>
+    <string name="sync_failed" formatted="false">Synkronointi epäonnistui</string>
+    <string name="sync_failed_message" formatted="false">Synkronointi epäonnistui</string>
+    <string name="sync_folder_name_label" formatted="false">Synkronointikansion nimi</string>
+    <string name="sync_interval_label" formatted="false">Automaattisen synkronoinnin aikaväli</string>
+    <string name="sync_interval_value" formatted="false">Joka {hours}. tunti</string>
+    <string name="sync_now" formatted="false">Synkronoi nyt</string>
+    <string name="sync_now_button" formatted="false">Synkronoi nyt</string>
+    <string name="sync_status_title" formatted="false">Synkronointitila</string>
+    <string name="sync_status_updated_message" formatted="false">Synkronointitila päivitetty</string>
+    <string name="sync_success" formatted="false">Synkronointi valmis. Lähetetty: {pushed}, Vastaanotettu: {pulled}</string>
+    <string name="sync_success_message" formatted="false">Synkronointi onnistui</string>
+    <string name="sync_with_cloud_storage" formatted="false">Synkronoi pilvitallennustilan kanssa</string>
+    <string name="synced" formatted="false">Synkronoitu</string>
+    <string name="synchronized" formatted="false">Synkronoitu</string>
+    <string name="syncing" formatted="false">Synkronoidaan...</string>
+    <string name="system_features" formatted="false">Järjestelmän ominaisuudet:</string>
+    <string name="system_settings_title" formatted="false">Järjestelmäasetukset</string>
+    <string name="tab_all" formatted="false">Kaikki</string>
+    <string name="tab_answered" formatted="false">Vastatut</string>
+    <string name="tab_blocked" formatted="false">Estetyt</string>
+    <string name="tab_missed" formatted="false">Vastaamattomat</string>
+    <string name="tab_outgoing" formatted="false">Lähtevät</string>
+    <string name="tag_label" formatted="false">Tunniste: {tag}</string>
+    <string name="takeaway" formatted="false">Noutoruoka</string>
+    <string name="telecommunication" formatted="false">Tietoliikenne</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">Puhelinmarkkinointi</string>
+    <string name="temp_purchase_expired" formatted="false">Väliaikainen ostooikeus on vanhentunut</string>
+    <string name="temporary_vip" formatted="false">Tilapäinen VIP</string>
+    <string name="test_button" formatted="false">TESTAA</string>
+    <string name="test_connection_button" formatted="false">Testaa yhteys</string>
+    <string name="test_plugin" formatted="false">Testaa lisäosaa</string>
+    <string name="text_colors_setting" formatted="false">Tekstin ja tunnisteiden värit</string>
+    <string name="theme_dark" formatted="false">Tumma</string>
+    <string name="theme_light" formatted="false">Vaalea</string>
+    <string name="theme_settings_subtitle" formatted="false">Valitse suosikkiteemasi</string>
+    <string name="theme_settings_title" formatted="false">Teema-asetukset</string>
+    <string name="theme_system" formatted="false">Järjestelmän oletus</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">Tämä sovellus on tehokas soittajan tunnistustyökalu, jonka avulla voit tunnistaa ja estää ei-toivottuja puheluita.</string>
+    <string name="this_week" formatted="false">Tällä viikolla</string>
+    <string name="time_interceptor" formatted="false">Toistuvien puhelujen suojaus</string>
+    <string name="time_interceptor_description" formatted="false">Estä saman numeron toistuvat puhelut lyhyessä ajassa</string>
+    <string name="time_interceptor_explanation" formatted="false">• Aikapysäytin: Sieppaa/salli toistuvat puhelut lyhyen ajan sisällä</string>
+    <string name="time_interceptor_explanation_content" formatted="false">Puhelutiheyden sieppaustoiminto analysoi puhelutiheyttä tunnistaakseen ja siepatakseen/salliakseen automaattisesti toistuvat roskapuhelut.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">Puhelutiheyden sieppauksen selitys</string>
+    <string name="time_interceptor_settings_title" formatted="false">Puhelutiheyden sieppausten asetukset</string>
+    <string name="time_window_description" formatted="false">Aseta sallittujen toistuvien puheluiden aikavälivalinta. Puhelut samasta numerosta tämän ikkunan sisällä sallitaan.</string>
+    <string name="time_window_label" formatted="false">Sieppausaikaväli (minuuttia): {minutes}</string>
+    <string name="timeline_view" formatted="false">Aikajananäkymä</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">Tänään</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">Yhteensä</string>
+    <string name="total_blocked" formatted="false">Yhteensä estetty</string>
+    <string name="total_pending_proposals" formatted="false">Odotettavissa olevia esityksiä yhteensä</string>
+    <string name="total_proposals" formatted="false">Esityksiä yhteensä</string>
+    <string name="total_votes" formatted="false">Yhteensä: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">Siirrä dataa laitteiden tai alustojen välillä</string>
+    <string name="travel_ticketing" formatted="false">Matkalippujen myynti</string>
+    <string name="tutorial" formatted="false">Tutoriaali</string>
+    <string name="type" formatted="false">Tyyppi</string>
+    <string name="unassigned_s_i_m_card" formatted="false">Määrittämätön SIM-kortti</string>
+    <string name="unblock" formatted="false">Poista esto</string>
+    <string name="unblock_number" formatted="false">Poista numeron esto</string>
+    <string name="unblock_number_confirmation" formatted="false">Haluatko varmasti poistaa numeron {phoneNumber} eston?</string>
+    <string name="unblock_number_failed" formatted="false">Numeron esto epäonnistui</string>
+    <string name="unblock_number_success" formatted="false">Numeron esto poistettu onnistuneesti</string>
+    <string name="unblocked" formatted="false">Estetty</string>
+    <string name="unknown" formatted="false">Tuntematon</string>
+    <string name="unknown_tag" formatted="false">Tunniste: Tuntematon</string>
+    <string name="unregister_button" formatted="false">Poistu rekisteröinnistä</string>
+    <string name="unregister_device_confirmation_message" formatted="false">Oletko varma, että haluat poistaa laitteen rekisteröinnin {deviceName}?</string>
+    <string name="unregister_device_title" formatted="false">Poista laitteen rekisteröinti</string>
+    <string name="unsupported_file_format" formatted="false">Tiedostomuotoa ei tueta</string>
+    <string name="update" formatted="false">Päivitä</string>
+    <string name="update_all_now" formatted="false">Päivitä kaikki nyt</string>
+    <string name="update_contact_failed" formatted="false">Yhteystiedon päivitys epäonnistui: {error}</string>
+    <string name="update_favorite_status" formatted="false">Päivitä suosikkitila</string>
+    <string name="update_interval" formatted="false">Päivitysväli</string>
+    <string name="update_now" formatted="false">Päivitä nyt</string>
+    <string name="update_plugin" formatted="false">Päivitä lisäosa</string>
+    <string name="update_plugin_failed" formatted="false">Lisäosan päivitys epäonnistui: {error}</string>
+    <string name="update_rule_failed" formatted="false">Säännön päivitys epäonnistui: {error}</string>
+    <string name="update_subscription_failed" formatted="false">Tilauksen päivitys epäonnistui: {error}</string>
+    <string name="update_success" formatted="false">{service} päivitetty onnistuneesti ({count} sääntöä)</string>
+    <string name="upgrade_to_vip" formatted="false">Päivitä VIP-jäsenyyteen</string>
+    <string name="use_cases_point1" formatted="false">• Tunnista automaattisesti uudelleenvalitsevat roskapuhelut</string>
+    <string name="use_cases_point2" formatted="false">• Sieppaa markkinointipuhelut, jotka soittavat useita kertoja lyhyen ajan sisällä</string>
+    <string name="use_cases_point3" formatted="false">• Estä puhelinpommitus ja häirintä</string>
+    <string name="use_cases_title" formatted="false">Käyttötapaukset:</string>
+    <string name="use_global_settings" formatted="false">Käytä globaaleja asetuksia</string>
+    <string name="use_local_notification" formatted="false">Käytä paikallisia ilmoituksia</string>
+    <string name="use_local_notification_description" formatted="false">Ota paikalliset ilmoitukset saapuville puheluille käyttöön</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">Käytä tavallista regex-syntaksia kuvioiden määrittelyyn. Esimerkkejä:</string>
+    <string name="use_stir_notification" formatted="false">Käytä STIR-ilmoitusta</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">Käyttäjänimi</string>
+    <string name="verification_failed_text" formatted="false">Epäonnistui</string>
+    <string name="verification_report" formatted="false">Vahvinnusraportti</string>
+    <string name="verified_text" formatted="false">Vahvistettu</string>
+    <string name="verify" formatted="false">Vahvista</string>
+    <string name="version" formatted="false">Versio: {version}</string>
+    <string name="very_high" formatted="false">Erittäin korkea</string>
+    <string name="very_low" formatted="false">Erittäin matala</string>
+    <string name="view_details" formatted="false">Näytä tiedot</string>
+    <string name="vip3_days_with_ads" formatted="false">3 päivän VIP mainoksilla (vain synkronointi)</string>
+    <string name="vip5_days_no_ads" formatted="false">5 päivän täydellisesti toimiva mainokseton VIP</string>
+    <string name="vip7_days_no_ads" formatted="false">7 päivän täydellisesti toimiva mainokseton VIP</string>
+    <string name="vip_access_subtitle" formatted="false">Katso mainoksia ilmaiseksi tai osta VIP</string>
+    <string name="vip_exchange_description" formatted="false">Vaihda VIP-jäsenyyttä puhelinnumeron merkintälaskureihin</string>
+    <string name="vip_exchange_service" formatted="false">VIP-vaihtopalvelu</string>
+    <string name="vip_exchange_title" formatted="false">Vaihda VIP-merkintöjä</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">VIP-käyttäjä</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">Puheentunnistus</string>
+    <string name="vote_agree" formatted="false">Kyllä</string>
+    <string name="vote_count" formatted="false">Äänten määrä</string>
+    <string name="vote_disagree" formatted="false">Ei</string>
+    <string name="vote_submitted" formatted="false">Ääni annettu onnistuneesti</string>
+    <string name="voted" formatted="false">Äänestetty</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} ääntä ({supportPercentage}% tukee)</string>
+    <string name="voting_completed" formatted="false">Äänestys päättynyt</string>
+    <string name="voting_completed_body" formatted="false">Yhteisön äänestys numerolle {phoneNumber} on päättynyt. Tulos: {result} ({supportPercentage}% kannatus).</string>
+    <string name="waiting_for_more_votes" formatted="false">Odotetaan lisää yhteisön ääniä</string>
+    <string name="watch_ad" formatted="false">Katso mainos</string>
+    <string name="watch_ad_for_temp" formatted="false">Katso mainos väliaikaisia etuja varten</string>
+    <string name="watch_ad_for_temp_description" formatted="false">Katso lyhyt mainos avataksesi väliaikaisesti joitakin premium-ominaisuuksia</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">Sinun on katsottava {count} mainosta lisää saadaksesi väliaikaiset VIP-oikeudet</string>
+    <string name="web_d_a_v_config_title" formatted="false">WebDAV-määritykset</string>
+    <string name="week" formatted="false">Viikko</string>
+    <string name="welcome" formatted="false">Tervetuloa</string>
+    <string name="whitelist" formatted="false">Valkoinen lista</string>
+    <string name="width" formatted="false">Leveys</string>
+    <string name="wildcard_matching_description" formatted="false">Käytä \'.\' vastaamaan mitä tahansa merkkiä (esim. \'123.456\' vastaa 123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">Vapaakuvioiden täsmäytys:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">Vapaakuvioiden tuki joustavalle suodatukselle</string>
+    <string name="window_size_setting" formatted="false">Ikkunan koko</string>
+    <string name="year" formatted="false">Vuosi</string>
+    <string name="yesterday" formatted="false">Eilen</string>
+</resources>

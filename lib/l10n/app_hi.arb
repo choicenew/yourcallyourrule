@@ -2458,5 +2458,8 @@
     }
   },
   "sms": "SMS",
-  "smsTab": "SMS"
+  "smsTab": "SMS",
+  "backgroundOpacity": "Background Opacity",
+  "timesUnit": "times",
+  "participantCount": "%1$d Participants"
 }

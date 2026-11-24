@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">Om kontaktabonnement</string>
+    <string name="about_labels" formatted="false">Om etiketter</string>
+    <string name="about_phone_subscription_rules" formatted="false">Om telefonabonnementsregler</string>
+    <string name="about_sms_filter" formatted="false">Om SMS-filtrering</string>
+    <string name="about_sms_subscription_rules" formatted="false">Om SMS-abonnementsregler</string>
+    <string name="about_subtitle" formatted="false">Applikasjonsversjon og juridisk informasjon</string>
+    <string name="about_title" formatted="false">Om</string>
+    <string name="access_target_url" formatted="false">Tilgang til målenettadresse</string>
+    <string name="action" formatted="false">Handling</string>
+    <string name="action_all" formatted="false">Alle</string>
+    <string name="action_allow" formatted="false">Tillat</string>
+    <string name="action_block" formatted="false">Blokker</string>
+    <string name="action_filter_title" formatted="false">Filtrer etter handlingstype</string>
+    <string name="action_filter_tooltip" formatted="false">Handlingsfilter</string>
+    <string name="action_none" formatted="false">Ingen handling</string>
+    <string name="action_silence" formatted="false">Stillhet</string>
+    <string name="action_tag" formatted="false">Handling: {actionType}</string>
+    <string name="action_type" formatted="false">Handlingstype</string>
+    <string name="action_unknown" formatted="false">Ukjent</string>
+    <string name="active_proposals" formatted="false">Aktive forslag</string>
+    <string name="add" formatted="false">Legg til</string>
+    <string name="add_allow_subscription" formatted="false">Legg til tillat-abonnement</string>
+    <string name="add_allowed_blocked_rule" formatted="false">Legg til tillat/blokker-regel</string>
+    <string name="add_block_subscription" formatted="false">Legg til blokker-abonnement</string>
+    <string name="add_contact_button" formatted="false">Legg til kontakt</string>
+    <string name="add_contact_failed" formatted="false">Kunne ikke legge til kontakt: {error}</string>
+    <string name="add_label" formatted="false">Legg til etikett</string>
+    <string name="add_label_button" formatted="false">Legg til etikett</string>
+    <string name="add_label_failed" formatted="false">Kunne ikke legge til etikett: {error}</string>
+    <string name="add_name" formatted="false">Legg til navn</string>
+    <string name="add_none_subscription" formatted="false">Legg til ingen-abonnement</string>
+    <string name="add_phone_mark" formatted="false">Legg til telefonmerke</string>
+    <string name="add_phone_number_rule" formatted="false">Legg til telefonnummerregel</string>
+    <string name="add_plugin" formatted="false">Legg til plugin</string>
+    <string name="add_plugin_failed" formatted="false">Kunne ikke legge til plugin</string>
+    <string name="add_plugin_failed_with_error" formatted="false">Kunne ikke legge til plugin: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">Legg til plugin fra lokal fil</string>
+    <string name="add_plugin_from_url" formatted="false">Legg til plugin fra URL</string>
+    <string name="add_regex_rule" formatted="false">Legg til Regex-regel</string>
+    <string name="add_rule" formatted="false">Legg til regel</string>
+    <string name="add_rule_failed" formatted="false">Kunne ikke legge til regel: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">Legg til regel</string>
+    <string name="add_silence_subscription" formatted="false">Legg til stillhets-abonnement</string>
+    <string name="add_sms_filter_rule" formatted="false">Legg til SMS-filterregel</string>
+    <string name="add_sms_rule" formatted="false">Legg til SMS-regel</string>
+    <string name="add_sms_subscription" formatted="false">Legg til SMS-abonnement</string>
+    <string name="add_subscription" formatted="false">Legg til abonnement</string>
+    <string name="add_subscription_button" formatted="false">Legg til abonnement</string>
+    <string name="add_subscription_failed" formatted="false">Kunne ikke legge til abonnement: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">Legg til abonnement</string>
+    <string name="add_to_blacklist" formatted="false">Legg til i svartelisten</string>
+    <string name="add_to_favorites" formatted="false">Legg til i favoritter</string>
+    <string name="add_to_rules" formatted="false">Legg til i regler</string>
+    <string name="add_to_whitelist" formatted="false">Legg til i hvitelisten</string>
+    <string name="added_to_favorites" formatted="false">Lagt til i favoritter</string>
+    <string name="advanced_mode" formatted="false">Avansert modus</string>
+    <string name="agent" formatted="false">Agent</string>
+    <string name="agree_votes" formatted="false">Enige: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">Alle</string>
+    <string name="all_call_logs_cleared" formatted="false">Alle anropslogger er slettet</string>
+    <string name="all_calls_tab" formatted="false">Alle</string>
+    <string name="all_permissions_granted" formatted="false">Alle tillatelser er gitt</string>
+    <string name="all_services_status_subtitle" formatted="false">Nåværende status for hver skytjeneste</string>
+    <string name="all_services_status_title" formatted="false">Nåværende tjenestestatus</string>
+    <string name="all_settings_completed" formatted="false">Alle innstillinger er fullført.</string>
+    <string name="all_update_success" formatted="false">Alle oppdateringer fullført ({count} regler)</string>
+    <string name="allow" formatted="false">Tillat</string>
+    <string name="allow_action_description" formatted="false">Samtaler vil bli tillatt, selv om nummeret er på blokkeringslisten.</string>
+    <string name="allow_all_allow_rules" formatted="false">Aktiver alle tillat-regler</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">Hovedbryter for å bruke alle konfigurerte tillat-regler</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">Tillat alle svartelistede numre</string>
+    <string name="allow_all_block_rules" formatted="false">Aktiver alle blokker-regler</string>
+    <string name="allow_all_block_rules_desc" formatted="false">Hovedbryter for å bruke alle konfigurerte blokkeringsregler</string>
+    <string name="allow_allowed_numbers" formatted="false">Tillat alle godkjente numre</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">Tillat alle innkommende anrop fra numre på tillat-listen din</string>
+    <string name="allow_block" formatted="false">Tillat/blokker</string>
+    <string name="allow_blocked_numbers" formatted="false">Omgå blokkeringsliste</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">Tillat midlertidig anrop fra numre på blokkeringslisten din</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">Tillat numre som ikke overskrider grensen</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">Tillat automatisk numre som ikke overskrider antallgrensen</string>
+    <string name="allow_regex_allow_rules" formatted="false">Aktiver Regex-tillat-regler</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">Aktiver mønstermatching med regulære uttrykk for tillat-regler</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">Aktiver regulære uttrykk-baserte tillat-regler</string>
+    <string name="allow_regex_block_rules" formatted="false">Aktiver Regex-blokker-regler</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">Aktiver mønstermatching med regulære uttrykk for blokker-regler</string>
+    <string name="allow_regex_block_rules_description" formatted="false">Aktiver regulære uttrykk-baserte blokker-regler</string>
+    <string name="allow_rule" formatted="false">Tillat-regel</string>
+    <string name="allow_rules" formatted="false">Tillat-regler</string>
+    <string name="allowed_blocked_rule" formatted="false">Tillat/blokker-regel</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">Rediger tillat/blokker-regel</string>
+    <string name="allowed_blocked_rule_management" formatted="false">Håndtering av tillat/blokker-regler</string>
+    <string name="allowed_blocked_rules_info" formatted="false">Tillatte/blokkerte regler brukes til å matche anrop mot spesifikke telefonnumre, som har høyest prioritet.</string>
+    <string name="and_more_items" formatted="false">og {count} flere elementer</string>
+    <string name="answer_then_hangup" formatted="false">Svar og legg på</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">Your Call Your Rule</string>
+    <string name="application_software" formatted="false">Applikasjonsprogramvare</string>
+    <string name="apply" formatted="false">Bruk</string>
+    <string name="approved" formatted="false">GODKJENT</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">Autorisasjon mislyktes: Vennligst sjekk klient-ID og nøkkel</string>
+    <string name="authorization_failed_message" formatted="false">Autorisasjon mislyktes</string>
+    <string name="authorization_success_message" formatted="false">Autorisasjon vellykket</string>
+    <string name="authorize_login_button" formatted="false">Autoriser innlogging</string>
+    <string name="auto_cancel_notification" formatted="false">Automatisk kanseller varsel</string>
+    <string name="auto_cancel_notification_description" formatted="false">Hvis merket, vil varselet automatisk lukkes når brukeren trykker på det.</string>
+    <string name="auto_sync_label" formatted="false">Automatisk synkronisering</string>
+    <string name="auto_update" formatted="false">Automatisk oppdatering</string>
+    <string name="auto_update_description" formatted="false">Sett intervaller for automatisk oppdatering av abonnementer eller oppdater manuelt</string>
+    <string name="auto_update_settings" formatted="false">Innstillinger for automatisk oppdatering</string>
+    <string name="auto_update_subtitle" formatted="false">Administrer automatiske oppdateringer for regler og tillegg</string>
+    <string name="auto_update_title" formatted="false">Automatisk oppdatering</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">Bilindustrien</string>
+    <string name="avatar" formatted="false">Avatar</string>
+    <string name="avatar_border_color" formatted="false">Farge på avatar-kantlinje</string>
+    <string name="avatar_border_size" formatted="false">Tykkelse på avatar-kantlinje</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">Størrelser på avatar og ikoner</string>
+    <string name="avatar_position" formatted="false">Posisjon på avatar</string>
+    <string name="avatar_size" formatted="false">Størrelse på avatar</string>
+    <string name="axis_position" formatted="false">Posisjon for {axis}</string>
+    <string name="background_gradient_setting" formatted="false">Bakgrunnsgradient</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">Sikkerhetskopiering</string>
+    <string name="backup_and_restore" formatted="false">Sikkerhetskopiering og gjenoppretting</string>
+    <string name="backup_and_restore_subtitle" formatted="false">Sikkerhetskopier eller gjenopprett applikasjonsdata</string>
+    <string name="backup_and_restore_title" formatted="false">Sikkerhetskopiering og gjenoppretting</string>
+    <string name="backup_failed" formatted="false">Sikkerhetskopiering mislyktes</string>
+    <string name="backup_settings" formatted="false">Innstillinger for sikkerhetskopiering</string>
+    <string name="backup_to_cloud" formatted="false">Sikkerhetskopier til skyen</string>
+    <string name="backup_to_cloud_failed" formatted="false">Kunne ikke sikkerhetskopiere til skyen: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">Vellykket sikkerhetskopiert til skyen</string>
+    <string name="bank" formatted="false">Bank</string>
+    <string name="basic_info" formatted="false">Grunnleggende informasjon</string>
+    <string name="basic_rule_filter" formatted="false">Grunnleggende regel-filter</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">Filtrer samtaler ved hjelp av svarteliste/hviteliste og regulære uttrykk</string>
+    <string name="basic_rule_filtering" formatted="false">Grunnleggende regel-filtrering</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• Grunnleggende regel-filtrering: Filtrer regler basert på svarteliste, hviteliste og regulære uttrykk</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">Er du sikker på at du vil slette {count} valgte kontakter?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">Er du sikker på at du vil slette {count} etiketter?</string>
+    <string name="battery_optimization_permission" formatted="false">Batterioptimalisering</string>
+    <string name="battery_optimization_permission_description" formatted="false">Tillat appen å kjøre i bakgrunnen for å tilby tjenester som anrops-ID.</string>
+    <string name="black_white_list" formatted="false">Svart-/hviteliste</string>
+    <string name="blacklist" formatted="false">Svarteliste</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">Svartelisting og hvitelisting</string>
+    <string name="block" formatted="false">Blokker</string>
+    <string name="block_action_description" formatted="false">Samtaler vil bli blokkert og vist i anropsloggen.</string>
+    <string name="block_calls" formatted="false">Blokker samtaler</string>
+    <string name="block_international_calls" formatted="false">matcher numre som ikke starter med + eller 00</string>
+    <string name="block_international_calls_title" formatted="false">Blokker internasjonale numre</string>
+    <string name="block_mobile_numbers" formatted="false">matcher numre som ikke starter med 13-19</string>
+    <string name="block_mobile_numbers_title" formatted="false">Blokker mobil-numre</string>
+    <string name="block_number" formatted="false">Blokker nummer</string>
+    <string name="block_number_success" formatted="false">Nummer blokkert med suksess</string>
+    <string name="block_premium_rate_numbers" formatted="false">matcher numre som ikke starter med 118 eller 120-190</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">Blokker numre med spesialpriser</string>
+    <string name="block_rule" formatted="false">Blokkeringsregel</string>
+    <string name="block_rules" formatted="false">Blokkeringsregler</string>
+    <string name="block_specific_area_codes" formatted="false">matcher numre som starter med 0 + 2-3 sifre</string>
+    <string name="block_specific_area_codes_title" formatted="false">Blokker spesifikke retningsnumre:</string>
+    <string name="block_type_analysis_title" formatted="false">Analyse av blokkeringstype</string>
+    <string name="blocked" formatted="false">Blokkert</string>
+    <string name="blocked_call_body" formatted="false">Blokkert samtale fra {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">Blokkerte anropsvarsler</string>
+    <string name="blocked_call_notifications_description" formatted="false">Viser informasjon om blokkerte samtaler.</string>
+    <string name="blocked_call_title" formatted="false">Blokkert samtale</string>
+    <string name="blocked_calls" formatted="false">Blokkerte samtaler</string>
+    <string name="blocked_calls_title" formatted="false">Blokkerte samtaler</string>
+    <string name="blocked_spam_calls" formatted="false">Blokkerte spam-samtaler</string>
+    <string name="blocking_trend" formatted="false">Blokkerings-trend</string>
+    <string name="both" formatted="false">Begge</string>
+    <string name="bulk_delete" formatted="false">Masse sletting av kontakter</string>
+    <string name="bulk_delete_contacts" formatted="false">Masse sletting av kontakter</string>
+    <string name="bulk_delete_labels" formatted="false">Masse sletting av etiketter</string>
+    <string name="call" formatted="false">Samtale</string>
+    <string name="call_blocking" formatted="false">Samtaleblokkering</string>
+    <string name="call_details" formatted="false">Anropsdetaljer</string>
+    <string name="call_filter_rules" formatted="false">Anropsfilterregler</string>
+    <string name="call_filter_rules_description" formatted="false">Sett grunnleggende regler for anropsfiltrering</string>
+    <string name="call_filter_settings" formatted="false">Anropsfilterinnstillinger</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">Still inn grenser for anropsfrekvens og blokkeringsregler</string>
+    <string name="call_frequency_interception_title" formatted="false">Oppfangning av anropsfrekvens</string>
+    <string name="call_history" formatted="false">Anropshistorikk</string>
+    <string name="call_history_info_desc" formatted="false">Her vises anropshistorikken din, inkludert innkommende, utgående og tapte anrop.</string>
+    <string name="call_history_info_title" formatted="false">Anropshistorikk</string>
+    <string name="call_history_tab" formatted="false">Anropshistorikk</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">Tillatelse for anropsscreening</string>
+    <string name="call_screening_permission_description" formatted="false">Brukes til å screene og blokkere spam-anrop.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">Tillatelse for anropsscreening ikke gitt, kan påvirke app-funksjonalitet.</string>
+    <string name="call_statistics" formatted="false">Anropsstatistikk</string>
+    <string name="call_time" formatted="false">Anropstid</string>
+    <string name="call_type" formatted="false">Anropstype</string>
+    <string name="call_type_answered" formatted="false">Besvart</string>
+    <string name="call_type_blocked" formatted="false">Blokkert</string>
+    <string name="call_type_icon_color" formatted="false">Farge på anropstypeikon</string>
+    <string name="call_type_missed" formatted="false">Tapt anrop</string>
+    <string name="call_type_outgoing" formatted="false">Utgående</string>
+    <string name="call_type_position" formatted="false">Posisjon for anropstype</string>
+    <string name="call_type_rejected" formatted="false">Avvist</string>
+    <string name="call_type_silenced" formatted="false">Dempet</string>
+    <string name="call_type_unknown" formatted="false">Ukjent</string>
+    <string name="callback" formatted="false">Tilbake-ring</string>
+    <string name="caller_id_app" formatted="false">Oppringer-ID-app</string>
+    <string name="caller_id_customization_subtitle" formatted="false">Tilpass utseendet på nummerpresentasjon</string>
+    <string name="caller_id_customization_title" formatted="false">Tilpass oppringer-ID</string>
+    <string name="caller_id_display_mode" formatted="false">Visningsmodus for anrops-ID</string>
+    <string name="caller_id_enhancement" formatted="false">Forbedring av nummerpresentasjon</string>
+    <string name="caller_id_marked_by_count" formatted="false">Markert av {count}</string>
+    <string name="caller_id_notification_title" formatted="false">Informasjon om innkommende samtale</string>
+    <string name="caller_id_preview" formatted="false">Forhåndsvisning av anrops-ID</string>
+    <string name="caller_id_settings_subtitle" formatted="false">For å sette opp varsler og visningsmodus for innkommende samtaler</string>
+    <string name="caller_id_settings_title" formatted="false">Innstillinger for nummerpresentasjon</string>
+    <string name="calling_number_failed" formatted="false">Nummerpåringing mislyktes</string>
+    <string name="cancel" formatted="false">Avbryt</string>
+    <string name="cancel_button" formatted="false">Avbryt</string>
+    <string name="cancel_local_notification" formatted="false">Lukk lokale varsler</string>
+    <string name="cancel_local_notification_description" formatted="false">Lukk lokale varsler automatisk</string>
+    <string name="car_rental" formatted="false">Leiebil</string>
+    <string name="carrier" formatted="false">Operatør</string>
+    <string name="carrier_color" formatted="false">Operatørfarge</string>
+    <string name="carrier_font_size" formatted="false">Operatør skriftstørrelse</string>
+    <string name="carrier_position" formatted="false">Operatørposisjon</string>
+    <string name="change_label" formatted="false">Endre etikett</string>
+    <string name="change_plugin_status_failed" formatted="false">Kunne ikke endre plugin-status: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">Kunne ikke endre abonnementsstatus: {error}</string>
+    <string name="charity" formatted="false">Veldedighet</string>
+    <string name="chart_one_week_ago" formatted="false">1 uke siden</string>
+    <string name="chart_three_days_ago" formatted="false">3 dager siden</string>
+    <string name="chart_today" formatted="false">I dag</string>
+    <string name="check_file_format" formatted="false">Vennligst sjekk filformat eller tillatelser</string>
+    <string name="check_permission_failed" formatted="false">Kunne ikke sjekke tillatelser: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">Velg standard oppfangningshandling</string>
+    <string name="clear_all_call_logs" formatted="false">Slett alle anropslogger</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">Bekreft for å slette alle anropslogger</string>
+    <string name="clear_all_notifications" formatted="false">Slett alle varsler</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">Bekreft for å slette alle varsler</string>
+    <string name="clear_button" formatted="false">Tøm</string>
+    <string name="clear_filter" formatted="false">Fjern filter</string>
+    <string name="clear_label_filter_button" formatted="false">Fjern etikettfilter</string>
+    <string name="close_button" formatted="false">Lukk</string>
+    <string name="cloud_backup" formatted="false">Skylagring</string>
+    <string name="cloud_sync" formatted="false">Skysynkronisering</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">Skysynkronisering og sikkerhetskopiering</string>
+    <string name="cloud_sync_service" formatted="false">Skysynkroniseringstjeneste</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">Konfigurer WebDAV, OneDrive og Google Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">Innstillinger for skysynkronisering</string>
+    <string name="cloud_sync_title" formatted="false">Skysynkronisering</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">Inkasso</string>
+    <string name="color_picker_title" formatted="false">Velg farge</string>
+    <string name="community_impact" formatted="false">Samfunnspåvirkning</string>
+    <string name="community_participation" formatted="false">Samfunnsdeltakelse</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">Samfunnsstemmer</string>
+    <string name="community_voting_started" formatted="false">Samfunnsavstemning startet</string>
+    <string name="community_voting_started_body" formatted="false">Et nytt slettingsforslag for {phoneNumber} er nå åpent for samfunnsavstemning.</string>
+    <string name="completed" formatted="false">FULLFØRT</string>
+    <string name="config_management" formatted="false">Konfigurasjonsadministrasjon</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">Konfigurasjon oppdatert</string>
+    <string name="configuration_advice" formatted="false">Gjennom riktig konfigurasjon kan du sette forskjellige filtreringsstrategier for jobb- og personlige SIM-kort.</string>
+    <string name="configure_backup_options" formatted="false">Konfigurer sikkerhetskopieringsalternativer</string>
+    <string name="configure_cloud_sync_service" formatted="false">Konfigurer skysynkroniseringstjeneste</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">Vennligst konfigurer en skysynkroniseringstjeneste for å aktivere synkronisering mellom flere enheter.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">Konfigurer SIM-kortfilterregler</string>
+    <string name="confirm" formatted="false">Bekreft</string>
+    <string name="confirm_button" formatted="false">Bekreft</string>
+    <string name="confirm_delete" formatted="false">Bekreft sletting</string>
+    <string name="confirm_delete_label" formatted="false">Er du sikker på at du vil slette etiketten &quot;{name}&quot;</string>
+    <string name="confirm_delete_plugin" formatted="false">Er du sikker på at du vil slette plugin-en &quot;{name}&quot;?</string>
+    <string name="confirm_delete_plugins" formatted="false">Er du sikker på at du vil slette {count} plugins?</string>
+    <string name="confirm_delete_rule_message" formatted="false">Er du sikker på at du vil slette denne regelen? Denne handlingen kan ikke angres.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">Er du sikker på at du vil slette denne SMS-filterregelen?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">Er du sikker på at du vil slette denne SMS-regelen?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">Er du sikker på at du vil slette {name}?</string>
+    <string name="confirm_password" formatted="false">Bekreft passord</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">Tilkoblet</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">Tilkobling mislyktes: Vennligst sjekk serveradresse, brukernavn og passord</string>
+    <string name="connection_failed_message" formatted="false">Tilkobling mislyktes</string>
+    <string name="connection_status_label" formatted="false">Tilkoblingsstatus</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">Tilkobling vellykket</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">Kontakt lagt til vellykket</string>
+    <string name="contact_deleted" formatted="false">Kontakt slettet</string>
+    <string name="contact_name_label" formatted="false">Navn</string>
+    <string name="contact_not_found" formatted="false">Kontakt ikke funnet</string>
+    <string name="contact_subscription_description" formatted="false">Abonner på kontaktlister via URL, oppdater kontaktinformasjon og etiketter automatisk. Støtter data i JSON-format.</string>
+    <string name="contact_update_success" formatted="false">Kontakt oppdatert vellykket</string>
+    <string name="contact_us" formatted="false">Kontakt oss</string>
+    <string name="contacts" formatted="false">Kontakter</string>
+    <string name="contacts_deleted" formatted="false">Slettet {count} kontakter</string>
+    <string name="contacts_management" formatted="false">Kontaktadministrasjon</string>
+    <string name="contacts_permission" formatted="false">Kontakttillatelse</string>
+    <string name="contacts_permission_description" formatted="false">Brukes til å identifisere kontaktanrop.</string>
+    <string name="contacts_tab" formatted="false">Kontakter</string>
+    <string name="container_width" formatted="false">Beholderens bredde</string>
+    <string name="content" formatted="false">Innhold</string>
+    <string name="content_regex" formatted="false">Innholds-regex</string>
+    <string name="count_color" formatted="false">Antall farge</string>
+    <string name="count_font_size" formatted="false">Antall skriftstørrelse</string>
+    <string name="count_position" formatted="false">Antall posisjon</string>
+    <string name="count_threshold_description" formatted="false">Still inn minimum antall terskel som kreves for å utløse filtreringshandlinger</string>
+    <string name="count_threshold_label" formatted="false">Antall terskel</string>
+    <string name="country" formatted="false">Land</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">f.eks. NO, US, CN</string>
+    <string name="country_code_label" formatted="false">Landskode (ISO 3166-1 alfa-2) *</string>
+    <string name="country_code_required" formatted="false">Landskode er påkrevd</string>
+    <string name="country_code_two_letters" formatted="false">Landskode (ISO 3166-1 alfa-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">Vær oppmerksom på: Databasen kan mangle data for alle spesifikke land eller regioner.</string>
+    <string name="country_name_color" formatted="false">Landnavnfarge</string>
+    <string name="country_name_font_size" formatted="false">Landnavnskriftstørrelse</string>
+    <string name="country_region_name_position" formatted="false">Land/Region-navn posisjon</string>
+    <string name="country_sync_settings_subtitle" formatted="false">Velg land for datasynkronisering</string>
+    <string name="country_sync_settings_title" formatted="false">Landbaserte databasesynkroniseringsinnstillinger</string>
+    <string name="create_proposal" formatted="false">Opprett forslag</string>
+    <string name="create_proposal_title" formatted="false">Opprett slettingsforslag</string>
+    <string name="created_at" formatted="false">Opprettet: {date}</string>
+    <string name="created_rules" formatted="false">Opprettede regler</string>
+    <string name="critical" formatted="false">Kritisk</string>
+    <string name="critical_issues" formatted="false">Kritiske problemer</string>
+    <string name="csv_format" formatted="false">CSV-format</string>
+    <string name="current_device_label" formatted="false">Nåværende enhets etikett</string>
+    <string name="current_device_title" formatted="false">Nåværende enhet</string>
+    <string name="current_language" formatted="false">Nåværende språk</string>
+    <string name="current_mark_count" formatted="false">Nåværende poengsum</string>
+    <string name="custom" formatted="false">Egendefinert</string>
+    <string name="custom_action_description" formatted="false">Utfør en egendefinert handling.</string>
+    <string name="customer_service" formatted="false">Kundeservice</string>
+    <string name="dashboard_tab" formatted="false">Dashbord</string>
+    <string name="data_analysis" formatted="false">Dataanalyse</string>
+    <string name="data_load_failure" formatted="false">Data lasting mislyktes: {error}</string>
+    <string name="data_loading_failed" formatted="false">Kunne ikke laste data: {error}</string>
+    <string name="data_migration" formatted="false">Datamigrering</string>
+    <string name="data_migration_description" formatted="false">Denne funksjonen lar deg overføre alle dataene dine mellom enheter. For øyeblikket kan du bruke backup- og gjenopprettingsfunksjonene til å manuelt migrere dataene dine.</string>
+    <string name="data_source_disclaimer" formatted="false">Numre hentes fra internett og brukerinnlegg. Vi kan ikke garantere at et nummer, etter å ha blitt slettet, ikke blir re-sendt av andre brukere eller kilder. Vennligst søk aktivt og verifiser informasjonen.</string>
+    <string name="data_source_reminder" formatted="false">Datakilde påminnelse</string>
+    <string name="database_sync_title" formatted="false">Databasesynkronisering</string>
+    <string name="days" formatted="false">{count, plural, =1{1 dag} other{{count} dager}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 dag siden} other{{count} dager siden}}</string>
+    <string name="days_vip" formatted="false">{days} Dager VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">Inkasso</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">Standardvarsler</string>
+    <string name="default_notifications_description" formatted="false">Standard varslingskanal for appen.</string>
+    <string name="delete" formatted="false">Slett</string>
+    <string name="delete_button" formatted="false">Slett</string>
+    <string name="delete_contact" formatted="false">Slett kontakt</string>
+    <string name="delete_contact_confirm" formatted="false">Er du sikker på at du vil slette {name}?</string>
+    <string name="delete_failed" formatted="false">Sletting mislyktes: {error}</string>
+    <string name="delete_label" formatted="false">Slett etikett</string>
+    <string name="delete_label_failed" formatted="false">Kunne ikke slette etikett: {error}</string>
+    <string name="delete_plugin" formatted="false">Slett plugin</string>
+    <string name="delete_plugin_failed" formatted="false">Kunne ikke slette plugin: {error}</string>
+    <string name="delete_plugins" formatted="false">Slett plugins</string>
+    <string name="delete_plugins_failed" formatted="false">Kunne ikke slette plugins: {error}</string>
+    <string name="delete_rule" formatted="false">Slett regel</string>
+    <string name="delete_rule_failed" formatted="false">Sletting mislyktes: {error}</string>
+    <string name="delete_selected" formatted="false">Slett valgte</string>
+    <string name="delete_subscription" formatted="false">Slett abonnement</string>
+    <string name="delete_subscription_confirm" formatted="false">Er du sikker på at du vil slette abonnementet &quot;{name}&quot;?</string>
+    <string name="delete_subscription_failed" formatted="false">Kunne ikke slette abonnement: {error}</string>
+    <string name="delete_success" formatted="false">Sletting vellykket</string>
+    <string name="deletion_proposal" formatted="false">Slettingsforslag</string>
+    <string name="deletion_proposal_created" formatted="false">Slettingsforslag opprettet</string>
+    <string name="deletion_proposal_created_body" formatted="false">Ditt slettingsforslag for {phoneNumber} er sendt inn for gjennomgang av samfunnet.</string>
+    <string name="deletion_proposal_description" formatted="false">Forslå numre for sletting som bryter med samfunnets retningslinjer. Din deltakelse bidrar til å holde plattformen trygg.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">Varsler om resultater og oppdateringer fra avstemning om slettingsforslag.</string>
+    <string name="deletion_proposals" formatted="false">Slettingsforslag</string>
+    <string name="delivery" formatted="false">Levering</string>
+    <string name="description" formatted="false">Beskrivelse</string>
+    <string name="detailed_settings_title" formatted="false">Detaljerte innstillinger</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">Enhets-ID</string>
+    <string name="device_management_subtitle" formatted="false">Administrer synkronisering av flere enheter</string>
+    <string name="device_management_title" formatted="false">Enhetsadministrasjon</string>
+    <string name="device_model_label" formatted="false">Enhetsmodell</string>
+    <string name="device_name" formatted="false">Enhetsnavn</string>
+    <string name="device_name_label" formatted="false">Enhetsnavn</string>
+    <string name="device_renamed_successfully_message" formatted="false">Enhet omdøpt vellykket</string>
+    <string name="device_unregistered_successfully_message" formatted="false">Enhet avregistrert vellykket</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">Enheter synkronisert vellykket</string>
+    <string name="dialog_title" formatted="false">Forklaring av Regex-mønster</string>
+    <string name="different_from_local_counter" formatted="false">Denne funksjonen er forskjellig fra den lokale telleren, da den fokuserer på gjentatte anropsmønstre på kort tid, i stedet for langsiktig markering av antall.</string>
+    <string name="disable_global_plugins" formatted="false">Deaktiver globale plugins</string>
+    <string name="disabled" formatted="false">Deaktivert</string>
+    <string name="disabled_status" formatted="false">Deaktivert</string>
+    <string name="disconnect_button" formatted="false">Koble fra</string>
+    <string name="disconnect_failed_message" formatted="false">Tilkobling feilet</string>
+    <string name="disconnected_message" formatted="false">Frakoblet</string>
+    <string name="disconnected_status" formatted="false">Frakoblet</string>
+    <string name="done" formatted="false">Ferdig</string>
+    <string name="dual_sim_advice" formatted="false">Denne funksjonen er spesielt nyttig for telefoner med to SIM-kort for å sette forskjellige filtreringsstrategier for jobb- og private SIM-kort.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">E164-nummer</string>
+    <string name="earlier" formatted="false">Tidligere</string>
+    <string name="earned_temp_vip" formatted="false">Opptjent midlertidig VIP</string>
+    <string name="ecommerce" formatted="false">E-handel</string>
+    <string name="edit" formatted="false">Rediger</string>
+    <string name="edit_contact" formatted="false">Rediger kontakt</string>
+    <string name="edit_label" formatted="false">Rediger etikett</string>
+    <string name="edit_phone_rule" formatted="false">Rediger telefonregel</string>
+    <string name="edit_rule" formatted="false">Rediger regel</string>
+    <string name="edit_script" formatted="false">Rediger skript</string>
+    <string name="edit_script_for" formatted="false">Rediger skript for {pluginName}</string>
+    <string name="edit_subscription" formatted="false">Rediger abonnement</string>
+    <string name="education" formatted="false">Utdanning</string>
+    <string name="element_positions_setting" formatted="false">Posisjoner for elementer</string>
+    <string name="elements_settings_title" formatted="false">Innstillinger for Elementer</string>
+    <string name="email" formatted="false">E-post</string>
+    <string name="enable_call_filter" formatted="false">Aktiver anropsfilter</string>
+    <string name="enable_call_filter_description" formatted="false">Når aktivert, sjekkes innkommende anrop mot regelisten nedenfor. Anropsfiltreringsregler synkroniseres ikke mellom enheter som standard.</string>
+    <string name="enable_encryption" formatted="false">Aktiver kryptering</string>
+    <string name="enable_encryption_description" formatted="false">Krypter sikkerhetskopifiler</string>
+    <string name="enable_filtering" formatted="false">Aktiver filtrering</string>
+    <string name="enable_fraud_alert" formatted="false">Aktiver svindelvarsling</string>
+    <string name="enable_fraud_alert_description" formatted="false">Varsel for mistenkelige svindelsamtaler</string>
+    <string name="enable_global_plugins" formatted="false">Aktiver globale plugins</string>
+    <string name="enable_local_count_filter" formatted="false">Aktiver beskyttelse for lokal merkingsterskel</string>
+    <string name="enable_local_count_filter_description" formatted="false">Blokker innkommende anrop når antall lokale rapporter overskrider terskelen</string>
+    <string name="enable_local_notification" formatted="false">Bruk lokal varsling</string>
+    <string name="enable_local_notification_description" formatted="false">Når aktivert, vil varsler for filtrerte meldinger vises på enheten</string>
+    <string name="enable_location_summary" formatted="false">Sted</string>
+    <string name="enable_mute_rules" formatted="false">Demp avskjærte anrop</string>
+    <string name="enable_mute_rules_desc" formatted="false">Demp ringetonen for avskjærte anrop i stedet for å avvise</string>
+    <string name="enable_none_action_rules" formatted="false">Kun logg og merk (Ingen avskjæring)</string>
+    <string name="enable_none_action_rules_desc" formatted="false">Logg og merk anropstreff uten å utføre noen avskjæringsaksjon</string>
+    <string name="enable_remote_number_filter" formatted="false">Aktiver beskyttelse for sky-spørringsterskel</string>
+    <string name="enable_remote_number_filter_description" formatted="false">Blokker innkommende anrop når antall sky-spørringsrapporter overskrider terskelen</string>
+    <string name="enable_rule" formatted="false">Aktiver regel</string>
+    <string name="enable_security_message" formatted="false">Aktiver sikkerhetsmelding</string>
+    <string name="enable_sms_filter" formatted="false">Aktiver SMS-filtrering</string>
+    <string name="enable_sms_filter_description" formatted="false">Når aktivert, vil meldinger bli automatisk filtrert i henhold til reglene</string>
+    <string name="enable_time_interception" formatted="false">Aktiver tidsavskjæring</string>
+    <string name="enable_time_interception_description" formatted="false">Blokker gjentatte anrop fra samme nummer innen kort tid</string>
+    <string name="enable_time_interceptor" formatted="false">Aktiver tidsavskjærer</string>
+    <string name="enable_vibration" formatted="false">Aktiver vibrasjon</string>
+    <string name="enable_vibration_description" formatted="false">Vibrer når samtalen mistenkes å være svindel</string>
+    <string name="enabled" formatted="false">Aktivert</string>
+    <string name="enabled_status" formatted="false">Aktivert</string>
+    <string name="end_call_immediately" formatted="false">Blokker umiddelbart</string>
+    <string name="end_color" formatted="false">Sluttfarge</string>
+    <string name="end_date" formatted="false">Sluttdato</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">Instruksjoner for forbedret filtersystem</string>
+    <string name="enhanced_filter_settings" formatted="false">Innstillinger for forbedret filter</string>
+    <string name="enhanced_filter_settings_title" formatted="false">Innstillinger for forbedret filter</string>
+    <string name="enhanced_filter_system_description" formatted="false">Det forbedrede filtersystemet støtter både globale regler og konfigurasjoner for filtrering per SIM-kort.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">Vennligst oppgi både telefonnummer og regex-mønster.</string>
+    <string name="enter_contact_name" formatted="false">Vennligst oppgi kontaktnavn</string>
+    <string name="enter_device_name" formatted="false">Oppgi enhetsnavn</string>
+    <string name="enter_email_optional" formatted="false">Vennligst oppgi e-post (valgfritt)</string>
+    <string name="enter_encryption_password_hint" formatted="false">Oppgi krypteringspassord</string>
+    <string name="enter_icon_code" formatted="false">Oppgi ikonkode</string>
+    <string name="enter_name" formatted="false">Oppgi kontaktnavn</string>
+    <string name="enter_new_device_name_hint" formatted="false">Oppgi et nytt navn for denne enheten</string>
+    <string name="enter_password_again" formatted="false">Oppgi passord igjen</string>
+    <string name="enter_phone_number" formatted="false">Oppgi telefonnummer</string>
+    <string name="enter_phone_number_hint" formatted="false">Oppgi telefonnummer for å teste</string>
+    <string name="enter_phone_number_multiple" formatted="false">Vennligst oppgi telefonnummer, flere numre adskilt med komma</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">Oppgi telefonnummer for å starte søk</string>
+    <string name="enter_phone_number_to_verify" formatted="false">Oppgi telefonnummer for å verifisere</string>
+    <string name="enter_plugin_description" formatted="false">Skriv inn pluginbeskrivelse</string>
+    <string name="enter_plugin_name" formatted="false">Oppgi plugin-navn</string>
+    <string name="enter_plugin_url" formatted="false">Oppgi plugin-adresse</string>
+    <string name="enter_regex_hint" formatted="false">Oppgi regex-mønster</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">Vennligst oppgi både regelnavn og regulært uttrykk-mønster.</string>
+    <string name="enter_rule_name_hint" formatted="false">Skriv inn regelnavn</string>
+    <string name="enter_search_content" formatted="false">Vennligst oppgi søkeinnhold</string>
+    <string name="enter_subscription_name" formatted="false">Skriv inn abonnementsnavn</string>
+    <string name="enter_subscription_url" formatted="false">Skriv inn abonnements-URL</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">Vennligst oppgi synkroniseringsmappenavn (standard: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">Vennligst oppgi gyldig navn og URL</string>
+    <string name="enter_valid_url" formatted="false">Vennligst oppgi en gyldig URL</string>
+    <string name="enter_version" formatted="false">Skriv inn versjon</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">Vennligst oppgi WebDAV-passord</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">Vennligst oppgi WebDAV-serveradresse</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">Vennligst oppgi WebDAV-brukernavn</string>
+    <string name="entertainment" formatted="false">Underholdning</string>
+    <string name="entity_export_failed" formatted="false">Kunne ikke eksportere {entityTypeName}: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} eksportert vellykket</string>
+    <string name="entity_import_failed" formatted="false">Kunne ikke importere {entityTypeName}: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} importert vellykket, totalt {count} poster importert</string>
+    <string name="entry_point_view_title" formatted="false">Inngangspunktvisning</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">Feil: {error}</string>
+    <string name="error_occurred_message" formatted="false">En feil oppstod: {error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">Feil ved endring av navn på enhet: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">Feil ved synkronisering av enheter: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">Feil ved avregistrering av enhet: {error}</string>
+    <string name="example_block400_prefix" formatted="false">f.eks. Blokker 400 prefiksnummer</string>
+    <string name="example_block_marketing_sms" formatted="false">f.eks. Blokker markedsførings-SMS</string>
+    <string name="example_content_regex_hint" formatted="false">Eksempel på innholdsmønster</string>
+    <string name="example_coupon_promotion_discount" formatted="false">f.eks. .*(kupong|kampanje|rabatt).*</string>
+    <string name="example_family_friends" formatted="false">f.eks. Familie, Venner, etc.</string>
+    <string name="example_phone_number" formatted="false">f.eks. 10086, 12345, etc.</string>
+    <string name="example_regex400_prefix" formatted="false">Eksempel på regulært uttrykk for 400 prefiks</string>
+    <string name="example_sender_regex_hint" formatted="false">Eksempel</string>
+    <string name="exchange" formatted="false">Bytte</string>
+    <string name="exchange_failed" formatted="false">Utveksling mislyktes: {error}</string>
+    <string name="exchange_now" formatted="false">Bytt nå</string>
+    <string name="exchange_success" formatted="false">Vellykket utvekslet for {description}, utløpsdato: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">Bytt VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">Utløpstid: {time}</string>
+    <string name="export" formatted="false">Eksporter</string>
+    <string name="export_all_application_settings" formatted="false">Eksporter alle applikasjonsinnstillinger</string>
+    <string name="export_all_rule_configurations" formatted="false">Eksporter alle regelkonfigurasjoner</string>
+    <string name="export_config" formatted="false">Eksporter konfigurasjon</string>
+    <string name="export_contacts" formatted="false">Eksporter kontakter</string>
+    <string name="export_data" formatted="false">Eksporter data</string>
+    <string name="export_entity" formatted="false">Eksporter {entityTypeName}</string>
+    <string name="export_failed" formatted="false">Eksportering mislyktes</string>
+    <string name="export_failure" formatted="false">Kunne ikke eksportere konfigurasjon</string>
+    <string name="export_feature_coming_soon" formatted="false">Eksportfunksjon kommer snart</string>
+    <string name="export_labels" formatted="false">Eksporter etiketter</string>
+    <string name="export_labels_failed" formatted="false">Kunne ikke eksportere etiketter: {error}</string>
+    <string name="export_plugin_list" formatted="false">Eksporter plugin-liste</string>
+    <string name="export_plugin_list_failed" formatted="false">Kunne ikke eksportere plugin-liste: {error}</string>
+    <string name="export_rules" formatted="false">Eksporter regler</string>
+    <string name="export_sms_rules" formatted="false">Eksporter SMS-regler</string>
+    <string name="export_statistics_data" formatted="false">Eksporter statistikkdata</string>
+    <string name="export_successlly" formatted="false">Konfigurasjon eksportert vellykket</string>
+    <string name="failed_to_add_rule" formatted="false">Kunne ikke legge til regel: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">Kunne ikke legge til SMS-abonnement: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">Kunne ikke sikkerhetskopiere innstillinger: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">Kunne ikke dekryptere sikkerhetskoffertfilen</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">Kunne ikke slette SMS-regel: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">Kunne ikke eksportere regler: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">Kunne ikke hente nummeropplysningsinformasjon: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">Kunne ikke importere regler: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">Kunne ikke gjenopprette innstillinger</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">Kunne ikke gjenopprette innstillinger: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">Kunne ikke veksle regelstatus: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">Favorittkontakter</string>
+    <string name="feature" formatted="false">Funksjon</string>
+    <string name="feature_add_rules" formatted="false">• Legg til spesifikke regler for telefonnummer</string>
+    <string name="feature_center" formatted="false">Funksjonssenter</string>
+    <string name="feature_enable_disable" formatted="false">• Aktiver/deaktiver forskjellige filtre per SIM</string>
+    <string name="feature_list_title" formatted="false">Funksjoner:</string>
+    <string name="feature_manage_rules" formatted="false">• Administrer regelsett per SIM</string>
+    <string name="features" formatted="false">Funksjoner</string>
+    <string name="fetching_caller_id_info" formatted="false">Henter nummeropplysningsinformasjon...</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">Fil lagret til: {path}</string>
+    <string name="filter" formatted="false">Filtrer</string>
+    <string name="filter_and_sort_title" formatted="false">Filtrer og sorter</string>
+    <string name="filter_by" formatted="false">Filtrer etter</string>
+    <string name="filter_by_action" formatted="false">Filtrer etter handling</string>
+    <string name="filter_by_label" formatted="false">Filtrer etter etikett</string>
+    <string name="filter_control_panel_title" formatted="false">Filterkontrollpanel</string>
+    <string name="filter_control_subtitle" formatted="false">Administrer av/på-status for alle filtre</string>
+    <string name="filter_control_title" formatted="false">Kontroll for filtre</string>
+    <string name="filter_explanation" formatted="false">Forklaring av filter</string>
+    <string name="filter_management" formatted="false">Filteradministrasjon</string>
+    <string name="filter_management_description" formatted="false">Sett anropsfiltre</string>
+    <string name="filter_name" formatted="false">Filter navn</string>
+    <string name="filter_priority_note" formatted="false">Merk: Det er prioriteringsforhold mellom filtre, vennligst se hjelpedokumentasjonen for detaljer</string>
+    <string name="filter_s_m_s" formatted="false">Filtrer SMS</string>
+    <string name="filter_settings" formatted="false">Filterinnstillinger</string>
+    <string name="filter_settings_title" formatted="false">Filterinnstillinger</string>
+    <string name="filter_toggle_instructions" formatted="false">Aktiver eller deaktiver filtre for denne SIM-kortplassen:</string>
+    <string name="filter_toggle_status" formatted="false">{status} filter: {filterName}</string>
+    <string name="filter_type" formatted="false">Filtertype</string>
+    <string name="filter_verified_owner" formatted="false">Filtrer verifisert eier</string>
+    <string name="filtered" formatted="false">Filtrert</string>
+    <string name="final_risk" formatted="false">Endelig risiko</string>
+    <string name="financial" formatted="false">Finansiell</string>
+    <string name="flexible_combination_feature" formatted="false">• Fleksible kombinasjoner: Aktiver/deaktiver filtre per SIM-kortplass</string>
+    <string name="font_sizes_setting" formatted="false">Skriftstørrelser</string>
+    <string name="found_rules" formatted="false">Fant {count} regler</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">For å sette opp svindelvarsling</string>
+    <string name="fraud_aler_setting_title" formatted="false">Innstillinger for svindelvarsling</string>
+    <string name="fraud_alert" formatted="false">SVINDELALARM - Legg på samtalen</string>
+    <string name="fraud_alert_title" formatted="false">Svindelvarsling</string>
+    <string name="fraud_alerts" formatted="false">Svindelvarsler</string>
+    <string name="fraud_alerts_description" formatted="false">Viser advarsler for potensielt svindelaktige samtaler.</string>
+    <string name="fraud_scam_likely" formatted="false">Svindel, sannsynlig svindel</string>
+    <string name="free" formatted="false">Gratis</string>
+    <string name="function_settings_title" formatted="false">Funksjonsinnstillinger</string>
+    <string name="general_update_failure" formatted="false">Oppdatering mislyktes: {error}</string>
+    <string name="get_free" formatted="false">Få gratis</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Konfigurer globale filtre for alle SIM-kort:</string>
+    <string name="global_filter_feature" formatted="false">• Globale filtre: Grunnleggende regler for alle innkommende anrop</string>
+    <string name="global_filter_settings" formatted="false">Globale filterinnstillinger</string>
+    <string name="global_settings" formatted="false">Globale innstillinger</string>
+    <string name="google_drive_auth_description" formatted="false">Autoriser ved bruk av systemkonfigurert Google Drive-klient-ID og nøkkel</string>
+    <string name="google_drive_config_title" formatted="false">Google Drive-konfigurasjon</string>
+    <string name="government" formatted="false">Myndigheter</string>
+    <string name="grant_necessary_permissions" formatted="false">Gi nødvendige tillatelser</string>
+    <string name="grant_permissions" formatted="false">Gi tillatelser</string>
+    <string name="granted" formatted="false">Innrømmet</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">Du har fått {days} dagers midlertidige kjøpsprivilegier. Utløpsdato: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">Retningslinjer</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">Du har allerede midlertidige privilegier, utløpsdato: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">Du har allerede VIP-privilegier (unntatt annonser)</string>
+    <string name="headhunter" formatted="false">Rekrutterer</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Høyde</string>
+    <string name="high" formatted="false">Høy</string>
+    <string name="high_risk" formatted="false">Høy risiko</string>
+    <string name="home_tab" formatted="false">Hjem</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 time siden} other{{count} timer siden}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 timer} =1{1 time} other{{count} timer}}</string>
+    <string name="how_it_works_point1" formatted="false">• Systemet vil automatisk tillate anrop fra samme nummer innenfor det angitte tidsvinduet</string>
+    <string name="how_it_works_point2" formatted="false">• Kortere tidsvinduer gir strengere avskjæring; lengre tidsvinduer gir løsere avskjæring</string>
+    <string name="how_it_works_point3" formatted="false">• Systemet sjekker anropslogger for å avgjøre om det er et gjentatt anrop</string>
+    <string name="how_it_works_title" formatted="false">Slik fungerer det:</string>
+    <string name="icon_code_optional" formatted="false">Ikonkode (valgfritt)</string>
+    <string name="icon_size" formatted="false">Ikonstørrelse</string>
+    <string name="import" formatted="false">Importer</string>
+    <string name="import_config" formatted="false">Importer konfigurasjon</string>
+    <string name="import_contacts" formatted="false">Importer kontakter</string>
+    <string name="import_entity" formatted="false">Importer {entityTypeName}</string>
+    <string name="import_export" formatted="false">Import/Eksport</string>
+    <string name="import_export_contacts" formatted="false">Importer/eksporter kontakter</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Importer/eksporter kontakter</string>
+    <string name="import_export_description" formatted="false">Importer eller eksporter {entityTypeName}-data</string>
+    <string name="import_export_rules" formatted="false">Importer/eksporter regler</string>
+    <string name="import_export_title" formatted="false">Import/Eksport</string>
+    <string name="import_failed" formatted="false">Import mislyktes: {error}</string>
+    <string name="import_failure" formatted="false">Kunne ikke importere konfigurasjon</string>
+    <string name="import_feature_coming_soon" formatted="false">Importfunksjon kommer snart</string>
+    <string name="import_labels" formatted="false">Importer etiketter</string>
+    <string name="import_labels_failed" formatted="false">Kunne ikke importere etiketter: {error}</string>
+    <string name="import_plugin_list" formatted="false">Importer plugin-liste</string>
+    <string name="import_plugin_list_failed" formatted="false">Kunne ikke importere plugin-liste: {error}</string>
+    <string name="import_plugin_success" formatted="false">Vellykket importert {count} plugins</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Importer regelkonfigurasjoner fra fil</string>
+    <string name="import_rules" formatted="false">Importer regler</string>
+    <string name="import_success" formatted="false">Import vellykket</string>
+    <string name="important" formatted="false">Viktig</string>
+    <string name="important_notice_title" formatted="false">Viktig merknad</string>
+    <string name="incoming_call_intercept_action" formatted="false">Handling ved avskjæring av innkommende anrop</string>
+    <string name="incorrect_password" formatted="false">Feil passord</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">Velg de regionale regelbibliotekene du vil blokkere. Disse reglene hjelper deg med å automatisk blokkere vanlige salgs- og svindelanrop i din region.</string>
+    <string name="initial_setup_deselect_all" formatted="false">Fjern merking</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">Kunne ikke hente konfigurasjon</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">Prøv igjen</string>
+    <string name="initial_setup_save" formatted="false">Hurtigoppsett valgt</string>
+    <string name="initial_setup_save_failed" formatted="false">Kunne ikke lagre konfigurasjon: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Konfigurasjon lagret vellykket, regler vil bli hentet automatisk snart</string>
+    <string name="initial_setup_saving" formatted="false">Lagrer...</string>
+    <string name="initial_setup_search_hint" formatted="false">Søk etter regelsett eller land...</string>
+    <string name="initial_setup_select_all" formatted="false">Velg alle</string>
+    <string name="initial_setup_selected_count" formatted="false">{count} valgt</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">Hopp over</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">Oppsett av regelbibliotek</string>
+    <string name="initializing" formatted="false">Initialiserer</string>
+    <string name="installed" formatted="false">Installert</string>
+    <string name="insufficient_marks" formatted="false">Utililstrekkelige poeng</string>
+    <string name="insurance" formatted="false">Forsikring</string>
+    <string name="intercept_action" formatted="false">Avskjærings handling</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Still inn hvordan blokkerte anrop håndteres</string>
+    <string name="interception_action_settings_title" formatted="false">Innstillinger for avskjærings handling</string>
+    <string name="interception_time_interval" formatted="false">Avskjæring tidsintervall</string>
+    <string name="internet" formatted="false">Internett</string>
+    <string name="interval_set_success" formatted="false">{service} oppdateringsintervall satt til {days} dager</string>
+    <string name="invalid_content_regex" formatted="false">Ugyldig innholdsregEx</string>
+    <string name="invalid_exchange_rule" formatted="false">Ugyldig utvekslingsregel</string>
+    <string name="invalid_label" formatted="false">Ugyldig etikett</string>
+    <string name="invalid_regex_pattern" formatted="false">Ugyldig regex-mønster</string>
+    <string name="invalid_sender_regex" formatted="false">Ugyldig avsender-regex</string>
+    <string name="invalid_sim_data" formatted="false">Ugyldige SIM-data</string>
+    <string name="ip_country" formatted="false">IP-land</string>
+    <string name="is_number_match" formatted="false">Nummermatch</string>
+    <string name="is_roaming" formatted="false">Roaming</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">Bli med i Telegram-kanalen og gruppen for mer informasjon</string>
+    <string name="json_format" formatted="false">JSON-format</string>
+    <string name="just_now" formatted="false">Nettopp</string>
+    <string name="keep_all_versions" formatted="false">Behold alle versjoner</string>
+    <string name="keep_all_versions_description" formatted="false">Behold alle historiske versjoner av hver sikkerhetskopi</string>
+    <string name="label" formatted="false">Etikett</string>
+    <string name="label_action_description" formatted="false">Legg til en etikett på samtalen for enkel identifikasjon.</string>
+    <string name="label_added_successfully" formatted="false">Etiketten &quot;{name}&quot; ble lagt til vellykket</string>
+    <string name="label_categories" formatted="false">Etikettkategorier</string>
+    <string name="label_deleted" formatted="false">Etikett slettet</string>
+    <string name="label_description" formatted="false">Etiketter hjelper deg med å administrere kontakter bedre, legg til egendefinerte etiketter på telefonnumre for enkel identifisering av anrop og meldinger.</string>
+    <string name="label_filter_tooltip" formatted="false">Etikettfilter</string>
+    <string name="label_icon_color" formatted="false">Etikettikonfarge</string>
+    <string name="label_management" formatted="false">Etiketthåndtering</string>
+    <string name="label_not_found" formatted="false">Etikett ikke funnet</string>
+    <string name="label_tag" formatted="false">Etikett: {labelId}</string>
+    <string name="label_update_failed" formatted="false">Kunne ikke oppdatere etikett: {error}</string>
+    <string name="label_update_success" formatted="false">Etiketten &quot;$labelText&quot; ble oppdatert vellykket</string>
+    <string name="labels" formatted="false">Etiketter</string>
+    <string name="labels_color" formatted="false">Etiketter farge</string>
+    <string name="labels_deleted" formatted="false">{count} etiketter slettet</string>
+    <string name="labels_exported_successfully" formatted="false">Etiketter eksportert vellykket</string>
+    <string name="labels_font_size" formatted="false">Etiketter skriftstørrelse</string>
+    <string name="labels_imported_successfully" formatted="false">Vellykket importert {count} etiketter</string>
+    <string name="labels_position" formatted="false">Etiketter posisjon</string>
+    <string name="language_settings" formatted="false">Språkinnstillinger</string>
+    <string name="language_settings_subtitle" formatted="false">Endre appens visningsspråk</string>
+    <string name="language_settings_title" formatted="false">Språkinnstillinger</string>
+    <string name="last_sync_label" formatted="false">Siste synkronisering</string>
+    <string name="last_updated" formatted="false">Sist oppdatert: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">Livstidsmedlemskap</string>
+    <string name="lifetime_membership_description" formatted="false">Engangskjøp, lås opp permanent alle premiumfunksjoner og fremtidige oppdateringer</string>
+    <string name="list_view" formatted="false">Listevisning</string>
+    <string name="live_activities_settings_title" formatted="false">Innstillinger for Live Aktiviteter</string>
+    <string name="live_activities_test_end_activity" formatted="false">Avslutt aktivitet</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">Send ny aktivitet</string>
+    <string name="live_activities_test_title" formatted="false">Live Aktiviteter Test</string>
+    <string name="live_activities_test_update_activity" formatted="false">Oppdater aktivitet</string>
+    <string name="live_activity_controls_title" formatted="false">Kontroller for Live Aktivitet</string>
+    <string name="live_activity_mode" formatted="false">Live Aktivitet</string>
+    <string name="live_activity_mode_description" formatted="false">Viser samtaleinformasjon som et vedvarende varsel på låseskjermen og i Dynamic Island (iOS).</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Tilpass utseendet til live varsler.</string>
+    <string name="live_notification_customization_title" formatted="false">Tilpasning av Live Varsler</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">Kunne ikke laste inn kontakter: {error}</string>
+    <string name="load_data_failed" formatted="false">Kunne ikke laste inn data</string>
+    <string name="load_label_failed" formatted="false">Kunne ikke laste inn etiketter: {error}</string>
+    <string name="load_labels_failed" formatted="false">Kunne ikke laste inn etiketter: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">Kunne ikke laste inn merkede telefonnumre: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">Kunne ikke laste inn merkede telefonnumre: {error}</string>
+    <string name="load_plugins_failed" formatted="false">Kunne ikke laste inn plugins: {error}</string>
+    <string name="load_settings_failed" formatted="false">Kunne ikke laste inn innstillinger: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">Kunne ikke laste inn SMS-regler: {error}</string>
+    <string name="load_status_failed_message" formatted="false">Kunne ikke laste inn status</string>
+    <string name="load_subscriptions_failed" formatted="false">Kunne ikke laste inn abonnementer: {error}</string>
+    <string name="loading" formatted="false">Laster inn...</string>
+    <string name="loading_ad" formatted="false">Laster annonse...</string>
+    <string name="loading_tags" formatted="false">Laster inn merkelapper...</string>
+    <string name="loan" formatted="false">Lån</string>
+    <string name="local_count_filter" formatted="false">Beskyttelse for lokal merkingsterskel</string>
+    <string name="local_count_filter_description" formatted="false">Blokker automatisk anrop som overskrider den lokale rapportterskelen</string>
+    <string name="local_count_filter_explanation_content" formatted="false">Det lokale antallsfilteret analyserer samtalehistorikk for å automatisk identifisere og blokkere hyppige spam-anrop.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">Forklaring av lokalt antallsfilter</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• Bestem om du vil blokkere basert på nummers antallsverdi</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• Når et nummers antall overstiger den innstilte terskelen, kan du velge å blokkere det automatisk</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• Du kan selektivt tillate numre som ikke overskrider terskelen</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• Du kan velge om du vil registrere alle spørringslogger</string>
+    <string name="local_count_filter_settings" formatted="false">Innstillinger for lokalt antallsfilter</string>
+    <string name="local_count_filter_use_cases" formatted="false">Dette filteret er spesielt egnet for å identifisere automatiserte spam-anrop og markedsføringsanrop.</string>
+    <string name="local_count_filtering" formatted="false">Lokal antallsfiltrering</string>
+    <string name="local_count_filtering_explanation" formatted="false">• Lokal antallsfiltrering: Filtreringsregler basert på lokal merket antall</string>
+    <string name="local_counter_filter" formatted="false">Lokal tellerfilter</string>
+    <string name="local_counter_filter_subtitle" formatted="false">Filtrer automatisk spam-anrop basert på anropsfrekvens</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">Innstillinger for lokalt filter</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">Lokal varsling deaktivert</string>
+    <string name="local_notification_enabled" formatted="false">Lokal varsling aktivert</string>
+    <string name="local_services" formatted="false">Lokale tjenester</string>
+    <string name="location" formatted="false">Sted</string>
+    <string name="location_color" formatted="false">Plassering farge</string>
+    <string name="location_font_size" formatted="false">Plassering skriftstørrelse</string>
+    <string name="location_icon_color" formatted="false">Plassering ikonfarge</string>
+    <string name="location_position" formatted="false">Plassering posisjon</string>
+    <string name="log" formatted="false">Logg</string>
+    <string name="log_action_description" formatted="false">Loggfør samtalens informasjon uten å utføre andre handlinger.</string>
+    <string name="log_all_local_queries" formatted="false">Logg alle lokale spørringer</string>
+    <string name="log_all_local_queries_description" formatted="false">Registrer logger for alle lokale nummerspørringer</string>
+    <string name="log_all_remote_queries" formatted="false">Logg alle eksterne spørringer</string>
+    <string name="log_all_remote_queries_description" formatted="false">Registrer alle eksterne nummerspørringsoperasjoner</string>
+    <string name="low" formatted="false">Lav</string>
+    <string name="low_risk" formatted="false">Lav risiko</string>
+    <string name="manage" formatted="false">Administrer kontakter</string>
+    <string name="manage_favorite_contacts" formatted="false">Administrer favorittkontakter</string>
+    <string name="manage_filter_rules" formatted="false">Administrer filterregler</string>
+    <string name="manage_filter_rules_description" formatted="false">Legg til, rediger eller slett SMS-filterregler</string>
+    <string name="manual_entry" formatted="false">Manuell oppføring info</string>
+    <string name="mark_count" formatted="false">Merk antall</string>
+    <string name="mark_counts" formatted="false">Merk antall</string>
+    <string name="mark_exchange" formatted="false">Merk utveksling</string>
+    <string name="mark_more_numbers_for_more" formatted="false">Merk flere numre for flere poeng</string>
+    <string name="mark_phone" formatted="false">Merk telefonnummer</string>
+    <string name="mark_phone_failed" formatted="false">Kunne ikke merke telefonnummer: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">Håndtering av merkede telefonnumre</string>
+    <string name="mark_phone_success" formatted="false">Telefonnummer merket vellykket</string>
+    <string name="marked_by_count" formatted="false">Merke av {count}</string>
+    <string name="marked_phones_list" formatted="false">Merkede telefonnumre</string>
+    <string name="marks_insufficient" formatted="false">Utilstrekkelig antall merker for utveksling</string>
+    <string name="master_and_overrides" formatted="false">Hovedkontroller</string>
+    <string name="master_and_overrides_desc" formatted="false">Globale regelinnstillinger</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">Treff mislyktes.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">matcher spesifikt nummerformat</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">Matcher tall med spesialtegn:</string>
+    <string name="match_specific_digit_patterns" formatted="false">matcher XXX-XXXX-XXXX format</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">Matcher spesifikke sifermønstre:</string>
+    <string name="match_successful_message" formatted="false">Treff vellykket!</string>
+    <string name="medical" formatted="false">Medisinsk</string>
+    <string name="medium" formatted="false">Medium</string>
+    <string name="medium_risk" formatted="false">Middels risiko</string>
+    <string name="membership_center" formatted="false">Medlemsenter</string>
+    <string name="membership_privileges" formatted="false">Medlemskapsfordeler</string>
+    <string name="message_background_color" formatted="false">Bakgrunnsfarge for melding</string>
+    <string name="message_color" formatted="false">Meldingens farge</string>
+    <string name="message_font_size" formatted="false">Meldingens skriftstørrelse</string>
+    <string name="message_position" formatted="false">Meldingens posisjon</string>
+    <string name="migration_tool" formatted="false">Migreringsverktøy</string>
+    <string name="minutes" formatted="false">minutter</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 minutt siden} other{{count} minutter siden}}</string>
+    <string name="moderate" formatted="false">Moderat</string>
+    <string name="month" formatted="false">Måned</string>
+    <string name="monthly" formatted="false">Månedlig</string>
+    <string name="monthly_call_count" formatted="false">Månedlige anrop</string>
+    <string name="monthly_membership" formatted="false">Månedlig medlemskap</string>
+    <string name="monthly_membership_description" formatted="false">Lås opp alle premiumfunksjoner, fornyes automatisk månedlig</string>
+    <string name="monthly_total" formatted="false">Månedlig totalt</string>
+    <string name="more_options" formatted="false">Flere alternativer</string>
+    <string name="mute" formatted="false"> Demp</string>
+    <string name="name" formatted="false">Navn</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">Navn og telefonnummer kan ikke være tomme</string>
+    <string name="name_cannot_be_empty" formatted="false">Navn kan ikke være tomt</string>
+    <string name="name_color" formatted="false">Navnfarge</string>
+    <string name="name_font_size" formatted="false">Navn skriftstørrelse</string>
+    <string name="name_position" formatted="false">Navn posisjon</string>
+    <string name="name_unknown" formatted="false">Navn: Ukjent</string>
+    <string name="national_number" formatted="false">Nasjonalt nummer</string>
+    <string name="need_vip_access" formatted="false">Du trenger VIP-tilgang for å bruke denne funksjonen</string>
+    <string name="new_vote_received" formatted="false">Ny stemme mottatt</string>
+    <string name="new_vote_received_body" formatted="false">Noen stemte for å {voteType} sletting av {phoneNumber}. Nåværende stemmer: {totalVotes}.</string>
+    <string name="next_step" formatted="false">Neste</string>
+    <string name="no_action" formatted="false">Ingen handling</string>
+    <string name="no_action_rules" formatted="false">Ingen handling-regler</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">Ingen aktiv skysynkroniseringstjeneste</string>
+    <string name="no_activity" formatted="false">Ingen aktivitet</string>
+    <string name="no_ads" formatted="false">Ingen reklame</string>
+    <string name="no_allowed_blocked_rules" formatted="false">Ingen tillatte/blokkerte regler funnet</string>
+    <string name="no_blocked_type_data" formatted="false">Ingen data tilgjengelig for blokkert type</string>
+    <string name="no_call_records" formatted="false">Ingen samtaleoppføringer</string>
+    <string name="no_contacts_yet" formatted="false">Ingen kontakter ennå</string>
+    <string name="no_data" formatted="false">Ingen data</string>
+    <string name="no_devices_registered_message" formatted="false">Ingen enheter registrert</string>
+    <string name="no_labels" formatted="false">Ingen etiketter ennå</string>
+    <string name="no_marked_phones" formatted="false">Ingen merkede telefonnumre</string>
+    <string name="no_matching_contacts_found" formatted="false">Ingen matchende kontakter funnet</string>
+    <string name="no_matching_numbers_found" formatted="false">Ingen matchende numre funnet</string>
+    <string name="no_matching_rules" formatted="false">Ingen matchende {ruleType}</string>
+    <string name="no_notifications" formatted="false">Ingen varsler</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">Ingen telefonregler funnet</string>
+    <string name="no_plugins" formatted="false">Ingen plugins ennå</string>
+    <string name="no_proposals_found" formatted="false">Ingen forslag funnet</string>
+    <string name="no_regex_rules" formatted="false">Ingen regex-regler funnet</string>
+    <string name="no_rules" formatted="false">Ingen {ruleType} ennå</string>
+    <string name="no_rules_prompt" formatted="false">Ingen regler funnet, legg til regler</string>
+    <string name="no_rules_to_export" formatted="false">Ingen regler å eksportere</string>
+    <string name="no_sim_card_detected" formatted="false">Ingen SIM-kort oppdaget</string>
+    <string name="no_sim_cards_detected" formatted="false">Ingen SIM-kort oppdaget</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">Ingen SMS-filterregler ennå</string>
+    <string name="no_sms_rules_yet" formatted="false">Ingen SMS-regler ennå</string>
+    <string name="no_subscriptions" formatted="false">Ingen abonnementer</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">Ingen gyldige SMS-regler funnet i fil</string>
+    <string name="none" formatted="false">Ingen</string>
+    <string name="none_action_description" formatted="false">Ingen spesiell handling vil bli utført for samtalen.</string>
+    <string name="none_service_type" formatted="false">Ingen</string>
+    <string name="normal_user" formatted="false">Vanlig bruker</string>
+    <string name="not_granted" formatted="false">Ikke gitt</string>
+    <string name="not_verified_text" formatted="false">Ikke verifisert</string>
+    <string name="notification_frequency_hours" formatted="false">Varslingsfrekvens (Timer)</string>
+    <string name="notification_frequency_title" formatted="false">Varslingsfrekvens</string>
+    <string name="notification_mode" formatted="false">Varslingsmodus</string>
+    <string name="notification_mode_description" formatted="false">Vis oppringerinformasjon i varslingsfeltet</string>
+    <string name="notification_permission" formatted="false">Varslingsrettighet</string>
+    <string name="notification_permission_description" formatted="false">Brukes til å vise varsler om innkommende anrop og meldinger.</string>
+    <string name="notification_settings" formatted="false">Varslingsinnstillinger</string>
+    <string name="notification_settings_title" formatted="false">Varslingsinnstillinger</string>
+    <string name="notification_instructions" formatted="false">Instruksjoner:
+1. Trykk på &quot;SEND&quot; for å opprette eller oppdatere et varsel.
+2. Gå til startskjermen eller dra ned varslingspanelet for å se resultatet.
+3. Trykk på &quot;AVSLUTT&quot; for å lukke varselet.</string>
+    <string name="notifications" formatted="false">Varsler</string>
+    <string name="notify" formatted="false">Varsle</string>
+    <string name="notify_action_description" formatted="false">Send et varsel når en samtale mottas.</string>
+    <string name="number" formatted="false">Nummer</string>
+    <string name="number_color" formatted="false">Nummerfarge</string>
+    <string name="number_font_size" formatted="false">Nummer skriftstørrelse</string>
+    <string name="number_format" formatted="false">Nummerformat</string>
+    <string name="number_invalid_format" formatted="false">Nummer i ugyldig format</string>
+    <string name="number_position" formatted="false">Nummer posisjon</string>
+    <string name="number_search" formatted="false">Nummersøk</string>
+    <string name="number_type_color" formatted="false">Nummertypefarge</string>
+    <string name="number_type_font_size" formatted="false">Nummertype skriftstørrelse</string>
+    <string name="number_type_position" formatted="false">Nummertype posisjon</string>
+    <string name="ok_button" formatted="false">OK</string>
+    <string name="onboarding_complete_description" formatted="false">Din samtalestyringsverktøy er klar, begynn å nyte en trygg samtaleopplevelse!</string>
+    <string name="onboarding_language_description" formatted="false">Velg ditt foretrukne språk for best mulig opplevelse.</string>
+    <string name="onboarding_permissions_description" formatted="false">For å gi full service trenger vi følgende tillatelser:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">Ettklikksblokkering av spam-anrop og meldinger, tilpass blokkeringsregler og gi deg et rolig miljø.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">Identifiser ukjente anrop automatisk, merk mistenkelige numre og beskytt samtaletryggheten din.</string>
+    <string name="onboarding_welcome_description" formatted="false">Din samtalestyringsekspert, som tilbyr omfattende samtaleidentifikasjon og blokkeringstjenester.</string>
+    <string name="one_drive_auth_description" formatted="false">Autoriser ved å bruke systemkonfigurert OneDrive-klient-ID og nøkkel</string>
+    <string name="one_drive_config_title" formatted="false">OneDrive Konfigurasjon</string>
+    <string name="online_caller_id_subscription" formatted="false">Online Anrops-ID Abonnement</string>
+    <string name="open_app_settings" formatted="false">Åpne appinnstillinger</string>
+    <string name="open_app_settings_failed" formatted="false">Kunne ikke åpne appinnstillinger: {error}</string>
+    <string name="open_in_web_view" formatted="false">Åpne i WebView</string>
+    <string name="operation_failed" formatted="false">Operasjon mislyktes: {error}</string>
+    <string name="operation_failure" formatted="false">Operasjon mislyktes</string>
+    <string name="operation_success" formatted="false">Operasjon fullført</string>
+    <string name="oppose" formatted="false">Motsett deg</string>
+    <string name="oppose_count" formatted="false">Imot ({opposeCount})</string>
+    <string name="opposed" formatted="false">IMOT</string>
+    <string name="other" formatted="false">Annen</string>
+    <string name="our_other_apps" formatted="false">Våre Andre Apper</string>
+    <string name="overlay_mode" formatted="false">Flytende Vindu</string>
+    <string name="overlay_mode_description" formatted="false">Vis anropsinformasjon i et flytende vindu</string>
+    <string name="overlay_permission" formatted="false">Overleggstillatelse</string>
+    <string name="overlay_permission_description" formatted="false">Brukes til å vise innkommende anrops-overlay.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">Oversikt</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">Passord</string>
+    <string name="password_cannot_be_empty" formatted="false">Passord kan ikke være tomt</string>
+    <string name="password_label" formatted="false">Passord</string>
+    <string name="passwords_do_not_match" formatted="false">Passordene stemmer ikke overens</string>
+    <string name="pattern" formatted="false">Mønster</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">VENTER</string>
+    <string name="pending_proposals" formatted="false">Avventende forslag</string>
+    <string name="pending_proposals_body" formatted="false">Du har {count, plural, =0 {ingen avventende forslag} one {1 avventende forslag} other {{count} avventende forslag}}.</string>
+    <string name="pending_sync" formatted="false">Venter på synkronisering</string>
+    <string name="period_month" formatted="false">Måned</string>
+    <string name="period_week" formatted="false">Uke</string>
+    <string name="period_year" formatted="false">År</string>
+    <string name="permission_denied" formatted="false">Tillatelsesforespørsel nektet</string>
+    <string name="permission_granted" formatted="false">Tillatelse gitt</string>
+    <string name="permission_management" formatted="false">Tillatelsesadministrasjon</string>
+    <string name="permission_subtitle" formatted="false">Administrer overlegg- og batterioptimaliseringstillatelser</string>
+    <string name="permission_title" formatted="false">Spesialtillatelser</string>
+    <string name="phone_calls_tab" formatted="false">Telefon</string>
+    <string name="phone_number" formatted="false">Telefonnummer</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">Telefonnummer kan ikke være tomt</string>
+    <string name="phone_number_hint" formatted="false">Skriv inn telefonnummer</string>
+    <string name="phone_number_label" formatted="false">Telefonnummer</string>
+    <string name="phone_number_min_digits" formatted="false">Telefonnummer må være minst 7 sifre</string>
+    <string name="phone_number_required" formatted="false">Telefonnummer er påkrevd</string>
+    <string name="phone_number_type" formatted="false">Telefonnummer Type</string>
+    <string name="phone_number_type_fixed_line" formatted="false">Fasttelefon</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">Fasttelefon eller mobil</string>
+    <string name="phone_number_type_mobile" formatted="false">Mobil</string>
+    <string name="phone_number_type_pager" formatted="false">Pager</string>
+    <string name="phone_number_type_personal_number" formatted="false">Personlig nummer</string>
+    <string name="phone_number_type_premium_rate" formatted="false">Premium-sats</string>
+    <string name="phone_number_type_shared_cost" formatted="false">Delt kostnad</string>
+    <string name="phone_number_type_toll_free" formatted="false">Tollfri</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">Ukjent</string>
+    <string name="phone_number_type_voicemail" formatted="false">Talepost</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">Telefontillatelse</string>
+    <string name="phone_permission_description" formatted="false">Brukes til å identifisere og blokkere innkommende anrop.</string>
+    <string name="phone_rule" formatted="false">Telefonregel</string>
+    <string name="phone_rule_management" formatted="false">Administrasjon av telefonregler</string>
+    <string name="phone_rule_subscription" formatted="false">Abonnement på telefonregler</string>
+    <string name="phone_rules_info" formatted="false">Telefonregler brukes til å matche anrop mot spesifikke telefonnumre, som har lavere prioritet. Noen kommer fra telefonregelabonnementene.</string>
+    <string name="phone_subscription" formatted="false">Telefonsubskripsjon</string>
+    <string name="phone_subscription_rules_description" formatted="false">Abonner på lister over telefonregler via URL for automatisk oppdatering av hviteliste- og svartelister. Støtter regel-filer i JSON-format.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">Vennligst skriv inn minst ett nummer.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">Vennligst velg en etikett og skriv inn et gyldig telefonnummer</string>
+    <string name="plugin_added_success" formatted="false">Plugin &quot;{name}&quot; lagt til vellykket</string>
+    <string name="plugin_deleted" formatted="false">Plugin slettet</string>
+    <string name="plugin_description" formatted="false">Pluginbeskrivelse</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">Plugin-etikett</string>
+    <string name="plugin_latest_version" formatted="false">Plugin er allerede den nyeste versjonen</string>
+    <string name="plugin_list_export_success" formatted="false">Plugin-liste eksportert vellykket</string>
+    <string name="plugin_management" formatted="false">Pluginadministrasjon</string>
+    <string name="plugin_management_subtitle" formatted="false">Administrer og konfigurer tredjeparts plugins</string>
+    <string name="plugin_name" formatted="false">Pluginnavn</string>
+    <string name="plugin_rules_info" formatted="false">Av sikkerhetshensyn, vennligst bruk plugins fra pålitelige kilder. Bruk gjerne malene våre for å lage dine egne egendefinerte plugins!</string>
+    <string name="plugin_service" formatted="false">Plugin-tjeneste</string>
+    <string name="plugin_test_page_title" formatted="false">Plugin-test</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">Plugin oppdatert vellykket</string>
+    <string name="plugin_url" formatted="false">Plugin-URL</string>
+    <string name="plugin_version" formatted="false">Plugin-versjon</string>
+    <string name="plugins_deleted" formatted="false">{count} plugins slettet vellykket.</string>
+    <string name="political" formatted="false">Politisk</string>
+    <string name="powerful_spam_blocking" formatted="false">Kraftig Spam-blokkering</string>
+    <string name="previous_step" formatted="false">Forrige</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">Prioriter Innstillinger for fjernhandling</string>
+    <string name="prioritize_remote_action_description" formatted="false">Prioriter innstillinger fra fjernbasen</string>
+    <string name="processed" formatted="false">Behandlet</string>
+    <string name="processing" formatted="false">Behandler...</string>
+    <string name="processing_operation" formatted="false">Behandler...</string>
+    <string name="proposal_approved" formatted="false">Forslag godkjent ✅</string>
+    <string name="proposal_approved_body" formatted="false">Slettingsforslaget for {phoneNumber} er godkjent av samfunnet ({supportPercentage}% støtte, {totalVotes} stemmer).</string>
+    <string name="proposal_created" formatted="false">Forslag opprettet vellykket</string>
+    <string name="proposal_details" formatted="false">Forslagsdetaljer</string>
+    <string name="proposal_not_found" formatted="false">Forslag ikke funnet</string>
+    <string name="proposal_processed" formatted="false">Dette forslaget er behandlet</string>
+    <string name="proposal_rejected" formatted="false">Forslag avvist ❌</string>
+    <string name="proposal_rejected_body" formatted="false">Slettingsforslaget for {phoneNumber} er avvist av samfunnet ({supportPercentage}% støtte, {totalVotes} stemmer).</string>
+    <string name="proposal_statistics" formatted="false">Forslagsstatistikk</string>
+    <string name="provide_detailed_explanation" formatted="false">Gi en detaljert forklaring (minimum 10 tegn)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">Kjøp</string>
+    <string name="purchase_subtitle" formatted="false">For å kjøpe tjenesten</string>
+    <string name="purchase_title" formatted="false">Kjøp</string>
+    <string name="quarterly_membership" formatted="false">Kvartalsmedlemskap</string>
+    <string name="quarterly_membership_description" formatted="false">Lås opp alle premium-funksjoner, fornyes automatisk kvartalsvis</string>
+    <string name="ready" formatted="false">Klar!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">Årsak</string>
+    <string name="reason_inaccurate_info" formatted="false">Unøyaktig informasjon</string>
+    <string name="reason_min_characters" formatted="false">Årsak må være minst 10 tegn</string>
+    <string name="reason_not_in_service" formatted="false">Ikke i bruk</string>
+    <string name="reason_other" formatted="false">Annet</string>
+    <string name="reason_outdated" formatted="false">Utdatert nummer</string>
+    <string name="reason_privacy" formatted="false">Personvernhensyn</string>
+    <string name="reason_required" formatted="false">Årsak er påkrevd</string>
+    <string name="reason_wrongly_identified" formatted="false">Feilidentifisert</string>
+    <string name="recruiter" formatted="false">Rekrutterer</string>
+    <string name="redeem_vip_with_marks" formatted="false">Løs inn VIP med poeng</string>
+    <string name="redirect" formatted="false">Omdiriger</string>
+    <string name="redirect_action_description" formatted="false">Omdiriger samtalen til et spesifisert nummer.</string>
+    <string name="refresh" formatted="false">Oppdater</string>
+    <string name="refresh_permission_status" formatted="false">Oppdater tillatelsesstatus</string>
+    <string name="refresh_proposals" formatted="false">Oppdater forslag</string>
+    <string name="refresh_tooltip" formatted="false">Oppdater</string>
+    <string name="regex_error_message" formatted="false">Regex-feil: {error}</string>
+    <string name="regex_pattern" formatted="false">Regex-mønster</string>
+    <string name="regex_pattern_explanation" formatted="false">Forklaring til regex-mønster</string>
+    <string name="regex_pattern_explanation_button" formatted="false">Forklaring til regex-mønster</string>
+    <string name="regex_pattern_label" formatted="false">Regex-mønster</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">Regex-mønstre for telefonskattmatching</string>
+    <string name="regex_rule" formatted="false">Regex-regel</string>
+    <string name="regex_rule_add_failed" formatted="false">Kunne ikke legge til regex-regel: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">Regex-regel lagt til vellykket</string>
+    <string name="regex_rule_management" formatted="false">Regex-regeladministrasjon</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">Regelnavn og regex-mønster kan ikke være tomme</string>
+    <string name="regex_rules" formatted="false">Regex-regler</string>
+    <string name="regex_rules_info" formatted="false">Regex-regler brukes til å filtrere anrop basert på Regex-mønstre.</string>
+    <string name="regex_tester_title" formatted="false">Regex-tester</string>
+    <string name="region" formatted="false">Region</string>
+    <string name="registered_devices_title" formatted="false">Registrerte enheter</string>
+    <string name="reject_all_calls" formatted="false">Avvis alle anrop</string>
+    <string name="reject_all_calls_description" formatted="false">Når aktivert, vil alle anrop bli avvist med høyeste prioritet</string>
+    <string name="reject_all_numbers" formatted="false">Avvis alle innkommende anrop</string>
+    <string name="reject_all_numbers_desc" formatted="false">Avvis alle innkommende anrop med høyeste prioritet</string>
+    <string name="reject_exceeded_numbers" formatted="false">Avvis overskredne numre</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">Avvis automatisk numre som overskrider terskelverdien</string>
+    <string name="rejected" formatted="false">AVSLÅTT</string>
+    <string name="remote_filter_settings" formatted="false">Fjernfiltermuligheter</string>
+    <string name="remote_filter_settings_page_title" formatted="false">Innstillinger for ekstern nummerfilter</string>
+    <string name="remote_number_filter" formatted="false">Beskyttelse for sky-spørringsterskel</string>
+    <string name="remote_number_filter_description" formatted="false">Blokker automatisk anrop som overskrider sky-rapportterskelen</string>
+    <string name="remote_number_filter_subtitle" formatted="false">Identifiser spam-anrop ved hjelp av skybasert database og fellesskapsrapporter</string>
+    <string name="remote_number_filtering" formatted="false">Ekstern nummerfiltrering</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• Ekstern nummerfiltrering: Filtreringsregler basert på informasjon fra ekstern database</string>
+    <string name="remove_ads" formatted="false">Fjern reklame</string>
+    <string name="remove_ads_description" formatted="false">Fjern permanent alle annonser i appen for en jevnere opplevelse</string>
+    <string name="remove_ads_title" formatted="false">Fjern annonser</string>
+    <string name="remove_from_favorites" formatted="false">Fjern fra favoritter</string>
+    <string name="removed_from_favorites" formatted="false">Fjernet fra favoritter</string>
+    <string name="rename_device_title" formatted="false">Gi nytt navn til enhet</string>
+    <string name="reporting_guidelines" formatted="false">• Rapporter kun numre som er genuint problematiske
+• Oppgi nøyaktige og detaljerte årsaker
+• Velg passende risikonivå basert på alvorlighetsgrad
+• Falske rapporter kan føre til kontobegrensninger</string>
+    <string name="request_all_permissions" formatted="false">Be om alle tillatelser</string>
+    <string name="request_permission" formatted="false">Be om tillatelse</string>
+    <string name="request_permission_failed" formatted="false">Kunne ikke be om tillatelse: {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">{count} merker</string>
+    <string name="reset" formatted="false">Tilbakestill</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">Gjenopprett</string>
+    <string name="restore_application_settings_from_backup" formatted="false">Gjenopprett applikasjonsinnstillinger fra sikkerhetskopi</string>
+    <string name="restore_from_cloud" formatted="false">Gjenopprett fra sky</string>
+    <string name="restore_from_cloud_failed" formatted="false">Kunne ikke gjenopprette fra sky: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">Vellykket gjenoppretting fra sky</string>
+    <string name="restore_purchases" formatted="false">Gjenopprett kjøp</string>
+    <string name="restore_settings" formatted="false">Gjenopprett innstillinger</string>
+    <string name="restore_settings_confirmation" formatted="false">Dette vil erstatte alle dine gjeldende innstillinger. Er du sikker på at du vil fortsette?</string>
+    <string name="result" formatted="false">Resultat</string>
+    <string name="retry" formatted="false">Prøv igjen</string>
+    <string name="rewarded_ad_service" formatted="false">Belønnede annonsertjenester</string>
+    <string name="ridesharing" formatted="false">Samkjøring</string>
+    <string name="risk" formatted="false">Risiko</string>
+    <string name="risk_level" formatted="false">Risikonivå</string>
+    <string name="risk_level_critical" formatted="false">Kritisk</string>
+    <string name="risk_level_high" formatted="false">Høy</string>
+    <string name="risk_level_label" formatted="false">Risikonivå</string>
+    <string name="risk_level_low" formatted="false">Lav</string>
+    <string name="risk_level_medium" formatted="false">Middels</string>
+    <string name="risk_level_very_low" formatted="false">Veldig lav</string>
+    <string name="robocall" formatted="false">Robocall</string>
+    <string name="rule_action" formatted="false">Regelhandling</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">Regel lagt til vellykket</string>
+    <string name="rule_added_success" formatted="false">Regel lagt til vellykket</string>
+    <string name="rule_delete_confirm_content" formatted="false">Er du sikker på at du vil slette denne {ruleType}?</string>
+    <string name="rule_delete_confirm_title" formatted="false">Slett regel</string>
+    <string name="rule_delete_failed" formatted="false">Kunne ikke slette regel: {error}</string>
+    <string name="rule_delete_success" formatted="false">Regel slettet vellykket</string>
+    <string name="rule_deleted_successfully" formatted="false">Regel slettet vellykket</string>
+    <string name="rule_disabled_successfully" formatted="false">Regel deaktivert vellykket</string>
+    <string name="rule_enabled_successfully" formatted="false">Regel aktivert vellykket</string>
+    <string name="rule_load_failed" formatted="false">Kunne ikke laste regler: {error}</string>
+    <string name="rule_management" formatted="false">Regeladministrasjon</string>
+    <string name="rule_name" formatted="false">Regelnavn</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">Regelnavn og innholdsregex kan ikke være tomme</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">Regelnavn og telefonnummer kan ikke være tomme</string>
+    <string name="rule_name_hint" formatted="false">f.eks. Familie, Venner, osv.</string>
+    <string name="rule_name_label" formatted="false">Regelnavn</string>
+    <string name="rule_name_required" formatted="false">Regelnavn og telefonnummer kan ikke være tomme</string>
+    <string name="rule_not_exist" formatted="false">Regel finnes ikke eller er slettet</string>
+    <string name="rule_not_found" formatted="false">Regel ikke funnet: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">Regel lagret vellykket!</string>
+    <string name="rule_status_changed" formatted="false">Regel {status} vellykket</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">Operasjon mislyktes: {error}</string>
+    <string name="rule_toggle_success" formatted="false">Regel {status} vellykket</string>
+    <string name="rule_type" formatted="false">Regeltype</string>
+    <string name="rule_update_failed" formatted="false">Kunne ikke oppdatere regel: {error}</string>
+    <string name="rule_update_success" formatted="false">Regel oppdatert vellykket</string>
+    <string name="rule_verification" formatted="false">Regelverifisering</string>
+    <string name="rules_exported_successfully" formatted="false">Regler eksportert vellykket</string>
+    <string name="rules_exported_to" formatted="false">Regler eksportert til: {path}</string>
+    <string name="rules_imported" formatted="false">Regler importert vellykket</string>
+    <string name="rules_imported_successfully" formatted="false">{count} regler importert vellykket</string>
+    <string name="save" formatted="false">Lagre</string>
+    <string name="save_button" formatted="false">Lagre</string>
+    <string name="save_button_text" formatted="false">Lagre</string>
+    <string name="save_failed" formatted="false">Lagring mislyktes: {error}</string>
+    <string name="save_script" formatted="false">Lagre skript</string>
+    <string name="save_settings" formatted="false">Lagre innstillinger</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">Sannsynlig svindel</string>
+    <string name="script_saved" formatted="false">Skript lagret</string>
+    <string name="scroll_speed" formatted="false">Rullehastighet</string>
+    <string name="scrolling_security_message_settings" formatted="false">Innstillinger for rullende sikkerhetsmelding</string>
+    <string name="search" formatted="false">Søk</string>
+    <string name="search_by_name_or_phone_number" formatted="false">Søk etter navn eller telefonnummer</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">Søk etter kontaktabonnementer</string>
+    <string name="search_contacts" formatted="false">Søk i kontakter</string>
+    <string name="search_error" formatted="false">Søker feil: {error}</string>
+    <string name="search_hint" formatted="false">Søk...</string>
+    <string name="search_labels_hint" formatted="false">Søk etter etiketter</string>
+    <string name="search_marked_phones_hint" formatted="false">Søk etter markerte telefoner</string>
+    <string name="search_phone_rules_hint" formatted="false">Søk etter telefonregler</string>
+    <string name="search_plugins_hint" formatted="false">Søk etter plugins</string>
+    <string name="search_proposals" formatted="false">Søk i forslag</string>
+    <string name="search_regex_rules_hint" formatted="false">Søk etter regex-regler</string>
+    <string name="search_subscriptions_hint" formatted="false">Søk etter abonnementer</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">Ikke stol på telefonsamtaler. Verifiser alltid kundeservicenummer uavhengig. Aldri del passord, verifiseringskoder, kortnummer eller personlig informasjon.</string>
+    <string name="select_action" formatted="false">Velg handling</string>
+    <string name="select_action_when_blocking_calls" formatted="false">Velg handling ved blokkering av anrop</string>
+    <string name="select_action_when_rule_matches" formatted="false">Velg handling når regelen matcher</string>
+    <string name="select_all" formatted="false">Velg alle</string>
+    <string name="select_country" formatted="false">Velg land</string>
+    <string name="select_export_format" formatted="false">Velg eksportformat</string>
+    <string name="select_label" formatted="false">Velg etikett</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">Vennligst velg en etikett og oppgi et gyldig telefonnummer</string>
+    <string name="select_language" formatted="false">Velg språk</string>
+    <string name="select_multiple" formatted="false">Velg flere</string>
+    <string name="select_sim_card" formatted="false">Velg SIM-kort</string>
+    <string name="select_tags" formatted="false">Velg etiketter</string>
+    <string name="select_target_service" formatted="false">Velg måltjeneste</string>
+    <string name="select_trusted_data_source" formatted="false">Vennligst velg klarerte datakilder</string>
+    <string name="select_your_language" formatted="false">Velg ditt språk</string>
+    <string name="selected_items" formatted="false">{count} elementer valgt</string>
+    <string name="selected_label" formatted="false">Valgt:</string>
+    <string name="sender" formatted="false">Avsender</string>
+    <string name="sender_regex_optional" formatted="false">Avsender Regex (valgfritt)</string>
+    <string name="separate_sims" formatted="false">Separat SIM</string>
+    <string name="separate_sims_desc" formatted="false">Aktiver separate filtreringsregler for hvert SIM-kort</string>
+    <string name="server_address_label" formatted="false">Serveradresse</string>
+    <string name="service_type_contact" formatted="false">Kontokontakt</string>
+    <string name="service_type_label" formatted="false">Tjenestetype</string>
+    <string name="service_type_phone" formatted="false">Telefonabonnement</string>
+    <string name="service_type_plugin" formatted="false">Plugin-oppdatering</string>
+    <string name="service_type_sms" formatted="false">SMS-abonnement</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">Sett forsinkelsestid</string>
+    <string name="set_encryption_password" formatted="false">Angi krypteringspassord</string>
+    <string name="settings" formatted="false">Innstillinger</string>
+    <string name="settings_backed_up_to" formatted="false">Innstillinger sikkerhetskopiert til: {path}</string>
+    <string name="settings_backup" formatted="false">Sikkerhetskopi av innstillinger </string>
+    <string name="settings_restored_successfully" formatted="false">Innstillinger gjenopprettet vellykket. Vennligst start appen på nytt for at endringene skal tre i kraft.</string>
+    <string name="settings_save_failed" formatted="false">Kunne ikke lagre innstillinger: {error}</string>
+    <string name="settings_saved" formatted="false">Innstillinger lagret</string>
+    <string name="settings_tab" formatted="false">Innstillinger</string>
+    <string name="settings_title" formatted="false">Innstillinger</string>
+    <string name="setup" formatted="false">Oppsett</string>
+    <string name="show_all_contacts" formatted="false">Vis alle kontakter</string>
+    <string name="show_favorites" formatted="false">Vis favoritter</string>
+    <string name="silence" formatted="false">Stillhet</string>
+    <string name="silence_action_description" formatted="false">Samtaler vil bli dempet, men vist i anropsloggen.</string>
+    <string name="silence_and_no_answer" formatted="false">Demp ringetone</string>
+    <string name="silence_no_answer" formatted="false">Stillhet ingen svar</string>
+    <string name="silent_call_voice_clone" formatted="false">Still anrop stemmekloning</string>
+    <string name="silent_rules" formatted="false">Stille regler</string>
+    <string name="sim_card" formatted="false">SIM-kort {simNumber}</string>
+    <string name="sim_card_color" formatted="false">SIM-kortfarge</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• SIM-kortkonfigurasjon: Angi uavhengige filtreringsregler for hvert SIM-kort</string>
+    <string name="sim_card_filter_rules" formatted="false">SIM-kort filterregler</string>
+    <string name="sim_card_filter_rules_description" formatted="false">Angi forskjellige filtreringsregler basert på SIM-kortspor</string>
+    <string name="sim_card_font_size" formatted="false">SIM-kort skriftstørrelse</string>
+    <string name="sim_card_position" formatted="false">SIM-kort plassering</string>
+    <string name="sim_card_title" formatted="false">SIM-kort</string>
+    <string name="sim_country" formatted="false">SIM-land</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">SIM-regelregler lar deg konfigurere uavhengige filtreringsregler for hvert SIM-spor.</string>
+    <string name="sim_rule_instructions_title" formatted="false">SIM-sporregler</string>
+    <string name="sim_rules_not_found" formatted="false">SIM-regler ikke funnet</string>
+    <string name="sim_slot" formatted="false">SIM-sporet</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">Konfigurer uavhengige filtreringsregler for hvert SIM-kort:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">SIM-spor {slotNumber} filterinnstillinger</string>
+    <string name="sim_slot_management" formatted="false">Administrasjon av SIM-spor</string>
+    <string name="sim_slot_position" formatted="false">SIM-sporets posisjon {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• SIM-sporregler: Uavhengige filtreringsstrategier per SIM</string>
+    <string name="sim_slot_rule_list_title" formatted="false">Liste over SIM-sporregler</string>
+    <string name="sim_slot_rule_management" formatted="false">SIM-sporregler</string>
+    <string name="sim_slot_rules" formatted="false">SIM-sporet regler</string>
+    <string name="sim_slot_title" formatted="false">SIM-spor {slotNumber}</string>
+    <string name="sim_state" formatted="false">SIM-tilstand</string>
+    <string name="skip" formatted="false">Hopp over</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">Smart samtaleidentifikasjon</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">SMS-filtrering hjelper deg med å automatisk filtrere søppelpostmeldinger og holde meldingslisten din ren. Du kan sette opp filtreringsregler og varslingsmetoder.</string>
+    <string name="sms_filter_disabled" formatted="false">SMS-filtrering deaktivert</string>
+    <string name="sms_filter_enabled" formatted="false">SMS-filtrering aktivert</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">SMS-filterregel lagt til vellykket</string>
+    <string name="sms_filter_rules" formatted="false">SMS-filterregler</string>
+    <string name="sms_filter_settings" formatted="false">SMS-filterinnstillinger</string>
+    <string name="sms_management" formatted="false">SMS-administrasjon</string>
+    <string name="sms_permission" formatted="false">SMS-tillatelse</string>
+    <string name="sms_permission_description" formatted="false">Brukes til å filtrere søppelpostmeldinger.</string>
+    <string name="sms_rule_added_successfully" formatted="false">SMS-regel lagt til vellykket</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">SMS-regel slettet vellykket</string>
+    <string name="sms_rule_load_failed" formatted="false">Kunne ikke laste SMS-regler: {error}</string>
+    <string name="sms_rule_management" formatted="false">Administrasjon av SMS-regler</string>
+    <string name="sms_rule_subscription" formatted="false">SMS-regelabonnement</string>
+    <string name="sms_subscription" formatted="false">SMS-abonnement</string>
+    <string name="sms_subscription_added_successfully" formatted="false">SMS-abonnement lagt til vellykket</string>
+    <string name="sms_subscription_rules_description" formatted="false">Abonner på SMS-regel-lister via URL, med støtte for regulære uttrykk. Du kan sette blokkerings- eller tillatelseshandlinger.</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">Noen tillatelsesforespørsler avslått</string>
+    <string name="sort_by" formatted="false">Sorter etter</string>
+    <string name="sort_least_popular" formatted="false">Sorter minst populære</string>
+    <string name="sort_most_popular" formatted="false">Sorter mest populære</string>
+    <string name="sort_newest" formatted="false">Sorter nyeste</string>
+    <string name="sort_oldest" formatted="false">Sorter eldste</string>
+    <string name="spam_likely" formatted="false">Sannsynligvis søppelpost</string>
+    <string name="start_color" formatted="false">Startfarge</string>
+    <string name="start_date" formatted="false">Startdato</string>
+    <string name="start_using" formatted="false">Kom i gang</string>
+    <string name="stat_answered" formatted="false">Besvart</string>
+    <string name="stat_blocked" formatted="false">Blokkert</string>
+    <string name="statistics" formatted="false">Statistikk</string>
+    <string name="statistics_page_title" formatted="false">Dataanalyse</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">STIR-farge</string>
+    <string name="stir_failed" formatted="false">Verifisering mislyktes</string>
+    <string name="stir_font_size" formatted="false">STIR skriftstørrelse</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">STIR-posisjon</string>
+    <string name="stir_unknown" formatted="false">Ukjent verifiseringsstatus</string>
+    <string name="stir_verification" formatted="false">STIR/SHAKEN-bekreftelse</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} for nummer {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">Viser STIR/SHAKEN-bekreftelsesresultater for numre.</string>
+    <string name="stir_verification_title" formatted="false">STIR/SHAKEN-verifisering</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">Lagringstillatelse</string>
+    <string name="storage_permission_description" formatted="false">Brukes til å lagre innstillinger og regler.</string>
+    <string name="submit" formatted="false">Send inn</string>
+    <string name="subscribe" formatted="false">Abonner</string>
+    <string name="subscription_add_success" formatted="false">Abonnement &quot;{name}&quot; lagt til vellykket</string>
+    <string name="subscription_delete_confirm_content" formatted="false">Er du sikker på at du vil slette dette abonnementet?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">Slett abonnement</string>
+    <string name="subscription_delete_failed" formatted="false">Kunne ikke slette abonnement: {error}</string>
+    <string name="subscription_delete_success" formatted="false">Abonnement slettet</string>
+    <string name="subscription_deleted" formatted="false">Abonnement slettet</string>
+    <string name="subscription_load_failed" formatted="false">Kunne ikke laste abonnementer: {error}</string>
+    <string name="subscription_name" formatted="false">Abonnementsnavn</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">Abonnementsnavn og URL kan ikke være tomme</string>
+    <string name="subscription_name_hint" formatted="false">Skriv inn abonnementsnavn</string>
+    <string name="subscription_status_change_failed" formatted="false">Kunne ikke endre abonnementsstatus: {error}</string>
+    <string name="subscription_update_failed" formatted="false">Kunne ikke oppdatere abonnement: {error}</string>
+    <string name="subscription_update_success" formatted="false">Abonnement oppdatert vellykket</string>
+    <string name="subscription_url" formatted="false">Abonnements-URL</string>
+    <string name="subscription_url_hint" formatted="false">Skriv inn abonnements-URL</string>
+    <string name="successfully_imported_rules" formatted="false">Vellykket importert {count} regler</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">Støtte</string>
+    <string name="support_count" formatted="false">Støtte ({supportCount})</string>
+    <string name="support_sync" formatted="false">Støtt synkronisering</string>
+    <string name="supported" formatted="false">STØTTET</string>
+    <string name="survey" formatted="false">Undersøkelse</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">Synkroniser enheter</string>
+    <string name="sync_failed" formatted="false">Synkronisering mislyktes</string>
+    <string name="sync_failed_message" formatted="false">Synkronisering mislyktes</string>
+    <string name="sync_folder_name_label" formatted="false">Synkroniseringsmappenavn</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">Synkroniser nå</string>
+    <string name="sync_now_button" formatted="false">Synk nå</string>
+    <string name="sync_status_title" formatted="false">Synkroniseringsstatus</string>
+    <string name="sync_status_updated_message" formatted="false">Synkroniseringsstatus oppdatert</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">Synkronisering vellykket</string>
+    <string name="sync_with_cloud_storage" formatted="false">Synkroniser med skytjenester</string>
+    <string name="synced" formatted="false">Synkronisert</string>
+    <string name="synchronized" formatted="false">Synkronisert</string>
+    <string name="syncing" formatted="false">Synkroniserer...</string>
+    <string name="system_features" formatted="false">Systemfunksjoner:</string>
+    <string name="system_settings_title" formatted="false">Systeminnstillinger</string>
+    <string name="tab_all" formatted="false">Alle</string>
+    <string name="tab_answered" formatted="false">Besvart</string>
+    <string name="tab_blocked" formatted="false">Blokkert</string>
+    <string name="tab_missed" formatted="false">Ubesvart</string>
+    <string name="tab_outgoing" formatted="false">Utgående</string>
+    <string name="tag_label" formatted="false">Etikett: {tag}</string>
+    <string name="takeaway" formatted="false">Takeaway</string>
+    <string name="telecommunication" formatted="false">Telekommunikasjon</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">Telemarketing</string>
+    <string name="temp_purchase_expired" formatted="false">Midlertidig kjøpsprivilegium har utløpt</string>
+    <string name="temporary_vip" formatted="false">Midlertidig VIP</string>
+    <string name="test_button" formatted="false">TEST</string>
+    <string name="test_connection_button" formatted="false">Test Tilkobling</string>
+    <string name="test_plugin" formatted="false">Test plugin</string>
+    <string name="text_colors_setting" formatted="false">Tekst- og etikettfarger</string>
+    <string name="theme_dark" formatted="false">Mørkt</string>
+    <string name="theme_light" formatted="false">Lyst</string>
+    <string name="theme_settings_subtitle" formatted="false">Velg ditt favorittema</string>
+    <string name="theme_settings_title" formatted="false">Temainnstillinger</string>
+    <string name="theme_system" formatted="false">Systemstandard</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">Denne appen er et kraftig verktøy for oppringing-ID som lar deg identifisere og blokkere uønskede anrop.</string>
+    <string name="this_week" formatted="false">Denne Uken</string>
+    <string name="time_interceptor" formatted="false">Beskyttelse mot hyppige anrop</string>
+    <string name="time_interceptor_description" formatted="false">Blokker gjentatte anrop fra samme nummer innen kort tid</string>
+    <string name="time_interceptor_explanation" formatted="false">• Tidsavskjæring: Avskjær/tillat gjentatte anrop innen kort tid</string>
+    <string name="time_interceptor_explanation_content" formatted="false">Funksjonen for avskjæring av anropsfrekvens analyserer anropsfrekvensen for å automatisk identifisere og avskjære/tillate hyppige spam-anrop.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">Forklaring av avskjæring av anropsfrekvens</string>
+    <string name="time_interceptor_settings_title" formatted="false">Innstillinger for avskjæring av anropsfrekvens</string>
+    <string name="time_window_description" formatted="false">Still inn tidsvindusstørrelsen for å tillate gjentatte anrop. Anrop fra samme nummer innenfor dette vinduet vil bli tillatt</string>
+    <string name="time_window_label" formatted="false">Avskjæringstid (minutter): {minutes}</string>
+    <string name="timeline_view" formatted="false">Tidslinjevisning</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">I Dag</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">Totalt</string>
+    <string name="total_blocked" formatted="false">Totalt blokkert</string>
+    <string name="total_pending_proposals" formatted="false">Totalt antall ventende forslag</string>
+    <string name="total_proposals" formatted="false">Totalt antall forslag</string>
+    <string name="total_votes" formatted="false">Totalt: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">Overfør data mellom enheter eller plattformer</string>
+    <string name="travel_ticketing" formatted="false">Reisebilletter</string>
+    <string name="tutorial" formatted="false">Veiledning</string>
+    <string name="type" formatted="false">Type</string>
+    <string name="unassigned_s_i_m_card" formatted="false">Utdelt SIM-kort</string>
+    <string name="unblock" formatted="false">Fjern blokkering</string>
+    <string name="unblock_number" formatted="false">Fjern blokkering av nummer</string>
+    <string name="unblock_number_confirmation" formatted="false">Er du sikker på at du vil fjerne blokkeringen av {phoneNumber}?</string>
+    <string name="unblock_number_failed" formatted="false">Fjerning av nummerblokkering mislyktes</string>
+    <string name="unblock_number_success" formatted="false">Nummer fjernet blokkering med suksess</string>
+    <string name="unblocked" formatted="false">Fjernet blokkering</string>
+    <string name="unknown" formatted="false">Ukjent</string>
+    <string name="unknown_tag" formatted="false">Etikett: Ukjent</string>
+    <string name="unregister_button" formatted="false">Avregistrer</string>
+    <string name="unregister_device_confirmation_message" formatted="false">Er du sikker på at du vil avregistrere {deviceName}?</string>
+    <string name="unregister_device_title" formatted="false">Avregistrer enhet</string>
+    <string name="unsupported_file_format" formatted="false">Ugyldig filformat</string>
+    <string name="update" formatted="false">Oppdater</string>
+    <string name="update_all_now" formatted="false">Oppdater alle nå</string>
+    <string name="update_contact_failed" formatted="false">Kunne ikke oppdatere kontakt: {error}</string>
+    <string name="update_favorite_status" formatted="false">Oppdater favorittstatus</string>
+    <string name="update_interval" formatted="false">Oppdateringsintervall</string>
+    <string name="update_now" formatted="false">Oppdater nå</string>
+    <string name="update_plugin" formatted="false">Oppdater tillegg</string>
+    <string name="update_plugin_failed" formatted="false">Kunne ikke oppdatere tillegg: {error}</string>
+    <string name="update_rule_failed" formatted="false">Kunne ikke oppdatere regel: {error}</string>
+    <string name="update_subscription_failed" formatted="false">Kunne ikke oppdatere abonnement: {error}</string>
+    <string name="update_success" formatted="false">{service} oppdatert vellykket ({count} regler)</string>
+    <string name="upgrade_to_vip" formatted="false">Oppgrader til VIP</string>
+    <string name="use_cases_point1" formatted="false">• Identifiser spam-anrop som ringes på nytt automatisk</string>
+    <string name="use_cases_point2" formatted="false">• Avskjær markedsføringsanrop som ringer flere ganger på kort tid</string>
+    <string name="use_cases_point3" formatted="false">• Forhindre telefonbombing og trakassering</string>
+    <string name="use_cases_title" formatted="false">Bruksområder:</string>
+    <string name="use_global_settings" formatted="false">Bruk globale innstillinger</string>
+    <string name="use_local_notification" formatted="false">Bruk lokale varsler</string>
+    <string name="use_local_notification_description" formatted="false">Aktiver lokale varsler for innkommende samtaler</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">Bruk standard regex-syntaks for å definere mønstre. Eksempler:</string>
+    <string name="use_stir_notification" formatted="false">Bruk varsel fra STIR</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">Brukernavn</string>
+    <string name="verification_failed_text" formatted="false">Feilet</string>
+    <string name="verification_report" formatted="false">Verifikasjonsrapport</string>
+    <string name="verified_text" formatted="false">Verifisert</string>
+    <string name="verify" formatted="false">Bekreft</string>
+    <string name="version" formatted="false">Versjon: {version}</string>
+    <string name="very_high" formatted="false">Veldig høy</string>
+    <string name="very_low" formatted="false">Veldig lav</string>
+    <string name="view_details" formatted="false">Vis detaljer</string>
+    <string name="vip3_days_with_ads" formatted="false">3-dagers VIP med annonser (kun synkronisering)</string>
+    <string name="vip5_days_no_ads" formatted="false">5-dagers fullt utstyrt annonsefri VIP</string>
+    <string name="vip7_days_no_ads" formatted="false">7-dagers fullt utstyrt annonsefri VIP</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">Bytt VIP-medlemskap med antall markeringer av telefonnummer</string>
+    <string name="vip_exchange_service" formatted="false">VIP-utvekslingstjeneste</string>
+    <string name="vip_exchange_title" formatted="false">Bytt VIP-markering</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">VIP-bruker</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">Talegjenkjenning</string>
+    <string name="vote_agree" formatted="false">Enig</string>
+    <string name="vote_count" formatted="false">Antall stemmer</string>
+    <string name="vote_disagree" formatted="false">Uenig</string>
+    <string name="vote_submitted" formatted="false">Stemme sendt inn vellykket</string>
+    <string name="voted" formatted="false">Stemte</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} stemmer ({supportPercentage}% støtte)</string>
+    <string name="voting_completed" formatted="false">Avstemning fullført</string>
+    <string name="voting_completed_body" formatted="false">Samfunnsavstemning for {phoneNumber} er avsluttet. Resultat: {result} ({supportPercentage}% støtte).</string>
+    <string name="waiting_for_more_votes" formatted="false">Venter på flere samfunnsstemmer</string>
+    <string name="watch_ad" formatted="false">Se annonse</string>
+    <string name="watch_ad_for_temp" formatted="false">Se annonse for midlertidige privilegier</string>
+    <string name="watch_ad_for_temp_description" formatted="false">Se en kort annonse for å midlertidig låse opp noen premiumfunksjoner</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">Du må se {count} flere annonser for å få midlertidige VIP-privilegier</string>
+    <string name="web_d_a_v_config_title" formatted="false">WebDAV-konfigurasjon</string>
+    <string name="week" formatted="false">Uke</string>
+    <string name="welcome" formatted="false">Velkommen</string>
+    <string name="whitelist" formatted="false">Hvitliste</string>
+    <string name="width" formatted="false">Bredde</string>
+    <string name="wildcard_matching_description" formatted="false">Bruk \'.\' for å matche et hvilket som helst tegn (f.eks. \'123.456\' matcher 123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">Wildcard-matching:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">Wildcard-støtte for fleksibel filtrering</string>
+    <string name="window_size_setting" formatted="false">Vindusstørrelse</string>
+    <string name="year" formatted="false">År</string>
+    <string name="yesterday" formatted="false">I går</string>
+</resources>

@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">Malunga noRhuma lweNdawo yoQhagamshelwano</string>
+    <string name="about_labels" formatted="false">Malunga neeLeyibhile</string>
+    <string name="about_phone_subscription_rules" formatted="false">Malunga neMithetho yoRhuma lweFowuni</string>
+    <string name="about_sms_filter" formatted="false">Malunga nokuCwangcisa kweSMS</string>
+    <string name="about_sms_subscription_rules" formatted="false">Malunga neMithetho yoRhuma lweSMS</string>
+    <string name="about_subtitle" formatted="false">Uhlobo lweApp kunye nolwazi lwezomthetho</string>
+    <string name="about_title" formatted="false">Malunga</string>
+    <string name="access_target_url" formatted="false">Fikelela Kwi-URL Eqondiweyo</string>
+    <string name="action" formatted="false">Isenzo</string>
+    <string name="action_all" formatted="false">Zonke</string>
+    <string name="action_allow" formatted="false">Vumela</string>
+    <string name="action_block" formatted="false">Thintela</string>
+    <string name="action_filter_title" formatted="false">Cwangcisa ngohlobo lweSenzo</string>
+    <string name="action_filter_tooltip" formatted="false">Isixhobo sokuCwangcisa iSenzo</string>
+    <string name="action_none" formatted="false">Akukho Senzo</string>
+    <string name="action_silence" formatted="false">Nciphisa</string>
+    <string name="action_tag" formatted="false">Isenzo: {actionType}</string>
+    <string name="action_type" formatted="false">Uhlobo lweSenzo</string>
+    <string name="action_unknown" formatted="false">Ayaziwa</string>
+    <string name="active_proposals" formatted="false">Iziphakamiso Ezisebenzayo</string>
+    <string name="add" formatted="false">Yongeza</string>
+    <string name="add_allow_subscription" formatted="false">Yongeza uRhuma wokuVumela</string>
+    <string name="add_allowed_blocked_rule" formatted="false">Yongeza uMthetho wokuVumela/ukuThintela</string>
+    <string name="add_block_subscription" formatted="false">Yongeza uRhuma wokuThintela</string>
+    <string name="add_contact_button" formatted="false">Yongeza uQhagamshelwano</string>
+    <string name="add_contact_failed" formatted="false">Ayiphumelelanga ukongeza uqhagamshelwano: {error}</string>
+    <string name="add_label" formatted="false">Yongeza iLeyibhile</string>
+    <string name="add_label_button" formatted="false">Yongeza iLeyibhile</string>
+    <string name="add_label_failed" formatted="false">Ayiphumelelanga ukongeza ileyibhile: {error}</string>
+    <string name="add_name" formatted="false">Yongeza Igama</string>
+    <string name="add_none_subscription" formatted="false">Yongeza uRhuma ongenanto</string>
+    <string name="add_phone_mark" formatted="false">Yongeza uPhawu lweFowuni</string>
+    <string name="add_phone_number_rule" formatted="false">Yongeza uMthetho weNombolo yeFowuni</string>
+    <string name="add_plugin" formatted="false">Yongeza iPlagin</string>
+    <string name="add_plugin_failed" formatted="false">Ayiphumelelanga ukongeza iplugin</string>
+    <string name="add_plugin_failed_with_error" formatted="false">Ayiphumelelanga ukongeza iplugin: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">Yongeza iPlagin kwifayile yeNdawo</string>
+    <string name="add_plugin_from_url" formatted="false">Yongeza iPlagin kwi-URL</string>
+    <string name="add_regex_rule" formatted="false">Yongeza uMthetho weRegex</string>
+    <string name="add_rule" formatted="false">Yongeza uMthetho</string>
+    <string name="add_rule_failed" formatted="false">Ayiphumelelanga ukongeza umthetho: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">Yongeza uMthetho</string>
+    <string name="add_silence_subscription" formatted="false">Yongeza uRhuma wokuNciphisa</string>
+    <string name="add_sms_filter_rule" formatted="false">Yongeza uMthetho wokuCwangcisa weSMS</string>
+    <string name="add_sms_rule" formatted="false">Yongeza uMthetho weSMS</string>
+    <string name="add_sms_subscription" formatted="false">Yongeza uRhuma weSMS</string>
+    <string name="add_subscription" formatted="false">Yongeza uRhuma</string>
+    <string name="add_subscription_button" formatted="false">Yongeza uRhuma</string>
+    <string name="add_subscription_failed" formatted="false">Ayiphumelelanga ukongeza urhuma: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">Yongeza uRhuma</string>
+    <string name="add_to_blacklist" formatted="false">Yongeza kuLuhlu oluMnyama</string>
+    <string name="add_to_favorites" formatted="false">Yongeza kuBathandwayo</string>
+    <string name="add_to_rules" formatted="false">Yongeza kwiMithetho</string>
+    <string name="add_to_whitelist" formatted="false">Yongeza kuLuhlu oluMhlophe</string>
+    <string name="added_to_favorites" formatted="false">Yongezwe kuqhagamshelwano oluthandwayo</string>
+    <string name="advanced_mode" formatted="false">Indlela Eziqhubela Phambili</string>
+    <string name="agent" formatted="false">Iarhente</string>
+    <string name="agree_votes" formatted="false">Vuma: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">Zonke</string>
+    <string name="all_call_logs_cleared" formatted="false">Zonke iinkcukacha zomnxeba zicinyiwe</string>
+    <string name="all_calls_tab" formatted="false">Zonke</string>
+    <string name="all_permissions_granted" formatted="false">Zonke iimvume zinikiwe</string>
+    <string name="all_services_status_subtitle" formatted="false">Isimo Sangoku seNkonzo nganye yeLifu</string>
+    <string name="all_services_status_title" formatted="false">Isimo Senkonzo Sangoku</string>
+    <string name="all_settings_completed" formatted="false">Zonke izicwangciso zigqityiwe.</string>
+    <string name="all_update_success" formatted="false">Zonke izinto ezihlaziyiweyo zigqityiwe ({count} imithetho)</string>
+    <string name="allow" formatted="false">Vumela</string>
+    <string name="allow_action_description" formatted="false">Iifowuni ziya kuvunyelwa, naxa inombolo ikuluhlu lweefowuni ezithinteliweyo.</string>
+    <string name="allow_all_allow_rules" formatted="false">Vumela Yonke iMithetho eVunyelweyo</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">Vumela iifowuni ezivela kwimithetho yokuvumela</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">Vumela Zonke iiNombolo kuLuhlu oluMnyama</string>
+    <string name="allow_all_block_rules" formatted="false">Vumela Yonke iMithetho yokuThintela</string>
+    <string name="allow_all_block_rules_desc" formatted="false">Vumela iifowuni ezivela kwimithetho yokuthintela</string>
+    <string name="allow_allowed_numbers" formatted="false">Vumela iiNombolo eziVunyelweyo</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">Vumela iifowuni ezivela kuluhlu lokuvumela</string>
+    <string name="allow_block" formatted="false">Vumela/Thintela</string>
+    <string name="allow_blocked_numbers" formatted="false">Vumela iiNombolo eziThintelweyo</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">Vumela iifowuni ezivela kuluhlu lokuthintela</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">Vumela iiNombolo ezingekagqithi kumda</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">Vumela ngokuzenzekelayo iiNombolo ezingagqithisiyo kumda wokubala</string>
+    <string name="allow_regex_allow_rules" formatted="false">Vumela iMithetho yokuVumela yeRegex</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">Vumela ukufana kweepateni ze-regex kwimithetho yokuvumela</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">Vumela imithetho yokuvumela esekelwe kwi-regex</string>
+    <string name="allow_regex_block_rules" formatted="false">Vumela iMithetho yokuThintela yeRegex</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">Vumela ukufana kweepateni ze-regex kwimithetho yokuthintela</string>
+    <string name="allow_regex_block_rules_description" formatted="false">Vumela imithetho yokuthintela esekelwe kwi-regex</string>
+    <string name="allow_rule" formatted="false">Umthetho wokuVumela</string>
+    <string name="allow_rules" formatted="false">IMithetho yokuVumela</string>
+    <string name="allowed_blocked_rule" formatted="false">Umthetho wokuVumela/ukuThintela</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">Hlela uMthetho wokuVumela/ukuThintela</string>
+    <string name="allowed_blocked_rule_management" formatted="false">Ulawulo loMthetho wokuVumela/ukuThintela</string>
+    <string name="allowed_blocked_rules_info" formatted="false">Imithetho evumelekileyo/evaliweyo isetyenziswa ukulinganisa iifowuni kumanani athile efowuni, anesona siqinisekiso siphezulu.</string>
+    <string name="and_more_items" formatted="false">kunye {count} ezinye izinto</string>
+    <string name="answer_then_hangup" formatted="false">Phendula uze uvale</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">Umnxeba Wakho Umthetho Wakho</string>
+    <string name="application_software" formatted="false">Isoftware Yesicelo</string>
+    <string name="apply" formatted="false">Sebenzisa</string>
+    <string name="approved" formatted="false">KUVUNYIWE</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">Ugunyaziso lwahlulekile: Nceda ujonge i-ID yeklayenti kunye nesitshixo</string>
+    <string name="authorization_failed_message" formatted="false">Ugunyaziso lwahlulekile</string>
+    <string name="authorization_success_message" formatted="false">Ugunyaziso luphumelele</string>
+    <string name="authorize_login_button" formatted="false">Gunyazisa Ukungena</string>
+    <string name="auto_cancel_notification" formatted="false">Ukucima IsiLumkiso Ngokuzenzekelayo</string>
+    <string name="auto_cancel_notification_description" formatted="false">Ukuba kukhangelwe, isilumkiso siyakucinywa ngokuzenzekelayo xa umsebenzisi esicofa.</string>
+    <string name="auto_sync_label" formatted="false">Ukuvumelanisa Okuzenzekelayo</string>
+    <string name="auto_update" formatted="false">Uhlaziyo Oluzenzekelayo</string>
+    <string name="auto_update_description" formatted="false">Cwangcisa amaxesha okuhlaziya ngokuzenzekelayo kwizirhwelo okanye uhlaziye ngesandla</string>
+    <string name="auto_update_settings" formatted="false">Izicwangciso zokuhlaziya ngokuzenzekelayo</string>
+    <string name="auto_update_subtitle" formatted="false">Lawula uhlaziyo oluzenzekelayo lwemigaqo kunye neeplagin</string>
+    <string name="auto_update_title" formatted="false">Uhlaziyo Oluzenzekelayo</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">Ishishini Leemoto</string>
+    <string name="avatar" formatted="false">I-Avatar</string>
+    <string name="avatar_border_color" formatted="false">Umbala Womda We-Avatar</string>
+    <string name="avatar_border_size" formatted="false">Ubungakanani Bomda We-Avatar</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">Ubungakanani be-Avatar kunye ne-Icon</string>
+    <string name="avatar_position" formatted="false">Indawo ye-Avatar</string>
+    <string name="avatar_size" formatted="false">Ubungakanani be-Avatar</string>
+    <string name="axis_position" formatted="false">Indawo ye-{axis}</string>
+    <string name="background_gradient_setting" formatted="false">I-Gradient Yangasemva</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">Ugcinomagama</string>
+    <string name="backup_and_restore" formatted="false">Ugcinomagama nokuBuyisela</string>
+    <string name="backup_and_restore_subtitle" formatted="false">Gcina okanye ubuyisele idatha yesicelo</string>
+    <string name="backup_and_restore_title" formatted="false">Ugcinomagama nokuBuyisela</string>
+    <string name="backup_failed" formatted="false">Ugcinomagama lwahlulekile</string>
+    <string name="backup_settings" formatted="false">Izicwangciso zoGcinomagama</string>
+    <string name="backup_to_cloud" formatted="false">Gcina kwiLifu</string>
+    <string name="backup_to_cloud_failed" formatted="false">Ukugcina kwilifu kuhlulekile: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">Kugcinwe ngempumelelo kwilifu</string>
+    <string name="bank" formatted="false">Ibhanki</string>
+    <string name="basic_info" formatted="false">Ulwazi Olusisiseko</string>
+    <string name="basic_rule_filter" formatted="false">Isihluzi Somgaqo Osisiseko</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">Hluza iifowuni usebenzisa i-blacklist/whitelist kunye nee-regular expressions</string>
+    <string name="basic_rule_filtering" formatted="false">Ukuhluzwa Komgaqo Osisiseko</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• Ukuhluzwa Komgaqo Osisiseko: Ukuhluzwa kwemigaqo ngokusekelwe kwi-blacklist, whitelist, kunye ne-regex</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">Uqinisekile ufuna ukucima {count} abafowunelwa abakhethiweyo?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">Uqinisekile ufuna ukucima {count} iileyibhile?</string>
+    <string name="battery_optimization_permission" formatted="false">Ukulawulwa Kwebhetri</string>
+    <string name="battery_optimization_permission_description" formatted="false">Vumela i-app isebenze ngasemva ukuze inike iinkonzo ezifana ne-ID yomnxeba.</string>
+    <string name="black_white_list" formatted="false">I-Black/White List</string>
+    <string name="blacklist" formatted="false">I-Blacklist</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">I-Blacklisting kunye ne-Whitelisting</string>
+    <string name="block" formatted="false">Thintela</string>
+    <string name="block_action_description" formatted="false">Iifowuni ziya kuthintelwa kwaye ziboniswe kwilog yefowuni.</string>
+    <string name="block_calls" formatted="false">Thintela Iifowuni</string>
+    <string name="block_international_calls" formatted="false">ifana namanani angaqalisi ngo + okanye 00</string>
+    <string name="block_international_calls_title" formatted="false">Thintela Iifowuni Zamazwe Ngamazwe</string>
+    <string name="block_mobile_numbers" formatted="false">ifana namanani angaqalisi ngo 13-19</string>
+    <string name="block_mobile_numbers_title" formatted="false">Thintela Amanani Eselfowuni</string>
+    <string name="block_number" formatted="false">Vala Inombolo</string>
+    <string name="block_number_success" formatted="false">Inombolo ivaliwe ngempumelelo</string>
+    <string name="block_premium_rate_numbers" formatted="false">ifana namanani angaqalisi ngo 118 okanye 120-190</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">Thintela Amanani Entlawulo Ephezulu</string>
+    <string name="block_rule" formatted="false">Umgaqo Wokuthintela</string>
+    <string name="block_rules" formatted="false">Imigaqo Yokuthintela</string>
+    <string name="block_specific_area_codes" formatted="false">ifana namanani aqalisa ngo 0 + 2-3 amanani</string>
+    <string name="block_specific_area_codes_title" formatted="false">Thintela iikhowudi zeendawo ezithile:</string>
+    <string name="block_type_analysis_title" formatted="false">Uhlahlelo Lohlobo Lokuthintela</string>
+    <string name="blocked" formatted="false">Ithinteliwe</string>
+    <string name="blocked_call_body" formatted="false">Ifowuni ethintelweyo evela ku-{phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">Izaziso Zeefowuni Ezivaliweyo</string>
+    <string name="blocked_call_notifications_description" formatted="false">Ibonisa ulwazi ngeefowuni ezivaliweyo.</string>
+    <string name="blocked_call_title" formatted="false">Ifowuni Ethintelweyo</string>
+    <string name="blocked_calls" formatted="false">Iifowuni Ezithinteliweyo</string>
+    <string name="blocked_calls_title" formatted="false">Iifowuni Ezithinteliweyo</string>
+    <string name="blocked_spam_calls" formatted="false">Iifowuni Ze-Spam Ezithinteliweyo</string>
+    <string name="blocking_trend" formatted="false">Umkhwa Wokuthintela</string>
+    <string name="both" formatted="false">Zombini</string>
+    <string name="bulk_delete" formatted="false">Cima Abafowunelwa Ngobuninzi</string>
+    <string name="bulk_delete_contacts" formatted="false">Cima Abafowunelwa Ngobuninzi</string>
+    <string name="bulk_delete_labels" formatted="false">Cima Iileyibhile Ngobuninzi</string>
+    <string name="call" formatted="false">Ifowuni</string>
+    <string name="call_blocking" formatted="false">Ukuthintela Iifowuni</string>
+    <string name="call_details" formatted="false">Iinkcukacha Zomnxeba</string>
+    <string name="call_filter_rules" formatted="false">Imithetho yoKucoca iFowuni</string>
+    <string name="call_filter_rules_description" formatted="false">Setha imithetho esisiseko yokucoca iifowuni</string>
+    <string name="call_filter_settings" formatted="false">Izicwangciso zokucoca iifowuni</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">Setha imida yobuninzi beefowuni kunye nemithetho yokuvala</string>
+    <string name="call_frequency_interception_title" formatted="false">Ukunqanda uBuninzi beefowuni</string>
+    <string name="call_history" formatted="false">Imbali yeeFowuni</string>
+    <string name="call_history_info_desc" formatted="false">Apha ibonisa imbali yefowuni yakho, kubandakanywa iifowuni ezingenayo, eziphumayo nezingaphendulwanga.</string>
+    <string name="call_history_info_title" formatted="false">Imbali yeeFowuni</string>
+    <string name="call_history_tab" formatted="false">Imbali yeeFowuni</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">Imvume yoKuhluza iFowuni</string>
+    <string name="call_screening_permission_description" formatted="false">Isetyenziselwa ukuhluza kunye nokuvala iifowuni ze-spam.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">Imvume yokuhluza iifowuni ayinikwanga, ingachaphazela ukusebenza kwe-app.</string>
+    <string name="call_statistics" formatted="false">Izibalo zeFowuni</string>
+    <string name="call_time" formatted="false">Ixesha Lomnxeba</string>
+    <string name="call_type" formatted="false">Uhlobo Lomnxeba</string>
+    <string name="call_type_answered" formatted="false">Uphendulwe</string>
+    <string name="call_type_blocked" formatted="false">Ivaliwe</string>
+    <string name="call_type_icon_color" formatted="false">Umbala we-Icon yoHlobo lweFowuni</string>
+    <string name="call_type_missed" formatted="false">Ifowuni Eyi-missiweyo</string>
+    <string name="call_type_outgoing" formatted="false">Ephumayo</string>
+    <string name="call_type_position" formatted="false">Indawo yoHlobo lweFowuni</string>
+    <string name="call_type_rejected" formatted="false">Yaliwe</string>
+    <string name="call_type_silenced" formatted="false">Ithulisiwe</string>
+    <string name="call_type_unknown" formatted="false">Ayaziwa</string>
+    <string name="callback" formatted="false">Tsalela Umva</string>
+    <string name="caller_id_app" formatted="false">Isicelo se-Caller ID</string>
+    <string name="caller_id_customization_subtitle" formatted="false">Yenza ngokwezifiso ubume be-Caller ID</string>
+    <string name="caller_id_customization_title" formatted="false">Yenza ngokwezakho i-Caller ID</string>
+    <string name="caller_id_display_mode" formatted="false">Indlela yokubonisa i-ID yomntu ofonayo</string>
+    <string name="caller_id_enhancement" formatted="false">Ukuphuculwa kwe-Caller ID</string>
+    <string name="caller_id_marked_by_count" formatted="false">Imakwe yi-{count}</string>
+    <string name="caller_id_notification_title" formatted="false">Ulwazi lweFowuni engenayo</string>
+    <string name="caller_id_preview" formatted="false">Umboniso wangaphambili we-ID yomntu ofonayo</string>
+    <string name="caller_id_settings_subtitle" formatted="false">Ukuseta Isaziso seFowuni engenayo &amp; Indlela yokuBonisa</string>
+    <string name="caller_id_settings_title" formatted="false">Useto lwe-Caller ID</string>
+    <string name="calling_number_failed" formatted="false">Ukufowunela inombolo akwenzekanga</string>
+    <string name="cancel" formatted="false">Rhoxisa</string>
+    <string name="cancel_button" formatted="false">Rhoxisa</string>
+    <string name="cancel_local_notification" formatted="false">Vala Izaziso zaseNdawo</string>
+    <string name="cancel_local_notification_description" formatted="false">Vala Izaziso zaseNdawo ngokuzenzekelayo</string>
+    <string name="car_rental" formatted="false">Ukuqeshisa ngeemoto</string>
+    <string name="carrier" formatted="false">Umthwali</string>
+    <string name="carrier_color" formatted="false">Umbala woMthwali</string>
+    <string name="carrier_font_size" formatted="false">Ubukhulu Befonti yoMthwali</string>
+    <string name="carrier_position" formatted="false">Indawo yoMthwali</string>
+    <string name="change_label" formatted="false">Guqula ilebhile</string>
+    <string name="change_plugin_status_failed" formatted="false">Ayiphumelelanga ukutshintsha isimo se-plugin: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">Ayiphumelelanga ukutshintsha isimo sokubhalisa: {error}</string>
+    <string name="charity" formatted="false">Uthando</string>
+    <string name="chart_one_week_ago" formatted="false">Iveki e-1 edlulileyo</string>
+    <string name="chart_three_days_ago" formatted="false">Iintsuku ezi-3 ezidlulileyo</string>
+    <string name="chart_today" formatted="false">Namhlanje</string>
+    <string name="check_file_format" formatted="false">Nceda ujonge ifomathi yefayile okanye iimvume</string>
+    <string name="check_permission_failed" formatted="false">Ayiphumelelanga ukujonga iimvume: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">Khetha isenzo sokunqanda esingagqibekanga</string>
+    <string name="clear_all_call_logs" formatted="false">Cima Zonke Iinkcukacha Zomnxeba</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">Qinisekisa ukucima zonke iinkcukacha zomnxeba</string>
+    <string name="clear_all_notifications" formatted="false">Cima Zonke Izaziso</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">Qinisekisa ukucima zonke izaziso</string>
+    <string name="clear_button" formatted="false">Cima</string>
+    <string name="clear_filter" formatted="false">Sula Isihluzi</string>
+    <string name="clear_label_filter_button" formatted="false">Sula Isihluzi Selebhile</string>
+    <string name="close_button" formatted="false">Vala</string>
+    <string name="cloud_backup" formatted="false">Ukugcinwa kweLifu</string>
+    <string name="cloud_sync" formatted="false">UkuHlengahlengisa kweLifu</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">UkuHlengahlengisa kweLifu kunye noGcino</string>
+    <string name="cloud_sync_service" formatted="false">Inkonzo yoNgqamaniso lweLifu</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">Lungiselela iWebDAV, iOneDrive kunye neGoogle Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">Izicwangciso zokuhlengahlengisa kweLifu</string>
+    <string name="cloud_sync_title" formatted="false">UkuHlengahlengisa kweLifu</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">Ingqokelela yeTyala</string>
+    <string name="color_picker_title" formatted="false">Khetha Umbala</string>
+    <string name="community_impact" formatted="false">Impembelelo Yoluntu</string>
+    <string name="community_participation" formatted="false">Intatho-nxaxheba Yoluntu</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">Iivoti Zoluntu</string>
+    <string name="community_voting_started" formatted="false">Ukuvota Koluntu Kuqalile</string>
+    <string name="community_voting_started_body" formatted="false">Isiphakamiso esitsha sokucinywa senombolo {phoneNumber} ngoku sivulekele ukuvotwa luluntu.</string>
+    <string name="completed" formatted="false">KUGQITYIWE</string>
+    <string name="config_management" formatted="false">Ulawulo loCwangciso</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">Ucwango luhlaziyiwe</string>
+    <string name="configuration_advice" formatted="false">Ngolungelelwaniso olufanelekileyo, unokuseta ubuchule bokucoca obahlukeneyo kwiSIM khadi zomsebenzi kunye nezobuqu.</string>
+    <string name="configure_backup_options" formatted="false">Lungiselela Iinketho zoGcino</string>
+    <string name="configure_cloud_sync_service" formatted="false">Lungiselela Inkonzo yokuHlengahlengisa kweLifu</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">Nceda ulungiselele inkonzo yokuhlengahlengisa kwefu ukuvula ukuhambelanisa kwezixhobo ezininzi.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">Lungiselela Imithetho yokuCoca iSIM Khadi</string>
+    <string name="confirm" formatted="false">Qinisekisa</string>
+    <string name="confirm_button" formatted="false">Qinisekisa</string>
+    <string name="confirm_delete" formatted="false">Qinisekisa ukucima</string>
+    <string name="confirm_delete_label" formatted="false">Ngaba uqinisekile ukuba ufuna ukucima ilebhile &quot;{name}&quot;</string>
+    <string name="confirm_delete_plugin" formatted="false">Ngaba uqinisekile ukuba ufuna ukucima i-plugin &quot;{name}&quot;?</string>
+    <string name="confirm_delete_plugins" formatted="false">Ngaba uqinisekile ukuba ufuna ukucima ii-plugins ezi-{count}?</string>
+    <string name="confirm_delete_rule_message" formatted="false">Ngaba uqinisekile ukuba ufuna ukucima lo mthetho? Le nto ayinakurhoxiswa.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">Ngaba uqinisekile ukuba ufuna ukucima lo mthetho wokucoca i-SMS?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">Ngaba uqinisekile ukuba ufuna ukucima lo mthetho we-SMS?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">Ngaba uqinisekile ukuba ufuna ukucima {name}?</string>
+    <string name="confirm_password" formatted="false">Qinisekisa iPhasiwedi</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">Iqhagamshelwe</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">Uqhagamshelo lwahlulekile: Nceda ujonge idilesi yeseva, igama lomsebenzisi, kunye nephasiwedi</string>
+    <string name="connection_failed_message" formatted="false">Uqhagamshelo lwahlulekile</string>
+    <string name="connection_status_label" formatted="false">Isimo soQhagamshelwano</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">Uqhagamshelwano luphumelele</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">Umnxibelelanisi wongezwe ngempumelelo</string>
+    <string name="contact_deleted" formatted="false">Umnxibelelanisi ucinyiwe</string>
+    <string name="contact_name_label" formatted="false">Igama</string>
+    <string name="contact_not_found" formatted="false">Umnxibelelanisi akafunyanwanga</string>
+    <string name="contact_subscription_description" formatted="false">Bhalisa kwiilisti zabaxibelelanisi nge-URL, uhlaziye ulwazi lomnxibelelanisi kunye neelebhile ngokuzenzekelayo. Ixhasa idatha yefomathi ye-JSON.</string>
+    <string name="contact_update_success" formatted="false">Umnxibelelanisi uhlaziywe ngempumelelo</string>
+    <string name="contact_us" formatted="false">Qhagamshelana nathi</string>
+    <string name="contacts" formatted="false">abaxibelelanisi</string>
+    <string name="contacts_deleted" formatted="false">Abaxibelelanisi abayi-{count} bacinyiwe</string>
+    <string name="contacts_management" formatted="false">Ulawulo lwabaxibelelanisi</string>
+    <string name="contacts_permission" formatted="false">Imvume yoBaxibelelanisi</string>
+    <string name="contacts_permission_description" formatted="false">Isetyenziselwa ukuchonga iifowuni zabaxibelelanisi.</string>
+    <string name="contacts_tab" formatted="false">Abaxibelelanisi</string>
+    <string name="container_width" formatted="false">Ububanzi beSikhongozeli</string>
+    <string name="content" formatted="false">Umxholo</string>
+    <string name="content_regex" formatted="false">Umxholo we-Regex</string>
+    <string name="count_color" formatted="false">Umbala weSimo</string>
+    <string name="count_font_size" formatted="false">Ubungakanani befomthi yesimo</string>
+    <string name="count_position" formatted="false">Indawo yeSimo</string>
+    <string name="count_threshold_description" formatted="false">Cwangcisa umda wobuncinci wesimo ofunekayo ukwenzela ukuba kuqaliswe iintshukumo zokucoca</string>
+    <string name="count_threshold_label" formatted="false">Umda weSimo</string>
+    <string name="country" formatted="false">Ilizwe</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">umz., US, CN, GB</string>
+    <string name="country_code_label" formatted="false">Ikhowudi yelizwe (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">Ikhowudi yelizwe iyafuneka</string>
+    <string name="country_code_two_letters" formatted="false">Ikhowudi yelizwe (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">Nceda qaphela: Idatha isenokungabandakanyi idatha yamazwe okanye imimandla ethile.</string>
+    <string name="country_name_color" formatted="false">Umbala weGama leLizwe</string>
+    <string name="country_name_font_size" formatted="false">Ubungakanani befomthi yeGama leLizwe</string>
+    <string name="country_region_name_position" formatted="false">Indawo yeGama leLizwe/Ingingqi</string>
+    <string name="country_sync_settings_subtitle" formatted="false">Khetha amazwe wokungqamanisa idatha</string>
+    <string name="country_sync_settings_title" formatted="false">Useto Lokungqamanisa Idatha Ngokwelizwe</string>
+    <string name="create_proposal" formatted="false">Yenza Isiphakamiso</string>
+    <string name="create_proposal_title" formatted="false">Yenza Isiphakamiso Sokucinywa</string>
+    <string name="created_at" formatted="false">Yenziwe: {date}</string>
+    <string name="created_rules" formatted="false">Imithetho eyenziweyo</string>
+    <string name="critical" formatted="false">Balulekile</string>
+    <string name="critical_issues" formatted="false">Imiba Ebalulekileyo</string>
+    <string name="csv_format" formatted="false">Ifomathi ye-CSV</string>
+    <string name="current_device_label" formatted="false">Ileybhile yeSixhobo saKwangoku</string>
+    <string name="current_device_title" formatted="false">Isixhobo saKwangoku</string>
+    <string name="current_language" formatted="false">Ulwimi lwaKwangoku</string>
+    <string name="current_mark_count" formatted="false">Inani leeMpawu zangoku</string>
+    <string name="custom" formatted="false">Yesiko</string>
+    <string name="custom_action_description" formatted="false">Yenza isenzo esingokwesiko.</string>
+    <string name="customer_service" formatted="false">Inkonzo yaBathengi</string>
+    <string name="dashboard_tab" formatted="false">Ideshibhodi</string>
+    <string name="data_analysis" formatted="false">Uhlahlelo lweDatha</string>
+    <string name="data_load_failure" formatted="false">Ukulayisha idatha akwenzekanga: {error}</string>
+    <string name="data_loading_failed" formatted="false">Ukulayisha idatha akwenzekanga: {error}</string>
+    <string name="data_migration" formatted="false">Ukufuduka kweDatha</string>
+    <string name="data_migration_description" formatted="false">Le mpawu ikuvumela ukuba ufudusele yonke idatha yakho phakathi kwezixhobo. Okwangoku, ungasebenzisa iimpawu zokugcina kunye nokubuyisela ukuze ufuduse idatha yakho ngesandla.</string>
+    <string name="data_source_disclaimer" formatted="false">Amanani athathwe kwi-intanethi nasekungenisweni kwabasebenzisi. Asinakuqinisekisa ukuba inombolo, xa sele isusiwe, ayizukungeniswa kwakhona ngabanye abasebenzisi okanye imithombo. Nceda ukhangele kwaye uqinisekise ulwazi ngokusebenzayo.</string>
+    <string name="data_source_reminder" formatted="false">Isikhumbuzo soMthombo weDatha</string>
+    <string name="database_sync_title" formatted="false">Ukungqamanisa Idatha</string>
+    <string name="days" formatted="false">{count, plural, =1{usuku olu-1} other{{count} iintsuku}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 usuku oludlulileyo} other{{count} iintsuku ezidlulileyo}}</string>
+    <string name="days_vip" formatted="false">{days} Iintsuku ze-VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">Ingqokelela yeTyala</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">Izaziso Ezisisiseko</string>
+    <string name="default_notifications_description" formatted="false">Isiteshi sesaziso esisisiseko se-app.</string>
+    <string name="delete" formatted="false">Cima</string>
+    <string name="delete_button" formatted="false">Cima</string>
+    <string name="delete_contact" formatted="false">Cima uMnxibelelanisi</string>
+    <string name="delete_contact_confirm" formatted="false">Uqinisekile ufuna ukucima u-{name}?</string>
+    <string name="delete_failed" formatted="false">Ukucima akwenzekanga: {error}</string>
+    <string name="delete_label" formatted="false">Cima Ileybhile</string>
+    <string name="delete_label_failed" formatted="false">Ukucima ilebhile akwenzekanga: {error}</string>
+    <string name="delete_plugin" formatted="false">Cima Iplagi-in</string>
+    <string name="delete_plugin_failed" formatted="false">Ukucima iplagi-in akwenzekanga: {error}</string>
+    <string name="delete_plugins" formatted="false">Cima Iiplagi-in</string>
+    <string name="delete_plugins_failed" formatted="false">Ukucima iiplagi-in akwenzekanga: {error}</string>
+    <string name="delete_rule" formatted="false">Cima Umthetho</string>
+    <string name="delete_rule_failed" formatted="false">Ukucima akwenzekanga: {error}</string>
+    <string name="delete_selected" formatted="false">Cima okukhethiweyo</string>
+    <string name="delete_subscription" formatted="false">Cima Ubhaliso</string>
+    <string name="delete_subscription_confirm" formatted="false">Uqinisekile ufuna ukucima ubhaliso &quot;{name}&quot;?</string>
+    <string name="delete_subscription_failed" formatted="false">Ukucima ubhaliso akwenzekanga: {error}</string>
+    <string name="delete_success" formatted="false">Ukucima kuphumelele</string>
+    <string name="deletion_proposal" formatted="false">Isiphakamiso Sokucinywa</string>
+    <string name="deletion_proposal_created" formatted="false">Isiphakamiso Sokucinywa Senziwe</string>
+    <string name="deletion_proposal_created_body" formatted="false">Isiphakamiso sakho sokucinywa senombolo {phoneNumber} singeniswe ukuze sihlolwe luluntu.</string>
+    <string name="deletion_proposal_description" formatted="false">Phakamisa iinombolo zokucinywa ezophula izikhokelo zoluntu. Ukuthatha kwakho inxaxheba kunceda ekugcineni iqonga likhuselekile.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">Izaziso malunga neziphumo zokuvota zeziphakamiso zokucinywa kunye nohlaziyo.</string>
+    <string name="deletion_proposals" formatted="false">Iziphakamiso Zokucinywa</string>
+    <string name="delivery" formatted="false">Ukuhanjiswa</string>
+    <string name="description" formatted="false">Inkcazo</string>
+    <string name="detailed_settings_title" formatted="false">Izicwangciso Ezinobunzulu</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">ID yeSixhobo</string>
+    <string name="device_management_subtitle" formatted="false">Lawula unxulumaniso lwezixhobo ezininzi</string>
+    <string name="device_management_title" formatted="false">Ulawulo lweSixhobo</string>
+    <string name="device_model_label" formatted="false">Umzekelo weSixhobo</string>
+    <string name="device_name" formatted="false">Igama leSixhobo</string>
+    <string name="device_name_label" formatted="false">Igama Lesixhobo</string>
+    <string name="device_renamed_successfully_message" formatted="false">Isixhobo sihlaziywe ngempumelelo</string>
+    <string name="device_unregistered_successfully_message" formatted="false">Isixhobo sikhutshwe ngempumelelo</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">Izixhobo zivumelaniswe ngempumelelo</string>
+    <string name="dialog_title" formatted="false">Ingcaciso ye-Regex Pattern</string>
+    <string name="different_from_local_counter" formatted="false">Le ndawo yahlukile kwi-local counter filter, njengoko igxile kwiipateni zokufowuna eziphindaphindiweyo kwixesha elifutshane endaweni yokugxila ekubaleni okude.</string>
+    <string name="disable_global_plugins" formatted="false">Khubaza iiplagini zehlabathi</string>
+    <string name="disabled" formatted="false">Khubazekile</string>
+    <string name="disabled_status" formatted="false">Khubazekile</string>
+    <string name="disconnect_button" formatted="false">Nqamula</string>
+    <string name="disconnect_failed_message" formatted="false">Ukunqamula akwenzekanga</string>
+    <string name="disconnected_message" formatted="false">Kunqanyulwe</string>
+    <string name="disconnected_status" formatted="false">Kunqanyulwe</string>
+    <string name="done" formatted="false">Gqibezela</string>
+    <string name="dual_sim_advice" formatted="false">Le ndawo iluncedo kakhulu kwiifowuni ze-dual-SIM ukuseta iindlela ezahlukeneyo zokucoca kwi-SIM khadi yomsebenzi neyakho.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">Inombolo ye-E164</string>
+    <string name="earlier" formatted="false">Kwangaphambili</string>
+    <string name="earned_temp_vip" formatted="false">Ufumene i-VIP okwethutyana</string>
+    <string name="ecommerce" formatted="false">E-commerce</string>
+    <string name="edit" formatted="false">Hlela</string>
+    <string name="edit_contact" formatted="false">Hlela uMqhagamshelani</string>
+    <string name="edit_label" formatted="false">Hlela Ileyibhuli</string>
+    <string name="edit_phone_rule" formatted="false">Hlela uMthetho weFowuni</string>
+    <string name="edit_rule" formatted="false">Hlela uMthetho</string>
+    <string name="edit_script" formatted="false">Hlela Iskripthi</string>
+    <string name="edit_script_for" formatted="false">Hlela iskripthi se-{pluginName}</string>
+    <string name="edit_subscription" formatted="false">Hlela Ukubhalisa</string>
+    <string name="education" formatted="false">Ezemfundo</string>
+    <string name="element_positions_setting" formatted="false">Indawo Zezixhobo</string>
+    <string name="elements_settings_title" formatted="false">Izicwangciso Zezinto</string>
+    <string name="email" formatted="false">I-email</string>
+    <string name="enable_call_filter" formatted="false">Vula Icebo Lokucoca Iifowuni</string>
+    <string name="enable_call_filter_description" formatted="false">Xa ivuliwe, iifowuni ezingenayo ziyakujongwa ngokwe-rule list engezantsi. Imithetho yokucoca iifowuni ayivumelaniswa phakathi kwezixhobo ngokwendalo.</string>
+    <string name="enable_encryption" formatted="false">Vula uFihlo</string>
+    <string name="enable_encryption_description" formatted="false">Fihla iifayile zogcino</string>
+    <string name="enable_filtering" formatted="false">Vula Ukuhluzwa</string>
+    <string name="enable_fraud_alert" formatted="false">Vula Ulwazi loBuqhetseba</string>
+    <string name="enable_fraud_alert_description" formatted="false">Ulwazi ngeefowuni ezikrokrelwa ubugebengu</string>
+    <string name="enable_global_plugins" formatted="false">Vula iiplagini zehlabathi</string>
+    <string name="enable_local_count_filter" formatted="false">Vula iLocal Count Filter</string>
+    <string name="enable_local_count_filter_description" formatted="false">Coca ngokuzenzekelayo iifowuni ze-spam ngokusekelwe ekubaleni kokuphawulwa kwefowuni</string>
+    <string name="enable_local_notification" formatted="false">Sebenzisa Isaziso sendawo</string>
+    <string name="enable_local_notification_description" formatted="false">Xa ivuliwe, izaziso zemiyalezo ecociweyo ziya kuboniswa kwisixhobo</string>
+    <string name="enable_location_summary" formatted="false">Indawo</string>
+    <string name="enable_mute_rules" formatted="false">Vula Imithetho Yokuthulisa</string>
+    <string name="enable_mute_rules_desc" formatted="false">Sebenzisa uqwalaselo lwemigaqo yokuthulisa</string>
+    <string name="enable_none_action_rules" formatted="false">Vula Imithetho Engenzi Lutho</string>
+    <string name="enable_none_action_rules_desc" formatted="false">Vumela uqwalaselo lwemigaqo engenzi nto</string>
+    <string name="enable_remote_number_filter" formatted="false">Vula Icebo lokucoca Inombolo ekude</string>
+    <string name="enable_remote_number_filter_description" formatted="false">Sebenzisa database ekude ukucoca iinombolo</string>
+    <string name="enable_rule" formatted="false">Vula uMthetho</string>
+    <string name="enable_security_message" formatted="false">Vula Umyalezo woKhuseleko</string>
+    <string name="enable_sms_filter" formatted="false">Vula Ukucocwa Kwe-SMS</string>
+    <string name="enable_sms_filter_description" formatted="false">Xa ivuliwe, imiyalezo iya kucocwa ngokuzenzekelayo ngokwemigaqo</string>
+    <string name="enable_time_interception" formatted="false">Vula Ukunqanda Ngexesha</string>
+    <string name="enable_time_interception_description" formatted="false">Nqanda iifowuni eziphindaphindiweyo kwixesha elifutshane</string>
+    <string name="enable_time_interceptor" formatted="false">Vula Isithinteli Sexesha</string>
+    <string name="enable_vibration" formatted="false">Vula Ukungcangcazela</string>
+    <string name="enable_vibration_description" formatted="false">Ngcangcazela xa kufowunwa ngabakrokrelwa ubugebengu</string>
+    <string name="enabled" formatted="false">Vuliwe</string>
+    <string name="enabled_status" formatted="false">Vuliwe</string>
+    <string name="end_call_immediately" formatted="false">Nqamula ifowuni ngoku</string>
+    <string name="end_color" formatted="false">Umbala Wokugqibela</string>
+    <string name="end_date" formatted="false">Umhla Wokugqibela</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">Inkqubo Yokucoca Ehlaziyiweyo</string>
+    <string name="enhanced_filter_settings" formatted="false">Useto lweSistim yokucoca ehlaziyiweyo</string>
+    <string name="enhanced_filter_settings_title" formatted="false">Useto lweSistim yokucoca ehlaziyiweyo</string>
+    <string name="enhanced_filter_system_description" formatted="false">Inkqubo yokucoca ehlaziyiweyo ixhasa imithetho yehlabathi kunye noqwalaselo lokucoca lwekhadi ngalinye le-SIM.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">Nceda ufake inombolo yefowuni kunye ne-regex pattern.</string>
+    <string name="enter_contact_name" formatted="false">Nceda ufake igama lomqhagamshelani</string>
+    <string name="enter_device_name" formatted="false">Faka Igama Lesixhobo</string>
+    <string name="enter_email_optional" formatted="false">Nceda ufake i-email (onganyanzelekanga)</string>
+    <string name="enter_encryption_password_hint" formatted="false">Faka ipassword yofihlo</string>
+    <string name="enter_icon_code" formatted="false">Faka ikhowudi ye-ayikhoni</string>
+    <string name="enter_name" formatted="false">Faka igama lomqhagamshelani</string>
+    <string name="enter_new_device_name_hint" formatted="false">Faka igama elitsha lesi sixhobo</string>
+    <string name="enter_password_again" formatted="false">Faka Ipassword Kwakhona</string>
+    <string name="enter_phone_number" formatted="false">Faka inombolo yefowuni</string>
+    <string name="enter_phone_number_hint" formatted="false">Faka inombolo yefowuni ukuyivavanya</string>
+    <string name="enter_phone_number_multiple" formatted="false">Nceda ufake inombolo yefowuni, iinombolo ezininzi zohlulwe ngekhoma</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">Faka inombolo yefowuni ukuqala ukukhangela</string>
+    <string name="enter_phone_number_to_verify" formatted="false">Faka inombolo yefowuni ukuqinisekisa</string>
+    <string name="enter_plugin_description" formatted="false">Faka inkcazo yeplugin</string>
+    <string name="enter_plugin_name" formatted="false">Faka Igama Le-Plugin</string>
+    <string name="enter_plugin_url" formatted="false">Faka idilesi ye-URL ye-plugin</string>
+    <string name="enter_regex_hint" formatted="false">Faka i-regex pattern</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">Nceda ufake igama leregula kunye nepatheni ye-regex.</string>
+    <string name="enter_rule_name_hint" formatted="false">Faka igama leregula</string>
+    <string name="enter_search_content" formatted="false">Nceda ufake umxholo wophendlo</string>
+    <string name="enter_subscription_name" formatted="false">Faka igama lobhaliso</string>
+    <string name="enter_subscription_url" formatted="false">Faka i-URL yobhaliso</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">Nceda ufake igama lefoda yokuvumelanisa (okungagqibekanga: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">Nceda ufake igama kunye ne-URL esebenzayo</string>
+    <string name="enter_valid_url" formatted="false">Nceda ufake i-URL esebenzayo</string>
+    <string name="enter_version" formatted="false">Faka Inguqulelo</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">Nceda ufake iphasiwedi yeWebDAV</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">Nceda ufake idilesi yeseva yeWebDAV</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">Nceda ufake igama lomsebenzisi leWebDAV</string>
+    <string name="entertainment" formatted="false">Ulonwabo</string>
+    <string name="entity_export_failed" formatted="false">Kuhlulekile ukuthumela {entityTypeName}: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} ithunyelwe ngempumelelo</string>
+    <string name="entity_import_failed" formatted="false">Kuhlulekile ukungenisa {entityTypeName}: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} ingeniswe ngempumelelo, irekhodi {count} iyonke engenisiwe</string>
+    <string name="entry_point_view_title" formatted="false">Isikrini Sokuqalisa</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">Impazamo: {error}</string>
+    <string name="error_occurred_message" formatted="false">Kukho impazamo eyenzekileyo: {error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">Impazamo yokuthiya kwakhona isixhobo: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">Impazamo yokuvumelanisa izixhobo: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">Impazamo yokukhupha ubhaliso lwesixhobo: {error}</string>
+    <string name="example_block400_prefix" formatted="false">umz. Vimba iinombolo ezine-prefix 400</string>
+    <string name="example_block_marketing_sms" formatted="false">umz. Vimba ii-SMS zentengiso</string>
+    <string name="example_content_regex_hint" formatted="false">Umzekelo weRegex yoMxholo</string>
+    <string name="example_coupon_promotion_discount" formatted="false">umz. .*(coupon|promotion|discount).*</string>
+    <string name="example_family_friends" formatted="false">umz. Usapho, Abahlobo, njl.njl.</string>
+    <string name="example_phone_number" formatted="false">umz. 10086, 12345, njl.njl.</string>
+    <string name="example_regex400_prefix" formatted="false">Umzekelo we-regex ye-prefix 400</string>
+    <string name="example_sender_regex_hint" formatted="false">Umzekelo</string>
+    <string name="exchange" formatted="false">Tshintsha</string>
+    <string name="exchange_failed" formatted="false">Ukutshintshiselana akwenzekanga: {error}</string>
+    <string name="exchange_now" formatted="false">Tshintsha Ngoku</string>
+    <string name="exchange_success" formatted="false">Kutshintshiselwe ngempumelelo nge-{description}, umhla wokuphelelwa: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">Tshintsha i-VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">Ixesha lokuphelelwa: {time}</string>
+    <string name="export" formatted="false">Thumela Ngaphandle</string>
+    <string name="export_all_application_settings" formatted="false">Thumela zonke izicwangciso zesicelo ngaphandle</string>
+    <string name="export_all_rule_configurations" formatted="false">Thumela Zonke Izicwangciso Zerula Ngaphandle</string>
+    <string name="export_config" formatted="false">Thumela Ucwangciso Ngaphandle</string>
+    <string name="export_contacts" formatted="false">Thumela Abafowunelwa Ngaphandle</string>
+    <string name="export_data" formatted="false">Thumela Idatha Ngaphandle</string>
+    <string name="export_entity" formatted="false">Thumela {entityTypeName}</string>
+    <string name="export_failed" formatted="false">Ukuthumela ngaphandle akwenzekanga</string>
+    <string name="export_failure" formatted="false">Kusilele ukuthumela ucwangciso ngaphandle</string>
+    <string name="export_feature_coming_soon" formatted="false">Ukuthumela ngaphandle kuza kungekudala</string>
+    <string name="export_labels" formatted="false">Thumela Iileyibhile Ngaphandle</string>
+    <string name="export_labels_failed" formatted="false">Kusilele ukuthumela iileyibhile ngaphandle: {error}</string>
+    <string name="export_plugin_list" formatted="false">Thumela Uluhlu Lweeplagin Ngaphandle</string>
+    <string name="export_plugin_list_failed" formatted="false">Kusilele ukuthumela uluhlu lweeplagin ngaphandle: {error}</string>
+    <string name="export_rules" formatted="false">Thumela Iirula Ngaphandle</string>
+    <string name="export_sms_rules" formatted="false">Thumela Iirula Ze-SMS Ngaphandle</string>
+    <string name="export_statistics_data" formatted="false">Thumela Idatha YeNkcukacha-manani Ngaphandle</string>
+    <string name="export_successlly" formatted="false">Ucwangciso luthunyelwe ngaphandle ngempumelelo</string>
+    <string name="failed_to_add_rule" formatted="false">Kusilele ukongeza irula: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">Kusilele ukongeza ubhaliso lwe-SMS: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">Kusilele ukwenza ugcino lwezicwangciso: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">Kusilele ukucazulula ifayile yogcino</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">Kusilele ukucima irula ye-SMS: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">Kusilele ukuthumela iirula ngaphandle: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">Kusilele ukufumana ulwazi lwe-ID yomfowuni: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">Kusilele ukungenisa iirula: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">Kusilele ukubuyisela izicwangciso</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">Kusilele ukubuyisela izicwangciso: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">Kusilele ukutshintsha imeko yerula: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">Abafowunelwa Abathandayo</string>
+    <string name="feature" formatted="false">Iimpawu</string>
+    <string name="feature_add_rules" formatted="false">• Yongeza iirula ezithile zenombolo yefowuni</string>
+    <string name="feature_center" formatted="false">Iziko LeeNqobo</string>
+    <string name="feature_enable_disable" formatted="false">• Vula/vala izihluzo ezahlukeneyo kwi-SIM nganye</string>
+    <string name="feature_list_title" formatted="false">Iimpawu:</string>
+    <string name="feature_manage_rules" formatted="false">• Lawula uluhlu lweerula kwi-SIM nganye</string>
+    <string name="features" formatted="false">Iimpawu</string>
+    <string name="fetching_caller_id_info" formatted="false">Kufunwa ulwazi lwe-ID yomfowuni...</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">Ifayile igcinwe ku: {path}</string>
+    <string name="filter" formatted="false">Isihluzo</string>
+    <string name="filter_and_sort_title" formatted="false">Hluza kwaye Ulungelelanise</string>
+    <string name="filter_by" formatted="false">Hluza Nge</string>
+    <string name="filter_by_action" formatted="false">Hluza ngeNyathelo</string>
+    <string name="filter_by_label" formatted="false">Hluza ngeleyibhile</string>
+    <string name="filter_control_panel_title" formatted="false">Iphaneli Yokulawula Izihluzo</string>
+    <string name="filter_control_subtitle" formatted="false">Lawula imeko yokuvula/yokuvala yazo zonke izihluzo</string>
+    <string name="filter_control_title" formatted="false">Ulawulo Lokucoca</string>
+    <string name="filter_explanation" formatted="false">Ingcaciso Yokucoca</string>
+    <string name="filter_management" formatted="false">Ulawulo Lokucoca</string>
+    <string name="filter_management_description" formatted="false">Seta Izihlungi zokuFowuna</string>
+    <string name="filter_name" formatted="false">Igama Lokucoca</string>
+    <string name="filter_priority_note" formatted="false">Qaphela: Kukho ubudlelwane phakathi kwezicoci, nceda ujonge kumaxwebhu oncedo ukufumana iinkcukacha</string>
+    <string name="filter_s_m_s" formatted="false">Coca i-SMS</string>
+    <string name="filter_settings" formatted="false">Useto Lokucoca</string>
+    <string name="filter_settings_title" formatted="false">Useto Lokucoca</string>
+    <string name="filter_toggle_instructions" formatted="false">Vula okanye uvale izicoci zale ndawo ye-SIM:</string>
+    <string name="filter_toggle_status" formatted="false">{status} isicoci: {filterName}</string>
+    <string name="filter_type" formatted="false">Uhlobo Lokucoca</string>
+    <string name="filter_verified_owner" formatted="false">Hluza Umnini oQinisekisiweyo</string>
+    <string name="filtered" formatted="false">Kucociwe</string>
+    <string name="final_risk" formatted="false">Ingozi Yokugqibela</string>
+    <string name="financial" formatted="false">Ezimali</string>
+    <string name="flexible_combination_feature" formatted="false">• Ukudibanisa okuguquguqukayo: Vula/vala izicoci kwindawo nganye ye-SIM</string>
+    <string name="font_sizes_setting" formatted="false">Ubungakanani Befonti</string>
+    <string name="found_rules" formatted="false">Kufumaneke imithetho eli-{count}</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">Ukuseta Ulwazi loBuqhetseba</string>
+    <string name="fraud_aler_setting_title" formatted="false">Useto loLwazi loBuqhetseba</string>
+    <string name="fraud_alert" formatted="false">ISILUMKISO NGOBUQHUQHUVA - Yinqumle umnxeba</string>
+    <string name="fraud_alert_title" formatted="false">Ulwazi loBuqhetseba</string>
+    <string name="fraud_alerts" formatted="false">Izilumkiso zokuqhatha</string>
+    <string name="fraud_alerts_description" formatted="false">Ibonisa izilumkiso ngeefowuni ezinokuqhatha.</string>
+    <string name="fraud_scam_likely" formatted="false">Ubuxoki bobuqhophololo Bunokwenzeka</string>
+    <string name="free" formatted="false">Simahla</string>
+    <string name="function_settings_title" formatted="false">Useto Lomsebenzi</string>
+    <string name="general_update_failure" formatted="false">Uhlaziyo alusebenzanga: {error}</string>
+    <string name="get_free" formatted="false">Fumana Simahla</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Lungiselela izicoci zehlabathi lonke zazo zonke iikhadi ze-SIM:</string>
+    <string name="global_filter_feature" formatted="false">• Izicoci zeHlabathi lonke: Imithetho esisiseko yayo yonke iminxeba engenayo</string>
+    <string name="global_filter_settings" formatted="false">Useto Lwezicoci Zehlabathi Lonke</string>
+    <string name="global_settings" formatted="false">Useto Lwehlabathi Lonke</string>
+    <string name="google_drive_auth_description" formatted="false">Gunyazisa usebenzisa i-ID yomxhasi ye-Google Drive elungiselelwe yinkqubo kunye nesitshixo</string>
+    <string name="google_drive_config_title" formatted="false">Ulungiselelo Lwe-Google Drive</string>
+    <string name="government" formatted="false">Urhulumente</string>
+    <string name="grant_necessary_permissions" formatted="false">Nikeza Iimvume Ezifunekayo</string>
+    <string name="grant_permissions" formatted="false">Nikeza Iimvume</string>
+    <string name="granted" formatted="false">Kuvunyelwe</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">Ufumene amalungelo okuthenga okwethutyana angama-{days} iintsuku. Umhla wokuphelelwa: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">Izikhokelo</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">Sele unamalungelo okwethutyana, umhla wokuphelelwa: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">Sele unamalungelo e-VIP (ngaphandle kweentengiso)</string>
+    <string name="headhunter" formatted="false">Umzingeli Wabasebenzi</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Ubude</string>
+    <string name="high" formatted="false">Phezulu</string>
+    <string name="high_risk" formatted="false">Umngcipheko Ophezulu</string>
+    <string name="home_tab" formatted="false">Ekhaya</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 iyure edlulileyo} other{{count} iiyure ezidlulileyo}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 iiyure} =1{iyure e-1} other{{count} iiyure}}</string>
+    <string name="how_it_works_point1" formatted="false">• Inkqubo iya kuvumela ngokuzenzekelayo iminxeba evela kwinombolo efanayo ngaphakathi kwexesha elimisiweyo</string>
+    <string name="how_it_works_point2" formatted="false">• Amaxesha amafutshane akhokelela ekunqandeni okungqongqo; amaxesha amade akhokelela ekunqandeni okungqongqo</string>
+    <string name="how_it_works_point3" formatted="false">• Inkqubo ijonga iirekhodi zomnxeba ukufumanisa ukuba ngumnxeba ophindaphindiweyo na</string>
+    <string name="how_it_works_title" formatted="false">Indlela Esebenza Ngayo:</string>
+    <string name="icon_code_optional" formatted="false">Ikhowudi Ye-icon (Oyakhetha)</string>
+    <string name="icon_size" formatted="false">Ubungakanani Be-icon</string>
+    <string name="import" formatted="false">Ngenisa</string>
+    <string name="import_config" formatted="false">Ngenisa Ulungiselelo</string>
+    <string name="import_contacts" formatted="false">Ngenisa Abafowunelwa</string>
+    <string name="import_entity" formatted="false">Ngenisa {entityTypeName}</string>
+    <string name="import_export" formatted="false">Ngenisa/Thumela</string>
+    <string name="import_export_contacts" formatted="false">Ngenisa/Thumela Abafowunelwa</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Ngenisa/Thumela Abafowunelwa</string>
+    <string name="import_export_description" formatted="false">Ngenisa okanye thumela idatha {entityTypeName}</string>
+    <string name="import_export_rules" formatted="false">Ngenisa/Thumela Imithetho</string>
+    <string name="import_export_title" formatted="false">Ngenisa/Thumela</string>
+    <string name="import_failed" formatted="false">Ukungenisa akusebenzanga: {error}</string>
+    <string name="import_failure" formatted="false">Ukungenisa ulungiselelo akusebenzanga</string>
+    <string name="import_feature_coming_soon" formatted="false">Ukungenisa kuza kungekudala</string>
+    <string name="import_labels" formatted="false">Ngenisa Iilebhile</string>
+    <string name="import_labels_failed" formatted="false">Ukungenisa iilebhile akusebenzanga: {error}</string>
+    <string name="import_plugin_list" formatted="false">Ngenisa Uluhlu Lwama-plugin</string>
+    <string name="import_plugin_list_failed" formatted="false">Ukungenisa uluhlu lwama-plugin akusebenzanga: {error}</string>
+    <string name="import_plugin_success" formatted="false">Kungeniswe ngempumelelo {count} plugins</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Ngenisa Ulungiselelo Lwemithetho Kwifayile</string>
+    <string name="import_rules" formatted="false">Ngenisa Imithetho</string>
+    <string name="import_success" formatted="false">Ukungenisa kuphumelele</string>
+    <string name="important" formatted="false">Okubalulekileyo</string>
+    <string name="important_notice_title" formatted="false">Isaziso Esibalulekileyo</string>
+    <string name="incoming_call_intercept_action" formatted="false">Isenzo Sokunqanda Umnxeba Ongenayo</string>
+    <string name="incorrect_password" formatted="false">Igama lokugqitha elingafanelekanga</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.</string>
+    <string name="initial_setup_deselect_all" formatted="false">Susa Ukhetho</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">Failed to get configuration</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">Retry</string>
+    <string name="initial_setup_save" formatted="false">One-click setup selected</string>
+    <string name="initial_setup_save_failed" formatted="false">Failed to save configuration: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Configuration saved successfully, rules will be fetched automatically soon</string>
+    <string name="initial_setup_saving" formatted="false">Saving...</string>
+    <string name="initial_setup_search_hint" formatted="false">Khangela isethi yemithetho okanye ilizwe...</string>
+    <string name="initial_setup_select_all" formatted="false">Khetha Zonke</string>
+    <string name="initial_setup_selected_count" formatted="false">{count} Ekhethiweyo</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">Skip</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">Rule Library Setup</string>
+    <string name="initializing" formatted="false">Iyaqala</string>
+    <string name="installed" formatted="false">Ifakwe</string>
+    <string name="insufficient_marks" formatted="false">Amanqaku Angonelanga</string>
+    <string name="insurance" formatted="false">Inshurensi</string>
+    <string name="intercept_action" formatted="false">Isenzo Sokunqanda</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Misela indlela ekusingathwa ngayo iminxeba evinjiweyo</string>
+    <string name="interception_action_settings_title" formatted="false">Useto Lwesenzo Sokunqanda</string>
+    <string name="interception_time_interval" formatted="false">Ixesha Lokunqanda</string>
+    <string name="internet" formatted="false">Interneti</string>
+    <string name="interval_set_success" formatted="false">Ixesha lohlaziyo lwe-{service} limiselwe kwiintsuku eziyi-{days}</string>
+    <string name="invalid_content_regex" formatted="false">I-regex yomxholo engasebenziyo</string>
+    <string name="invalid_exchange_rule" formatted="false">Ummiselo wokutshintshiselana ongalunganga</string>
+    <string name="invalid_label" formatted="false">Ilebhile engasebenzi</string>
+    <string name="invalid_regex_pattern" formatted="false">Iphethini yeregesi engasebenzi</string>
+    <string name="invalid_sender_regex" formatted="false">I-regex yomthumeli engasebenzi</string>
+    <string name="invalid_sim_data" formatted="false">Idatha yeSIM engafanelekanga</string>
+    <string name="ip_country" formatted="false">Ilizwe le-IP</string>
+    <string name="is_number_match" formatted="false">Inombolo Iyangqamana</string>
+    <string name="is_roaming" formatted="false">Iya Roaming</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">Joyina iTelegram Channel kunye neGroup ngolwazi oluthe vetshe</string>
+    <string name="json_format" formatted="false">Ifomathi ye-JSON</string>
+    <string name="just_now" formatted="false">Ngoku kanye</string>
+    <string name="keep_all_versions" formatted="false">Gcina Zonke iiNguqulelo</string>
+    <string name="keep_all_versions_description" formatted="false">Gcina zonke iinguqulelo zembali zoluhlu ngalunye</string>
+    <string name="label" formatted="false">Ilebhile</string>
+    <string name="label_action_description" formatted="false">Yongeza ilebhile kwifowuni ukuze kube lula ukuyiqonda.</string>
+    <string name="label_added_successfully" formatted="false">Ilebhile &quot;{name}&quot; yongezwe ngempumelelo</string>
+    <string name="label_categories" formatted="false">Iindidi zeeLebhile</string>
+    <string name="label_deleted" formatted="false">Ilebhile icinyiwe</string>
+    <string name="label_description" formatted="false">IiLebhile zikunceda ulawule abafowunelwa ngcono, yongeza iilebhile zesiko kumanani efowuni ukuze kube lula ukuchonga iminxeba kunye nemiyalezo.</string>
+    <string name="label_filter_tooltip" formatted="false">Isihluzi seeLebhile</string>
+    <string name="label_icon_color" formatted="false">Umbala weIcon yeLebhile</string>
+    <string name="label_management" formatted="false">Ulawulo lweeLebhile</string>
+    <string name="label_not_found" formatted="false">Ilebhile ayifunyanwanga</string>
+    <string name="label_tag" formatted="false">Ilebhile: {labelId}</string>
+    <string name="label_update_failed" formatted="false">Kusilele ukuhlaziya ilebhile: {error}</string>
+    <string name="label_update_success" formatted="false">Ilebhile &quot;$labelText&quot; ihlaziywe ngempumelelo</string>
+    <string name="labels" formatted="false">IiLebhile</string>
+    <string name="labels_color" formatted="false">Umbala weeLebhile</string>
+    <string name="labels_deleted" formatted="false">{count} iilebhile zicinyiwe</string>
+    <string name="labels_exported_successfully" formatted="false">IiLebhile zithunyelwe ngaphandle ngempumelelo</string>
+    <string name="labels_font_size" formatted="false">Ubukhulu Befonti Yeelebhile</string>
+    <string name="labels_imported_successfully" formatted="false">Kungeniswe {count} iilebhile ngempumelelo</string>
+    <string name="labels_position" formatted="false">Indawo yeeLebhile</string>
+    <string name="language_settings" formatted="false">Useto loLwimi</string>
+    <string name="language_settings_subtitle" formatted="false">Tshintsha ulwimi lokubonisa lwesicelo</string>
+    <string name="language_settings_title" formatted="false">Useto loLwimi</string>
+    <string name="last_sync_label" formatted="false">Uvumelaniso lwamva nje</string>
+    <string name="last_updated" formatted="false">Ihlaziywe: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">Ubulungu boBomi Bonke</string>
+    <string name="lifetime_membership_description" formatted="false">Ukuthenga kanye, vula ngokusisigxina zonke iimpawu zepremiyamu kunye nohlaziyo lwexesha elizayo</string>
+    <string name="list_view" formatted="false">Ukujonga Uluhlu</string>
+    <string name="live_activities_settings_title" formatted="false">Izicwangciso zoMsebenzi oPhilayo</string>
+    <string name="live_activities_test_end_activity" formatted="false">Phelisa Umsebenzi</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">Thumela Umsebenzi oMtsha</string>
+    <string name="live_activities_test_title" formatted="false">Uvavanyo loMsebenzi oPhilayo</string>
+    <string name="live_activities_test_update_activity" formatted="false">Hlaziya Umsebenzi</string>
+    <string name="live_activity_controls_title" formatted="false">Ulawulo loMsebenzi oPhilayo</string>
+    <string name="live_activity_mode" formatted="false">Umsebenzi oPhilayo</string>
+    <string name="live_activity_mode_description" formatted="false">Ibonisa ulwazi lwefowuni njengesilumkiso esihlala sikhona kwisikrini sokukhiya nakwiDynamic Island (iOS).</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Yenza ngokwesiko inkangeleko yezilumkiso eziphilayo.</string>
+    <string name="live_notification_customization_title" formatted="false">Ukwenza ngokweSiko kwesiLumkiso esiPhilayo</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">Kusilele ukulayisha abafowunelwa: {error}</string>
+    <string name="load_data_failed" formatted="false">Kusilele ukulayisha idatha</string>
+    <string name="load_label_failed" formatted="false">Kusilele ukulayisha iilebhile: {error}</string>
+    <string name="load_labels_failed" formatted="false">Kusilele ukulayisha iilebhile: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">Kusilele ukulayisha amanani efowuni aphawuliweyo: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">Kusilele ukulayisha iifowuni eziphawuliweyo: {error}</string>
+    <string name="load_plugins_failed" formatted="false">Kusilele ukulayisha iiplagini: {error}</string>
+    <string name="load_settings_failed" formatted="false">Kusilele ukulayisha useto: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">Kusilele ukulayisha imithetho yeSMS: {error}</string>
+    <string name="load_status_failed_message" formatted="false">Kusilele ukulayisha imeko</string>
+    <string name="load_subscriptions_failed" formatted="false">Kusilele ukulayisha ubhaliso: {error}</string>
+    <string name="loading" formatted="false">Iyalayisha...</string>
+    <string name="loading_ad" formatted="false">Ilodwa Intengiso...</string>
+    <string name="loading_tags" formatted="false">Iyalayisha iithegi...</string>
+    <string name="loan" formatted="false">Imali-mboleko</string>
+    <string name="local_count_filter" formatted="false">Isihluzi seKhawuntara yaseKhaya</string>
+    <string name="local_count_filter_description" formatted="false">Thintela iminxeba rhoqo ngokusekelwe kwikawuntara yenombolo yasekhaya</string>
+    <string name="local_count_filter_explanation_content" formatted="false">Isihluzi sekawuntara yasekhaya sihlalutya iirekhodi zembali yomnxeba ukuze sichonge kwaye sithintele ngokuzenzekelayo iminxeba yogaxekile rhoqo.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">Ingcaciso yeSihluzi seKhawuntara yaseKhaya</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• Qinisekisa ukuba uza kuthintela ngokusekelwe kwixabiso lokubala lenombolo</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• Xa ikawuntara yenombolo idlula umda obekiweyo, ungakhetha ukuyithintela ngokuzenzekelayo</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• Ungakwazi ukukhetha ukvumela amanani angadluli kulo mda</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• Ungakhetha ukuba uza kurekhoda zonke iilogi zemibuzo</string>
+    <string name="local_count_filter_settings" formatted="false">Useto lweSihluzi seKhawuntara yaseKhaya</string>
+    <string name="local_count_filter_use_cases" formatted="false">Esi sihluzi silungele ngokukodwa ukuchonga iminxeba yogaxekile ezenzekelayo kunye neminxeba yokuthengisa.</string>
+    <string name="local_count_filtering" formatted="false">Ukuhluzwa kweKhawuntara yaseKhaya</string>
+    <string name="local_count_filtering_explanation" formatted="false">• Ukuhluzwa kweKhawuntara yaseKhaya: Imithetho yokuhluzwa esekelwe kwi-local marking count</string>
+    <string name="local_counter_filter" formatted="false">Isihluzi seKhawuntara yaseKhaya</string>
+    <string name="local_counter_filter_subtitle" formatted="false">Hluza ngokuzenzekelayo iminxeba yogaxekile ngokusekelwe kubuninzi beefowuni</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">Useto lweSihluzi saseKhaya</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">Isaziso sasekhaya sivaliwe</string>
+    <string name="local_notification_enabled" formatted="false">Isaziso sasekhaya sivuliwe</string>
+    <string name="local_services" formatted="false">IiNkonzo zaseKhaya</string>
+    <string name="location" formatted="false">Indawo</string>
+    <string name="location_color" formatted="false">Umbala weNdawo</string>
+    <string name="location_font_size" formatted="false">Ubukhulu Befonti yeNdawo</string>
+    <string name="location_icon_color" formatted="false">Umbala weIcon yeNdawo</string>
+    <string name="location_position" formatted="false">Indawo yeNdawo</string>
+    <string name="log" formatted="false">Loga</string>
+    <string name="log_action_description" formatted="false">Loga ulwazi lwefowuni ngaphandle kokuthatha elinye inyathelo.</string>
+    <string name="log_all_local_queries" formatted="false">Rekhoda Yonke Imibuzo yaseKhaya</string>
+    <string name="log_all_local_queries_description" formatted="false">Rekhoda iilogi zayo yonke imibuzo yenombolo yasekhaya</string>
+    <string name="log_all_remote_queries" formatted="false">Rekhoda Yonke Imibuzo Ekude</string>
+    <string name="log_all_remote_queries_description" formatted="false">Rekhoda zonke iintshukumo zemibuzo yenombolo ekude</string>
+    <string name="low" formatted="false">Phantsi</string>
+    <string name="low_risk" formatted="false">Umngcipheko Ophantsi</string>
+    <string name="manage" formatted="false">Lawula Abafowunelwa</string>
+    <string name="manage_favorite_contacts" formatted="false">Lawula Abafowunelwa AbaKhethiweyo</string>
+    <string name="manage_filter_rules" formatted="false">Lawula Imithetho Yesihluzi</string>
+    <string name="manage_filter_rules_description" formatted="false">Yongeza, hlela, okanye ucime imithetho yesihluzi seSMS</string>
+    <string name="manual_entry" formatted="false">Ulwazi Lwegalelo Lesandla</string>
+    <string name="mark_count" formatted="false">IKhawuntara yoPhawu</string>
+    <string name="mark_counts" formatted="false">IiKhaunti Zophawu</string>
+    <string name="mark_exchange" formatted="false">Phawula Utshintshiselwano</string>
+    <string name="mark_more_numbers_for_more" formatted="false">Phawula iinombolo ezininzi ukufumana iimpawu ezininzi</string>
+    <string name="mark_phone" formatted="false">Phawula Inombolo Yefowuni</string>
+    <string name="mark_phone_failed" formatted="false">Ukumaka inombolo kufunwe ukusilela: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">Ulawulo Lokumaka Ifowuni</string>
+    <string name="mark_phone_success" formatted="false">Inombolo yefowuni imakwe ngempumelelo</string>
+    <string name="marked_by_count" formatted="false">Ifakwe uphawu ngu {count}</string>
+    <string name="marked_phones_list" formatted="false">Amanani Efowuni Aphawuliweyo</string>
+    <string name="marks_insufficient" formatted="false">Amanqaku anganeleyo okutshintshiselana</string>
+    <string name="master_and_overrides" formatted="false">Master Controls</string>
+    <string name="master_and_overrides_desc" formatted="false">Global Rule Settings</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">Ukufana akwenzekanga.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">ihambelana nefomathi ethile yenombolo</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">Hambelana neenombolo ezinomlinganiselo okhethekileyo:</string>
+    <string name="match_specific_digit_patterns" formatted="false">ihambelana nefomathi XXX-XXXX-XXXX</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">Hambelana neepateni ezithile zamanani:</string>
+    <string name="match_successful_message" formatted="false">Ukufana kuphumelele!</string>
+    <string name="medical" formatted="false">Ezempilo</string>
+    <string name="medium" formatted="false">Phakathi</string>
+    <string name="medium_risk" formatted="false">Umngcipheko Ophakathi</string>
+    <string name="membership_center" formatted="false">Iziko Lobulungu</string>
+    <string name="membership_privileges" formatted="false">Amalungelo Obulungu</string>
+    <string name="message_background_color" formatted="false">Umbala Ongasemva Womlayezo</string>
+    <string name="message_color" formatted="false">Umbala woMyalezo</string>
+    <string name="message_font_size" formatted="false">Ubungakanani befonti yoMyalezo</string>
+    <string name="message_position" formatted="false">Indawo yoMyalezo</string>
+    <string name="migration_tool" formatted="false">Isixhobo SokuFuduka</string>
+    <string name="minutes" formatted="false">imizuzu</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 umzuzu odlulileyo} other{{count} imizuzu edlulileyo}}</string>
+    <string name="moderate" formatted="false">Phakathi</string>
+    <string name="month" formatted="false">Inyanga</string>
+    <string name="monthly" formatted="false">Ngenyanga</string>
+    <string name="monthly_call_count" formatted="false">Iifowuni Zenyanga</string>
+    <string name="monthly_membership" formatted="false">Ubulungu Benyanga</string>
+    <string name="monthly_membership_description" formatted="false">Vula zonke iimpawu zepremiyamu, hlaziya ngokuzenzekelayo nyanga zonke</string>
+    <string name="monthly_total" formatted="false">Itotali Yenyanga</string>
+    <string name="more_options" formatted="false">Ezinye Iinketho</string>
+    <string name="mute" formatted="false">Thulisa</string>
+    <string name="name" formatted="false">Igama</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">Igama nenombolo yefowuni ayinakushiywa ingenanto</string>
+    <string name="name_cannot_be_empty" formatted="false">Igama alinakuba lingenanto</string>
+    <string name="name_color" formatted="false">Umbala Wegama</string>
+    <string name="name_font_size" formatted="false">Ubungakanani Befonti Yegama</string>
+    <string name="name_position" formatted="false">Indawo Yegama</string>
+    <string name="name_unknown" formatted="false">Igama: Akwaziwa</string>
+    <string name="national_number" formatted="false">Inombolo Yelizwe</string>
+    <string name="need_vip_access" formatted="false">Udinga ukufikelela kwi-VIP ukuze usebenzise olu phawu</string>
+    <string name="new_vote_received" formatted="false">Ivoti Entsha Ifunyenwe</string>
+    <string name="new_vote_received_body" formatted="false">Umntu uvotele {voteType} ukucinywa kwenombolo {phoneNumber}. Iivoti zangoku: {totalVotes}.</string>
+    <string name="next_step" formatted="false">Okulandelayo</string>
+    <string name="no_action" formatted="false">Akukho Senzo</string>
+    <string name="no_action_rules" formatted="false">Akukho Mithetho Yesenzo</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">Akukho nkonzo isebenzayo yokuvumelanisa ilifu</string>
+    <string name="no_activity" formatted="false">Akukho msebenzi</string>
+    <string name="no_ads" formatted="false">Akukho Ntengiso</string>
+    <string name="no_allowed_blocked_rules" formatted="false">Akukho mithetho evunyelweyo/ethintelweyo ifunyenwe</string>
+    <string name="no_blocked_type_data" formatted="false">Akukho datha yohlobo oluthintelweyo efumanekayo</string>
+    <string name="no_call_records" formatted="false">Akukho zingxelo zeefowuni</string>
+    <string name="no_contacts_yet" formatted="false">Akukho baqhagamshelani okwangoku</string>
+    <string name="no_data" formatted="false">Akukho Data</string>
+    <string name="no_devices_registered_message" formatted="false">Akukho zixhobo zibhalisiweyo</string>
+    <string name="no_labels" formatted="false">Akukho zilebheli okwangoku</string>
+    <string name="no_marked_phones" formatted="false">Akukho nombolo zefowuni zimakwe</string>
+    <string name="no_matching_contacts_found" formatted="false">Akukho baqhagamshelani abafanayo bafunyenweyo</string>
+    <string name="no_matching_numbers_found" formatted="false">Akukho nombolo zifanayo zifunyenweyo</string>
+    <string name="no_matching_rules" formatted="false">Akukho {ruleType} ifanayo</string>
+    <string name="no_notifications" formatted="false">Akukho zaziso</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">Akukho mithetho yefowuni ifunyenwe</string>
+    <string name="no_plugins" formatted="false">Akukho ziiplugins okwangoku</string>
+    <string name="no_proposals_found" formatted="false">Akukho ziphakamiso zifunyenweyo</string>
+    <string name="no_regex_rules" formatted="false">Akukho mithetho ye-regex ifunyenwe</string>
+    <string name="no_rules" formatted="false">Akukho {ruleType} okwangoku</string>
+    <string name="no_rules_prompt" formatted="false">Akukho mithetho ifunyenweyo, nceda ungeze imithetho</string>
+    <string name="no_rules_to_export" formatted="false">Akukho mithetho yokuthumela ngaphandle</string>
+    <string name="no_sim_card_detected" formatted="false">Akukho khadi le-SIM lifunyenwe</string>
+    <string name="no_sim_cards_detected" formatted="false">Akukho khadi zeSIM zifunyenwe</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">Akukho mithetho yokuhlola iSMS okwangoku</string>
+    <string name="no_sms_rules_yet" formatted="false">Akukho mithetho yeSMS okwangoku</string>
+    <string name="no_subscriptions" formatted="false">Akukho bhaliso</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">Akukho mithetho yeSMS esebenzayo efumaneke kwifayile</string>
+    <string name="none" formatted="false">Akukho</string>
+    <string name="none_action_description" formatted="false">Akukho nyathelo likhethekileyo liya kuthathwa kwifowuni.</string>
+    <string name="none_service_type" formatted="false">Akukho</string>
+    <string name="normal_user" formatted="false">Umsebenzisi oqhelekileyo</string>
+    <string name="not_granted" formatted="false">Ayinikwanga</string>
+    <string name="not_verified_text" formatted="false">Ayingqinwanga</string>
+    <string name="notification_frequency_hours" formatted="false">Ubude bexesha lesilumkiso (iiyure)</string>
+    <string name="notification_frequency_title" formatted="false">Ubude bexesha lesilumkiso</string>
+    <string name="notification_mode" formatted="false">Indlela Yesaziso</string>
+    <string name="notification_mode_description" formatted="false">Bonisa ulwazi lomntu ofowunayo kwibar yesaziso</string>
+    <string name="notification_permission" formatted="false">Imvume Yesaziso</string>
+    <string name="notification_permission_description" formatted="false">Isetyenziselwa ukubonisa iifowuni ezingenayo kunye nezaziso zemiyalezo.</string>
+    <string name="notification_settings" formatted="false">Izicwangciso Zesaziso</string>
+    <string name="notification_settings_title" formatted="false">Useto lwezaziso</string>
+    <string name="notification_instructions" formatted="false">Izikhokelo:
+1. Cofa &quot;THUMELA&quot; ukwenza okanye ukuhlaziya isilumkiso.
+2. Yiya kwiscreen sakho sasekhaya okanye tsala phantsi itreyi yesilumkiso ukuze ubone isiphumo.
+3. Cofa &quot;PHELISA&quot; ukususa isilumkiso.</string>
+    <string name="notifications" formatted="false">Izaziso</string>
+    <string name="notify" formatted="false">Yazisa</string>
+    <string name="notify_action_description" formatted="false">Thumela isaziso xa ifowuni ingenayo.</string>
+    <string name="number" formatted="false">Inombolo</string>
+    <string name="number_color" formatted="false">Umbala Wenombolo</string>
+    <string name="number_font_size" formatted="false">Ubungakanani Befonti Yenombolo</string>
+    <string name="number_format" formatted="false">Ifomathi Yenombolo</string>
+    <string name="number_invalid_format" formatted="false">Ifomathi yenombolo ingalunganga</string>
+    <string name="number_position" formatted="false">Indawo Yenombolo</string>
+    <string name="number_search" formatted="false">Ukukhangela Inombolo</string>
+    <string name="number_type_color" formatted="false">Umbala Wohlobo Lwenombolo</string>
+    <string name="number_type_font_size" formatted="false">Ubungakanani Befonti Yohlobo Lwenombolo</string>
+    <string name="number_type_position" formatted="false">Indawo Yohlobo Lwenombolo</string>
+    <string name="ok_button" formatted="false">Kulungile</string>
+    <string name="onboarding_complete_description" formatted="false">Ulawulo lwakho lokhuseleko lwefowuni lulungele, qala ukonwabela amava efowuni akhuselekileyo!</string>
+    <string name="onboarding_language_description" formatted="false">Khetha ulwimi olukhethayo ukuze ufumane amava angcono.</string>
+    <string name="onboarding_permissions_description" formatted="false">Ukubonelela ngenkonzo epheleleyo, sidinga ezi mvume zilandelayo:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">Ukuthintela ngokucofa okukodwa iifowuni zogaxekile kunye nemiyalezo, yenza ngokwezifiso imithetho yokuthintela, kwaye ikunike indawo ezolileyo.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">Chonga ngokuzenzekelayo iifowuni ezingaziwayo, maka iinombolo ezirhanelwayo, kwaye ukhusele ukhuseleko lwefowuni yakho.</string>
+    <string name="onboarding_welcome_description" formatted="false">Ingcali yakho yolawulo lwefowuni, ebonelela ngenkonzo epheleleyo yokuchonga kunye nokuthintela iifowuni.</string>
+    <string name="one_drive_auth_description" formatted="false">Gunyazisa usebenzisa i-ID yomxhasi ye-OneDrive ecwangciswe yinkqubo kunye nesitshixo</string>
+    <string name="one_drive_config_title" formatted="false">Uqwalaselo Lwe-OneDrive</string>
+    <string name="online_caller_id_subscription" formatted="false">Ukubhalisa kwi-ID Yomntu Okukwi-Intanethi</string>
+    <string name="open_app_settings" formatted="false">Vula useto lwesicelo</string>
+    <string name="open_app_settings_failed" formatted="false">Ukusilela ekuvuleni useto lwesicelo: {error}</string>
+    <string name="open_in_web_view" formatted="false">Vula kwi-WebView</string>
+    <string name="operation_failed" formatted="false">Ukusilela komsebenzi: {error}</string>
+    <string name="operation_failure" formatted="false">Umsebenzi usilele</string>
+    <string name="operation_success" formatted="false">Umsebenzi uphumelele</string>
+    <string name="oppose" formatted="false">Phikisa</string>
+    <string name="oppose_count" formatted="false">Chasa ({opposeCount})</string>
+    <string name="opposed" formatted="false">KUPHIKISIWE</string>
+    <string name="other" formatted="false">Okunye</string>
+    <string name="our_other_apps" formatted="false">Ezinye izicelo zethu</string>
+    <string name="overlay_mode" formatted="false">Ifestile Edada Phantsi</string>
+    <string name="overlay_mode_description" formatted="false">Bonisa ulwazi lomfowunelayo kwifestile edada phantsi</string>
+    <string name="overlay_permission" formatted="false">Imvume yeFestile Edada Phantsi</string>
+    <string name="overlay_permission_description" formatted="false">Isetyenziselwa ukubonisa ifestile edada phantsi yomnxeba ongenayo.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">Isishwankathelo</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">Iphasiwedi</string>
+    <string name="password_cannot_be_empty" formatted="false">Iphasiwedi ayinakushiya ingenanto</string>
+    <string name="password_label" formatted="false">Iphasiwedi</string>
+    <string name="passwords_do_not_match" formatted="false">Iiphaswedi azihambelani</string>
+    <string name="pattern" formatted="false">Iphethini</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">KULINDILE</string>
+    <string name="pending_proposals" formatted="false">Iingcebiso ezilindileyo</string>
+    <string name="pending_proposals_body" formatted="false">Une {count, plural, =0 {zingcebiso zilindileyo} one {1 ingcebiso elindileyo} other {{count} iingcebiso ezilindileyo}}.</string>
+    <string name="pending_sync" formatted="false">Ukulinda Uvumelaniso</string>
+    <string name="period_month" formatted="false">Inyanga</string>
+    <string name="period_week" formatted="false">Iveki</string>
+    <string name="period_year" formatted="false">Unyaka</string>
+    <string name="permission_denied" formatted="false">Isicelo semvume sivaliwe</string>
+    <string name="permission_granted" formatted="false">Imvume inikiwe</string>
+    <string name="permission_management" formatted="false">Ulawulo Lwemvume</string>
+    <string name="permission_subtitle" formatted="false">Lawula iimvume zokwandlaleka kunye nokulawulwa kwebhetri</string>
+    <string name="permission_title" formatted="false">Iimvume Ezikhethekileyo</string>
+    <string name="phone_calls_tab" formatted="false">Ifowuni</string>
+    <string name="phone_number" formatted="false">Inombolo Yefowuni</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">Inombolo yefowuni ayinakushiya ingenanto</string>
+    <string name="phone_number_hint" formatted="false">Faka inombolo yefowuni</string>
+    <string name="phone_number_label" formatted="false">Inombolo Yefowuni</string>
+    <string name="phone_number_min_digits" formatted="false">Inombolo yefowuni kufuneka ibe nobuncinane beedijithi ezi-7</string>
+    <string name="phone_number_required" formatted="false">Inombolo yefowuni iyafuneka</string>
+    <string name="phone_number_type" formatted="false">Uhlobo Lwenombolo Yefowuni</string>
+    <string name="phone_number_type_fixed_line" formatted="false">Umgca omiselweyo</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">Umgca omiselweyo okanye weselfowuni</string>
+    <string name="phone_number_type_mobile" formatted="false">Ifowuni ephathwayo</string>
+    <string name="phone_number_type_pager" formatted="false">I-Pager</string>
+    <string name="phone_number_type_personal_number" formatted="false">Inombolo yomntu</string>
+    <string name="phone_number_type_premium_rate" formatted="false">Umrhumo ophezulu</string>
+    <string name="phone_number_type_shared_cost" formatted="false">Iindleko ekwabelwana ngazo</string>
+    <string name="phone_number_type_toll_free" formatted="false">Simahla</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">Engaziwayo</string>
+    <string name="phone_number_type_voicemail" formatted="false">I-Voicemail</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">Imvume Yefowuni</string>
+    <string name="phone_permission_description" formatted="false">Isetyenziselwa ukuchonga nokubhloka iifowuni ezingenayo.</string>
+    <string name="phone_rule" formatted="false">Umthetho Wefowuni</string>
+    <string name="phone_rule_management" formatted="false">Ulawulo Lwemithetho Yefowuni</string>
+    <string name="phone_rule_subscription" formatted="false">Ukubhalisa Kwemithetho Yefowuni</string>
+    <string name="phone_rules_info" formatted="false">Imithetho yefowuni isetyenziswa ukulinganisa iifowuni kumanani athile efowuni, anesiqinisekiso esisezantsi. Amanye avela kubhaliso lwefowuni.</string>
+    <string name="phone_subscription" formatted="false">Ukubhalisa Kwefowuni</string>
+    <string name="phone_subscription_rules_description" formatted="false">Bhalisela uluhlu lwemithetho yefowuni nge-URL ukuze uhlaziye ngokuzenzekelayo uluhlu oluvunyelweyo noluhlu olubhlokiweyo. Ixhasa iifayile zomthetho zefomathi ye-JSON.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">Nceda ufake ubuncinane inombolo enye.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">Nceda ukhethe ilebhile uze ufake inombolo yefowuni esebenzayo</string>
+    <string name="plugin_added_success" formatted="false">I-plugin &quot;{name}&quot; yongezwe ngempumelelo</string>
+    <string name="plugin_deleted" formatted="false">I-plugin icinyiwe</string>
+    <string name="plugin_description" formatted="false">Inkcazo yeplugin</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">Ileyibhile yeplugin</string>
+    <string name="plugin_latest_version" formatted="false">I-plugin sele ingeyona nguqulo yamva nje</string>
+    <string name="plugin_list_export_success" formatted="false">Uluhlu lwee-plugin luthunyelwe ngaphandle ngempumelelo</string>
+    <string name="plugin_management" formatted="false">Ulawulo Lwee-plugin</string>
+    <string name="plugin_management_subtitle" formatted="false">Lawula kwaye ufake useto lwee-plugin zabantu besithathu</string>
+    <string name="plugin_name" formatted="false">Igama Le-plugin</string>
+    <string name="plugin_rules_info" formatted="false">Ngenxa yokhuseleko, nceda usebenzise iiplugins ezivela kwimithombo ethembekileyo kuphela. Zive ukhululekile ukusebenzisa iitemplates zethu ukwenza iiplugins zakho!</string>
+    <string name="plugin_service" formatted="false">Inkonzo Ye-plugin</string>
+    <string name="plugin_test_page_title" formatted="false">Uvavanyo Lwe-plugin</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">I-plugin ihlaziywe ngempumelelo</string>
+    <string name="plugin_url" formatted="false">I-URL ye-plugin</string>
+    <string name="plugin_version" formatted="false">Inguqulo Ye-plugin</string>
+    <string name="plugins_deleted" formatted="false">Ii-plugin eziyi-{count} zicinywe ngempumelelo.</string>
+    <string name="political" formatted="false">Ezopolitiko</string>
+    <string name="powerful_spam_blocking" formatted="false">Ukubhloka okunamandla kwe-Spam</string>
+    <string name="previous_step" formatted="false">Inyathelo langaphambili</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">Beka phambili useto lwentetho ekude</string>
+    <string name="prioritize_remote_action_description" formatted="false">Beka phambili useto lwentetho kwiziko ledatha ekude</string>
+    <string name="processed" formatted="false">Kuqhubekekisiwe</string>
+    <string name="processing" formatted="false">Kuqhubekeka...</string>
+    <string name="processing_operation" formatted="false">Kuqhubekeka...</string>
+    <string name="proposal_approved" formatted="false">Isiphakamiso Sivunyiwe ✅</string>
+    <string name="proposal_approved_body" formatted="false">Isiphakamiso sokucinywa senombolo {phoneNumber} sivunyiwe luluntu ({supportPercentage}% yenkxaso, {totalVotes} iivoti).</string>
+    <string name="proposal_created" formatted="false">Isiphakamiso senziwe ngempumelelo</string>
+    <string name="proposal_details" formatted="false">Iinkcukacha zeNgcebiso</string>
+    <string name="proposal_not_found" formatted="false">Ingcebiso ayifunyanwanga</string>
+    <string name="proposal_processed" formatted="false">Esi siphakamiso sihanjisiwe</string>
+    <string name="proposal_rejected" formatted="false">Isiphakamiso Siphikisiwe ❌</string>
+    <string name="proposal_rejected_body" formatted="false">Isiphakamiso sokucinywa senombolo {phoneNumber} siphikisiwe luluntu ({supportPercentage}% yenkxaso, {totalVotes} iivoti).</string>
+    <string name="proposal_statistics" formatted="false">Iinkcukacha Zesiphakamiso</string>
+    <string name="provide_detailed_explanation" formatted="false">Nika inkcazo ecacileyo (ubuncinane beempawu ezili-10)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">Ukuthenga</string>
+    <string name="purchase_subtitle" formatted="false">Ukuthenga Inkonzo</string>
+    <string name="purchase_title" formatted="false">Thenga</string>
+    <string name="quarterly_membership" formatted="false">Ubulungu beKota</string>
+    <string name="quarterly_membership_description" formatted="false">Vula zonke izinto ezikhethekileyo, hlaziya ngokuzenzekelayo ngekota</string>
+    <string name="ready" formatted="false">Ulungele!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">Isizathu</string>
+    <string name="reason_inaccurate_info" formatted="false">Ulwazi Olungachananga</string>
+    <string name="reason_min_characters" formatted="false">Isizathu kufuneka sibe nobuncinane beempawu ezili-10</string>
+    <string name="reason_not_in_service" formatted="false">Ayisebenzi</string>
+    <string name="reason_other" formatted="false">Esinye</string>
+    <string name="reason_outdated" formatted="false">Inombolo Endala</string>
+    <string name="reason_privacy" formatted="false">Inkxalabo Yobumfihlo</string>
+    <string name="reason_required" formatted="false">Isizathu siyafuneka</string>
+    <string name="reason_wrongly_identified" formatted="false">Ichongwe Ngendlela Engafanelekanga</string>
+    <string name="recruiter" formatted="false">Umrekhuthi</string>
+    <string name="redeem_vip_with_marks" formatted="false">Fumana i-VIP ngeempawu</string>
+    <string name="redirect" formatted="false">Tshintsheshela</string>
+    <string name="redirect_action_description" formatted="false">Tshintsheshela ifowuni kwinombolo echaziweyo.</string>
+    <string name="refresh" formatted="false">Hlaziya</string>
+    <string name="refresh_permission_status" formatted="false">Hlaziya ubume bemvume</string>
+    <string name="refresh_proposals" formatted="false">Hlaziywa Iziphakamiso</string>
+    <string name="refresh_tooltip" formatted="false">Hlaziya</string>
+    <string name="regex_error_message" formatted="false">Impazamo ye-Regex: {error}</string>
+    <string name="regex_pattern" formatted="false">Iphethini ye-Regex</string>
+    <string name="regex_pattern_explanation" formatted="false">Ingcaciso yephethini ye-Regex</string>
+    <string name="regex_pattern_explanation_button" formatted="false">Ingcaciso yephethini ye-Regex</string>
+    <string name="regex_pattern_label" formatted="false">Iphethini ye-Regex</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">Iipatheni ze-Regex zokufanisa inombolo yefowuni</string>
+    <string name="regex_rule" formatted="false">Umthetho we-Regex</string>
+    <string name="regex_rule_add_failed" formatted="false">Kusilele ukongeza umthetho we-regex: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">Umthetho we-regex wongezwe ngempumelelo</string>
+    <string name="regex_rule_management" formatted="false">Ulwalulo loMthetho we-Regex</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">Igama lomthetho kunye nephethini ye-regex akufunekanga zibe zingenanto</string>
+    <string name="regex_rules" formatted="false">Imithetho ye-Regex</string>
+    <string name="regex_rules_info" formatted="false">Imithetho ye-Regex isetyenziselwa ukuhlanganisa iifowuni ngokweepateni ze-Regex.</string>
+    <string name="regex_tester_title" formatted="false">Umvavanyi we-Regex</string>
+    <string name="region" formatted="false">Umda</string>
+    <string name="registered_devices_title" formatted="false">Izixhobo eziBhalisiweyo</string>
+    <string name="reject_all_calls" formatted="false">Nqaba zonke iifowuni</string>
+    <string name="reject_all_calls_description" formatted="false">Xa yenziwe yasebenza, zonke iifowuni ziya kunqatshwa ngelona qondo liphezulu lokuqala</string>
+    <string name="reject_all_numbers" formatted="false">Nqaba Zonke iinombolo</string>
+    <string name="reject_all_numbers_desc" formatted="false">Nqaba zonke iifowuni ezingenayo xa yenziwe yasebenza</string>
+    <string name="reject_exceeded_numbers" formatted="false">Nqaba iinombolo ezigqithisiweyo</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">Nqaba ngokuzenzekelayo iinombolo ezigqithisa umda wenani</string>
+    <string name="rejected" formatted="false">KULAHLAWE</string>
+    <string name="remote_filter_settings" formatted="false">Useto loLuhlu olukude</string>
+    <string name="remote_filter_settings_page_title" formatted="false">Useto loLuhlu lweNombolo olukude</string>
+    <string name="remote_number_filter" formatted="false">Uhluzo lweNombolo olukude</string>
+    <string name="remote_number_filter_description" formatted="false">Thintela iifowuni ezihluphayo ngokusekelwe kulwazi lwesiseko sedatha esikude</string>
+    <string name="remote_number_filter_subtitle" formatted="false">Chonga iifowuni ze-spam usebenzisa isiseko sedatha samafu kunye neengxelo zoluntu</string>
+    <string name="remote_number_filtering" formatted="false">Uhluzo lweNombolo olukude</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• Uhluzo lweNombolo olukude: Imithetho yokuhluzo esekelwe kulwazi lwesiseko sedatha esikude</string>
+    <string name="remove_ads" formatted="false">Susa Iintengiso</string>
+    <string name="remove_ads_description" formatted="false">Susa unaphakade zonke iintengiso kwi-app ukuze ube namava alula</string>
+    <string name="remove_ads_title" formatted="false">Susa iintengiso</string>
+    <string name="remove_from_favorites" formatted="false">Susa kwiZithandwa</string>
+    <string name="removed_from_favorites" formatted="false">Kususiwe kubafowunelwa abathandayo</string>
+    <string name="rename_device_title" formatted="false">Qamba kwakhona isiXhobo</string>
+    <string name="reporting_guidelines" formatted="false">• Bika kuphela amanani anengxaki ngokwenene
+• Nika izizathu ezichanekileyo nezicacileyo
+• Khetha inqanaba lobungozi elifanelekileyo ngokusekwe kubunzima
+• Iingxelo zobuxoki zingakhokelela ekuthintelweni kweakhawunti</string>
+    <string name="request_all_permissions" formatted="false">Cela zonke iimvume</string>
+    <string name="request_permission" formatted="false">Cela Imvume</string>
+    <string name="request_permission_failed" formatted="false">Kusilele ukucela imvume: {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">Iimpawu ezili-{count}</string>
+    <string name="reset" formatted="false">Hlela kwakhona</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">Buyisela</string>
+    <string name="restore_application_settings_from_backup" formatted="false">Buyisela Useto lweSicelo kwiBackup</string>
+    <string name="restore_from_cloud" formatted="false">Buyisela kwi-Cloud</string>
+    <string name="restore_from_cloud_failed" formatted="false">Kusilele ukubuyisela kwi-cloud: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">Kubuyiswe ngempumelelo kwi-cloud</string>
+    <string name="restore_purchases" formatted="false">Buyisela iintengo</string>
+    <string name="restore_settings" formatted="false">Buyisela Useto</string>
+    <string name="restore_settings_confirmation" formatted="false">Oku kuya kuthatha indawo yalo lonke useto lwakho lwangoku. Uqinisekile ufuna ukuqhubeka?</string>
+    <string name="result" formatted="false">Isiphumo</string>
+    <string name="retry" formatted="false">Zama kwakhona</string>
+    <string name="rewarded_ad_service" formatted="false">Inkonzo Yeentengiso Ezinesibonelelo</string>
+    <string name="ridesharing" formatted="false">Ukwabelana ngekhethini</string>
+    <string name="risk" formatted="false">Umngcipheko</string>
+    <string name="risk_level" formatted="false">Inqanaba Lomngcipheko</string>
+    <string name="risk_level_critical" formatted="false">Ubungozi obukhulu</string>
+    <string name="risk_level_high" formatted="false">Phezulu</string>
+    <string name="risk_level_label" formatted="false">Inqanaba lobungozi</string>
+    <string name="risk_level_low" formatted="false">Phantsi</string>
+    <string name="risk_level_medium" formatted="false">Phakathi</string>
+    <string name="risk_level_very_low" formatted="false">Buthathaka kakhulu</string>
+    <string name="robocall" formatted="false">Ifowuni yerobhoti</string>
+    <string name="rule_action" formatted="false">Isenzo soMthetho</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">Umthetho wongezwe ngempumelelo</string>
+    <string name="rule_added_success" formatted="false">Umthetho wongezwe ngempumelelo</string>
+    <string name="rule_delete_confirm_content" formatted="false">Uqinisekile ufuna ukucima olu {ruleType}?</string>
+    <string name="rule_delete_confirm_title" formatted="false">Cima Umthetho</string>
+    <string name="rule_delete_failed" formatted="false">Kusilele ukucima umthetho: {error}</string>
+    <string name="rule_delete_success" formatted="false">Umthetho ucinywe ngempumelelo</string>
+    <string name="rule_deleted_successfully" formatted="false">Umthetho ucinywe ngempumelelo</string>
+    <string name="rule_disabled_successfully" formatted="false">Umthetho ukhubazekile ngempumelelo</string>
+    <string name="rule_enabled_successfully" formatted="false">Umthetho wenziwe wasebenza ngempumelelo</string>
+    <string name="rule_load_failed" formatted="false">Kusilele ukulayisha imithetho: {error}</string>
+    <string name="rule_management" formatted="false">Ulawulo loMthetho</string>
+    <string name="rule_name" formatted="false">Igama loMthetho</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">Igama lomthetho kunye ne-regex yomxholo akufunekanga ibe zingenanto</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">Igama lomthetho kunye nenombolo yefowuni akufunekanga ibe zingenanto</string>
+    <string name="rule_name_hint" formatted="false">umz., Usapho, Abahlobo, njl.</string>
+    <string name="rule_name_label" formatted="false">Ileyibhile yeGama loMthetho</string>
+    <string name="rule_name_required" formatted="false">Igama lomthetho kunye nenombolo yefowuni akufunekanga ibe zingenanto</string>
+    <string name="rule_not_exist" formatted="false">Ummiselo awukho okanye ucinyiwe</string>
+    <string name="rule_not_found" formatted="false">Ummiselo awufunyanwanga: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">Ummiselo ugcinwe ngempumelelo!</string>
+    <string name="rule_status_changed" formatted="false">Ummiselo {status} ngempumelelo</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">Intshukumo ayisebenzanga: {error}</string>
+    <string name="rule_toggle_success" formatted="false">Ummiselo {status} ngempumelelo</string>
+    <string name="rule_type" formatted="false">Rule Type</string>
+    <string name="rule_update_failed" formatted="false">Kusilele ukuhlaziya ummiselo: {error}</string>
+    <string name="rule_update_success" formatted="false">Ummiselo uhlaziywe ngempumelelo</string>
+    <string name="rule_verification" formatted="false">Ukuqinisekiswa kommiselo</string>
+    <string name="rules_exported_successfully" formatted="false">Imithetho ithunyelwe ngaphandle ngempumelelo</string>
+    <string name="rules_exported_to" formatted="false">Imithetho ithunyelwe ngaphandle ku: {path}</string>
+    <string name="rules_imported" formatted="false">Imithetho ingeniswe ngempumelelo</string>
+    <string name="rules_imported_successfully" formatted="false">{count} imithetho ingeniswe ngempumelelo</string>
+    <string name="save" formatted="false">Gcina</string>
+    <string name="save_button" formatted="false">Gcina</string>
+    <string name="save_button_text" formatted="false">Gcina</string>
+    <string name="save_failed" formatted="false">Ukugcina akusebenzanga: {error}</string>
+    <string name="save_script" formatted="false">Gcina Iskripthi</string>
+    <string name="save_settings" formatted="false">Gcina Useto</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">Bubuqhophololo Obunokwenzeka</string>
+    <string name="script_saved" formatted="false">Iskripthi sigcinwe</string>
+    <string name="scroll_speed" formatted="false">Isantya soKutyibilika</string>
+    <string name="scrolling_security_message_settings" formatted="false">Useto loMyalezo woKhuseleko oNqengqelayo</string>
+    <string name="search" formatted="false">Khangela</string>
+    <string name="search_by_name_or_phone_number" formatted="false">Khangela Ngokwegama Okanye Inombolo Yefowuni</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">Khangela ubhaliso lwabafowunelwa</string>
+    <string name="search_contacts" formatted="false">Khangela Abafowunelwa</string>
+    <string name="search_error" formatted="false">Impazamo yokukhangela: {error}</string>
+    <string name="search_hint" formatted="false">Khangela...</string>
+    <string name="search_labels_hint" formatted="false">Khangela iileyibhile</string>
+    <string name="search_marked_phones_hint" formatted="false">Khangela iifowuni eziphawulweyo</string>
+    <string name="search_phone_rules_hint" formatted="false">Khangela imithetho yefowuni</string>
+    <string name="search_plugins_hint" formatted="false">Khangela iiplugins</string>
+    <string name="search_proposals" formatted="false">Khangela Iziphakamiso</string>
+    <string name="search_regex_rules_hint" formatted="false">Khangela imithetho ye-regex</string>
+    <string name="search_subscriptions_hint" formatted="false">Khangela ubhaliso</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">Musa ukuthemba nayiphi na ifowuni. Soloko uqinisekisa iinombolo zenkonzo yabathengi ngokwakho. Ungaze wabelane ngamagamakhethe, iikhowudi zokuqinisekisa, iinombolo zekhadi, okanye ulwazi lobuqu.</string>
+    <string name="select_action" formatted="false">Khetha isenzo</string>
+    <string name="select_action_when_blocking_calls" formatted="false">Khetha intshukumo xa uvala iifowuni</string>
+    <string name="select_action_when_rule_matches" formatted="false">Khetha intshukumo xa ummiselo uhambelana</string>
+    <string name="select_all" formatted="false">Khetha Konke</string>
+    <string name="select_country" formatted="false">Khetha Ilizwe</string>
+    <string name="select_export_format" formatted="false">Khetha Ifomathi Yokuthumela Ngaphandle</string>
+    <string name="select_label" formatted="false">Khetha Ilebhile</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">Nceda ukhethe ilebhile kwaye ufake inombolo yefowuni esebenzayo</string>
+    <string name="select_language" formatted="false">Khetha Ulwimi</string>
+    <string name="select_multiple" formatted="false">Khetha Okuninzi</string>
+    <string name="select_sim_card" formatted="false">Khetha i-SIM Card</string>
+    <string name="select_tags" formatted="false">Khetha Iithegi</string>
+    <string name="select_target_service" formatted="false">Khetha inkonzo eqondiweyo</string>
+    <string name="select_trusted_data_source" formatted="false">Nceda ukhethe imithombo yedatha ethembekileyo</string>
+    <string name="select_your_language" formatted="false">Khetha Ulwimi Lwakho</string>
+    <string name="selected_items" formatted="false">{count} izinto zikhethiwe</string>
+    <string name="selected_label" formatted="false">Kukhethwe:</string>
+    <string name="sender" formatted="false">Umthumeli</string>
+    <string name="sender_regex_optional" formatted="false">I-Regex Yomthumeli (Ukhetho)</string>
+    <string name="separate_sims" formatted="false">Separate SIMs</string>
+    <string name="separate_sims_desc" formatted="false">Enable separate filtering rules for each SIM card</string>
+    <string name="server_address_label" formatted="false">Idilesi Yeseva</string>
+    <string name="service_type_contact" formatted="false">Umbhaliso Woqhagamshelwano</string>
+    <string name="service_type_label" formatted="false">Uhlobo Lwenkonzo</string>
+    <string name="service_type_phone" formatted="false">Umbhaliso Wefowuni</string>
+    <string name="service_type_plugin" formatted="false">Uhlaziyo Lwe-plugin</string>
+    <string name="service_type_sms" formatted="false">Umbhaliso We-SMS</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">Seta Ixesha Lokulibazisa</string>
+    <string name="set_encryption_password" formatted="false">Seta Igama Lokugqitha Lokufihla</string>
+    <string name="settings" formatted="false">Useto</string>
+    <string name="settings_backed_up_to" formatted="false">Useto lugcinwe ku: {path}</string>
+    <string name="settings_backup" formatted="false">Ukugcina Useto </string>
+    <string name="settings_restored_successfully" formatted="false">Useto lubuyiselwe ngempumelelo. Nceda uqalise kwakhona i-app ukuze utshintsho lusebenze.</string>
+    <string name="settings_save_failed" formatted="false">Kusilele ukugcina useto: {error}</string>
+    <string name="settings_saved" formatted="false">Useto lugciniwe</string>
+    <string name="settings_tab" formatted="false">Useto</string>
+    <string name="settings_title" formatted="false">Useto</string>
+    <string name="setup" formatted="false">Cwangcisa</string>
+    <string name="show_all_contacts" formatted="false">Bonisa Bonke Abafowunelwa</string>
+    <string name="show_favorites" formatted="false">Bonisa Izinto Ezithandwayo</string>
+    <string name="silence" formatted="false">Cima Isandi</string>
+    <string name="silence_action_description" formatted="false">Iifowuni ziya kuthuliswa kodwa ziboniswe kwilog yefowuni.</string>
+    <string name="silence_and_no_answer" formatted="false">Cima Isandi Kwaye Ungaphenduli</string>
+    <string name="silence_no_answer" formatted="false">Cima Isandi Ungaphenduli</string>
+    <string name="silent_call_voice_clone" formatted="false">Ifowuni Ecatshuliweyo Esandi Esicinyiweyo</string>
+    <string name="silent_rules" formatted="false">Imithetho Yokucima Isandi</string>
+    <string name="sim_card" formatted="false">I-SIM Card {simNumber}</string>
+    <string name="sim_card_color" formatted="false">Umbala We-SIM Card</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• Ulungelelwaniso Lwe-SIM Card: Seta imithetho yokucoca ezimeleyo kwi-SIM card nganye</string>
+    <string name="sim_card_filter_rules" formatted="false">Imithetho Yokucoca Ye-SIM Card</string>
+    <string name="sim_card_filter_rules_description" formatted="false">Seta imithetho eyahlukileyo yokucoca ngokusekelwe kwiindawo ze-SIM card</string>
+    <string name="sim_card_font_size" formatted="false">Ubungakanani Befonti Ye-SIM Card</string>
+    <string name="sim_card_position" formatted="false">Indawo Ye-SIM Card</string>
+    <string name="sim_card_title" formatted="false">Ikhadi le-SIM</string>
+    <string name="sim_country" formatted="false">Ilizwe leSIM</string>
+    <string name="sim_info" formatted="false">I-SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">Iimithetho ze-SIM slot zikuvumela ukuba uqwalasele imithetho yokucoca ezimeleyo kwindawo nganye ye-SIM.</string>
+    <string name="sim_rule_instructions_title" formatted="false">Imithetho ye-SIM Slot</string>
+    <string name="sim_rules_not_found" formatted="false">Imithetho ye-SIM ayifunyanwanga</string>
+    <string name="sim_slot" formatted="false">SIM Slot</string>
+    <string name="sim_slot1" formatted="false">I-SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">I-SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">Qwalasela imithetho yokucoca ezimeleyo kwi-SIM khadi nganye:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">Iisetingi zeSihluzo se-SIM Slot {slotNumber}</string>
+    <string name="sim_slot_management" formatted="false">Ulawulo lwe-SIM Slot</string>
+    <string name="sim_slot_position" formatted="false">Indawo ye-SIM Slot {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• Imithetho ye-SIM Slot: Izicwangciso zokucoca ezizimeleyo kwi-SIM nganye</string>
+    <string name="sim_slot_rule_list_title" formatted="false">Uluhlu lweMithetho ye-SIM Slot</string>
+    <string name="sim_slot_rule_management" formatted="false">Imithetho ye-SIM Slot</string>
+    <string name="sim_slot_rules" formatted="false">Imithetho yeSIM Slot</string>
+    <string name="sim_slot_title" formatted="false">I-SIM Slot {slotNumber}</string>
+    <string name="sim_state" formatted="false">Imeko yeSIM</string>
+    <string name="skip" formatted="false">Yeqa</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">Ukwazisa ngomnxeba oSmart</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">Ukucoca kwe-SMS kukunceda ukuba ucoce ngokuzenzekelayo imiyalezo ye-spam kwaye ugcine uluhlu lwakho lomyalezo lucocekile. Ungaseta imithetho yokucoca kunye neendlela zesaziso.</string>
+    <string name="sms_filter_disabled" formatted="false">Ukucoca kwe-SMS kukhubazekile</string>
+    <string name="sms_filter_enabled" formatted="false">Ukucoca kwe-SMS kunikwe amandla</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">Umtu wokucoca we-SMS wongezwe ngempumelelo</string>
+    <string name="sms_filter_rules" formatted="false">Imithetho yeSihluzo se-SMS</string>
+    <string name="sms_filter_settings" formatted="false">Iisetingi zeSihluzo se-SMS</string>
+    <string name="sms_management" formatted="false">Ulawulo lwe-SMS</string>
+    <string name="sms_permission" formatted="false">Imvume ye-SMS</string>
+    <string name="sms_permission_description" formatted="false">Isetyenziselwa ukucoca imiyalezo ye-spam.</string>
+    <string name="sms_rule_added_successfully" formatted="false">Umtu we-SMS wongezwe ngempumelelo</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">Umtu we-SMS ucinyiwe ngempumelelo</string>
+    <string name="sms_rule_load_failed" formatted="false">Ayiphumelelanga ukulayisha imithetho ye-SMS: {error}</string>
+    <string name="sms_rule_management" formatted="false">Ulawulo lweMithetho ye-SMS</string>
+    <string name="sms_rule_subscription" formatted="false">Ukubhalisela iMithetho ye-SMS</string>
+    <string name="sms_subscription" formatted="false">Ukubhalisela i-SMS</string>
+    <string name="sms_subscription_added_successfully" formatted="false">Ukubhalisela i-SMS kongezwe ngempumelelo</string>
+    <string name="sms_subscription_rules_description" formatted="false">Bhalisa kwiiluhlu zemigangatho ye-SMS nge-URL, ixhasa ukufana kokubonakaliswa rhoqo. Ungaseta iintshukumo zokuthintela okanye zokuvumela.</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">Ezinye izicelo zemvume zaliwe</string>
+    <string name="sort_by" formatted="false">Lungelelanisa Nge</string>
+    <string name="sort_least_popular" formatted="false">Lungelelanisa Okudume Kancinci</string>
+    <string name="sort_most_popular" formatted="false">Lungelelanisa Okudume Kakhulu</string>
+    <string name="sort_newest" formatted="false">Lungelelanisa Okutsha Kakhulu</string>
+    <string name="sort_oldest" formatted="false">Lungelelanisa Okudala Kakhulu</string>
+    <string name="spam_likely" formatted="false">Isenokuba yi-Spam</string>
+    <string name="start_color" formatted="false">Umbala Wokuqala</string>
+    <string name="start_date" formatted="false">Umhla Wokuqala</string>
+    <string name="start_using" formatted="false">Qalisa Ukusebenzisa</string>
+    <string name="stat_answered" formatted="false">Phendulwe</string>
+    <string name="stat_blocked" formatted="false">Ivinjwe</string>
+    <string name="statistics" formatted="false">Iinkcukacha-manani</string>
+    <string name="statistics_page_title" formatted="false">Uhlahlelo lweDatha</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">Umbala we-STIR</string>
+    <string name="stir_failed" formatted="false">Ukuqinisekisa Kuhlulekile</string>
+    <string name="stir_font_size" formatted="false">Ubungakanani befomathi ye-STIR</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">Indawo ye-STIR</string>
+    <string name="stir_unknown" formatted="false">Isimo sokuQinisekisa Esingaziwayo</string>
+    <string name="stir_verification" formatted="false">Ukuqinisekiswa kwe-STIR/SHAKEN</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} yenombolo {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">Ibonisa iziphumo zokuqinisekiswa kwe-STIR/SHAKEN zamanani.</string>
+    <string name="stir_verification_title" formatted="false">Ukuqinisekiswa kwe-STIR/SHAKEN</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">Imvume yoGcino</string>
+    <string name="storage_permission_description" formatted="false">Isetyenziselwa ukugcina iisetingi kunye nemithetho.</string>
+    <string name="submit" formatted="false">Ngenisa</string>
+    <string name="subscribe" formatted="false">Bhalisa</string>
+    <string name="subscription_add_success" formatted="false">Ukubhalisela &quot;{name}&quot; kongezwe ngempumelelo</string>
+    <string name="subscription_delete_confirm_content" formatted="false">Uqinisekile ufuna ukucima olu bhaliso?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">Cima Ukubhalisa</string>
+    <string name="subscription_delete_failed" formatted="false">Ayiphumelelanga ukucima ubhaliso: {error}</string>
+    <string name="subscription_delete_success" formatted="false">Ukubhalisa kucinyiwe</string>
+    <string name="subscription_deleted" formatted="false">Ukubhalisa kucinyiwe</string>
+    <string name="subscription_load_failed" formatted="false">Ayiphumelelanga ukulayisha ubhaliso: {error}</string>
+    <string name="subscription_name" formatted="false">Igama loBhaliso</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">Igama loBhaliso kunye ne-URL ayinakuba nanto</string>
+    <string name="subscription_name_hint" formatted="false">Faka igama lobhaliso</string>
+    <string name="subscription_status_change_failed" formatted="false">Ayiphumelelanga ukutshintsha imeko yobhaliso: {error}</string>
+    <string name="subscription_update_failed" formatted="false">Ayiphumelelanga ukuhlaziya ubhaliso: {error}</string>
+    <string name="subscription_update_success" formatted="false">Ukubhalisa kuhlaziywe ngempumelelo</string>
+    <string name="subscription_url" formatted="false">URL yoBhaliso</string>
+    <string name="subscription_url_hint" formatted="false">Faka i-URL yobhaliso</string>
+    <string name="successfully_imported_rules" formatted="false">Kungeniswe ngempumelelo imithetho eyi-{count}</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">Inkxaso</string>
+    <string name="support_count" formatted="false">Inkxaso ({supportCount})</string>
+    <string name="support_sync" formatted="false">Sync Inkxaso</string>
+    <string name="supported" formatted="false">KUXHASIWE</string>
+    <string name="survey" formatted="false">Uphando</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">Vumelanisa izixhobo</string>
+    <string name="sync_failed" formatted="false">Ukungavumelanisi</string>
+    <string name="sync_failed_message" formatted="false">Ukungavumelanisi</string>
+    <string name="sync_folder_name_label" formatted="false">Igama leFowulda yoVumelaniso</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">Vumelanisa Ngoku</string>
+    <string name="sync_now_button" formatted="false">Vumelanisa Ngoku</string>
+    <string name="sync_status_title" formatted="false">Isimo Sokuvumelanisa</string>
+    <string name="sync_status_updated_message" formatted="false">Isimo sokuvumelanisa sihlaziyiwe</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">Uvumelaniso luphumelele</string>
+    <string name="sync_with_cloud_storage" formatted="false">Vumelanisa noGcino lweLifu</string>
+    <string name="synced" formatted="false">Ingqamaniswe</string>
+    <string name="synchronized" formatted="false">Kuvumelanisiwe</string>
+    <string name="syncing" formatted="false">Kuvumelanisa...</string>
+    <string name="system_features" formatted="false">Iimpawu zeNkqubo:</string>
+    <string name="system_settings_title" formatted="false">Izicwangciso zeNkqubo</string>
+    <string name="tab_all" formatted="false">Zonke</string>
+    <string name="tab_answered" formatted="false">Phendulwe</string>
+    <string name="tab_blocked" formatted="false">Zivinjiwe</string>
+    <string name="tab_missed" formatted="false">Ziphotyiwe</string>
+    <string name="tab_outgoing" formatted="false">Eziphumayo</string>
+    <string name="tag_label" formatted="false">Itheygi: {tag}</string>
+    <string name="takeaway" formatted="false">Ukutya okuthathwayo</string>
+    <string name="telecommunication" formatted="false">Unxibelelwano lweefowuni</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">Urhwebo ngefowuni</string>
+    <string name="temp_purchase_expired" formatted="false">Ilungelo lokuthenga okwethutyana liphelile</string>
+    <string name="temporary_vip" formatted="false">I-VIP Yethutyana</string>
+    <string name="test_button" formatted="false">VAVANYA</string>
+    <string name="test_connection_button" formatted="false">Vavanya Uqhagamshelo</string>
+    <string name="test_plugin" formatted="false">Vavanya Iplugin</string>
+    <string name="text_colors_setting" formatted="false">Imibala yoMbhalo kunye neLabel</string>
+    <string name="theme_dark" formatted="false">Dark</string>
+    <string name="theme_light" formatted="false">Light</string>
+    <string name="theme_settings_subtitle" formatted="false">Khetha umxholo owuthandayo</string>
+    <string name="theme_settings_title" formatted="false">Useto Lomxholo</string>
+    <string name="theme_system" formatted="false">System</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">Le app sisixhobo esinamandla sokukhomba umntu ofowunayo esikuvumela ukuba uchonge kwaye uvimbe iifowuni ezingafunwayo.</string>
+    <string name="this_week" formatted="false">Le Veki</string>
+    <string name="time_interceptor" formatted="false">Ukuvinjwa ngexesha</string>
+    <string name="time_interceptor_description" formatted="false">Vimba/vumela ngokuzenzekelayo iifowuni ezinokuba yingozi ngokusekelwe kubukho beefowuni</string>
+    <string name="time_interceptor_explanation" formatted="false">• Ukuvinjwa ngexesha: Vimba/vumela iifowuni eziphindaphindiweyo kwixesha elifutshane</string>
+    <string name="time_interceptor_explanation_content" formatted="false">Inqaku lokuvimba ngokusekelwe kubukho beefowuni lihlaziya ubukho beefowuni ukuze ngokuzenzekelayo lichonge kwaye livimbe/livumele iifowuni ze-spam ezinqabileyo.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">Inkcazo Yokuvala Ngokusekelwe Kubukho Befowuni</string>
+    <string name="time_interceptor_settings_title" formatted="false">Izicwangciso zokuvala Ngokusekelwe Kubukho Befowuni</string>
+    <string name="time_window_description" formatted="false">Setha ubungakanani befestile yexesha lokuvumela iifowuni eziphindaphindiweyo. Iifowuni ezenziwe ngeli nani linye ngaphakathi kule festile ziya kuvunyelwa</string>
+    <string name="time_window_label" formatted="false">Ifestile Yexesha Lokuvala (imizuzu): {minutes}</string>
+    <string name="timeline_view" formatted="false">Ukujonga Ixesha</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">Namhlanje</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">Iyonke</string>
+    <string name="total_blocked" formatted="false">Zivinjiwe Zizonke</string>
+    <string name="total_pending_proposals" formatted="false">Isamba Sezifhakamiso Ezilindileyo</string>
+    <string name="total_proposals" formatted="false">Isamba Seziphakamiso</string>
+    <string name="total_votes" formatted="false">Isamba: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">Dlulisa idatha phakathi kwezixhobo okanye iiplatform</string>
+    <string name="travel_ticketing" formatted="false">Ukubhukisha uhambo</string>
+    <string name="tutorial" formatted="false">Isifundo</string>
+    <string name="type" formatted="false">Uhlobo</string>
+    <string name="unassigned_s_i_m_card" formatted="false">I-SIM khadi engabelwanga</string>
+    <string name="unblock" formatted="false">Khulula</string>
+    <string name="unblock_number" formatted="false">Khulula Inombolo</string>
+    <string name="unblock_number_confirmation" formatted="false">Uqinisekile ufuna ukukhulula {phoneNumber}?</string>
+    <string name="unblock_number_failed" formatted="false">Ukuyikhulula inombolo akwenzekanga</string>
+    <string name="unblock_number_success" formatted="false">Inombolo ikhululwe ngempumelelo</string>
+    <string name="unblocked" formatted="false">Ikhululiwe</string>
+    <string name="unknown" formatted="false">Akwaziwa</string>
+    <string name="unknown_tag" formatted="false">Itheygi: Akwaziwa</string>
+    <string name="unregister_button" formatted="false">Khulula Ubhaliso</string>
+    <string name="unregister_device_confirmation_message" formatted="false">Uqinisekile ufuna ukukhulula ubhaliso lwe-{deviceName}?</string>
+    <string name="unregister_device_title" formatted="false">Khulula Ubhaliso Lwesixhobo</string>
+    <string name="unsupported_file_format" formatted="false">Ifomathi yefayile engaxhaswanga</string>
+    <string name="update" formatted="false">Hlaziya</string>
+    <string name="update_all_now" formatted="false">Hlaziya Konke Ngoku</string>
+    <string name="update_contact_failed" formatted="false">Ayiphumelelanga ukuhlaziya umfowunelwa: {error}</string>
+    <string name="update_favorite_status" formatted="false">Hlaziya Isimo Esithandwayo</string>
+    <string name="update_interval" formatted="false">Isithuba SokuHlaziya</string>
+    <string name="update_now" formatted="false">Hlaziya Ngoku</string>
+    <string name="update_plugin" formatted="false">Hlaziya I-Plugin</string>
+    <string name="update_plugin_failed" formatted="false">Ayiphumelelanga ukuhlaziya i-plugin: {error}</string>
+    <string name="update_rule_failed" formatted="false">Ayiphumelelanga ukuhlaziya umgaqo: {error}</string>
+    <string name="update_subscription_failed" formatted="false">Ayiphumelelanga ukuhlaziya ubhaliso: {error}</string>
+    <string name="update_success" formatted="false">{service} ihlaziywe ngempumelelo ({count} imithetho)</string>
+    <string name="upgrade_to_vip" formatted="false">Phuculela kwi-VIP</string>
+    <string name="use_cases_point1" formatted="false">• Chonga iifowuni ze-spam eziphinda-phinda ngokuzenzekelayo</string>
+    <string name="use_cases_point2" formatted="false">• Vimba iifowuni zentengiso ezifowuna kaninzi kwixesha elifutshane</string>
+    <string name="use_cases_point3" formatted="false">• Thintela ukuqhushumbiswa kwefowuni kunye nokuxhatshazwa</string>
+    <string name="use_cases_title" formatted="false">Iimeko Zokusetyenziswa:</string>
+    <string name="use_global_settings" formatted="false">Sebenzisa Izicwangciso Zehlabathi Lonke</string>
+    <string name="use_local_notification" formatted="false">Sebenzisa Izaziso zaseNdawo</string>
+    <string name="use_local_notification_description" formatted="false">Vula izaziso zaseNdawo kwiifowuni ezingenayo</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">Sebenzisa isintaksi se-regex esiqhelekileyo ukuchonga iipateni. Imizekelo:</string>
+    <string name="use_stir_notification" formatted="false">Sebenzisa Isaziso esivela kwi-STIR</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">Igama Lomsebenzisi</string>
+    <string name="verification_failed_text" formatted="false">Ayiphumelelanga</string>
+    <string name="verification_report" formatted="false">Ingxelo Yokuqinisekisa</string>
+    <string name="verified_text" formatted="false">Iqinisekisiwe</string>
+    <string name="verify" formatted="false">Qinisekisa</string>
+    <string name="version" formatted="false">Inguqulelo: {version}</string>
+    <string name="very_high" formatted="false">Phezulu Kakhulu</string>
+    <string name="very_low" formatted="false">Phantsi Kakhulu</string>
+    <string name="view_details" formatted="false">Jonga Iinkcukacha</string>
+    <string name="vip3_days_with_ads" formatted="false">I-VIP yeentsuku ezi-3 kunye neentengiso (ukuvumelanisa kuphela)</string>
+    <string name="vip5_days_no_ads" formatted="false">I-VIP yeentsuku ezi-5 ezipheleleyo ngaphandle kweentengiso</string>
+    <string name="vip7_days_no_ads" formatted="false">I-VIP yeentsuku ezi-7 ezipheleleyo ngaphandle kweentengiso</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">Tshintshanisa ubulungu be-VIP ngenani lokumakisha inombolo yefowuni</string>
+    <string name="vip_exchange_service" formatted="false">Inkonzo Yokutshintshiselana Nge-VIP</string>
+    <string name="vip_exchange_title" formatted="false">Tshintsha Ubulungu be-VIP</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">Umsebenzisi we-VIP</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">Ukuqonda Ilizwi</string>
+    <string name="vote_agree" formatted="false">Vuma</string>
+    <string name="vote_count" formatted="false">Inani Levoti</string>
+    <string name="vote_disagree" formatted="false">Ungavumi</string>
+    <string name="vote_submitted" formatted="false">Ivoti ingenisiwe ngempumelelo</string>
+    <string name="voted" formatted="false">Uvotile</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} iivoti ({supportPercentage}% inkxaso)</string>
+    <string name="voting_completed" formatted="false">Ukuvota Kugqityiwe</string>
+    <string name="voting_completed_body" formatted="false">Ukuvota koluntu lwenombolo {phoneNumber} kuphelile. Isiphumo: {result} ({supportPercentage}% yenkxaso).</string>
+    <string name="waiting_for_more_votes" formatted="false">Kulindelwe iivoti ezongezelelekileyo zoluntu</string>
+    <string name="watch_ad" formatted="false">Bukela Intengiso</string>
+    <string name="watch_ad_for_temp" formatted="false">Bukela Intengiso Ngamalungelo Exeshana</string>
+    <string name="watch_ad_for_temp_description" formatted="false">Bukela intengiso emfutshane ukuvula okwethutyana ezinye iimpawu zepremiyamu</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">Kufuneka ubukele iintengiso ezingama-{count} ngaphezulu ukuze ufumane amalungelo e-VIP okwethutyana</string>
+    <string name="web_d_a_v_config_title" formatted="false">Uqwalaselo lwe-WebDAV</string>
+    <string name="week" formatted="false">Veki</string>
+    <string name="welcome" formatted="false">Wamkelekile</string>
+    <string name="whitelist" formatted="false">Uluhlu Lwabamkelekile</string>
+    <string name="width" formatted="false">Ububanzi</string>
+    <string name="wildcard_matching_description" formatted="false">Sebenzisa \'.\' ukufanisa nayiphi na unobumba (umzekelo: \'123.456\' ifanisa i-123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">Ukufaniswa kweWildcard:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">Inkxaso yeWildcard yokucoca okuguquguqukayo</string>
+    <string name="window_size_setting" formatted="false">Ubungakanani befesitile</string>
+    <string name="year" formatted="false">Unyaka</string>
+    <string name="yesterday" formatted="false">Izolo</string>
+</resources>

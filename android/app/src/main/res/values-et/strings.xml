@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">Teave kontaktide tellimuse kohta</string>
+    <string name="about_labels" formatted="false">Teave siltide kohta</string>
+    <string name="about_phone_subscription_rules" formatted="false">Teave telefoni tellimuse reeglite kohta</string>
+    <string name="about_sms_filter" formatted="false">Teave SMS-i filtreerimise kohta</string>
+    <string name="about_sms_subscription_rules" formatted="false">Teave SMS-i tellimuse reeglite kohta</string>
+    <string name="about_subtitle" formatted="false">Rakenduse versioon ja juriidiline teave</string>
+    <string name="about_title" formatted="false">Teave</string>
+    <string name="access_target_url" formatted="false">Juurdepääs sihtaadressile</string>
+    <string name="action" formatted="false">Toiming</string>
+    <string name="action_all" formatted="false">Kõik</string>
+    <string name="action_allow" formatted="false">Luba</string>
+    <string name="action_block" formatted="false">Blokeeri</string>
+    <string name="action_filter_title" formatted="false">Filtreeri toimingu tüübi järgi</string>
+    <string name="action_filter_tooltip" formatted="false">Toimingu filter</string>
+    <string name="action_none" formatted="false">Märkus</string>
+    <string name="action_silence" formatted="false">Vaigista</string>
+    <string name="action_tag" formatted="false">Toiming: {actionType}</string>
+    <string name="action_type" formatted="false">Toimingu tüüp</string>
+    <string name="action_unknown" formatted="false">Tundmatu</string>
+    <string name="active_proposals" formatted="false">Aktiivsed ettepanekud</string>
+    <string name="add" formatted="false">Lisa</string>
+    <string name="add_allow_subscription" formatted="false">Lisa lubamisrežiimi tellimus</string>
+    <string name="add_allowed_blocked_rule" formatted="false">Lisa lubamis-/blokeerimisreegel</string>
+    <string name="add_block_subscription" formatted="false">Lisa blokeerimisrežiimi tellimus</string>
+    <string name="add_contact_button" formatted="false">Lisa kontakt</string>
+    <string name="add_contact_failed" formatted="false">Kontakti lisamine ebaõnnestus: {error}</string>
+    <string name="add_label" formatted="false">Lisa silt</string>
+    <string name="add_label_button" formatted="false">Lisa silt</string>
+    <string name="add_label_failed" formatted="false">Sildi lisamine ebaõnnestus: {error}</string>
+    <string name="add_name" formatted="false">Lisa nimi</string>
+    <string name="add_none_subscription" formatted="false">Lisa ükski tellimus</string>
+    <string name="add_phone_mark" formatted="false">Lisa telefoni märge</string>
+    <string name="add_phone_number_rule" formatted="false">Lisa telefoninumbri reegel</string>
+    <string name="add_plugin" formatted="false">Lisa pistikprogramm</string>
+    <string name="add_plugin_failed" formatted="false">Pistikprogrammi lisamine ebaõnnestus</string>
+    <string name="add_plugin_failed_with_error" formatted="false">Pistikprogrammi lisamine ebaõnnestus: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">Lisa pistikprogramm kohalikust failist</string>
+    <string name="add_plugin_from_url" formatted="false">Lisa pistikprogramm URL-ist</string>
+    <string name="add_regex_rule" formatted="false">Lisa regulaaravaldisreegel</string>
+    <string name="add_rule" formatted="false">Lisa reegel</string>
+    <string name="add_rule_failed" formatted="false">Reegli lisamine ebaõnnestus: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">Lisa reegel</string>
+    <string name="add_silence_subscription" formatted="false">Lisa vaikimisi tellimus</string>
+    <string name="add_sms_filter_rule" formatted="false">Lisa SMS-i filterreegel</string>
+    <string name="add_sms_rule" formatted="false">Lisa SMS-reegel</string>
+    <string name="add_sms_subscription" formatted="false">Lisa SMS-tellimus</string>
+    <string name="add_subscription" formatted="false">Lisa tellimus</string>
+    <string name="add_subscription_button" formatted="false">Lisa tellimus</string>
+    <string name="add_subscription_failed" formatted="false">Tellimuse lisamine ebaõnnestus: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">Lisa tellimus</string>
+    <string name="add_to_blacklist" formatted="false">Lisa musta nimekirja</string>
+    <string name="add_to_favorites" formatted="false">Lisa lemmikutesse</string>
+    <string name="add_to_rules" formatted="false">Lisa reeglitesse</string>
+    <string name="add_to_whitelist" formatted="false">Lisa valgesse nimekirja</string>
+    <string name="added_to_favorites" formatted="false">Lisatud lemmikutesse</string>
+    <string name="advanced_mode" formatted="false">Täpsem režiim</string>
+    <string name="agent" formatted="false">Agent</string>
+    <string name="agree_votes" formatted="false">Poolt: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">Kõik</string>
+    <string name="all_call_logs_cleared" formatted="false">Kõik kõnelogid tühjendatud</string>
+    <string name="all_calls_tab" formatted="false">Kõik</string>
+    <string name="all_permissions_granted" formatted="false">Kõik load on antud</string>
+    <string name="all_services_status_subtitle" formatted="false">Iga pilveteenuse praegune olek</string>
+    <string name="all_services_status_title" formatted="false">Praegune teenuse olek</string>
+    <string name="all_settings_completed" formatted="false">Kõik seaded on täidetud.</string>
+    <string name="all_update_success" formatted="false">Kõik värskendused lõpetatud ({count} reeglit)</string>
+    <string name="allow" formatted="false">Luba</string>
+    <string name="allow_action_description" formatted="false">Kõned lubatakse, isegi kui number on blokeeritud nimekirjas.</string>
+    <string name="allow_all_allow_rules" formatted="false">Luba kõik lubamisreeglid</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">Luba kõnesid lubamisreeglitest</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">Luba kõik blokeeritud numbrid</string>
+    <string name="allow_all_block_rules" formatted="false">Luba kõik blokeerimisreeglid</string>
+    <string name="allow_all_block_rules_desc" formatted="false">Luba kõnesid blokeerimisreeglitest</string>
+    <string name="allow_allowed_numbers" formatted="false">Luba lubatud numbrid</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">Luba kõnesid valgest nimekirjast</string>
+    <string name="allow_block" formatted="false">Luba/Blokeeri</string>
+    <string name="allow_blocked_numbers" formatted="false">Luba blokeeritud numbrid</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">Luba kõnesid mustast nimekirjast</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">Luba ületamata numbrid</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">Luba automaatselt numbrid, mis ei ületa loenduse piirmäära</string>
+    <string name="allow_regex_allow_rules" formatted="false">Luba regulaaravaldislubamise reeglid</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">Luba regulaaravaldiseregistrite töötlemine lubamisreeglitele</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">Luba regulaaravaldisepõhised lubamisreeglid</string>
+    <string name="allow_regex_block_rules" formatted="false">Luba regulaaravaldiseblokeerimise reeglid</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">Luba regulaaravaldiseregistrite töötlemine blokeerimisreeglitele</string>
+    <string name="allow_regex_block_rules_description" formatted="false">Luba regulaaravaldisepõhised blokeerimisreeglid</string>
+    <string name="allow_rule" formatted="false">Lubamisreegel</string>
+    <string name="allow_rules" formatted="false">Lubamisreeglid</string>
+    <string name="allowed_blocked_rule" formatted="false">Lubamis-/blokeerimisreegel</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">Muuda lubamis-/blokeerimisreeglit</string>
+    <string name="allowed_blocked_rule_management" formatted="false">Lubamis-/blokeerimisreeglite haldamine</string>
+    <string name="allowed_blocked_rules_info" formatted="false">Lubatud/blokeeritud reegleid kasutatakse kõnede sobitamiseks konkreetsete telefoninumbritega, millel on kõrgeim prioriteet.</string>
+    <string name="and_more_items" formatted="false">ja veel {count} üksust</string>
+    <string name="answer_then_hangup" formatted="false">Vasta ja siis riputa</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">Sinu kõne Sinu reegel</string>
+    <string name="application_software" formatted="false">Rakenduse tarkvara</string>
+    <string name="apply" formatted="false">Rakenda</string>
+    <string name="approved" formatted="false">HEAKS KIIDETUD</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">Volitus nurjus: Palun kontrollige kliendi ID-d ja võtit</string>
+    <string name="authorization_failed_message" formatted="false">Volitus nurjus</string>
+    <string name="authorization_success_message" formatted="false">Volitus õnnestus</string>
+    <string name="authorize_login_button" formatted="false">Volita sisselogimine</string>
+    <string name="auto_cancel_notification" formatted="false">Automaatne tühistamine</string>
+    <string name="auto_cancel_notification_description" formatted="false">Kui on märgitud, tühistatakse teatis automaatselt, kui kasutaja sellele puudutab.</string>
+    <string name="auto_sync_label" formatted="false">Automaatne sünkronimine</string>
+    <string name="auto_update" formatted="false">Automaatne värskendus</string>
+    <string name="auto_update_description" formatted="false">Määrake tellimuste automaatse värskendamise intervallid või värskendage käsitsi</string>
+    <string name="auto_update_settings" formatted="false">Automaatse värskenduse seaded</string>
+    <string name="auto_update_subtitle" formatted="false">Hallake reeglite ja pistikprogrammide automaatseid värskendusi</string>
+    <string name="auto_update_title" formatted="false">Automaatne värskendus</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">Autotööstus</string>
+    <string name="avatar" formatted="false">Avatari</string>
+    <string name="avatar_border_color" formatted="false">Avatari piirjooni värv</string>
+    <string name="avatar_border_size" formatted="false">Avatari piirjooni suurus</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">Avatari ja ikooni suurused</string>
+    <string name="avatar_position" formatted="false">Avatari asukoht</string>
+    <string name="avatar_size" formatted="false">Avatari suurus</string>
+    <string name="axis_position" formatted="false">{axis} asukoht</string>
+    <string name="background_gradient_setting" formatted="false">Tausta gradient</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">Varundus</string>
+    <string name="backup_and_restore" formatted="false">Varundus ja taastamine</string>
+    <string name="backup_and_restore_subtitle" formatted="false">Varundage või taastage rakenduse andmed</string>
+    <string name="backup_and_restore_title" formatted="false">Varundus ja taastamine</string>
+    <string name="backup_failed" formatted="false">Varundus nurjus</string>
+    <string name="backup_settings" formatted="false">Varundusseaded</string>
+    <string name="backup_to_cloud" formatted="false">Varundus pilve</string>
+    <string name="backup_to_cloud_failed" formatted="false">Varundamine pilve nurjus: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">Edualt varundatud pilve</string>
+    <string name="bank" formatted="false">Pank</string>
+    <string name="basic_info" formatted="false">Põhiteave</string>
+    <string name="basic_rule_filter" formatted="false">Põhiline reeglifilter</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">Filtreerige kõnesid musta/valge nimekirja ja regulaaravaldiste abil</string>
+    <string name="basic_rule_filtering" formatted="false">Põhiline reeglifiltratsioon</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• Põhiline reeglifiltratsioon: Filtreerib reegleid musta nimekirja, valge nimekirja ja regexi põhjal</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">Kas olete kindel, et soovite kustutada {count} valitud kontakti?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">Kas olete kindel, et soovite kustutada {count} silti?</string>
+    <string name="battery_optimization_permission" formatted="false">Aku aku aku</string>
+    <string name="battery_optimization_permission_description" formatted="false">Luba rakendusel töötada taustal, et pakkuda teenuseid nagu helistaja ID.</string>
+    <string name="black_white_list" formatted="false">Must/valge nimekiri</string>
+    <string name="blacklist" formatted="false">Must nimekiri</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">Musta ja valge nimekirja koostamine</string>
+    <string name="block" formatted="false">Blokeeri</string>
+    <string name="block_action_description" formatted="false">Kõned blokeeritakse ja kuvatakse kõnelogis.</string>
+    <string name="block_calls" formatted="false">Blokeeri kõned</string>
+    <string name="block_international_calls" formatted="false">vastab numbritele, mis ei alga + või 00-ga</string>
+    <string name="block_international_calls_title" formatted="false">Blokeeri rahvusvahelised kõned</string>
+    <string name="block_mobile_numbers" formatted="false">vastab numbritele, mis ei alga 13-19-ga</string>
+    <string name="block_mobile_numbers_title" formatted="false">Blokeeri mobiiltelefoninumbrid</string>
+    <string name="block_number" formatted="false">Blokeeri number</string>
+    <string name="block_number_success" formatted="false">Numbri blokeerimine õnnestus</string>
+    <string name="block_premium_rate_numbers" formatted="false">vastab numbritele, mis ei alga 118 või 120-190-ga</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">Blokeeri tasulised numbrid</string>
+    <string name="block_rule" formatted="false">Blokeerimisreegel</string>
+    <string name="block_rules" formatted="false">Blokeerimisreeglid</string>
+    <string name="block_specific_area_codes" formatted="false">vastab numbritele, mis algavad 0-ga + 2-3 numbrit</string>
+    <string name="block_specific_area_codes_title" formatted="false">Blokeeri kindlad piirkonna koodid:</string>
+    <string name="block_type_analysis_title" formatted="false">Blokeerimise tüübi analüüs</string>
+    <string name="blocked" formatted="false">Blokeeritud</string>
+    <string name="blocked_call_body" formatted="false">Blokeeritud kõne {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">Blokeeritud kõneteated</string>
+    <string name="blocked_call_notifications_description" formatted="false">Kuvab teavet blokeeritud kõnede kohta.</string>
+    <string name="blocked_call_title" formatted="false">Blokeeritud kõne</string>
+    <string name="blocked_calls" formatted="false">Blokeeritud kõned</string>
+    <string name="blocked_calls_title" formatted="false">Blokeeritud kõned</string>
+    <string name="blocked_spam_calls" formatted="false">Blokeeritud rämpskõned</string>
+    <string name="blocking_trend" formatted="false">Blokeerimise trend</string>
+    <string name="both" formatted="false">Mõlemad</string>
+    <string name="bulk_delete" formatted="false">Massiline kontaktide kustutamine</string>
+    <string name="bulk_delete_contacts" formatted="false">Massiline kontaktide kustutamine</string>
+    <string name="bulk_delete_labels" formatted="false">Massiline siltide kustutamine</string>
+    <string name="call" formatted="false">Kõne</string>
+    <string name="call_blocking" formatted="false">Kõnede blokeerimine</string>
+    <string name="call_details" formatted="false">Kõne üksikasjad</string>
+    <string name="call_filter_rules" formatted="false">Kõnefiltri reeglid</string>
+    <string name="call_filter_rules_description" formatted="false">Määrake kõne filtreerimise põhireeglid</string>
+    <string name="call_filter_settings" formatted="false">Kõnefiltri sätted</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">Määrake kõnesageduse piirangud ja blokeerimisreeglid</string>
+    <string name="call_frequency_interception_title" formatted="false">Kõnesageduse pealtkuulamine</string>
+    <string name="call_history" formatted="false">Kõneajalugu</string>
+    <string name="call_history_info_desc" formatted="false">Siin kuvatakse teie kõneajalugu, sealhulgas vastuvõetud, väljahelistatud ja vastamata kõned.</string>
+    <string name="call_history_info_title" formatted="false">Kõneajalugu</string>
+    <string name="call_history_tab" formatted="false">Kõneajalugu</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">Kõne läbivaatuse luba</string>
+    <string name="call_screening_permission_description" formatted="false">Kasutatakse rämpskõnede läbivaatamiseks ja blokeerimiseks.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">Kõne läbivaatuse luba pole antud, võib mõjutada rakenduse funktsionaalsust.</string>
+    <string name="call_statistics" formatted="false">Kõne statistika</string>
+    <string name="call_time" formatted="false">Kõne aeg</string>
+    <string name="call_type" formatted="false">Kõne tüüp</string>
+    <string name="call_type_answered" formatted="false">Vastatud</string>
+    <string name="call_type_blocked" formatted="false">Blokeeritud</string>
+    <string name="call_type_icon_color" formatted="false">Kõne tüübi ikooni värv</string>
+    <string name="call_type_missed" formatted="false">Vastamata kõne</string>
+    <string name="call_type_outgoing" formatted="false">Väljahelistatud</string>
+    <string name="call_type_position" formatted="false">Kõne tüübi asukoht</string>
+    <string name="call_type_rejected" formatted="false">Tagasi lükatud</string>
+    <string name="call_type_silenced" formatted="false">Vaigistatud</string>
+    <string name="call_type_unknown" formatted="false">Teadmata</string>
+    <string name="callback" formatted="false">Tagasihelistamine</string>
+    <string name="caller_id_app" formatted="false">Helistaja ID rakendus</string>
+    <string name="caller_id_customization_subtitle" formatted="false">Kohandage helistaja numbri kuvamispaigutust</string>
+    <string name="caller_id_customization_title" formatted="false">Helistaja ID kohandamine</string>
+    <string name="caller_id_display_mode" formatted="false">Kõneaja näidikurežiim</string>
+    <string name="caller_id_enhancement" formatted="false">Helistaja numbri täiustamine</string>
+    <string name="caller_id_marked_by_count" formatted="false">Märkinud {count}</string>
+    <string name="caller_id_notification_title" formatted="false">Sissetuleva kõne teave</string>
+    <string name="caller_id_preview" formatted="false">Kõneaja eelvaade</string>
+    <string name="caller_id_settings_subtitle" formatted="false">Sissetuleva kõne teavituse ja kuvamisrežiimi seadistamiseks</string>
+    <string name="caller_id_settings_title" formatted="false">Helistaja numbri sätted</string>
+    <string name="calling_number_failed" formatted="false">Helistatava numbri tõrge</string>
+    <string name="cancel" formatted="false">Tühista</string>
+    <string name="cancel_button" formatted="false">Tühista</string>
+    <string name="cancel_local_notification" formatted="false">Sulge kohalikud teavitused</string>
+    <string name="cancel_local_notification_description" formatted="false">Sulge kohalikud teavitused automaatselt</string>
+    <string name="car_rental" formatted="false">Autorent</string>
+    <string name="carrier" formatted="false">Operaator</string>
+    <string name="carrier_color" formatted="false">Operaatori värv</string>
+    <string name="carrier_font_size" formatted="false">Operaatori kirjasuurus</string>
+    <string name="carrier_position" formatted="false">Operaatori asukoht</string>
+    <string name="change_label" formatted="false">Muuda silti</string>
+    <string name="change_plugin_status_failed" formatted="false">Pistikprogrammi oleku muutmine ebaõnnestus: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">Tellimuse oleku muutmine ebaõnnestus: {error}</string>
+    <string name="charity" formatted="false">Heategevus</string>
+    <string name="chart_one_week_ago" formatted="false">1 nädal tagasi</string>
+    <string name="chart_three_days_ago" formatted="false">3 päeva tagasi</string>
+    <string name="chart_today" formatted="false">Täna</string>
+    <string name="check_file_format" formatted="false">Palun kontrollige failivormingut või õigusi</string>
+    <string name="check_permission_failed" formatted="false">Lubade kontrollimine ebaõnnestus: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">Valige vaikimisi pealtkuulamise toiming</string>
+    <string name="clear_all_call_logs" formatted="false">Tühjenda kõik kõnelogid</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">Kinnita kõigi kõnelogide tühjendamine</string>
+    <string name="clear_all_notifications" formatted="false">Tühjenda kõik teated</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">Kinnita kõigi teadete tühjendamine</string>
+    <string name="clear_button" formatted="false">Tühjenda</string>
+    <string name="clear_filter" formatted="false">Tühjenda filter</string>
+    <string name="clear_label_filter_button" formatted="false">Tühjenda sildifilter</string>
+    <string name="close_button" formatted="false">Sulge</string>
+    <string name="cloud_backup" formatted="false">Pilvevarundus</string>
+    <string name="cloud_sync" formatted="false">Pilvsünkroniseerimine</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">Pilvsünkroniseerimine ja varundus</string>
+    <string name="cloud_sync_service" formatted="false">Pilvesünkroonimise teenus</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">Konfigureerige WebDAV, OneDrive ja Google Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">Pilvsünkroniseerimise sätted</string>
+    <string name="cloud_sync_title" formatted="false">Pilvsünkroniseerimine</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">Võlanõue</string>
+    <string name="color_picker_title" formatted="false">Vali värv</string>
+    <string name="community_impact" formatted="false">Kogukonna mõju</string>
+    <string name="community_participation" formatted="false">Kogukonna osalus</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">Kogukonna hääled</string>
+    <string name="community_voting_started" formatted="false">Kogukonna hääletus alanud</string>
+    <string name="community_voting_started_body" formatted="false">Uus kustutamisettepanek numbrile {phoneNumber} on avatud kogukonna hääletuseks.</string>
+    <string name="completed" formatted="false">LÕPETATUD</string>
+    <string name="config_management" formatted="false">Konfiguratsiooni haldamine</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">Konfiguratsioon on värskendatud</string>
+    <string name="configuration_advice" formatted="false">Nõuetekohase konfiguratsiooni abil saate määrata erinevad filtreerimisstrateegiad töö- ja isiklike SIM-kaartide jaoks.</string>
+    <string name="configure_backup_options" formatted="false">Konfigureerige varuvõimalused</string>
+    <string name="configure_cloud_sync_service" formatted="false">Konfigureerige pilvsünkroniseerimise teenus</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">Palun konfigureerige pilvsünkroniseerimise teenus mitme seadme sünkroonimise lubamiseks.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">Konfigureerige SIM-kaardi filtri reeglid</string>
+    <string name="confirm" formatted="false">Kinnita</string>
+    <string name="confirm_button" formatted="false">Kinnita</string>
+    <string name="confirm_delete" formatted="false">Kinnita kustutamine</string>
+    <string name="confirm_delete_label" formatted="false">Kas olete kindel, et soovite kustutada sildi &quot;{name}&quot;</string>
+    <string name="confirm_delete_plugin" formatted="false">Kas olete kindel, et soovite kustutada pistikprogrammi &quot;{name}&quot;?</string>
+    <string name="confirm_delete_plugins" formatted="false">Kas olete kindel, et soovite kustutada {count} pistikprogrammi?</string>
+    <string name="confirm_delete_rule_message" formatted="false">Kas olete kindel, et soovite selle reegli kustutada? Seda toimingut ei saa tühistada.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">Kas olete kindel, et soovite selle SMS-filtri reegli kustutada?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">Kas olete kindel, et soovite selle SMS-reegli kustutada?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">Kas olete kindel, et soovite kustutada {name}?</string>
+    <string name="confirm_password" formatted="false">Kinnitage salasõna</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">Ühendatud</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">Ühendus nurjus: Palun kontrollige serveri aadressi, kasutajanime ja parooli</string>
+    <string name="connection_failed_message" formatted="false">Ühendus nurjus</string>
+    <string name="connection_status_label" formatted="false">Ühenduse olek</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">Ühendus õnnestus</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">Kontakt lisati edukalt</string>
+    <string name="contact_deleted" formatted="false">Kontakt kustutatud</string>
+    <string name="contact_name_label" formatted="false">Nimi</string>
+    <string name="contact_not_found" formatted="false">Kontakti ei leitud</string>
+    <string name="contact_subscription_description" formatted="false">Telli kontaktiloendeid URL-i kaudu, uuendage automaatselt kontaktteavet ja silte. Toetab JSON-vormingus andmeid.</string>
+    <string name="contact_update_success" formatted="false">Kontakt värskendati edukalt</string>
+    <string name="contact_us" formatted="false">Võta meiega ühendust</string>
+    <string name="contacts" formatted="false">kontaktid</string>
+    <string name="contacts_deleted" formatted="false">Kustutati {count} kontakti</string>
+    <string name="contacts_management" formatted="false">Kontaktide haldus</string>
+    <string name="contacts_permission" formatted="false">Kontaktide luba</string>
+    <string name="contacts_permission_description" formatted="false">Kasutatakse kontaktkõnede tuvastamiseks.</string>
+    <string name="contacts_tab" formatted="false">Kontaktid</string>
+    <string name="container_width" formatted="false">Konteineri laius</string>
+    <string name="content" formatted="false">Sisu</string>
+    <string name="content_regex" formatted="false">Sisu regex</string>
+    <string name="count_color" formatted="false">Loendamise värv</string>
+    <string name="count_font_size" formatted="false">Loendamise fondi suurus</string>
+    <string name="count_position" formatted="false">Loendamise asukoht</string>
+    <string name="count_threshold_description" formatted="false">Määrake filtreerimis toimingute käivitamiseks vajalik minimaalne loendamise lävend</string>
+    <string name="count_threshold_label" formatted="false">Loendamise lävend</string>
+    <string name="country" formatted="false">Riik</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">nt. US, CN, GB</string>
+    <string name="country_code_label" formatted="false">Riigikood (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">Riigikood on kohustuslik</string>
+    <string name="country_code_two_letters" formatted="false">Riigikood (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">Pange tähele: Andmebaas ei pruugi sisaldada andmeid kõigi konkreetsete riikide või piirkondade kohta.</string>
+    <string name="country_name_color" formatted="false">Riigi nime värv</string>
+    <string name="country_name_font_size" formatted="false">Riigi nime fondi suurus</string>
+    <string name="country_region_name_position" formatted="false">Riigi/regiooni nime asukoht</string>
+    <string name="country_sync_settings_subtitle" formatted="false">Valige andmete sünkroonimiseks riigid</string>
+    <string name="country_sync_settings_title" formatted="false">Riigipõhised andmebaasi sünkroonimise sätted</string>
+    <string name="create_proposal" formatted="false">Loo ettepanek</string>
+    <string name="create_proposal_title" formatted="false">Loo kustutamisettepanek</string>
+    <string name="created_at" formatted="false">Loodud: {date}</string>
+    <string name="created_rules" formatted="false">Loodud reeglid</string>
+    <string name="critical" formatted="false">Kriitiline</string>
+    <string name="critical_issues" formatted="false">Kriitilised probleemid</string>
+    <string name="csv_format" formatted="false">CSV-vorming</string>
+    <string name="current_device_label" formatted="false">Praegase seadme silt</string>
+    <string name="current_device_title" formatted="false">Praegune seade</string>
+    <string name="current_language" formatted="false">Praegune keel</string>
+    <string name="current_mark_count" formatted="false">Praegune märkide arv</string>
+    <string name="custom" formatted="false">Kohandatud</string>
+    <string name="custom_action_description" formatted="false">Tehke kohandatud toiming.</string>
+    <string name="customer_service" formatted="false">Klienditeenindus</string>
+    <string name="dashboard_tab" formatted="false">Armatuurlaud</string>
+    <string name="data_analysis" formatted="false">Andmeanalüüs</string>
+    <string name="data_load_failure" formatted="false">Andmete laadimine ebaõnnestus: {error}</string>
+    <string name="data_loading_failed" formatted="false">Andmete laadimine ebaõnnestus: {error}</string>
+    <string name="data_migration" formatted="false">Andmete migreerimine</string>
+    <string name="data_migration_description" formatted="false">See funktsioon võimaldab teil edastada kogu oma andmeid seadmete vahel. Praegu saate oma andmete käsitsi migreerimiseks kasutada varundamis- ja taastamisfunktsioone.</string>
+    <string name="data_source_disclaimer" formatted="false">Numbrid pärinevad internetist ja kasutajate esitatud andmetest. Me ei saa garanteerida, et number pärast kustutamist ei esitata uuesti teiste kasutajate või allikate poolt. Palun otsige ja kontrollige teavet aktiivselt.</string>
+    <string name="data_source_reminder" formatted="false">Andmeallika meeldetuletus</string>
+    <string name="database_sync_title" formatted="false">Andmebaasi sünkroonimine</string>
+    <string name="days" formatted="false">{count, plural, =1{1 päev} other{{count} päeva}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 päev tagasi} other{{count} päeva tagasi}}</string>
+    <string name="days_vip" formatted="false">{days} päeva VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">Võlgade sissenõudmine</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">Vaiketeated</string>
+    <string name="default_notifications_description" formatted="false">Rakenduse vaiketeatekanal.</string>
+    <string name="delete" formatted="false">Kustuta</string>
+    <string name="delete_button" formatted="false">Kustuta</string>
+    <string name="delete_contact" formatted="false">Kustuta kontakt</string>
+    <string name="delete_contact_confirm" formatted="false">Kas olete kindel, et soovite kustutada {name}?</string>
+    <string name="delete_failed" formatted="false">Kustutamine ebaõnnestus: {error}</string>
+    <string name="delete_label" formatted="false">Kustuta silt</string>
+    <string name="delete_label_failed" formatted="false">Sildi kustutamine ebaõnnestus: {error}</string>
+    <string name="delete_plugin" formatted="false">Kustuta pistikprogramm</string>
+    <string name="delete_plugin_failed" formatted="false">Pistikprogrammi kustutamine ebaõnnestus: {error}</string>
+    <string name="delete_plugins" formatted="false">Kustuta pistikprogrammid</string>
+    <string name="delete_plugins_failed" formatted="false">Pistikprogrammide kustutamine ebaõnnestus: {error}</string>
+    <string name="delete_rule" formatted="false">Kustuta reegel</string>
+    <string name="delete_rule_failed" formatted="false">Kustutamine ebaõnnestus: {error}</string>
+    <string name="delete_selected" formatted="false">Kustuta valitud</string>
+    <string name="delete_subscription" formatted="false">Kustuta tellimus</string>
+    <string name="delete_subscription_confirm" formatted="false">Kas olete kindel, et soovite tellimuse &quot;{name}&quot; kustutada?</string>
+    <string name="delete_subscription_failed" formatted="false">Tellimuse kustutamine ebaõnnestus: {error}</string>
+    <string name="delete_success" formatted="false">Kustutamine õnnestus</string>
+    <string name="deletion_proposal" formatted="false">Kustutamisettepanek</string>
+    <string name="deletion_proposal_created" formatted="false">Kustutamisettepanek loodud</string>
+    <string name="deletion_proposal_created_body" formatted="false">Teie kustutamisettepanek numbrile {phoneNumber} on esitatud kogukonna ülevaatamiseks.</string>
+    <string name="deletion_proposal_description" formatted="false">Esitage kustutamiseks numbrid, mis rikuvad kogukonna juhiseid. Teie osalus aitab platvormi turvalisena hoida.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">Teated kustutamisettepanekute hääletustulemuste ja uuenduste kohta.</string>
+    <string name="deletion_proposals" formatted="false">Kustutamisettepanekud</string>
+    <string name="delivery" formatted="false">Kohaletoimetamine</string>
+    <string name="description" formatted="false">Kirjeldus</string>
+    <string name="detailed_settings_title" formatted="false">Üksikasjalikud seaded</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">Seadme ID</string>
+    <string name="device_management_subtitle" formatted="false">Hallake mitme seadme sünkroonimist</string>
+    <string name="device_management_title" formatted="false">Seadmete haldus</string>
+    <string name="device_model_label" formatted="false">Seadme mudel</string>
+    <string name="device_name" formatted="false">Seadme nimi</string>
+    <string name="device_name_label" formatted="false">Seadme nimi</string>
+    <string name="device_renamed_successfully_message" formatted="false">Seade edukalt ümber nimetatud</string>
+    <string name="device_unregistered_successfully_message" formatted="false">Seade edukalt de registreeritud</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">Seadmed edukalt sünkroonitud</string>
+    <string name="dialog_title" formatted="false">Regulaaravaldise selgitus</string>
+    <string name="different_from_local_counter" formatted="false">See funktsioon erineb kohalikust loenduri filtrist, kuna see keskendub lühikese aja jooksul korduvatele kõnemustritele, mitte pikaajalisele märgistamise arvule.</string>
+    <string name="disable_global_plugins" formatted="false">Globaalsete pistikprogrammide keelamine</string>
+    <string name="disabled" formatted="false">Keelatud</string>
+    <string name="disabled_status" formatted="false">Keelatud</string>
+    <string name="disconnect_button" formatted="false">Katkesta ühendus</string>
+    <string name="disconnect_failed_message" formatted="false">Ühenduse katkestamine nurjus</string>
+    <string name="disconnected_message" formatted="false">Ühendus katkestatud</string>
+    <string name="disconnected_status" formatted="false">Katkenud</string>
+    <string name="done" formatted="false">Valmis</string>
+    <string name="dual_sim_advice" formatted="false">See funktsioon on eriti kasulik kahe SIM-kaardiga telefonide puhul, et määrata töö- ja isiklike SIM-kaartide jaoks erinevad filtreerimisstrateegiad.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">E164 number</string>
+    <string name="earlier" formatted="false">Varasem</string>
+    <string name="earned_temp_vip" formatted="false">Teenitud ajutine VIP</string>
+    <string name="ecommerce" formatted="false">E-kaubandus</string>
+    <string name="edit" formatted="false">Muuda</string>
+    <string name="edit_contact" formatted="false">Muuda kontakti</string>
+    <string name="edit_label" formatted="false">Muuda silti</string>
+    <string name="edit_phone_rule" formatted="false">Muuda kõne reeglit</string>
+    <string name="edit_rule" formatted="false">Muuda reeglit</string>
+    <string name="edit_script" formatted="false">Muuda skripti</string>
+    <string name="edit_script_for" formatted="false">Muuda skripti {pluginName} jaoks</string>
+    <string name="edit_subscription" formatted="false">Muuda tellimust</string>
+    <string name="education" formatted="false">Haridus</string>
+    <string name="element_positions_setting" formatted="false">Elementide asukohad</string>
+    <string name="elements_settings_title" formatted="false">Elementide seaded</string>
+    <string name="email" formatted="false">E-post</string>
+    <string name="enable_call_filter" formatted="false">Luba kõne filter</string>
+    <string name="enable_call_filter_description" formatted="false">Kui see on lubatud, kontrollitakse sissetulevaid kõnesid alloleva reeglite loendi alusel. Kõne filtreerimise reeglid ei sünkroonita vaikimisi seadmete vahel.</string>
+    <string name="enable_encryption" formatted="false">Luba krüptimine</string>
+    <string name="enable_encryption_description" formatted="false">Krüpti varukoopia failid</string>
+    <string name="enable_filtering" formatted="false">Luba filtreerimine</string>
+    <string name="enable_fraud_alert" formatted="false">Luba pettusehojatus</string>
+    <string name="enable_fraud_alert_description" formatted="false">Hoiatus kahtlaste pettuskõnede kohta</string>
+    <string name="enable_global_plugins" formatted="false">Globaalsete pistikprogrammide lubamine</string>
+    <string name="enable_local_count_filter" formatted="false">Luba kohalik loenduri filter</string>
+    <string name="enable_local_count_filter_description" formatted="false">Spämmi kõnede automaatne filtreerimine kõne märkimise arvu alusel</string>
+    <string name="enable_local_notification" formatted="false">Kasuta kohalikku teatist</string>
+    <string name="enable_local_notification_description" formatted="false">Kui see on lubatud, kuvatakse seadmes filtreeritud sõnumite kohta teateid</string>
+    <string name="enable_location_summary" formatted="false">Asukoht</string>
+    <string name="enable_mute_rules" formatted="false">Luba vaigistamisreeglid</string>
+    <string name="enable_mute_rules_desc" formatted="false">Rakenda vaigistamise pealtkuulamise reeglite konfiguratsioon</string>
+    <string name="enable_none_action_rules" formatted="false">Luba mingeid tegevusreegleid</string>
+    <string name="enable_none_action_rules_desc" formatted="false">Luba reeglite konfiguratsioonid ilma pealtkuulamise toiminguteta</string>
+    <string name="enable_remote_number_filter" formatted="false">Luba kaug numbri filter</string>
+    <string name="enable_remote_number_filter_description" formatted="false">Kasuta numbrite filtreerimiseks kaug andmebaasi</string>
+    <string name="enable_rule" formatted="false">Luba reegel</string>
+    <string name="enable_security_message" formatted="false">Luba turvasõnum</string>
+    <string name="enable_sms_filter" formatted="false">Luba SMS filtreerimine</string>
+    <string name="enable_sms_filter_description" formatted="false">Kui see on lubatud, filtreeritakse sõnumid automaatselt reeglite järgi</string>
+    <string name="enable_time_interception" formatted="false">Luba aja pealtkuulamine</string>
+    <string name="enable_time_interception_description" formatted="false">Pealtkuula korduvaid kõnesid lühikese aja jooksul</string>
+    <string name="enable_time_interceptor" formatted="false">Luba aja pealtkuulaja</string>
+    <string name="enable_vibration" formatted="false">Luba vibratsioon</string>
+    <string name="enable_vibration_description" formatted="false">Vibreerib kahtlaste pettuskõnede korral</string>
+    <string name="enabled" formatted="false">Lubatud</string>
+    <string name="enabled_status" formatted="false">Lubatud</string>
+    <string name="end_call_immediately" formatted="false">Lõpeta kõne kohe</string>
+    <string name="end_color" formatted="false">Lõppvärv</string>
+    <string name="end_date" formatted="false">Lõppkuupäev</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">Täiustatud filtrisüsteemi juhised</string>
+    <string name="enhanced_filter_settings" formatted="false">Täiustatud filtrisüsteemi sätted</string>
+    <string name="enhanced_filter_settings_title" formatted="false">Täiustatud filtrisüsteemi sätted</string>
+    <string name="enhanced_filter_system_description" formatted="false">Täiustatud filtrisüsteem toetab nii globaalseid reegleid kui ka SIM-kaardi kohta käivaid filtreerimiskonfiguratsioone.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">Palun sisestage nii telefoninumber kui ka regulaaravaldise muster.</string>
+    <string name="enter_contact_name" formatted="false">Palun sisestage kontakti nimi</string>
+    <string name="enter_device_name" formatted="false">Sisesta seadme nimi</string>
+    <string name="enter_email_optional" formatted="false">Sisesta e-post (valikuline)</string>
+    <string name="enter_encryption_password_hint" formatted="false">Sisesta krüpteerimisparool</string>
+    <string name="enter_icon_code" formatted="false">Sisesta ikooni kood</string>
+    <string name="enter_name" formatted="false">Sisesta kontakti nimi</string>
+    <string name="enter_new_device_name_hint" formatted="false">Sisestage sellele seadmele uus nimi</string>
+    <string name="enter_password_again" formatted="false">Sisesta parool uuesti</string>
+    <string name="enter_phone_number" formatted="false">Sisesta telefoninumber</string>
+    <string name="enter_phone_number_hint" formatted="false">Sisesta telefoninumber testimiseks</string>
+    <string name="enter_phone_number_multiple" formatted="false">Palun sisestage telefoninumber, mitu numbrit eraldatud komadega</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">Sisestage telefoninumber otsingu alustamiseks</string>
+    <string name="enter_phone_number_to_verify" formatted="false">Sisesta telefoninumber kontrollimiseks</string>
+    <string name="enter_plugin_description" formatted="false">Sisestage pistikprogrammi kirjeldus</string>
+    <string name="enter_plugin_name" formatted="false">Sisesta pistikprogrammi nimi</string>
+    <string name="enter_plugin_url" formatted="false">Sisesta pistikprogrammi URL-i aadress</string>
+    <string name="enter_regex_hint" formatted="false">Sisesta regulaaravaldise muster</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">Palun sisestage reegli nimi ja regex muster.</string>
+    <string name="enter_rule_name_hint" formatted="false">Sisesta reegli nimi</string>
+    <string name="enter_search_content" formatted="false">Palun sisesta otsingusisu</string>
+    <string name="enter_subscription_name" formatted="false">Sisesta tellimuse nimi</string>
+    <string name="enter_subscription_url" formatted="false">Sisesta tellimuse URL</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">Palun sisesta sünkroonimiskausta nimi (vaikimisi: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">Palun sisesta kehtiv nimi ja URL</string>
+    <string name="enter_valid_url" formatted="false">Palun sisesta kehtiv URL</string>
+    <string name="enter_version" formatted="false">Sisesta versioon</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">Palun sisesta WebDAV parool</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">Palun sisesta WebDAV serveri aadress</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">Palun sisesta WebDAV kasutajanimi</string>
+    <string name="entertainment" formatted="false">Meelelahutus</string>
+    <string name="entity_export_failed" formatted="false">{entityTypeName} eksport ebaõnnestus: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} eksporditud edukalt</string>
+    <string name="entity_import_failed" formatted="false">{entityTypeName} import ebaõnnestus: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} imporditud edukalt, imporditud kokku {count} kirjet</string>
+    <string name="entry_point_view_title" formatted="false">Sisenemispunkti vaade</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">Viga: {error}</string>
+    <string name="error_occurred_message" formatted="false">Tekkis viga: {error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">Seadme ümbernimetamisel tekkis viga: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">Seadmete sünkroonimisel tekkis viga: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">Seadme tühistamisel tekkis viga: {error}</string>
+    <string name="example_block400_prefix" formatted="false">nt. Blokeeri 400 prefiksiga numbrid</string>
+    <string name="example_block_marketing_sms" formatted="false">nt. Blokeeri turundus-SMSid</string>
+    <string name="example_content_regex_hint" formatted="false">Näide sisu regex</string>
+    <string name="example_coupon_promotion_discount" formatted="false">nt. .*(kupong|pakkumine|soodustus).*</string>
+    <string name="example_family_friends" formatted="false">nt. Pere, Sõbrad jne.</string>
+    <string name="example_phone_number" formatted="false">nt. 10086, 12345 jne.</string>
+    <string name="example_regex400_prefix" formatted="false">Näide regex 400 prefiksile</string>
+    <string name="example_sender_regex_hint" formatted="false">Example</string>
+    <string name="exchange" formatted="false">Vahetus</string>
+    <string name="exchange_failed" formatted="false">Vahetus ebaõnnestus: {error}</string>
+    <string name="exchange_now" formatted="false">Vaheta kohe</string>
+    <string name="exchange_success" formatted="false">Vahetati edukalt {description}, aegumiskuupäev: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">Vaheta VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">Aegub: {time}</string>
+    <string name="export" formatted="false">Ekspordi</string>
+    <string name="export_all_application_settings" formatted="false">Ekspordi kõik rakenduse sätted</string>
+    <string name="export_all_rule_configurations" formatted="false">Ekspordi kõik reeglite konfiguratsioonid</string>
+    <string name="export_config" formatted="false">Ekspordi konfiguratsioon</string>
+    <string name="export_contacts" formatted="false">Ekspordi kontaktid</string>
+    <string name="export_data" formatted="false">Ekspordi andmed</string>
+    <string name="export_entity" formatted="false">Ekspordige {entityTypeName}</string>
+    <string name="export_failed" formatted="false">Eksport ebaõnnestus</string>
+    <string name="export_failure" formatted="false">Konfiguratsiooni eksportimine ebaõnnestus</string>
+    <string name="export_feature_coming_soon" formatted="false">Eksportimise funktsioon peagi saadaval</string>
+    <string name="export_labels" formatted="false">Ekspordi sildid</string>
+    <string name="export_labels_failed" formatted="false">Siltide eksportimine ebaõnnestus: {error}</string>
+    <string name="export_plugin_list" formatted="false">Ekspordi pluginate loend</string>
+    <string name="export_plugin_list_failed" formatted="false">Pluginate loendi eksportimine ebaõnnestus: {error}</string>
+    <string name="export_rules" formatted="false">Ekspordi reeglid</string>
+    <string name="export_sms_rules" formatted="false">Ekspordi SMS-reeglid</string>
+    <string name="export_statistics_data" formatted="false">Ekspordi statistikaandmed</string>
+    <string name="export_successlly" formatted="false">Konfiguratsioon eksporditud edukalt</string>
+    <string name="failed_to_add_rule" formatted="false">Reegli lisamine ebaõnnestus: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">SMS-tellimuse lisamine ebaõnnestus: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">Sätete varundamine ebaõnnestus: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">Varukoopiafaili dekrüpteerimine ebaõnnestus</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">SMS-reegli kustutamine ebaõnnestus: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">Reeglite eksportimine ebaõnnestus: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">Helistaja ID teabe hankimine ebaõnnestus: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">Reeglite importimine ebaõnnestus: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">Sätete taastamine ebaõnnestus</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">Sätete taastamine ebaõnnestus: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">Reegli oleku lülitamine ebaõnnestus: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">Lemmik kontaktid</string>
+    <string name="feature" formatted="false">Funktsioon</string>
+    <string name="feature_add_rules" formatted="false">• Lisa numbripõhised reeglid</string>
+    <string name="feature_center" formatted="false">Funktsioonide keskus</string>
+    <string name="feature_enable_disable" formatted="false">• Lülita erinevaid filtreid SIM-kaardi kohta sisse/välja</string>
+    <string name="feature_list_title" formatted="false">Funktsioonid:</string>
+    <string name="feature_manage_rules" formatted="false">• Hallake reeglite loendeid SIM-kaardi kohta</string>
+    <string name="features" formatted="false">Funktsioonid</string>
+    <string name="fetching_caller_id_info" formatted="false">Helistaja ID teabe hankimine...</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">Fail salvestatud asukohta: {path}</string>
+    <string name="filter" formatted="false">Filter</string>
+    <string name="filter_and_sort_title" formatted="false">Filtreeri ja sorteeri</string>
+    <string name="filter_by" formatted="false">Filtreeri</string>
+    <string name="filter_by_action" formatted="false">Filtreerige tegevuse järgi</string>
+    <string name="filter_by_label" formatted="false">Filtreeri sildi järgi</string>
+    <string name="filter_control_panel_title" formatted="false">Filtri juhtpaneel</string>
+    <string name="filter_control_subtitle" formatted="false">Hallake kõigi filtrite sisse/välja olekut</string>
+    <string name="filter_control_title" formatted="false">Filtri juhtimine</string>
+    <string name="filter_explanation" formatted="false">Filtri selgitus</string>
+    <string name="filter_management" formatted="false">Filtri haldus</string>
+    <string name="filter_management_description" formatted="false">Seadistage kõnefiltrid</string>
+    <string name="filter_name" formatted="false">Filtri nimi</string>
+    <string name="filter_priority_note" formatted="false">Märkus: Filtrite vahel on prioriteedisuhted, üksikasjade saamiseks tutvuge abidokumentatsiooniga</string>
+    <string name="filter_s_m_s" formatted="false">Filtreeri SMS</string>
+    <string name="filter_settings" formatted="false">Filtri sätted</string>
+    <string name="filter_settings_title" formatted="false">Filtri sätted</string>
+    <string name="filter_toggle_instructions" formatted="false">Luba või keela filtrid selle SIM-pesa jaoks:</string>
+    <string name="filter_toggle_status" formatted="false">Lülita {status} filter: {filterName}</string>
+    <string name="filter_type" formatted="false">Filtri tüüp</string>
+    <string name="filter_verified_owner" formatted="false">Filtreeri kinnitatud omaniku järgi</string>
+    <string name="filtered" formatted="false">Filtreeritud</string>
+    <string name="final_risk" formatted="false">Lõplik risk</string>
+    <string name="financial" formatted="false">Finants</string>
+    <string name="flexible_combination_feature" formatted="false">• Paindlikud kombinatsioonid: lubage/keelake filtrid SIM-pesa kohta</string>
+    <string name="font_sizes_setting" formatted="false">Fondi suurused</string>
+    <string name="found_rules" formatted="false">Leiti {count} reeglit</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">Pettusehoiatuse seadistamiseks</string>
+    <string name="fraud_aler_setting_title" formatted="false">Pettusehoiatuse seadistus</string>
+    <string name="fraud_alert" formatted="false">PETISHOIATUS - Lõpetage kõne</string>
+    <string name="fraud_alert_title" formatted="false">Pettusehojatus</string>
+    <string name="fraud_alerts" formatted="false">Pettusehoiatused</string>
+    <string name="fraud_alerts_description" formatted="false">Kuvab hoiatusi potentsiaalsete pettuslike kõnede kohta.</string>
+    <string name="fraud_scam_likely" formatted="false">Petuskeemi tõenäosus</string>
+    <string name="free" formatted="false">Tasuta</string>
+    <string name="function_settings_title" formatted="false">Funktsioonide sätted</string>
+    <string name="general_update_failure" formatted="false">Värskendus ebaõnnestus: {error}</string>
+    <string name="get_free" formatted="false">Saada tasuta</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Konfigureerige globaalseid filtreid kõigile SIM-kaartidele:</string>
+    <string name="global_filter_feature" formatted="false">• Globaalsed filtrid: põhireeglid kõigile sissetulevatele kõnedele</string>
+    <string name="global_filter_settings" formatted="false">Globaalsed filtri sätted</string>
+    <string name="global_settings" formatted="false">Globaalsed sätted</string>
+    <string name="google_drive_auth_description" formatted="false">Volitage, kasutades süsteemis konfigureeritud Google Drive\'i kliendi ID-d ja võtit</string>
+    <string name="google_drive_config_title" formatted="false">Google Drive\'i konfiguratsioon</string>
+    <string name="government" formatted="false">Valitsus</string>
+    <string name="grant_necessary_permissions" formatted="false">Andke vajalikud load</string>
+    <string name="grant_permissions" formatted="false">Andke load</string>
+    <string name="granted" formatted="false">Antud</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">Teile on antud {days} päeva ajutised ostuõigused. Aegumiskuupäev: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">Juhised</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">Teil on juba ajutised õigused, aegumiskuupäev: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">Teil on juba VIP-õigused (v.a reklaamid)</string>
+    <string name="headhunter" formatted="false">Värbaja</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Kõrgus</string>
+    <string name="high" formatted="false">Kõrge</string>
+    <string name="high_risk" formatted="false">Kõrge risk</string>
+    <string name="home_tab" formatted="false">Avaleht</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 tund tagasi} other{{count} tundi tagasi}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 tundi} =1{1 tund} other{{count} tundi}}</string>
+    <string name="how_it_works_point1" formatted="false">• Süsteem lubab automaatselt kõnesid samalt numbrilt määratud aja jooksul</string>
+    <string name="how_it_works_point2" formatted="false">• Lühemad ajad tähendavad rangemat tõkestamist; pikemad ajad tähendavad leebemat tõkestamist</string>
+    <string name="how_it_works_point3" formatted="false">• Süsteem kontrollib kõnelogisid, et tuvastada korduv kõne</string>
+    <string name="how_it_works_title" formatted="false">Kuidas see töötab:</string>
+    <string name="icon_code_optional" formatted="false">Ikooni kood (valikuline)</string>
+    <string name="icon_size" formatted="false">Ikooni suurus</string>
+    <string name="import" formatted="false">Import</string>
+    <string name="import_config" formatted="false">Impordi konfiguratsioon</string>
+    <string name="import_contacts" formatted="false">Impordi kontaktid</string>
+    <string name="import_entity" formatted="false">Importige {entityTypeName}</string>
+    <string name="import_export" formatted="false">Import/eksport</string>
+    <string name="import_export_contacts" formatted="false">Impordi/Ekspordi kontaktid</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Impordi/Ekspordi kontaktid</string>
+    <string name="import_export_description" formatted="false">Importige või eksportige {entityTypeName} andmeid</string>
+    <string name="import_export_rules" formatted="false">Impordi/Ekspordi reeglid</string>
+    <string name="import_export_title" formatted="false">Import/eksport</string>
+    <string name="import_failed" formatted="false">Importimine ebaõnnestus: {error}</string>
+    <string name="import_failure" formatted="false">Konfiguratsiooni importimine ebaõnnestus</string>
+    <string name="import_feature_coming_soon" formatted="false">Importimisfunktsioon peagi saadaval</string>
+    <string name="import_labels" formatted="false">Impordi sildid</string>
+    <string name="import_labels_failed" formatted="false">Siltide importimine ebaõnnestus: {error}</string>
+    <string name="import_plugin_list" formatted="false">Impordi pistikprogrammi loend</string>
+    <string name="import_plugin_list_failed" formatted="false">Pistikprogrammi loendi importimine ebaõnnestus: {error}</string>
+    <string name="import_plugin_success" formatted="false">Edukalt imporditud {count} pistikprogrammi</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Impordi reeglite konfiguratsioonid failist</string>
+    <string name="import_rules" formatted="false">Impordi reeglid</string>
+    <string name="import_success" formatted="false">Importimine õnnestus</string>
+    <string name="important" formatted="false">Tähtis</string>
+    <string name="important_notice_title" formatted="false">Tähtis teadaanne</string>
+    <string name="incoming_call_intercept_action" formatted="false">Sissetuleva kõne tõkestamise toiming</string>
+    <string name="incorrect_password" formatted="false">Vale parool</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.</string>
+    <string name="initial_setup_deselect_all" formatted="false">Tühjenda valik</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">Failed to get configuration</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">Retry</string>
+    <string name="initial_setup_save" formatted="false">One-click setup selected</string>
+    <string name="initial_setup_save_failed" formatted="false">Failed to save configuration: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Configuration saved successfully, rules will be fetched automatically soon</string>
+    <string name="initial_setup_saving" formatted="false">Saving...</string>
+    <string name="initial_setup_search_hint" formatted="false">Otsi reeglistikku või riiki...</string>
+    <string name="initial_setup_select_all" formatted="false">Vali kaikki</string>
+    <string name="initial_setup_selected_count" formatted="false">{count} valitud</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">Skip</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">Rule Library Setup</string>
+    <string name="initializing" formatted="false">Initialiseerimine</string>
+    <string name="installed" formatted="false">Installitud</string>
+    <string name="insufficient_marks" formatted="false">Ebapiisavad märgid</string>
+    <string name="insurance" formatted="false">Kindlustus</string>
+    <string name="intercept_action" formatted="false">Tõkestamise toiming</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Määrake, kuidas blokeeritud kõnedega toimida</string>
+    <string name="interception_action_settings_title" formatted="false">Tõkestamise toimingute sätted</string>
+    <string name="interception_time_interval" formatted="false">Tõkestamise ajaintervall</string>
+    <string name="internet" formatted="false">Internet</string>
+    <string name="interval_set_success" formatted="false">{service} värskendusintervalliks määratud {days} päeva</string>
+    <string name="invalid_content_regex" formatted="false">Kehtetu sisukood Regex</string>
+    <string name="invalid_exchange_rule" formatted="false">Kehtetu vahetuse reegel</string>
+    <string name="invalid_label" formatted="false">Kehtetu silt</string>
+    <string name="invalid_regex_pattern" formatted="false">Kehtetu regulaaravaldise muster</string>
+    <string name="invalid_sender_regex" formatted="false">Kehtetu saatja regulaaravaldise muster</string>
+    <string name="invalid_sim_data" formatted="false">Kehtetud SIM-andmed</string>
+    <string name="ip_country" formatted="false">IP riik</string>
+    <string name="is_number_match" formatted="false">Numbri vaste</string>
+    <string name="is_roaming" formatted="false">Rändlus</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">Liituge Telegrami kanaliga ja grupiga lisateabe saamiseks</string>
+    <string name="json_format" formatted="false">JSON-vorming</string>
+    <string name="just_now" formatted="false">Just praegu</string>
+    <string name="keep_all_versions" formatted="false">Säilita kõik versioonid</string>
+    <string name="keep_all_versions_description" formatted="false">Säilita iga varukoopia ajaloolised versioonid</string>
+    <string name="label" formatted="false">Silt</string>
+    <string name="label_action_description" formatted="false">Lisage kõnele silt lihtsamaks tuvastamiseks.</string>
+    <string name="label_added_successfully" formatted="false">Silt &quot;{name}&quot; lisati edukalt</string>
+    <string name="label_categories" formatted="false">Siltide kategooriad</string>
+    <string name="label_deleted" formatted="false">Silt kustutati</string>
+    <string name="label_description" formatted="false">Sildid aitavad teil paremini hallata kontakte, lisada telefoninumbritele kohandatud silte kõnede ja sõnumite hõlpsaks tuvastamiseks.</string>
+    <string name="label_filter_tooltip" formatted="false">Siltide filter</string>
+    <string name="label_icon_color" formatted="false">Sildi ikooni värv</string>
+    <string name="label_management" formatted="false">Siltide haldamine</string>
+    <string name="label_not_found" formatted="false">Silt ei leidnud</string>
+    <string name="label_tag" formatted="false">Silt: {labelId}</string>
+    <string name="label_update_failed" formatted="false">Sildi värskendamine ebaõnnestus: {error}</string>
+    <string name="label_update_success" formatted="false">Silt &quot;$labelText&quot; värskendati edukalt</string>
+    <string name="labels" formatted="false">Sildid</string>
+    <string name="labels_color" formatted="false">Siltide värv</string>
+    <string name="labels_deleted" formatted="false">{count} silti kustutati</string>
+    <string name="labels_exported_successfully" formatted="false">Sildid eksporditi edukalt</string>
+    <string name="labels_font_size" formatted="false">Siltide fondi suurus</string>
+    <string name="labels_imported_successfully" formatted="false">Imporditi edukalt {count} silti</string>
+    <string name="labels_position" formatted="false">Siltide asukoht</string>
+    <string name="language_settings" formatted="false">Keele sätted</string>
+    <string name="language_settings_subtitle" formatted="false">Muutke rakenduse kuvakeelt</string>
+    <string name="language_settings_title" formatted="false">Keele sätted</string>
+    <string name="last_sync_label" formatted="false">Viimane sünkroniseerimine</string>
+    <string name="last_updated" formatted="false">Viimati värskendatud: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">Eluaegne liikmelisus</string>
+    <string name="lifetime_membership_description" formatted="false">Ühekordne ost, avab püsivalt kõik premium-funktsioonid ja tulevased värskendused</string>
+    <string name="list_view" formatted="false">Loendi vaade</string>
+    <string name="live_activities_settings_title" formatted="false">Reaalajas tegevuste seaded</string>
+    <string name="live_activities_test_end_activity" formatted="false">Lõpeta tegevus</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">Saada uus tegevus</string>
+    <string name="live_activities_test_title" formatted="false">Reaalajas tegevuste test</string>
+    <string name="live_activities_test_update_activity" formatted="false">Värskenda tegevust</string>
+    <string name="live_activity_controls_title" formatted="false">Reaalajas tegevuse juhtnupud</string>
+    <string name="live_activity_mode" formatted="false">Reaalajas tegevus</string>
+    <string name="live_activity_mode_description" formatted="false">Kuvab kõneinfot lukustusekraanil ja dünaamilisel saarel (iOS) püsiva teatisena.</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Kohandage reaalajas teadete välimust.</string>
+    <string name="live_notification_customization_title" formatted="false">Reaalajas teate kohandamine</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">Kontaktide laadimine ebaõnnestus: {error}</string>
+    <string name="load_data_failed" formatted="false">Andmete laadimine ebaõnnestus</string>
+    <string name="load_label_failed" formatted="false">Siltide laadimine ebaõnnestus: {error}</string>
+    <string name="load_labels_failed" formatted="false">Siltide laadimine ebaõnnestus: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">Märgitud telefoninumbrite laadimine ebaõnnestus: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">Märgitud telefonide laadimine ebaõnnestus: {error}</string>
+    <string name="load_plugins_failed" formatted="false">Pistikprogrammide laadimine ebaõnnestus: {error}</string>
+    <string name="load_settings_failed" formatted="false">Sätete laadimine ebaõnnestus: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">SMS-reeglite laadimine ebaõnnestus: {error}</string>
+    <string name="load_status_failed_message" formatted="false">Olekulaadimine ebaõnnestus</string>
+    <string name="load_subscriptions_failed" formatted="false">Tellimuste laadimine ebaõnnestus: {error}</string>
+    <string name="loading" formatted="false">Laadin...</string>
+    <string name="loading_ad" formatted="false">Laeb reklaami...</string>
+    <string name="loading_tags" formatted="false">Laadin silte...</string>
+    <string name="loan" formatted="false">Laen</string>
+    <string name="local_count_filter" formatted="false">Kohaliku loenduri filter</string>
+    <string name="local_count_filter_description" formatted="false">Hoidke sagedasi kõnesid kinni kohalike numbrite loendurite põhjal</string>
+    <string name="local_count_filter_explanation_content" formatted="false">Kohaliku loenduri filter analüüsib kõneajaloo kirjeid, et automaatselt tuvastada ja blokeerida sagedased rämpskõned.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">Kohaliku loenduri filtri selgitus</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• Otsustage, kas blokeerida numbri loenduri väärtuse põhjal</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• Kui numbri loendur ületab määratud künnise, saate selle automaatselt blokeerida</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• Saate valida numbrid, mis ei ületa künnist</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• Saate valida, kas salvestada kõik päringute logid</string>
+    <string name="local_count_filter_settings" formatted="false">Kohaliku loenduri filtri sätted</string>
+    <string name="local_count_filter_use_cases" formatted="false">See filter sobib eriti hästi automaatkõnede ja turunduskõnede tuvastamiseks.</string>
+    <string name="local_count_filtering" formatted="false">Kohaliku loenduri filtreerimine</string>
+    <string name="local_count_filtering_explanation" formatted="false">• Kohaliku loenduri filtreerimine: filtreerimisreeglid kohaliku märgistamise loenduri põhjal</string>
+    <string name="local_counter_filter" formatted="false">Kohaliku loenduri filter</string>
+    <string name="local_counter_filter_subtitle" formatted="false">Filtreerige automaatselt rämpskõnesid kõnesageduse põhjal</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">Kohaliku filtri sätted</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">Kohalik teatamine keelatud</string>
+    <string name="local_notification_enabled" formatted="false">Kohalik teatamine lubatud</string>
+    <string name="local_services" formatted="false">Kohalikud teenused</string>
+    <string name="location" formatted="false">Asukoht</string>
+    <string name="location_color" formatted="false">Asukoha värv</string>
+    <string name="location_font_size" formatted="false">Asukoha fondi suurus</string>
+    <string name="location_icon_color" formatted="false">Asukoha ikooni värv</string>
+    <string name="location_position" formatted="false">Asukoha asukoht</string>
+    <string name="log" formatted="false">Logi</string>
+    <string name="log_action_description" formatted="false">Logige kõne teave ilma muid toiminguid tegemata.</string>
+    <string name="log_all_local_queries" formatted="false">Logi kõik kohalikud päringud</string>
+    <string name="log_all_local_queries_description" formatted="false">Salvestage logid kõikide kohalike numbrite päringute kohta</string>
+    <string name="log_all_remote_queries" formatted="false">Logi kõik kaugpäringud</string>
+    <string name="log_all_remote_queries_description" formatted="false">Salvestage kõik kaugnumbrite päringu toimingud</string>
+    <string name="low" formatted="false">Madal</string>
+    <string name="low_risk" formatted="false">Madal risk</string>
+    <string name="manage" formatted="false">Hallake kontakte</string>
+    <string name="manage_favorite_contacts" formatted="false">Hallake lemmikkontakte</string>
+    <string name="manage_filter_rules" formatted="false">Halda filtreerimisreegleid</string>
+    <string name="manage_filter_rules_description" formatted="false">Lisage, muutke või kustutage SMS-filtri reegleid</string>
+    <string name="manual_entry" formatted="false">Käsitsi sisestamise teave</string>
+    <string name="mark_count" formatted="false">Märgistamise loendur</string>
+    <string name="mark_counts" formatted="false">Märgistamise loendurid</string>
+    <string name="mark_exchange" formatted="false">Märgistuse vahetus</string>
+    <string name="mark_more_numbers_for_more" formatted="false">Märkige rohkem numbreid rohkemaks märkideks</string>
+    <string name="mark_phone" formatted="false">Märgista telefoninumber</string>
+    <string name="mark_phone_failed" formatted="false">Telefoni numbri märkimine ebaõnnestus: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">Telefoni numbri märkimise haldus</string>
+    <string name="mark_phone_success" formatted="false">Telefoni number märgiti edukalt</string>
+    <string name="marked_by_count" formatted="false">Märkinud {count}</string>
+    <string name="marked_phones_list" formatted="false">Märgitud telefoninumbrid</string>
+    <string name="marks_insufficient" formatted="false">Vahetuseks pole piisavalt märke</string>
+    <string name="master_and_overrides" formatted="false">Master Controls</string>
+    <string name="master_and_overrides_desc" formatted="false">Global Rule Settings</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">Sobitus ebaõnnestus.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">sobib numbri erimärkidega vormingusse</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">Sobita numbrid erimärkidega:</string>
+    <string name="match_specific_digit_patterns" formatted="false">sobib XXX-XXXX-XXXX vormingusse</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">Sobita kindlad numbrimustrid:</string>
+    <string name="match_successful_message" formatted="false">Sobitus õnnestus!</string>
+    <string name="medical" formatted="false">Meditsiiniline</string>
+    <string name="medium" formatted="false">Keskmine</string>
+    <string name="medium_risk" formatted="false">Keskmine risk</string>
+    <string name="membership_center" formatted="false">Liikmesuse keskus</string>
+    <string name="membership_privileges" formatted="false">Liikmelisuse eelised</string>
+    <string name="message_background_color" formatted="false">Sõnumi taustavärv</string>
+    <string name="message_color" formatted="false">Sõnumi värv</string>
+    <string name="message_font_size" formatted="false">Sõnumi fondisuurus</string>
+    <string name="message_position" formatted="false">Sõnumi asukoht</string>
+    <string name="migration_tool" formatted="false">Migratsioonitööriist</string>
+    <string name="minutes" formatted="false">minutit</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 minut tagasi} other{{count} minutit tagasi}}</string>
+    <string name="moderate" formatted="false">Mõõdukas</string>
+    <string name="month" formatted="false">Kuu</string>
+    <string name="monthly" formatted="false">Kuu</string>
+    <string name="monthly_call_count" formatted="false">Kuuväljakutsed</string>
+    <string name="monthly_membership" formatted="false">Kuuliikmelisus</string>
+    <string name="monthly_membership_description" formatted="false">Avage kõik premium-funktsioonid, uuendatakse automaatselt kord kuus</string>
+    <string name="monthly_total" formatted="false">Kuukokku</string>
+    <string name="more_options" formatted="false">Rohkem valikuid</string>
+    <string name="mute" formatted="false">Vaikne</string>
+    <string name="name" formatted="false">Nimi</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">Nimi ja telefoninumber ei saa olla tühjad</string>
+    <string name="name_cannot_be_empty" formatted="false">Nimi ei saa olla tühi</string>
+    <string name="name_color" formatted="false">Nime värv</string>
+    <string name="name_font_size" formatted="false">Nime fondisuurus</string>
+    <string name="name_position" formatted="false">Nime asukoht</string>
+    <string name="name_unknown" formatted="false">Nimi: Tundmatu</string>
+    <string name="national_number" formatted="false">Rahvuslik number</string>
+    <string name="need_vip_access" formatted="false">Selle funktsiooni kasutamiseks vajate VIP-juurdepääsu</string>
+    <string name="new_vote_received" formatted="false">Uus hääl saadud</string>
+    <string name="new_vote_received_body" formatted="false">Keegi hääletas numbri {phoneNumber} kustutamise poolt {voteType}. Praegused hääled: {totalVotes}.</string>
+    <string name="next_step" formatted="false">Järgmine</string>
+    <string name="no_action" formatted="false">Ei mingit tegevust</string>
+    <string name="no_action_rules" formatted="false">Ei mingit tegevust reegleid</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">Ühtegi aktiivset pilvesünkroniseerimisteenust pole</string>
+    <string name="no_activity" formatted="false">Puudub tegevus</string>
+    <string name="no_ads" formatted="false">Pole reklaame</string>
+    <string name="no_allowed_blocked_rules" formatted="false">Lubatud/blokeeritud reeglid puuduvad</string>
+    <string name="no_blocked_type_data" formatted="false">Blokeeritud tüüpi andmed pole saadaval</string>
+    <string name="no_call_records" formatted="false">Kõnekirjeid pole</string>
+    <string name="no_contacts_yet" formatted="false">Kontakte pole veel</string>
+    <string name="no_data" formatted="false">Andmeid pole</string>
+    <string name="no_devices_registered_message" formatted="false">Seadmeid pole registreeritud</string>
+    <string name="no_labels" formatted="false">Silte pole veel</string>
+    <string name="no_marked_phones" formatted="false">Märgitud telefone pole</string>
+    <string name="no_matching_contacts_found" formatted="false">Sobivaid kontakte ei leitud</string>
+    <string name="no_matching_numbers_found" formatted="false">Sobivaid numbreid ei leitud</string>
+    <string name="no_matching_rules" formatted="false">Sobivaid {ruleType} pole</string>
+    <string name="no_notifications" formatted="false">Teateid pole</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">Telefoni reeglid puuduvad</string>
+    <string name="no_plugins" formatted="false">Pistikprogramme pole veel</string>
+    <string name="no_proposals_found" formatted="false">Ettepanekuid ei leitud</string>
+    <string name="no_regex_rules" formatted="false">Regulereeglid puuduvad</string>
+    <string name="no_rules" formatted="false">{ruleType} pole veel</string>
+    <string name="no_rules_prompt" formatted="false">Reegleid pole leitud, lisage reeglid</string>
+    <string name="no_rules_to_export" formatted="false">Reegleid pole eksportimiseks</string>
+    <string name="no_sim_card_detected" formatted="false">SIM-kaarti ei tuvastatud</string>
+    <string name="no_sim_cards_detected" formatted="false">SIM-kaarte ei leitud</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">SMS-i filtreerimisreegleid pole veel</string>
+    <string name="no_sms_rules_yet" formatted="false">SMS-reegleid pole veel</string>
+    <string name="no_subscriptions" formatted="false">Tellimusi pole</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">Failist ei leitud ühtegi kehtivat SMS-reeglit</string>
+    <string name="none" formatted="false">Puudub</string>
+    <string name="none_action_description" formatted="false">Kõne jaoks eritoimingut ei tehta.</string>
+    <string name="none_service_type" formatted="false">Puudub</string>
+    <string name="normal_user" formatted="false">Tavakasutaja</string>
+    <string name="not_granted" formatted="false">Pole antud</string>
+    <string name="not_verified_text" formatted="false">Pole kinnitatud</string>
+    <string name="notification_frequency_hours" formatted="false">Teavitussagedus (tunnid)</string>
+    <string name="notification_frequency_title" formatted="false">Teavitussagedus</string>
+    <string name="notification_mode" formatted="false">Teavituste režiim</string>
+    <string name="notification_mode_description" formatted="false">Näita helistaja teavet teavitusribal</string>
+    <string name="notification_permission" formatted="false">Teavituste luba</string>
+    <string name="notification_permission_description" formatted="false">Kasutatakse sissetulevate kõne- ja sõnumiteatiste kuvamiseks.</string>
+    <string name="notification_settings" formatted="false">Teavituste seaded</string>
+    <string name="notification_settings_title" formatted="false">Teavitussätted</string>
+    <string name="notification_instructions" formatted="false">Juhised:
+1. Puudutage &quot;SAADA&quot;, et luua või värskendada teatist.
+2. Minge oma avaekraanile või tõmmake teavitusriba alla, et näha tulemust.
+3. Puudutage &quot;LÕPETA&quot;, et teatis sulgeda.</string>
+    <string name="notifications" formatted="false">Teavitused</string>
+    <string name="notify" formatted="false">Teavitama</string>
+    <string name="notify_action_description" formatted="false">Saate kõne saabumisel teate.</string>
+    <string name="number" formatted="false">Number</string>
+    <string name="number_color" formatted="false">Numbri värv</string>
+    <string name="number_font_size" formatted="false">Numbri fondisuurus</string>
+    <string name="number_format" formatted="false">Numbrivorming</string>
+    <string name="number_invalid_format" formatted="false">Number vales vormingus</string>
+    <string name="number_position" formatted="false">Numbri asukoht</string>
+    <string name="number_search" formatted="false">Numbriotsing</string>
+    <string name="number_type_color" formatted="false">Numbritüübi värv</string>
+    <string name="number_type_font_size" formatted="false">Numbritüübi fondisuurus</string>
+    <string name="number_type_position" formatted="false">Numbritüübi asukoht</string>
+    <string name="ok_button" formatted="false">OK</string>
+    <string name="onboarding_complete_description" formatted="false">Teie kõneturbehaldur on valmis, alustage turvalise kõnekogemusega!</string>
+    <string name="onboarding_language_description" formatted="false">Valige oma eelistatud keel parima kogemuse saamiseks.</string>
+    <string name="onboarding_permissions_description" formatted="false">Täieliku teenuse osutamiseks vajame järgmisi lubasid:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">Ühe klõpsuga rämpskõnede ja sõnumite blokeerimine, blokeerimisreeglite kohandamine ja teile vaikse keskkonna loomine.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">Tundmatute kõnede automaatne tuvastamine, kahtlaste numbrite märkimine ja teie kõneturvalisuse tagamine.</string>
+    <string name="onboarding_welcome_description" formatted="false">Teie kõnehalduse ekspert, pakkudes kõikehõlmavaid kõnetuvastus- ja blokeerimisteenuseid.</string>
+    <string name="one_drive_auth_description" formatted="false">Volitage süsteemi konfigureeritud OneDrive\'i kliendi ID ja võtme abil</string>
+    <string name="one_drive_config_title" formatted="false">OneDrive konfiguratsioon</string>
+    <string name="online_caller_id_subscription" formatted="false">Online helistaja ID tellimus</string>
+    <string name="open_app_settings" formatted="false">Ava rakenduse sätted</string>
+    <string name="open_app_settings_failed" formatted="false">Rakenduse sätete avamine nurjus: {error}</string>
+    <string name="open_in_web_view" formatted="false">Ava WebView\'s</string>
+    <string name="operation_failed" formatted="false">Toiming nurjus: {error}</string>
+    <string name="operation_failure" formatted="false">Toiming nurjus</string>
+    <string name="operation_success" formatted="false">Toiming õnnestus</string>
+    <string name="oppose" formatted="false">Vastu</string>
+    <string name="oppose_count" formatted="false">Vastuseis ({opposeCount})</string>
+    <string name="opposed" formatted="false">VASTATUD</string>
+    <string name="other" formatted="false">Muu</string>
+    <string name="our_other_apps" formatted="false">Meie teised rakendused</string>
+    <string name="overlay_mode" formatted="false">Ujuvaken</string>
+    <string name="overlay_mode_description" formatted="false">Näita helistaja teavet ujuvas aknas</string>
+    <string name="overlay_permission" formatted="false">Ujuva akna luba</string>
+    <string name="overlay_permission_description" formatted="false">Kasutatakse sissetuleva kõne ujuva akna kuvamiseks.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">Ülevaade</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">Parool</string>
+    <string name="password_cannot_be_empty" formatted="false">Parool ei saa olla tühi</string>
+    <string name="password_label" formatted="false">Parool</string>
+    <string name="passwords_do_not_match" formatted="false">Paroolid ei vasta</string>
+    <string name="pattern" formatted="false">Muster</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">OTSELINE</string>
+    <string name="pending_proposals" formatted="false">Ootel ettepanekud</string>
+    <string name="pending_proposals_body" formatted="false">Teil on {count, plural, =0 {ootel ettepanekuid ei ole} one {1 ootel ettepanek} other {{count} ootel ettepanekut}}.</string>
+    <string name="pending_sync" formatted="false">Ootel sünkroonimine</string>
+    <string name="period_month" formatted="false">Kuu</string>
+    <string name="period_week" formatted="false">Nädal</string>
+    <string name="period_year" formatted="false">Aasta</string>
+    <string name="permission_denied" formatted="false">Loa taotlus on keelatud</string>
+    <string name="permission_granted" formatted="false">Luba on antud</string>
+    <string name="permission_management" formatted="false">Lubade haldus</string>
+    <string name="permission_subtitle" formatted="false">Halda ülekatte- ja aku optimeerimise lube</string>
+    <string name="permission_title" formatted="false">Eriload</string>
+    <string name="phone_calls_tab" formatted="false">Telefon</string>
+    <string name="phone_number" formatted="false">Telefoninumber</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">Telefoninumber ei saa olla tühi</string>
+    <string name="phone_number_hint" formatted="false">Sisesta telefoninumber</string>
+    <string name="phone_number_label" formatted="false">Telefoninumber</string>
+    <string name="phone_number_min_digits" formatted="false">Telefoninumber peab olema vähemalt 7 numbrit pikk</string>
+    <string name="phone_number_required" formatted="false">Telefoninumber on nõutav</string>
+    <string name="phone_number_type" formatted="false">Telefoninumbri tüüp</string>
+    <string name="phone_number_type_fixed_line" formatted="false">Lauatelefon</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">Lauatelefon või mobiil</string>
+    <string name="phone_number_type_mobile" formatted="false">Mobiil</string>
+    <string name="phone_number_type_pager" formatted="false">Paging-seade</string>
+    <string name="phone_number_type_personal_number" formatted="false">Isiklik number</string>
+    <string name="phone_number_type_premium_rate" formatted="false">Eritariifiga number</string>
+    <string name="phone_number_type_shared_cost" formatted="false">Jagatud maksumusega number</string>
+    <string name="phone_number_type_toll_free" formatted="false">Tasuta number</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">Teadmata</string>
+    <string name="phone_number_type_voicemail" formatted="false">Kõnepost</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">Telefoni luba</string>
+    <string name="phone_permission_description" formatted="false">Kasutatakse sissetulevate kõnede tuvastamiseks ja blokeerimiseks.</string>
+    <string name="phone_rule" formatted="false">Telefonireegel</string>
+    <string name="phone_rule_management" formatted="false">Telefonireeglite haldus</string>
+    <string name="phone_rule_subscription" formatted="false">Telefonireegli tellimus</string>
+    <string name="phone_rules_info" formatted="false">Telefonireegleid kasutatakse kõnede sobitamiseks konkreetsete telefoninumbritega, millel on madalam prioriteet. Mõned pärinevad telefonireegli tellimustest</string>
+    <string name="phone_subscription" formatted="false">Telefoni tellimus</string>
+    <string name="phone_subscription_rules_description" formatted="false">Telli telefonireeglite loendeid URL-i kaudu, et automaatselt värskendada valge ja musta nimekirja reegleid. Toetab JSON-vormingus reeglifaile.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">Palun sisestage vähemalt üks number.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">Palun vali silt ja sisesta kehtiv telefoninumber</string>
+    <string name="plugin_added_success" formatted="false">Pistikprogramm &quot;{name}&quot; lisati edukalt</string>
+    <string name="plugin_deleted" formatted="false">Pistikprogramm kustutati</string>
+    <string name="plugin_description" formatted="false">Pistikprogrammi kirjeldus</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">Pistikprogrammi silt</string>
+    <string name="plugin_latest_version" formatted="false">Pistikprogramm on juba uusim versioon</string>
+    <string name="plugin_list_export_success" formatted="false">Pistikprogrammide loend eksporditi edukalt</string>
+    <string name="plugin_management" formatted="false">Pistikprogrammide haldus</string>
+    <string name="plugin_management_subtitle" formatted="false">Hallake ja konfigureerige kolmanda osapoole pistikprogramme</string>
+    <string name="plugin_name" formatted="false">Pistikprogrammi nimi</string>
+    <string name="plugin_rules_info" formatted="false">Turvalisuse tagamiseks kasutage ainult usaldusväärsetest allikatest pärit pistikprogramme. Looge julgelt oma kohandatud pistikprogramme meie mallide abil!</string>
+    <string name="plugin_service" formatted="false">Pistikprogrammiteenus</string>
+    <string name="plugin_test_page_title" formatted="false">Pistikprogrammide testimine</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">Pistikprogramm värskendati edukalt</string>
+    <string name="plugin_url" formatted="false">Pistikprogrammi URL</string>
+    <string name="plugin_version" formatted="false">Pistikprogrammi versioon</string>
+    <string name="plugins_deleted" formatted="false">{count} pistikprogrammi kustutati edukalt.</string>
+    <string name="political" formatted="false">Poliitiline</string>
+    <string name="powerful_spam_blocking" formatted="false">Tugev rämbrata tõkestus</string>
+    <string name="previous_step" formatted="false">Eelmine</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">Prioriteedi kaugtoimingute sätted</string>
+    <string name="prioritize_remote_action_description" formatted="false">Prioriteedi toimingute sätted kaugandmebaasist</string>
+    <string name="processed" formatted="false">Töödeldud</string>
+    <string name="processing" formatted="false">Töötlemine...</string>
+    <string name="processing_operation" formatted="false">Töötlemine...</string>
+    <string name="proposal_approved" formatted="false">Ettepanek heaks kiidetud ✅</string>
+    <string name="proposal_approved_body" formatted="false">Kogukond kiitis numbri {phoneNumber} kustutamisettepaneku heaks ({supportPercentage}% toetus, {totalVotes} häält).</string>
+    <string name="proposal_created" formatted="false">Ettepanek loodi edukalt</string>
+    <string name="proposal_details" formatted="false">Ettepaneku üksikasjad</string>
+    <string name="proposal_not_found" formatted="false">Ettepanekut ei leitud</string>
+    <string name="proposal_processed" formatted="false">See ettepanek on töödeldud</string>
+    <string name="proposal_rejected" formatted="false">Ettepanek tagasi lükatud ❌</string>
+    <string name="proposal_rejected_body" formatted="false">Kogukond lükkas numbri {phoneNumber} kustutamisettepaneku tagasi ({supportPercentage}% toetus, {totalVotes} häält).</string>
+    <string name="proposal_statistics" formatted="false">Ettepanekute statistika</string>
+    <string name="provide_detailed_explanation" formatted="false">Esitage üksikasjalik selgitus (miinimunm 10 tähemärki)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">Osta</string>
+    <string name="purchase_subtitle" formatted="false">Teenuse ostmiseks</string>
+    <string name="purchase_title" formatted="false">Ost</string>
+    <string name="quarterly_membership" formatted="false">Kvartali liikmelisus</string>
+    <string name="quarterly_membership_description" formatted="false">Ava kõik esmaklassilised funktsioonid, automaatne uuendamine kvartaalselt</string>
+    <string name="ready" formatted="false">Valmis!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">Põhjus</string>
+    <string name="reason_inaccurate_info" formatted="false">Ebatäpne teave</string>
+    <string name="reason_min_characters" formatted="false">Põhjendus peab olema vähemalt 10 tähemärki pikk</string>
+    <string name="reason_not_in_service" formatted="false">Ei ole teenuses</string>
+    <string name="reason_other" formatted="false">Muu</string>
+    <string name="reason_outdated" formatted="false">Vanu andmeid</string>
+    <string name="reason_privacy" formatted="false">Privaatsusmure</string>
+    <string name="reason_required" formatted="false">Põhjendus on kohustuslik</string>
+    <string name="reason_wrongly_identified" formatted="false">Valesti tuvastatud</string>
+    <string name="recruiter" formatted="false">Värbaja</string>
+    <string name="redeem_vip_with_marks" formatted="false">Lunastage VIP märkidega</string>
+    <string name="redirect" formatted="false">Edasi suunama</string>
+    <string name="redirect_action_description" formatted="false">Suunake kõne määratud numbrile.</string>
+    <string name="refresh" formatted="false">Värskenda</string>
+    <string name="refresh_permission_status" formatted="false">Värskenda loa olekut</string>
+    <string name="refresh_proposals" formatted="false">Värskenda ettepanekud</string>
+    <string name="refresh_tooltip" formatted="false">Värskenda</string>
+    <string name="regex_error_message" formatted="false">Regex viga: {error}</string>
+    <string name="regex_pattern" formatted="false">RegEx-muster</string>
+    <string name="regex_pattern_explanation" formatted="false">RegEx-mustri selgitus</string>
+    <string name="regex_pattern_explanation_button" formatted="false">RegEx-mustri selgitus</string>
+    <string name="regex_pattern_label" formatted="false">RegEx-muster</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">RegEx-mustrid telefoninumbrite sobitamiseks</string>
+    <string name="regex_rule" formatted="false">RegEx-reegel</string>
+    <string name="regex_rule_add_failed" formatted="false">RegEx-reegli lisamine ebaõnnestus: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">RegEx-reegel lisati edukalt</string>
+    <string name="regex_rule_management" formatted="false">RegEx-reegli haldus</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">Reegli nimi ja RegEx-muster ei saa olla tühjad</string>
+    <string name="regex_rules" formatted="false">RegEx-reeglid</string>
+    <string name="regex_rules_info" formatted="false">Regex reegleid kasutatakse kõnede filtreerimiseks Regex mustrite põhjal.</string>
+    <string name="regex_tester_title" formatted="false">RegEx-testija</string>
+    <string name="region" formatted="false">Regioon</string>
+    <string name="registered_devices_title" formatted="false">Registreeritud seadmed</string>
+    <string name="reject_all_calls" formatted="false">Keeldu kõigist kõnedest</string>
+    <string name="reject_all_calls_description" formatted="false">Kui see on lubatud, keelduvad kõik kõned kõrgeima prioriteediga</string>
+    <string name="reject_all_numbers" formatted="false">Keeldu kõigist numbritest</string>
+    <string name="reject_all_numbers_desc" formatted="false">Keeldu kõigist sissetulevatest kõnedest, kui see on lubatud</string>
+    <string name="reject_exceeded_numbers" formatted="false">Keeldu ületanud numbritest</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">Keeldu automaatselt numbritest, mis ületavad loenduse lävepiiri</string>
+    <string name="rejected" formatted="false">TAGASI LÜKATUD</string>
+    <string name="remote_filter_settings" formatted="false">Eemaldatavad filtrisätted</string>
+    <string name="remote_filter_settings_page_title" formatted="false">Eemaldatavad numbrifiltri sätted</string>
+    <string name="remote_number_filter" formatted="false">Eemaldatav numbrifilter</string>
+    <string name="remote_number_filter_description" formatted="false">Häirivate kõnede pealtkuulamine eemaldatava andmebaasi info põhjal</string>
+    <string name="remote_number_filter_subtitle" formatted="false">Tuvastage rämpskõned pilvandmebaasi ja kogukonnaaruannete abil</string>
+    <string name="remote_number_filtering" formatted="false">Eemaldatav numbri filtreerimine</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• Eemaldatav numbri filtreerimine: Filtreerimisreeglid eemaldatava andmebaasi info põhjal</string>
+    <string name="remove_ads" formatted="false">Eemalda reklaamid</string>
+    <string name="remove_ads_description" formatted="false">Eemaldage kõik reklaamid rakendusest püsivalt, et kogemus oleks sujuvam</string>
+    <string name="remove_ads_title" formatted="false">Eemalda reklaamid</string>
+    <string name="remove_from_favorites" formatted="false">Eemalda lemmikutest</string>
+    <string name="removed_from_favorites" formatted="false">Eemaldatud lemmikutest</string>
+    <string name="rename_device_title" formatted="false">Nimeta seade ümber</string>
+    <string name="reporting_guidelines" formatted="false">• Raporteerige ainult numbreid, mis on tõeliselt problemaatilised
+• Esitage täpsed ja üksikasjalikud põhjendused
+• Valige sobiv riskitase sõltuvalt tõsidusest
+• Valeraportid võivad põhjustada konto piiramist</string>
+    <string name="request_all_permissions" formatted="false">Taotlege kõiki õigusi</string>
+    <string name="request_permission" formatted="false">Taotlege luba</string>
+    <string name="request_permission_failed" formatted="false">Loa taotlemine ebaõnnestus: {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">{count} märk(i)</string>
+    <string name="reset" formatted="false">Lähtesta</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">Taasta</string>
+    <string name="restore_application_settings_from_backup" formatted="false">Taasta rakenduse sätted varukoopiast</string>
+    <string name="restore_from_cloud" formatted="false">Taasta pilvest</string>
+    <string name="restore_from_cloud_failed" formatted="false">Taastamine pilvest ebaõnnestus: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">Taastati edukalt pilvest</string>
+    <string name="restore_purchases" formatted="false">Taasta ostud</string>
+    <string name="restore_settings" formatted="false">Taasta sätted</string>
+    <string name="restore_settings_confirmation" formatted="false">See asendab kõik teie praegused sätted. Kas olete kindel, et soovite jätkata?</string>
+    <string name="result" formatted="false">Tulemus</string>
+    <string name="retry" formatted="false">Proovi uuesti</string>
+    <string name="rewarded_ad_service" formatted="false">Autasustatud reklaamide teenus</string>
+    <string name="ridesharing" formatted="false">Sõidujagamine</string>
+    <string name="risk" formatted="false">Risk</string>
+    <string name="risk_level" formatted="false">Riskitase</string>
+    <string name="risk_level_critical" formatted="false">Kriitiline</string>
+    <string name="risk_level_high" formatted="false">Kõrge</string>
+    <string name="risk_level_label" formatted="false">Riskitase</string>
+    <string name="risk_level_low" formatted="false">Madal</string>
+    <string name="risk_level_medium" formatted="false">Keskmine</string>
+    <string name="risk_level_very_low" formatted="false">Väga madal</string>
+    <string name="robocall" formatted="false">Robokõne</string>
+    <string name="rule_action" formatted="false">Reegli toiming</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">Reegel lisati edukalt</string>
+    <string name="rule_added_success" formatted="false">Reegel lisati edukalt</string>
+    <string name="rule_delete_confirm_content" formatted="false">Kas olete kindel, et soovite selle {ruleType} kustutada?</string>
+    <string name="rule_delete_confirm_title" formatted="false">Kustuta reegel</string>
+    <string name="rule_delete_failed" formatted="false">Reegli kustutamine ebaõnnestus: {error}</string>
+    <string name="rule_delete_success" formatted="false">Reegel kustutati edukalt</string>
+    <string name="rule_deleted_successfully" formatted="false">Reegel kustutati edukalt</string>
+    <string name="rule_disabled_successfully" formatted="false">Reegel keelati edukalt</string>
+    <string name="rule_enabled_successfully" formatted="false">Reegel lubati edukalt</string>
+    <string name="rule_load_failed" formatted="false">Reeglite laadimine ebaõnnestus: {error}</string>
+    <string name="rule_management" formatted="false">Reeglite haldus</string>
+    <string name="rule_name" formatted="false">Reegli nimi</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">Reegli nimi ja sisumuster ei saa olla tühjad</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">Reegli nimi ja telefoninumber ei saa olla tühjad</string>
+    <string name="rule_name_hint" formatted="false">nt Family, Friends jne.</string>
+    <string name="rule_name_label" formatted="false">Reegli nimi</string>
+    <string name="rule_name_required" formatted="false">Reegli nimi ja telefoninumber ei saa olla tühjad</string>
+    <string name="rule_not_exist" formatted="false">Reegel ei eksisteeri või on kustutatud</string>
+    <string name="rule_not_found" formatted="false">Reeglit ei leitud: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">Reegel salvestatud edukalt!</string>
+    <string name="rule_status_changed" formatted="false">Reegel {status} edukalt</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">Toiming ebaõnnestus: {error}</string>
+    <string name="rule_toggle_success" formatted="false">Reegel {status} edukalt</string>
+    <string name="rule_type" formatted="false">Rule Type</string>
+    <string name="rule_update_failed" formatted="false">Reegli värskendamine ebaõnnestus: {error}</string>
+    <string name="rule_update_success" formatted="false">Reegel värskendatud edukalt</string>
+    <string name="rule_verification" formatted="false">Reegli kontroll</string>
+    <string name="rules_exported_successfully" formatted="false">Reeglid eksporditud edukalt</string>
+    <string name="rules_exported_to" formatted="false">Reeglid eksporditud: {path}</string>
+    <string name="rules_imported" formatted="false">Reeglid imporditud edukalt</string>
+    <string name="rules_imported_successfully" formatted="false">{count} reeglit imporditud edukalt</string>
+    <string name="save" formatted="false">Salvesta</string>
+    <string name="save_button" formatted="false">Salvesta</string>
+    <string name="save_button_text" formatted="false">Salvesta</string>
+    <string name="save_failed" formatted="false">Salvestamine ebaõnnestus: {error}</string>
+    <string name="save_script" formatted="false">Salvesta skript</string>
+    <string name="save_settings" formatted="false">Salvesta seaded</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">Tõenäoliselt pettus</string>
+    <string name="script_saved" formatted="false">Skript salvestatud</string>
+    <string name="scroll_speed" formatted="false">Kerimiskiirus</string>
+    <string name="scrolling_security_message_settings" formatted="false">Keriva turvasõnumi sätted</string>
+    <string name="search" formatted="false">Otsi</string>
+    <string name="search_by_name_or_phone_number" formatted="false">Otsi nime või telefoninumbri järgi</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">Otsi kontaktide tellimusi</string>
+    <string name="search_contacts" formatted="false">Otsi kontakte</string>
+    <string name="search_error" formatted="false">Otsingu viga: {error}</string>
+    <string name="search_hint" formatted="false">Otsi...</string>
+    <string name="search_labels_hint" formatted="false">Otsi silte</string>
+    <string name="search_marked_phones_hint" formatted="false">Otsi märgitud telefone</string>
+    <string name="search_phone_rules_hint" formatted="false">Otsi telefonireegleid</string>
+    <string name="search_plugins_hint" formatted="false">Otsi pistikprogramme</string>
+    <string name="search_proposals" formatted="false">Otsi ettepanekuid</string>
+    <string name="search_regex_rules_hint" formatted="false">Otsi regex reegleid</string>
+    <string name="search_subscriptions_hint" formatted="false">Otsi tellimusi</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">Ära usalda ühtegi telefonikõnet. Kontrolli klienditeeninduse numbreid alati iseseisvalt. Ära kunagi jaga paroole, kinnituskoodi, kaardi numbreid ega isiklikku teavet.</string>
+    <string name="select_action" formatted="false">Valige toiming</string>
+    <string name="select_action_when_blocking_calls" formatted="false">Valige toiming kõnede blokeerimisel</string>
+    <string name="select_action_when_rule_matches" formatted="false">Valige toiming, kui reegel sobib</string>
+    <string name="select_all" formatted="false">Vali kõik</string>
+    <string name="select_country" formatted="false">Vali riik</string>
+    <string name="select_export_format" formatted="false">Vali ekspordi vorming</string>
+    <string name="select_label" formatted="false">Vali silt</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">Palun valige silt ja sisestage kehtiv telefoninumber</string>
+    <string name="select_language" formatted="false">Vali keel</string>
+    <string name="select_multiple" formatted="false">Vali mitu</string>
+    <string name="select_sim_card" formatted="false">Vali SIM-kaart</string>
+    <string name="select_tags" formatted="false">Vali sildid</string>
+    <string name="select_target_service" formatted="false">Valige sihtteenus</string>
+    <string name="select_trusted_data_source" formatted="false">Palun valige usaldusväärsed andmeallikad</string>
+    <string name="select_your_language" formatted="false">Vali oma keel</string>
+    <string name="selected_items" formatted="false">{count} elementi valitud</string>
+    <string name="selected_label" formatted="false">Valitud:</string>
+    <string name="sender" formatted="false">Saatja</string>
+    <string name="sender_regex_optional" formatted="false">Saatja Regex (valikuline)</string>
+    <string name="separate_sims" formatted="false">Separate SIMs</string>
+    <string name="separate_sims_desc" formatted="false">Enable separate filtering rules for each SIM card</string>
+    <string name="server_address_label" formatted="false">Serveri aadress</string>
+    <string name="service_type_contact" formatted="false">Kontakti tellimus</string>
+    <string name="service_type_label" formatted="false">Teenusetüüp</string>
+    <string name="service_type_phone" formatted="false">Telefoni tellimus</string>
+    <string name="service_type_plugin" formatted="false">Pistikprogrammi värskendus</string>
+    <string name="service_type_sms" formatted="false">SMS-tellimus</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">Määra viivitusaeg</string>
+    <string name="set_encryption_password" formatted="false">Määra krüptimisparool</string>
+    <string name="settings" formatted="false">Seaded</string>
+    <string name="settings_backed_up_to" formatted="false">Seaded varundatud: {path}</string>
+    <string name="settings_backup" formatted="false">Sätete varundus </string>
+    <string name="settings_restored_successfully" formatted="false">Seaded taastati edukalt. Muudatuste jõustumiseks taaskäivitage rakendus.</string>
+    <string name="settings_save_failed" formatted="false">Seadete salvestamine ebaõnnestus: {error}</string>
+    <string name="settings_saved" formatted="false">Seaded salvestatud</string>
+    <string name="settings_tab" formatted="false">Seaded</string>
+    <string name="settings_title" formatted="false">Seaded</string>
+    <string name="setup" formatted="false">Seadistamine</string>
+    <string name="show_all_contacts" formatted="false">Näita kõiki kontakte</string>
+    <string name="show_favorites" formatted="false">Näita lemmikuid</string>
+    <string name="silence" formatted="false">Vaikus</string>
+    <string name="silence_action_description" formatted="false">Kõned vaigistatakse, kuid kuvatakse kõnelogis.</string>
+    <string name="silence_and_no_answer" formatted="false">Vaikus ja vastuseta</string>
+    <string name="silence_no_answer" formatted="false">Vaikus vastuseta</string>
+    <string name="silent_call_voice_clone" formatted="false">Hääleklooniga vaikne kõne</string>
+    <string name="silent_rules" formatted="false">Vaiksed reeglid</string>
+    <string name="sim_card" formatted="false">SIM-kaart {simNumber}</string>
+    <string name="sim_card_color" formatted="false">SIM-kaardi värv</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• SIM-kaardi konfiguratsioon: määrake igale SIM-kaardile sõltumatud filtreerimisreeglid</string>
+    <string name="sim_card_filter_rules" formatted="false">SIM-kaardi filtreerimisreeglid</string>
+    <string name="sim_card_filter_rules_description" formatted="false">Määrake erinevad filtreerimisreeglid SIM-kaardi pesade alusel</string>
+    <string name="sim_card_font_size" formatted="false">SIM-kaardi fondi suurus</string>
+    <string name="sim_card_position" formatted="false">SIM-kaardi asukoht</string>
+    <string name="sim_card_title" formatted="false">SIM-kaart</string>
+    <string name="sim_country" formatted="false">SIM riik</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">SIM-kaardi reeglid võimaldavad teil konfigureerida sõltumatud filtreerimisreeglid iga SIM-kaardi pesa kohta.</string>
+    <string name="sim_rule_instructions_title" formatted="false">SIM-kaardi pesa reeglid</string>
+    <string name="sim_rules_not_found" formatted="false">SIM-reegleid ei leitud</string>
+    <string name="sim_slot" formatted="false">SIM-pesa</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">Konfigureerige sõltumatud filtreerimisreeglid iga SIM-kaardi jaoks:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">SIM-kaardi pesa {slotNumber} filtri sätted</string>
+    <string name="sim_slot_management" formatted="false">SIM-kaardi pesa haldus</string>
+    <string name="sim_slot_position" formatted="false">SIM-kaardi pesa {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• SIM-kaardi pesa reeglid: sõltumatud filtreerimisstrateegiad SIM-kaardi kohta</string>
+    <string name="sim_slot_rule_list_title" formatted="false">SIM-kaardi pesa reeglite loend</string>
+    <string name="sim_slot_rule_management" formatted="false">SIM-kaardi pesa reeglid</string>
+    <string name="sim_slot_rules" formatted="false">SIM-pesa reeglid</string>
+    <string name="sim_slot_title" formatted="false">SIM-kaardi pesa {slotNumber}</string>
+    <string name="sim_state" formatted="false">SIM olek</string>
+    <string name="skip" formatted="false">Jäta vahele</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">Nutikas helistaja ID tuvastus</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">SMS-filtratsioon aitab teil automaatselt rämpspostisõnumeid filtreerida ja hoida oma sõnumiloend puhtana. Saate seadistada filtreerimisreegleid ja teatise meetodeid.</string>
+    <string name="sms_filter_disabled" formatted="false">SMS-filtratsioon keelatud</string>
+    <string name="sms_filter_enabled" formatted="false">SMS-filtratsioon lubatud</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">SMS-filtri reegel lisati edukalt</string>
+    <string name="sms_filter_rules" formatted="false">SMS-filtri reeglid</string>
+    <string name="sms_filter_settings" formatted="false">SMS-filtri sätted</string>
+    <string name="sms_management" formatted="false">SMS-halduse</string>
+    <string name="sms_permission" formatted="false">SMS-luba</string>
+    <string name="sms_permission_description" formatted="false">Kasutatakse rämpspostisõnumite filtreerimiseks.</string>
+    <string name="sms_rule_added_successfully" formatted="false">SMS-reegel lisati edukalt</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">SMS-reegel kustutati edukalt</string>
+    <string name="sms_rule_load_failed" formatted="false">SMS-reeglite laadimine ebaõnnestus: {error}</string>
+    <string name="sms_rule_management" formatted="false">SMS-reeglite haldus</string>
+    <string name="sms_rule_subscription" formatted="false">SMS-reegli tellimus</string>
+    <string name="sms_subscription" formatted="false">SMS-i tellimus</string>
+    <string name="sms_subscription_added_successfully" formatted="false">SMS-tellimus lisati edukalt</string>
+    <string name="sms_subscription_rules_description" formatted="false">Telli SMS-reeglite loendeid URL-i kaudu, toetades tavaliste avaldiste sobitamist. Saate seadistada blokeerimise või lubamise toimingud.</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">Mõned õigustaotlused keelatud</string>
+    <string name="sort_by" formatted="false">Sorteeri</string>
+    <string name="sort_least_popular" formatted="false">Sorteeri kõige vähem populaarsete järgi</string>
+    <string name="sort_most_popular" formatted="false">Sorteeri kõige populaarsemate järgi</string>
+    <string name="sort_newest" formatted="false">Sorteeri uuemate järgi</string>
+    <string name="sort_oldest" formatted="false">Sorteeri vanemate järgi</string>
+    <string name="spam_likely" formatted="false">Tõenäoline rämpspost</string>
+    <string name="start_color" formatted="false">Algusvärv</string>
+    <string name="start_date" formatted="false">Alguskuupäev</string>
+    <string name="start_using" formatted="false">Alusta kasutamist</string>
+    <string name="stat_answered" formatted="false">Vastatud</string>
+    <string name="stat_blocked" formatted="false">Blokeeritud</string>
+    <string name="statistics" formatted="false">Statistika</string>
+    <string name="statistics_page_title" formatted="false">Andmeanalüüs</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">STIR värv</string>
+    <string name="stir_failed" formatted="false">Kinnitamine ebaõnnestus</string>
+    <string name="stir_font_size" formatted="false">STIR fondi suurus</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">STIR positsioon</string>
+    <string name="stir_unknown" formatted="false">Teadmata kinnitusolek</string>
+    <string name="stir_verification" formatted="false">STIR/SHAKENi verifitseerimine</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} numbrile {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">Kuvab STIR/SHAKENi verifitseerimistulemused numbrite jaoks.</string>
+    <string name="stir_verification_title" formatted="false">STIR/SHAKENi kinnitus</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">Salvestusruumi luba</string>
+    <string name="storage_permission_description" formatted="false">Kasutatakse sätete ja reeglite salvestamiseks.</string>
+    <string name="submit" formatted="false">Esita</string>
+    <string name="subscribe" formatted="false">Telli</string>
+    <string name="subscription_add_success" formatted="false">Tellimus &quot;{name}&quot; lisati edukalt</string>
+    <string name="subscription_delete_confirm_content" formatted="false">Kas olete kindel, et soovite selle tellimuse kustutada?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">Kustuta tellimus</string>
+    <string name="subscription_delete_failed" formatted="false">Tellimuse kustutamine ebaõnnestus: {error}</string>
+    <string name="subscription_delete_success" formatted="false">Tellimus kustutatud</string>
+    <string name="subscription_deleted" formatted="false">Tellimus kustutatud</string>
+    <string name="subscription_load_failed" formatted="false">Tellimuste laadimine ebaõnnestus: {error}</string>
+    <string name="subscription_name" formatted="false">Tellimuse nimi</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">Tellimuse nimi ja URL ei saa tühjad olla</string>
+    <string name="subscription_name_hint" formatted="false">Sisestage tellimuse nimi</string>
+    <string name="subscription_status_change_failed" formatted="false">Tellimuse oleku muutmine ebaõnnestus: {error}</string>
+    <string name="subscription_update_failed" formatted="false">Tellimuse värskendamine ebaõnnestus: {error}</string>
+    <string name="subscription_update_success" formatted="false">Tellimus värskendati edukalt</string>
+    <string name="subscription_url" formatted="false">Tellimuse URL</string>
+    <string name="subscription_url_hint" formatted="false">Sisestage tellimuse URL</string>
+    <string name="successfully_imported_rules" formatted="false">Edukalt imporditud {count} reeglit</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">Tugi</string>
+    <string name="support_count" formatted="false">Toetus ({supportCount})</string>
+    <string name="support_sync" formatted="false">Toetage sünkroonimist</string>
+    <string name="supported" formatted="false">TOETATUD</string>
+    <string name="survey" formatted="false">Küsitlus</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">Sünkroniseeri seadmed</string>
+    <string name="sync_failed" formatted="false">Sünkroonimine ebaõnnestus</string>
+    <string name="sync_failed_message" formatted="false">Sünkroonimine ebaõnnestus</string>
+    <string name="sync_folder_name_label" formatted="false">Sünkroonimiskausta nimi</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">Sünkroniseeri kohe</string>
+    <string name="sync_now_button" formatted="false">Sünkroniseeri kohe</string>
+    <string name="sync_status_title" formatted="false">Sünkroonimise olek</string>
+    <string name="sync_status_updated_message" formatted="false">Sünkroonimise olek värskendatud</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">Sünkroonimine õnnestus</string>
+    <string name="sync_with_cloud_storage" formatted="false">Sünkroniseeri pilveserveriga</string>
+    <string name="synced" formatted="false">Sünkroniseeritud</string>
+    <string name="synchronized" formatted="false">Sünkroniseeritud</string>
+    <string name="syncing" formatted="false">Sünkroniseerimine...</string>
+    <string name="system_features" formatted="false">Süsteemi funktsioonid:</string>
+    <string name="system_settings_title" formatted="false">Süsteemi seaded</string>
+    <string name="tab_all" formatted="false">Kõik</string>
+    <string name="tab_answered" formatted="false">Vastatud</string>
+    <string name="tab_blocked" formatted="false">Blokeeritud</string>
+    <string name="tab_missed" formatted="false">Vastamata</string>
+    <string name="tab_outgoing" formatted="false">Väljuvad</string>
+    <string name="tag_label" formatted="false">Silt: {tag}</string>
+    <string name="takeaway" formatted="false">Kaasavõetav</string>
+    <string name="telecommunication" formatted="false">Telekommunikatsioon</string>
+    <string name="telegram" formatted="false">Telegramm</string>
+    <string name="telemarketing" formatted="false">Telemarketing</string>
+    <string name="temp_purchase_expired" formatted="false">Ajutised ostuõigused on aegunud</string>
+    <string name="temporary_vip" formatted="false">Ajutine VIP</string>
+    <string name="test_button" formatted="false">TEST</string>
+    <string name="test_connection_button" formatted="false">Testi ühendust</string>
+    <string name="test_plugin" formatted="false">Testi pistikprogrammi</string>
+    <string name="text_colors_setting" formatted="false">Teksti ja märgiste värvid</string>
+    <string name="theme_dark" formatted="false">Dark</string>
+    <string name="theme_light" formatted="false">Light</string>
+    <string name="theme_settings_subtitle" formatted="false">Valige oma lemmikteema</string>
+    <string name="theme_settings_title" formatted="false">Teemaseaded</string>
+    <string name="theme_system" formatted="false">System</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">See rakendus on võimas helistaja tuvastamise tööriist, mis võimaldab teil tuvastada ja blokeerida soovimatuid kõnesid.</string>
+    <string name="this_week" formatted="false">Sel nädalal</string>
+    <string name="time_interceptor" formatted="false">Aja intervalliga blokeerija</string>
+    <string name="time_interceptor_description" formatted="false">Hoiatage/lubage kõnesid automaatselt kõnesageduse põhjal</string>
+    <string name="time_interceptor_explanation" formatted="false">• Aja intervalliga blokeerija: Hoiatage/lubage korduvaid kõnesid lühikese aja jooksul</string>
+    <string name="time_interceptor_explanation_content" formatted="false">Kõnesageduse blokeerimise funktsioon analüüsib kõnesagedust, et automaatselt tuvastada ja blokeerida/lubada korduvaid rämpskõnesid.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">Kõnesageduse blokeerimise selgitus</string>
+    <string name="time_interceptor_settings_title" formatted="false">Kõnesageduse blokeerimise seaded</string>
+    <string name="time_window_description" formatted="false">Määrake korduvate kõnede lubamise ajavahemik. Kõned samalt numbrilt selle akna jooksul lubatakse.</string>
+    <string name="time_window_label" formatted="false">Blokeerimise ajavahemik (minutites): {minutes}</string>
+    <string name="timeline_view" formatted="false">Ajajoon vaade</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">Täna</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">Kokku</string>
+    <string name="total_blocked" formatted="false">Kokku blokeeritud</string>
+    <string name="total_pending_proposals" formatted="false">Ootel ettepanekuid kokku</string>
+    <string name="total_proposals" formatted="false">Ettepanekuid kokku</string>
+    <string name="total_votes" formatted="false">Kokku: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">Edastage andmeid seadmete või platvormide vahel</string>
+    <string name="travel_ticketing" formatted="false">Reisipiletid</string>
+    <string name="tutorial" formatted="false">Õpetus</string>
+    <string name="type" formatted="false">Tüüp</string>
+    <string name="unassigned_s_i_m_card" formatted="false">Määramata SIM-kaart</string>
+    <string name="unblock" formatted="false">Tühista blokeering</string>
+    <string name="unblock_number" formatted="false">Tühista numbri blokeering</string>
+    <string name="unblock_number_confirmation" formatted="false">Kas olete kindel, et soovite tühistada {phoneNumber} blokeeringu?</string>
+    <string name="unblock_number_failed" formatted="false">Numbri blokeeringu tühistamine ebaõnnestus</string>
+    <string name="unblock_number_success" formatted="false">Number edukalt blokeeritud</string>
+    <string name="unblocked" formatted="false">Blokeering tühistatud</string>
+    <string name="unknown" formatted="false">Tundmatu</string>
+    <string name="unknown_tag" formatted="false">Silt: Tundmatu</string>
+    <string name="unregister_button" formatted="false">De-registreeri</string>
+    <string name="unregister_device_confirmation_message" formatted="false">Kas olete kindel, et soovite seadme {deviceName} de-registreerida?</string>
+    <string name="unregister_device_title" formatted="false">Seadme de-registreerimine</string>
+    <string name="unsupported_file_format" formatted="false">Toetamata failivorming</string>
+    <string name="update" formatted="false">Värskenda</string>
+    <string name="update_all_now" formatted="false">Värskenda kõike kohe</string>
+    <string name="update_contact_failed" formatted="false">Kontakti värskendamine ebaõnnestus: {error}</string>
+    <string name="update_favorite_status" formatted="false">Värskenda lemmikstaatust</string>
+    <string name="update_interval" formatted="false">Värskendusintervall</string>
+    <string name="update_now" formatted="false">Värskenda kohe</string>
+    <string name="update_plugin" formatted="false">Värskenda pistikprogrammi</string>
+    <string name="update_plugin_failed" formatted="false">Pistikprogrammi värskendamine ebaõnnestus: {error}</string>
+    <string name="update_rule_failed" formatted="false">Reegli värskendamine ebaõnnestus: {error}</string>
+    <string name="update_subscription_failed" formatted="false">Tellimuse värskendamine ebaõnnestus: {error}</string>
+    <string name="update_success" formatted="false">{service} värskendatud edukalt ({count} reeglit)</string>
+    <string name="upgrade_to_vip" formatted="false">Uuenda VIP-ks</string>
+    <string name="use_cases_point1" formatted="false">• Tuvastage automaatselt uuesti valivad rämpskõned</string>
+    <string name="use_cases_point2" formatted="false">• Hoiatage turunduskõnesid, mis helistavad lühikese aja jooksul mitu korda</string>
+    <string name="use_cases_point3" formatted="false">• Vältige telefoniga pommitamist ja ahistamist</string>
+    <string name="use_cases_title" formatted="false">Kasutusalad:</string>
+    <string name="use_global_settings" formatted="false">Kasuta globaalseid sätteid</string>
+    <string name="use_local_notification" formatted="false">Kasutage kohalikke teavitusi</string>
+    <string name="use_local_notification_description" formatted="false">Luba kohalikke teavitusi sissetulevate kõnede jaoks</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">Kasutage mustrite määratlemiseks standardset regex-süntaksit. Näited:</string>
+    <string name="use_stir_notification" formatted="false">Kasutage STIRilt teavitust</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">Kasutajanimi</string>
+    <string name="verification_failed_text" formatted="false">Ebaõnnestunud</string>
+    <string name="verification_report" formatted="false">Kontrolliaruanne</string>
+    <string name="verified_text" formatted="false">Kinnitatud</string>
+    <string name="verify" formatted="false">Kinnita</string>
+    <string name="version" formatted="false">Versioon: {version}</string>
+    <string name="very_high" formatted="false">Väga kõrge</string>
+    <string name="very_low" formatted="false">Väga madal</string>
+    <string name="view_details" formatted="false">Vaata üksikasju</string>
+    <string name="vip3_days_with_ads" formatted="false">3-päevane VIP koos reklaamidega (ainult sünkroonimine)</string>
+    <string name="vip5_days_no_ads" formatted="false">5-päevane täisfunktsionaalne reklaamivaba VIP</string>
+    <string name="vip7_days_no_ads" formatted="false">7-päevane täisfunktsionaalne reklaamivaba VIP</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">Vahetage VIP-liikmelisust telefoninumbri märgistamise arvude vastu</string>
+    <string name="vip_exchange_service" formatted="false">VIP vahetusteenus</string>
+    <string name="vip_exchange_title" formatted="false">Vaheta VIP-i märgis</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">VIP-kasutaja</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">Häältuvastus</string>
+    <string name="vote_agree" formatted="false">Poolt</string>
+    <string name="vote_count" formatted="false">Häälte arv</string>
+    <string name="vote_disagree" formatted="false">Vastu</string>
+    <string name="vote_submitted" formatted="false">Hääl esitati edukalt</string>
+    <string name="voted" formatted="false">Hääletatud</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} häält ({supportPercentage}% toetust)</string>
+    <string name="voting_completed" formatted="false">Hääletus lõppenud</string>
+    <string name="voting_completed_body" formatted="false">Numbri {phoneNumber} kogukonna hääletus on lõppenud. Tulemus: {result} ({supportPercentage}% toetus).</string>
+    <string name="waiting_for_more_votes" formatted="false">Oodatakse rohkem kogukonna hääli</string>
+    <string name="watch_ad" formatted="false">Vaata reklaami</string>
+    <string name="watch_ad_for_temp" formatted="false">Vaata reklaami ajutiste privileegide saamiseks</string>
+    <string name="watch_ad_for_temp_description" formatted="false">Vaadake lühike reklaam, et ajutiselt mõned premium-funktsioonid avada</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">Peate vaatama veel {count} reklaami, et saada ajutised VIP-õigused</string>
+    <string name="web_d_a_v_config_title" formatted="false">WebDAVi konfiguratsioon</string>
+    <string name="week" formatted="false">Nädal</string>
+    <string name="welcome" formatted="false">Tere tulemast</string>
+    <string name="whitelist" formatted="false">Valge nimekiri</string>
+    <string name="width" formatted="false">Laius</string>
+    <string name="wildcard_matching_description" formatted="false">Kasutage \'.\' mis tahes märgi sobitamiseks (nt \'123.456\' sobib 123-456-ga)</string>
+    <string name="wildcard_matching_title" formatted="false">Jokkerimärkide sobitamine:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">Jokkerimärkide tugi paindlikuks filtreerimiseks</string>
+    <string name="window_size_setting" formatted="false">Aken suurus</string>
+    <string name="year" formatted="false">Aasta</string>
+    <string name="yesterday" formatted="false">Eile</string>
+</resources>

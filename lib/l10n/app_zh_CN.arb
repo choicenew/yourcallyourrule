@@ -2363,5 +2363,8 @@
   "syncIntervalValue": "每 {hours} 小时",
   "leaveEmptyToUseDefault": "留空使用默认值",
   "vipAccessSubtitle": "看广告免费体验或购买 VIP",
-  "failedToLoadSettingsSchema": "加载设置架构失败: {error}"
+  "failedToLoadSettingsSchema": "加载设置架构失败: {error}",
+  "backgroundOpacity": "背景不透明度",
+  "timesUnit": "次",
+  "participantCount": "%1$d 人已参与"
 }

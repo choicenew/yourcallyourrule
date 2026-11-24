@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">O predplatnom zozname kontaktov</string>
+    <string name="about_labels" formatted="false">O štítkoch</string>
+    <string name="about_phone_subscription_rules" formatted="false">O pravidlách predplatného telefónnych čísel</string>
+    <string name="about_sms_filter" formatted="false">O filtrovaní SMS</string>
+    <string name="about_sms_subscription_rules" formatted="false">O pravidlách predplatného SMS</string>
+    <string name="about_subtitle" formatted="false">Verzia aplikácie a právne informácie</string>
+    <string name="about_title" formatted="false">O aplikácii</string>
+    <string name="access_target_url" formatted="false">Prístup k cieľovej URL</string>
+    <string name="action" formatted="false">Akcia</string>
+    <string name="action_all" formatted="false">Všetky</string>
+    <string name="action_allow" formatted="false">Povoliť</string>
+    <string name="action_block" formatted="false">Blokovať</string>
+    <string name="action_filter_title" formatted="false">Filtrovať podľa typu akcie</string>
+    <string name="action_filter_tooltip" formatted="false">Filter akcií</string>
+    <string name="action_none" formatted="false">Žiadna akcia</string>
+    <string name="action_silence" formatted="false">Ticho</string>
+    <string name="action_tag" formatted="false">Akcia: {actionType}</string>
+    <string name="action_type" formatted="false">Typ akcie</string>
+    <string name="action_unknown" formatted="false">Neznáme</string>
+    <string name="active_proposals" formatted="false">Aktívne návrhy</string>
+    <string name="add" formatted="false">Pridať</string>
+    <string name="add_allow_subscription" formatted="false">Pridať predplatné povolenia</string>
+    <string name="add_allowed_blocked_rule" formatted="false">Pridať pravidlo povoliť/blokovať</string>
+    <string name="add_block_subscription" formatted="false">Pridať predplatné blokovania</string>
+    <string name="add_contact_button" formatted="false">Pridať kontakt</string>
+    <string name="add_contact_failed" formatted="false">Nepodarilo sa pridať kontakt: {error}</string>
+    <string name="add_label" formatted="false">Pridať štítok</string>
+    <string name="add_label_button" formatted="false">Pridať štítok</string>
+    <string name="add_label_failed" formatted="false">Nepodarilo sa pridať štítok: {error}</string>
+    <string name="add_name" formatted="false">Pridať meno</string>
+    <string name="add_none_subscription" formatted="false">Pridať žiadne predplatné</string>
+    <string name="add_phone_mark" formatted="false">Pridať označenie telefónu</string>
+    <string name="add_phone_number_rule" formatted="false">Pridať pravidlo telefónneho čísla</string>
+    <string name="add_plugin" formatted="false">Pridať doplnok</string>
+    <string name="add_plugin_failed" formatted="false">Nepodarilo sa pridať doplnok</string>
+    <string name="add_plugin_failed_with_error" formatted="false">Nepodarilo sa pridať doplnok: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">Pridať doplnok z lokálneho súboru</string>
+    <string name="add_plugin_from_url" formatted="false">Pridať doplnok z URL</string>
+    <string name="add_regex_rule" formatted="false">Pridať regulárne pravidlo</string>
+    <string name="add_rule" formatted="false">Pridať pravidlo</string>
+    <string name="add_rule_failed" formatted="false">Nepodarilo sa pridať pravidlo: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">Pridať pravidlo</string>
+    <string name="add_silence_subscription" formatted="false">Pridať predplatné ticha</string>
+    <string name="add_sms_filter_rule" formatted="false">Pridať pravidlo filtra SMS</string>
+    <string name="add_sms_rule" formatted="false">Pridať pravidlo SMS</string>
+    <string name="add_sms_subscription" formatted="false">Pridať predplatné SMS</string>
+    <string name="add_subscription" formatted="false">Pridať predplatné</string>
+    <string name="add_subscription_button" formatted="false">Pridať predplatné</string>
+    <string name="add_subscription_failed" formatted="false">Nepodarilo sa pridať predplatné: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">Pridať predplatné</string>
+    <string name="add_to_blacklist" formatted="false">Pridať do zoznamu blokovaných</string>
+    <string name="add_to_favorites" formatted="false">Pridať k obľúbeným</string>
+    <string name="add_to_rules" formatted="false">Pridať do pravidiel</string>
+    <string name="add_to_whitelist" formatted="false">Pridať do zoznamu povolených</string>
+    <string name="added_to_favorites" formatted="false">Pridané k obľúbeným</string>
+    <string name="advanced_mode" formatted="false">Pokročilý režim</string>
+    <string name="agent" formatted="false">Agent</string>
+    <string name="agree_votes" formatted="false">Súhlasí: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">Všetky</string>
+    <string name="all_call_logs_cleared" formatted="false">Všetky záznamy hovorov boli vymazané</string>
+    <string name="all_calls_tab" formatted="false">Všetky</string>
+    <string name="all_permissions_granted" formatted="false">Všetky povolenia udelené</string>
+    <string name="all_services_status_subtitle" formatted="false">Aktuálny stav každej cloudovej služby</string>
+    <string name="all_services_status_title" formatted="false">Stav aktuálnych služieb</string>
+    <string name="all_settings_completed" formatted="false">Všetky nastavenia dokončené.</string>
+    <string name="all_update_success" formatted="false">Všetky aktualizácie dokončené ({count} pravidiel)</string>
+    <string name="allow" formatted="false">Povoliť</string>
+    <string name="allow_action_description" formatted="false">Hovory budú povolené, aj keď je číslo na zozname blokovaných.</string>
+    <string name="allow_all_allow_rules" formatted="false">Povoliť všetky pravidlá povolenia</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">Povoliť hovory z pravidiel povolenia</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">Povoliť všetky blokované čísla</string>
+    <string name="allow_all_block_rules" formatted="false">Povoliť všetky pravidlá blokovania</string>
+    <string name="allow_all_block_rules_desc" formatted="false">Povoliť hovory z pravidiel blokovania</string>
+    <string name="allow_allowed_numbers" formatted="false">Povoliť povolené čísla</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">Povoliť hovory zo zoznamu povolených</string>
+    <string name="allow_block" formatted="false">Povoliť/Blokovať</string>
+    <string name="allow_blocked_numbers" formatted="false">Povoliť blokované čísla</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">Povoliť hovory zo zoznamu blokovaných</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">Povoliť čísla, ktoré neprekročili limit</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">Automaticky povoliť čísla, ktoré neprekročia prahovú hodnotu počtu</string>
+    <string name="allow_regex_allow_rules" formatted="false">Povoliť pravidlá povolenia pomocou regulárneho výrazu</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">Povoliť porovnávanie vzoriek regulárneho výrazu pre pravidlá povolenia</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">Povoliť pravidlá povolenia na základe regulárneho výrazu</string>
+    <string name="allow_regex_block_rules" formatted="false">Povoliť pravidlá blokovania pomocou regulárneho výrazu</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">Povoliť porovnávanie vzoriek regulárneho výrazu pre pravidlá blokovania</string>
+    <string name="allow_regex_block_rules_description" formatted="false">Povoliť pravidlá blokovania na základe regulárneho výrazu</string>
+    <string name="allow_rule" formatted="false">Pravidlo povolenia</string>
+    <string name="allow_rules" formatted="false">Pravidlá povolenia</string>
+    <string name="allowed_blocked_rule" formatted="false">Pravidlo povoliť/blokovať</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">Upraviť pravidlo povoliť/blokovať</string>
+    <string name="allowed_blocked_rule_management" formatted="false">Správa pravidiel povoliť/blokovať</string>
+    <string name="allowed_blocked_rules_info" formatted="false">Povolené/blokované pravidlá sa používajú na priraďovanie hovorov ku konkrétnym telefónnym číslam, ktoré majú najvyššiu prioritu.</string>
+    <string name="and_more_items" formatted="false">a {count} ďalších položiek</string>
+    <string name="answer_then_hangup" formatted="false">Prijať a zavesiť</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">Tvoj hovor, Tvoje pravidlo</string>
+    <string name="application_software" formatted="false">Softvér aplikácie</string>
+    <string name="apply" formatted="false">Použiť</string>
+    <string name="approved" formatted="false">SCHVÁLENÉ</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">Autorizácia zlyhala: Skontrolujte prosím ID klienta a kľúč</string>
+    <string name="authorization_failed_message" formatted="false">Autorizácia zlyhala</string>
+    <string name="authorization_success_message" formatted="false">Autorizácia úspešná</string>
+    <string name="authorize_login_button" formatted="false">Autorizovať prihlásenie</string>
+    <string name="auto_cancel_notification" formatted="false">Automaticky zrušiť oznámenie</string>
+    <string name="auto_cancel_notification_description" formatted="false">Ak je začiarknuté, oznámenie sa automaticky zatvorí, keď naň používateľ klepne.</string>
+    <string name="auto_sync_label" formatted="false">Automatická synchronizácia</string>
+    <string name="auto_update" formatted="false">Automatická aktualizácia</string>
+    <string name="auto_update_description" formatted="false">Nastavte intervaly automatických aktualizácií pre odberateľov alebo aktualizujte manuálne</string>
+    <string name="auto_update_settings" formatted="false">Nastavenia automatickej aktualizácie</string>
+    <string name="auto_update_subtitle" formatted="false">Spravovať automatické aktualizácie pravidiel a doplnkov</string>
+    <string name="auto_update_title" formatted="false">Automatická aktualizácia</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">Automobilový priemysel</string>
+    <string name="avatar" formatted="false">Avatar</string>
+    <string name="avatar_border_color" formatted="false">Farba okraja avatara</string>
+    <string name="avatar_border_size" formatted="false">Veľkosť okraja avatara</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">Veľkosti avatara a ikon</string>
+    <string name="avatar_position" formatted="false">Pozícia avatara</string>
+    <string name="avatar_size" formatted="false">Veľkosť avatara</string>
+    <string name="axis_position" formatted="false">Pozícia {axis}</string>
+    <string name="background_gradient_setting" formatted="false">Prechod pozadia</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">Záloha</string>
+    <string name="backup_and_restore" formatted="false">Zálohovanie a obnova</string>
+    <string name="backup_and_restore_subtitle" formatted="false">Zálohovanie alebo obnova údajov aplikácie</string>
+    <string name="backup_and_restore_title" formatted="false">Zálohovanie a obnova</string>
+    <string name="backup_failed" formatted="false">Zálohovanie zlyhalo</string>
+    <string name="backup_settings" formatted="false">Nastavenia zálohovania</string>
+    <string name="backup_to_cloud" formatted="false">Záloha do cloudu</string>
+    <string name="backup_to_cloud_failed" formatted="false">Zálohovanie do cloudu zlyhalo: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">Úspešne zálohované do cloudu</string>
+    <string name="bank" formatted="false">Banka</string>
+    <string name="basic_info" formatted="false">Základné informácie</string>
+    <string name="basic_rule_filter" formatted="false">Základný filter pravidiel</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">Filtrujte hovory pomocou čierneho/bieleho zoznamu a regulárnych výrazov</string>
+    <string name="basic_rule_filtering" formatted="false">Základné filtrovanie pravidiel</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• Základné filtrovanie pravidiel: Filtrovanie pravidiel na základe čierneho zoznamu, bieleho zoznamu a regulárnych výrazov</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">Ste si istí, že chcete odstrániť {count} vybraných kontaktov?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">Ste si istí, že chcete odstrániť {count} štítkov?</string>
+    <string name="battery_optimization_permission" formatted="false">Optimalizácia batérie</string>
+    <string name="battery_optimization_permission_description" formatted="false">Povoľte aplikácii bežať na pozadí, aby poskytovala služby, ako je identifikácia volajúceho.</string>
+    <string name="black_white_list" formatted="false">Čierny/Biely zoznam</string>
+    <string name="blacklist" formatted="false">Čierny zoznam</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">Čierne a biele zoznamy</string>
+    <string name="block" formatted="false">Blokovať</string>
+    <string name="block_action_description" formatted="false">Hovory budú zablokované a zobrazené v zázname hovorov.</string>
+    <string name="block_calls" formatted="false">Blokovať hovory</string>
+    <string name="block_international_calls" formatted="false">zhoduje sa s číslami, ktoré nezačínajú na + alebo 00</string>
+    <string name="block_international_calls_title" formatted="false">Blokovať medzinárodné hovory</string>
+    <string name="block_mobile_numbers" formatted="false">zhoduje sa s číslami, ktoré nezačínajú na 13-19</string>
+    <string name="block_mobile_numbers_title" formatted="false">Blokovať mobilné čísla</string>
+    <string name="block_number" formatted="false">Blokovať číslo</string>
+    <string name="block_number_success" formatted="false">Číslo úspešne zablokované</string>
+    <string name="block_premium_rate_numbers" formatted="false">zhoduje sa s číslami, ktoré nezačínajú na 118 alebo 120-190</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">Blokovať čísla s prémiovým poplatkom</string>
+    <string name="block_rule" formatted="false">Pravidlo blokovania</string>
+    <string name="block_rules" formatted="false">Pravidlá blokovania</string>
+    <string name="block_specific_area_codes" formatted="false">zhoduje sa s číslami začínajúcimi na 0 + 2-3 číslice</string>
+    <string name="block_specific_area_codes_title" formatted="false">Blokovať špecifické predvoľby:</string>
+    <string name="block_type_analysis_title" formatted="false">Analýza typu blokovania</string>
+    <string name="blocked" formatted="false">Blokované</string>
+    <string name="blocked_call_body" formatted="false">Blokovaný hovor z čísla {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">Oznámenia o zablokovaných hovoroch</string>
+    <string name="blocked_call_notifications_description" formatted="false">Zobrazuje informácie o zablokovaných hovoroch.</string>
+    <string name="blocked_call_title" formatted="false">Blokovaný hovor</string>
+    <string name="blocked_calls" formatted="false">Blokované hovory</string>
+    <string name="blocked_calls_title" formatted="false">Blokované hovory</string>
+    <string name="blocked_spam_calls" formatted="false">Blokované spamové hovory</string>
+    <string name="blocking_trend" formatted="false">Trend blokovania</string>
+    <string name="both" formatted="false">Oboje</string>
+    <string name="bulk_delete" formatted="false">Hromadné mazanie kontaktov</string>
+    <string name="bulk_delete_contacts" formatted="false">Hromadné mazanie kontaktov</string>
+    <string name="bulk_delete_labels" formatted="false">Hromadné mazanie štítkov</string>
+    <string name="call" formatted="false">Hovor</string>
+    <string name="call_blocking" formatted="false">Blokovanie hovorov</string>
+    <string name="call_details" formatted="false">Podrobnosti o hovore</string>
+    <string name="call_filter_rules" formatted="false">Pravidlá filtra hovorov</string>
+    <string name="call_filter_rules_description" formatted="false">Nastaviť základné pravidlá pre filtrovanie hovorov</string>
+    <string name="call_filter_settings" formatted="false">Nastavenia filtra hovorov</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">Nastavte limity frekvencie hovorov a pravidlá blokovania</string>
+    <string name="call_frequency_interception_title" formatted="false">Zachytávanie frekvencie hovorov</string>
+    <string name="call_history" formatted="false">História hovorov</string>
+    <string name="call_history_info_desc" formatted="false">Tu sa zobrazuje vaša história hovorov vrátane prichádzajúcich, odchádzajúcich a zmeškaných hovorov.</string>
+    <string name="call_history_info_title" formatted="false">História hovorov</string>
+    <string name="call_history_tab" formatted="false">História hovorov</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">Povolenie na filtrovanie hovorov</string>
+    <string name="call_screening_permission_description" formatted="false">Používa sa na filtrovanie a blokovanie nevyžiadaných hovorov.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">Povolenie na filtrovanie hovorov nebolo udelené, môže to ovplyvniť funkčnosť aplikácie.</string>
+    <string name="call_statistics" formatted="false">Štatistiky hovorov</string>
+    <string name="call_time" formatted="false">Čas hovoru</string>
+    <string name="call_type" formatted="false">Typ hovoru</string>
+    <string name="call_type_answered" formatted="false">Prijaté</string>
+    <string name="call_type_blocked" formatted="false">Blokované</string>
+    <string name="call_type_icon_color" formatted="false">Farba ikony typu hovoru</string>
+    <string name="call_type_missed" formatted="false">Zmeškaný hovor</string>
+    <string name="call_type_outgoing" formatted="false">Odchádzajúci</string>
+    <string name="call_type_position" formatted="false">Umiestnenie typu hovoru</string>
+    <string name="call_type_rejected" formatted="false">Odmietnuté</string>
+    <string name="call_type_silenced" formatted="false">Stlmené</string>
+    <string name="call_type_unknown" formatted="false">Neznáme</string>
+    <string name="callback" formatted="false">Spätný hovor</string>
+    <string name="caller_id_app" formatted="false">Aplikácia Caller ID</string>
+    <string name="caller_id_customization_subtitle" formatted="false">Prispôsobiť rozloženie identifikácie volajúceho</string>
+    <string name="caller_id_customization_title" formatted="false">Prispôsobiť Caller ID</string>
+    <string name="caller_id_display_mode" formatted="false">Zobrazenie ID volajúceho</string>
+    <string name="caller_id_enhancement" formatted="false">Vylepšenie identifikácie volajúceho</string>
+    <string name="caller_id_marked_by_count" formatted="false">Označilo {count}</string>
+    <string name="caller_id_notification_title" formatted="false">Informácie o prichádzajúcom hovore</string>
+    <string name="caller_id_preview" formatted="false">Náhľad ID volajúceho</string>
+    <string name="caller_id_settings_subtitle" formatted="false">Nastaviť upozornenie na prichádzajúce hovory a režim zobrazenia</string>
+    <string name="caller_id_settings_title" formatted="false">Nastavenia identifikácie volajúceho</string>
+    <string name="calling_number_failed" formatted="false">Volanie čísla zlyhalo</string>
+    <string name="cancel" formatted="false">Zrušiť</string>
+    <string name="cancel_button" formatted="false">Zrušiť</string>
+    <string name="cancel_local_notification" formatted="false">Zavrieť miestne oznámenia</string>
+    <string name="cancel_local_notification_description" formatted="false">Automaticky zavrieť miestne oznámenia</string>
+    <string name="car_rental" formatted="false">Prenájom áut</string>
+    <string name="carrier" formatted="false">Operátor</string>
+    <string name="carrier_color" formatted="false">Farba operátora</string>
+    <string name="carrier_font_size" formatted="false">Veľkosť písma operátora</string>
+    <string name="carrier_position" formatted="false">Umiestnenie operátora</string>
+    <string name="change_label" formatted="false">Zmeniť označenie</string>
+    <string name="change_plugin_status_failed" formatted="false">Nepodarilo sa zmeniť stav doplnku: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">Nepodarilo sa zmeniť stav predplatného: {error}</string>
+    <string name="charity" formatted="false">Charita</string>
+    <string name="chart_one_week_ago" formatted="false">Pred 1 týždňom</string>
+    <string name="chart_three_days_ago" formatted="false">Pred 3 dňami</string>
+    <string name="chart_today" formatted="false">Dnes</string>
+    <string name="check_file_format" formatted="false">Skontrolujte formát súboru alebo povolenia</string>
+    <string name="check_permission_failed" formatted="false">Nepodarilo sa skontrolovať povolenia: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">Vyberte predvolenú akciu zachytenia</string>
+    <string name="clear_all_call_logs" formatted="false">Vymazať všetky záznamy hovorov</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">Potvrďte vymazanie všetkých záznamov hovorov</string>
+    <string name="clear_all_notifications" formatted="false">Vymazať všetky oznámenia</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">Potvrďte vymazanie všetkých oznámení</string>
+    <string name="clear_button" formatted="false">Vymazať</string>
+    <string name="clear_filter" formatted="false">Vymazať filter</string>
+    <string name="clear_label_filter_button" formatted="false">Vymazať filter označení</string>
+    <string name="close_button" formatted="false">Zavrieť</string>
+    <string name="cloud_backup" formatted="false">Zálohovanie v cloude</string>
+    <string name="cloud_sync" formatted="false">Synchronizácia v cloude</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">Synchronizácia a zálohovanie v cloude</string>
+    <string name="cloud_sync_service" formatted="false">Služba synchronizácie v cloude</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">Konfigurácia WebDAV, OneDrive a Google Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">Nastavenia synchronizácie v cloude</string>
+    <string name="cloud_sync_title" formatted="false">Synchronizácia v cloude</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">Vymáhanie dlhov</string>
+    <string name="color_picker_title" formatted="false">Vyberte farbu</string>
+    <string name="community_impact" formatted="false">Dopad na komunitu</string>
+    <string name="community_participation" formatted="false">Účasť komunity</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">Hlasy komunity</string>
+    <string name="community_voting_started" formatted="false">Hlasovanie komunity začalo</string>
+    <string name="community_voting_started_body" formatted="false">Nový návrh na vymazanie čísla {phoneNumber} je teraz otvorený na hlasovanie komunity.</string>
+    <string name="completed" formatted="false">DOKONČENÉ</string>
+    <string name="config_management" formatted="false">Správa konfigurácie</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">Konfigurácia aktualizovaná</string>
+    <string name="configuration_advice" formatted="false">Prostredníctvom správnej konfigurácie môžete nastaviť rôzne stratégie filtrovania pre pracovné a osobné SIM karty.</string>
+    <string name="configure_backup_options" formatted="false">Konfigurácia možností zálohovania</string>
+    <string name="configure_cloud_sync_service" formatted="false">Konfigurácia služby synchronizácie v cloude</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">Nakonfigurujte službu synchronizácie v cloude, aby ste povolili synchronizáciu medzi viacerými zariadeniami.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">Konfigurácia pravidiel filtra pre SIM kartu</string>
+    <string name="confirm" formatted="false">Potvrdiť</string>
+    <string name="confirm_button" formatted="false">Potvrdiť</string>
+    <string name="confirm_delete" formatted="false">Potvrdiť odstránenie</string>
+    <string name="confirm_delete_label" formatted="false">Ste si istí, že chcete odstrániť označenie &quot;{name}&quot;</string>
+    <string name="confirm_delete_plugin" formatted="false">Ste si istí, že chcete odstrániť doplnok &quot;{name}&quot;?</string>
+    <string name="confirm_delete_plugins" formatted="false">Ste si istí, že chcete odstrániť {count} doplnkov?</string>
+    <string name="confirm_delete_rule_message" formatted="false">Ste si istí, že chcete odstrániť toto pravidlo? Táto akcia sa nedá vrátiť späť.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">Ste si istí, že chcete odstrániť toto pravidlo filtra SMS?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">Ste si istí, že chcete odstrániť toto pravidlo SMS?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">Ste si istí, že chcete odstrániť {name}?</string>
+    <string name="confirm_password" formatted="false">Potvrdiť heslo</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">Pripojené</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">Spojenie zlyhalo: Skontrolujte adresu servera, používateľské meno a heslo</string>
+    <string name="connection_failed_message" formatted="false">Spojenie zlyhalo</string>
+    <string name="connection_status_label" formatted="false">Stav pripojenia</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">Pripojenie úspešné</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">Kontakt bol úspešne pridaný</string>
+    <string name="contact_deleted" formatted="false">Kontakt bol odstránený</string>
+    <string name="contact_name_label" formatted="false">Meno</string>
+    <string name="contact_not_found" formatted="false">Kontakt nebol nájdený</string>
+    <string name="contact_subscription_description" formatted="false">Prihláste sa na odber zoznamov kontaktov cez URL, automaticky aktualizujte informácie o kontaktoch a štítky. Podporuje údaje vo formáte JSON.</string>
+    <string name="contact_update_success" formatted="false">Kontakt bol úspešne aktualizovaný</string>
+    <string name="contact_us" formatted="false">Kontaktujte nás</string>
+    <string name="contacts" formatted="false">kontakty</string>
+    <string name="contacts_deleted" formatted="false">Odstránených {count} kontaktov</string>
+    <string name="contacts_management" formatted="false">Správa kontaktov</string>
+    <string name="contacts_permission" formatted="false">Povolenie na prístup ku kontaktom</string>
+    <string name="contacts_permission_description" formatted="false">Používa sa na identifikáciu hovorov od kontaktov.</string>
+    <string name="contacts_tab" formatted="false">Kontakty</string>
+    <string name="container_width" formatted="false">Šírka kontajnera</string>
+    <string name="content" formatted="false">Obsah</string>
+    <string name="content_regex" formatted="false">Obsahový regulárny výraz</string>
+    <string name="count_color" formatted="false">Farba počtu</string>
+    <string name="count_font_size" formatted="false">Veľkosť písma počtu</string>
+    <string name="count_position" formatted="false">Pozícia počtu</string>
+    <string name="count_threshold_description" formatted="false">Nastavte minimálny prah počtu potrebný na spustenie akcie filtrovania</string>
+    <string name="count_threshold_label" formatted="false">Prah počtu</string>
+    <string name="country" formatted="false">Krajina</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">napr. SK, CZ, US</string>
+    <string name="country_code_label" formatted="false">Kód krajiny (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">Kód krajiny je povinný</string>
+    <string name="country_code_two_letters" formatted="false">Kód krajiny (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">Upozornenie: Databáza nemusí obsahovať údaje pre všetky konkrétne krajiny alebo regióny.</string>
+    <string name="country_name_color" formatted="false">Farba názvu krajiny</string>
+    <string name="country_name_font_size" formatted="false">Veľkosť písma názvu krajiny</string>
+    <string name="country_region_name_position" formatted="false">Pozícia názvu krajiny/regiónu</string>
+    <string name="country_sync_settings_subtitle" formatted="false">Vyberte krajiny na synchronizáciu údajov</string>
+    <string name="country_sync_settings_title" formatted="false">Nastavenia synchronizácie databázy podľa krajiny</string>
+    <string name="create_proposal" formatted="false">Vytvoriť návrh</string>
+    <string name="create_proposal_title" formatted="false">Vytvoriť návrh na vymazanie</string>
+    <string name="created_at" formatted="false">Vytvorené: {date}</string>
+    <string name="created_rules" formatted="false">Vytvorené pravidlá</string>
+    <string name="critical" formatted="false">Kritické</string>
+    <string name="critical_issues" formatted="false">Kritické problémy</string>
+    <string name="csv_format" formatted="false">CSV formát</string>
+    <string name="current_device_label" formatted="false">Štítok súčasného zariadenia</string>
+    <string name="current_device_title" formatted="false">Súčasné zariadenie</string>
+    <string name="current_language" formatted="false">Súčasný jazyk</string>
+    <string name="current_mark_count" formatted="false">Aktuálny počet bodov</string>
+    <string name="custom" formatted="false">Vlastné</string>
+    <string name="custom_action_description" formatted="false">Vykonajte vlastnú akciu.</string>
+    <string name="customer_service" formatted="false">Zákaznícky servis</string>
+    <string name="dashboard_tab" formatted="false">Prístrojová doska</string>
+    <string name="data_analysis" formatted="false">Analýza údajov</string>
+    <string name="data_load_failure" formatted="false">Načítanie údajov zlyhalo: {error}</string>
+    <string name="data_loading_failed" formatted="false">Načítanie údajov zlyhalo: {error}</string>
+    <string name="data_migration" formatted="false">Migrácia údajov</string>
+    <string name="data_migration_description" formatted="false">Táto funkcia umožňuje prenášať všetky vaše údaje medzi zariadeniami. V súčasnosti môžete použiť funkcie zálohovania a obnovenia na manuálnu migráciu vašich údajov.</string>
+    <string name="data_source_disclaimer" formatted="false">Čísla pochádzajú z internetu a od používateľov. Nemôžeme zaručiť, že číslo po odstránení nebude znovu odoslané inými používateľmi alebo zdrojmi. Aktívne vyhľadávajte a overujte informácie.</string>
+    <string name="data_source_reminder" formatted="false">Pripomienka zdroja údajov</string>
+    <string name="database_sync_title" formatted="false">Synchronizácia databázy</string>
+    <string name="days" formatted="false">{count, plural, =1{1 deň} other{{count} dní}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{pred 1 dňom} other{pred {count} dňami}}</string>
+    <string name="days_vip" formatted="false">{days} Dní VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">Vymáhanie dlhu</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">Predvolené oznámenia</string>
+    <string name="default_notifications_description" formatted="false">Predvolený kanál oznámení pre aplikáciu.</string>
+    <string name="delete" formatted="false">Odstrániť</string>
+    <string name="delete_button" formatted="false">Odstrániť</string>
+    <string name="delete_contact" formatted="false">Odstrániť kontakt</string>
+    <string name="delete_contact_confirm" formatted="false">Ste si istí, že chcete odstrániť {name}?</string>
+    <string name="delete_failed" formatted="false">Odstránenie zlyhalo: {error}</string>
+    <string name="delete_label" formatted="false">Odstrániť štítok</string>
+    <string name="delete_label_failed" formatted="false">Odstránenie štítku zlyhalo: {error}</string>
+    <string name="delete_plugin" formatted="false">Odstrániť plugin</string>
+    <string name="delete_plugin_failed" formatted="false">Odstránenie pluginu zlyhalo: {error}</string>
+    <string name="delete_plugins" formatted="false">Odstrániť pluginy</string>
+    <string name="delete_plugins_failed" formatted="false">Odstránenie pluginov zlyhalo: {error}</string>
+    <string name="delete_rule" formatted="false">Odstrániť pravidlo</string>
+    <string name="delete_rule_failed" formatted="false">Odstránenie zlyhalo: {error}</string>
+    <string name="delete_selected" formatted="false">Odstrániť vybrané</string>
+    <string name="delete_subscription" formatted="false">Odstrániť odber</string>
+    <string name="delete_subscription_confirm" formatted="false">Ste si istí, že chcete odstrániť odber &quot;{name}&quot;?</string>
+    <string name="delete_subscription_failed" formatted="false">Odstránenie odberu zlyhalo: {error}</string>
+    <string name="delete_success" formatted="false">Odstránenie úspešné</string>
+    <string name="deletion_proposal" formatted="false">Návrh na vymazanie</string>
+    <string name="deletion_proposal_created" formatted="false">Návrh na vymazanie vytvorený</string>
+    <string name="deletion_proposal_created_body" formatted="false">Váš návrh na vymazanie čísla {phoneNumber} bol predložený na posúdenie komunitou.</string>
+    <string name="deletion_proposal_description" formatted="false">Navrhujte čísla na vymazanie, ktoré porušujú pravidlá komunity. Vaša účasť pomáha udržiavať platformu bezpečnú.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">Oznámenia o výsledkoch hlasovania o návrhu na vymazanie a aktualizáciách.</string>
+    <string name="deletion_proposals" formatted="false">Návrhy na vymazanie</string>
+    <string name="delivery" formatted="false">Doručenie</string>
+    <string name="description" formatted="false">Popis</string>
+    <string name="detailed_settings_title" formatted="false">Podrobné nastavenia</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">ID zariadenia</string>
+    <string name="device_management_subtitle" formatted="false">Spravujte synchronizáciu viacerých zariadení</string>
+    <string name="device_management_title" formatted="false">Správa zariadení</string>
+    <string name="device_model_label" formatted="false">Model zariadenia</string>
+    <string name="device_name" formatted="false">Názov zariadenia</string>
+    <string name="device_name_label" formatted="false">Názov zariadenia</string>
+    <string name="device_renamed_successfully_message" formatted="false">Zariadenie bolo úspešne premenované</string>
+    <string name="device_unregistered_successfully_message" formatted="false">Zariadenie bolo úspešne odhlásené</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">Zariadenia boli úspešne synchronizované</string>
+    <string name="dialog_title" formatted="false">Vysvetlenie regulárneho výrazu</string>
+    <string name="different_from_local_counter" formatted="false">Táto funkcia sa líši od lokálneho čítača, pretože sa zameriava na opakované vzory volaní v krátkom čase namiesto dlhodobého značkovania počtu.</string>
+    <string name="disable_global_plugins" formatted="false">Zakázať globálne pluginy</string>
+    <string name="disabled" formatted="false">Neaktívne</string>
+    <string name="disabled_status" formatted="false">Neaktívne</string>
+    <string name="disconnect_button" formatted="false">Odpojiť</string>
+    <string name="disconnect_failed_message" formatted="false">Odpojenie zlyhalo</string>
+    <string name="disconnected_message" formatted="false">Odpojené</string>
+    <string name="disconnected_status" formatted="false">Odpojené</string>
+    <string name="done" formatted="false">Hotovo</string>
+    <string name="dual_sim_advice" formatted="false">Táto funkcia je obzvlášť užitočná pre dual-SIM telefóny, aby ste mohli nastaviť rôzne stratégie filtrovania pre pracovné a súkromné SIM karty.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">Číslo E164</string>
+    <string name="earlier" formatted="false">Skôr</string>
+    <string name="earned_temp_vip" formatted="false">Získané dočasné VIP</string>
+    <string name="ecommerce" formatted="false">Elektronický obchod</string>
+    <string name="edit" formatted="false">Upraviť</string>
+    <string name="edit_contact" formatted="false">Upraviť kontakt</string>
+    <string name="edit_label" formatted="false">Upraviť štítok</string>
+    <string name="edit_phone_rule" formatted="false">Upraviť pravidlo telefónu</string>
+    <string name="edit_rule" formatted="false">Upraviť pravidlo</string>
+    <string name="edit_script" formatted="false">Upraviť skript</string>
+    <string name="edit_script_for" formatted="false">Upraviť skript pre {pluginName}</string>
+    <string name="edit_subscription" formatted="false">Upraviť predplatné</string>
+    <string name="education" formatted="false">Vzdelávanie</string>
+    <string name="element_positions_setting" formatted="false">Pozície prvkov</string>
+    <string name="elements_settings_title" formatted="false">Nastavenia prvkov</string>
+    <string name="email" formatted="false">E-mail</string>
+    <string name="enable_call_filter" formatted="false">Povoliť filter hovorov</string>
+    <string name="enable_call_filter_description" formatted="false">Keď je povolené, prichádzajúce hovory sa kontrolujú podľa nižšie uvedeného zoznamu pravidiel. Pravidlá filtrovania hovorov sa štandardne nesynchronizujú medzi zariadeniami.</string>
+    <string name="enable_encryption" formatted="false">Povoliť šifrovanie</string>
+    <string name="enable_encryption_description" formatted="false">Šifrovať záložné súbory</string>
+    <string name="enable_filtering" formatted="false">Povoliť filtrovanie</string>
+    <string name="enable_fraud_alert" formatted="false">Povoliť upozornenie na podvod</string>
+    <string name="enable_fraud_alert_description" formatted="false">Upozornenie na podozrivé podvodné hovory</string>
+    <string name="enable_global_plugins" formatted="false">Povoliť globálne pluginy</string>
+    <string name="enable_local_count_filter" formatted="false">Povoliť lokálny čítač</string>
+    <string name="enable_local_count_filter_description" formatted="false">Automaticky filtrovať spamové hovory na základe počtu označení hovorov</string>
+    <string name="enable_local_notification" formatted="false">Použiť lokálne upozornenia</string>
+    <string name="enable_local_notification_description" formatted="false">Keď je povolené, upozornenia na filtrované správy sa zobrazia na zariadení</string>
+    <string name="enable_location_summary" formatted="false">Poloha</string>
+    <string name="enable_mute_rules" formatted="false">Povoliť pravidlá stlmenia</string>
+    <string name="enable_mute_rules_desc" formatted="false">Aplikovať konfiguráciu pravidiel pre prerušenie stlmenia</string>
+    <string name="enable_none_action_rules" formatted="false">Povoliť pravidlá bez akcie</string>
+    <string name="enable_none_action_rules_desc" formatted="false">Povoliť konfigurácie pravidiel bez akcie prerušenia</string>
+    <string name="enable_remote_number_filter" formatted="false">Povoliť vzdialený filter čísel</string>
+    <string name="enable_remote_number_filter_description" formatted="false">Použiť vzdialenú databázu na filtrovanie čísel</string>
+    <string name="enable_rule" formatted="false">Povoliť pravidlo</string>
+    <string name="enable_security_message" formatted="false">Povoliť bezpečnostnú správu</string>
+    <string name="enable_sms_filter" formatted="false">Povoliť filtrovanie SMS</string>
+    <string name="enable_sms_filter_description" formatted="false">Keď je povolené, správy sa automaticky filtrujú podľa pravidiel</string>
+    <string name="enable_time_interception" formatted="false">Povoliť časové prerušenie</string>
+    <string name="enable_time_interception_description" formatted="false">Prerušovať opakované hovory v krátkom čase</string>
+    <string name="enable_time_interceptor" formatted="false">Povoliť časové prerušenie</string>
+    <string name="enable_vibration" formatted="false">Povoliť vibrácie</string>
+    <string name="enable_vibration_description" formatted="false">Vibrovať pri podozrivých podvodných hovoroch</string>
+    <string name="enabled" formatted="false">Povolené</string>
+    <string name="enabled_status" formatted="false">Povolené</string>
+    <string name="end_call_immediately" formatted="false">Ukončiť hovor okamžite</string>
+    <string name="end_color" formatted="false">Koncová farba</string>
+    <string name="end_date" formatted="false">Dátum ukončenia</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">Pokyny pre rozšírený systém filtrovania</string>
+    <string name="enhanced_filter_settings" formatted="false">Nastavenia rozšíreného filtra</string>
+    <string name="enhanced_filter_settings_title" formatted="false">Nastavenia rozšíreného filtra</string>
+    <string name="enhanced_filter_system_description" formatted="false">Rozšírený systém filtrovania podporuje globálne pravidlá aj konfigurácie filtrovania pre každú SIM kartu.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">Zadajte telefónne číslo aj regulárny výraz.</string>
+    <string name="enter_contact_name" formatted="false">Zadajte meno kontaktu</string>
+    <string name="enter_device_name" formatted="false">Zadajte názov zariadenia</string>
+    <string name="enter_email_optional" formatted="false">Zadajte e-mail (voliteľné)</string>
+    <string name="enter_encryption_password_hint" formatted="false">Zadajte šifrovacie heslo</string>
+    <string name="enter_icon_code" formatted="false">Zadajte kód ikony</string>
+    <string name="enter_name" formatted="false">Zadajte meno kontaktu</string>
+    <string name="enter_new_device_name_hint" formatted="false">Zadajte nový názov tohto zariadenia</string>
+    <string name="enter_password_again" formatted="false">Zadajte heslo znova</string>
+    <string name="enter_phone_number" formatted="false">Zadajte telefónne číslo</string>
+    <string name="enter_phone_number_hint" formatted="false">Zadajte telefónne číslo na testovanie</string>
+    <string name="enter_phone_number_multiple" formatted="false">Zadajte telefónne číslo, viacero čísel oddelených čiarkami</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">Zadajte telefónne číslo na začatie vyhľadávania</string>
+    <string name="enter_phone_number_to_verify" formatted="false">Zadajte telefónne číslo na overenie</string>
+    <string name="enter_plugin_description" formatted="false">Zadajte popis pluginu</string>
+    <string name="enter_plugin_name" formatted="false">Zadajte názov pluginu</string>
+    <string name="enter_plugin_url" formatted="false">Zadajte adresu URL pluginu</string>
+    <string name="enter_regex_hint" formatted="false">Zadajte regulárny výraz</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">Prosím, zadajte názov pravidla a vzor regulárneho výrazu.</string>
+    <string name="enter_rule_name_hint" formatted="false">Zadajte názov pravidla</string>
+    <string name="enter_search_content" formatted="false">Prosím, zadajte vyhľadávací obsah</string>
+    <string name="enter_subscription_name" formatted="false">Zadajte názov odberu</string>
+    <string name="enter_subscription_url" formatted="false">Zadajte URL odberu</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">Prosím, zadajte názov synchronizačného priečinka (predvolené: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">Prosím, zadajte platný názov a URL</string>
+    <string name="enter_valid_url" formatted="false">Prosím, zadajte platnú URL</string>
+    <string name="enter_version" formatted="false">Zadajte verziu</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">Prosím, zadajte heslo WebDAV</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">Prosím, zadajte adresu servera WebDAV</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">Prosím, zadajte používateľské meno WebDAV</string>
+    <string name="entertainment" formatted="false">Zábava</string>
+    <string name="entity_export_failed" formatted="false">Nepodarilo sa exportovať {entityTypeName}: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} úspešne exportovaný</string>
+    <string name="entity_import_failed" formatted="false">Nepodarilo sa importovať {entityTypeName}: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} úspešne importovaný, celkovo importovaných {count} záznamov</string>
+    <string name="entry_point_view_title" formatted="false">Zobrazovacia časť vstupu</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">Chyba: {error}</string>
+    <string name="error_occurred_message" formatted="false">Vyskytla sa chyba: {error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">Chyba pri premenovávaní zariadenia: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">Chyba pri synchronizácii zariadení: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">Chyba pri odhlásení zariadenia: {error}</string>
+    <string name="example_block400_prefix" formatted="false">napr. Blokovať čísla s predvoľbou 400</string>
+    <string name="example_block_marketing_sms" formatted="false">napr. Blokovať marketingové SMS</string>
+    <string name="example_content_regex_hint" formatted="false">Príklad regulárneho výrazu pre obsah</string>
+    <string name="example_coupon_promotion_discount" formatted="false">napr. .*(kupón|akcia|zľava).*</string>
+    <string name="example_family_friends" formatted="false">napr. Rodina, priatelia atď.</string>
+    <string name="example_phone_number" formatted="false">napr. 10086, 12345 atď.</string>
+    <string name="example_regex400_prefix" formatted="false">Príklad regulárneho výrazu pre predvoľbu 400</string>
+    <string name="example_sender_regex_hint" formatted="false">Príklad</string>
+    <string name="exchange" formatted="false">Vymeniť</string>
+    <string name="exchange_failed" formatted="false">Výmena zlyhala: {error}</string>
+    <string name="exchange_now" formatted="false">Vymeniť teraz</string>
+    <string name="exchange_success" formatted="false">Úspešne vymenené za {description}, dátum vypršania platnosti: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">Vymeniť VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">Čas vypršania platnosti: {time}</string>
+    <string name="export" formatted="false">Exportovať</string>
+    <string name="export_all_application_settings" formatted="false">Exportovať všetky nastavenia aplikácie</string>
+    <string name="export_all_rule_configurations" formatted="false">Exportovať všetky konfigurácie pravidiel</string>
+    <string name="export_config" formatted="false">Exportovať konfiguráciu</string>
+    <string name="export_contacts" formatted="false">Exportovať kontakty</string>
+    <string name="export_data" formatted="false">Exportovať údaje</string>
+    <string name="export_entity" formatted="false">Exportovať {entityTypeName}</string>
+    <string name="export_failed" formatted="false">Export zlyhal</string>
+    <string name="export_failure" formatted="false">Nepodarilo sa exportovať konfiguráciu</string>
+    <string name="export_feature_coming_soon" formatted="false">Funkcia exportu čoskoro</string>
+    <string name="export_labels" formatted="false">Exportovať štítky</string>
+    <string name="export_labels_failed" formatted="false">Nepodarilo sa exportovať štítky: {error}</string>
+    <string name="export_plugin_list" formatted="false">Exportovať zoznam doplnkov</string>
+    <string name="export_plugin_list_failed" formatted="false">Nepodarilo sa exportovať zoznam doplnkov: {error}</string>
+    <string name="export_rules" formatted="false">Exportovať pravidlá</string>
+    <string name="export_sms_rules" formatted="false">Exportovať pravidlá SMS</string>
+    <string name="export_statistics_data" formatted="false">Exportovať štatistické údaje</string>
+    <string name="export_successlly" formatted="false">Konfigurácia úspešne exportovaná</string>
+    <string name="failed_to_add_rule" formatted="false">Nepodarilo sa pridať pravidlo: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">Nepodarilo sa pridať odber SMS: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">Nepodarilo sa zálohovať nastavenia: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">Nepodarilo sa dešifrovať záložný súbor</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">Nepodarilo sa vymazať pravidlo SMS: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">Nepodarilo sa exportovať pravidlá: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">Nepodarilo sa získať informácie o ID volajúceho: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">Nepodarilo sa importovať pravidlá: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">Nepodarilo sa obnoviť nastavenia</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">Nepodarilo sa obnoviť nastavenia: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">Nepodarilo sa prepnúť stav pravidla: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">Obľúbené kontakty</string>
+    <string name="feature" formatted="false">Funkcia</string>
+    <string name="feature_add_rules" formatted="false">• Pridať pravidlá pre konkrétne telefónne čísla</string>
+    <string name="feature_center" formatted="false">Centrum funkcií</string>
+    <string name="feature_enable_disable" formatted="false">• Povoliť/zakázať rôzne filtre na SIM kartu</string>
+    <string name="feature_list_title" formatted="false">Funkcie:</string>
+    <string name="feature_manage_rules" formatted="false">• Spravovať zoznamy pravidiel na SIM kartu</string>
+    <string name="features" formatted="false">Funkcie</string>
+    <string name="fetching_caller_id_info" formatted="false">Načítavajú sa informácie o ID volajúceho...</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">Súbor uložený do: {path}</string>
+    <string name="filter" formatted="false">Filter</string>
+    <string name="filter_and_sort_title" formatted="false">Filtrovať a triediť</string>
+    <string name="filter_by" formatted="false">Filtrovať podľa</string>
+    <string name="filter_by_action" formatted="false">Filtrovať podľa akcie</string>
+    <string name="filter_by_label" formatted="false">Filtrovať podľa štítku</string>
+    <string name="filter_control_panel_title" formatted="false">Ovládací panel filtra</string>
+    <string name="filter_control_subtitle" formatted="false">Spravovať stav zapnutia/vypnutia všetkých filtrov</string>
+    <string name="filter_control_title" formatted="false">Ovládanie filtra</string>
+    <string name="filter_explanation" formatted="false">Vysvetlenie filtra</string>
+    <string name="filter_management" formatted="false">Správa filtrov</string>
+    <string name="filter_management_description" formatted="false">Nastaviť filtre hovorov</string>
+    <string name="filter_name" formatted="false">Názov filtra</string>
+    <string name="filter_priority_note" formatted="false">Poznámka: Medzi filtrami existujú prioritné vzťahy, podrobnosti nájdete v dokumentácii pomoci.</string>
+    <string name="filter_s_m_s" formatted="false">Filtrovať SMS</string>
+    <string name="filter_settings" formatted="false">Nastavenia filtra</string>
+    <string name="filter_settings_title" formatted="false">Nastavenia filtra</string>
+    <string name="filter_toggle_instructions" formatted="false">Zapnite alebo vypnite filtre pre tento slot SIM:</string>
+    <string name="filter_toggle_status" formatted="false">Filter {status}: {filterName}</string>
+    <string name="filter_type" formatted="false">Typ filtra</string>
+    <string name="filter_verified_owner" formatted="false">Filtrovať overeného vlastníka</string>
+    <string name="filtered" formatted="false">Filtrované</string>
+    <string name="final_risk" formatted="false">Konečné riziko</string>
+    <string name="financial" formatted="false">Finančné</string>
+    <string name="flexible_combination_feature" formatted="false">• Flexibilné kombinácie: Zapnutie/vypnutie filtrov podľa slotu SIM</string>
+    <string name="font_sizes_setting" formatted="false">Veľkosti písma</string>
+    <string name="found_rules" formatted="false">Nájdené {count} pravidiel</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">Nastaviť upozornenie na podvod</string>
+    <string name="fraud_aler_setting_title" formatted="false">Nastavenie upozornenia na podvod</string>
+    <string name="fraud_alert" formatted="false">POZOR NA PODVOD - Zložte telefón</string>
+    <string name="fraud_alert_title" formatted="false">Upozornenie na podvod</string>
+    <string name="fraud_alerts" formatted="false">Upozornenia na podvody</string>
+    <string name="fraud_alerts_description" formatted="false">Zobrazuje varovania pred potenciálne podvodnými hovormi.</string>
+    <string name="fraud_scam_likely" formatted="false">Pravdepodobne podvod/podvodník</string>
+    <string name="free" formatted="false">Zadarmo</string>
+    <string name="function_settings_title" formatted="false">Nastavenia funkcií</string>
+    <string name="general_update_failure" formatted="false">Aktualizácia zlyhala: {error}</string>
+    <string name="get_free" formatted="false">Získať zadarmo</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Nastaviť globálne filtre pre všetky SIM karty:</string>
+    <string name="global_filter_feature" formatted="false">• Globálne filtre: Základné pravidlá pre všetky prichádzajúce hovory</string>
+    <string name="global_filter_settings" formatted="false">Nastavenia globálneho filtra</string>
+    <string name="global_settings" formatted="false">Globálne nastavenia</string>
+    <string name="google_drive_auth_description" formatted="false">Autorizovať pomocou systémom nakonfigurovaného klient ID a kľúča Google Drive</string>
+    <string name="google_drive_config_title" formatted="false">Konfigurácia Google Drive</string>
+    <string name="government" formatted="false">Vládne</string>
+    <string name="grant_necessary_permissions" formatted="false">Udeľte potrebné povolenia</string>
+    <string name="grant_permissions" formatted="false">Udeľte povolenia</string>
+    <string name="granted" formatted="false">Udelené</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">Boli vám udelené {days} dní dočasných nákupných oprávnení. Dátum vypršania platnosti: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">Pokyny</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">Už máte dočasné oprávnenia, s dátumom vypršania platnosti: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">Už máte VIP oprávnenia (okrem reklám)</string>
+    <string name="headhunter" formatted="false">Náborár</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Výška</string>
+    <string name="high" formatted="false">Vysoké</string>
+    <string name="high_risk" formatted="false">Vysoké riziko</string>
+    <string name="home_tab" formatted="false">Domov</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{pred 1 hodinou} other{pred {count} hodinami}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 hodín} =1{1 hodina} other{{count} hodín}}</string>
+    <string name="how_it_works_point1" formatted="false">• Systém automaticky povolí hovory z rovnakého čísla v rámci nastaveného časového okna</string>
+    <string name="how_it_works_point2" formatted="false">• Kratšie časové okná znamenajú prísnejšie zachytávanie; dlhšie časové okná znamenajú voľnejšie zachytávanie</string>
+    <string name="how_it_works_point3" formatted="false">• Systém kontroluje denníky hovorov, aby určil, či ide o opakovaný hovor</string>
+    <string name="how_it_works_title" formatted="false">Ako to funguje:</string>
+    <string name="icon_code_optional" formatted="false">Kód ikony (voliteľné)</string>
+    <string name="icon_size" formatted="false">Veľkosť ikony</string>
+    <string name="import" formatted="false">Importovať</string>
+    <string name="import_config" formatted="false">Importovať konfiguráciu</string>
+    <string name="import_contacts" formatted="false">Importovať kontakty</string>
+    <string name="import_entity" formatted="false">Importovať {entityTypeName}</string>
+    <string name="import_export" formatted="false">Import/Export</string>
+    <string name="import_export_contacts" formatted="false">Import/Export kontaktov</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Import/Export kontaktov</string>
+    <string name="import_export_description" formatted="false">Importovať alebo exportovať údaje {entityTypeName}</string>
+    <string name="import_export_rules" formatted="false">Import/Export pravidiel</string>
+    <string name="import_export_title" formatted="false">Import/Export</string>
+    <string name="import_failed" formatted="false">Import zlyhal: {error}</string>
+    <string name="import_failure" formatted="false">Nepodarilo sa importovať konfiguráciu</string>
+    <string name="import_feature_coming_soon" formatted="false">Funkcia importu už čoskoro</string>
+    <string name="import_labels" formatted="false">Importovať štítky</string>
+    <string name="import_labels_failed" formatted="false">Nepodarilo sa importovať štítky: {error}</string>
+    <string name="import_plugin_list" formatted="false">Importovať zoznam pluginov</string>
+    <string name="import_plugin_list_failed" formatted="false">Nepodarilo sa importovať zoznam pluginov: {error}</string>
+    <string name="import_plugin_success" formatted="false">Úspešne importované {count} pluginov</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Importovať konfigurácie pravidiel zo súboru</string>
+    <string name="import_rules" formatted="false">Importovať pravidlá</string>
+    <string name="import_success" formatted="false">Import úspešný</string>
+    <string name="important" formatted="false">Dôležité</string>
+    <string name="important_notice_title" formatted="false">Dôležité upozornenie</string>
+    <string name="incoming_call_intercept_action" formatted="false">Akcia zachytenia prichádzajúceho hovoru</string>
+    <string name="incorrect_password" formatted="false">Nesprávne heslo</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.</string>
+    <string name="initial_setup_deselect_all" formatted="false">Zrušiť výber</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">Failed to get configuration</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">Skúsiť znova</string>
+    <string name="initial_setup_save" formatted="false">One-click setup selected</string>
+    <string name="initial_setup_save_failed" formatted="false">Failed to save configuration: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Configuration saved successfully, rules will be fetched automatically soon</string>
+    <string name="initial_setup_saving" formatted="false">Saving...</string>
+    <string name="initial_setup_search_hint" formatted="false">Hľadať sadu pravidiel alebo krajinu...</string>
+    <string name="initial_setup_select_all" formatted="false">Vybrať všetko</string>
+    <string name="initial_setup_selected_count" formatted="false">Vybrané: {count}</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">Preskočiť</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">Rule Library Setup</string>
+    <string name="initializing" formatted="false">Inicializujem</string>
+    <string name="installed" formatted="false">Nainštalované</string>
+    <string name="insufficient_marks" formatted="false">Nedostatočné body</string>
+    <string name="insurance" formatted="false">Poisťovňa</string>
+    <string name="intercept_action" formatted="false">Akcia zachytenia</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Nastaviť, ako sa zaobchádza so zablokovanými hovormi</string>
+    <string name="interception_action_settings_title" formatted="false">Nastavenia akcie zachytenia</string>
+    <string name="interception_time_interval" formatted="false">Časový interval zachytenia</string>
+    <string name="internet" formatted="false">Internet</string>
+    <string name="interval_set_success" formatted="false">Interval aktualizácie {service} nastavený na {days} dní</string>
+    <string name="invalid_content_regex" formatted="false">Neplatná regulárna téza obsahu</string>
+    <string name="invalid_exchange_rule" formatted="false">Neplatné pravidlo výmeny</string>
+    <string name="invalid_label" formatted="false">Neplatný štítok</string>
+    <string name="invalid_regex_pattern" formatted="false">Neplatný vzor regulárneho výrazu</string>
+    <string name="invalid_sender_regex" formatted="false">Neplatný regulárny výraz odosielateľa</string>
+    <string name="invalid_sim_data" formatted="false">Neplatné údaje SIM karty</string>
+    <string name="ip_country" formatted="false">Krajina IP</string>
+    <string name="is_number_match" formatted="false">Zhoda čísla</string>
+    <string name="is_roaming" formatted="false">Roaming</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">Pripojte sa k Telegram kanálu a skupine pre viac informácií</string>
+    <string name="json_format" formatted="false">Formát JSON</string>
+    <string name="just_now" formatted="false">Práve teraz</string>
+    <string name="keep_all_versions" formatted="false">Ponechať všetky verzie</string>
+    <string name="keep_all_versions_description" formatted="false">Ponechať všetky historické verzie každého zálohovania</string>
+    <string name="label" formatted="false">Štítok</string>
+    <string name="label_action_description" formatted="false">Pridať k hovoru označenie pre ľahkú identifikáciu.</string>
+    <string name="label_added_successfully" formatted="false">Štítok &quot;{name}&quot; bol úspešne pridaný</string>
+    <string name="label_categories" formatted="false">Kategórie štítkov</string>
+    <string name="label_deleted" formatted="false">Štítok bol odstránený</string>
+    <string name="label_description" formatted="false">Štítky vám pomôžu lepšie spravovať kontakty, pridávajte vlastné štítky k telefónnym číslam pre jednoduchú identifikáciu hovorov a správ.</string>
+    <string name="label_filter_tooltip" formatted="false">Filter štítkov</string>
+    <string name="label_icon_color" formatted="false">Farba ikony štítku</string>
+    <string name="label_management" formatted="false">Správa štítkov</string>
+    <string name="label_not_found" formatted="false">Štítok nebol nájdený</string>
+    <string name="label_tag" formatted="false">Štítok: {labelId}</string>
+    <string name="label_update_failed" formatted="false">Chyba pri aktualizácii štítku: {error}</string>
+    <string name="label_update_success" formatted="false">Štítok &quot;$labelText&quot; bol úspešne aktualizovaný</string>
+    <string name="labels" formatted="false">Štítky</string>
+    <string name="labels_color" formatted="false">Farba štítkov</string>
+    <string name="labels_deleted" formatted="false">{count} štítkov bolo odstránených</string>
+    <string name="labels_exported_successfully" formatted="false">Štítky boli úspešne exportované</string>
+    <string name="labels_font_size" formatted="false">Veľkosť písma štítkov</string>
+    <string name="labels_imported_successfully" formatted="false">Úspešne importovaných {count} štítkov</string>
+    <string name="labels_position" formatted="false">Pozícia štítkov</string>
+    <string name="language_settings" formatted="false">Nastavenia jazyka</string>
+    <string name="language_settings_subtitle" formatted="false">Zmeniť jazyk zobrazenia aplikácie</string>
+    <string name="language_settings_title" formatted="false">Nastavenia jazyka</string>
+    <string name="last_sync_label" formatted="false">Posledná synchronizácia</string>
+    <string name="last_updated" formatted="false">Posledná aktualizácia: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">Doživotné členstvo</string>
+    <string name="lifetime_membership_description" formatted="false">Jednorazová platba, trvalo odomknite všetky prémiové funkcie a budúce aktualizácie</string>
+    <string name="list_view" formatted="false">Zoznamový pohľad</string>
+    <string name="live_activities_settings_title" formatted="false">Nastavenia živých aktivít</string>
+    <string name="live_activities_test_end_activity" formatted="false">Ukončiť aktivitu</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">Odoslať novú aktivitu</string>
+    <string name="live_activities_test_title" formatted="false">Test živej aktivity</string>
+    <string name="live_activities_test_update_activity" formatted="false">Aktualizovať aktivitu</string>
+    <string name="live_activity_controls_title" formatted="false">Ovládacie prvky živej aktivity</string>
+    <string name="live_activity_mode" formatted="false">Živá aktivita</string>
+    <string name="live_activity_mode_description" formatted="false">Zobrazuje informácie o hovore ako trvalé oznámenie na uzamknutej obrazovke a v Dynamic Island (iOS).</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Prispôsobte si vzhľad živých oznámení.</string>
+    <string name="live_notification_customization_title" formatted="false">Prispôsobenie živých oznámení</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">Chyba pri načítavaní kontaktov: {error}</string>
+    <string name="load_data_failed" formatted="false">Chyba pri načítavaní dát</string>
+    <string name="load_label_failed" formatted="false">Chyba pri načítavaní štítkov: {error}</string>
+    <string name="load_labels_failed" formatted="false">Chyba pri načítavaní štítkov: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">Chyba pri načítavaní označených telefónnych čísel: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">Chyba pri načítavaní označených telefónnych čísel: {error}</string>
+    <string name="load_plugins_failed" formatted="false">Chyba pri načítavaní doplnkov: {error}</string>
+    <string name="load_settings_failed" formatted="false">Chyba pri načítavaní nastavení: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">Chyba pri načítavaní pravidiel SMS: {error}</string>
+    <string name="load_status_failed_message" formatted="false">Chyba pri načítavaní stavu</string>
+    <string name="load_subscriptions_failed" formatted="false">Chyba pri načítavaní predplatných: {error}</string>
+    <string name="loading" formatted="false">Načítava sa...</string>
+    <string name="loading_ad" formatted="false">Načítava sa reklama...</string>
+    <string name="loading_tags" formatted="false">Načítavajú sa značky...</string>
+    <string name="loan" formatted="false">Pôžička</string>
+    <string name="local_count_filter" formatted="false">Lokálny filter počtu</string>
+    <string name="local_count_filter_description" formatted="false">Zachytávajte časté hovory na základe lokálnych počtov čísel</string>
+    <string name="local_count_filter_explanation_content" formatted="false">Lokálny filter počtu analyzuje záznamy histórie hovorov na automatickú identifikáciu a blokovanie častých spamových hovorov.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">Vysvetlenie lokálneho filtra počtu</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• Určte, či blokovať na základe hodnoty počtu čísla</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• Keď počet čísla prekročí nastavený prah, môžete ho automaticky zablokovať</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• Môžete selektívne povoliť čísla, ktoré neprekračujú prah</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• Môžete zvoliť, či sa majú zaznamenávať všetky logy dopytov</string>
+    <string name="local_count_filter_settings" formatted="false">Nastavenia lokálneho filtra počtu</string>
+    <string name="local_count_filter_use_cases" formatted="false">Tento filter je obzvlášť vhodný na identifikáciu automaticky vytáčaných spamových hovorov a marketingových hovorov.</string>
+    <string name="local_count_filtering" formatted="false">Lokálne filtrovanie počtu</string>
+    <string name="local_count_filtering_explanation" formatted="false">• Lokálne filtrovanie počtu: Pravidlá filtrovania na základe lokálneho počtu označení</string>
+    <string name="local_counter_filter" formatted="false">Lokálny číselný filter</string>
+    <string name="local_counter_filter_subtitle" formatted="false">Automaticky filtrujte spamové hovory na základe frekvencie hovorov</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">Nastavenia lokálneho filtra</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">Lokálne notifikácie zakázané</string>
+    <string name="local_notification_enabled" formatted="false">Lokálne notifikácie povolené</string>
+    <string name="local_services" formatted="false">Lokálne služby</string>
+    <string name="location" formatted="false">Miesto</string>
+    <string name="location_color" formatted="false">Farba polohy</string>
+    <string name="location_font_size" formatted="false">Veľkosť písma polohy</string>
+    <string name="location_icon_color" formatted="false">Farba ikony polohy</string>
+    <string name="location_position" formatted="false">Pozícia polohy</string>
+    <string name="log" formatted="false">Záznam</string>
+    <string name="log_action_description" formatted="false">Zalogovať informácie o hovore bez vykonania inej akcie.</string>
+    <string name="log_all_local_queries" formatted="false">Logovať všetky lokálne dopyty</string>
+    <string name="log_all_local_queries_description" formatted="false">Zaznamenávať logy pre všetky lokálne dopyty čísel</string>
+    <string name="log_all_remote_queries" formatted="false">Logovať všetky vzdialené dopyty</string>
+    <string name="log_all_remote_queries_description" formatted="false">Zaznamenávať všetky operácie vzdialených dopytov čísel</string>
+    <string name="low" formatted="false">Nízke</string>
+    <string name="low_risk" formatted="false">Nízke riziko</string>
+    <string name="manage" formatted="false">Spravovať kontakty</string>
+    <string name="manage_favorite_contacts" formatted="false">Spravovať obľúbené kontakty</string>
+    <string name="manage_filter_rules" formatted="false">Spravovať pravidlá filtra</string>
+    <string name="manage_filter_rules_description" formatted="false">Pridávať, upravovať alebo odstraňovať pravidlá filtra SMS</string>
+    <string name="manual_entry" formatted="false">Informácie o manuálnom zadaní</string>
+    <string name="mark_count" formatted="false">Označenie počtu</string>
+    <string name="mark_counts" formatted="false">Počty označení</string>
+    <string name="mark_exchange" formatted="false">Vymeniť označenie</string>
+    <string name="mark_more_numbers_for_more" formatted="false">Označte viac čísel pre viac bodov</string>
+    <string name="mark_phone" formatted="false">Označiť telefónne číslo</string>
+    <string name="mark_phone_failed" formatted="false">Nepodarilo sa označiť telefónne číslo: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">Správa označovania telefónnych čísel</string>
+    <string name="mark_phone_success" formatted="false">Telefónne číslo úspešne označené</string>
+    <string name="marked_by_count" formatted="false">Označené {count}</string>
+    <string name="marked_phones_list" formatted="false">Označené telefónne čísla</string>
+    <string name="marks_insufficient" formatted="false">Nedostatok bodov na výmenu</string>
+    <string name="master_and_overrides" formatted="false">Master Controls</string>
+    <string name="master_and_overrides_desc" formatted="false">Global Rule Settings</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">Zhoda zlyhala.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">zhoduje sa so špecifickým formátom čísla</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">Zhodu čísel so špeciálnymi znakmi:</string>
+    <string name="match_specific_digit_patterns" formatted="false">zhoduje sa s formátom XXX-XXXX-XXXX</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">Zhodu špecifických vzorov číslic:</string>
+    <string name="match_successful_message" formatted="false">Zhoda úspešná!</string>
+    <string name="medical" formatted="false">Zdravotníctvo</string>
+    <string name="medium" formatted="false">Stredné</string>
+    <string name="medium_risk" formatted="false">Stredné riziko</string>
+    <string name="membership_center" formatted="false">Centrum členstva</string>
+    <string name="membership_privileges" formatted="false">Členské výhody</string>
+    <string name="message_background_color" formatted="false">Farba pozadia správy</string>
+    <string name="message_color" formatted="false">Farba správy</string>
+    <string name="message_font_size" formatted="false">Veľkosť písma správy</string>
+    <string name="message_position" formatted="false">Pozícia správy</string>
+    <string name="migration_tool" formatted="false">Nástroj na migráciu</string>
+    <string name="minutes" formatted="false">minúty</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{pred 1 minútou} other{pred {count} minútami}}</string>
+    <string name="moderate" formatted="false">Stredné</string>
+    <string name="month" formatted="false">Mesiac</string>
+    <string name="monthly" formatted="false">Mesačne</string>
+    <string name="monthly_call_count" formatted="false">Mesačné hovory</string>
+    <string name="monthly_membership" formatted="false">Mesačné členstvo</string>
+    <string name="monthly_membership_description" formatted="false">Odomknite všetky prémiové funkcie, automatické obnovenie mesačne</string>
+    <string name="monthly_total" formatted="false">Mesačný súčet</string>
+    <string name="more_options" formatted="false">Viac možností</string>
+    <string name="mute" formatted="false">Stlmiť</string>
+    <string name="name" formatted="false">Meno</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">Meno a telefónne číslo nemôžu byť prázdne</string>
+    <string name="name_cannot_be_empty" formatted="false">Meno nemôže byť prázdne</string>
+    <string name="name_color" formatted="false">Farba mena</string>
+    <string name="name_font_size" formatted="false">Veľkosť písma mena</string>
+    <string name="name_position" formatted="false">Pozícia mena</string>
+    <string name="name_unknown" formatted="false">Meno: Neznáme</string>
+    <string name="national_number" formatted="false">Národné číslo</string>
+    <string name="need_vip_access" formatted="false">Potrebujete prístup VIP, aby ste mohli použiť túto funkciu</string>
+    <string name="new_vote_received" formatted="false">Prijatý nový hlas</string>
+    <string name="new_vote_received_body" formatted="false">Niekto hlasoval za {voteType} vymazanie čísla {phoneNumber}. Aktuálny počet hlasov: {totalVotes}.</string>
+    <string name="next_step" formatted="false">Ďalší krok</string>
+    <string name="no_action" formatted="false">Žiadna akcia</string>
+    <string name="no_action_rules" formatted="false">Pravidlá žiadnej akcie</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">Žiadna aktívna služba synchronizácie cloudu</string>
+    <string name="no_activity" formatted="false">Žiadna aktivita</string>
+    <string name="no_ads" formatted="false">Žiadne reklamy</string>
+    <string name="no_allowed_blocked_rules" formatted="false">Nenájdené žiadne povolené/blokované pravidlá</string>
+    <string name="no_blocked_type_data" formatted="false">Žiadne údaje o type blokovania</string>
+    <string name="no_call_records" formatted="false">Žiadne záznamy hovorov</string>
+    <string name="no_contacts_yet" formatted="false">Zatiaľ žiadne kontakty</string>
+    <string name="no_data" formatted="false">Žiadne dáta</string>
+    <string name="no_devices_registered_message" formatted="false">Žiadne registrované zariadenia</string>
+    <string name="no_labels" formatted="false">Zatiaľ žiadne štítky</string>
+    <string name="no_marked_phones" formatted="false">Žiadne označené telefónne čísla</string>
+    <string name="no_matching_contacts_found" formatted="false">Nenašli sa žiadne zodpovedajúce kontakty</string>
+    <string name="no_matching_numbers_found" formatted="false">Nenašli sa žiadne zodpovedajúce čísla</string>
+    <string name="no_matching_rules" formatted="false">Žiadne zodpovedajúce {ruleType}</string>
+    <string name="no_notifications" formatted="false">Žiadne oznámenia</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">Nenájdené žiadne telefónne pravidlá</string>
+    <string name="no_plugins" formatted="false">Zatiaľ žiadne pluginy</string>
+    <string name="no_proposals_found" formatted="false">Nenašli sa žiadne návrhy</string>
+    <string name="no_regex_rules" formatted="false">Nenájdené žiadne regex pravidlá</string>
+    <string name="no_rules" formatted="false">Zatiaľ žiadne {ruleType}</string>
+    <string name="no_rules_prompt" formatted="false">Nenašli sa žiadne pravidlá, pridajte prosím pravidlá</string>
+    <string name="no_rules_to_export" formatted="false">Žiadne pravidlá na export</string>
+    <string name="no_sim_card_detected" formatted="false">Nenájdená žiadna SIM karta</string>
+    <string name="no_sim_cards_detected" formatted="false">Nenájdené žiadne SIM karty</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">Zatiaľ žiadne pravidlá filtra SMS</string>
+    <string name="no_sms_rules_yet" formatted="false">Zatiaľ žiadne pravidlá SMS</string>
+    <string name="no_subscriptions" formatted="false">Žiadne predplatné</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">V súbore sa nenašli žiadne platné pravidlá SMS</string>
+    <string name="none" formatted="false">Žiadne</string>
+    <string name="none_action_description" formatted="false">Pre hovor sa nevykoná žiadna špeciálna akcia.</string>
+    <string name="none_service_type" formatted="false">Žiadne</string>
+    <string name="normal_user" formatted="false">Bežný používateľ</string>
+    <string name="not_granted" formatted="false">Neposkytnuté</string>
+    <string name="not_verified_text" formatted="false">Overené</string>
+    <string name="notification_frequency_hours" formatted="false">Frekvencia oznámení (hodiny)</string>
+    <string name="notification_frequency_title" formatted="false">Frekvencia oznámení</string>
+    <string name="notification_mode" formatted="false">Režim upozornení</string>
+    <string name="notification_mode_description" formatted="false">Zobraziť informácie o volajúcom v notifikačnej lište</string>
+    <string name="notification_permission" formatted="false">Povolenie na upozornenia</string>
+    <string name="notification_permission_description" formatted="false">Používa sa na zobrazovanie upozornení na prichádzajúce hovory a správy.</string>
+    <string name="notification_settings" formatted="false">Nastavenia upozornení</string>
+    <string name="notification_settings_title" formatted="false">Nastavenia oznámení</string>
+    <string name="notification_instructions" formatted="false">Inštrukcie:
+1. Klepnite na &quot;ODOSLAŤ&quot; na vytvorenie alebo aktualizáciu oznámenia.
+2. Prejdite na domovskú obrazovku alebo stiahnite oznamovaciu lištu, aby ste videli výsledok.
+3. Klepnite na &quot;UKONČIŤ&quot; na zatvorenie oznámenia.</string>
+    <string name="notifications" formatted="false">Upozornenia</string>
+    <string name="notify" formatted="false">Upozorniť</string>
+    <string name="notify_action_description" formatted="false">Poslať upozornenie pri prijatí hovoru.</string>
+    <string name="number" formatted="false">Číslo</string>
+    <string name="number_color" formatted="false">Farba čísla</string>
+    <string name="number_font_size" formatted="false">Veľkosť písma čísla</string>
+    <string name="number_format" formatted="false">Formát čísla</string>
+    <string name="number_invalid_format" formatted="false">Číslo má neplatný formát</string>
+    <string name="number_position" formatted="false">Pozícia čísla</string>
+    <string name="number_search" formatted="false">Vyhľadávanie čísla</string>
+    <string name="number_type_color" formatted="false">Farba typu čísla</string>
+    <string name="number_type_font_size" formatted="false">Veľkosť písma typu čísla</string>
+    <string name="number_type_position" formatted="false">Pozícia typu čísla</string>
+    <string name="ok_button" formatted="false">OK</string>
+    <string name="onboarding_complete_description" formatted="false">Váš manažér zabezpečenia hovorov je pripravený, začnite si užívať bezpečné hovory!</string>
+    <string name="onboarding_language_description" formatted="false">Vyberte si preferovaný jazyk pre najlepší zážitok.</string>
+    <string name="onboarding_permissions_description" formatted="false">Na poskytovanie úplných služieb potrebujeme nasledujúce povolenia:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">Jedným kliknutím blokujte spamové hovory a správy, prispôsobte si pravidlá blokovania a získajte pokojné prostredie.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">Automaticky identifikujte neznáme hovory, označte podozrivé čísla a chráňte bezpečnosť vašich hovorov.</string>
+    <string name="onboarding_welcome_description" formatted="false">Váš expert na správu hovorov, ktorý poskytuje komplexné služby identifikácie a blokovania hovorov.</string>
+    <string name="one_drive_auth_description" formatted="false">Autorizujte pomocou klientskeho ID a kľúča OneDrive nakonfigurovaného v systéme</string>
+    <string name="one_drive_config_title" formatted="false">Konfigurácia OneDrive</string>
+    <string name="online_caller_id_subscription" formatted="false">Predplatné online identifikácie volajúceho</string>
+    <string name="open_app_settings" formatted="false">Otvoriť nastavenia aplikácie</string>
+    <string name="open_app_settings_failed" formatted="false">Nepodarilo sa otvoriť nastavenia aplikácie: {error}</string>
+    <string name="open_in_web_view" formatted="false">Otvoriť v prehliadači WebView</string>
+    <string name="operation_failed" formatted="false">Operácia zlyhala: {error}</string>
+    <string name="operation_failure" formatted="false">Operácia zlyhala</string>
+    <string name="operation_success" formatted="false">Operácia úspešná</string>
+    <string name="oppose" formatted="false">Nesúhlasiť</string>
+    <string name="oppose_count" formatted="false">Proti ({opposeCount})</string>
+    <string name="opposed" formatted="false">ODMIETNUTÉ</string>
+    <string name="other" formatted="false">Iné</string>
+    <string name="our_other_apps" formatted="false">Naše ďalšie aplikácie</string>
+    <string name="overlay_mode" formatted="false">Plávajúce okno</string>
+    <string name="overlay_mode_description" formatted="false">Zobraziť informácie o volajúcom v plávajúcom okne</string>
+    <string name="overlay_permission" formatted="false">Povolenie plávajúceho okna</string>
+    <string name="overlay_permission_description" formatted="false">Používa sa na zobrazenie prekrytia prichádzajúceho hovoru.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">Prehľad</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">Heslo</string>
+    <string name="password_cannot_be_empty" formatted="false">Heslo nemôže byť prázdne</string>
+    <string name="password_label" formatted="false">Heslo</string>
+    <string name="passwords_do_not_match" formatted="false">Heslá sa nezhodujú</string>
+    <string name="pattern" formatted="false">Vzor</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">ČAKAJÚCE</string>
+    <string name="pending_proposals" formatted="false">Čakajúce návrhy</string>
+    <string name="pending_proposals_body" formatted="false">Máte {count, plural, =0 {žiadne čakajúce návrhy} one {1 čakajúci návrh} other {{count} čakajúcich návrhov}}.</string>
+    <string name="pending_sync" formatted="false">Čaká na synchronizáciu</string>
+    <string name="period_month" formatted="false">Mesiac</string>
+    <string name="period_week" formatted="false">Týždeň</string>
+    <string name="period_year" formatted="false">Rok</string>
+    <string name="permission_denied" formatted="false">Požiadavka na povolenie odmietnutá</string>
+    <string name="permission_granted" formatted="false">Povolenie udelené</string>
+    <string name="permission_management" formatted="false">Správa povolení</string>
+    <string name="permission_subtitle" formatted="false">Spravovať povolenia prekrytia a optimalizácie batérie</string>
+    <string name="permission_title" formatted="false">Špeciálne povolenia</string>
+    <string name="phone_calls_tab" formatted="false">Telefón</string>
+    <string name="phone_number" formatted="false">Telefónne číslo</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">Telefónne číslo nemôže byť prázdne</string>
+    <string name="phone_number_hint" formatted="false">Zadajte telefónne číslo</string>
+    <string name="phone_number_label" formatted="false">Telefónne číslo</string>
+    <string name="phone_number_min_digits" formatted="false">Telefónne číslo musí mať minimálne 7 číslic</string>
+    <string name="phone_number_required" formatted="false">Telefónne číslo je povinné</string>
+    <string name="phone_number_type" formatted="false">Typ telefónneho čísla</string>
+    <string name="phone_number_type_fixed_line" formatted="false">Pevná linka</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">Pevná linka alebo mobil</string>
+    <string name="phone_number_type_mobile" formatted="false">Mobil</string>
+    <string name="phone_number_type_pager" formatted="false">Pager</string>
+    <string name="phone_number_type_personal_number" formatted="false">Osobné číslo</string>
+    <string name="phone_number_type_premium_rate" formatted="false">Prémiová sadzba</string>
+    <string name="phone_number_type_shared_cost" formatted="false">Spoločné náklady</string>
+    <string name="phone_number_type_toll_free" formatted="false">Bezplatné</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">Neznámy</string>
+    <string name="phone_number_type_voicemail" formatted="false">Hlasová schránka</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">Povolenie telefónu</string>
+    <string name="phone_permission_description" formatted="false">Používa sa na identifikáciu a blokovanie prichádzajúcich hovorov.</string>
+    <string name="phone_rule" formatted="false">Pravidlo telefónu</string>
+    <string name="phone_rule_management" formatted="false">Správa pravidiel telefónu</string>
+    <string name="phone_rule_subscription" formatted="false">Predplatné pravidiel telefónu</string>
+    <string name="phone_rules_info" formatted="false">Telefónne pravidlá sa používajú na priraďovanie hovorov ku konkrétnym telefónnym číslam, ktoré majú nižšiu prioritu. Niektoré pochádzajú z predplatného telefónnych pravidiel</string>
+    <string name="phone_subscription" formatted="false">Predplatné telefónu</string>
+    <string name="phone_subscription_rules_description" formatted="false">Prihláste sa na odber zoznamov pravidiel telefónu prostredníctvom URL na automatickú aktualizáciu zoznamov povolených a zakázaných pravidiel. Podporuje súbory pravidiel vo formáte JSON.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">Zadajte aspoň jedno číslo.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">Vyberte označenie a zadajte platné telefónne číslo</string>
+    <string name="plugin_added_success" formatted="false">Doplnok „{name}“ bol úspešne pridaný</string>
+    <string name="plugin_deleted" formatted="false">Doplnok bol odstránený</string>
+    <string name="plugin_description" formatted="false">Popis pluginu</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">Štítok pluginu</string>
+    <string name="plugin_latest_version" formatted="false">Doplnok je už v najnovšej verzii</string>
+    <string name="plugin_list_export_success" formatted="false">Zoznam doplnkov bol úspešne exportovaný</string>
+    <string name="plugin_management" formatted="false">Správa doplnkov</string>
+    <string name="plugin_management_subtitle" formatted="false">Spravujte a konfigurujte doplnky tretích strán</string>
+    <string name="plugin_name" formatted="false">Názov doplnku</string>
+    <string name="plugin_rules_info" formatted="false">Z bezpečnostných dôvodov používajte pluginy iba z dôveryhodných zdrojov. Neváhajte použiť naše šablóny na vytvorenie vlastných pluginov!</string>
+    <string name="plugin_service" formatted="false">Služba doplnkov</string>
+    <string name="plugin_test_page_title" formatted="false">Test doplnku</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">Doplnok bol úspešne aktualizovaný</string>
+    <string name="plugin_url" formatted="false">URL doplnku</string>
+    <string name="plugin_version" formatted="false">Verzia doplnku</string>
+    <string name="plugins_deleted" formatted="false">{count} doplnkov bolo úspešne odstránených.</string>
+    <string name="political" formatted="false">Politické</string>
+    <string name="powerful_spam_blocking" formatted="false">Výkonné blokovanie spamu</string>
+    <string name="previous_step" formatted="false">Predchádzajúci</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">Uprednostniť nastavenia vzdialených akcií</string>
+    <string name="prioritize_remote_action_description" formatted="false">Uprednostniť nastavenia akcií zo vzdialenej databázy</string>
+    <string name="processed" formatted="false">Spracované</string>
+    <string name="processing" formatted="false">Spracováva sa...</string>
+    <string name="processing_operation" formatted="false">Spracováva sa...</string>
+    <string name="proposal_approved" formatted="false">Návrh schválený ✅</string>
+    <string name="proposal_approved_body" formatted="false">Návrh na vymazanie čísla {phoneNumber} bol schválený komunitou ({supportPercentage}% podpory, {totalVotes} hlasov).</string>
+    <string name="proposal_created" formatted="false">Návrh bol úspešne vytvorený</string>
+    <string name="proposal_details" formatted="false">Detaily návrhu</string>
+    <string name="proposal_not_found" formatted="false">Návrh nebol nájdený</string>
+    <string name="proposal_processed" formatted="false">Tento návrh bol spracovaný</string>
+    <string name="proposal_rejected" formatted="false">Návrh zamietnutý ❌</string>
+    <string name="proposal_rejected_body" formatted="false">Návrh na vymazanie čísla {phoneNumber} bol zamietnutý komunitou ({supportPercentage}% podpory, {totalVotes} hlasov).</string>
+    <string name="proposal_statistics" formatted="false">Štatistiky návrhov</string>
+    <string name="provide_detailed_explanation" formatted="false">Poskytnite podrobné vysvetlenie (minimum 10 znakov)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">Kúpiť</string>
+    <string name="purchase_subtitle" formatted="false">Zakúpiť službu</string>
+    <string name="purchase_title" formatted="false">Nákup</string>
+    <string name="quarterly_membership" formatted="false">Štvrťročné členstvo</string>
+    <string name="quarterly_membership_description" formatted="false">Odomknite všetky prémiové funkcie, automatické obnovenie štvrťročne</string>
+    <string name="ready" formatted="false">Pripravené!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">Dôvod</string>
+    <string name="reason_inaccurate_info" formatted="false">Nepresné informácie</string>
+    <string name="reason_min_characters" formatted="false">Dôvod musí mať minimálne 10 znakov</string>
+    <string name="reason_not_in_service" formatted="false">Nie je v prevádzke</string>
+    <string name="reason_other" formatted="false">Iné</string>
+    <string name="reason_outdated" formatted="false">Zastaralé číslo</string>
+    <string name="reason_privacy" formatted="false">Obava o súkromie</string>
+    <string name="reason_required" formatted="false">Dôvod je povinný</string>
+    <string name="reason_wrongly_identified" formatted="false">Nesprávne identifikované</string>
+    <string name="recruiter" formatted="false">Náborár</string>
+    <string name="redeem_vip_with_marks" formatted="false">Vykúpiť VIP s bodmi</string>
+    <string name="redirect" formatted="false">Presmerovať</string>
+    <string name="redirect_action_description" formatted="false">Presmerovať hovor na zadané číslo.</string>
+    <string name="refresh" formatted="false">Obnoviť</string>
+    <string name="refresh_permission_status" formatted="false">Obnoviť stav povolenia</string>
+    <string name="refresh_proposals" formatted="false">Obnoviť návrhy</string>
+    <string name="refresh_tooltip" formatted="false">Obnoviť</string>
+    <string name="regex_error_message" formatted="false">Chyba regulárneho výrazu: {error}</string>
+    <string name="regex_pattern" formatted="false">Vzor regulárneho výrazu</string>
+    <string name="regex_pattern_explanation" formatted="false">Vysvetlenie vzoru regulárneho výrazu</string>
+    <string name="regex_pattern_explanation_button" formatted="false">Vysvetlenie vzoru regulárneho výrazu</string>
+    <string name="regex_pattern_label" formatted="false">Vzor regulárneho výrazu</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">Vzory regulárnych výrazov na zhodu telefónnych čísel</string>
+    <string name="regex_rule" formatted="false">Pravidlo regulárneho výrazu</string>
+    <string name="regex_rule_add_failed" formatted="false">Nepodarilo sa pridať pravidlo regulárneho výrazu: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">Pravidlo regulárneho výrazu bolo úspešne pridané</string>
+    <string name="regex_rule_management" formatted="false">Správa pravidiel regulárnych výrazov</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">Názov pravidla a vzor regulárneho výrazu nemôžu byť prázdne</string>
+    <string name="regex_rules" formatted="false">Pravidlá regulárnych výrazov</string>
+    <string name="regex_rules_info" formatted="false">Regex pravidlá sa používajú na filtrovanie hovorov na základe Regex vzorov.</string>
+    <string name="regex_tester_title" formatted="false">Tester regulárnych výrazov</string>
+    <string name="region" formatted="false">Región</string>
+    <string name="registered_devices_title" formatted="false">Registrované zariadenia</string>
+    <string name="reject_all_calls" formatted="false">Odmietnuť všetky hovory</string>
+    <string name="reject_all_calls_description" formatted="false">Keď je povolené, všetky hovory budú odmietnuté s najvyššou prioritou</string>
+    <string name="reject_all_numbers" formatted="false">Odmietnuť všetky čísla</string>
+    <string name="reject_all_numbers_desc" formatted="false">Pri povolení odmietnuť všetky prichádzajúce hovory</string>
+    <string name="reject_exceeded_numbers" formatted="false">Odmietnuť prekročené čísla</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">Automaticky odmietnuť čísla, ktoré prekročili prahovú hodnotu počtu</string>
+    <string name="rejected" formatted="false">ZAMIETNUTÉ</string>
+    <string name="remote_filter_settings" formatted="false">Nastavenia vzdialeného filtra</string>
+    <string name="remote_filter_settings_page_title" formatted="false">Nastavenia vzdialeného filtra čísel</string>
+    <string name="remote_number_filter" formatted="false">Vzdialený filter čísel</string>
+    <string name="remote_number_filter_description" formatted="false">Zachytáva obťažujúce hovory na základe informácií zo vzdialenej databázy</string>
+    <string name="remote_number_filter_subtitle" formatted="false">Identifikujte spamové hovory pomocou cloudovej databázy a hlásení komunity</string>
+    <string name="remote_number_filtering" formatted="false">Vzdialené filtrovanie čísel</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• Vzdialené filtrovanie čísel: Filtračné pravidlá založené na informáciách zo vzdialenej databázy</string>
+    <string name="remove_ads" formatted="false">Odstrániť reklamy</string>
+    <string name="remove_ads_description" formatted="false">Trvalo odstráňte všetky reklamy v aplikácii pre plynulejší zážitok</string>
+    <string name="remove_ads_title" formatted="false">Odstrániť reklamy</string>
+    <string name="remove_from_favorites" formatted="false">Odstrániť z obľúbených</string>
+    <string name="removed_from_favorites" formatted="false">Odstránené z obľúbených</string>
+    <string name="rename_device_title" formatted="false">Premenovať zariadenie</string>
+    <string name="reporting_guidelines" formatted="false">• Nahlasujte iba čísla, ktoré sú skutočne problematické
+• Poskytnite presné a podrobné dôvody
+• Zvoľte vhodnú úroveň rizika na základe závažnosti
+• Falošné hlásenia môžu viesť k obmedzeniu účtu</string>
+    <string name="request_all_permissions" formatted="false">Požiadať o všetky povolenia</string>
+    <string name="request_permission" formatted="false">Požiadať o povolenie</string>
+    <string name="request_permission_failed" formatted="false">Nepodarilo sa požiadať o povolenie: {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">{count} bodov</string>
+    <string name="reset" formatted="false">Resetovať</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">Obnoviť</string>
+    <string name="restore_application_settings_from_backup" formatted="false">Obnoviť nastavenia aplikácie z zálohy</string>
+    <string name="restore_from_cloud" formatted="false">Obnoviť z cloudu</string>
+    <string name="restore_from_cloud_failed" formatted="false">Nepodarilo sa obnoviť z cloudu: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">Úspešne obnovené z cloudu</string>
+    <string name="restore_purchases" formatted="false">Obnoviť nákupy</string>
+    <string name="restore_settings" formatted="false">Obnoviť nastavenia</string>
+    <string name="restore_settings_confirmation" formatted="false">Toto nahradí všetky vaše súčasné nastavenia. Ste si istí, že chcete pokračovať?</string>
+    <string name="result" formatted="false">Výsledok</string>
+    <string name="retry" formatted="false">Skúsiť znova</string>
+    <string name="rewarded_ad_service" formatted="false">Služba sponzorovaných reklám</string>
+    <string name="ridesharing" formatted="false">Zdieľanie jázd</string>
+    <string name="risk" formatted="false">Riziko</string>
+    <string name="risk_level" formatted="false">Úroveň rizika</string>
+    <string name="risk_level_critical" formatted="false">Kritické</string>
+    <string name="risk_level_high" formatted="false">Vysoké</string>
+    <string name="risk_level_label" formatted="false">Úroveň rizika</string>
+    <string name="risk_level_low" formatted="false">Nízke</string>
+    <string name="risk_level_medium" formatted="false">Stredné</string>
+    <string name="risk_level_very_low" formatted="false">Veľmi nízke</string>
+    <string name="robocall" formatted="false">Robohovor</string>
+    <string name="rule_action" formatted="false">Akcia pravidla</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">Pravidlo bolo úspešne pridané</string>
+    <string name="rule_added_success" formatted="false">Pravidlo bolo úspešne pridané</string>
+    <string name="rule_delete_confirm_content" formatted="false">Ste si istí, že chcete odstrániť tento {ruleType}?</string>
+    <string name="rule_delete_confirm_title" formatted="false">Odstrániť pravidlo</string>
+    <string name="rule_delete_failed" formatted="false">Nepodarilo sa odstrániť pravidlo: {error}</string>
+    <string name="rule_delete_success" formatted="false">Pravidlo bolo úspešne odstránené</string>
+    <string name="rule_deleted_successfully" formatted="false">Pravidlo bolo úspešne odstránené</string>
+    <string name="rule_disabled_successfully" formatted="false">Pravidlo bolo úspešne zakázané</string>
+    <string name="rule_enabled_successfully" formatted="false">Pravidlo bolo úspešne povolené</string>
+    <string name="rule_load_failed" formatted="false">Nepodarilo sa načítať pravidlá: {error}</string>
+    <string name="rule_management" formatted="false">Správa pravidiel</string>
+    <string name="rule_name" formatted="false">Názov pravidla</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">Názov pravidla a regulárny výraz obsahu nemôžu byť prázdne</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">Názov pravidla a telefónne číslo nemôžu byť prázdne</string>
+    <string name="rule_name_hint" formatted="false">napr. Rodina, Priatelia atď.</string>
+    <string name="rule_name_label" formatted="false">Názov pravidla</string>
+    <string name="rule_name_required" formatted="false">Názov pravidla a telefónne číslo nemôžu byť prázdne</string>
+    <string name="rule_not_exist" formatted="false">Pravidlo neexistuje alebo bolo odstránené</string>
+    <string name="rule_not_found" formatted="false">Pravidlo nenájdené: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">Pravidlo úspešne uložené!</string>
+    <string name="rule_status_changed" formatted="false">Pravidlo {status} úspešne</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">Operácia zlyhala: {error}</string>
+    <string name="rule_toggle_success" formatted="false">Pravidlo {status} úspešne</string>
+    <string name="rule_type" formatted="false">Typ pravidla</string>
+    <string name="rule_update_failed" formatted="false">Nepodarilo sa aktualizovať pravidlo: {error}</string>
+    <string name="rule_update_success" formatted="false">Pravidlo úspešne aktualizované</string>
+    <string name="rule_verification" formatted="false">Overenie pravidla</string>
+    <string name="rules_exported_successfully" formatted="false">Pravidlá úspešne exportované</string>
+    <string name="rules_exported_to" formatted="false">Pravidlá exportované do: {path}</string>
+    <string name="rules_imported" formatted="false">Pravidlá úspešne importované</string>
+    <string name="rules_imported_successfully" formatted="false">{count} pravidiel úspešne importovaných</string>
+    <string name="save" formatted="false">Uložiť</string>
+    <string name="save_button" formatted="false">Uložiť</string>
+    <string name="save_button_text" formatted="false">Uložiť</string>
+    <string name="save_failed" formatted="false">Uloženie zlyhalo: {error}</string>
+    <string name="save_script" formatted="false">Uložiť skript</string>
+    <string name="save_settings" formatted="false">Uložiť nastavenia</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">Pravdepodobné podvody</string>
+    <string name="script_saved" formatted="false">Skript bol uložený</string>
+    <string name="scroll_speed" formatted="false">Rýchlosť posúvania</string>
+    <string name="scrolling_security_message_settings" formatted="false">Nastavenia posúvaných bezpečnostných správ</string>
+    <string name="search" formatted="false">Hľadať</string>
+    <string name="search_by_name_or_phone_number" formatted="false">Hľadať podľa mena alebo telefónneho čísla</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">Hľadať predplatné kontaktov</string>
+    <string name="search_contacts" formatted="false">Vyhľadať kontakty</string>
+    <string name="search_error" formatted="false">Chyba vyhľadávania: {error}</string>
+    <string name="search_hint" formatted="false">Hľadať...</string>
+    <string name="search_labels_hint" formatted="false">Hľadať štítky</string>
+    <string name="search_marked_phones_hint" formatted="false">Hľadať označené telefóny</string>
+    <string name="search_phone_rules_hint" formatted="false">Hľadať telefónne pravidlá</string>
+    <string name="search_plugins_hint" formatted="false">Hľadať pluginy</string>
+    <string name="search_proposals" formatted="false">Hľadať návrhy</string>
+    <string name="search_regex_rules_hint" formatted="false">Hľadať regex pravidlá</string>
+    <string name="search_subscriptions_hint" formatted="false">Hľadať predplatné</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">Neverte žiadnym telefonátom. Vždy si nezávisle overte čísla zákazníckej podpory. Nikdy nezdieľajte heslá, overovacie kódy, čísla kariet ani osobné údaje.</string>
+    <string name="select_action" formatted="false">Vyberte akciu</string>
+    <string name="select_action_when_blocking_calls" formatted="false">Vyberte akciu pri blokovaní hovorov</string>
+    <string name="select_action_when_rule_matches" formatted="false">Vyberte akciu, keď pravidlo zodpovedá</string>
+    <string name="select_all" formatted="false">Vybrať všetko</string>
+    <string name="select_country" formatted="false">Vybrať krajinu</string>
+    <string name="select_export_format" formatted="false">Vybrať formát exportu</string>
+    <string name="select_label" formatted="false">Vybrať štítok</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">Prosím, vyberte štítok a zadajte platné telefónne číslo</string>
+    <string name="select_language" formatted="false">Vybrať jazyk</string>
+    <string name="select_multiple" formatted="false">Vybrať viacero</string>
+    <string name="select_sim_card" formatted="false">Vybrať SIM kartu</string>
+    <string name="select_tags" formatted="false">Vybrať značky</string>
+    <string name="select_target_service" formatted="false">Vyberte cieľovú službu</string>
+    <string name="select_trusted_data_source" formatted="false">Prosím, vyberte dôveryhodné zdroje údajov</string>
+    <string name="select_your_language" formatted="false">Vybrať váš jazyk</string>
+    <string name="selected_items" formatted="false">{count} položiek vybraných</string>
+    <string name="selected_label" formatted="false">Vybrané:</string>
+    <string name="sender" formatted="false">Odosielateľ</string>
+    <string name="sender_regex_optional" formatted="false">RegEx odosielateľa (voliteľné)</string>
+    <string name="separate_sims" formatted="false">Separate SIMs</string>
+    <string name="separate_sims_desc" formatted="false">Enable separate filtering rules for each SIM card</string>
+    <string name="server_address_label" formatted="false">Adresa servera</string>
+    <string name="service_type_contact" formatted="false">Predplatné kontaktu</string>
+    <string name="service_type_label" formatted="false">Typ služby</string>
+    <string name="service_type_phone" formatted="false">Predplatné telefónu</string>
+    <string name="service_type_plugin" formatted="false">Aktualizácia pluginu</string>
+    <string name="service_type_sms" formatted="false">Predplatné SMS</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">Nastaviť čas oneskorenia</string>
+    <string name="set_encryption_password" formatted="false">Nastaviť heslo šifrovania</string>
+    <string name="settings" formatted="false">Nastavenia</string>
+    <string name="settings_backed_up_to" formatted="false">Nastavenia zálohované do: {path}</string>
+    <string name="settings_backup" formatted="false">Zálohovanie nastavení</string>
+    <string name="settings_restored_successfully" formatted="false">Nastavenia úspešne obnovené. Pre prejdenie zmien reštartujte aplikáciu.</string>
+    <string name="settings_save_failed" formatted="false">Nepodarilo sa uložiť nastavenia: {error}</string>
+    <string name="settings_saved" formatted="false">Nastavenia uložené</string>
+    <string name="settings_tab" formatted="false">Nastavenia</string>
+    <string name="settings_title" formatted="false">Nastavenia</string>
+    <string name="setup" formatted="false">Nastavenie</string>
+    <string name="show_all_contacts" formatted="false">Zobraziť všetky kontakty</string>
+    <string name="show_favorites" formatted="false">Zobraziť obľúbené</string>
+    <string name="silence" formatted="false">Ticho</string>
+    <string name="silence_action_description" formatted="false">Hovory budú umlčané, ale zobrazené v zázname hovorov.</string>
+    <string name="silence_and_no_answer" formatted="false">Ticho a bez odpovede</string>
+    <string name="silence_no_answer" formatted="false">Ticho bez odpovede</string>
+    <string name="silent_call_voice_clone" formatted="false">Tichý hlasový klon hovoru</string>
+    <string name="silent_rules" formatted="false">Tiché pravidlá</string>
+    <string name="sim_card" formatted="false">SIM karta {simNumber}</string>
+    <string name="sim_card_color" formatted="false">Farba SIM karty</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• Konfigurácia SIM karty: Nastavte nezávislé pravidlá filtrovania pre každú SIM kartu</string>
+    <string name="sim_card_filter_rules" formatted="false">Pravidlá filtrovania SIM karty</string>
+    <string name="sim_card_filter_rules_description" formatted="false">Nastavte rôzne pravidlá filtrovania na základe slotov SIM kariet</string>
+    <string name="sim_card_font_size" formatted="false">Veľkosť písma SIM karty</string>
+    <string name="sim_card_position" formatted="false">Pozícia SIM karty</string>
+    <string name="sim_card_title" formatted="false">SIM karta</string>
+    <string name="sim_country" formatted="false">Krajina SIM</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">Pravidlá slotov SIM vám umožňujú nakonfigurovať nezávislé pravidlá filtrovania pre každý slot SIM.</string>
+    <string name="sim_rule_instructions_title" formatted="false">Pravidlá slotov SIM</string>
+    <string name="sim_rules_not_found" formatted="false">Pravidlá SIM karty nenájdené</string>
+    <string name="sim_slot" formatted="false">Slot SIM karty</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">Nakonfigurujte nezávislé pravidlá filtrovania pre každú SIM kartu:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">Nastavenia filtra slotu SIM {slotNumber}</string>
+    <string name="sim_slot_management" formatted="false">Správa slotov SIM</string>
+    <string name="sim_slot_position" formatted="false">Pozícia slotu SIM {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• Pravidlá slotov SIM: Nezávislé stratégie filtrovania na slot SIM</string>
+    <string name="sim_slot_rule_list_title" formatted="false">Zoznam pravidiel slotov SIM</string>
+    <string name="sim_slot_rule_management" formatted="false">Pravidlá slotov SIM</string>
+    <string name="sim_slot_rules" formatted="false">Pravidlá slotov SIM karty</string>
+    <string name="sim_slot_title" formatted="false">Slot SIM {slotNumber}</string>
+    <string name="sim_state" formatted="false">Stav SIM karty</string>
+    <string name="skip" formatted="false">Preskočiť</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">Inteligentná identifikácia volajúceho</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">Filtrovanie SMS vám pomáha automaticky filtrovať spamové správy a udržiavať váš zoznam správ čistý. Môžete nastaviť pravidlá filtrovania a metódy upozornení.</string>
+    <string name="sms_filter_disabled" formatted="false">Filtrovanie SMS je vypnuté</string>
+    <string name="sms_filter_enabled" formatted="false">Filtrovanie SMS je zapnuté</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">Pravidlo filtra SMS bolo úspešne pridané</string>
+    <string name="sms_filter_rules" formatted="false">Pravidlá filtra SMS</string>
+    <string name="sms_filter_settings" formatted="false">Nastavenia filtra SMS</string>
+    <string name="sms_management" formatted="false">Správa SMS</string>
+    <string name="sms_permission" formatted="false">Povolenie SMS</string>
+    <string name="sms_permission_description" formatted="false">Používa sa na filtrovanie spamových správ.</string>
+    <string name="sms_rule_added_successfully" formatted="false">Pravidlo SMS bolo úspešne pridané</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">Pravidlo SMS bolo úspešne odstránené</string>
+    <string name="sms_rule_load_failed" formatted="false">Nepodarilo sa načítať pravidlá SMS: {error}</string>
+    <string name="sms_rule_management" formatted="false">Správa pravidiel SMS</string>
+    <string name="sms_rule_subscription" formatted="false">Predplatné pravidiel SMS</string>
+    <string name="sms_subscription" formatted="false">Predplatné SMS</string>
+    <string name="sms_subscription_added_successfully" formatted="false">Predplatné SMS bolo úspešne pridané</string>
+    <string name="sms_subscription_rules_description" formatted="false">Prihláste sa na odber zoznamov pravidiel SMS pomocou URL, podporuje zhodu s regulárnymi výrazmi. Môžete nastaviť akcie blokovania alebo povolenia.</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">Niektoré žiadosti o povolenie boli odmietnuté</string>
+    <string name="sort_by" formatted="false">Radiť podľa</string>
+    <string name="sort_least_popular" formatted="false">Najmenej populárne</string>
+    <string name="sort_most_popular" formatted="false">Najpopulárnejšie</string>
+    <string name="sort_newest" formatted="false">Najnovšie</string>
+    <string name="sort_oldest" formatted="false">Najstaršie</string>
+    <string name="spam_likely" formatted="false">Pravdepodobne spam</string>
+    <string name="start_color" formatted="false">Štartovacia farba</string>
+    <string name="start_date" formatted="false">Dátum začiatku</string>
+    <string name="start_using" formatted="false">Začať používať</string>
+    <string name="stat_answered" formatted="false">Odpovedané</string>
+    <string name="stat_blocked" formatted="false">Blokované</string>
+    <string name="statistics" formatted="false">Štatistiky</string>
+    <string name="statistics_page_title" formatted="false">Analýza dát</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">Farba STIR</string>
+    <string name="stir_failed" formatted="false">Overenie zlyhalo</string>
+    <string name="stir_font_size" formatted="false">Veľkosť písma STIR</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">Pozícia STIR</string>
+    <string name="stir_unknown" formatted="false">Neznámy stav overenia</string>
+    <string name="stir_verification" formatted="false">STIR/SHAKEN overenie</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} pre číslo {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">Zobrazuje výsledky overenia STIR/SHAKEN pre čísla.</string>
+    <string name="stir_verification_title" formatted="false">Overenie STIR/SHAKEN</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">Povolenie úložiska</string>
+    <string name="storage_permission_description" formatted="false">Používa sa na ukladanie nastavení a pravidiel.</string>
+    <string name="submit" formatted="false">Odoslať</string>
+    <string name="subscribe" formatted="false">Prihlásiť sa</string>
+    <string name="subscription_add_success" formatted="false">Predplatné &quot;{name}&quot; bolo úspešne pridané</string>
+    <string name="subscription_delete_confirm_content" formatted="false">Ste si istí, že chcete toto predplatné odstrániť?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">Odstrániť predplatné</string>
+    <string name="subscription_delete_failed" formatted="false">Nepodarilo sa odstrániť predplatné: {error}</string>
+    <string name="subscription_delete_success" formatted="false">Predplatné bolo odstránené</string>
+    <string name="subscription_deleted" formatted="false">Predplatné bolo odstránené</string>
+    <string name="subscription_load_failed" formatted="false">Nepodarilo sa načítať predplatné: {error}</string>
+    <string name="subscription_name" formatted="false">Názov predplatného</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">Názov predplatného a URL nemôžu byť prázdne</string>
+    <string name="subscription_name_hint" formatted="false">Zadajte názov predplatného</string>
+    <string name="subscription_status_change_failed" formatted="false">Nepodarilo sa zmeniť stav predplatného: {error}</string>
+    <string name="subscription_update_failed" formatted="false">Nepodarilo sa aktualizovať predplatné: {error}</string>
+    <string name="subscription_update_success" formatted="false">Predplatné bolo úspešne aktualizované</string>
+    <string name="subscription_url" formatted="false">URL predplatného</string>
+    <string name="subscription_url_hint" formatted="false">Zadajte URL predplatného</string>
+    <string name="successfully_imported_rules" formatted="false">Úspešne importovaných {count} pravidiel</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">Podpora</string>
+    <string name="support_count" formatted="false">Podpora ({supportCount})</string>
+    <string name="support_sync" formatted="false">Podporovať synchronizáciu</string>
+    <string name="supported" formatted="false">PODPORENÉ</string>
+    <string name="survey" formatted="false">Prieskum</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">Synchronizovať zariadenia</string>
+    <string name="sync_failed" formatted="false">Synchronizácia zlyhala</string>
+    <string name="sync_failed_message" formatted="false">Synchronizácia zlyhala</string>
+    <string name="sync_folder_name_label" formatted="false">Názov synchronizačného priečinka</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">Synchronizovať teraz</string>
+    <string name="sync_now_button" formatted="false">Synchronizovať teraz</string>
+    <string name="sync_status_title" formatted="false">Stav synchronizácie</string>
+    <string name="sync_status_updated_message" formatted="false">Stav synchronizácie aktualizovaný</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">Synchronizácia úspešná</string>
+    <string name="sync_with_cloud_storage" formatted="false">Synchronizovať s cloudovým úložiskom</string>
+    <string name="synced" formatted="false">Synchronizované</string>
+    <string name="synchronized" formatted="false">Synchronizované</string>
+    <string name="syncing" formatted="false">Synchronizuje sa...</string>
+    <string name="system_features" formatted="false">Funkcie systému:</string>
+    <string name="system_settings_title" formatted="false">Nastavenia systému</string>
+    <string name="tab_all" formatted="false">Všetky</string>
+    <string name="tab_answered" formatted="false">Zodpovedané</string>
+    <string name="tab_blocked" formatted="false">Blokované</string>
+    <string name="tab_missed" formatted="false">Zmeškané</string>
+    <string name="tab_outgoing" formatted="false">Odchádzajúce</string>
+    <string name="tag_label" formatted="false">Štítok: {tag}</string>
+    <string name="takeaway" formatted="false">So sebou</string>
+    <string name="telecommunication" formatted="false">Telekomunikácie</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">Telemarketing</string>
+    <string name="temp_purchase_expired" formatted="false">Dočasné nákupné oprávnenie vypršalo</string>
+    <string name="temporary_vip" formatted="false">Dočasný VIP</string>
+    <string name="test_button" formatted="false">TEST</string>
+    <string name="test_connection_button" formatted="false">Otestovať pripojenie</string>
+    <string name="test_plugin" formatted="false">Testovať plugin</string>
+    <string name="text_colors_setting" formatted="false">Farby textu a štítkov</string>
+    <string name="theme_dark" formatted="false">Tmavý</string>
+    <string name="theme_light" formatted="false">Svetlý</string>
+    <string name="theme_settings_subtitle" formatted="false">Vyberte si svoj obľúbený vzhľad</string>
+    <string name="theme_settings_title" formatted="false">Nastavenia vzhľadu</string>
+    <string name="theme_system" formatted="false">Systémové</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">Táto aplikácia je výkonný nástroj na identifikáciu volajúceho, ktorý vám umožňuje identifikovať a blokovať nechcené hovory.</string>
+    <string name="this_week" formatted="false">Tento týždeň</string>
+    <string name="time_interceptor" formatted="false">Časový prerušovač</string>
+    <string name="time_interceptor_description" formatted="false">Automaticky prerušovať/povoliť potenciálne hovory na základe frekvencie hovorov</string>
+    <string name="time_interceptor_explanation" formatted="false">• Časový prerušovač: Prerušovať/povoliť opakované hovory v krátkom časovom období</string>
+    <string name="time_interceptor_explanation_content" formatted="false">Funkcia prerušenia frekvencie hovorov analyzuje frekvenciu hovorov na automatickú identifikáciu a prerušenie/povolenie častých spamových hovorov.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">Vysvetlenie prerušenia frekvencie hovorov</string>
+    <string name="time_interceptor_settings_title" formatted="false">Nastavenia prerušenia frekvencie hovorov</string>
+    <string name="time_window_description" formatted="false">Nastavte veľkosť časového okna na povolenie opakovaných hovorov. Hovory z rovnakého čísla v rámci tohto okna budú povolené.</string>
+    <string name="time_window_label" formatted="false">Časové okno prerušenia (minúty): {minutes}</string>
+    <string name="timeline_view" formatted="false">Časový pohľad</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">Dnes</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">Celkom</string>
+    <string name="total_blocked" formatted="false">Celkom blokovaných</string>
+    <string name="total_pending_proposals" formatted="false">Celkový počet čakajúcich návrhov</string>
+    <string name="total_proposals" formatted="false">Celkový počet návrhov</string>
+    <string name="total_votes" formatted="false">Celkom: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">Preniesť dáta medzi zariadeniami alebo platformami</string>
+    <string name="travel_ticketing" formatted="false">Cestovné lístky</string>
+    <string name="tutorial" formatted="false">Tutoriál</string>
+    <string name="type" formatted="false">Typ</string>
+    <string name="unassigned_s_i_m_card" formatted="false">NeprcurrentNodej SIM karta</string>
+    <string name="unblock" formatted="false">Odomknúť</string>
+    <string name="unblock_number" formatted="false">Odomknúť číslo</string>
+    <string name="unblock_number_confirmation" formatted="false">Ste si istí, že chcete odblokovať číslo {phoneNumber}?</string>
+    <string name="unblock_number_failed" formatted="false">Odblokovanie čísla zlyhalo</string>
+    <string name="unblock_number_success" formatted="false">Číslo úspešne odblokované</string>
+    <string name="unblocked" formatted="false">Odomknuté</string>
+    <string name="unknown" formatted="false">Neznáme</string>
+    <string name="unknown_tag" formatted="false">Štítok: Neznáme</string>
+    <string name="unregister_button" formatted="false">Odhlásiť</string>
+    <string name="unregister_device_confirmation_message" formatted="false">Ste si istí, že chcete odhlásiť {deviceName}?</string>
+    <string name="unregister_device_title" formatted="false">Odhlásiť zariadenie</string>
+    <string name="unsupported_file_format" formatted="false">Nepodporovaný formát súboru</string>
+    <string name="update" formatted="false">Aktualizovať</string>
+    <string name="update_all_now" formatted="false">Aktualizovať všetko teraz</string>
+    <string name="update_contact_failed" formatted="false">Chyba pri aktualizácii kontaktu: {error}</string>
+    <string name="update_favorite_status" formatted="false">Aktualizovať stav obľúbených</string>
+    <string name="update_interval" formatted="false">Interval aktualizácií</string>
+    <string name="update_now" formatted="false">Aktualizovať teraz</string>
+    <string name="update_plugin" formatted="false">Aktualizovať doplnok</string>
+    <string name="update_plugin_failed" formatted="false">Chyba pri aktualizácii doplnku: {error}</string>
+    <string name="update_rule_failed" formatted="false">Chyba pri aktualizácii pravidla: {error}</string>
+    <string name="update_subscription_failed" formatted="false">Chyba pri aktualizácii predplatného: {error}</string>
+    <string name="update_success" formatted="false">{service} úspešne aktualizované ({count} pravidiel)</string>
+    <string name="upgrade_to_vip" formatted="false">Aktualizovať na VIP</string>
+    <string name="use_cases_point1" formatted="false">• Identifikovať automatické spamové hovory s opakovaným vytáčaním</string>
+    <string name="use_cases_point2" formatted="false">• Prerušovať marketingové hovory, ktoré volajú viackrát v krátkom čase</string>
+    <string name="use_cases_point3" formatted="false">• Zabraňovať telefonickému bombardovaniu a obťažovaniu</string>
+    <string name="use_cases_title" formatted="false">Prípady použitia:</string>
+    <string name="use_global_settings" formatted="false">Použiť globálne nastavenia</string>
+    <string name="use_local_notification" formatted="false">Použiť miestne oznámenia</string>
+    <string name="use_local_notification_description" formatted="false">Povoliť miestne oznámenia pre prichádzajúce hovory</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">Použite štandardnú syntax Regex na definovanie vzorov. Príklady:</string>
+    <string name="use_stir_notification" formatted="false">Použiť oznámenie z STIR</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">Užívateľské meno</string>
+    <string name="verification_failed_text" formatted="false">Zlyhalo</string>
+    <string name="verification_report" formatted="false">Správa o overení</string>
+    <string name="verified_text" formatted="false">Overené</string>
+    <string name="verify" formatted="false">Overiť</string>
+    <string name="version" formatted="false">Verzia: {version}</string>
+    <string name="very_high" formatted="false">Veľmi vysoké</string>
+    <string name="very_low" formatted="false">Veľmi nízke</string>
+    <string name="view_details" formatted="false">Zobraziť podrobnosti</string>
+    <string name="vip3_days_with_ads" formatted="false">3-dňové VIP s reklamami (iba synchronizácia)</string>
+    <string name="vip5_days_no_ads" formatted="false">5-dňové plnohodnotné VIP bez reklám</string>
+    <string name="vip7_days_no_ads" formatted="false">7-dňové plnohodnotné VIP bez reklám</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">Vymeniť VIP členstvo za počty označení telefónneho čísla</string>
+    <string name="vip_exchange_service" formatted="false">Služba výmeny VIP</string>
+    <string name="vip_exchange_title" formatted="false">Výmena VIP označení</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">VIP používateľ</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">Rozpoznávanie hlasu</string>
+    <string name="vote_agree" formatted="false">Súhlasím</string>
+    <string name="vote_count" formatted="false">Počet hlasov</string>
+    <string name="vote_disagree" formatted="false">Nesúhlasím</string>
+    <string name="vote_submitted" formatted="false">Hlasovanie bolo úspešne odoslané</string>
+    <string name="voted" formatted="false">Hlasované</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} hlasov ({supportPercentage}% podpora)</string>
+    <string name="voting_completed" formatted="false">Hlasovanie dokončené</string>
+    <string name="voting_completed_body" formatted="false">Hlasovanie komunity pre {phoneNumber} sa skončilo. Výsledok: {result} ({supportPercentage}% podpory).</string>
+    <string name="waiting_for_more_votes" formatted="false">Čaká sa na ďalšie hlasy komunity</string>
+    <string name="watch_ad" formatted="false">Pozrieť reklamu</string>
+    <string name="watch_ad_for_temp" formatted="false">Pozrieť reklamu pre dočasné privilégiá</string>
+    <string name="watch_ad_for_temp_description" formatted="false">Pozrite si krátku reklamu na dočasné odomknutie niektorých prémiových funkcií</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">Potrebujete pozrieť ešte {count} reklám, aby ste získali dočasné VIP oprávnenia</string>
+    <string name="web_d_a_v_config_title" formatted="false">Konfigurácia WebDAV</string>
+    <string name="week" formatted="false">Týždeň</string>
+    <string name="welcome" formatted="false">Vitajte</string>
+    <string name="whitelist" formatted="false">Biela listina</string>
+    <string name="width" formatted="false">Šírka</string>
+    <string name="wildcard_matching_description" formatted="false">Použite \'.\' na zhodu s akýmkoľvek znakom (napr. \'123.456\' sa zhoduje s 123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">Zhoda s divokou kartou:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">Podpora divokých kariet pre flexibilné filtrovanie</string>
+    <string name="window_size_setting" formatted="false">Veľkosť okna</string>
+    <string name="year" formatted="false">Rok</string>
+    <string name="yesterday" formatted="false">Včera</string>
+</resources>

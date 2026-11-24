@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">Kuhusu Usajili wa Anwani</string>
+    <string name="about_labels" formatted="false">Kuhusu Lebo</string>
+    <string name="about_phone_subscription_rules" formatted="false">Kuhusu Sheria za Usajili wa Simu</string>
+    <string name="about_sms_filter" formatted="false">Kuhusu Kuchuja SMS</string>
+    <string name="about_sms_subscription_rules" formatted="false">Kuhusu Sheria za Usajili wa SMS</string>
+    <string name="about_subtitle" formatted="false">Maelezo ya toleo la programu na kisheria</string>
+    <string name="about_title" formatted="false">Kuhusu</string>
+    <string name="access_target_url" formatted="false">Fikia URL Lengwa</string>
+    <string name="action" formatted="false">Tendo</string>
+    <string name="action_all" formatted="false">Zote</string>
+    <string name="action_allow" formatted="false">Ruhusu</string>
+    <string name="action_block" formatted="false">zuia</string>
+    <string name="action_filter_title" formatted="false">Chuja kwa Aina ya Tendo</string>
+    <string name="action_filter_tooltip" formatted="false">Chujio cha Tendo</string>
+    <string name="action_none" formatted="false">Hakuna Tendo</string>
+    <string name="action_silence" formatted="false">Nyamazisha</string>
+    <string name="action_tag" formatted="false">Tendo: {actionType}</string>
+    <string name="action_type" formatted="false">Aina ya Tendo</string>
+    <string name="action_unknown" formatted="false">Haijulikani</string>
+    <string name="active_proposals" formatted="false">Maingizo Yanayotumika</string>
+    <string name="add" formatted="false">Ongeza</string>
+    <string name="add_allow_subscription" formatted="false">Ongeza Usajili wa Ruhusu</string>
+    <string name="add_allowed_blocked_rule" formatted="false">Ongeza Sheria ya Ruhusu/Zuia</string>
+    <string name="add_block_subscription" formatted="false">Ongeza Usajili wa Zuia</string>
+    <string name="add_contact_button" formatted="false">Ongeza Anwani</string>
+    <string name="add_contact_failed" formatted="false">Imeshindwa kuongeza anwani: {error}</string>
+    <string name="add_label" formatted="false">Ongeza Lebo</string>
+    <string name="add_label_button" formatted="false">Ongeza Lebo</string>
+    <string name="add_label_failed" formatted="false">Imeshindwa kuongeza lebo: {error}</string>
+    <string name="add_name" formatted="false">Ongeza Jina</string>
+    <string name="add_none_subscription" formatted="false">Ongeza Usajili wa Hakuna</string>
+    <string name="add_phone_mark" formatted="false">Ongeza Alama ya Simu</string>
+    <string name="add_phone_number_rule" formatted="false">Ongeza Sheria ya Nambari ya Simu</string>
+    <string name="add_plugin" formatted="false">Ongeza Programu jalizi</string>
+    <string name="add_plugin_failed" formatted="false">Imeshindwa kuongeza programu jalizi</string>
+    <string name="add_plugin_failed_with_error" formatted="false">Imeshindwa kuongeza programu jalizi: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">Ongeza Programu jalizi kutoka Faili ya Ndani</string>
+    <string name="add_plugin_from_url" formatted="false">Ongeza Programu jalizi kutoka URL</string>
+    <string name="add_regex_rule" formatted="false">Ongeza Sheria ya Regex</string>
+    <string name="add_rule" formatted="false">Ongeza Sheria</string>
+    <string name="add_rule_failed" formatted="false">Imeshindwa kuongeza sheria: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">Ongeza Sheria</string>
+    <string name="add_silence_subscription" formatted="false">Ongeza Usajili wa Nyamazisha</string>
+    <string name="add_sms_filter_rule" formatted="false">Ongeza Sheria ya Kuchuja SMS</string>
+    <string name="add_sms_rule" formatted="false">Ongeza Sheria ya SMS</string>
+    <string name="add_sms_subscription" formatted="false">Ongeza Usajili wa SMS</string>
+    <string name="add_subscription" formatted="false">Ongeza Usajili</string>
+    <string name="add_subscription_button" formatted="false">Ongeza Usajili</string>
+    <string name="add_subscription_failed" formatted="false">Imeshindwa kuongeza usajili: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">Ongeza Usajili</string>
+    <string name="add_to_blacklist" formatted="false">Ongeza kwenye Orodha Nyeusi</string>
+    <string name="add_to_favorites" formatted="false">Ongeza kwenye Vipendwa</string>
+    <string name="add_to_rules" formatted="false">Ongeza kwenye Sheria</string>
+    <string name="add_to_whitelist" formatted="false">Ongeza kwenye Orodha Nyeupe</string>
+    <string name="added_to_favorites" formatted="false">Imeongezwa kwenye vipendwa</string>
+    <string name="advanced_mode" formatted="false">Hali ya Juu</string>
+    <string name="agent" formatted="false">Wakala</string>
+    <string name="agree_votes" formatted="false">Kubali: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">Zote</string>
+    <string name="all_call_logs_cleared" formatted="false">Magogo yote ya simu yamefutwa</string>
+    <string name="all_calls_tab" formatted="false">Zote</string>
+    <string name="all_permissions_granted" formatted="false">Ruhusa zote zimetolewa</string>
+    <string name="all_services_status_subtitle" formatted="false">Hali ya Sasa ya Kila Huduma ya Wingu</string>
+    <string name="all_services_status_title" formatted="false">Hali ya Sasa ya Huduma Zote</string>
+    <string name="all_settings_completed" formatted="false">Mipangilio yote imekamilika.</string>
+    <string name="all_update_success" formatted="false">Majesho yote yamekamilika ({count} sheria)</string>
+    <string name="allow" formatted="false">Ruhusu</string>
+    <string name="allow_action_description" formatted="false">Simu zitakubaliwa, hata kama nambari iko kwenye orodha ya vizuizi.</string>
+    <string name="allow_all_allow_rules" formatted="false">Ruhusu Sheria Zote za Ruhusu</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">Ruhusu simu kutoka kwa sheria za ruhusu</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">Ruhusu Nambari Zote Zilizoorodheshwa Nyeusi</string>
+    <string name="allow_all_block_rules" formatted="false">Ruhusu Sheria Zote za Zuia</string>
+    <string name="allow_all_block_rules_desc" formatted="false">Ruhusu simu kutoka sheria za zuio</string>
+    <string name="allow_allowed_numbers" formatted="false">Ruhusu Nambari Zilizoruhusiwa</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">Ruhusu simu kutoka orodha ya ruhusu</string>
+    <string name="allow_block" formatted="false">Ruhusu/Zuia</string>
+    <string name="allow_blocked_numbers" formatted="false">Ruhusu Nambari Zilizozuiwa</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">Ruhusu simu kutoka orodha ya zuio</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">Ruhusu Nambari Ambazo Hazijazidi</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">Ruhusu kiotomatiki nambari ambazo hazizidi kiwango cha hesabu</string>
+    <string name="allow_regex_allow_rules" formatted="false">Ruhusu Sheria za Regex za Ruhusu</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">Washa ruwaza za ruwaza za sheria za ruhusu</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">Washa sheria za msingi wa regex za ruhusu</string>
+    <string name="allow_regex_block_rules" formatted="false">Ruhusu Sheria za Regex za Zuia</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">Washa ruwaza za ruwaza za sheria za zuia</string>
+    <string name="allow_regex_block_rules_description" formatted="false">Washa sheria za msingi wa regex za zuia</string>
+    <string name="allow_rule" formatted="false">Sheria ya Ruhusu</string>
+    <string name="allow_rules" formatted="false">Sheria za Ruhusu</string>
+    <string name="allowed_blocked_rule" formatted="false">Sheria ya Ruhusu/Zuia</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">Hariri Sheria ya Ruhusu/Zuia</string>
+    <string name="allowed_blocked_rule_management" formatted="false">Usimamizi wa Sheria ya Ruhusu/Zuia</string>
+    <string name="allowed_blocked_rules_info" formatted="false">Sheria zilizoruhusiwa/zilizozuiliwa hutumiwa kulinganisha simu na namba maalum za simu, ambazo zina kipaumbele cha juu zaidi.</string>
+    <string name="and_more_items" formatted="false">na vitu vingine {count}</string>
+    <string name="answer_then_hangup" formatted="false">Jibu kisha kata simu</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">Simu Yako Sheria Yako</string>
+    <string name="application_software" formatted="false">Programu ya Maombi</string>
+    <string name="apply" formatted="false">Tumia</string>
+    <string name="approved" formatted="false">IMEIDHIHIRISHA</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">Ruhusa imeshindikana: Tafadhali angalia kitambulisho cha mteja na ufunguo</string>
+    <string name="authorization_failed_message" formatted="false">Ruhusa imeshindikana</string>
+    <string name="authorization_success_message" formatted="false">Ruhusa imefanikiwa</string>
+    <string name="authorize_login_button" formatted="false">Ruhusu Ingia</string>
+    <string name="auto_cancel_notification" formatted="false">Futa Arifa Moja kwa Moja</string>
+    <string name="auto_cancel_notification_description" formatted="false">Ikiwa imechaguliwa, arifa itafutwa kiotomatiki mtumiaji atakapogusa.</string>
+    <string name="auto_sync_label" formatted="false">Usawazishaji Otomatiki</string>
+    <string name="auto_update" formatted="false">Sasisho Otomatiki</string>
+    <string name="auto_update_description" formatted="false">Weka vipindi vya sasisho otomatiki vya usajili au sasisha mwenyewe</string>
+    <string name="auto_update_settings" formatted="false">Mazingira ya Sasisho Otomatiki</string>
+    <string name="auto_update_subtitle" formatted="false">Dhibiti masasisho ya kiotomatiki kwa sheria na programu jalizi</string>
+    <string name="auto_update_title" formatted="false">Sasisho Otomatiki</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">Sekta ya Magari</string>
+    <string name="avatar" formatted="false">Avatar</string>
+    <string name="avatar_border_color" formatted="false">Rangi ya Mwonekano wa Avatar</string>
+    <string name="avatar_border_size" formatted="false">Ukubwa wa Mwonekano wa Avatar</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">Ukubwa wa Avatar na Ikoni</string>
+    <string name="avatar_position" formatted="false">Nafasi ya Avatar</string>
+    <string name="avatar_size" formatted="false">Ukubwa wa Avatar</string>
+    <string name="axis_position" formatted="false">Nafasi ya {axis}</string>
+    <string name="background_gradient_setting" formatted="false">Kivuli cha Mandharinyuma</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">Hifadhi Nakala</string>
+    <string name="backup_and_restore" formatted="false">Hifadhi Nakala na Rejesha</string>
+    <string name="backup_and_restore_subtitle" formatted="false">Hifadhi nakala au rudisha data ya programu</string>
+    <string name="backup_and_restore_title" formatted="false">Hifadhi Nakala &amp; Rejesha</string>
+    <string name="backup_failed" formatted="false">Hifadhi nakala imeshindikana</string>
+    <string name="backup_settings" formatted="false">Mazingira ya Hifadhi Nakala</string>
+    <string name="backup_to_cloud" formatted="false">Hifadhi Nakala kwenye Wingu</string>
+    <string name="backup_to_cloud_failed" formatted="false">Imeshindwa kuhifadhi nakala kwenye wingu: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">Imefanikiwa kuhifadhiwa kwenye wingu</string>
+    <string name="bank" formatted="false">Benki</string>
+    <string name="basic_info" formatted="false">Taarifa za Msingi</string>
+    <string name="basic_rule_filter" formatted="false">Kichujio cha Sheria za Msingi</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">Chuja simu kwa kutumia orodha nyeusi/nyeupe na misemo ya kawaida</string>
+    <string name="basic_rule_filtering" formatted="false">Uchujaji wa Sheria za Msingi</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• Uchujaji wa Sheria za Msingi: Kuchuja sheria kulingana na orodha nyeusi, orodha nyeupe, na regex</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">Je, una uhakika unataka kufuta wasifu {count} uliochaguliwa?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">Je, una uhakika unataka kufuta lebo {count} ulizochagua?</string>
+    <string name="battery_optimization_permission" formatted="false">Battery Optimization</string>
+    <string name="battery_optimization_permission_description" formatted="false">Ruhusu programu ifanye kazi chinichini ili kutoa huduma kama vile kitambulisho cha mpigaji.</string>
+    <string name="black_white_list" formatted="false">Orodha Nyeusi/Nyeupe</string>
+    <string name="blacklist" formatted="false">Orodha Nyeusi</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">Kuweka kwenye Orodha Nyeusi na Nyeupe</string>
+    <string name="block" formatted="false">Zuia</string>
+    <string name="block_action_description" formatted="false">Simu zitazuiwa na kuonyeshwa kwenye logi ya simu.</string>
+    <string name="block_calls" formatted="false">Zuia Simu</string>
+    <string name="block_international_calls" formatted="false">inafanana na nambari ambazo hazianzi na + au 00</string>
+    <string name="block_international_calls_title" formatted="false">Zuia Simu za Kimataifa</string>
+    <string name="block_mobile_numbers" formatted="false">inafanana na nambari ambazo hazianzi na 13-19</string>
+    <string name="block_mobile_numbers_title" formatted="false">Zuia Nambari za Simu za Mkononi</string>
+    <string name="block_number" formatted="false">Zuia Namba</string>
+    <string name="block_number_success" formatted="false">Namba imefanikiwa kuzuiliwa</string>
+    <string name="block_premium_rate_numbers" formatted="false">inafanana na nambari ambazo hazianzi na 118 au 120-190</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">Zuia Nambari za Viwango vya Juu</string>
+    <string name="block_rule" formatted="false">Sheria ya Kuzuia</string>
+    <string name="block_rules" formatted="false">Sheria za Kuzuia</string>
+    <string name="block_specific_area_codes" formatted="false">inafanana na nambari zinazoanza na 0 + tarakimu 2-3</string>
+    <string name="block_specific_area_codes_title" formatted="false">Zuia nambari za maeneo maalum:</string>
+    <string name="block_type_analysis_title" formatted="false">Uchambuzi wa Aina ya Kuzuia</string>
+    <string name="blocked" formatted="false">Imesitishwa</string>
+    <string name="blocked_call_body" formatted="false">Simu iliyozuiwa kutoka {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">Arifa za Simu Zilizozuiwa</string>
+    <string name="blocked_call_notifications_description" formatted="false">Huonyesha taarifa kuhusu simu zilizozuiliwa.</string>
+    <string name="blocked_call_title" formatted="false">Simu Iliyozuiwa</string>
+    <string name="blocked_calls" formatted="false">Simu Zilizosikizwa</string>
+    <string name="blocked_calls_title" formatted="false">Simu Zilizosikizwa</string>
+    <string name="blocked_spam_calls" formatted="false">Simu za Barua taka Zilizosikizwa</string>
+    <string name="blocking_trend" formatted="false">Mwelekeo wa Kuzuia</string>
+    <string name="both" formatted="false">Wote wawili</string>
+    <string name="bulk_delete" formatted="false">Futa kwa Wingi Wasifu</string>
+    <string name="bulk_delete_contacts" formatted="false">Futa Wasifu kwa Wingi</string>
+    <string name="bulk_delete_labels" formatted="false">Futa Lebo kwa Wingi</string>
+    <string name="call" formatted="false">Simu</string>
+    <string name="call_blocking" formatted="false">Kuzuia Simu</string>
+    <string name="call_details" formatted="false">Maelezo ya Simu</string>
+    <string name="call_filter_rules" formatted="false">Sheria za Kichujio cha Simu</string>
+    <string name="call_filter_rules_description" formatted="false">Weka sheria za kimsingi za kuchuja simu</string>
+    <string name="call_filter_settings" formatted="false">Mipangilio ya Kichujio cha Simu</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">Weka mipaka ya mzunguko wa simu na sheria za kuzuia</string>
+    <string name="call_frequency_interception_title" formatted="false">Uzuiaji wa Mzunguko wa Simu</string>
+    <string name="call_history" formatted="false">Historia ya Simu</string>
+    <string name="call_history_info_desc" formatted="false">Hapa tunaonyesha historia yako ya simu, ikijumuisha simu zinazoingia, zinazotoka na zilizokosa.</string>
+    <string name="call_history_info_title" formatted="false">Historia ya Simu</string>
+    <string name="call_history_tab" formatted="false">Historia ya Simu</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">Ruhusa ya Kuchunguza Simu</string>
+    <string name="call_screening_permission_description" formatted="false">Inatumiwa kuchunguza na kuzuia simu za ulaghai.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">Ruhusa ya kuchunguza simu haijapewa, inaweza kuathiri utendaji wa programu.</string>
+    <string name="call_statistics" formatted="false">Takwimu za Simu</string>
+    <string name="call_time" formatted="false">Wakati wa Simu</string>
+    <string name="call_type" formatted="false">Aina ya Simu</string>
+    <string name="call_type_answered" formatted="false">Imejibiwa</string>
+    <string name="call_type_blocked" formatted="false">Imesitishwa</string>
+    <string name="call_type_icon_color" formatted="false">Rangi ya Aikoni ya Aina ya Simu</string>
+    <string name="call_type_missed" formatted="false">Simu Iliyokosa</string>
+    <string name="call_type_outgoing" formatted="false">Inayotoka</string>
+    <string name="call_type_position" formatted="false">Nafasi ya Aina ya Simu</string>
+    <string name="call_type_rejected" formatted="false">Iliakataliwa</string>
+    <string name="call_type_silenced" formatted="false">Ilinyamazishwa</string>
+    <string name="call_type_unknown" formatted="false">Haijulikani</string>
+    <string name="callback" formatted="false">Piga Simu ya Kurudi</string>
+    <string name="caller_id_app" formatted="false">Programu ya Kitambulisho cha Mpigaji</string>
+    <string name="caller_id_customization_subtitle" formatted="false">Customize Mpangilio wa Kitambulisho cha Mpigaji</string>
+    <string name="caller_id_customization_title" formatted="false">Customize Kitambulisho cha Mpigaji</string>
+    <string name="caller_id_display_mode" formatted="false">Njia ya Kuonyesha Kitambulisho cha Mpigaji</string>
+    <string name="caller_id_enhancement" formatted="false">Boreshaji wa Kitambulisho cha Mpigaji</string>
+    <string name="caller_id_marked_by_count" formatted="false">Imewekwa alama na {count}</string>
+    <string name="caller_id_notification_title" formatted="false">Taarifa ya Simu Zinazoingia</string>
+    <string name="caller_id_preview" formatted="false">Muhtasari wa Kitambulisho cha Mpigaji</string>
+    <string name="caller_id_settings_subtitle" formatted="false">Kuweka Arifa na Njia ya Onyesho ya Simu Zinazoingia</string>
+    <string name="caller_id_settings_title" formatted="false">Mipangilio ya Kitambulisho cha Mpigaji</string>
+    <string name="calling_number_failed" formatted="false">Simu ya namba imefeli</string>
+    <string name="cancel" formatted="false">Ghailisha</string>
+    <string name="cancel_button" formatted="false">Ghairi</string>
+    <string name="cancel_local_notification" formatted="false">Funga Arifa za Ndani</string>
+    <string name="cancel_local_notification_description" formatted="false">Funga Arifa za Ndani Kiotomatiki</string>
+    <string name="car_rental" formatted="false">Kukodisha Gari</string>
+    <string name="carrier" formatted="false">Mtoa Huduma</string>
+    <string name="carrier_color" formatted="false">Rangi ya Mtoa Huduma</string>
+    <string name="carrier_font_size" formatted="false">Saizi ya Fomati ya Mtoa Huduma</string>
+    <string name="carrier_position" formatted="false">Nafasi ya Mtoa Huduma</string>
+    <string name="change_label" formatted="false">Badilisha Lebo</string>
+    <string name="change_plugin_status_failed" formatted="false">Imeshindwa kubadilisha hali ya programu-jalizi: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">Imeshindwa kubadilisha hali ya usajili: {error}</string>
+    <string name="charity" formatted="false">Ufadhili</string>
+    <string name="chart_one_week_ago" formatted="false">Wiki 1 iliyopita</string>
+    <string name="chart_three_days_ago" formatted="false">Siku 3 zilizopita</string>
+    <string name="chart_today" formatted="false">Leo</string>
+    <string name="check_file_format" formatted="false">Tafadhali angalia umbizo la faili au ruhusa</string>
+    <string name="check_permission_failed" formatted="false">Imeshindwa kuangalia ruhusa: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">Chagua hatua ya msingi ya kukatiza</string>
+    <string name="clear_all_call_logs" formatted="false">Futa Magogo Yote ya Simu</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">Thibitisha kufuta magogo yote ya simu</string>
+    <string name="clear_all_notifications" formatted="false">Futa Arifa Zote</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">Thibitisha kufuta arifa zote</string>
+    <string name="clear_button" formatted="false">Futa</string>
+    <string name="clear_filter" formatted="false">Futa Kichujio</string>
+    <string name="clear_label_filter_button" formatted="false">Futa Kichujio cha Lebo</string>
+    <string name="close_button" formatted="false">Funga</string>
+    <string name="cloud_backup" formatted="false">Hifadhi Nakala ya Wingu</string>
+    <string name="cloud_sync" formatted="false">Usawazishaji wa Wingu</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">Usawazishaji wa Wingu &amp; Hifadhi Nakala</string>
+    <string name="cloud_sync_service" formatted="false">Huduma ya Usawazishaji wa Wingu</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">Sanidi WebDAV, OneDrive na Hifadhi ya Google</string>
+    <string name="cloud_sync_settings_title" formatted="false">Mipangilio ya Usawazishaji wa Wingu</string>
+    <string name="cloud_sync_title" formatted="false">Usawazishaji wa Wingu</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">Ukusanyaji wa Madeni</string>
+    <string name="color_picker_title" formatted="false">Chagua Rangi</string>
+    <string name="community_impact" formatted="false">Athari kwa Jamii</string>
+    <string name="community_participation" formatted="false">Ushiriki wa Jamii</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">Kura za jamii</string>
+    <string name="community_voting_started" formatted="false">Upigaji Kura wa Jamii Umeanza</string>
+    <string name="community_voting_started_body" formatted="false">Pendekezo jipya la kufuta nambari {phoneNumber} sasa limefunguliwa kwa ajili ya upigaji kura wa jamii.</string>
+    <string name="completed" formatted="false">IMEKamilika</string>
+    <string name="config_management" formatted="false">Usimamizi wa Usanidi</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">Usanidi umesasishwa</string>
+    <string name="configuration_advice" formatted="false">Kupitia usanidi sahihi, unaweza kuweka mikakati tofauti ya kuchuja kwa kadi za SIM za kazi na za kibinafsi.</string>
+    <string name="configure_backup_options" formatted="false">Sanidi Chaguo za Hifadhi Nakala</string>
+    <string name="configure_cloud_sync_service" formatted="false">Sanidi Huduma ya Usawazishaji wa Wingu</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">Tafadhali sanidi huduma ya usawazishaji wa wingu ili kuwezesha usawazishaji wa vifaa vingi.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">Sanidi Sheria za Kichujio cha Kadi ya SIM</string>
+    <string name="confirm" formatted="false">Thibitisha</string>
+    <string name="confirm_button" formatted="false">Thibitisha</string>
+    <string name="confirm_delete" formatted="false">Thibitisha Kufuta</string>
+    <string name="confirm_delete_label" formatted="false">Je, una uhakika unataka kufuta lebo &quot;{name}&quot;</string>
+    <string name="confirm_delete_plugin" formatted="false">Je, una uhakika unataka kufuta programu-jalizi &quot;{name}&quot;?</string>
+    <string name="confirm_delete_plugins" formatted="false">Je, una uhakika unataka kufuta programu-jalizi {count}?</string>
+    <string name="confirm_delete_rule_message" formatted="false">Je, una uhakika unataka kufuta sheria hii? Hatua hii haiwezi kutenduliwa.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">Je, una uhakika unataka kufuta sheria hii ya kichujio cha SMS?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">Je, una uhakika unataka kufuta sheria hii ya SMS?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">Je, una uhakika unataka kufuta {name}?</string>
+    <string name="confirm_password" formatted="false">Thibitisha Nenosiri</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">Imeunganishwa</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">Muunganisho umeshindwa: Tafadhali angalia anwani ya seva, jina la mtumiaji, na nenosiri</string>
+    <string name="connection_failed_message" formatted="false">Muunganisho umeshindwa</string>
+    <string name="connection_status_label" formatted="false">Hali ya Muunganisho</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">Muunganisho umefanikiwa</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">Mwasiliani ameongezwa kwa ufanisi</string>
+    <string name="contact_deleted" formatted="false">Mwasiliani amefutwa</string>
+    <string name="contact_name_label" formatted="false">Jina</string>
+    <string name="contact_not_found" formatted="false">Mwasiliani hajapatikana</string>
+    <string name="contact_subscription_description" formatted="false">Jijumuishe kwenye orodha za mawasiliano kupitia URL, sasisha kiotomatiki taarifa za mawasiliano na lebo. Inaauni data ya umbizo la JSON.</string>
+    <string name="contact_update_success" formatted="false">Mwasiliani amesasishwa kwa ufanisi</string>
+    <string name="contact_us" formatted="false">Wasiliana Nasi</string>
+    <string name="contacts" formatted="false">Mawasiliano</string>
+    <string name="contacts_deleted" formatted="false">Mawasiliano {count} yamefutwa</string>
+    <string name="contacts_management" formatted="false">Usimamizi wa Mawasiliano</string>
+    <string name="contacts_permission" formatted="false">Ruhusa ya Mawasiliano</string>
+    <string name="contacts_permission_description" formatted="false">Inatumiwa kutambua simu za mawasiliano.</string>
+    <string name="contacts_tab" formatted="false">Mawasiliano</string>
+    <string name="container_width" formatted="false">Upana wa Kontena</string>
+    <string name="content" formatted="false">Maudhui</string>
+    <string name="content_regex" formatted="false">Regex ya Maudhui</string>
+    <string name="count_color" formatted="false">Rangi ya Hesabu</string>
+    <string name="count_font_size" formatted="false">Saizi ya herufi ya Hesabu</string>
+    <string name="count_position" formatted="false">Nafasi ya Hesabu</string>
+    <string name="count_threshold_description" formatted="false">Weka kiwango cha chini zaidi kinachohitajika ili kuamsha vitendo vya kuchuja</string>
+    <string name="count_threshold_label" formatted="false">Kiwango cha Hesabu</string>
+    <string name="country" formatted="false">Nchi</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">k.m., US, CN, GB</string>
+    <string name="country_code_label" formatted="false">Nambari ya Nchi (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">Nambari ya nchi inahitajika</string>
+    <string name="country_code_two_letters" formatted="false">Nambari ya Nchi (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">Tafadhali kumbuka: Hifadhidata inaweza isiwe na data kwa nchi au mikoa yote mahususi.</string>
+    <string name="country_name_color" formatted="false">Rangi ya jina la Nchi</string>
+    <string name="country_name_font_size" formatted="false">Saizi ya herufi ya jina la Nchi</string>
+    <string name="country_region_name_position" formatted="false">Nafasi ya jina la Nchi/Mkoa</string>
+    <string name="country_sync_settings_subtitle" formatted="false">Chagua nchi kwa ajili ya kusawazisha data</string>
+    <string name="country_sync_settings_title" formatted="false">Mipangilio ya Usawazishaji wa Hifadhidata Kulingana na Nchi</string>
+    <string name="create_proposal" formatted="false">Unda Pendekezo</string>
+    <string name="create_proposal_title" formatted="false">Unda Pendekezo la Kufuta</string>
+    <string name="created_at" formatted="false">Imeundwa: {date}</string>
+    <string name="created_rules" formatted="false">Sheria Zilizoundwa</string>
+    <string name="critical" formatted="false">Muhimu</string>
+    <string name="critical_issues" formatted="false">Masuala Muhimu</string>
+    <string name="csv_format" formatted="false">Umbizo la CSV</string>
+    <string name="current_device_label" formatted="false">Lebo ya Kifaa cha Sasa</string>
+    <string name="current_device_title" formatted="false">Kifaa cha Sasa</string>
+    <string name="current_language" formatted="false">Lugha ya Sasa</string>
+    <string name="current_mark_count" formatted="false">Idadi ya Alama za Sasa</string>
+    <string name="custom" formatted="false">Maalum</string>
+    <string name="custom_action_description" formatted="false">Tekeleza tendo maalum.</string>
+    <string name="customer_service" formatted="false">Huduma kwa Wateja</string>
+    <string name="dashboard_tab" formatted="false">Dashibodi</string>
+    <string name="data_analysis" formatted="false">Uchambuzi wa Data</string>
+    <string name="data_load_failure" formatted="false">Data imeshindwa kupakia: {error}</string>
+    <string name="data_loading_failed" formatted="false">Imeshindwa kupakia data: {error}</string>
+    <string name="data_migration" formatted="false">Uhamishaji wa Data</string>
+    <string name="data_migration_description" formatted="false">Kipengele hiki hukuruhusu kuhamisha data zako zote kati ya vifaa. Kwa sasa, unaweza kutumia vipengele vya chelezo na urejeshaji kuhamisha data zako mwenyewe.</string>
+    <string name="data_source_disclaimer" formatted="false">Nambari zinatoka kwenye mtandao na maingizo ya watumiaji. Hatunaweza kuhakikisha kwamba nambari, mara tu ikifutwa, haitarudishwa tena na watumiaji wengine au vyanzo. Tafadhali tafuta na uthibitishe taarifa kwa bidii.</string>
+    <string name="data_source_reminder" formatted="false">Kikumbusho cha Chanzo cha Data</string>
+    <string name="database_sync_title" formatted="false">Usawazishaji wa Hifadhidata</string>
+    <string name="days" formatted="false">{count, plural, =1{siku 1} other{{count} siku}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{siku 1 iliyopita} other{siku {count} zilizopita}}</string>
+    <string name="days_vip" formatted="false">Siku {days} VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">Ukusanyaji wa Madeni</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">Arifa za Kawaida</string>
+    <string name="default_notifications_description" formatted="false">Njia ya arifa ya kawaida kwa programu.</string>
+    <string name="delete" formatted="false">Futa</string>
+    <string name="delete_button" formatted="false">Futa</string>
+    <string name="delete_contact" formatted="false">Futa Mwasiliani</string>
+    <string name="delete_contact_confirm" formatted="false">Je, una uhakika unataka kufuta {name}?</string>
+    <string name="delete_failed" formatted="false">Imeshindwa kufuta: {error}</string>
+    <string name="delete_label" formatted="false">Futa Lebo</string>
+    <string name="delete_label_failed" formatted="false">Imeshindwa kufuta lebo: {error}</string>
+    <string name="delete_plugin" formatted="false">Futa Plugin</string>
+    <string name="delete_plugin_failed" formatted="false">Imeshindwa kufuta plugin: {error}</string>
+    <string name="delete_plugins" formatted="false">Futa Plugins</string>
+    <string name="delete_plugins_failed" formatted="false">Imeshindwa kufuta plugins: {error}</string>
+    <string name="delete_rule" formatted="false">Futa Sheria</string>
+    <string name="delete_rule_failed" formatted="false">Imeshindwa kufuta: {error}</string>
+    <string name="delete_selected" formatted="false">Futa Zilizochaguliwa</string>
+    <string name="delete_subscription" formatted="false">Futa Usajili</string>
+    <string name="delete_subscription_confirm" formatted="false">Je, una uhakika unataka kufuta usajili &quot;{name}&quot;?</string>
+    <string name="delete_subscription_failed" formatted="false">Imeshindwa kufuta usajili: {error}</string>
+    <string name="delete_success" formatted="false">Umeshindwa kufuta</string>
+    <string name="deletion_proposal" formatted="false">Pendekezo la kufuta</string>
+    <string name="deletion_proposal_created" formatted="false">Pendekezo la Kufuta Limeundwa</string>
+    <string name="deletion_proposal_created_body" formatted="false">Pendekezo lako la kufuta nambari {phoneNumber} limepokelewa kwa ajili ya ukaguzi wa jamii.</string>
+    <string name="deletion_proposal_description" formatted="false">Pendekeza nambari za kufuta ambazo zinakiuka miongozo ya jamii. Ushiriki wako husaidia kuweka jukwaa likiwa salama.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">Arifa kuhusu matokeo ya upigaji kura wa mapendekezo ya kufuta na masasisho.</string>
+    <string name="deletion_proposals" formatted="false">Maingizo ya kufuta</string>
+    <string name="delivery" formatted="false">Utoaji</string>
+    <string name="description" formatted="false">Maelezo</string>
+    <string name="detailed_settings_title" formatted="false">Mipangilio ya Kina</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">Kitambulisho cha Kifaa</string>
+    <string name="device_management_subtitle" formatted="false">Dhibiti usawazishaji wa vifaa vingi</string>
+    <string name="device_management_title" formatted="false">Usimamizi wa Kifaa</string>
+    <string name="device_model_label" formatted="false">Kielelezo cha Kifaa</string>
+    <string name="device_name" formatted="false">Jina la Kifaa</string>
+    <string name="device_name_label" formatted="false">Jina la Kifaa</string>
+    <string name="device_renamed_successfully_message" formatted="false">Kifaa kimebadilishwa jina kwa mafanikio</string>
+    <string name="device_unregistered_successfully_message" formatted="false">Kifaa kimefutwa usajili kwa mafanikio</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">Vifaa vimesawazishwa kwa mafanikio</string>
+    <string name="dialog_title" formatted="false">Ufafanuzi wa Muundo wa Regex</string>
+    <string name="different_from_local_counter" formatted="false">Kipengele hiki kinatofautiana na kichujio cha kaunta cha ndani, kwani kinazingatia ruwaza za simu zinazorudiwa kwa muda mfupi badala ya kuhesabu kwa muda mrefu.</string>
+    <string name="disable_global_plugins" formatted="false">Zima programu jalizi za kimataifa</string>
+    <string name="disabled" formatted="false">Imewekwa Zima</string>
+    <string name="disabled_status" formatted="false">Imewekwa Zima</string>
+    <string name="disconnect_button" formatted="false">Kata Muunganisho</string>
+    <string name="disconnect_failed_message" formatted="false">Kukata muunganisho kumefeli</string>
+    <string name="disconnected_message" formatted="false">Haikuwa na Muunganisho</string>
+    <string name="disconnected_status" formatted="false">Haikuwa na Muunganisho</string>
+    <string name="done" formatted="false">Imekamilika</string>
+    <string name="dual_sim_advice" formatted="false">Kipengele hiki ni muhimu sana kwa simu za dual-SIM kuweka mikakati tofauti ya kuchuja kwa kadi za SIM za kazini na za kibinafsi.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">Namba ya E164</string>
+    <string name="earlier" formatted="false">Mapema</string>
+    <string name="earned_temp_vip" formatted="false">Ulipata VIP ya muda</string>
+    <string name="ecommerce" formatted="false">E-commerce</string>
+    <string name="edit" formatted="false">Hariri</string>
+    <string name="edit_contact" formatted="false">Hariri Anwani</string>
+    <string name="edit_label" formatted="false">Hariri lebo</string>
+    <string name="edit_phone_rule" formatted="false">Hariri Kanuni ya Simu</string>
+    <string name="edit_rule" formatted="false">Hariri Kanuni</string>
+    <string name="edit_script" formatted="false">Hariri Nukta</string>
+    <string name="edit_script_for" formatted="false">Hariri nukta kwa {pluginName}</string>
+    <string name="edit_subscription" formatted="false">Hariri Usajili</string>
+    <string name="education" formatted="false">Elimu</string>
+    <string name="element_positions_setting" formatted="false">Nafasi za Vipengele</string>
+    <string name="elements_settings_title" formatted="false">Mipangilio ya vipengele</string>
+    <string name="email" formatted="false">Barua pepe</string>
+    <string name="enable_call_filter" formatted="false">Washa Kichujio cha Simu</string>
+    <string name="enable_call_filter_description" formatted="false">Inapowashwa, simu zinazoingia huangaliwa dhidi ya orodha ya kanuni zilizo hapa chini. Kanuni za kuchuja simu hazisawazishwi kati ya vifaa kwa chaguo-msingi.</string>
+    <string name="enable_encryption" formatted="false">Washa Usimbaji fiche</string>
+    <string name="enable_encryption_description" formatted="false">Simbua faili za chelezo</string>
+    <string name="enable_filtering" formatted="false">Washa Kuchuja</string>
+    <string name="enable_fraud_alert" formatted="false">Washa Tahadhari ya Ulaghai</string>
+    <string name="enable_fraud_alert_description" formatted="false">Tahadhari kwa simu zinazoshukiwa kuwa ulaghai</string>
+    <string name="enable_global_plugins" formatted="false">Washa programu jalizi za kimataifa</string>
+    <string name="enable_local_count_filter" formatted="false">Washa Kichujio cha Kaunta ya Ndani</string>
+    <string name="enable_local_count_filter_description" formatted="false">Chuja kiotomatiki simu za barua taka kulingana na hesabu ya kuashiria simu</string>
+    <string name="enable_local_notification" formatted="false">Tumia Arifa za Ndani</string>
+    <string name="enable_local_notification_description" formatted="false">Inapowashwa, arifa za ujumbe uliochujwa zitaonyeshwa kwenye kifaa</string>
+    <string name="enable_location_summary" formatted="false">Mahali</string>
+    <string name="enable_mute_rules" formatted="false">Washa Kanuni za Nyamazisha</string>
+    <string name="enable_mute_rules_desc" formatted="false">Tumia usanidi wa kanuni za kukatiza kimya</string>
+    <string name="enable_none_action_rules" formatted="false">Washa Kanuni za Hatua Hakuna</string>
+    <string name="enable_none_action_rules_desc" formatted="false">Ruhusu usanidi wa kanuni bila vitendo vya kukatiza</string>
+    <string name="enable_remote_number_filter" formatted="false">Washa Kichujio cha Nambari za Mbali</string>
+    <string name="enable_remote_number_filter_description" formatted="false">Tumia hifadhidata ya mbali kuchuja nambari</string>
+    <string name="enable_rule" formatted="false">Washa Kanuni</string>
+    <string name="enable_security_message" formatted="false">Washa Ujumbe wa Usalama</string>
+    <string name="enable_sms_filter" formatted="false">Washa Kuchuja kwa SMS</string>
+    <string name="enable_sms_filter_description" formatted="false">Inapowashwa, ujumbe utachujwa kiotomatiki kulingana na kanuni</string>
+    <string name="enable_time_interception" formatted="false">Washa Kukatiza Wakati</string>
+    <string name="enable_time_interception_description" formatted="false">Kukata simu zinazorudiwa kwa muda mfupi</string>
+    <string name="enable_time_interceptor" formatted="false">Washa Kipatanishi cha Wakati</string>
+    <string name="enable_vibration" formatted="false">Washa Mtetemo</string>
+    <string name="enable_vibration_description" formatted="false">Tetema wakati simu inashukiwa kuwa ulaghai</string>
+    <string name="enabled" formatted="false">Washa</string>
+    <string name="enabled_status" formatted="false">Washa</string>
+    <string name="end_call_immediately" formatted="false">Komesha simu mara moja</string>
+    <string name="end_color" formatted="false">Rangi ya Mwisho</string>
+    <string name="end_date" formatted="false">Tarehe ya Mwisho</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">Maagizo ya Mfumo wa Kichujio Kilichoimarishwa</string>
+    <string name="enhanced_filter_settings" formatted="false">Mazingira ya Kichujio Kilichoimarishwa</string>
+    <string name="enhanced_filter_settings_title" formatted="false">Mazingira ya Kichujio Kilichoimarishwa</string>
+    <string name="enhanced_filter_system_description" formatted="false">Mfumo wa kichujio ulioimarishwa unasaidia kanuni za kimataifa na usanidi wa kuchuja kwa kila kadi ya SIM.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">Tafadhali weka nambari ya simu na muundo wa regex.</string>
+    <string name="enter_contact_name" formatted="false">Tafadhali weka jina la anwani</string>
+    <string name="enter_device_name" formatted="false">Weka jina la kifaa</string>
+    <string name="enter_email_optional" formatted="false">Tafadhali weka barua pepe (hiari)</string>
+    <string name="enter_encryption_password_hint" formatted="false">Weka nenosiri la usimbaji fiche</string>
+    <string name="enter_icon_code" formatted="false">Weka msimbo wa aikoni</string>
+    <string name="enter_name" formatted="false">Weka jina la anwani</string>
+    <string name="enter_new_device_name_hint" formatted="false">Weka jina jipya kwa kifaa hiki</string>
+    <string name="enter_password_again" formatted="false">Weka Nenosiri Tena</string>
+    <string name="enter_phone_number" formatted="false">Weka nambari ya simu</string>
+    <string name="enter_phone_number_hint" formatted="false">Weka nambari ya simu ili kujaribu</string>
+    <string name="enter_phone_number_multiple" formatted="false">Tafadhali weka nambari ya simu, nambari nyingi zimetenganishwa na koma</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">Weka nambari ya simu ili kuanza utafutaji</string>
+    <string name="enter_phone_number_to_verify" formatted="false">Weka nambari ya simu ili kuthibitisha</string>
+    <string name="enter_plugin_description" formatted="false">Weka maelezo ya programu-jalizi</string>
+    <string name="enter_plugin_name" formatted="false">Weka Jina la Programu jalizi</string>
+    <string name="enter_plugin_url" formatted="false">Weka anwani ya URL ya programu jalizi</string>
+    <string name="enter_regex_hint" formatted="false">Weka muundo wa regex</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">Tafadhali ingiza jina la sheria na muundo wa regex.</string>
+    <string name="enter_rule_name_hint" formatted="false">Weka jina la sheria</string>
+    <string name="enter_search_content" formatted="false">Tafadhali weka yaliyomo ya utaftaji</string>
+    <string name="enter_subscription_name" formatted="false">Weka jina la usajili</string>
+    <string name="enter_subscription_url" formatted="false">Weka URL ya usajili</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">Tafadhali weka jina la folda ya kusawazisha (chaguo-msingi: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">Tafadhali weka jina na URL sahihi</string>
+    <string name="enter_valid_url" formatted="false">Tafadhali weka URL sahihi</string>
+    <string name="enter_version" formatted="false">Weka Toleo</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">Tafadhali weka nenosiri la WebDAV</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">Tafadhali weka anwani ya seva ya WebDAV</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">Tafadhali weka jina la mtumiaji la WebDAV</string>
+    <string name="entertainment" formatted="false">Burudani</string>
+    <string name="entity_export_failed" formatted="false">Imeshindwa kusafirisha {entityTypeName}: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} imesafirishwa kwa mafanikio</string>
+    <string name="entity_import_failed" formatted="false">Imeshindwa kuleta {entityTypeName}: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} imeletwa kwa mafanikio, jumla ya rekodi {count} zimeletwa</string>
+    <string name="entry_point_view_title" formatted="false">Mtazamo wa Mahali pa Kuingilia</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">Hitilafu: {error}</string>
+    <string name="error_occurred_message" formatted="false">Hitilafu imetokea: {error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">Hitilafu wakati wa kubadilisha jina la kifaa: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">Hitilafu wakati wa kusawazisha vifaa: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">Hitilafu wakati wa kuondoa usajili wa kifaa: {error}</string>
+    <string name="example_block400_prefix" formatted="false">k.m. Zuia nambari za mwanzo 400</string>
+    <string name="example_block_marketing_sms" formatted="false">k.m. Zuia SMS za masoko</string>
+    <string name="example_content_regex_hint" formatted="false">Mfano wa Regex ya Yaliyomo</string>
+    <string name="example_coupon_promotion_discount" formatted="false">k.m. .*(kuponi|promosheni|punguzo).*</string>
+    <string name="example_family_friends" formatted="false">k.m. Familia, Marafiki, n.k.</string>
+    <string name="example_phone_number" formatted="false">k.m. 10086, 12345, n.k.</string>
+    <string name="example_regex400_prefix" formatted="false">Mfano wa regex kwa mwanzo 400</string>
+    <string name="example_sender_regex_hint" formatted="false">Mfano</string>
+    <string name="exchange" formatted="false">Badilisha</string>
+    <string name="exchange_failed" formatted="false">Ubadilishaji umefeli: {error}</string>
+    <string name="exchange_now" formatted="false">Badilisha Sasa</string>
+    <string name="exchange_success" formatted="false">Imefanikiwa kubadilishwa kwa {description}, tarehe ya kuisha: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">Badilisha VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">Wakati wa kuisha: {time}</string>
+    <string name="export" formatted="false">Hamisha</string>
+    <string name="export_all_application_settings" formatted="false">Hamisha mipangilio yote ya programu</string>
+    <string name="export_all_rule_configurations" formatted="false">Hamisha Michezo Yote ya Kanuni</string>
+    <string name="export_config" formatted="false">Hamisha Mipangilio</string>
+    <string name="export_contacts" formatted="false">Hamisha Anwani</string>
+    <string name="export_data" formatted="false">Hamisha Data</string>
+    <string name="export_entity" formatted="false">Hamisha {entityTypeName}</string>
+    <string name="export_failed" formatted="false">Hamisha Imeshindwa</string>
+    <string name="export_failure" formatted="false">Imeshindwa kuhifadhi mipangilio</string>
+    <string name="export_feature_coming_soon" formatted="false">Kipengele cha kuhamisha kinakuja hivi karibuni</string>
+    <string name="export_labels" formatted="false">Hamisha Lebo</string>
+    <string name="export_labels_failed" formatted="false">Imeshindwa kuhamisha lebo: {error}</string>
+    <string name="export_plugin_list" formatted="false">Hamisha Orodha ya Programu Jalizi</string>
+    <string name="export_plugin_list_failed" formatted="false">Imeshindwa kuhamisha orodha ya programu jalizi: {error}</string>
+    <string name="export_rules" formatted="false">Hamisha Kanuni</string>
+    <string name="export_sms_rules" formatted="false">Hamisha Kanuni za SMS</string>
+    <string name="export_statistics_data" formatted="false">Hamisha Data ya Takwimu</string>
+    <string name="export_successlly" formatted="false">Mipangilio imehifadhiwa kwa mafanikio</string>
+    <string name="failed_to_add_rule" formatted="false">Imeshindwa kuongeza kanuni: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">Imeshindwa kuongeza usajili wa SMS: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">Imeshindwa kuhifadhi nakala za mipangilio: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">Imeshindwa kufungua faili ya nakala ya akiba</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">Imeshindwa kufuta kanuni ya SMS: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">Imeshindwa kuhamisha kanuni: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">Imeshindwa kupata taarifa za kitambulisho cha mpigaji: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">Imeshindwa kuingiza kanuni: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">Imeshindwa kurejesha mipangilio</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">Imeshindwa kurejesha mipangilio: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">Imeshindwa kubadilisha hali ya kanuni: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">Anwani Unazozipenda</string>
+    <string name="feature" formatted="false">Kipengele</string>
+    <string name="feature_add_rules" formatted="false">• Ongeza kanuni maalum za nambari za simu</string>
+    <string name="feature_center" formatted="false">Kituo cha Vipengele</string>
+    <string name="feature_enable_disable" formatted="false">• Washa/lemaza vichujio tofauti kwa kila SIM</string>
+    <string name="feature_list_title" formatted="false">Vipengele:</string>
+    <string name="feature_manage_rules" formatted="false">• Dhibiti orodha za kanuni kwa kila SIM</string>
+    <string name="features" formatted="false">Vipengele</string>
+    <string name="fetching_caller_id_info" formatted="false">Inapakia taarifa za kitambulisho cha mpigaji...</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">Faili imehifadhiwa katika: {path}</string>
+    <string name="filter" formatted="false">Chuja</string>
+    <string name="filter_and_sort_title" formatted="false">Chua na Panga</string>
+    <string name="filter_by" formatted="false">Chua Kwa</string>
+    <string name="filter_by_action" formatted="false">Chuja kwa Tendo</string>
+    <string name="filter_by_label" formatted="false">Chuja kwa Lebo</string>
+    <string name="filter_control_panel_title" formatted="false">Jopo la Udhibiti wa Kichujio</string>
+    <string name="filter_control_subtitle" formatted="false">Dhibiti hali ya kuwasha/kuzima ya vichujio vyote</string>
+    <string name="filter_control_title" formatted="false">Udhibiti wa Kichujio</string>
+    <string name="filter_explanation" formatted="false">Maelezo ya Kichujio</string>
+    <string name="filter_management" formatted="false">Usimamizi wa Vichujio</string>
+    <string name="filter_management_description" formatted="false">Weka Vichujio vya Simu</string>
+    <string name="filter_name" formatted="false">Jina la Kichujio</string>
+    <string name="filter_priority_note" formatted="false">Kumbuka: Kuna mahusiano ya kipaumbele kati ya vichujio, tafadhali rejelea hati za usaidizi kwa maelezo zaidi</string>
+    <string name="filter_s_m_s" formatted="false">Kichujio cha SMS</string>
+    <string name="filter_settings" formatted="false">Mipangilio ya Kichujio</string>
+    <string name="filter_settings_title" formatted="false">Mipangilio ya Kichujio</string>
+    <string name="filter_toggle_instructions" formatted="false">Wezesha au zima vichujio kwa sehemu hii ya SIM:</string>
+    <string name="filter_toggle_status" formatted="false">Kichujio cha {status}: {filterName}</string>
+    <string name="filter_type" formatted="false">Aina ya Kichujio</string>
+    <string name="filter_verified_owner" formatted="false">Chua Mmiliki Aliyeafutwa</string>
+    <string name="filtered" formatted="false">Kichujio kimetumika</string>
+    <string name="final_risk" formatted="false">Hatari ya Mwisho</string>
+    <string name="financial" formatted="false">Fedha</string>
+    <string name="flexible_combination_feature" formatted="false">• Mchanganyiko Mwororo: Wezesha/zima vichujio kwa kila sehemu ya SIM</string>
+    <string name="font_sizes_setting" formatted="false">Ukubwa wa Fonti</string>
+    <string name="found_rules" formatted="false">Imepata sheria {count}</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">Kuweka Tahadhari ya Ulaghai</string>
+    <string name="fraud_aler_setting_title" formatted="false">Mpangilio wa Tahadhari ya Ulaghai</string>
+    <string name="fraud_alert" formatted="false">TAHADHARI YA UZUSHI - Kata simu</string>
+    <string name="fraud_alert_title" formatted="false">Tahadhari ya Ulaghai</string>
+    <string name="fraud_alerts" formatted="false">Tahadhari za Udanganyifu</string>
+    <string name="fraud_alerts_description" formatted="false">Huonyesha maonyo kwa simu zinazoweza kuwa za udanganyifu.</string>
+    <string name="fraud_scam_likely" formatted="false">Ulaghai wa Udanganyifu</string>
+    <string name="free" formatted="false">Bure</string>
+    <string name="function_settings_title" formatted="false">Mipangilio ya Kazi</string>
+    <string name="general_update_failure" formatted="false">Sasisho kumefeli: {error}</string>
+    <string name="get_free" formatted="false">Pata Bure</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Sanidi vichujio vya jumla kwa kadi zote za SIM:</string>
+    <string name="global_filter_feature" formatted="false">• Vichujio vya Jumla: Sheria za msingi kwa simu zote zinazoingia</string>
+    <string name="global_filter_settings" formatted="false">Mipangilio ya Vichujio vya Jumla</string>
+    <string name="global_settings" formatted="false">Mipangilio ya Jumla</string>
+    <string name="google_drive_auth_description" formatted="false">Ruhusu kwa kutumia kitambulisho na ufunguo wa mteja wa Hifadhi ya Google uliosanidiwa na mfumo</string>
+    <string name="google_drive_config_title" formatted="false">Sanidi Hifadhi ya Google</string>
+    <string name="government" formatted="false">Serikali</string>
+    <string name="grant_necessary_permissions" formatted="false">Ruhusu Ruhusa Muhimu</string>
+    <string name="grant_permissions" formatted="false">Ruhusu Ruhusa</string>
+    <string name="granted" formatted="false">Imeruhusiwa</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">Umepewa siku {days} za haki za ununuzi wa muda. Tarehe ya kuisha: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">Miongozo</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">Tayari una haki za muda, tarehe ya kuisha: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">Tayari una haki za VIP (isipokuwa matangazo)</string>
+    <string name="headhunter" formatted="false">Mwindaji wa Watu</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Urefu</string>
+    <string name="high" formatted="false">Juu</string>
+    <string name="high_risk" formatted="false">Hatari kubwa</string>
+    <string name="home_tab" formatted="false">Nyumbani</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{saa 1 iliyopita} other{masaa {count} yaliyopita}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 saa} =1{1 saa} other{{count} saa}}</string>
+    <string name="how_it_works_point1" formatted="false">• Mfumo utaruhusu kiotomatiki simu kutoka kwa nambari sawa ndani ya dirisha la muda lililowekwa</string>
+    <string name="how_it_works_point2" formatted="false">• Madirisha mafupi ya muda husababisha kukatizwa kwa ukali zaidi; madirisha marefu ya muda husababisha kukatizwa kwa huria zaidi</string>
+    <string name="how_it_works_point3" formatted="false">• Mfumo huangalia magogo ya simu ili kubaini kama ni simu inayojirudia</string>
+    <string name="how_it_works_title" formatted="false">Jinsi Inavyofanya Kazi:</string>
+    <string name="icon_code_optional" formatted="false">Nambari ya Aikoni (Si lazima)</string>
+    <string name="icon_size" formatted="false">Ukubwa wa Aikoni</string>
+    <string name="import" formatted="false">Agiza</string>
+    <string name="import_config" formatted="false">Agiza Sanidi</string>
+    <string name="import_contacts" formatted="false">Agiza Wwasiliani</string>
+    <string name="import_entity" formatted="false">Leta {entityTypeName}</string>
+    <string name="import_export" formatted="false">Leta/Hamisha</string>
+    <string name="import_export_contacts" formatted="false">Agiza/Hamisha Wwasiliani</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Agiza/Hamisha Wwasiliani</string>
+    <string name="import_export_description" formatted="false">Leta au hamisha data ya {entityTypeName}</string>
+    <string name="import_export_rules" formatted="false">Agiza/Hamisha Sheria</string>
+    <string name="import_export_title" formatted="false">Leta/Hamisha</string>
+    <string name="import_failed" formatted="false">Uagizaji umefeli: {error}</string>
+    <string name="import_failure" formatted="false">Imeshindwa kuagiza sanidi</string>
+    <string name="import_feature_coming_soon" formatted="false">Kipengele cha kuagiza kinakuja hivi karibuni</string>
+    <string name="import_labels" formatted="false">Agiza Lebo</string>
+    <string name="import_labels_failed" formatted="false">Imeshindwa kuagiza lebo: {error}</string>
+    <string name="import_plugin_list" formatted="false">Agiza Orodha ya Plug-ins</string>
+    <string name="import_plugin_list_failed" formatted="false">Imeshindwa kuagiza orodha ya plug-ins: {error}</string>
+    <string name="import_plugin_success" formatted="false">Umeagiza plug-ins {count} kwa mafanikio</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Agiza Sanidi za Sheria kutoka faili</string>
+    <string name="import_rules" formatted="false">Agiza Sheria</string>
+    <string name="import_success" formatted="false">Uagizaji umefanikiwa</string>
+    <string name="important" formatted="false">Muhimu</string>
+    <string name="important_notice_title" formatted="false">Taarifa Muhimu</string>
+    <string name="incoming_call_intercept_action" formatted="false">Kitendo cha Kukatiza Simu Zinazoingia</string>
+    <string name="incorrect_password" formatted="false">Nenosiri lisilo sahihi</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.</string>
+    <string name="initial_setup_deselect_all" formatted="false">Futa Uteuzi</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">Failed to get configuration</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">Retry</string>
+    <string name="initial_setup_save" formatted="false">One-click setup selected</string>
+    <string name="initial_setup_save_failed" formatted="false">Failed to save configuration: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Configuration saved successfully, rules will be fetched automatically soon</string>
+    <string name="initial_setup_saving" formatted="false">Saving...</string>
+    <string name="initial_setup_search_hint" formatted="false">Tafuta seti ya sheria au nchi...</string>
+    <string name="initial_setup_select_all" formatted="false">Chagua Zote</string>
+    <string name="initial_setup_selected_count" formatted="false">{count} Zimechaguliwa</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">Skip</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">Rule Library Setup</string>
+    <string name="initializing" formatted="false">Inaanza</string>
+    <string name="installed" formatted="false">Imesakinishwa</string>
+    <string name="insufficient_marks" formatted="false">Alama Haizitoshi</string>
+    <string name="insurance" formatted="false">Bima</string>
+    <string name="intercept_action" formatted="false">Kitendo cha Kukatiza</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Weka jinsi simu zilizozuiwa zinavyoshughulikiwa</string>
+    <string name="interception_action_settings_title" formatted="false">Mipangilio ya Kitendo cha Kukatiza</string>
+    <string name="interception_time_interval" formatted="false">Muda wa Kukatiza</string>
+    <string name="internet" formatted="false">Intaneti</string>
+    <string name="interval_set_success" formatted="false">Muda wa kusasisha wa {service} umewekwa kwa siku {days}</string>
+    <string name="invalid_content_regex" formatted="false">Regex ya maudhui si sahihi</string>
+    <string name="invalid_exchange_rule" formatted="false">Sheria ya kubadilishana si sahihi</string>
+    <string name="invalid_label" formatted="false">Lebo lisilo sahihi</string>
+    <string name="invalid_regex_pattern" formatted="false">Mfumo wa kawaida wa kueleza hauwezekani</string>
+    <string name="invalid_sender_regex" formatted="false">Mfumo wa kawaida wa kueleza mtumaji hauwezekani</string>
+    <string name="invalid_sim_data" formatted="false">Data batili ya SIM</string>
+    <string name="ip_country" formatted="false">Nchi ya IP</string>
+    <string name="is_number_match" formatted="false">Namba Inalingana</string>
+    <string name="is_roaming" formatted="false">Inaendelea</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">Jiunge na Kituo na Kundi la Telegram kwa Taarifa Zaidi</string>
+    <string name="json_format" formatted="false">Muundo wa JSON</string>
+    <string name="just_now" formatted="false">Sasa hivi</string>
+    <string name="keep_all_versions" formatted="false">Hifadhi Matoleo Yote</string>
+    <string name="keep_all_versions_description" formatted="false">Hifadhi matoleo yote ya zamani ya kila nakala rudufu</string>
+    <string name="label" formatted="false">Lebo</string>
+    <string name="label_action_description" formatted="false">Ongeza lebo kwenye simu kwa urahisi wa kutambua.</string>
+    <string name="label_added_successfully" formatted="false">Lebo &quot;{name}&quot; imeongezwa kwa mafanikio</string>
+    <string name="label_categories" formatted="false">Kategoría za Lebo</string>
+    <string name="label_deleted" formatted="false">Lebo imefutwa</string>
+    <string name="label_description" formatted="false">Lebo hukusaidia kudhibiti anwani vizuri zaidi, ongeza lebo maalum kwa nambari za simu kwa utambulisho rahisi wa simu na ujumbe.</string>
+    <string name="label_filter_tooltip" formatted="false">Kichujio cha Lebo</string>
+    <string name="label_icon_color" formatted="false">Rangi ya Aikoni ya Lebo</string>
+    <string name="label_management" formatted="false">Usimamizi wa Lebo</string>
+    <string name="label_not_found" formatted="false">Lebo haikupatikana</string>
+    <string name="label_tag" formatted="false">Lebo: {labelId}</string>
+    <string name="label_update_failed" formatted="false">Imeshindwa kusasisha lebo: {error}</string>
+    <string name="label_update_success" formatted="false">Lebo &quot;$labelText&quot; imesasishwa kwa mafanikio</string>
+    <string name="labels" formatted="false">Lebo</string>
+    <string name="labels_color" formatted="false">Rangi ya Lebo</string>
+    <string name="labels_deleted" formatted="false">Lebo {count} zimefutwa</string>
+    <string name="labels_exported_successfully" formatted="false">Lebo zimesafirishwa kwa mafanikio</string>
+    <string name="labels_font_size" formatted="false">Ukubwa wa herufi wa Lebo</string>
+    <string name="labels_imported_successfully" formatted="false">Imefanikiwa kuagiza lebo {count}</string>
+    <string name="labels_position" formatted="false">Nafasi ya Lebo</string>
+    <string name="language_settings" formatted="false">Mazingira ya Lugha</string>
+    <string name="language_settings_subtitle" formatted="false">Badilisha lugha ya kuonyesha programu</string>
+    <string name="language_settings_title" formatted="false">Mazingira ya Lugha</string>
+    <string name="last_sync_label" formatted="false">Usawazishaji wa Mwisho</string>
+    <string name="last_updated" formatted="false">Iliyo na sasisho la mwisho: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">Uanachama wa Maisha</string>
+    <string name="lifetime_membership_description" formatted="false">Ununuzi wa mara moja, fungua kabisa vipengele vyote vya malipo na masasisho ya baadaye</string>
+    <string name="list_view" formatted="false">Mwonekano wa Orodha</string>
+    <string name="live_activities_settings_title" formatted="false">Mipangilio ya Shughuli Zinazoendelea</string>
+    <string name="live_activities_test_end_activity" formatted="false">Maliza Shughuli</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">Tuma Shughuli Mpya</string>
+    <string name="live_activities_test_title" formatted="false">Jaribio la Shughuli Zinazoendelea</string>
+    <string name="live_activities_test_update_activity" formatted="false">Sasisha Shughuli</string>
+    <string name="live_activity_controls_title" formatted="false">Vidhibiti vya Shughuli Zinazoendelea</string>
+    <string name="live_activity_mode" formatted="false">Shughuli Inayoendelea</string>
+    <string name="live_activity_mode_description" formatted="false">Huonyesha taarifa za simu kama arifa inayoendelea kwenye skrini iliyofungwa na katika Kilele cha Dynamic (iOS).</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Geuza mwonekano wa arifa zinazoendelea.</string>
+    <string name="live_notification_customization_title" formatted="false">Ugeuzaji wa Arifa Zinazoendelea</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">Imeshindwa kupakia anwani: {error}</string>
+    <string name="load_data_failed" formatted="false">Imeshindwa kupakia data</string>
+    <string name="load_label_failed" formatted="false">Imeshindwa kupakia lebo: {error}</string>
+    <string name="load_labels_failed" formatted="false">Imeshindwa kupakia lebo: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">Imeshindwa kupakia nambari za simu zilizowekwa alama: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">Imeshindwa kupakia nambari za simu zilizowekwa alama: {error}</string>
+    <string name="load_plugins_failed" formatted="false">Imeshindwa kupakia nyongeza: {error}</string>
+    <string name="load_settings_failed" formatted="false">Imeshindwa kupakia mazingira: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">Imeshindwa kupakia sheria za SMS: {error}</string>
+    <string name="load_status_failed_message" formatted="false">Imeshindwa kupakia hali</string>
+    <string name="load_subscriptions_failed" formatted="false">Imeshindwa kupakia usajili: {error}</string>
+    <string name="loading" formatted="false">Inapakia...</string>
+    <string name="loading_ad" formatted="false">Inapakia Tangazo...</string>
+    <string name="loading_tags" formatted="false">Inapakia vitambulisho...</string>
+    <string name="loan" formatted="false">Mkopo</string>
+    <string name="local_count_filter" formatted="false">Kichujio cha Hesabu cha Ndani</string>
+    <string name="local_count_filter_description" formatted="false">Zuia simu za mara kwa mara kulingana na hesabu za nambari za ndani</string>
+    <string name="local_count_filter_explanation_content" formatted="false">Kichujio cha hesabu cha ndani huchanganua rekodi za historia ya simu ili kutambua kiotomatiki na kuzuia simu za mara kwa mara za barua taka.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">Maelezo ya Kichujio cha Hesabu cha Ndani</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• Tambua ikiwa utazuia kulingana na thamani ya hesabu ya nambari</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• Wakati hesabu ya nambari inazidi kiwango kilichowekwa, unaweza kuchagua kuizuia kiotomatiki</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• Unaweza kuchagua nambari ambazo hazizidi kiwango</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• Unaweza kuchagua ikiwa utarekodi magogo yote ya maswali</string>
+    <string name="local_count_filter_settings" formatted="false">Mazingira ya Kichujio cha Hesabu cha Ndani</string>
+    <string name="local_count_filter_use_cases" formatted="false">Kichujio hiki kinafaa sana kwa kutambua simu za barua taka za kiotomatiki na simu za uuzaji.</string>
+    <string name="local_count_filtering" formatted="false">Uchujaji wa Hesabu za Ndani</string>
+    <string name="local_count_filtering_explanation" formatted="false">• Uchujaji wa Hesabu za Ndani: Sheria za uchujaji kulingana na hesabu za uwekaji alama za ndani</string>
+    <string name="local_counter_filter" formatted="false">Kichujio cha Hesabu cha Ndani</string>
+    <string name="local_counter_filter_subtitle" formatted="false">Chuja kiotomatiki simu za barua taka kulingana na mzunguko wa simu</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">Mazingira ya Kichujio cha Ndani</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">Arifa za ndani zimezimwa</string>
+    <string name="local_notification_enabled" formatted="false">Arifa za ndani zimewashwa</string>
+    <string name="local_services" formatted="false">Huduma za Ndani</string>
+    <string name="location" formatted="false">Mahali</string>
+    <string name="location_color" formatted="false">Rangi ya Mahali</string>
+    <string name="location_font_size" formatted="false">Ukubwa wa herufi wa Mahali</string>
+    <string name="location_icon_color" formatted="false">Rangi ya Aikoni ya Mahali</string>
+    <string name="location_position" formatted="false">Nafasi ya Mahali</string>
+    <string name="log" formatted="false">Logi</string>
+    <string name="log_action_description" formatted="false">Ingia taarifa ya simu bila kuchukua hatua nyingine yoyote.</string>
+    <string name="log_all_local_queries" formatted="false">Rekodi Maswali Yote ya Ndani</string>
+    <string name="log_all_local_queries_description" formatted="false">Rekodi magogo kwa maswali yote ya nambari za ndani</string>
+    <string name="log_all_remote_queries" formatted="false">Rekodi Maswali Yote ya Mbali</string>
+    <string name="log_all_remote_queries_description" formatted="false">Rekodi shughuli zote za maswali ya nambari za mbali</string>
+    <string name="low" formatted="false">Chini</string>
+    <string name="low_risk" formatted="false">Hatari ndogo</string>
+    <string name="manage" formatted="false">Dhibiti Anwani</string>
+    <string name="manage_favorite_contacts" formatted="false">Dhibiti Anwani Uzipendazo</string>
+    <string name="manage_filter_rules" formatted="false">Dhibiti Sheria za Kichujio</string>
+    <string name="manage_filter_rules_description" formatted="false">Ongeza, hariri, au futa sheria za kichujio cha SMS</string>
+    <string name="manual_entry" formatted="false">Maelezo ya Kuingiza Mwongozo</string>
+    <string name="mark_count" formatted="false">Hesabu ya Alama</string>
+    <string name="mark_counts" formatted="false">Hesabu za Alama</string>
+    <string name="mark_exchange" formatted="false">Kubadilishana Alama</string>
+    <string name="mark_more_numbers_for_more" formatted="false">Weka alama kwenye nambari zaidi kwa alama zaidi</string>
+    <string name="mark_phone" formatted="false">Weka Alama Nambari ya Simu</string>
+    <string name="mark_phone_failed" formatted="false">Imeshindwa kutia alama nambari ya simu: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">Usimamizi wa Kuweka Alama Nambari za Simu</string>
+    <string name="mark_phone_success" formatted="false">Nambari ya simu imewekwa alama kwa mafanikio</string>
+    <string name="marked_by_count" formatted="false">Imewekwa alama na {count}</string>
+    <string name="marked_phones_list" formatted="false">Orodha ya Nambari za Simu Zilizowekwa Alama</string>
+    <string name="marks_insufficient" formatted="false">Alama hazitoshi kubadilishana</string>
+    <string name="master_and_overrides" formatted="false">Master Controls</string>
+    <string name="master_and_overrides_desc" formatted="false">Global Rule Settings</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">Ulinganishaji umeshindwa.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">unalinza muundo maalum wa nambari</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">Linganisha nambari zenye herufi maalum:</string>
+    <string name="match_specific_digit_patterns" formatted="false">unalinza muundo wa XXX-XXXX-XXXX</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">Linganisha ruwaza maalum za nambari:</string>
+    <string name="match_successful_message" formatted="false">Ulinganishaji umefanikiwa!</string>
+    <string name="medical" formatted="false">Matibabu</string>
+    <string name="medium" formatted="false">Kati</string>
+    <string name="medium_risk" formatted="false">Hatari ya kati</string>
+    <string name="membership_center" formatted="false">Kituo cha Uanachama</string>
+    <string name="membership_privileges" formatted="false">Haki za Uanachama</string>
+    <string name="message_background_color" formatted="false">Rangi ya Mandharinyuma ya Ujumbe</string>
+    <string name="message_color" formatted="false">Rangi ya Ujumbe</string>
+    <string name="message_font_size" formatted="false">Ukubwa wa Fomati ya Ujumbe</string>
+    <string name="message_position" formatted="false">Nafasi ya Ujumbe</string>
+    <string name="migration_tool" formatted="false">Chombo cha Uhamishaji</string>
+    <string name="minutes" formatted="false">dakika</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{dakika 1 iliyopita} other{dakika {count} zilizopita}}</string>
+    <string name="moderate" formatted="false">Wastani</string>
+    <string name="month" formatted="false">Mwezi</string>
+    <string name="monthly" formatted="false">Kila mwezi</string>
+    <string name="monthly_call_count" formatted="false">Simu za Kila Mwezi</string>
+    <string name="monthly_membership" formatted="false">Uanachama wa Kila Mwezi</string>
+    <string name="monthly_membership_description" formatted="false">Fungua vipengele vyote vya malipo, vinavyosasishwa kiotomatiki kila mwezi</string>
+    <string name="monthly_total" formatted="false">Jumla ya Kila Mwezi</string>
+    <string name="more_options" formatted="false">Chaguo Zaidi</string>
+    <string name="mute" formatted="false">Nyamazisha</string>
+    <string name="name" formatted="false">Jina</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">Jina na nambari ya simu haiwezi kuwa tupu</string>
+    <string name="name_cannot_be_empty" formatted="false">Jina haliwezi kuwa tupu</string>
+    <string name="name_color" formatted="false">Rangi ya Jina</string>
+    <string name="name_font_size" formatted="false">Ukubwa wa Fonti ya Jina</string>
+    <string name="name_position" formatted="false">Nafasi ya Jina</string>
+    <string name="name_unknown" formatted="false">Jina: Haijulikani</string>
+    <string name="national_number" formatted="false">Namba ya Kitaifa</string>
+    <string name="need_vip_access" formatted="false">Unahitaji ufikiaji wa VIP kutumia kipengele hiki</string>
+    <string name="new_vote_received" formatted="false">Kura Mpya Ime pokelewa</string>
+    <string name="new_vote_received_body" formatted="false">Mtu fulani amepiga kura kukataa kufuta nambari {phoneNumber}. Kura za sasa: {totalVotes}.</string>
+    <string name="next_step" formatted="false">Inayofuata</string>
+    <string name="no_action" formatted="false">Hakuna Kitendo</string>
+    <string name="no_action_rules" formatted="false">Hakuna Kanuni za Kitendo</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">Hakuna huduma ya kusawazisha wingu inayotumika</string>
+    <string name="no_activity" formatted="false">Hakuna Shughuli</string>
+    <string name="no_ads" formatted="false">Hakuna Matangazo</string>
+    <string name="no_allowed_blocked_rules" formatted="false">Hakuna sheria za kuruhusiwa/kuzuiwa zilizopatikana</string>
+    <string name="no_blocked_type_data" formatted="false">Hakuna data ya aina ya iliyozuiwa inapatikana</string>
+    <string name="no_call_records" formatted="false">Hakuna rekodi za simu</string>
+    <string name="no_contacts_yet" formatted="false">Hakuna anwani bado</string>
+    <string name="no_data" formatted="false">Hakuna Data</string>
+    <string name="no_devices_registered_message" formatted="false">Hakuna vifaa vilivyosajiliwa</string>
+    <string name="no_labels" formatted="false">Hakuna lebo bado</string>
+    <string name="no_marked_phones" formatted="false">Hakuna nambari za simu zilizowekwa alama</string>
+    <string name="no_matching_contacts_found" formatted="false">Hakuna anwani zinazolingana zilizopatikana</string>
+    <string name="no_matching_numbers_found" formatted="false">Hakuna nambari zinazolingana zilizopatikana</string>
+    <string name="no_matching_rules" formatted="false">Hakuna {ruleType} zinazolingana</string>
+    <string name="no_notifications" formatted="false">Hakuna arifa</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">Hakuna sheria za simu zilizopatikana</string>
+    <string name="no_plugins" formatted="false">Hakuna programu jalizi bado</string>
+    <string name="no_proposals_found" formatted="false">Hakuna maingizo yaliyopatikana</string>
+    <string name="no_regex_rules" formatted="false">Hakuna sheria za regex zilizopatikana</string>
+    <string name="no_rules" formatted="false">Hakuna {ruleType} bado</string>
+    <string name="no_rules_prompt" formatted="false">Hakuna sheria zilizopatikana, tafadhali ongeza sheria</string>
+    <string name="no_rules_to_export" formatted="false">Hakuna sheria za kuuza nje</string>
+    <string name="no_sim_card_detected" formatted="false">Hakuna SIM kadi iliyogunduliwa</string>
+    <string name="no_sim_cards_detected" formatted="false">Hakuna kadi za SIM zilizogunduliwa</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">Hakuna sheria za vichungi vya SMS bado</string>
+    <string name="no_sms_rules_yet" formatted="false">Hakuna sheria za SMS bado</string>
+    <string name="no_subscriptions" formatted="false">Hakuna usajili</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">Hakuna sheria halali za SMS zilizopatikana kwenye faili</string>
+    <string name="none" formatted="false">Hakuna</string>
+    <string name="none_action_description" formatted="false">Hakuna kitendo maalum kitakachofanywa kwa simu.</string>
+    <string name="none_service_type" formatted="false">Hakuna</string>
+    <string name="normal_user" formatted="false">Mtumiaji Kawaida</string>
+    <string name="not_granted" formatted="false">Haikukabidhiwa</string>
+    <string name="not_verified_text" formatted="false">Haijachunguzwa</string>
+    <string name="notification_frequency_hours" formatted="false">Kipindi cha Arifa (Saa)</string>
+    <string name="notification_frequency_title" formatted="false">Kipindi cha Arifa</string>
+    <string name="notification_mode" formatted="false">Njia ya Arifa</string>
+    <string name="notification_mode_description" formatted="false">Onyesha taarifa za mpigaji katika upau wa arifa</string>
+    <string name="notification_permission" formatted="false">Ruhusa ya Arifa</string>
+    <string name="notification_permission_description" formatted="false">Inatumika kuonyesha arifa za simu zinazoingia na ujumbe.</string>
+    <string name="notification_settings" formatted="false">Mipangilio ya Arifa</string>
+    <string name="notification_settings_title" formatted="false">Mipangilio ya Arifa</string>
+    <string name="notification_instructions" formatted="false">Maagizo:
+1. Gusa &quot;TUMA&quot; ili kuunda au kusasisha arifa.
+2. Nenda kwenye skrini yako ya nyumbani au vuta chini trei ya arifa ili uone matokeo.
+3. Gusa &quot;MALIZA&quot; ili kufuta arifa.</string>
+    <string name="notifications" formatted="false">Arifa</string>
+    <string name="notify" formatted="false">Arifu</string>
+    <string name="notify_action_description" formatted="false">Tuma arifa wakati simu inapopokelewa.</string>
+    <string name="number" formatted="false">Nambari</string>
+    <string name="number_color" formatted="false">Rangi ya Nambari</string>
+    <string name="number_font_size" formatted="false">Ukubwa wa Fonti ya Nambari</string>
+    <string name="number_format" formatted="false">Muundo wa Namba</string>
+    <string name="number_invalid_format" formatted="false">Muundo wa namba si sahihi</string>
+    <string name="number_position" formatted="false">Nafasi ya Nambari</string>
+    <string name="number_search" formatted="false">Tafuta Nambari</string>
+    <string name="number_type_color" formatted="false">Rangi ya Aina ya Nambari</string>
+    <string name="number_type_font_size" formatted="false">Ukubwa wa Fonti ya Aina ya Nambari</string>
+    <string name="number_type_position" formatted="false">Nafasi ya Aina ya Nambari</string>
+    <string name="ok_button" formatted="false">Sawa</string>
+    <string name="onboarding_complete_description" formatted="false">Kidhibiti chako cha usalama wa simu kiko tayari, anza kufurahia uzoefu salama wa simu!</string>
+    <string name="onboarding_language_description" formatted="false">Chagua lugha unayopendelea kwa uzoefu bora.</string>
+    <string name="onboarding_permissions_description" formatted="false">Ili kutoa huduma kamili, tunahitaji ruhusa zifuatazo:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">Zuia simu na ujumbe wa barua taka kwa mbofyo mmoja, rekebisha sheria za kuzuia, na kukupa mazingira tulivu.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">Tambua kiotomatiki simu zisizojulikana, tia alama nambari za kutatanisha, na linda usalama wa simu yako.</string>
+    <string name="onboarding_welcome_description" formatted="false">Mtaalamu wako wa usimamizi wa simu, unayetoa huduma kamili za utambuzi na uzuiaji wa simu.</string>
+    <string name="one_drive_auth_description" formatted="false">Idhinisha kwa kutumia kitambulisho na ufunguo wa mteja wa OneDrive uliosanidiwa na mfumo</string>
+    <string name="one_drive_config_title" formatted="false">Usanidi wa OneDrive</string>
+    <string name="online_caller_id_subscription" formatted="false">Usajili wa Kitambulisho cha Mpigaji Mtandaoni</string>
+    <string name="open_app_settings" formatted="false">Fungua mipangilio ya programu</string>
+    <string name="open_app_settings_failed" formatted="false">Imeshindwa kufungua mipangilio ya programu: {error}</string>
+    <string name="open_in_web_view" formatted="false">Fungua katika WebView</string>
+    <string name="operation_failed" formatted="false">Operesheni imeshindikana: {error}</string>
+    <string name="operation_failure" formatted="false">Operesheni imeshindikana</string>
+    <string name="operation_success" formatted="false">Operesheni imefanikiwa</string>
+    <string name="oppose" formatted="false">Kataa</string>
+    <string name="oppose_count" formatted="false">Pingamizi ({opposeCount})</string>
+    <string name="opposed" formatted="false">INAKATALIWA</string>
+    <string name="other" formatted="false">Nyingine</string>
+    <string name="our_other_apps" formatted="false">Programu Zingine Zetu</string>
+    <string name="overlay_mode" formatted="false">Dirisha la kuelea</string>
+    <string name="overlay_mode_description" formatted="false">Onyesha habari za mpigaji katika dirisha la kuelea</string>
+    <string name="overlay_permission" formatted="false">Ruhusa ya Kuelea</string>
+    <string name="overlay_permission_description" formatted="false">Inatumiwa kuonyesha dirisha la simu zinazoingia.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">Muhtasari</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">Nenosiri</string>
+    <string name="password_cannot_be_empty" formatted="false">Nenosiri haliwezi kuwa tupu</string>
+    <string name="password_label" formatted="false">Nenosiri</string>
+    <string name="passwords_do_not_match" formatted="false">Manenosiri hayafanani</string>
+    <string name="pattern" formatted="false">Kielelezo</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">INASUBIRI</string>
+    <string name="pending_proposals" formatted="false">Mapendekezo Yanayosubiri</string>
+    <string name="pending_proposals_body" formatted="false">Una {count, plural, =0 {hakuna mapendekezo yanayosubiri} one {1 pendekezo linalosubiri} other {{count} mapendekezo yanayosubiri}}.</string>
+    <string name="pending_sync" formatted="false">Kungoja kusawazisha</string>
+    <string name="period_month" formatted="false">Mwezi</string>
+    <string name="period_week" formatted="false">Wiki</string>
+    <string name="period_year" formatted="false">Mwaka</string>
+    <string name="permission_denied" formatted="false">Ombi la ruhusa limekataliwa</string>
+    <string name="permission_granted" formatted="false">Ruhusa imetolewa</string>
+    <string name="permission_management" formatted="false">Usimamizi wa Ruhusa</string>
+    <string name="permission_subtitle" formatted="false">Dhibiti ruhusa za kuingiliana na uboreshaji wa betri</string>
+    <string name="permission_title" formatted="false">Ruhusa Maalum</string>
+    <string name="phone_calls_tab" formatted="false">Simu</string>
+    <string name="phone_number" formatted="false">Nambari ya Simu</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">Nambari ya simu haiwezi kuwa tupu</string>
+    <string name="phone_number_hint" formatted="false">Weka nambari ya simu</string>
+    <string name="phone_number_label" formatted="false">Nambari ya Simu</string>
+    <string name="phone_number_min_digits" formatted="false">Nambari ya simu lazima iwe na angalau tarakimu 7</string>
+    <string name="phone_number_required" formatted="false">Nambari ya simu inahitajika</string>
+    <string name="phone_number_type" formatted="false">Aina ya Nambari ya Simu</string>
+    <string name="phone_number_type_fixed_line" formatted="false">Njia ya simu ya mezani</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">Njia ya simu ya mezani au simu ya mkononi</string>
+    <string name="phone_number_type_mobile" formatted="false">Simu ya mkononi</string>
+    <string name="phone_number_type_pager" formatted="false">Pager</string>
+    <string name="phone_number_type_personal_number" formatted="false">Nambari ya binafsi</string>
+    <string name="phone_number_type_premium_rate" formatted="false">Kiwango cha juu</string>
+    <string name="phone_number_type_shared_cost" formatted="false"> Gharama ya pamoja</string>
+    <string name="phone_number_type_toll_free" formatted="false">Bila malipo</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">Haijulikani</string>
+    <string name="phone_number_type_voicemail" formatted="false">Ujumbe wa sauti</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">Ruhusa ya Simu</string>
+    <string name="phone_permission_description" formatted="false">Inatumiwa kutambua na kuzuia simu zinazoingia.</string>
+    <string name="phone_rule" formatted="false">Sheria ya Simu</string>
+    <string name="phone_rule_management" formatted="false">Usimamizi wa Sheria za Simu</string>
+    <string name="phone_rule_subscription" formatted="false">Usajili wa Sheria za Simu</string>
+    <string name="phone_rules_info" formatted="false">Sheria za simu hutumiwa kulinganisha simu na namba maalum za simu, ambazo zina kipaumbele cha chini zaidi. Baadhi zinatoka kwa usajili wa phoneRule</string>
+    <string name="phone_subscription" formatted="false">Usajili wa Simu</string>
+    <string name="phone_subscription_rules_description" formatted="false">Jiandikishe kwenye orodha za sheria za simu kupitia URL ili kusasisha kiotomatiki orodha nyeupe na orodha nyeusi. Inasaidia faili za sheria za umbizo la JSON.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">Tafadhali weka angalau namba moja.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">Tafadhali chagua lebo na uweke nambari halali ya simu</string>
+    <string name="plugin_added_success" formatted="false">Nyongeza &quot;{name}&quot; imeongezwa kwa mafanikio</string>
+    <string name="plugin_deleted" formatted="false">Nyongeza imefutwa</string>
+    <string name="plugin_description" formatted="false">Maelezo ya programu-jalizi</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">Lebo ya Programu-jalizi</string>
+    <string name="plugin_latest_version" formatted="false">Nyongeza tayari ni toleo la hivi karibuni</string>
+    <string name="plugin_list_export_success" formatted="false">Orodha ya nyongeza imesafirishwa kwa mafanikio</string>
+    <string name="plugin_management" formatted="false">Usimamizi wa Nyongeza</string>
+    <string name="plugin_management_subtitle" formatted="false">Dhibiti na uweke usanidi wa nyongeza za wahusika wengine</string>
+    <string name="plugin_name" formatted="false">Jina la Nyongeza</string>
+    <string name="plugin_rules_info" formatted="false">Kwa usalama, tafadhali tumia programu-jalizi kutoka vyanzo vinavyoaminika tu. Jisikie huru kutumia templeti zetu kuunda programu-jalizi zako maalum!</string>
+    <string name="plugin_service" formatted="false">Huduma ya Nyongeza</string>
+    <string name="plugin_test_page_title" formatted="false">Jaribio la Nyongeza</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">Nyongeza imesasishwa kwa mafanikio</string>
+    <string name="plugin_url" formatted="false">URL ya Nyongeza</string>
+    <string name="plugin_version" formatted="false">Toleo la Nyongeza</string>
+    <string name="plugins_deleted" formatted="false">{count} nyongeza zimefutwa kwa mafanikio.</string>
+    <string name="political" formatted="false">Kisiasa</string>
+    <string name="powerful_spam_blocking" formatted="false">Kuzuia Spam kwa Nguvu</string>
+    <string name="previous_step" formatted="false">Kabla</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">Pendelea Mipangilio ya Vitendo vya Mbali</string>
+    <string name="prioritize_remote_action_description" formatted="false">Pendelea mipangilio ya vitendo kutoka hifadhidata ya mbali</string>
+    <string name="processed" formatted="false">Imeshachakatwa</string>
+    <string name="processing" formatted="false">Inachakata...</string>
+    <string name="processing_operation" formatted="false">Inachakata...</string>
+    <string name="proposal_approved" formatted="false">Pendekezo Limeidhinishwa ✅</string>
+    <string name="proposal_approved_body" formatted="false">Pendekezo la kufuta nambari {phoneNumber} limeidhinishwa na jamii ({supportPercentage}% kuungwa mkono, kura {totalVotes}).</string>
+    <string name="proposal_created" formatted="false">Pendekezo limeundwa kwa mafanikio</string>
+    <string name="proposal_details" formatted="false">Maelezo ya Pendekezo</string>
+    <string name="proposal_not_found" formatted="false">Pendekezo halikupatikana</string>
+    <string name="proposal_processed" formatted="false">Pendekezo hili limeshughulikiwa</string>
+    <string name="proposal_rejected" formatted="false">Pendekezo Limekataliwa ❌</string>
+    <string name="proposal_rejected_body" formatted="false">Pendekezo la kufuta nambari {phoneNumber} limekataliwa na jamii ({supportPercentage}% kuungwa mkono, kura {totalVotes}).</string>
+    <string name="proposal_statistics" formatted="false">Takwimu za Pendekezo</string>
+    <string name="provide_detailed_explanation" formatted="false">Toa maelezo ya kina (angalau herufi 10)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">Nunua</string>
+    <string name="purchase_subtitle" formatted="false">Kunua Huduma</string>
+    <string name="purchase_title" formatted="false">Nunua</string>
+    <string name="quarterly_membership" formatted="false">Uanachama wa Robo Mwaka</string>
+    <string name="quarterly_membership_description" formatted="false">Fungua vipengele vyote vya premium, jasiri kusasishwa kila robo mwaka</string>
+    <string name="ready" formatted="false">Tayari!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">Sababu</string>
+    <string name="reason_inaccurate_info" formatted="false">Taarifa zisizo sahihi</string>
+    <string name="reason_min_characters" formatted="false">Sababu lazima iwe na angalau herufi 10</string>
+    <string name="reason_not_in_service" formatted="false">Haijatumika</string>
+    <string name="reason_other" formatted="false">Nyingine</string>
+    <string name="reason_outdated" formatted="false">Nambari ya zamani</string>
+    <string name="reason_privacy" formatted="false">Wasiwasi wa faragha</string>
+    <string name="reason_required" formatted="false">Sababu inahitajika</string>
+    <string name="reason_wrongly_identified" formatted="false">Imetambuliwa vibaya</string>
+    <string name="recruiter" formatted="false">Mchaguzi</string>
+    <string name="redeem_vip_with_marks" formatted="false">Komboa VIP kwa Alama</string>
+    <string name="redirect" formatted="false">Rejesha</string>
+    <string name="redirect_action_description" formatted="false">Rejesha simu kwa nambari maalum.</string>
+    <string name="refresh" formatted="false">Safi</string>
+    <string name="refresh_permission_status" formatted="false">Safi hali ya ruhusa</string>
+    <string name="refresh_proposals" formatted="false">Onyesha upya maingizo</string>
+    <string name="refresh_tooltip" formatted="false">Safi</string>
+    <string name="regex_error_message" formatted="false">Hitilafu ya Regex: {error}</string>
+    <string name="regex_pattern" formatted="false">Mchoro wa Regex</string>
+    <string name="regex_pattern_explanation" formatted="false">Maelezo ya Mchoro wa Regex</string>
+    <string name="regex_pattern_explanation_button" formatted="false">Maelezo ya Mchoro wa Regex</string>
+    <string name="regex_pattern_label" formatted="false">Mchoro wa Regex</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">Michoro ya Regex kwa Kulinganisha Nambari za Simu</string>
+    <string name="regex_rule" formatted="false">Sheria ya Regex</string>
+    <string name="regex_rule_add_failed" formatted="false">Imeshindwa kuongeza sheria ya regex: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">Sheria ya regex imeongezwa kwa mafanikio</string>
+    <string name="regex_rule_management" formatted="false">Usimamizi wa Sheria ya Regex</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">Jina la sheria na mchoro wa regex haviwezi kuwa vitupu</string>
+    <string name="regex_rules" formatted="false">Sheria za Regex</string>
+    <string name="regex_rules_info" formatted="false">Sheria za Regex hutumiwa kuchuja simu kulingana na Miundo ya Regex.</string>
+    <string name="regex_tester_title" formatted="false">Kijaribu cha Regex</string>
+    <string name="region" formatted="false">Mkoa</string>
+    <string name="registered_devices_title" formatted="false">Vifaa Vilivyosajiliwa</string>
+    <string name="reject_all_calls" formatted="false">Kataa Simu Zote</string>
+    <string name="reject_all_calls_description" formatted="false">Inapowashwa, simu zote zitakataliwa kwa kipaumbele cha juu zaidi</string>
+    <string name="reject_all_numbers" formatted="false">Kataa Namba Zote</string>
+    <string name="reject_all_numbers_desc" formatted="false">Kataa simu zote zinazoingia zinapowashwa</string>
+    <string name="reject_exceeded_numbers" formatted="false">Kataa Namba Zilizozidi</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">Kukataa kiotomatiki namba zinazozidi kiwango cha idadi</string>
+    <string name="rejected" formatted="false">IMEKATALIWA</string>
+    <string name="remote_filter_settings" formatted="false">Mipangilio ya Kichujio cha Mbali</string>
+    <string name="remote_filter_settings_page_title" formatted="false">Mipangilio ya Kichujio cha Namba za Mbali</string>
+    <string name="remote_number_filter" formatted="false">Kichujio cha Namba za Mbali</string>
+    <string name="remote_number_filter_description" formatted="false">Zuia simu za unyanyasaji kulingana na taarifa za hifadhidata ya mbali</string>
+    <string name="remote_number_filter_subtitle" formatted="false">Tambua simu za taka kwa kutumia hifadhidata ya wingu na ripoti za jumuiya</string>
+    <string name="remote_number_filtering" formatted="false">Kupiga Chujio Namba za Mbali</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• Kupiga Chujio Namba za Mbali: Sheria za kuchuja kulingana na taarifa za hifadhidata ya mbali</string>
+    <string name="remove_ads" formatted="false">Ondoa Matangazo</string>
+    <string name="remove_ads_description" formatted="false">Ondoa kabisa matangazo yote katika programu kwa uzoefu wa laini zaidi</string>
+    <string name="remove_ads_title" formatted="false">Ondoa Matangazo</string>
+    <string name="remove_from_favorites" formatted="false">Ondoa kutoka kwa Wapendwa</string>
+    <string name="removed_from_favorites" formatted="false">Imetolewa kutoka kwa wapendwa</string>
+    <string name="rename_device_title" formatted="false">Badili Jina la Kifaa</string>
+    <string name="reporting_guidelines" formatted="false">• Ripoti tu nambari ambazo ni tatizo kweli
+• Toa sababu sahihi na za kina
+• Chagua kiwango cha hatari kinachofaa kulingana na ukali
+• Ripoti za uwongo zinaweza kusababisha vikwazo vya akaunti</string>
+    <string name="request_all_permissions" formatted="false">Omba Ruhusa Zote</string>
+    <string name="request_permission" formatted="false">Omba Ruhusa</string>
+    <string name="request_permission_failed" formatted="false">Imeshindwa kuomba ruhusa: {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">{count} Alama</string>
+    <string name="reset" formatted="false">Rudisha</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">Rudisha</string>
+    <string name="restore_application_settings_from_backup" formatted="false">Rudisha Mipangilio ya Programu kutoka kwa Chelezo</string>
+    <string name="restore_from_cloud" formatted="false">Rudisha kutoka kwa Wingu</string>
+    <string name="restore_from_cloud_failed" formatted="false">Imeshindwa kurudisha kutoka kwa wingu: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">Imerejeshwa kwa mafanikio kutoka kwa wingu</string>
+    <string name="restore_purchases" formatted="false">Rudisha Ununuzi</string>
+    <string name="restore_settings" formatted="false">Rudisha Mipangilio</string>
+    <string name="restore_settings_confirmation" formatted="false">Hii itachukua nafasi ya mipangilio yako yote ya sasa. Je, una uhakika unataka kuendelea?</string>
+    <string name="result" formatted="false">Matokeo</string>
+    <string name="retry" formatted="false">Jaribu Tena</string>
+    <string name="rewarded_ad_service" formatted="false">Huduma ya Matangazo Yanayolipwa</string>
+    <string name="ridesharing" formatted="false">Usafiri wa Pamoja</string>
+    <string name="risk" formatted="false">Hatari</string>
+    <string name="risk_level" formatted="false">Kiwango cha hatari</string>
+    <string name="risk_level_critical" formatted="false">Muhimu Sana</string>
+    <string name="risk_level_high" formatted="false">Juu</string>
+    <string name="risk_level_label" formatted="false">Kiwango cha Hatari</string>
+    <string name="risk_level_low" formatted="false">Chini</string>
+    <string name="risk_level_medium" formatted="false">Wastani</string>
+    <string name="risk_level_very_low" formatted="false">Chini Sana</string>
+    <string name="robocall" formatted="false">Simu ya Robocall</string>
+    <string name="rule_action" formatted="false">Tendo la Sheria</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">Sheria imeongezwa kwa mafanikio</string>
+    <string name="rule_added_success" formatted="false">Sheria imeongezwa kwa mafanikio</string>
+    <string name="rule_delete_confirm_content" formatted="false">Je, una uhakika unataka kufuta {ruleType} hii?</string>
+    <string name="rule_delete_confirm_title" formatted="false">Futa Sheria</string>
+    <string name="rule_delete_failed" formatted="false">Imeshindwa kufuta sheria: {error}</string>
+    <string name="rule_delete_success" formatted="false">Sheria imefutwa kwa mafanikio</string>
+    <string name="rule_deleted_successfully" formatted="false">Sheria imefutwa kwa mafanikio</string>
+    <string name="rule_disabled_successfully" formatted="false">Sheria imezimwa kwa mafanikio</string>
+    <string name="rule_enabled_successfully" formatted="false">Sheria imewashwa kwa mafanikio</string>
+    <string name="rule_load_failed" formatted="false">Imeshindwa kupakia sheria: {error}</string>
+    <string name="rule_management" formatted="false">Usimamizi wa Sheria</string>
+    <string name="rule_name" formatted="false">Jina la Sheria</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">Jina la sheria na mchoro wa yaliyomo haviwezi kuwa vitupu</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">Jina la sheria na nambari ya simu haviwezi kuwa vitupu</string>
+    <string name="rule_name_hint" formatted="false">k.w.a. Familia, Marafiki, n.k.</string>
+    <string name="rule_name_label" formatted="false">Jina la Sheria</string>
+    <string name="rule_name_required" formatted="false">Jina la sheria na nambari ya simu haviwezi kuwa vitupu</string>
+    <string name="rule_not_exist" formatted="false">Sheria haipo au imeondolewa</string>
+    <string name="rule_not_found" formatted="false">Sheria haikupatikana: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">Sheria imehifadhiwa kwa mafanikio!</string>
+    <string name="rule_status_changed" formatted="false">Sheria {status} kwa mafanikio</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">Operesheni imeshindwa: {error}</string>
+    <string name="rule_toggle_success" formatted="false">Sheria {status} kwa mafanikio</string>
+    <string name="rule_type" formatted="false">Rule Type</string>
+    <string name="rule_update_failed" formatted="false">Imeshindwa kusasisha sheria: {error}</string>
+    <string name="rule_update_success" formatted="false">Sheria imesasishwa kwa mafanikio</string>
+    <string name="rule_verification" formatted="false">Uthibitisho wa Sheria</string>
+    <string name="rules_exported_successfully" formatted="false">Sheria zimesafirishwa kwa mafanikio</string>
+    <string name="rules_exported_to" formatted="false">Sheria zimesafirishwa kwenda: {path}</string>
+    <string name="rules_imported" formatted="false">Sheria zimeingizwa kwa mafanikio</string>
+    <string name="rules_imported_successfully" formatted="false">Sheria {count} zimeingizwa kwa mafanikio</string>
+    <string name="save" formatted="false">Hifadhi</string>
+    <string name="save_button" formatted="false">Hifadhi</string>
+    <string name="save_button_text" formatted="false">Hifadhi</string>
+    <string name="save_failed" formatted="false">Hifadhi imeshindwa: {error}</string>
+    <string name="save_script" formatted="false">Hifadhi Nukta</string>
+    <string name="save_settings" formatted="false">Hifadhi Mipangilio</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">Ulaghai Unatarajiwa</string>
+    <string name="script_saved" formatted="false">Nukta iliyohifadhiwa</string>
+    <string name="scroll_speed" formatted="false">Kasi ya Kusogeza</string>
+    <string name="scrolling_security_message_settings" formatted="false">Mipangilio ya Ujumbe wa Usalama unaosogeza</string>
+    <string name="search" formatted="false">Tafuta</string>
+    <string name="search_by_name_or_phone_number" formatted="false">Tafuta kwa Jina au Namba ya Simu</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">Tafuta usajili wa anwani</string>
+    <string name="search_contacts" formatted="false">Tafuta Mawasiliano</string>
+    <string name="search_error" formatted="false">Makosa ya utafutaji: {error}</string>
+    <string name="search_hint" formatted="false">Tafuta...</string>
+    <string name="search_labels_hint" formatted="false">Tafuta lebo</string>
+    <string name="search_marked_phones_hint" formatted="false">Tafuta namba za simu zilizowekwa alama</string>
+    <string name="search_phone_rules_hint" formatted="false">Tafuta sheria za simu</string>
+    <string name="search_plugins_hint" formatted="false">Tafuta programu-jalizi</string>
+    <string name="search_proposals" formatted="false">Tafuta Maingizo</string>
+    <string name="search_regex_rules_hint" formatted="false">Tafuta sheria za regex</string>
+    <string name="search_subscriptions_hint" formatted="false">Tafuta usajili</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">Usiwaamini simu zozote. Daima thibitisha namba za huduma kwa wateja kwa kujitegemea. Usiwahi kushiriki nywila, misimbo ya uthibitisho, namba za kadi, au taarifa za kibinafsi.</string>
+    <string name="select_action" formatted="false">Chagua hatua</string>
+    <string name="select_action_when_blocking_calls" formatted="false">Chagua hatua wakati wa kuzuia simu</string>
+    <string name="select_action_when_rule_matches" formatted="false">Chagua hatua sheria inapokutana</string>
+    <string name="select_all" formatted="false">Chagua Zote</string>
+    <string name="select_country" formatted="false">Chagua Nchi</string>
+    <string name="select_export_format" formatted="false">Chagua Umbizo la Usafirishaji</string>
+    <string name="select_label" formatted="false">Chagua Lebo</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">Tafadhali chagua lebo na weka nambari halali ya simu</string>
+    <string name="select_language" formatted="false">Chagua Lugha</string>
+    <string name="select_multiple" formatted="false">Chagua Nyingi</string>
+    <string name="select_sim_card" formatted="false">Chagua SIM Kadi</string>
+    <string name="select_tags" formatted="false">Chagua Lebo</string>
+    <string name="select_target_service" formatted="false">Chagua huduma lengwa</string>
+    <string name="select_trusted_data_source" formatted="false">Tafadhali chagua vyanzo vya data vinavyoaminika</string>
+    <string name="select_your_language" formatted="false">Chagua Lugha Yako</string>
+    <string name="selected_items" formatted="false">Vitu {count} vilivyochaguliwa</string>
+    <string name="selected_label" formatted="false">Imechaguliwa:</string>
+    <string name="sender" formatted="false">Mtumaji</string>
+    <string name="sender_regex_optional" formatted="false">Mtumaji Regex (Si lazima)</string>
+    <string name="separate_sims" formatted="false">Separate SIMs</string>
+    <string name="separate_sims_desc" formatted="false">Enable separate filtering rules for each SIM card</string>
+    <string name="server_address_label" formatted="false">Anwani ya Seva</string>
+    <string name="service_type_contact" formatted="false">Usajili wa Mawasiliano</string>
+    <string name="service_type_label" formatted="false">Aina ya Huduma</string>
+    <string name="service_type_phone" formatted="false">Usajili wa Simu</string>
+    <string name="service_type_plugin" formatted="false">Sasisho la Plugin</string>
+    <string name="service_type_sms" formatted="false">Usajili wa SMS</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">Weka Muda wa Kucheleweshwa</string>
+    <string name="set_encryption_password" formatted="false">Weka Nenosiri la Usimbaji</string>
+    <string name="settings" formatted="false">Mipangilio</string>
+    <string name="settings_backed_up_to" formatted="false">Mipangilio imehifadhiwa kwa: {path}</string>
+    <string name="settings_backup" formatted="false">Hifadhi Nakala ya Mipangilio </string>
+    <string name="settings_restored_successfully" formatted="false">Mipangilio imerejeshwa kwa mafanikio. Tafadhali anzisha upya programu ili mabadiliko yaanze kutumika.</string>
+    <string name="settings_save_failed" formatted="false">Imeshindwa kuhifadhi mipangilio: {error}</string>
+    <string name="settings_saved" formatted="false">Mipangilio imehifadhiwa</string>
+    <string name="settings_tab" formatted="false">Mipangilio</string>
+    <string name="settings_title" formatted="false">Mipangilio</string>
+    <string name="setup" formatted="false">Kuweka</string>
+    <string name="show_all_contacts" formatted="false">Onyesha Anwani Zote</string>
+    <string name="show_favorites" formatted="false">Onyesha Vipendwa</string>
+    <string name="silence" formatted="false">Nyamazisha</string>
+    <string name="silence_action_description" formatted="false">Simu zitanyamazishwa lakini zitaonyeshwa kwenye logi ya simu.</string>
+    <string name="silence_and_no_answer" formatted="false">Nyamazisha na Hakuna Jibu</string>
+    <string name="silence_no_answer" formatted="false">Nyamazisha Hakuna Jibu</string>
+    <string name="silent_call_voice_clone" formatted="false">Kupiga Kimya kwa Klonii ya Sauti</string>
+    <string name="silent_rules" formatted="false">Sheria za Kimya</string>
+    <string name="sim_card" formatted="false">SIM Kadi {simNumber}</string>
+    <string name="sim_card_color" formatted="false">Rangi ya SIM Kadi</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• Usanidi wa Kadi ya SIM: Weka sheria tofauti za kuchuja kwa kila kadi ya SIM</string>
+    <string name="sim_card_filter_rules" formatted="false">Sheria za Kuchuja za SIM Kadi</string>
+    <string name="sim_card_filter_rules_description" formatted="false">Weka sheria tofauti za kuchuja kulingana na nafasi za kadi za SIM</string>
+    <string name="sim_card_font_size" formatted="false">Kati ya herufi ya SIM Kadi</string>
+    <string name="sim_card_position" formatted="false">Nafasi ya SIM Kadi</string>
+    <string name="sim_card_title" formatted="false">SIM Kadi</string>
+    <string name="sim_country" formatted="false">Nchi ya SIM</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">Kanuni za nafasi ya SIM hukuruhusu kusanidi sheria huru za kuchuja kwa kila nafasi ya SIM.</string>
+    <string name="sim_rule_instructions_title" formatted="false">Kanuni za Nafasi ya SIM</string>
+    <string name="sim_rules_not_found" formatted="false">Sheria za SIM hazikupatikana</string>
+    <string name="sim_slot" formatted="false">Nafasi ya SIM</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">Sanidi sheria huru za kuchuja kwa kila kadi ya SIM:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">Mipangilio ya Kichujio cha Nafasi ya SIM {slotNumber}</string>
+    <string name="sim_slot_management" formatted="false">Usimamizi wa Nafasi ya SIM</string>
+    <string name="sim_slot_position" formatted="false">Nafasi ya SIM {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• Kanuni za Nafasi ya SIM: Mikakati huru ya kuchuja kwa kila SIM</string>
+    <string name="sim_slot_rule_list_title" formatted="false">Orodha ya Kanuni za Nafasi ya SIM</string>
+    <string name="sim_slot_rule_management" formatted="false">Kanuni za Nafasi ya SIM</string>
+    <string name="sim_slot_rules" formatted="false">Sheria za Nafasi ya SIM</string>
+    <string name="sim_slot_title" formatted="false">Nafasi ya SIM {slotNumber}</string>
+    <string name="sim_state" formatted="false">Hali ya SIM</string>
+    <string name="skip" formatted="false">Ruka</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">Utambulisho Mahiri wa Mpigaji</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">Kichujio cha SMS hukusaidia kuchuja ujumbe wa taka kiotomatiki na kuweka orodha yako ya ujumbe ikiwa safi. Unaweza kuweka sheria za kichujio na mbinu za arifa.</string>
+    <string name="sms_filter_disabled" formatted="false">Kichujio cha SMS kimezimwa</string>
+    <string name="sms_filter_enabled" formatted="false">Kichujio cha SMS kimewashwa</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">Kanuni ya kichujio cha SMS imeongezwa kwa mafanikio</string>
+    <string name="sms_filter_rules" formatted="false">Kanuni za Kichujio cha SMS</string>
+    <string name="sms_filter_settings" formatted="false">Mipangilio ya Kichujio cha SMS</string>
+    <string name="sms_management" formatted="false">Usimamizi wa SMS</string>
+    <string name="sms_permission" formatted="false">Ruhusa ya SMS</string>
+    <string name="sms_permission_description" formatted="false">Inatumiwa kuchuja ujumbe wa taka.</string>
+    <string name="sms_rule_added_successfully" formatted="false">Kanuni ya SMS imeongezwa kwa mafanikio</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">Kanuni ya SMS imeondolewa kwa mafanikio</string>
+    <string name="sms_rule_load_failed" formatted="false">Imeshindwa kupakia kanuni za SMS: {error}</string>
+    <string name="sms_rule_management" formatted="false">Usimamizi wa Kanuni za SMS</string>
+    <string name="sms_rule_subscription" formatted="false">Usajili wa Kanuni za SMS</string>
+    <string name="sms_subscription" formatted="false">Usajili wa SMS</string>
+    <string name="sms_subscription_added_successfully" formatted="false">Usajili wa SMS umeongezwa kwa mafanikio</string>
+    <string name="sms_subscription_rules_description" formatted="false">Jiandikishe kwa orodha za kanuni za SMS kupitia URL, ukisaidia utambuzi wa maneno ya kawaida. Unaweza kuweka vitendo vya kuzuia au kuruhusu.</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">Baadhi ya maombi ya ruhusa yamekataliwa</string>
+    <string name="sort_by" formatted="false">Panga Kwa</string>
+    <string name="sort_least_popular" formatted="false">Panga Zinazopendwa Kidogo</string>
+    <string name="sort_most_popular" formatted="false">Panga Zinazopendwa Zaidi</string>
+    <string name="sort_newest" formatted="false">Panga Mpya</string>
+    <string name="sort_oldest" formatted="false">Panga za Kale</string>
+    <string name="spam_likely" formatted="false">Tukio la Taka</string>
+    <string name="start_color" formatted="false">Rangi ya Kuanzia</string>
+    <string name="start_date" formatted="false">Tarehe ya Kuanzia</string>
+    <string name="start_using" formatted="false">Anza Kutumia</string>
+    <string name="stat_answered" formatted="false">Ilijibiwa</string>
+    <string name="stat_blocked" formatted="false">Imesababishwa</string>
+    <string name="statistics" formatted="false">Takwimu</string>
+    <string name="statistics_page_title" formatted="false">Uchambuzi wa Data</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">Rangi ya STIR</string>
+    <string name="stir_failed" formatted="false">Uthibitishaji Umefeli</string>
+    <string name="stir_font_size" formatted="false">Ukubwa wa Fonti ya STIR</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">Nafasi ya STIR</string>
+    <string name="stir_unknown" formatted="false">Hali ya Uthibitishaji Haijulikani</string>
+    <string name="stir_verification" formatted="false">STIR/SHAKEN Uthibitisho</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} kwa nambari {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">Huonyesha matokeo ya uthibitisho wa STIR/SHAKEN kwa nambari.</string>
+    <string name="stir_verification_title" formatted="false">Uthibitishaji wa STIR/SHAKEN</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">Ruhusa ya Hifadhi</string>
+    <string name="storage_permission_description" formatted="false">Inatumiwa kuhifadhi mipangilio na kanuni.</string>
+    <string name="submit" formatted="false">Wasilisha</string>
+    <string name="subscribe" formatted="false">Jiandikishe</string>
+    <string name="subscription_add_success" formatted="false">Usajili &quot;{name}&quot; umeongezwa kwa mafanikio</string>
+    <string name="subscription_delete_confirm_content" formatted="false">Je, una uhakika unataka kufuta usajili huu?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">Futa Usajili</string>
+    <string name="subscription_delete_failed" formatted="false">Imeshindwa kufuta usajili: {error}</string>
+    <string name="subscription_delete_success" formatted="false">Usajili umefutwa</string>
+    <string name="subscription_deleted" formatted="false">Usajili umefutwa</string>
+    <string name="subscription_load_failed" formatted="false">Imeshindwa kupakia usajili: {error}</string>
+    <string name="subscription_name" formatted="false">Jina la Usajili</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">Jina la usajili na URL haziwezi kuwa tupu</string>
+    <string name="subscription_name_hint" formatted="false">Ingiza jina la usajili</string>
+    <string name="subscription_status_change_failed" formatted="false">Imeshindwa kubadilisha hali ya usajili: {error}</string>
+    <string name="subscription_update_failed" formatted="false">Imeshindwa kusasisha usajili: {error}</string>
+    <string name="subscription_update_success" formatted="false">Usajili umesasishwa kwa mafanikio</string>
+    <string name="subscription_url" formatted="false">URL ya Usajili</string>
+    <string name="subscription_url_hint" formatted="false">Ingiza URL ya usajili</string>
+    <string name="successfully_imported_rules" formatted="false">Imefaulu kuingiza sheria {count}</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">Usaidizi</string>
+    <string name="support_count" formatted="false">Saidizi ({supportCount})</string>
+    <string name="support_sync" formatted="false">Dhamira ya Kuunganisha</string>
+    <string name="supported" formatted="false">INAUNGWA MKONO</string>
+    <string name="survey" formatted="false">Utafiti</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">Unganisha Vifaa</string>
+    <string name="sync_failed" formatted="false">Muunganisho umeshindwa</string>
+    <string name="sync_failed_message" formatted="false">Muunganisho umeshindwa</string>
+    <string name="sync_folder_name_label" formatted="false">Jina la Folda ya Muunganisho</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">Unganisha Sasa</string>
+    <string name="sync_now_button" formatted="false">Sawazisha Sasa</string>
+    <string name="sync_status_title" formatted="false">Hali ya Sawazishi</string>
+    <string name="sync_status_updated_message" formatted="false">Hali ya sawazishi imesasishwa</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">Sawazishi imekamilika</string>
+    <string name="sync_with_cloud_storage" formatted="false">Sawazisha na Hifadhi ya Wingu</string>
+    <string name="synced" formatted="false">Imesawazishwa</string>
+    <string name="synchronized" formatted="false">Imeunganishwa</string>
+    <string name="syncing" formatted="false">Inaunganishwa...</string>
+    <string name="system_features" formatted="false">Vipengele vya Mfumo:</string>
+    <string name="system_settings_title" formatted="false">Mipangilio ya Mfumo</string>
+    <string name="tab_all" formatted="false">Wote</string>
+    <string name="tab_answered" formatted="false">Iliyoitikiwa</string>
+    <string name="tab_blocked" formatted="false">Iliyozuiwa</string>
+    <string name="tab_missed" formatted="false">Iliyoachwa</string>
+    <string name="tab_outgoing" formatted="false">Inayotoka</string>
+    <string name="tag_label" formatted="false">Lebo: {tag}</string>
+    <string name="takeaway" formatted="false">Chukua</string>
+    <string name="telecommunication" formatted="false">Mawasiliano ya simu</string>
+    <string name="telegram" formatted="false">Telegramu</string>
+    <string name="telemarketing" formatted="false">Uuzaji kwa simu</string>
+    <string name="temp_purchase_expired" formatted="false">Haki ya ununuzi wa muda imeisha muda wake</string>
+    <string name="temporary_vip" formatted="false">VIP ya Muda</string>
+    <string name="test_button" formatted="false">JARIBU</string>
+    <string name="test_connection_button" formatted="false">Jaribu Muunganisho</string>
+    <string name="test_plugin" formatted="false">Jaribu Programu-jalizi</string>
+    <string name="text_colors_setting" formatted="false">Rangi za Maandishi na Lebo</string>
+    <string name="theme_dark" formatted="false">Giza</string>
+    <string name="theme_light" formatted="false">Nyepesi</string>
+    <string name="theme_settings_subtitle" formatted="false">Chagua mandhari unayopenda</string>
+    <string name="theme_settings_title" formatted="false">Mipangilio ya Mandhari</string>
+    <string name="theme_system" formatted="false">System</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">Programu hii ni zana yenye nguvu ya kitambulisho cha mpigaji ambayo hukuruhusu kutambua na kuzuia simu zisizohitajika.</string>
+    <string name="this_week" formatted="false">Jumamosi Hii</string>
+    <string name="time_interceptor" formatted="false">Kizuia Saa</string>
+    <string name="time_interceptor_description" formatted="false">Zui/ruhusu kiotomatiki simu zinazoweza kutokea kulingana na mzunguko wa simu</string>
+    <string name="time_interceptor_explanation" formatted="false">• Kizuia Saa: Zui/ruhusu simu zinazorudiwa ndani ya muda mfupi</string>
+    <string name="time_interceptor_explanation_content" formatted="false">Kipengele cha kukatiza mzunguko wa simu huchanganua mzunguko wa simu ili kutambua kiotomatiki na kuzuia/kuruhusu simu za barua taka zinazotokea mara kwa mara.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">Ufafanuzi wa Kukatiza Mzunguko wa Simu</string>
+    <string name="time_interceptor_settings_title" formatted="false">Mipangilio ya Kukatiza Mzunguko wa Simu</string>
+    <string name="time_window_description" formatted="false">Weka ukubwa wa dirisha la saa kwa kuruhusu simu zinazorudiwa. Simu kutoka kwa nambari sawa ndani ya dirisha hili zitahuhusu</string>
+    <string name="time_window_label" formatted="false">Dirisha la Wakati wa Kukatiza (dakika): {minutes}</string>
+    <string name="timeline_view" formatted="false">Mwonekano wa Kalenda</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">Leo</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">Jumla</string>
+    <string name="total_blocked" formatted="false">Jumla ya Zilizozuiwa</string>
+    <string name="total_pending_proposals" formatted="false">Jumla ya Maingizo Yanayosubiri</string>
+    <string name="total_proposals" formatted="false">Maingizo Yote</string>
+    <string name="total_votes" formatted="false">Jumla: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">Hamisha data kati ya vifaa au majukwaa</string>
+    <string name="travel_ticketing" formatted="false">Tiketi za Usafiri</string>
+    <string name="tutorial" formatted="false">Mafunzo</string>
+    <string name="type" formatted="false">Aina</string>
+    <string name="unassigned_s_i_m_card" formatted="false">Kadi ya SIM Isiyopewa</string>
+    <string name="unblock" formatted="false">Fungua</string>
+    <string name="unblock_number" formatted="false">Fungulia Namba</string>
+    <string name="unblock_number_confirmation" formatted="false">Je, una uhakika unataka kumfungulia {phoneNumber}?</string>
+    <string name="unblock_number_failed" formatted="false">Namba imefeli kufunguliwa</string>
+    <string name="unblock_number_success" formatted="false">Namba imefunguliwa kwa mafanikio</string>
+    <string name="unblocked" formatted="false">Haijazuiwa</string>
+    <string name="unknown" formatted="false">Haijulikani</string>
+    <string name="unknown_tag" formatted="false">Lebo: Haijulikani</string>
+    <string name="unregister_button" formatted="false">Ondoa Usajili</string>
+    <string name="unregister_device_confirmation_message" formatted="false">Je, una uhakika unataka kuondoa usajili wa {deviceName}?</string>
+    <string name="unregister_device_title" formatted="false">Ondoa Usajili wa Kifaa</string>
+    <string name="unsupported_file_format" formatted="false">Umbizo la faili lisiloungwa mkono</string>
+    <string name="update" formatted="false">Sasisha</string>
+    <string name="update_all_now" formatted="false">Sasisha Zote Sasa</string>
+    <string name="update_contact_failed" formatted="false">Imeshindwa kusasisha mawasiliano: {error}</string>
+    <string name="update_favorite_status" formatted="false">Sasisha Hali ya Vipendwa</string>
+    <string name="update_interval" formatted="false">Kipindi cha Sasisho</string>
+    <string name="update_now" formatted="false">Sasisha Sasa</string>
+    <string name="update_plugin" formatted="false">Sasisha Programu-jalizi</string>
+    <string name="update_plugin_failed" formatted="false">Imeshindwa kusasisha programu-jalizi: {error}</string>
+    <string name="update_rule_failed" formatted="false">Imeshindwa kusasisha sheria: {error}</string>
+    <string name="update_subscription_failed" formatted="false">Imeshindwa kusasisha usajili: {error}</string>
+    <string name="update_success" formatted="false">{service} imesasishwa kwa mafanikio ({count} sheria)</string>
+    <string name="upgrade_to_vip" formatted="false">Boresha hadi VIP</string>
+    <string name="use_cases_point1" formatted="false">• Tambua simu za barua taka zinazopiga tena kiotomatiki</string>
+    <string name="use_cases_point2" formatted="false">• Zuia simu za uuzaji zinazopiga mara nyingi kwa muda mfupi</string>
+    <string name="use_cases_point3" formatted="false">• Zuia ulipuaji wa simu na unyanyasaji</string>
+    <string name="use_cases_title" formatted="false">Matumizi:</string>
+    <string name="use_global_settings" formatted="false">Tumia Mipangilio ya Ulimwengu</string>
+    <string name="use_local_notification" formatted="false">Tumia Arifa za Ndani</string>
+    <string name="use_local_notification_description" formatted="false">Washa arifa za ndani kwa simu zinazoingia</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">Tumia sintaksia ya kawaida ya regex kufafanua ruwaza. Mifano:</string>
+    <string name="use_stir_notification" formatted="false">Tumia Arifa kutoka kwa STIR</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">Jina la Mtumiaji</string>
+    <string name="verification_failed_text" formatted="false">Imeshindwa</string>
+    <string name="verification_report" formatted="false">Ripoti ya Uthibitisho</string>
+    <string name="verified_text" formatted="false">Imehakikishwa</string>
+    <string name="verify" formatted="false">Thibitisha</string>
+    <string name="version" formatted="false">Toleo: {version}</string>
+    <string name="very_high" formatted="false">Juu sana</string>
+    <string name="very_low" formatted="false">Chini sana</string>
+    <string name="view_details" formatted="false">Tazama Maelezo</string>
+    <string name="vip3_days_with_ads" formatted="false">Siku 3 za VIP na matangazo (usawazishaji tu)</string>
+    <string name="vip5_days_no_ads" formatted="false">Siku 5 za VIP kamili bila matangazo</string>
+    <string name="vip7_days_no_ads" formatted="false">Siku 7 za VIP kamili bila matangazo</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">Badilishana uanachama wa VIP na idadi ya alama za kuweka alama nambari ya simu</string>
+    <string name="vip_exchange_service" formatted="false">Huduma ya Kubadilishana VIP</string>
+    <string name="vip_exchange_title" formatted="false">Ubadilishaji wa VIP wa Alama</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">Mtumiaji wa VIP</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">Utambuzi wa Sauti</string>
+    <string name="vote_agree" formatted="false">Kubali</string>
+    <string name="vote_count" formatted="false">Idadi ya Kura</string>
+    <string name="vote_disagree" formatted="false">Kukataa</string>
+    <string name="vote_submitted" formatted="false">Kura imewasilishwa kwa mafanikio</string>
+    <string name="voted" formatted="false">Imepigiwa kura</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} kura ({supportPercentage}% saidizi)</string>
+    <string name="voting_completed" formatted="false">Upigaji Kura Umekamilika</string>
+    <string name="voting_completed_body" formatted="false">Upigaji kura wa jamii kwa ajili ya {phoneNumber} umeisha. Matokeo: {result} ({supportPercentage}% kuungwa mkono).</string>
+    <string name="waiting_for_more_votes" formatted="false">Inasubiri kura zaidi za jamii</string>
+    <string name="watch_ad" formatted="false">Tazama Tangazo</string>
+    <string name="watch_ad_for_temp" formatted="false">Tazama Tangazo kwa Marupurupu ya Muda</string>
+    <string name="watch_ad_for_temp_description" formatted="false">Tazama tangazo fupi ili kufungua vipengele vya malipo kwa muda</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">Unahitaji kutazama matangazo zaidi {count} ili kupata haki za muda za VIP</string>
+    <string name="web_d_a_v_config_title" formatted="false">Usanidi wa WebDAV</string>
+    <string name="week" formatted="false">Juma</string>
+    <string name="welcome" formatted="false">Karibu</string>
+    <string name="whitelist" formatted="false">Orodha Nyeupe</string>
+    <string name="width" formatted="false">Upana</string>
+    <string name="wildcard_matching_description" formatted="false">Tumia \'.\' kulinganisha herufi yoyote (kwa mfano \'123.456\' inalinganisha 123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">Kulinganisha kwa Wildcard:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">Usaidizi wa Wildcard kwa Kuchuja Rahisi</string>
+    <string name="window_size_setting" formatted="false">Ukubwa wa Dirisha</string>
+    <string name="year" formatted="false">Mwaka</string>
+    <string name="yesterday" formatted="false">Jana</string>
+</resources>

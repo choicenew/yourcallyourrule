@@ -2458,5 +2458,8 @@
   "smsTab": "SMS",
   "telegram": "Telegram",
   "pluginID": "ID",
-  "pluginURL": "URL"
+  "pluginURL": "URL",
+  "backgroundOpacity": "Background Opacity",
+  "timesUnit": "times",
+  "participantCount": "%1$d Participants"
 }

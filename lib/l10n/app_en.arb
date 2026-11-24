@@ -2500,7 +2500,6 @@
   "aiMarketing": "AI Marketing",
   "falsePositiveClean": "False Positive Cleanup",
   "liveStream": "LIVE STREAM",
-  "blockingTrend": "Blocking Trend",
   "ruleActionBreakdown": "Rule Action Distribution",
   "dualSimDistribution": "Dual-SIM Interception Distribution",
   "topTriggeredRules": "Top Triggered Rules",
@@ -2530,5 +2529,8 @@
   "primaryPermissionHelp": "Requires full permissions for call and SMS processing.",
   "secondaryPermissionHelp": "Requires sync and notification permissions only.",
   "clusterOnboardingTitle": "Device Cluster Setup",
-  "clusterOnboardingDescription": "Configure your device role in the cluster for seamless cross-device synchronization."
+  "clusterOnboardingDescription": "Configure your device role in the cluster for seamless cross-device synchronization.",
+  "backgroundOpacity": "Background Opacity",
+  "timesUnit": "times",
+  "participantCount": "%1$d Participants"
 }

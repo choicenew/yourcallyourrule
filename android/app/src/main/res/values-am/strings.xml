@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">ስለ እውቂያ ምዝገባ</string>
+    <string name="about_labels" formatted="false">ስለ መለያዎች</string>
+    <string name="about_phone_subscription_rules" formatted="false">ስለ የስልክ የደንበኝነት ምዝገባ ህጎች</string>
+    <string name="about_sms_filter" formatted="false">ስለ ኤስኤምኤስ ማጣሪያ</string>
+    <string name="about_sms_subscription_rules" formatted="false">ስለ ኤስኤምኤስ የደንበኝነት ምዝገባ ህጎች</string>
+    <string name="about_subtitle" formatted="false">የመተግበሪያ ስሪት እና ህጋዊ መረጃ</string>
+    <string name="about_title" formatted="false">ስለ</string>
+    <string name="access_target_url" formatted="false">ዒላማውን ዩአርኤል ያግኙ</string>
+    <string name="action" formatted="false">ድርጊት</string>
+    <string name="action_all" formatted="false">ሁሉም</string>
+    <string name="action_allow" formatted="false">ፍቀድ</string>
+    <string name="action_block" formatted="false">አግድ</string>
+    <string name="action_filter_title" formatted="false">በድርጊት አይነት ማጣሪያ</string>
+    <string name="action_filter_tooltip" formatted="false">የድርጊት ማጣሪያ</string>
+    <string name="action_none" formatted="false">ምንም እርምጃ የለም</string>
+    <string name="action_silence" formatted="false">ዝምታ</string>
+    <string name="action_tag" formatted="false">ድርጊት: {actionType}</string>
+    <string name="action_type" formatted="false">የድርጊት አይነት</string>
+    <string name="action_unknown" formatted="false">ያልታወቀ</string>
+    <string name="active_proposals" formatted="false">ንቁ ጥያቄዎች</string>
+    <string name="add" formatted="false">አክል</string>
+    <string name="add_allow_subscription" formatted="false">የፍቀድ ምዝገባን አክል</string>
+    <string name="add_allowed_blocked_rule" formatted="false">የፍቀድ/አግድ ህግን አክል</string>
+    <string name="add_block_subscription" formatted="false">የአግድ ምዝገባን አክል</string>
+    <string name="add_contact_button" formatted="false">እውቂያ አክል</string>
+    <string name="add_contact_failed" formatted="false">እውቂያ ማከል አልተሳካም: {error}</string>
+    <string name="add_label" formatted="false">መለያ አክል</string>
+    <string name="add_label_button" formatted="false">መለያ አክል</string>
+    <string name="add_label_failed" formatted="false">መለያ ማከል አልተሳካም: {error}</string>
+    <string name="add_name" formatted="false">ስም አክል</string>
+    <string name="add_none_subscription" formatted="false">ምንም ምዝገባ የለም</string>
+    <string name="add_phone_mark" formatted="false">የስልክ ምልክት አክል</string>
+    <string name="add_phone_number_rule" formatted="false">የስልክ ቁጥር ህግን አክል</string>
+    <string name="add_plugin" formatted="false">ተሰኪ አክል</string>
+    <string name="add_plugin_failed" formatted="false">ተሰኪ ማከል አልተሳካም</string>
+    <string name="add_plugin_failed_with_error" formatted="false">ተሰኪ ማከል አልተሳካም: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">ተሰኪ ከአካባቢ ፋይል</string>
+    <string name="add_plugin_from_url" formatted="false">ተሰኪ ከዩአርኤል</string>
+    <string name="add_regex_rule" formatted="false">የቁጥር ግጥሚያ ህግን አክል</string>
+    <string name="add_rule" formatted="false">ህግ አክል</string>
+    <string name="add_rule_failed" formatted="false">ህግ ማከል አልተሳካም: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">ህግ አክል</string>
+    <string name="add_silence_subscription" formatted="false">የዝምታ ምዝገባን አክል</string>
+    <string name="add_sms_filter_rule" formatted="false">የኤስኤምኤስ ማጣሪያ ህግን አክል</string>
+    <string name="add_sms_rule" formatted="false">የኤስኤምኤስ ህግን አክል</string>
+    <string name="add_sms_subscription" formatted="false">የኤስኤምኤስ ምዝገባን አክል</string>
+    <string name="add_subscription" formatted="false">ምዝገባ አክል</string>
+    <string name="add_subscription_button" formatted="false">ምዝገባ አክል</string>
+    <string name="add_subscription_failed" formatted="false">ምዝገባ ማከል አልተሳካም: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">ምዝገባ አክል</string>
+    <string name="add_to_blacklist" formatted="false">ወደ ጥቁር መዝገብ አክል</string>
+    <string name="add_to_favorites" formatted="false">ወደ ተወዳጆች አክል</string>
+    <string name="add_to_rules" formatted="false">ወደ ህጎች አክል</string>
+    <string name="add_to_whitelist" formatted="false">ወደ ነጭ ዝርዝር አክል</string>
+    <string name="added_to_favorites" formatted="false">ወደ ተወዳጆች ተጨምሯል</string>
+    <string name="advanced_mode" formatted="false">የላቀ ሁነታ</string>
+    <string name="agent" formatted="false">ወኪል</string>
+    <string name="agree_votes" formatted="false">ይስማሙ: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">ሁሉም</string>
+    <string name="all_call_logs_cleared" formatted="false">ሁሉም የጥሪ ምዝግቦች ተጸዱ</string>
+    <string name="all_calls_tab" formatted="false">ሁሉም</string>
+    <string name="all_permissions_granted" formatted="false">ሁሉም ፈቃዶች ተሰጥተዋል</string>
+    <string name="all_services_status_subtitle" formatted="false">የእያንዳንዱ የደመና አገልግሎት የአሁኑ ሁኔታ</string>
+    <string name="all_services_status_title" formatted="false">የአሁኑ የአገልግሎት ሁኔታ</string>
+    <string name="all_settings_completed" formatted="false">ሁሉም ቅንብሮች ተጠናቀዋል።</string>
+    <string name="all_update_success" formatted="false">ሁሉም ዝማኔዎች ተጠናቀዋል ({count} ህጎች)</string>
+    <string name="allow" formatted="false">ፍቀድ</string>
+    <string name="allow_action_description" formatted="false">ጥሪዎች ይፈቀዳሉ, ቁጥሩ በብሎክ ዝርዝር ውስጥ ቢሆንም.</string>
+    <string name="allow_all_allow_rules" formatted="false">ሁሉንም የፍቀድ ህጎች ፍቀድ</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">ከፍቀድ ህጎች ጥሪዎችን ፍቀድ</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">ሁሉንም በጥቁር መዝገብ የተመዘገቡ ቁጥሮችን ፍቀድ</string>
+    <string name="allow_all_block_rules" formatted="false">ሁሉንም የአግድ ህጎች ፍቀድ</string>
+    <string name="allow_all_block_rules_desc" formatted="false">ከአግድ ህጎች ጥሪዎችን ፍቀድ</string>
+    <string name="allow_allowed_numbers" formatted="false">የተፈቀዱ ቁጥሮችን ፍቀድ</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">ከነጭ ዝርዝር ጥሪዎችን ፍቀድ</string>
+    <string name="allow_block" formatted="false">ፍቀድ/አግድ</string>
+    <string name="allow_blocked_numbers" formatted="false">የተከለከሉ ቁጥሮችን ፍቀድ</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">ከጥቁር መዝገብ ጥሪዎችን ፍቀድ</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">ከገደቡ በላይ ያልሆኑ ቁጥሮችን ፍቀድ</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">ከብዛቱ ገደብ ያልበለጠ ቁጥሮችን በራስ-ሰር ፍቀድ</string>
+    <string name="allow_regex_allow_rules" formatted="false">የቁጥር ግጥሚያ ፍቀድ ህጎች</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">ለፍቀድ ህጎች የቁጥር ግጥሚያን አንቃ</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">በቁጥር ላይ የተመሰረቱ የፍቀድ ህጎችን አንቃ</string>
+    <string name="allow_regex_block_rules" formatted="false">የቁጥር ግጥሚያ አግድ ህጎች</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">ለአግድ ህጎች የቁጥር ግጥሚያን አንቃ</string>
+    <string name="allow_regex_block_rules_description" formatted="false">በቁጥር ላይ የተመሰረቱ የአግድ ህጎችን አንቃ</string>
+    <string name="allow_rule" formatted="false">የፍቀድ ህግ</string>
+    <string name="allow_rules" formatted="false">የፍቀድ ህጎች</string>
+    <string name="allowed_blocked_rule" formatted="false">የፍቀድ/አግድ ህግ</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">የፍቀድ/አግድ ህግን አርትዕ አድርግ</string>
+    <string name="allowed_blocked_rule_management" formatted="false">የፍቀድ/አግድ ህግ አስተዳደር</string>
+    <string name="allowed_blocked_rules_info" formatted="false">የተፈቀዱ/የታገዱ ህጎች የተወሰኑ የስልክ ቁጥሮችን ለመጥራት ለመመሳሰል ያገለግላሉ፣ ይህም ከፍተኛው ቅድሚያ አለው።</string>
+    <string name="and_more_items" formatted="false">እና {count} ተጨማሪ እቃዎች</string>
+    <string name="answer_then_hangup" formatted="false">መልስ ከዚያም አንጠልጥል</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">የእርስዎ ጥሪ የእርስዎ ህግ</string>
+    <string name="application_software" formatted="false">የመተግበሪያ ሶፍትዌር</string>
+    <string name="apply" formatted="false">ተግብር</string>
+    <string name="approved" formatted="false">ጸድቋል</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">ፍቃድ አልተሳካም፡ እባክዎ የደንበኛ መታወቂያ እና ቁልፍ ይፈትሹ</string>
+    <string name="authorization_failed_message" formatted="false">ፍቃድ አልተሳካም</string>
+    <string name="authorization_success_message" formatted="false">ፍቃድ ተሳክቷል</string>
+    <string name="authorize_login_button" formatted="false">ፍቃድ ግባ</string>
+    <string name="auto_cancel_notification" formatted="false">ራስ-ሰር ማሳወቂያ መሰረዝ</string>
+    <string name="auto_cancel_notification_description" formatted="false">የተመረጠ ከሆነ፣ ተጠቃሚው ሲነካው ማሳወቂያው በራስ-ሰር ይሰረዛል።</string>
+    <string name="auto_sync_label" formatted="false">ራስ-አመሳስል</string>
+    <string name="auto_update" formatted="false">ራስ-አዘምን</string>
+    <string name="auto_update_description" formatted="false">ለደንበኝነት ምዝገባዎች ራስ-ዝማኔ ክፍተቶችን ያዘጋጁ ወይም በእጅ ያዘምኑ</string>
+    <string name="auto_update_settings" formatted="false">ራስ-ዝማኔ ቅንብሮች</string>
+    <string name="auto_update_subtitle" formatted="false">ለህጎች እና ተሰኪዎች ራስ-አውቶማቲክ ዝማኔዎችን ያስተዳድሩ</string>
+    <string name="auto_update_title" formatted="false">ራስ-ዝማኔ</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">የአውቶሞቲቭ ኢንዱስትሪ</string>
+    <string name="avatar" formatted="false">የመገለጫ ሥዕል</string>
+    <string name="avatar_border_color" formatted="false">የአቫታር ድንበር ቀለም</string>
+    <string name="avatar_border_size" formatted="false">የአቫታር ድንበር መጠን</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">የአቫታር እና አዶ መጠኖች</string>
+    <string name="avatar_position" formatted="false">የአቫታር አቀማመጥ</string>
+    <string name="avatar_size" formatted="false">የአቫታር መጠን</string>
+    <string name="axis_position" formatted="false">{axis} አቀማመጥ</string>
+    <string name="background_gradient_setting" formatted="false">የዳራ ውርጭ</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">ምትኬ</string>
+    <string name="backup_and_restore" formatted="false">ምትኬ እና መልሶ ማግኛ</string>
+    <string name="backup_and_restore_subtitle" formatted="false">የመተግበሪያ ውሂብ ምትኬ ያስቀምጡ ወይም ይመልሱ</string>
+    <string name="backup_and_restore_title" formatted="false">ምትኬ &amp; መልሶ ማግኛ</string>
+    <string name="backup_failed" formatted="false">ምትኬ አልተሳካም</string>
+    <string name="backup_settings" formatted="false">ምትኬ ቅንብሮች</string>
+    <string name="backup_to_cloud" formatted="false">ወደ ደመና ምትኬ</string>
+    <string name="backup_to_cloud_failed" formatted="false">ወደ ደመና ምትኬ አልተሳካም: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">በደመና ላይ በስኬት ምትኬ ተቀምጧል</string>
+    <string name="bank" formatted="false">ባንክ</string>
+    <string name="basic_info" formatted="false">መሰረታዊ መረጃ</string>
+    <string name="basic_rule_filter" formatted="false">መሰረታዊ ህግ ማጣሪያ</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">ጥሪዎችን በጥቁር/በነጭ መዝገብ እና መደበኛ አገላለጾችን በመጠቀም ያጣሩ</string>
+    <string name="basic_rule_filtering" formatted="false">መሰረታዊ ህግ ማጣሪያ</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• መሰረታዊ ህግ ማጣሪያ፡ ከጥቁር መዝገብ፣ ነጭ መዝገብ እና ሬጌክስ ላይ ተመስርተው ህጎችን ማጣራት</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">{count} የተመረጡ እውቂያዎችን መሰረዝዎን እርግጠኛ ነዎት?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">{count} መለያዎችን መሰረዝዎን እርግጠኛ ነዎት?</string>
+    <string name="battery_optimization_permission" formatted="false">የባትሪ ማሻሻያ</string>
+    <string name="battery_optimization_permission_description" formatted="false">እንደ የደዋይ መታወቂያ ያሉ አገልግሎቶችን ለመስጠት አፑ በጀርባ እንዲሰራ ይፍቀዱ።</string>
+    <string name="black_white_list" formatted="false">ጥቁር/ነጭ ዝርዝር</string>
+    <string name="blacklist" formatted="false">ጥቁር መዝገብ</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">ጥቁር መዝገብ እና ነጭ መዝገብ</string>
+    <string name="block" formatted="false">አግድ</string>
+    <string name="block_action_description" formatted="false">ጥሪዎች ይከለከላሉ እናም በጥሪ ምዝግብ ማስታወሻ ውስጥ ይታያሉ።</string>
+    <string name="block_calls" formatted="false">ጥሪዎችን አግድ</string>
+    <string name="block_international_calls" formatted="false">+ ወይም 00 የማይጀምሩ ቁጥሮችን ይዛመዳል</string>
+    <string name="block_international_calls_title" formatted="false">አለምአቀፍ ጥሪዎችን አግድ</string>
+    <string name="block_mobile_numbers" formatted="false">13-19 የማይጀምሩ ቁጥሮችን ይዛመዳል</string>
+    <string name="block_mobile_numbers_title" formatted="false">የሞባይል ቁጥሮችን አግድ</string>
+    <string name="block_number" formatted="false">ቁጥርን አግድ</string>
+    <string name="block_number_success" formatted="false">ቁጥርን ማገድ ስኬታማ ሆነ</string>
+    <string name="block_premium_rate_numbers" formatted="false">118 ወይም 120-190 የማይጀምሩ ቁጥሮችን ይዛመዳል</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">ፕሪሚየም ዋጋ ቁጥሮችን አግድ</string>
+    <string name="block_rule" formatted="false">አግድ ህግ</string>
+    <string name="block_rules" formatted="false">አግድ ህጎች</string>
+    <string name="block_specific_area_codes" formatted="false">0 + 2-3 አሃዞች የሚጀምሩ ቁጥሮችን ይዛመዳል</string>
+    <string name="block_specific_area_codes_title" formatted="false">የተወሰኑ የአካባቢ ኮዶችን ያግዱ:</string>
+    <string name="block_type_analysis_title" formatted="false">የማገድ አይነት ትንተና</string>
+    <string name="blocked" formatted="false">ታገደ</string>
+    <string name="blocked_call_body" formatted="false">ከ {phoneNumber} የተከለከለ ጥሪ</string>
+    <string name="blocked_call_notifications" formatted="false">የታገዱ ጥሪ ማሳወቂያዎች</string>
+    <string name="blocked_call_notifications_description" formatted="false">በታገዱ ጥሪዎች ላይ መረጃን ያሳያል።</string>
+    <string name="blocked_call_title" formatted="false">የታገደ ጥሪ</string>
+    <string name="blocked_calls" formatted="false">የታገዱ ጥሪዎች</string>
+    <string name="blocked_calls_title" formatted="false">የታገዱ ጥሪዎች</string>
+    <string name="blocked_spam_calls" formatted="false">የታገዱ የስፓም ጥሪዎች</string>
+    <string name="blocking_trend" formatted="false">የማገድ አዝማሚያ</string>
+    <string name="both" formatted="false">ሁለቱም</string>
+    <string name="bulk_delete" formatted="false">የጅምላ እውቂያዎች ሰርዝ</string>
+    <string name="bulk_delete_contacts" formatted="false">የጅምላ እውቂያዎች ሰርዝ</string>
+    <string name="bulk_delete_labels" formatted="false">የጅምላ መለያዎች ሰርዝ</string>
+    <string name="call" formatted="false">ጥሪ</string>
+    <string name="call_blocking" formatted="false">የጥሪ ማገድ</string>
+    <string name="call_details" formatted="false">የጥሪ ዝርዝሮች</string>
+    <string name="call_filter_rules" formatted="false">የጥሪ ማጣሪያ ህጎች</string>
+    <string name="call_filter_rules_description" formatted="false">ለጥሪ ማጣሪያ መሰረታዊ ህጎችን ያዘጋጁ</string>
+    <string name="call_filter_settings" formatted="false">የጥሪ ማጣሪያ ቅንብሮች</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">የጥሪ ድግግሞሽ ገደቦችን እና የማገድ ህጎችን ያዘጋጁ</string>
+    <string name="call_frequency_interception_title" formatted="false">የጥሪ ድግግሞሽ መጥለፍ</string>
+    <string name="call_history" formatted="false">የጥሪ ታሪክ</string>
+    <string name="call_history_info_desc" formatted="false">እዚህ ገቢ፣ ወጪ እና የጠፉ ጥሪዎችን ጨምሮ የጥሪ ታሪክዎን ያሳያል።</string>
+    <string name="call_history_info_title" formatted="false">የጥሪ ታሪክ</string>
+    <string name="call_history_tab" formatted="false">የጥሪ ታሪክ</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">የጥሪ ማጣሪያ ፈቃድ</string>
+    <string name="call_screening_permission_description" formatted="false">የስፓም ጥሪዎችን ለማጣራት እና ለማገድ ያገለግላል።</string>
+    <string name="call_screening_permission_not_granted" formatted="false">የጥሪ ማጣሪያ ፈቃድ አልተሰጠም፣ የኛን መተግበሪያ ተግባራዊነት ሊጎዳ ይችላል።</string>
+    <string name="call_statistics" formatted="false">የጥሪ ስታትስቲክስ</string>
+    <string name="call_time" formatted="false">የጥሪ ጊዜ</string>
+    <string name="call_type" formatted="false">የጥሪ ዓይነት</string>
+    <string name="call_type_answered" formatted="false">መልስ የተሰጠበት</string>
+    <string name="call_type_blocked" formatted="false">የተከለከለ</string>
+    <string name="call_type_icon_color" formatted="false">የጥሪ አይነት የአዶ ቀለም</string>
+    <string name="call_type_missed" formatted="false">የጠፋ ጥሪ</string>
+    <string name="call_type_outgoing" formatted="false">ወጪ</string>
+    <string name="call_type_position" formatted="false">የጥሪ አይነት ቦታ</string>
+    <string name="call_type_rejected" formatted="false">ተቀባይነት አጥቷል</string>
+    <string name="call_type_silenced" formatted="false">ጸጥ አለ</string>
+    <string name="call_type_unknown" formatted="false">ያልታወቀ</string>
+    <string name="callback" formatted="false">ጥሪ ተመለስ</string>
+    <string name="caller_id_app" formatted="false">ደዋይ መታወቂያ መተግበሪያ</string>
+    <string name="caller_id_customization_subtitle" formatted="false">የደዋዩን መታወቂያ አቀማመጥ ያብጁ</string>
+    <string name="caller_id_customization_title" formatted="false">የደዋይ መታወቂያ ያብጁ</string>
+    <string name="caller_id_display_mode" formatted="false">የደዋይ መታወቂያ ማሳያ ሁኔታ</string>
+    <string name="caller_id_enhancement" formatted="false">የደዋዩ መታወቂያ ማሻሻል</string>
+    <string name="caller_id_marked_by_count" formatted="false">በ{count} ተሰይሟል</string>
+    <string name="caller_id_notification_title" formatted="false">ገቢ የጥሪ መረጃ</string>
+    <string name="caller_id_preview" formatted="false">የደዋይ መታወቂያ ቅድመ እይታ</string>
+    <string name="caller_id_settings_subtitle" formatted="false">ለገቢ ጥሪ ማሳወቂያ እና የማሳያ ሁነታ ለማዘጋጀት</string>
+    <string name="caller_id_settings_title" formatted="false">የደዋዩ መታወቂያ ቅንብሮች</string>
+    <string name="calling_number_failed" formatted="false">የመደወል ቁጥር አልተሳካም</string>
+    <string name="cancel" formatted="false">ሰርዝ</string>
+    <string name="cancel_button" formatted="false">ይቅር</string>
+    <string name="cancel_local_notification" formatted="false">የአካባቢ ማሳወቂያዎችን ዝጋ</string>
+    <string name="cancel_local_notification_description" formatted="false">የአካባቢ ማሳወቂያዎችን በራስ-ሰር ዝጋ</string>
+    <string name="car_rental" formatted="false">የመኪና ኪራይ</string>
+    <string name="carrier" formatted="false">ተሸካሚ</string>
+    <string name="carrier_color" formatted="false">የተሸካሚ ቀለም</string>
+    <string name="carrier_font_size" formatted="false">የተሸካሚ ቅርጸ-ቁምፊ መጠን</string>
+    <string name="carrier_position" formatted="false">የተሸካሚ ቦታ</string>
+    <string name="change_label" formatted="false">መለያ ቀይር</string>
+    <string name="change_plugin_status_failed" formatted="false">የፕለጊን ሁኔታን ለመቀየር አልተሳካም: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">የደንበኝነት ምዝገባ ሁኔታን ለመቀየር አልተሳካም: {error}</string>
+    <string name="charity" formatted="false">በጎ አድራጎት</string>
+    <string name="chart_one_week_ago" formatted="false">1 ሳምንት በፊት</string>
+    <string name="chart_three_days_ago" formatted="false">3 ቀናት በፊት</string>
+    <string name="chart_today" formatted="false">ዛሬ</string>
+    <string name="check_file_format" formatted="false">እባክዎ የፋይል ቅርጸት ወይም ፍቃዶችን ይፈትሹ</string>
+    <string name="check_permission_failed" formatted="false">ፍቃዶችን ለመፈተሽ አልተሳካም: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">ነባሪ የመጥለፍያ እርምጃ ይምረጡ</string>
+    <string name="clear_all_call_logs" formatted="false">ሁሉንም የጥሪ ምዝግቦችን ያጽዱ</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">ሁሉንም የጥሪ ምዝግቦችን ለማጽዳት ያረጋግጡ</string>
+    <string name="clear_all_notifications" formatted="false">ሁሉንም ማሳወቂያዎች ያጽዱ</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">ሁሉንም ማሳወቂያዎች ለማጽዳት ያረጋግጡ</string>
+    <string name="clear_button" formatted="false">አጥራ</string>
+    <string name="clear_filter" formatted="false">ማጣሪያ ሰርዝ</string>
+    <string name="clear_label_filter_button" formatted="false">የመለያ ማጣሪያ ሰርዝ</string>
+    <string name="close_button" formatted="false">ዝጋ</string>
+    <string name="cloud_backup" formatted="false">የደመና ምትኬ</string>
+    <string name="cloud_sync" formatted="false">የደመና ማመሳሰል</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">የደመና ማመሳሰል እና ምትኬ</string>
+    <string name="cloud_sync_service" formatted="false">የደመና ማመሳሰል አገልግሎት</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">WebDAV፣ OneDrive እና Google Drive ያዋቅሩ</string>
+    <string name="cloud_sync_settings_title" formatted="false">የደመና ማመሳሰል ቅንብሮች</string>
+    <string name="cloud_sync_title" formatted="false">የደመና ማመሳሰል</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">ዕዳ መሰብሰብ</string>
+    <string name="color_picker_title" formatted="false">ቀለም ይምረጡ</string>
+    <string name="community_impact" formatted="false">የማህበረሰብ ተጽእኖ</string>
+    <string name="community_participation" formatted="false">የማህበረሰብ ተሳትፎ</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">የማህበረሰብ ድምጾች</string>
+    <string name="community_voting_started" formatted="false">የማህበረሰብ ድምጽ መስጫ ተጀምሯል</string>
+    <string name="community_voting_started_body" formatted="false">ለ {phoneNumber} አዲስ የመሰረዝ ጥያቄ አሁን ለማህበረሰብ ድምጽ መስጫ ክፍት ነው።</string>
+    <string name="completed" formatted="false">ተጠናቀቀ</string>
+    <string name="config_management" formatted="false">የውቅር አስተዳደር</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">ውቅር ተዘምኗል</string>
+    <string name="configuration_advice" formatted="false">ትክክለኛ ውቅርን በመጠቀም ለስራ እና ለግል ሲም ካርዶች የተለያዩ የማጣሪያ ስልቶችን ማዘጋጀት ይችላሉ።</string>
+    <string name="configure_backup_options" formatted="false">የመጠባቂያ አማራጮችን ያዋቅሩ</string>
+    <string name="configure_cloud_sync_service" formatted="false">የደመና ማመሳሰል አገልግሎት ያዋቅሩ</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">እባክዎ የብዙ-መሣሪያ ማመሳሰልን ለማንቃት የደመና ማመሳሰል አገልግሎት ያዋቅሩ።</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">የሲም ካርድ ማጣሪያ ህጎችን ያዋቅሩ</string>
+    <string name="confirm" formatted="false">አረጋግጥ</string>
+    <string name="confirm_button" formatted="false">አረጋግጥ</string>
+    <string name="confirm_delete" formatted="false">አረጋግጥ ሰርዝ</string>
+    <string name="confirm_delete_label" formatted="false">መለያ &quot;{name}&quot; መሰረዙን ያረጋግጡ</string>
+    <string name="confirm_delete_plugin" formatted="false">ፕለጊን &quot;{name}&quot; መሰረዙን ያረጋግጡ?</string>
+    <string name="confirm_delete_plugins" formatted="false">{count} ፕለጊኖችን መሰረዙን ያረጋግጡ?</string>
+    <string name="confirm_delete_rule_message" formatted="false">ይህን ህግ መሰረዝ ይፈልጋሉ? ይህ እርምጃ ሊቀለበስ አይችልም።</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">ይህን የኤስኤምኤስ ማጣሪያ ህግ መሰረዝ ይፈልጋሉ?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">ይህን የኤስኤምኤስ ህግ መሰረዝ ይፈልጋሉ?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">{name} መሰረዙን ያረጋግጡ?</string>
+    <string name="confirm_password" formatted="false">የይለፍ ቃል ያረጋግጡ</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">ተገናኝቷል</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">ግንኙነት አልተሳካም: እባክዎ የአገልጋዩን አድራሻ፣ የተጠቃሚ ስም እና የይለፍ ቃል ይፈትሹ</string>
+    <string name="connection_failed_message" formatted="false">ግንኙነት አልተሳካም</string>
+    <string name="connection_status_label" formatted="false">የግንኙነት ሁኔታ</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">ግንኙነት ተሳክቷል</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">ዕውቂያ በተሳካ ሁኔታ ታክሏል</string>
+    <string name="contact_deleted" formatted="false">ዕውቂያ ተሰርዟል</string>
+    <string name="contact_name_label" formatted="false">ስም</string>
+    <string name="contact_not_found" formatted="false">ዕውቂያ አልተገኘም</string>
+    <string name="contact_subscription_description" formatted="false">የዕውቂያ ዝርዝሮችን በዩአርኤል ይመዝገቡ፤ የዕውቂያ መረጃዎችን እና መለያዎችን በራስ-ሰር ያዘምኑ። የJSON ቅርጸት መረጃ ይደግፋል።</string>
+    <string name="contact_update_success" formatted="false">ዕውቂያ በተሳካ ሁኔታ ተዘምኗል</string>
+    <string name="contact_us" formatted="false">ያግኙን</string>
+    <string name="contacts" formatted="false">ዕውቂያዎች</string>
+    <string name="contacts_deleted" formatted="false">{count} ዕውቂያዎች ተሰርዘዋል</string>
+    <string name="contacts_management" formatted="false">የዕውቂያዎች አስተዳደር</string>
+    <string name="contacts_permission" formatted="false">የዕውቂያዎች ፈቃድ</string>
+    <string name="contacts_permission_description" formatted="false">ለጥሪዎች ዕውቂያዎችን ለመለየት ጥቅም ላይ ይውላል።</string>
+    <string name="contacts_tab" formatted="false">ዕውቂያዎች</string>
+    <string name="container_width" formatted="false">የመያዣ ስፋት</string>
+    <string name="content" formatted="false">ይዘት</string>
+    <string name="content_regex" formatted="false">የይዘት ሬጌክስ</string>
+    <string name="count_color" formatted="false">የመቆጠር ቀለም</string>
+    <string name="count_font_size" formatted="false">የመቆጠር ቅርጸ-ቁመት</string>
+    <string name="count_position" formatted="false">የመቆጠር ቦታ</string>
+    <string name="count_threshold_description" formatted="false">ማጣሪያዎችን ለማንቀሳቀስ የሚያስፈልገውን ዝቅተኛ የመቆጠር ገደብ ያዘጋጁ</string>
+    <string name="count_threshold_label" formatted="false">የመቆጠር ገደብ</string>
+    <string name="country" formatted="false">ሀገር</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">ለምሳሌ፣ US, CN, GB</string>
+    <string name="country_code_label" formatted="false">የሀገር ኮድ (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">የሀገር ኮድ ያስፈልጋል</string>
+    <string name="country_code_two_letters" formatted="false">የሀገር ኮድ (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">እባክዎ ልብ ይበሉ፡ የውሂብ ጎታው ለሁሉም የተወሰኑ ሀገራት ወይም ክልሎች መረጃ ላይኖረው ይችላል።</string>
+    <string name="country_name_color" formatted="false">የሀገር ስም ቀለም</string>
+    <string name="country_name_font_size" formatted="false">የሀገር ስም ቅርጸ-ቁመት</string>
+    <string name="country_region_name_position" formatted="false">የሀገር/ክልል ስም ቦታ</string>
+    <string name="country_sync_settings_subtitle" formatted="false">ለማመሳሰል አገሮችን ይምረጡ</string>
+    <string name="country_sync_settings_title" formatted="false">በሀገር ላይ የተመሰረተ የውሂብ ጎታ ማመሳሰል ቅንጅቶች</string>
+    <string name="create_proposal" formatted="false">ጥያቄ ፍጠር</string>
+    <string name="create_proposal_title" formatted="false">የመሰረዝ ጥያቄ ፍጠር</string>
+    <string name="created_at" formatted="false">የተፈጠረ: {date}</string>
+    <string name="created_rules" formatted="false">የተፈጠሩ ህጎች</string>
+    <string name="critical" formatted="false">አስቸኳይ</string>
+    <string name="critical_issues" formatted="false">አስቸኳይ ጉዳዮች</string>
+    <string name="csv_format" formatted="false">CSV ቅርጸት</string>
+    <string name="current_device_label" formatted="false">አሁን ያለው የመሣሪያ መለያ</string>
+    <string name="current_device_title" formatted="false">አሁን ያለው መሣሪያ</string>
+    <string name="current_language" formatted="false">አሁን ያለው ቋንቋ</string>
+    <string name="current_mark_count" formatted="false">የአሁኑ የመልዕክቶች ብዛት</string>
+    <string name="custom" formatted="false">ብጁ</string>
+    <string name="custom_action_description" formatted="false">ብጁ እርምጃ ይፈጽሙ።</string>
+    <string name="customer_service" formatted="false">የደንበኞች አገልግሎት</string>
+    <string name="dashboard_tab" formatted="false">ዳሽቦርድ</string>
+    <string name="data_analysis" formatted="false">የውሂብ ትንተና</string>
+    <string name="data_load_failure" formatted="false">ውሂብ መጫን አልተሳካም: {error}</string>
+    <string name="data_loading_failed" formatted="false">ውሂብ መጫን አልተሳካም: {error}</string>
+    <string name="data_migration" formatted="false">የውሂብ ማስተላለፍ</string>
+    <string name="data_migration_description" formatted="false">ይህ ባህሪ ሁሉንም ውሂቦችዎን በመሣሪያዎች መካከል እንዲያስተላልፉ ያስችልዎታል። በአሁኑ ጊዜ ውሂቦችዎን በእጅ ለማስተላለፍ ምትኬ እና እነበረበት መልስ ባህሪያትን መጠቀም ይችላሉ።</string>
+    <string name="data_source_disclaimer" formatted="false">ቁጥሮች ከኢንተርኔት እና ከተጠቃሚዎች የቀረቡ ናቸው። አንድ ቁጥር ከተሰረዘ በሌሎች ተጠቃሚዎች ወይም ምንጮች እንደገና እንደማይቀርብ ዋስትና አንሰጥም። እባክዎ በንቃት ይፈልጉ እና መረጃውን ያረጋግጡ።</string>
+    <string name="data_source_reminder" formatted="false">የውሂብ ምንጭ አስታዋሽ</string>
+    <string name="database_sync_title" formatted="false">የውሂብ ጎታ ማመሳሰል</string>
+    <string name="days" formatted="false">{count, plural, =1{1 ቀን} other{{count} ቀናት}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 ቀን በፊት} other{{count} ቀናት በፊት}}</string>
+    <string name="days_vip" formatted="false">{days} ቀናት VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">ዕዳ መሰብሰብ</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">ነባሪ ማሳወቂያዎች</string>
+    <string name="default_notifications_description" formatted="false">Default notification channel for the app.</string>
+    <string name="delete" formatted="false">ሰርዝ</string>
+    <string name="delete_button" formatted="false">ሰርዝ</string>
+    <string name="delete_contact" formatted="false">ዕውቂያ ሰርዝ</string>
+    <string name="delete_contact_confirm" formatted="false">{name}ን መሰረዝ ይፈልጋሉ?</string>
+    <string name="delete_failed" formatted="false">መሰረዝ አልተሳካም: {error}</string>
+    <string name="delete_label" formatted="false">መለያ ሰርዝ</string>
+    <string name="delete_label_failed" formatted="false">መለያ መሰረዝ አልተሳካም: {error}</string>
+    <string name="delete_plugin" formatted="false">ተሰኪ ሰርዝ</string>
+    <string name="delete_plugin_failed" formatted="false">ተሰኪ መሰረዝ አልተሳካም: {error}</string>
+    <string name="delete_plugins" formatted="false">ተሰኪዎች ሰርዝ</string>
+    <string name="delete_plugins_failed" formatted="false">ተሰኪዎች መሰረዝ አልተሳካም: {error}</string>
+    <string name="delete_rule" formatted="false">ህግ ሰርዝ</string>
+    <string name="delete_rule_failed" formatted="false">መሰረዝ አልተሳካም: {error}</string>
+    <string name="delete_selected" formatted="false">የተመረጡትን ሰርዝ</string>
+    <string name="delete_subscription" formatted="false">ምዝገባ ሰርዝ</string>
+    <string name="delete_subscription_confirm" formatted="false">&quot;{name}&quot; የተባለውን ምዝገባ መሰረዝ ይፈልጋሉ?</string>
+    <string name="delete_subscription_failed" formatted="false">ምዝገባ መሰረዝ አልተሳካም: {error}</string>
+    <string name="delete_success" formatted="false">መሰረዝ ተሳክቷል</string>
+    <string name="deletion_proposal" formatted="false">የመሰረዝ ጥያቄ</string>
+    <string name="deletion_proposal_created" formatted="false">የመሰረዝ ጥያቄ ተፈጥሯል</string>
+    <string name="deletion_proposal_created_body" formatted="false">የእርስዎ የመሰረዝ ጥያቄ ለ {phoneNumber} ለማህበረሰብ ግምገማ ገብቷል።</string>
+    <string name="deletion_proposal_description" formatted="false">የማህበረሰብ መመሪያዎችን የሚጥሱ ቁጥሮችን ለመሰረዝ ጥያቄ ያቅርቡ። ተሳትፎዎ መድረኩን ደህንነቱ የተጠበቀ ለማድረግ ይረዳል።</string>
+    <string name="deletion_proposal_notification_description" formatted="false">ስለ የመሰረዝ ጥያቄ የድምጽ መስጫ ውጤቶች እና ዝመናዎች ማሳወቂያዎች።</string>
+    <string name="deletion_proposals" formatted="false">የመሰረዝ ጥያቄዎች</string>
+    <string name="delivery" formatted="false">ማድረስ</string>
+    <string name="description" formatted="false">መግለጫ</string>
+    <string name="detailed_settings_title" formatted="false">ዝርዝር ቅንብሮች</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">የመሣሪያ መታወቂያ</string>
+    <string name="device_management_subtitle" formatted="false">በርካታ የመሣሪያ ማመሳሰልን ያቀናብሩ</string>
+    <string name="device_management_title" formatted="false">የመሣሪያ አስተዳደር</string>
+    <string name="device_model_label" formatted="false">የመሣሪያ ሞዴል</string>
+    <string name="device_name" formatted="false">የመሣሪያ ስም</string>
+    <string name="device_name_label" formatted="false">የመሳሪያ ስም</string>
+    <string name="device_renamed_successfully_message" formatted="false">መሳሪያው በተሳካ ሁኔታ ተሰይሟል</string>
+    <string name="device_unregistered_successfully_message" formatted="false">መሳሪያው በተሳካ ሁኔታ ተመዝግቧል</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">መሳሪያዎች በተሳካ ሁኔታ ተመሳስለዋል</string>
+    <string name="dialog_title" formatted="false">የRegex Pattern ማብራሪያ</string>
+    <string name="different_from_local_counter" formatted="false">ይህ ባህሪ ከሀገር ውስጥ ቆጣሪ ማጣሪያ የተለየ ነው፣ ምክንያቱም የረጅም ጊዜ ምልክት ከመሆን ይልቅ በአጭር ጊዜ ውስጥ በተደጋጋሚ የመደወል ስርዓተ-ጥለቶችን ይመለከታል።</string>
+    <string name="disable_global_plugins" formatted="false">አለም አቀፍ ተሰኪዎችን ያሰናክሉ</string>
+    <string name="disabled" formatted="false">የተሰናከለ</string>
+    <string name="disabled_status" formatted="false">የተሰናከለ</string>
+    <string name="disconnect_button" formatted="false">አቋረጥ</string>
+    <string name="disconnect_failed_message" formatted="false">ማቋረጥ አልተሳካም</string>
+    <string name="disconnected_message" formatted="false">ተቋርጧል</string>
+    <string name="disconnected_status" formatted="false">ተቋርጧል</string>
+    <string name="done" formatted="false">ተከናውኗል</string>
+    <string name="dual_sim_advice" formatted="false">ይህ ባህሪ ለሁለት ሲም ስልኮች ለስራ እና ለግል ሲም ካርዶች የተለያዩ የማጣሪያ ስልቶችን ለማዘጋጀት በጣም ጠቃሚ ነው።</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">E164 ቁጥር</string>
+    <string name="earlier" formatted="false">ቀደም ብሎ</string>
+    <string name="earned_temp_vip" formatted="false">ጊዜያዊ ቪአይፒ አግኝቷል</string>
+    <string name="ecommerce" formatted="false">ኢ-ኮሜርስ</string>
+    <string name="edit" formatted="false">አርትዕ</string>
+    <string name="edit_contact" formatted="false">እውቂያ አርትዕ</string>
+    <string name="edit_label" formatted="false">መለያ አርትዕ</string>
+    <string name="edit_phone_rule" formatted="false">የስልክ ደንብ አርትዕ</string>
+    <string name="edit_rule" formatted="false">ደንብ አርትዕ</string>
+    <string name="edit_script" formatted="false">ስክሪፕት ያርትይ</string>
+    <string name="edit_script_for" formatted="false">ለ {pluginName} ስክሪፕት ያርትይ</string>
+    <string name="edit_subscription" formatted="false">ምዝገባን ያርትይ</string>
+    <string name="education" formatted="false">ትምህርት</string>
+    <string name="element_positions_setting" formatted="false">የኤለመንት ቦታዎች</string>
+    <string name="elements_settings_title" formatted="false">የኤለመንት ቅንብሮች</string>
+    <string name="email" formatted="false">ኢሜል</string>
+    <string name="enable_call_filter" formatted="false">የጥሪ ማጣሪያን አንቃ</string>
+    <string name="enable_call_filter_description" formatted="false">ሲነቃ ገቢ ጥሪዎች ከታች ካለው የደንብ ዝርዝር ጋር ይነጻጸራሉ። የጥሪ ማጣሪያ ደንቦች በአብዛኛው በመሳሪያዎች መካከል አይመሳሰሉም።</string>
+    <string name="enable_encryption" formatted="false">ምስጠራን አንቃ</string>
+    <string name="enable_encryption_description" formatted="false">የመጠባበቂያ ፋይሎችን ኢንክሪፕት አድርግ</string>
+    <string name="enable_filtering" formatted="false">ማጣራትን አንቃ</string>
+    <string name="enable_fraud_alert" formatted="false">ማጭበርበር አስጠንቅቅ</string>
+    <string name="enable_fraud_alert_description" formatted="false">ለተጠረጠሩ የማጭበርበር ጥሪዎች አስጠንቅቅ</string>
+    <string name="enable_global_plugins" formatted="false">አለም አቀፍ ተሰኪዎችን አንቃ</string>
+    <string name="enable_local_count_filter" formatted="false">የሀገር ውስጥ ቆጠራ ማጣሪያን አንቃ</string>
+    <string name="enable_local_count_filter_description" formatted="false">በጥሪ ምልክት ብዛት ላይ ተመስርተው በራስ-ሰር አይፈለጌ መልዕክቶችን ያጣሩ</string>
+    <string name="enable_local_notification" formatted="false">የሀገር ውስጥ ማሳወቂያዎችን ተጠቀም</string>
+    <string name="enable_local_notification_description" formatted="false">ሲነቃ ለተጣሩ መልእክቶች ማሳወቂያዎች በመሣሪያው ላይ ይታያሉ</string>
+    <string name="enable_location_summary" formatted="false">አካባቢ</string>
+    <string name="enable_mute_rules" formatted="false">ድምጸ-ከል ደንቦችን አንቃ</string>
+    <string name="enable_mute_rules_desc" formatted="false">የድምጸ-ከል ጣልቃገብነት ደንቦችን ውቅር ተግብር</string>
+    <string name="enable_none_action_rules" formatted="false">ምንም እርምጃ የሌላቸውን ደንቦች አንቃ</string>
+    <string name="enable_none_action_rules_desc" formatted="false">የጣልቃገብነት እርምጃዎች የሌላቸውን ደንቦች ውቅረት ይፍቀዱ</string>
+    <string name="enable_remote_number_filter" formatted="false">የርቀት ቁጥር ማጣሪያን አንቃ</string>
+    <string name="enable_remote_number_filter_description" formatted="false">ቁጥሮችን ለማጣራት የርቀት ዳታቤዝ ይጠቀሙ</string>
+    <string name="enable_rule" formatted="false">ደንብ አንቃ</string>
+    <string name="enable_security_message" formatted="false">የደህንነት መልዕክት አንቃ</string>
+    <string name="enable_sms_filter" formatted="false">የኤስኤምኤስ ማጣሪያን አንቃ</string>
+    <string name="enable_sms_filter_description" formatted="false">ሲነቃ መልእክቶች እንደ ደንቦቹ በራስ-ሰር ይጣራሉ</string>
+    <string name="enable_time_interception" formatted="false">የጊዜ ጣልቃገብነትን አንቃ</string>
+    <string name="enable_time_interception_description" formatted="false">በአጭር ጊዜ ውስጥ የተደጋገሙ ጥሪዎችን ጣልቃ ይግቡ</string>
+    <string name="enable_time_interceptor" formatted="false">የጊዜ ጣልቃገብነትን አንቃ</string>
+    <string name="enable_vibration" formatted="false">ንዝረትን አንቃ</string>
+    <string name="enable_vibration_description" formatted="false">ጥሪው የተጠረጠረ የማጭበርበር ጥሪ ከሆነ ይንቀጠቀጡ</string>
+    <string name="enabled" formatted="false">ነቅቷል</string>
+    <string name="enabled_status" formatted="false">ነቅቷል</string>
+    <string name="end_call_immediately" formatted="false">ጥሪውን ወዲያውኑ ጨርስ</string>
+    <string name="end_color" formatted="false">የመጨረሻ ቀለም</string>
+    <string name="end_date" formatted="false">የማብቂያ ቀን</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">የተሻሻለ የማጣሪያ ስርዓት መመሪያዎች</string>
+    <string name="enhanced_filter_settings" formatted="false">የተሻሻለ የማጣሪያ ቅንብሮች</string>
+    <string name="enhanced_filter_settings_title" formatted="false">የተሻሻለ የማጣሪያ ቅንብሮች</string>
+    <string name="enhanced_filter_system_description" formatted="false">የተሻሻለ የማጣሪያ ስርዓቱ ዓለም አቀፍ ደንቦችን እና ለእያንዳንዱ ሲም ካርድ የማጣሪያ ውቅረቶችን ይደግፋል።</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">እባክዎ የስልክ ቁጥር እና የregex pattern ሁለቱንም ያስገቡ።</string>
+    <string name="enter_contact_name" formatted="false">እባክዎ የእውቂያ ስም ያስገቡ</string>
+    <string name="enter_device_name" formatted="false">የመሳሪያ ስም አስገባ</string>
+    <string name="enter_email_optional" formatted="false">እባክዎ ኢሜል (አማራጭ) ያስገቡ</string>
+    <string name="enter_encryption_password_hint" formatted="false">የምስጠራ ይለፍ ቃል አስገባ</string>
+    <string name="enter_icon_code" formatted="false">የአዶ ኮድ አስገባ</string>
+    <string name="enter_name" formatted="false">የእውቂያ ስም አስገባ</string>
+    <string name="enter_new_device_name_hint" formatted="false">ለዚህ መሣሪያ አዲስ ስም ያስገቡ</string>
+    <string name="enter_password_again" formatted="false">የይለፍ ቃል እንደገና አስገባ</string>
+    <string name="enter_phone_number" formatted="false">የስልክ ቁጥር አስገባ</string>
+    <string name="enter_phone_number_hint" formatted="false">ለመፈተሽ የስልክ ቁጥር አስገባ</string>
+    <string name="enter_phone_number_multiple" formatted="false">እባክዎ የስልክ ቁጥር ያስገቡ፣ ብዙ ቁጥሮች በነጠላ ሰረዝ የተከፋፈሉ</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">ለመጀመር የስልክ ቁጥር አስገባ</string>
+    <string name="enter_phone_number_to_verify" formatted="false">ለማረጋገጥ የስልክ ቁጥር አስገባ</string>
+    <string name="enter_plugin_description" formatted="false">የተሰኪ መግለጫ ያስገቡ</string>
+    <string name="enter_plugin_name" formatted="false">የተሰኪ ስም አስገባ</string>
+    <string name="enter_plugin_url" formatted="false">የተሰኪ URL አድራሻ አስገባ</string>
+    <string name="enter_regex_hint" formatted="false">የ regex pattern አስገባ</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">እባክዎ የህግ ስም እና የቁጥር ንድፍ ያስገቡ።</string>
+    <string name="enter_rule_name_hint" formatted="false">የህግ ስም ያስገቡ</string>
+    <string name="enter_search_content" formatted="false">እባክዎ የፍለጋ ይዘት ያስገቡ</string>
+    <string name="enter_subscription_name" formatted="false">የምዝገባ ስም ያስገቡ</string>
+    <string name="enter_subscription_url" formatted="false">የምዝገባ ዩአርኤል ያስገቡ</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">እባክዎ የማመሳሰል አቃፊ ስም ያስገቡ (ነባሪ፡ NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">እባክዎ ትክክለኛ ስም እና ዩአርኤል ያስገቡ</string>
+    <string name="enter_valid_url" formatted="false">እባክዎ ትክክለኛ ዩአርኤል ያስገቡ</string>
+    <string name="enter_version" formatted="false">ስሪት ያስገቡ</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">እባክዎ የWebDAV የይለፍ ቃል ያስገቡ</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">እባክዎ የWebDAV አገልጋይ አድራሻ ያስገቡ</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">እባክዎ የWebDAV የተጠቃሚ ስም ያስገቡ</string>
+    <string name="entertainment" formatted="false">መዝናኛ</string>
+    <string name="entity_export_failed" formatted="false">{entityTypeName} መላክ አልተሳካም: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} በተሳካ ሁኔታ ተልኳል</string>
+    <string name="entity_import_failed" formatted="false">{entityTypeName} ማስመጣት አልተሳካም: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} በተሳካ ሁኔታ ገብቷል, ጠቅላላ {count} መዝገቦች ገብተዋል</string>
+    <string name="entry_point_view_title" formatted="false">የመግቢያ ነጥብ እይታ</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">ስህተት: {error}</string>
+    <string name="error_occurred_message" formatted="false">ስህተት ተከስቷል፡ {error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">መሳሪያን በመሰየም ላይ ስህተት፡ {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">መሳሪያዎችን በማመሳሰል ላይ ስህተት፡ {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">መሳሪያን በማስመዝገብ ላይ ስህተት፡ {error}</string>
+    <string name="example_block400_prefix" formatted="false">ለምሳሌ የ400 ቅድመ-ቁጥር ቁጥሮችን አግድ</string>
+    <string name="example_block_marketing_sms" formatted="false">ለምሳሌ የማስታወቂያ ኤስኤምኤስ አግድ</string>
+    <string name="example_content_regex_hint" formatted="false">የይዘት ምሳሌ ንድፍ</string>
+    <string name="example_coupon_promotion_discount" formatted="false">ለምሳሌ .*(coupon|promotion|discount).*</string>
+    <string name="example_family_friends" formatted="false">ለምሳሌ ቤተሰብ፣ ጓደኞች፣ ወዘተ.</string>
+    <string name="example_phone_number" formatted="false">ለምሳሌ 10086፣ 12345፣ ወዘተ.</string>
+    <string name="example_regex400_prefix" formatted="false">የ400 ቅድመ-ቁጥር ምሳሌ ንድፍ</string>
+    <string name="example_sender_regex_hint" formatted="false">ምሳሌ</string>
+    <string name="exchange" formatted="false">መለዋወጥ</string>
+    <string name="exchange_failed" formatted="false">ልውውጥ አልተሳካም: {error}</string>
+    <string name="exchange_now" formatted="false">አሁን ይለውጡ</string>
+    <string name="exchange_success" formatted="false">ለ {description} በተሳካ ሁኔታ ተለዋውጧል፣ የሚያበቃበት ቀን፡ {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">VIP ይለውጡ</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">የማለቂያ ጊዜ፡ {time}</string>
+    <string name="export" formatted="false">ላክ</string>
+    <string name="export_all_application_settings" formatted="false">ሁሉንም የመተግበሪያ ቅንብሮች ላክ</string>
+    <string name="export_all_rule_configurations" formatted="false">ሁሉንም የህግ ውቅሮች ላክ</string>
+    <string name="export_config" formatted="false">ውቅሮስ ላክ</string>
+    <string name="export_contacts" formatted="false">ዕውቂያዎችን ላክ</string>
+    <string name="export_data" formatted="false">ውሂብ ላክ</string>
+    <string name="export_entity" formatted="false">{entityTypeName} ላክ</string>
+    <string name="export_failed" formatted="false">ላክ አልተሳካም</string>
+    <string name="export_failure" formatted="false">ውቅሮስ መላክ አልተሳካም</string>
+    <string name="export_feature_coming_soon" formatted="false">የላክ ባህሪ በቅርቡ ይመጣል</string>
+    <string name="export_labels" formatted="false">መለያዎችን ላክ</string>
+    <string name="export_labels_failed" formatted="false">መለያዎችን መላክ አልተሳካም፡ {error}</string>
+    <string name="export_plugin_list" formatted="false">ተሰኪ ዝርዝር ላክ</string>
+    <string name="export_plugin_list_failed" formatted="false">ተሰኪ ዝርዝር መላክ አልተሳካም፡ {error}</string>
+    <string name="export_rules" formatted="false">ህጎችን ላክ</string>
+    <string name="export_sms_rules" formatted="false">የኤስኤምኤስ ህጎችን ላክ</string>
+    <string name="export_statistics_data" formatted="false">የስታቲስቲክስ ውሂብ ላክ</string>
+    <string name="export_successlly" formatted="false">ውቅሮስ በተሳካ ሁኔታ ተልኳል</string>
+    <string name="failed_to_add_rule" formatted="false">ህግ ማከል አልተሳካም፡ {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">የኤስኤምኤስ ምዝገባ ማከል አልተሳካም፡ {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">ቅንብሮችን ምትኬ ማስቀመጥ አልተሳካም፡ {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">ምትኬ ፋይል መፍታት አልተሳካም</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">የኤስኤምኤስ ህግ መሰረዝ አልተሳካም፡ {error}</string>
+    <string name="failed_to_export_rules" formatted="false">ህጎችን መላክ አልተሳካም፡ {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">የደዋይ መታወቂያ መረጃ ማግኘት አልተሳካም፡ {error}</string>
+    <string name="failed_to_import_rules" formatted="false">ህጎችን ማስመጣት አልተሳካም፡ {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">ቅንብሮችን መልሰው ማግኘት አልተሳካም</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">ቅንብሮችን መልሰው ማግኘት አልተሳካም፡ {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">የህግን ሁኔታ መቀየር አልተሳካም፡ {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">ተወዳጅ ዕውቂያዎች</string>
+    <string name="feature" formatted="false">ባህሪ</string>
+    <string name="feature_add_rules" formatted="false">• ለስልክ ቁጥር የተለዩ ህጎችን ያክሉ</string>
+    <string name="feature_center" formatted="false">የባህሪ ማዕከል</string>
+    <string name="feature_enable_disable" formatted="false">• ለእያንዳንዱ ሲም የተለያዩ ማጣሪያዎችን ያንቁ/ያሰናክሉ</string>
+    <string name="feature_list_title" formatted="false">ባህሪያት:</string>
+    <string name="feature_manage_rules" formatted="false">• ለእያንዳንዱ ሲም የህግ ዝርዝሮችን ያቀናብሩ</string>
+    <string name="features" formatted="false">ባህሪያት</string>
+    <string name="fetching_caller_id_info" formatted="false">የደዋይ መታወቂያ መረጃ እየተገኘ ነው...</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">ፋይል ተቀምጧል በ፡ {path}</string>
+    <string name="filter" formatted="false">አጣራ</string>
+    <string name="filter_and_sort_title" formatted="false">አጣራ እና ደርድር</string>
+    <string name="filter_by" formatted="false">በ... አጣራ</string>
+    <string name="filter_by_action" formatted="false">በድርጊት አጣራ</string>
+    <string name="filter_by_label" formatted="false">በመለያ አጣራ</string>
+    <string name="filter_control_panel_title" formatted="false">የማጣሪያ መቆጣጠሪያ ፓነል</string>
+    <string name="filter_control_subtitle" formatted="false">የሁሉንም ማጣሪያዎች በርቷል/አጥፏል ሁኔታን ያቀናብሩ</string>
+    <string name="filter_control_title" formatted="false">የማጣሪያ መቆጣጠሪያ</string>
+    <string name="filter_explanation" formatted="false">የማጣሪያ ማብራሪያ</string>
+    <string name="filter_management" formatted="false">የማጣሪያ አስተዳደር</string>
+    <string name="filter_management_description" formatted="false">የጥሪ ማጣሪያዎችን ያዘጋጁ</string>
+    <string name="filter_name" formatted="false">የማጣሪያ ስም</string>
+    <string name="filter_priority_note" formatted="false">ማሳሰቢያ፡ በማጣሪያዎች መካከል የቅድሚያ ግንኙነቶች አሉ፣ ለዝርዝሮች የእርዳታ ሰነዱን ይመልከቱ</string>
+    <string name="filter_s_m_s" formatted="false">ኤስኤምኤስ ማጣራት</string>
+    <string name="filter_settings" formatted="false">የማጣሪያ ቅንብሮች</string>
+    <string name="filter_settings_title" formatted="false">የማጣሪያ ቅንብሮች</string>
+    <string name="filter_toggle_instructions" formatted="false">ለዚህ ሲም ማስገቢያ ማጣሪያዎችን አንቃ ወይም አጥፋ፡</string>
+    <string name="filter_toggle_status" formatted="false">{status} ማጣሪያ፡ {filterName}</string>
+    <string name="filter_type" formatted="false">የማጣሪያ ዓይነት</string>
+    <string name="filter_verified_owner" formatted="false">የተረጋገጠ ባለቤት አጣራ</string>
+    <string name="filtered" formatted="false">ተጣርቶ</string>
+    <string name="final_risk" formatted="false">የመጨረሻ ስጋት</string>
+    <string name="financial" formatted="false">ፋይናንሺያል</string>
+    <string name="flexible_combination_feature" formatted="false">• ተለዋዋጭ ውህዶች፡ በማጣሪያዎች አንቃ/አጥፋ ለእያንዳንዱ ሲም ማስገቢያ</string>
+    <string name="font_sizes_setting" formatted="false">የቅርጸ-ቁምፊ መጠኖች</string>
+    <string name="found_rules" formatted="false">{count} ህግ ተገኝቷል</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">ለማጭበርበር ማስጠንቀቂያ ለማዘጋጀት</string>
+    <string name="fraud_aler_setting_title" formatted="false">የማጭበርበር ማስጠንቀቂያ ቅንብር</string>
+    <string name="fraud_alert" formatted="false">የማጭበርበር ማስጠንቀቂያ - ጥሪውን ያቋርጡ</string>
+    <string name="fraud_alert_title" formatted="false">የማጭበርበር ማስጠንቀቂያ</string>
+    <string name="fraud_alerts" formatted="false">የማጭበርበር ማስጠንቀቂያዎች</string>
+    <string name="fraud_alerts_description" formatted="false">ሊመጡ ስለሚችሉ የማጭበርበር ጥሪዎች ማስጠንቀቂያዎችን ያሳያል።</string>
+    <string name="fraud_scam_likely" formatted="false">የማጭበርበር ማጭበርበር ሊሆን ይችላል</string>
+    <string name="free" formatted="false">ነፃ</string>
+    <string name="function_settings_title" formatted="false">የተግባር ቅንብሮች</string>
+    <string name="general_update_failure" formatted="false">ዝማኔ አልተሳካም፡ {error}</string>
+    <string name="get_free" formatted="false">ነፃ ያግኙ</string>
+    <string name="github" formatted="false">ጊትሀብ</string>
+    <string name="global_filter_description" formatted="false">ለሁሉም ሲም ካርዶች ዓለም አቀፍ ማጣሪያዎችን ያዋቅሩ፡</string>
+    <string name="global_filter_feature" formatted="false">• ዓለም አቀፍ ማጣሪያዎች፡ ለሁሉም ገቢ ጥሪዎች መሰረታዊ ህጎች</string>
+    <string name="global_filter_settings" formatted="false">የአለምአቀፍ ማጣሪያ ቅንብሮች</string>
+    <string name="global_settings" formatted="false">አለምአቀፍ ቅንብሮች</string>
+    <string name="google_drive_auth_description" formatted="false">በስርዓት የተዋቀረ የGoogle Drive ደንበኛ መታወቂያ እና ቁልፍ በመጠቀም ፈቃድ ይስጡ</string>
+    <string name="google_drive_config_title" formatted="false">የGoogle Drive ውቅር</string>
+    <string name="government" formatted="false">መንግስት</string>
+    <string name="grant_necessary_permissions" formatted="false">አስፈላጊ ፈቃዶችን ይስጡ</string>
+    <string name="grant_permissions" formatted="false">ፈቃዶችን ይስጡ</string>
+    <string name="granted" formatted="false">ተሰጥቷል</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">{days} ቀናት የጊዜያዊ የግዢ መብቶች ተሰጥተውዎታል ። የሚያበቃበት ቀን፡ {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">መመሪያዎች</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">እርስዎ ጊዜያዊ መብቶች አሉዎት፣ ጊዜው የሚያበቃበት ቀን፡ {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">እርስዎ ቀድሞውኑ የቪአይፒ መብት (ከማስታወቂያ በስተቀር) አለዎት</string>
+    <string name="headhunter" formatted="false">የጭንቅላት አዳኝ</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">ቁመት</string>
+    <string name="high" formatted="false">ከፍተኛ</string>
+    <string name="high_risk" formatted="false">ከፍተኛ ስጋት</string>
+    <string name="home_tab" formatted="false">መነሻ</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 ሰዓት በፊት} other{{count} ሰዓታት በፊት}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 ሰዓቶች} =1{1 ሰዓት} other{{count} ሰዓቶች}}</string>
+    <string name="how_it_works_point1" formatted="false">• ስርዓቱ በነባሪነት በተጠቀሰው የጊዜ ገደብ ውስጥ ከሚደውሉ ቁጥሮች ጥሪዎችን በራስ-ሰር ይፈቅዳል</string>
+    <string name="how_it_works_point2" formatted="false">• አጭር የጊዜ ገደቦች ጥብቅ ጣልቃገብነትን ያስከትላሉ፤ ረዘም ያለ የጊዜ ገደቦች ይበልጥ ዘና ያለ ጣልቃገብነትን ያስከትላሉ</string>
+    <string name="how_it_works_point3" formatted="false">• ስርዓቱ የተደጋገመ ጥሪ መሆኑን ለማወቅ የጥሪ ምዝግቦችን ይፈትሻል</string>
+    <string name="how_it_works_title" formatted="false">እንዴት እንደሚሰራ፡</string>
+    <string name="icon_code_optional" formatted="false">የአዶ ኮድ (አማራጭ)</string>
+    <string name="icon_size" formatted="false">የአዶ መጠን</string>
+    <string name="import" formatted="false">አስመጣ</string>
+    <string name="import_config" formatted="false">ውቅር አስመጣ</string>
+    <string name="import_contacts" formatted="false">እውቂያዎችን አስመጣ</string>
+    <string name="import_entity" formatted="false">{entityTypeName} አስመጣ</string>
+    <string name="import_export" formatted="false">አስመጣ/ላክ</string>
+    <string name="import_export_contacts" formatted="false">እውቂያዎችን አስመጣ/ላክ</string>
+    <string name="import_export_contacts_tooltip" formatted="false">እውቂያዎችን አስመጣ/ላክ</string>
+    <string name="import_export_description" formatted="false">{entityTypeName} ውሂብ አስመጣ ወይም ላክ</string>
+    <string name="import_export_rules" formatted="false">ህጎችን አስመጣ/ላክ</string>
+    <string name="import_export_title" formatted="false">አስመጣ/ላክ</string>
+    <string name="import_failed" formatted="false">አስመጣ አልተሳካም፡ {error}</string>
+    <string name="import_failure" formatted="false">ውቅር ማስመጣት አልተሳካም</string>
+    <string name="import_feature_coming_soon" formatted="false">የማስመጣት ባህሪ በቅርቡ ይመጣል</string>
+    <string name="import_labels" formatted="false">መለያዎችን አስመጣ</string>
+    <string name="import_labels_failed" formatted="false">መለያዎችን ማስመጣት አልተሳካም፡ {error}</string>
+    <string name="import_plugin_list" formatted="false">የፕለጊን ዝርዝር አስመጣ</string>
+    <string name="import_plugin_list_failed" formatted="false">የፕለጊን ዝርዝር ማስመጣት አልተሳካም፡ {error}</string>
+    <string name="import_plugin_success" formatted="false">በተሳካ ሁኔታ {count} ፕለጊን አስመጥቷል</string>
+    <string name="import_rule_configurations_from_file" formatted="false">የህግ ውቅረቶችን ከፋይል አስመጣ</string>
+    <string name="import_rules" formatted="false">ህጎችን አስመጣ</string>
+    <string name="import_success" formatted="false">አስመጣ በተሳካ ሁኔታ ተከናውኗል</string>
+    <string name="important" formatted="false">አስፈላጊ</string>
+    <string name="important_notice_title" formatted="false">ጠቃሚ ማሳሰቢያ</string>
+    <string name="incoming_call_intercept_action" formatted="false">ገቢ ጥሪ ጣልቃገብነት እርምጃ</string>
+    <string name="incorrect_password" formatted="false">የይለፍ ቃል የተሳሳተ ነው</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.</string>
+    <string name="initial_setup_deselect_all" formatted="false">ምርጫን አጽዳ</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">Failed to get configuration</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">Retry</string>
+    <string name="initial_setup_save" formatted="false">One-click setup selected</string>
+    <string name="initial_setup_save_failed" formatted="false">Failed to save configuration: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Configuration saved successfully, rules will be fetched automatically soon</string>
+    <string name="initial_setup_saving" formatted="false">Saving...</string>
+    <string name="initial_setup_search_hint" formatted="false">የደንብ ስብስብ ወይም ሀገር ይፈልጉ...</string>
+    <string name="initial_setup_select_all" formatted="false">ሁሉንም ምረጥ</string>
+    <string name="initial_setup_selected_count" formatted="false">{count} ተመርጧል</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">Skip</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">Rule Library Setup</string>
+    <string name="initializing" formatted="false">በመጀመር ላይ</string>
+    <string name="installed" formatted="false">ተጭኗል</string>
+    <string name="insufficient_marks" formatted="false">በቂ ምልክቶች የሉም</string>
+    <string name="insurance" formatted="false">ኢንሹራንስ</string>
+    <string name="intercept_action" formatted="false">የጣልቃ ገብነት እርምጃ</string>
+    <string name="interception_action_settings_subtitle" formatted="false">የታገዱ ጥሪዎች እንዴት እንደሚያዙ ያዘጋጁ</string>
+    <string name="interception_action_settings_title" formatted="false">የጣልቃ ገብነት እርምጃ ቅንብሮች</string>
+    <string name="interception_time_interval" formatted="false">የጣልቃ ገብነት የጊዜ ክፍተት</string>
+    <string name="internet" formatted="false">ኢንተርኔት</string>
+    <string name="interval_set_success" formatted="false">{service} የዝማኔ ክፍተት ወደ {days} ቀናት ተቀናብሯል</string>
+    <string name="invalid_content_regex" formatted="false">የይዘት ሬጌክስ ትክክል አይደለም</string>
+    <string name="invalid_exchange_rule" formatted="false">ትክክል ያልሆነ የልውውጥ ህግ</string>
+    <string name="invalid_label" formatted="false">ትክክል ያልሆነ መለያ</string>
+    <string name="invalid_regex_pattern" formatted="false">ትክክል ያልሆነ የራግኤክስ ንድፍ</string>
+    <string name="invalid_sender_regex" formatted="false">ትክክል ያልሆነ ላኪ ራግኤክስ</string>
+    <string name="invalid_sim_data" formatted="false">የሲም ውሂብ ትክክል አይደለም</string>
+    <string name="ip_country" formatted="false">የአይፒ ሀገር</string>
+    <string name="is_number_match" formatted="false">የቁጥር ግጥሚያ</string>
+    <string name="is_roaming" formatted="false">ሮሚንግ</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">ለተጨማሪ መረጃ የቴሌግራም ቻናል እና ቡድን ይቀላቀሉ</string>
+    <string name="json_format" formatted="false">JSON ቅርጸት</string>
+    <string name="just_now" formatted="false">አሁን</string>
+    <string name="keep_all_versions" formatted="false">ሁሉንም ስሪቶች አስቀምጥ</string>
+    <string name="keep_all_versions_description" formatted="false">የእያንዳንዱ ምትኬ ታሪካዊ ስሪቶች ሁሉንም ያስቀምጡ</string>
+    <string name="label" formatted="false">መለያ</string>
+    <string name="label_action_description" formatted="false">ለቀላል መለያ ጥሪ መለያ ያክሉ።</string>
+    <string name="label_added_successfully" formatted="false">መለያ &quot;{name}&quot; በተሳካ ሁኔታ ታክሏል</string>
+    <string name="label_categories" formatted="false">የመለያ ምድቦች</string>
+    <string name="label_deleted" formatted="false">መለያ ተሰርዟል</string>
+    <string name="label_description" formatted="false">መለያዎች እውቂያዎችን በተሻለ ሁኔታ እንዲያስተዳድሩ ያግዙዎታል፣ ጥሪዎችን እና መልዕክቶችን በቀላሉ ለመለየት ለስልክ ቁጥሮች ብጁ መለያዎችን ያክሉ።</string>
+    <string name="label_filter_tooltip" formatted="false">የመለያ ማጣሪያ</string>
+    <string name="label_icon_color" formatted="false">የመለያ አዶ ቀለም</string>
+    <string name="label_management" formatted="false">የመለያ አስተዳደር</string>
+    <string name="label_not_found" formatted="false">መለያ አልተገኘም</string>
+    <string name="label_tag" formatted="false">መለያ፦ {labelId}</string>
+    <string name="label_update_failed" formatted="false">መለያውን ማዘመን አልተቻለም፦ {error}</string>
+    <string name="label_update_success" formatted="false">መለያ &quot;$labelText&quot; በተሳካ ሁኔታ ተዘምኗል</string>
+    <string name="labels" formatted="false">መለያዎች</string>
+    <string name="labels_color" formatted="false">የመለያዎች ቀለም</string>
+    <string name="labels_deleted" formatted="false">{count} መለያዎች ተሰርዘዋል</string>
+    <string name="labels_exported_successfully" formatted="false">መለያዎች በተሳካ ሁኔታ ተልከዋል</string>
+    <string name="labels_font_size" formatted="false">የመለያዎች የቅርጸ-ቁምፊ መጠን</string>
+    <string name="labels_imported_successfully" formatted="false">{count} መለያዎች በተሳካ ሁኔታ ገብቷል</string>
+    <string name="labels_position" formatted="false">የመለያዎች ቦታ</string>
+    <string name="language_settings" formatted="false">የቋንቋ ቅንብሮች</string>
+    <string name="language_settings_subtitle" formatted="false">የመተግበሪያ ማሳያ ቋንቋን ይቀይሩ</string>
+    <string name="language_settings_title" formatted="false">የቋንቋ ቅንብሮች</string>
+    <string name="last_sync_label" formatted="false">የመጨረሻ ማመሳሰል</string>
+    <string name="last_updated" formatted="false">የመጨረሻ ማሻሻያ፦ {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">የዕድሜ ልክ አባልነት</string>
+    <string name="lifetime_membership_description" formatted="false">አንድ ጊዜ ክፍያ፣ ሁሉንም ፕሪሚየም ባህሪያት እና የወደፊት ዝማኔዎችን በቋሚነት ይክፈቱ</string>
+    <string name="list_view" formatted="false">የዝርዝር እይታ</string>
+    <string name="live_activities_settings_title" formatted="false">የቀጥታ እንቅስቃሴ ቅንብሮች</string>
+    <string name="live_activities_test_end_activity" formatted="false">እንቅስቃሴ ጨርስ</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">አዲስ እንቅስቃሴ ላክ</string>
+    <string name="live_activities_test_title" formatted="false">የቀጥታ እንቅስቃሴ ሙከራ</string>
+    <string name="live_activities_test_update_activity" formatted="false">እንቅስቃሴ አዘምን</string>
+    <string name="live_activity_controls_title" formatted="false">የቀጥታ እንቅስቃሴ ቁጥጥሮች</string>
+    <string name="live_activity_mode" formatted="false">የቀጥታ እንቅስቃሴ</string>
+    <string name="live_activity_mode_description" formatted="false">የጥሪ መረጃን እንደ ቋሚ ማሳወቂያ በመቆለፊያ ማያ ገጽ እና በ Dynamic Island (iOS) ላይ ያሳያል።</string>
+    <string name="live_notification_customization_subtitle" formatted="false">የቀጥታ ማሳወቂያዎችን ገጽታ ያብጁ።</string>
+    <string name="live_notification_customization_title" formatted="false">የቀጥታ ማሳወቂያ ማበጀት</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">እውቂያዎችን መጫን አልተቻለም፦ {error}</string>
+    <string name="load_data_failed" formatted="false">ውሂብ መጫን አልተቻለም</string>
+    <string name="load_label_failed" formatted="false">መለያዎችን መጫን አልተቻለም፦ {error}</string>
+    <string name="load_labels_failed" formatted="false">መለያዎችን መጫን አልተቻለም፦ {error}</string>
+    <string name="load_mark_count_failed" formatted="false">ምልክት የተደረገባቸውን የስልክ ቁጥሮች መጫን አልተቻለም፦ {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">ምልክት የተደረገባቸውን የስልክ ቁጥሮች መጫን አልተቻለም፦ {error}</string>
+    <string name="load_plugins_failed" formatted="false">ተሰኪዎችን መጫን አልተቻለም፦ {error}</string>
+    <string name="load_settings_failed" formatted="false">ቅንብሮችን መጫን አልተቻለም፦ {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">የኤስኤምኤስ ህጎችን መጫን አልተቻለም፦ {error}</string>
+    <string name="load_status_failed_message" formatted="false">ሁኔታ መጫን አልተቻለም</string>
+    <string name="load_subscriptions_failed" formatted="false">ምዝገባዎችን መጫን አልተቻለም፦ {error}</string>
+    <string name="loading" formatted="false">በመጫን ላይ...</string>
+    <string name="loading_ad" formatted="false">ማስታወቂያ በመጫን ላይ...</string>
+    <string name="loading_tags" formatted="false">መለያዎች በመጫን ላይ...</string>
+    <string name="loan" formatted="false">ብድር</string>
+    <string name="local_count_filter" formatted="false">የአካባቢያዊ ቆጠራ ማጣሪያ</string>
+    <string name="local_count_filter_description" formatted="false">በአካባቢያዊ የቁጥር ብዛት ላይ በመመስረት ተደጋጋሚ ጥሪዎችን ያቋርጡ</string>
+    <string name="local_count_filter_explanation_content" formatted="false">የአካባቢያዊ ቆጠራ ማጣሪያ ጥሪ ታሪክ መዝገቦችን በመተንተን ተደጋጋሚ የአይፈለጌ ጥሪዎችን በራስ-ሰር ለመለየት እና ለማገድ ነው።</string>
+    <string name="local_count_filter_explanation_title" formatted="false">የአካባቢያዊ ቆጠራ ማጣሪያ ማብራሪያ</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• ሲታገድ እንደ የቁጥሩ የቆጠራ እሴት ላይ በመመስረት ውሳኔ ያድርጉ</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• የቁጥር ብዛት የተቀመጠውን ገደብ ሲያልፍ በራስ-ሰር ሊያግዱት ይችላሉ</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• ገደቡን የማያልፉ ቁጥሮችን በዘዴ መፍቀድ ይችላሉ</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• ሁሉንም የጥያቄ ምዝግብ ማስታወሻዎች የመመዝገብ ምርጫ አለዎት</string>
+    <string name="local_count_filter_settings" formatted="false">የአካባቢያዊ ቆጠራ ማጣሪያ ቅንብሮች</string>
+    <string name="local_count_filter_use_cases" formatted="false">ይህ ማጣሪያ በተለይ አውቶ-ዳይደር የአይፈለጌ ጥሪዎች እና የግብይት ጥሪዎችን ለመለየት ተስማሚ ነው።</string>
+    <string name="local_count_filtering" formatted="false">የአካባቢያዊ ቆጠራ ማጣሪያ</string>
+    <string name="local_count_filtering_explanation" formatted="false">• የአካባቢያዊ ቆጠራ ማጣሪያ፦ በአካባቢያዊ ምልክት ማድረጊያ ቆጠራ ላይ የተመሰረቱ የማጣሪያ ህጎች</string>
+    <string name="local_counter_filter" formatted="false">የአካባቢያዊ ቆጣሪ ማጣሪያ</string>
+    <string name="local_counter_filter_subtitle" formatted="false">በጥሪ ድግግሞሽ ላይ በመመስረት የአይፈለጌ ጥሪዎችን በራስ-ሰር ያጣሩ</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">የአካባቢያዊ ማጣሪያ ቅንብሮች</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">አካባቢያዊ ማሳወቂያ የነቃ አይደለም</string>
+    <string name="local_notification_enabled" formatted="false">አካባቢያዊ ማሳወቂያ የነቃ ነው</string>
+    <string name="local_services" formatted="false">አካባቢያዊ አገልግሎቶች</string>
+    <string name="location" formatted="false">ቦታ</string>
+    <string name="location_color" formatted="false">የቦታ ቀለም</string>
+    <string name="location_font_size" formatted="false">የቦታ የቅርጸ-ቁምፊ መጠን</string>
+    <string name="location_icon_color" formatted="false">የቦታ አዶ ቀለም</string>
+    <string name="location_position" formatted="false">የቦታ ቦታ</string>
+    <string name="log" formatted="false">መዝግብ</string>
+    <string name="log_action_description" formatted="false">የጥሪ መረጃን ሳይወስዱ ሌላ እርምጃ ሳይወስዱ ይዝገቡ።</string>
+    <string name="log_all_local_queries" formatted="false">ሁሉንም አካባቢያዊ ጥያቄዎች ይመዝገቡ</string>
+    <string name="log_all_local_queries_description" formatted="false">ለአካባቢያዊ ቁጥር ጥያቄዎች ሁሉ ምዝግብ ማስታወሻዎችን ይፍጠሩ</string>
+    <string name="log_all_remote_queries" formatted="false">ሁሉንም የሩቅ ጥያቄዎች ይመዝገቡ</string>
+    <string name="log_all_remote_queries_description" formatted="false">የሩቅ ቁጥር ጥያቄዎች ሁሉንም ክዋኔዎች ይመዝገቡ</string>
+    <string name="low" formatted="false">ዝቅተኛ</string>
+    <string name="low_risk" formatted="false">ዝቅተኛ ስጋት</string>
+    <string name="manage" formatted="false">እውቂያዎችን ያቀናብሩ</string>
+    <string name="manage_favorite_contacts" formatted="false">ተወዳጅ እውቂያዎችን ያቀናብሩ</string>
+    <string name="manage_filter_rules" formatted="false">የማጣሪያ ህጎችን ያቀናብሩ</string>
+    <string name="manage_filter_rules_description" formatted="false">የኤስኤምኤስ ማጣሪያ ህጎችን ያክሉ፣ ያርትዑ ወይም ይሰርዙ</string>
+    <string name="manual_entry" formatted="false">የእጅ ግቤት መረጃ</string>
+    <string name="mark_count" formatted="false">የምልክት ቆጠራ</string>
+    <string name="mark_counts" formatted="false">የምልክት ቆጠራዎች</string>
+    <string name="mark_exchange" formatted="false">ምልክት ልውውጥ</string>
+    <string name="mark_more_numbers_for_more" formatted="false">ለተጨማሪ ምልክቶች ብዙ ቁጥሮችን ምልክት ያድርጉ</string>
+    <string name="mark_phone" formatted="false">ስልክ ቁጥር ምልክት ያድርጉ</string>
+    <string name="mark_phone_failed" formatted="false">ስልክ ቁጥር ምልክት ማድረግ አልተሳካም፡ {error}</string>
+    <string name="mark_phone_management_title" formatted="false">የስልክ ቁጥር አስተዳደር ምልክት</string>
+    <string name="mark_phone_success" formatted="false">ስልክ ቁጥር በተሳካ ሁኔታ ምልክት ተደርጓል</string>
+    <string name="marked_by_count" formatted="false">በ {count} ምልክት ተደርጓል</string>
+    <string name="marked_phones_list" formatted="false">የተደረገባቸው የስልክ ቁጥሮች</string>
+    <string name="marks_insufficient" formatted="false">ለመለዋወጥ በቂ ምልክቶች የሉም</string>
+    <string name="master_and_overrides" formatted="false">Master Controls</string>
+    <string name="master_and_overrides_desc" formatted="false">Global Rule Settings</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">ግጥሚያ አልተሳካም።</string>
+    <string name="match_numbers_with_special_characters" formatted="false">የተወሰነ የቁጥር ቅርጸት ይዛመዳል</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">ልዩ ቁምፊዎችን የያዙ ቁጥሮችን ያዛምዱ፡</string>
+    <string name="match_specific_digit_patterns" formatted="false">XXX-XXXX-XXXX ቅርጸት ይዛመዳል</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">የተወሰኑ የቁጥር ቅጦችን ያዛምዱ፡</string>
+    <string name="match_successful_message" formatted="false">ግጥሚያ ተሳክቷል።</string>
+    <string name="medical" formatted="false">ሕክምና</string>
+    <string name="medium" formatted="false">መካከለኛ</string>
+    <string name="medium_risk" formatted="false">መካከለኛ ስጋት</string>
+    <string name="membership_center" formatted="false">የአባልነት ማዕከል</string>
+    <string name="membership_privileges" formatted="false">የአባልነት መብቶች</string>
+    <string name="message_background_color" formatted="false">የመልዕክት የጀርባ ቀለም</string>
+    <string name="message_color" formatted="false">የመልዕክት ቀለም</string>
+    <string name="message_font_size" formatted="false">የመልዕክት ቅርጸ-ቁምፊ መጠን</string>
+    <string name="message_position" formatted="false">የመልዕክት ቦታ</string>
+    <string name="migration_tool" formatted="false">የፍልሰት መሣሪያ</string>
+    <string name="minutes" formatted="false">ደቂቃዎች</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 ደቂቃ በፊት} other{{count} ደቂቃዎች በፊት}}</string>
+    <string name="moderate" formatted="false">መካከለኛ</string>
+    <string name="month" formatted="false">ወር</string>
+    <string name="monthly" formatted="false">በወር</string>
+    <string name="monthly_call_count" formatted="false">የወርሃዊ ጥሪዎች</string>
+    <string name="monthly_membership" formatted="false">ወርሃዊ አባልነት</string>
+    <string name="monthly_membership_description" formatted="false">ሁሉንም ፕሪሚየም ባህሪያት ይክፈቱ፣ በየወሩ በራስ-ሰር ይታደሳል</string>
+    <string name="monthly_total" formatted="false">የወርሃዊ ጠቅላላ</string>
+    <string name="more_options" formatted="false">ተጨማሪ አማራጮች</string>
+    <string name="mute" formatted="false">ድምጸ-ከል</string>
+    <string name="name" formatted="false">ስም</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">ስም እና የስልክ ቁጥር ባዶ ሊሆኑ አይችሉም</string>
+    <string name="name_cannot_be_empty" formatted="false">ስም ባዶ ሊሆን አይችልም</string>
+    <string name="name_color" formatted="false">የስም ቀለም</string>
+    <string name="name_font_size" formatted="false">የስም ቅርጸ-ቁምፊ መጠን</string>
+    <string name="name_position" formatted="false">የስም አቀማመጥ</string>
+    <string name="name_unknown" formatted="false">ስም፡ непознат</string>
+    <string name="national_number" formatted="false">አገርኛ ቁጥር</string>
+    <string name="need_vip_access" formatted="false">ይህን ባህሪ ለመጠቀም የVIP መዳረሻ ያስፈልግዎታል</string>
+    <string name="new_vote_received" formatted="false">አዲስ ድምጽ ደርሷል</string>
+    <string name="new_vote_received_body" formatted="false">አንድ ሰው {phoneNumber} ለመሰረዝ ድምጽ ሰጥቷል። የአሁኑ ድምጾች: {totalVotes}።</string>
+    <string name="next_step" formatted="false">ቀጣይ</string>
+    <string name="no_action" formatted="false">ምንም እርምጃ የለም</string>
+    <string name="no_action_rules" formatted="false">ምንም የእርምጃ ህጎች የሉም</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">ምንም ንቁ የደመና ማመሳሰል አገልግሎት የለም</string>
+    <string name="no_activity" formatted="false">ምንም እንቅስቃሴ የለም</string>
+    <string name="no_ads" formatted="false">ማስታወቂያ የለም</string>
+    <string name="no_allowed_blocked_rules" formatted="false">የተፈቀዱ/የታገዱ ህጎች የሉም</string>
+    <string name="no_blocked_type_data" formatted="false">የታገዱ የውሂብ አይነቶች የሉም</string>
+    <string name="no_call_records" formatted="false">የጥሪ መዝገቦች የሉም</string>
+    <string name="no_contacts_yet" formatted="false">ገና እውቂያዎች የሉም</string>
+    <string name="no_data" formatted="false">ምንም ውሂብ የለም</string>
+    <string name="no_devices_registered_message" formatted="false">ምንም መሣሪያዎች አልተመዘገቡም</string>
+    <string name="no_labels" formatted="false">መለያዎች ገና የሉም</string>
+    <string name="no_marked_phones" formatted="false">ምልክት የተደረገባቸው የስልክ ቁጥሮች የሉም</string>
+    <string name="no_matching_contacts_found" formatted="false">የሚዛመዱ እውቂያዎች አልተገኙም።</string>
+    <string name="no_matching_numbers_found" formatted="false">የሚዛመዱ ቁጥሮች አልተገኙም።</string>
+    <string name="no_matching_rules" formatted="false">የሚዛመዱ {ruleType} የሉም</string>
+    <string name="no_notifications" formatted="false">ማስታወቂያ የለም</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">የስልክ ህጎች የሉም</string>
+    <string name="no_plugins" formatted="false">ተሰኪዎች ገና የሉም</string>
+    <string name="no_proposals_found" formatted="false">ምንም ጥያቄዎች አልተገኙም</string>
+    <string name="no_regex_rules" formatted="false">የሬጌክስ ህጎች የሉም</string>
+    <string name="no_rules" formatted="false">{ruleType} ገና የሉም</string>
+    <string name="no_rules_prompt" formatted="false">ምንም ህጎች አልተገኙም፣ እባክዎ ህጎችን ያክሉ</string>
+    <string name="no_rules_to_export" formatted="false">ለመላክ ምንም ህጎች የሉም</string>
+    <string name="no_sim_card_detected" formatted="false">የሲም ካርድ አልተገኘም።</string>
+    <string name="no_sim_cards_detected" formatted="false">የሲም ካርዶች አልተገኙም</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">የኤስኤምኤስ ማጣሪያ ህጎች ገና የሉም</string>
+    <string name="no_sms_rules_yet" formatted="false">የኤስኤምኤስ ህጎች ገና የሉም</string>
+    <string name="no_subscriptions" formatted="false">ምዝገባዎች የሉም</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">በፋይሉ ውስጥ ምንም ትክክለኛ የኤስኤምኤስ ህጎች አልተገኙም</string>
+    <string name="none" formatted="false">ምንም የለም</string>
+    <string name="none_action_description" formatted="false">ለጥሪው ምንም ልዩ እርምጃ አይወሰድም።</string>
+    <string name="none_service_type" formatted="false">ምንም የለም</string>
+    <string name="normal_user" formatted="false">መደበኛ ተጠቃሚ</string>
+    <string name="not_granted" formatted="false">አልተሰጠም</string>
+    <string name="not_verified_text" formatted="false">አልተረጋገጠ</string>
+    <string name="notification_frequency_hours" formatted="false">የማሳወቂያ ድግግሞሽ (ሰዓቶች)</string>
+    <string name="notification_frequency_title" formatted="false">የማሳወቂያ ድግግሞሽ</string>
+    <string name="notification_mode" formatted="false">የማሳወቂያ ሁነታ</string>
+    <string name="notification_mode_description" formatted="false">አስቸኳይ ጥሪ መረጃ በማስታወቂያ አሞሌ ውስጥ አሳይ</string>
+    <string name="notification_permission" formatted="false">የማሳወቂያ ፈቃድ</string>
+    <string name="notification_permission_description" formatted="false">የገቢ ጥሪ እና የመልዕክት ማሳወቂያዎችን ለማሳየት ጥቅም ላይ ይውላል።</string>
+    <string name="notification_settings" formatted="false">የማሳወቂያ ቅንብሮች</string>
+    <string name="notification_settings_title" formatted="false">የማሳወቂያ ቅንብሮች</string>
+    <string name="notification_instructions" formatted="false">መመሪያዎች:
+1. ለማሳወቂያ ለመፍጠር ወይም ለማዘመን &quot;ላክ&quot; የሚለውን ይንኩ።
+2. ውጤቱን ለማየት ወደ መነሻ ማያ ገጽዎ ይሂዱ ወይም የማሳወቂያ መሳቢያውን ይጎትቱ።
+3. ማሳወቂያውን ለማስወገድ &quot;ጨርስ&quot; የሚለውን ይንኩ።</string>
+    <string name="notifications" formatted="false">ማሳወቂያዎች</string>
+    <string name="notify" formatted="false">አሳውቅ</string>
+    <string name="notify_action_description" formatted="false">ጥሪ ሲደርስ ማሳወቂያ ይላኩ።</string>
+    <string name="number" formatted="false">ቁጥር</string>
+    <string name="number_color" formatted="false">የቁጥር ቀለም</string>
+    <string name="number_font_size" formatted="false">የቁጥር ቅርጸ-ቁምፊ መጠን</string>
+    <string name="number_format" formatted="false">የቁጥር ቅርጸት</string>
+    <string name="number_invalid_format" formatted="false">ቁጥር ባልተለመደ ቅርጸት</string>
+    <string name="number_position" formatted="false">የቁጥር አቀማመጥ</string>
+    <string name="number_search" formatted="false">የቁጥር ፍለጋ</string>
+    <string name="number_type_color" formatted="false">የቁጥር አይነት ቀለም</string>
+    <string name="number_type_font_size" formatted="false">የቁጥር አይነት ቅርጸ-ቁምፊ መጠን</string>
+    <string name="number_type_position" formatted="false">የቁጥር አይነት አቀማመጥ</string>
+    <string name="ok_button" formatted="false">እሺ</string>
+    <string name="onboarding_complete_description" formatted="false">የጥሪ ደህንነት አስተዳዳሪዎ ዝግጁ ነው፣ ደህንነቱ የተጠበቀ የጥሪ ተሞክሮ ይጀምሩ!</string>
+    <string name="onboarding_language_description" formatted="false">ለተሻለ ተሞክሮ የሚፈልጉትን ቋንቋ ይምረጡ።</string>
+    <string name="onboarding_permissions_description" formatted="false">ሙሉ አገልግሎት ለመስጠት የሚከተሉትን ፈቃዶች እንፈልጋለን፡</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">የስፓም ጥሪዎችን እና መልዕክቶችን በአንድ ጠቅታ ማገድ፣ የማገድ ህጎችን ማበጀት እና ጸጥ ያለ አካባቢ መስጠት።</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">ያልታወቁ ጥሪዎችን በራስ-ሰር መለየት፣ አደገኛ ቁጥሮችን ምልክት ማድረግ እና የጥሪዎን ደህንነት መጠበቅ።</string>
+    <string name="onboarding_welcome_description" formatted="false">የጥሪ አስተዳደር ባለሙያዎ፣ አጠቃላይ የጥሪ መታወቂያ እና የማገድ አገልግሎቶችን ይሰጣል።</string>
+    <string name="one_drive_auth_description" formatted="false">በስርዓት የተዋቀረ የOneDrive ደንበኛ መታወቂያ እና ቁልፍ በመጠቀም ፍቃድ ይስጡ</string>
+    <string name="one_drive_config_title" formatted="false">OneDrive ውቅር</string>
+    <string name="online_caller_id_subscription" formatted="false">የመስመር ላይ ጥሪ መታወቂያ ምዝገባ</string>
+    <string name="open_app_settings" formatted="false">የመተግበሪያ ቅንብሮችን ይክፈቱ</string>
+    <string name="open_app_settings_failed" formatted="false">የመተግበሪያ ቅንብሮችን መክፈት አልተቻለም፡ {error}</string>
+    <string name="open_in_web_view" formatted="false">በድር እይታ ይክፈቱ</string>
+    <string name="operation_failed" formatted="false">ቀዶ ጥገናው አልተሳካም፡ {error}</string>
+    <string name="operation_failure" formatted="false">ቀዶ ጥገናው አልተሳካም</string>
+    <string name="operation_success" formatted="false">ቀዶ ጥገናው ተሳክቷል</string>
+    <string name="oppose" formatted="false">ተቃውሞ</string>
+    <string name="oppose_count" formatted="false">ተቃውሞ ({opposeCount})</string>
+    <string name="opposed" formatted="false">ተቃውሟል</string>
+    <string name="other" formatted="false">ሌላ</string>
+    <string name="our_other_apps" formatted="false">የእኛ ሌሎች መተግበሪያዎች</string>
+    <string name="overlay_mode" formatted="false">ተንሳፋፊ መስኮት</string>
+    <string name="overlay_mode_description" formatted="false">የጥሪ መረጃን በተንሳፋፊ መስኮት ያሳዩ</string>
+    <string name="overlay_permission" formatted="false">ተንሳፋፊ ፈቃድ</string>
+    <string name="overlay_permission_description" formatted="false">ለገቢ ጥሪ ተንሳፋፊ ማሳያ ጥቅም ላይ ይውላል።</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">አጠቃላይ እይታ</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">የይለፍ ቃል</string>
+    <string name="password_cannot_be_empty" formatted="false">የይለፍ ቃል ባዶ ሊሆን አይችልም</string>
+    <string name="password_label" formatted="false">የይለፍ ቃል</string>
+    <string name="passwords_do_not_match" formatted="false">የይለፍ ቃላት አይዛመዱም</string>
+    <string name="pattern" formatted="false">አብነት</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">በመጠባበቅ ላይ</string>
+    <string name="pending_proposals" formatted="false">የሚጠባበቁ ጥያቄዎች</string>
+    <string name="pending_proposals_body" formatted="false">{count, plural, =0 {የሚጠባበቁ ጥያቄዎች የሉም} one {1 የሚጠባበቅ ጥያቄ} other {{count} የሚጠባበቁ ጥያቄዎች}}.</string>
+    <string name="pending_sync" formatted="false">በመጠባበቅ ላይ ያለ ማመሳሰል</string>
+    <string name="period_month" formatted="false">ወር</string>
+    <string name="period_week" formatted="false">ሳምንት</string>
+    <string name="period_year" formatted="false">ዓመት</string>
+    <string name="permission_denied" formatted="false">ፈቃድ ጥያቄ ተከልክሏል</string>
+    <string name="permission_granted" formatted="false">ፈቃድ ተሰጥቷል</string>
+    <string name="permission_management" formatted="false">የፈቃድ አስተዳደር</string>
+    <string name="permission_subtitle" formatted="false">የመስኮት ንብርብር እና የባትሪ ማሻሻያ ፈቃዶችን ያቀናብሩ</string>
+    <string name="permission_title" formatted="false">ልዩ ፈቃዶች</string>
+    <string name="phone_calls_tab" formatted="false">ስልክ</string>
+    <string name="phone_number" formatted="false">የስልክ ቁጥር</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">የስልክ ቁጥር ባዶ ሊሆን አይችልም</string>
+    <string name="phone_number_hint" formatted="false">የስልክ ቁጥር ያስገቡ</string>
+    <string name="phone_number_label" formatted="false">የስልክ ቁጥር</string>
+    <string name="phone_number_min_digits" formatted="false">የስልክ ቁጥር ቢያንስ 7 አሃዞች ሊኖረው ይገባል</string>
+    <string name="phone_number_required" formatted="false">የስልክ ቁጥር ያስፈልጋል</string>
+    <string name="phone_number_type" formatted="false">የስልክ ቁጥር አይነት</string>
+    <string name="phone_number_type_fixed_line" formatted="false">የተስተካከለ መስመር</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">የተስተካከለ መስመር ወይም ተንቀሳቃሽ</string>
+    <string name="phone_number_type_mobile" formatted="false">ተንቀሳቃሽ</string>
+    <string name="phone_number_type_pager" formatted="false">አጭር መልዕክት</string>
+    <string name="phone_number_type_personal_number" formatted="false">የግል ቁጥር</string>
+    <string name="phone_number_type_premium_rate" formatted="false">ፕሪሚየም ዋጋ</string>
+    <string name="phone_number_type_shared_cost" formatted="false">የተጋራ ወጪ</string>
+    <string name="phone_number_type_toll_free" formatted="false">ነፃ ጥሪ</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">ያልታወቀ</string>
+    <string name="phone_number_type_voicemail" formatted="false">የድምጽ መልዕክት</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">የስልክ ፈቃድ</string>
+    <string name="phone_permission_description" formatted="false">ገቢ ጥሪዎችን ለመለየት እና ለማገድ ያገለግላል።</string>
+    <string name="phone_rule" formatted="false">የስልክ ህግ</string>
+    <string name="phone_rule_management" formatted="false">የስልክ ህግ አስተዳደር</string>
+    <string name="phone_rule_subscription" formatted="false">የስልክ ህግ ምዝገባ</string>
+    <string name="phone_rules_info" formatted="false">የስልክ ህጎች የተወሰኑ የስልክ ቁጥሮችን ለመጥራት ለመመሳሰል ያገለግላሉ፣ ይህም ዝቅተኛ ቅድሚያ አለው። አንዳንዶቹ ከphoneRule ምዝገባዎች የመጡ ናቸው</string>
+    <string name="phone_subscription" formatted="false">የስልክ ምዝገባ</string>
+    <string name="phone_subscription_rules_description" formatted="false">የነጭ እና ጥቁር መዝገብ ህጎችን በራስ-ሰር ለማዘመን ከዩአርኤል የህግ ህግ ዝርዝሮችን ይመዝገቡ። የJSONException ቅርጸት ህግ ፋይሎችን ይደግፋል።</string>
+    <string name="please_enter_at_least_one_number" formatted="false">እባክዎ ቢያንስ አንድ ቁጥር ያስገቡ።</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">እባክዎ መለያ ይምረጡ እና ትክክለኛውን የስልክ ቁጥር ያስገቡ</string>
+    <string name="plugin_added_success" formatted="false">ተሰኪ &quot;{name}&quot; በተሳካ ሁኔታ ተጨምሯል</string>
+    <string name="plugin_deleted" formatted="false">ተሰኪ ተሰርዟል</string>
+    <string name="plugin_description" formatted="false">የተሰኪ መግለጫ</string>
+    <string name="plugin_i_d" formatted="false">መታወቂያ</string>
+    <string name="plugin_label" formatted="false">የተሰኪ መለያ</string>
+    <string name="plugin_latest_version" formatted="false">ተሰኪው ቀድሞውንም የቅርብ ጊዜው ስሪት ነው።</string>
+    <string name="plugin_list_export_success" formatted="false">የተሰኪ ዝርዝር በተሳካ ሁኔታ ተልኳል።</string>
+    <string name="plugin_management" formatted="false">የተሰኪ አስተዳደር</string>
+    <string name="plugin_management_subtitle" formatted="false">የሶስተኛ ወገን ተሰኪዎችን ያስተዳድሩ እና ያዋቅሩ</string>
+    <string name="plugin_name" formatted="false">የተሰኪ ስም</string>
+    <string name="plugin_rules_info" formatted="false">ለደህንነት ሲባል፣ እባክዎ የታመኑ ምንጮችን ብቻ ይጠቀሙ። የራስዎን ማበጀት ተሰኪዎችን ለመፍጠር አብነቶቻችንን ለመጠቀም ነጻነት ይሰማዎት!</string>
+    <string name="plugin_service" formatted="false">የተሰኪ አገልግሎት</string>
+    <string name="plugin_test_page_title" formatted="false">የተሰኪ ሙከራ</string>
+    <string name="plugin_u_r_l" formatted="false">ዩአርኤል</string>
+    <string name="plugin_update_success" formatted="false">ተሰኪው በተሳካ ሁኔታ ተዘምኗል</string>
+    <string name="plugin_url" formatted="false">የተሰኪ ዩአርኤል</string>
+    <string name="plugin_version" formatted="false">የተሰኪ ስሪት</string>
+    <string name="plugins_deleted" formatted="false">{count} ተሰኪዎች በተሳካ ሁኔታ ተሰርዘዋል።</string>
+    <string name="political" formatted="false">ፖለቲካዊ</string>
+    <string name="powerful_spam_blocking" formatted="false">ኃይለኛ የስፓም ማገጃ</string>
+    <string name="previous_step" formatted="false">ቀዳሚ</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">የርቀት እርምጃ ቅንብሮችን ቅድሚያ ይስጡ</string>
+    <string name="prioritize_remote_action_description" formatted="false">የርቀት የውሂብ ጎታ ቅንብሮችን ቅድሚያ ይስጡ</string>
+    <string name="processed" formatted="false">ተከናውኗል</string>
+    <string name="processing" formatted="false">በማስኬድ ላይ...</string>
+    <string name="processing_operation" formatted="false">በማስኬድ ላይ...</string>
+    <string name="proposal_approved" formatted="false">ጥያቄ ጸድቋል ✅</string>
+    <string name="proposal_approved_body" formatted="false">ለ {phoneNumber} የቀረበው የመሰረዝ ጥያቄ በማህበረሰቡ ጸድቋል ({supportPercentage}% ድጋፍ፣ {totalVotes} ድምጽ)።</string>
+    <string name="proposal_created" formatted="false">ጥያቄው በተሳካ ሁኔታ ተፈጥሯል</string>
+    <string name="proposal_details" formatted="false">የጥያቄ ዝርዝሮች</string>
+    <string name="proposal_not_found" formatted="false">ጥያቄ አልተገኘም</string>
+    <string name="proposal_processed" formatted="false">ይህ ጥያቄ ተፈጽሟል</string>
+    <string name="proposal_rejected" formatted="false">ጥያቄ ውድቅ ተደርጓል ❌</string>
+    <string name="proposal_rejected_body" formatted="false">ለ {phoneNumber} የቀረበው የመሰረዝ ጥያቄ በማህበረሰቡ ውድቅ ተደርጓል ({supportPercentage}% ድጋፍ፣ {totalVotes} ድምጽ)።</string>
+    <string name="proposal_statistics" formatted="false">የጥያቄ ስታቲስቲክስ</string>
+    <string name="provide_detailed_explanation" formatted="false">ዝርዝር ማብራሪያ ይስጡ (ቢያንስ 10 ቁምፊዎች)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">ግዛ</string>
+    <string name="purchase_subtitle" formatted="false">አገልግሎቱን ለመግዛት</string>
+    <string name="purchase_title" formatted="false">ግዛ</string>
+    <string name="quarterly_membership" formatted="false">የሩብ ዓመት አባልነት</string>
+    <string name="quarterly_membership_description" formatted="false">ሁሉንም የፕሪሚየም ባህሪያት ይክፈቱ፣ በሩብ ዓመት በራስ-ሰር ያድሱ</string>
+    <string name="ready" formatted="false">ዝግጁ!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">ምክንያት</string>
+    <string name="reason_inaccurate_info" formatted="false">የተሳሳተ መረጃ</string>
+    <string name="reason_min_characters" formatted="false">ምክንያት ቢያንስ 10 ቁምፊዎች መሆን አለበት</string>
+    <string name="reason_not_in_service" formatted="false">በአገልግሎት ላይ የለም</string>
+    <string name="reason_other" formatted="false">ሌላ</string>
+    <string name="reason_outdated" formatted="false">የዘገየ ቁጥር</string>
+    <string name="reason_privacy" formatted="false">የግላዊነት ስጋት</string>
+    <string name="reason_required" formatted="false">ምክንያት ያስፈልጋል</string>
+    <string name="reason_wrongly_identified" formatted="false">በስህተት ተለይቷል</string>
+    <string name="recruiter" formatted="false">ቀጣሪ</string>
+    <string name="redeem_vip_with_marks" formatted="false">VIP በምልክቶች አስመልስ</string>
+    <string name="redirect" formatted="false">አስቀይር</string>
+    <string name="redirect_action_description" formatted="false">ጥሪውን ወደተገለጸው ቁጥር ያዙሩት።</string>
+    <string name="refresh" formatted="false">አድስ</string>
+    <string name="refresh_permission_status" formatted="false">የፈቃድ ሁኔታን አድስ</string>
+    <string name="refresh_proposals" formatted="false">ጥያቄዎችን አድስ</string>
+    <string name="refresh_tooltip" formatted="false">አድስ</string>
+    <string name="regex_error_message" formatted="false">የሬጅክስ ስህተት፡ {error}</string>
+    <string name="regex_pattern" formatted="false">የመግለጫ ንድፍ</string>
+    <string name="regex_pattern_explanation" formatted="false">የመግለጫ ንድፍ ማብራሪያ</string>
+    <string name="regex_pattern_explanation_button" formatted="false">የመግለጫ ንድፍ ማብራሪያ</string>
+    <string name="regex_pattern_label" formatted="false">የመግለጫ ንድፍ</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">ለስልክ ቁጥር ተዛማጅ የመግለጫ ንድፎች</string>
+    <string name="regex_rule" formatted="false">የመግለጫ ደንብ</string>
+    <string name="regex_rule_add_failed" formatted="false">የመግለጫ ደንብ ለማከል አልተሳካም፦ {error}</string>
+    <string name="regex_rule_add_success" formatted="false">የመግለጫ ደንብ በተሳካ ሁኔታ ተጨምሯል</string>
+    <string name="regex_rule_management" formatted="false">የመግለጫ ደንብ አስተዳደር</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">የደንቡ ስም እና የመግለጫ ንድፍ ባዶ ሊሆኑ አይችሉም</string>
+    <string name="regex_rules" formatted="false">የመግለጫ ህጎች</string>
+    <string name="regex_rules_info" formatted="false">የቁጥር ቅጦች ህጎች የጥሪዎችን በቁጥር ቅጦች ላይ በመመስረት ለማጣራት ያገለግላሉ።</string>
+    <string name="regex_tester_title" formatted="false">የመግለጫ ሞካሪ</string>
+    <string name="region" formatted="false">ክልል</string>
+    <string name="registered_devices_title" formatted="false">የተመዘገቡ መሣሪያዎች</string>
+    <string name="reject_all_calls" formatted="false">ሁሉንም ጥሪዎች ውድቅ አድርግ</string>
+    <string name="reject_all_calls_description" formatted="false">ሲነቃ፣ ሁሉም ጥሪዎች በከፍተኛ ቅድሚያ ውድቅ ይደረጋሉ</string>
+    <string name="reject_all_numbers" formatted="false">ሁሉንም ቁጥሮች ውድቅ አድርግ</string>
+    <string name="reject_all_numbers_desc" formatted="false">ሲነቃ ሁሉንም ገቢ ጥሪዎች ውድቅ አድርግ</string>
+    <string name="reject_exceeded_numbers" formatted="false">የበለጠ ቁጥሮችን ውድቅ አድርግ</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">የቁጥሩን ገደብ የሚያልፉ ቁጥሮችን በራስ-ሰር ውድቅ አድርግ</string>
+    <string name="rejected" formatted="false">ተቀባብሏል</string>
+    <string name="remote_filter_settings" formatted="false">የርቀት ማጣሪያ ቅንብሮች</string>
+    <string name="remote_filter_settings_page_title" formatted="false">የርቀት ቁጥር ማጣሪያ ቅንብሮች</string>
+    <string name="remote_number_filter" formatted="false">የርቀት ቁጥር ማጣሪያ</string>
+    <string name="remote_number_filter_description" formatted="false">በርቀት የውሂብ ጎታ መረጃ ላይ ተመስርተው የሚያበሳጩ ጥሪዎችን ያቁሙ</string>
+    <string name="remote_number_filter_subtitle" formatted="false">የክላውድ የውሂብ ጎታ እና የማህበረሰብ ሪፖርቶችን በመጠቀም የጽሁፍ ጥሪዎችን ይለዩ</string>
+    <string name="remote_number_filtering" formatted="false">የርቀት ቁጥር ማጣሪያ</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• የርቀት ቁጥር ማጣሪያ፦ በማጣሪያ ላይ የተመሰረቱ የርቀት የውሂብ መረጃ</string>
+    <string name="remove_ads" formatted="false">ማስታወቂያዎችን አስወግድ</string>
+    <string name="remove_ads_description" formatted="false">ለስላሳ ተሞክሮ መተግበሪያውን ሁሉንም ማስታወቂያዎች በቋሚነት ያስወግዱ</string>
+    <string name="remove_ads_title" formatted="false">ማስታወቂያዎችን አስወግድ</string>
+    <string name="remove_from_favorites" formatted="false">ከተወዳጆች አስወግድ</string>
+    <string name="removed_from_favorites" formatted="false">ከተወዳጆች ተወግዷል</string>
+    <string name="rename_device_title" formatted="false">መሣሪያን ስም ቀይር</string>
+    <string name="reporting_guidelines" formatted="false">• በእርግጥ ችግር ያለባቸውን ቁጥሮች ብቻ ሪፖርት ያድርጉ
+• ትክክለኛ እና ዝርዝር ምክንያቶችን ያቅርቡ
+• እንደ አስከፊነቱ ተገቢውን የአደጋ ደረጃ ይምረጡ
+• የውሸት ሪፖርቶች የመለያ እገዳ ሊያስከትሉ ይችላሉ</string>
+    <string name="request_all_permissions" formatted="false">ሁሉንም ፈቃዶች ጠይቅ</string>
+    <string name="request_permission" formatted="false">ፈቃድ ጠይቅ</string>
+    <string name="request_permission_failed" formatted="false">ፈቃድ ለመጠየቅ አልተሳካም፦ {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">{count} ምልክቶች</string>
+    <string name="reset" formatted="false">ዳግም አስጀምር</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">መልስ</string>
+    <string name="restore_application_settings_from_backup" formatted="false">የመተግበሪያ ቅንብሮችን ከመጠባቂያ መልስ</string>
+    <string name="restore_from_cloud" formatted="false">ከደመና መልስ</string>
+    <string name="restore_from_cloud_failed" formatted="false">ከደመና መልሶ ማቋቋም አልተሳካም፦ {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">ከደመና በተሳካ ሁኔታ መልሶ ተቋቋመ</string>
+    <string name="restore_purchases" formatted="false">ግዢዎችን መልስ</string>
+    <string name="restore_settings" formatted="false">ቅንብሮችን መልስ</string>
+    <string name="restore_settings_confirmation" formatted="false">ይህ ሁሉንም አሁን ያሉትን ቅንብሮችዎን ይተካ። ለመቀጠል እርግጠኛ ነዎት?</string>
+    <string name="result" formatted="false">ውጤት</string>
+    <string name="retry" formatted="false">እንደገና ሞክር</string>
+    <string name="rewarded_ad_service" formatted="false">የተሸላሚ ማስታወቂያ አገልግሎት</string>
+    <string name="ridesharing" formatted="false">የመኪና መጋራት</string>
+    <string name="risk" formatted="false">አደጋ</string>
+    <string name="risk_level" formatted="false">የአደጋ ደረጃ</string>
+    <string name="risk_level_critical" formatted="false">ወሳኝ</string>
+    <string name="risk_level_high" formatted="false">ከፍተኛ</string>
+    <string name="risk_level_label" formatted="false">የአደጋ ደረጃ</string>
+    <string name="risk_level_low" formatted="false">ዝቅተኛ</string>
+    <string name="risk_level_medium" formatted="false">መካከለኛ</string>
+    <string name="risk_level_very_low" formatted="false">በጣም ዝቅተኛ</string>
+    <string name="robocall" formatted="false">ሮቦ ጥሪ</string>
+    <string name="rule_action" formatted="false">የደንብ እርምጃ</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">ደንብ በተሳካ ሁኔታ ተጨምሯል</string>
+    <string name="rule_added_success" formatted="false">ደንብ በተሳካ ሁኔታ ተጨምሯል</string>
+    <string name="rule_delete_confirm_content" formatted="false">ይህን {ruleType} መሰረዝዎን እርግጠኛ ነዎት?</string>
+    <string name="rule_delete_confirm_title" formatted="false">ደንብ ሰርዝ</string>
+    <string name="rule_delete_failed" formatted="false">ደንብ ለመሰረዝ አልተሳካም፦ {error}</string>
+    <string name="rule_delete_success" formatted="false">ደንብ በተሳካ ሁኔታ ተሰርዟል</string>
+    <string name="rule_deleted_successfully" formatted="false">ደንብ በተሳካ ሁኔታ ተሰርዟል</string>
+    <string name="rule_disabled_successfully" formatted="false">ደንብ በተሳካ ሁኔታ ተሰናክሏል</string>
+    <string name="rule_enabled_successfully" formatted="false">ደንብ በተሳካ ሁኔታ ነቅቷል</string>
+    <string name="rule_load_failed" formatted="false">ህጎችን ለመጫን አልተሳካም፦ {error}</string>
+    <string name="rule_management" formatted="false">የደንብ አስተዳደር</string>
+    <string name="rule_name" formatted="false">የደንብ ስም</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">የደንቡ ስም እና ይዘት መግለጫ ባዶ ሊሆኑ አይችሉም</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">የደንቡ ስም እና የስልክ ቁጥር ባዶ ሊሆኑ አይችሉም</string>
+    <string name="rule_name_hint" formatted="false">ለምሳሌ የቤተሰብ፣ የጓደኞች፣ ወዘተ</string>
+    <string name="rule_name_label" formatted="false">የደንብ ስም</string>
+    <string name="rule_name_required" formatted="false">የደንቡ ስም እና የስልክ ቁጥር ባዶ ሊሆኑ አይችሉም</string>
+    <string name="rule_not_exist" formatted="false">ደንቡ የለም ወይም ተሰርዟል</string>
+    <string name="rule_not_found" formatted="false">ደንቡ አልተገኘም፡ {error}</string>
+    <string name="rule_saved_success_message" formatted="false">ደንቡ በተሳካ ሁኔታ ተቀምጧል!</string>
+    <string name="rule_status_changed" formatted="false">ህጉ {status} በተሳካ ሁኔታ</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">ክንዋኔው አልተሳካም፡ {error}</string>
+    <string name="rule_toggle_success" formatted="false">ህጉ {status} በተሳካ ሁኔታ</string>
+    <string name="rule_type" formatted="false">Rule Type</string>
+    <string name="rule_update_failed" formatted="false">ህጉን ማዘመን አልተቻለም፡ {error}</string>
+    <string name="rule_update_success" formatted="false">ህጉ በተሳካ ሁኔታ ተዘምኗል</string>
+    <string name="rule_verification" formatted="false">የህግ ማረጋገጫ</string>
+    <string name="rules_exported_successfully" formatted="false">ህጎች በተሳካ ሁኔታ ተልከዋል</string>
+    <string name="rules_exported_to" formatted="false">ህጎች ወደዚህ ተልከዋል፡ {path}</string>
+    <string name="rules_imported" formatted="false">ህጎች በተሳካ ሁኔታ ገብተዋል</string>
+    <string name="rules_imported_successfully" formatted="false">{count} ህጎች በተሳካ ሁኔታ ገብተዋል</string>
+    <string name="save" formatted="false">አስቀምጥ</string>
+    <string name="save_button" formatted="false">አስቀምጥ</string>
+    <string name="save_button_text" formatted="false">አስቀምጥ</string>
+    <string name="save_failed" formatted="false">ማስቀመጥ አልተሳካም፡ {error}</string>
+    <string name="save_script" formatted="false">ስክሪፕት አስቀምጥ</string>
+    <string name="save_settings" formatted="false">ቅንብሮችን አስቀምጥ</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">ማጭበርበሮች ሊኖሩ ይችላሉ</string>
+    <string name="script_saved" formatted="false">ስክሪፕት ተቀምጧል</string>
+    <string name="scroll_speed" formatted="false">የማሸብለል ፍጥነት</string>
+    <string name="scrolling_security_message_settings" formatted="false">የሚሽከረከሩ የደህንነት መልዕክት ቅንብሮች</string>
+    <string name="search" formatted="false">ፈልግ</string>
+    <string name="search_by_name_or_phone_number" formatted="false">በስም ወይም በስልክ ቁጥር ይፈልጉ</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">የእውቂያ ምዝገባዎችን ይፈልጉ</string>
+    <string name="search_contacts" formatted="false">እውቂያዎችን ፈልግ</string>
+    <string name="search_error" formatted="false">የፍለጋ ስህተት፡ {error}</string>
+    <string name="search_hint" formatted="false">ፈልግ...</string>
+    <string name="search_labels_hint" formatted="false">መለያዎችን ይፈልጉ</string>
+    <string name="search_marked_phones_hint" formatted="false">የተመዘገቡ ስልኮችን ይፈልጉ</string>
+    <string name="search_phone_rules_hint" formatted="false">የስልክ ህጎችን ይፈልጉ</string>
+    <string name="search_plugins_hint" formatted="false">ተሰኪዎችን ይፈልጉ</string>
+    <string name="search_proposals" formatted="false">ጥያቄዎችን ፈልግ</string>
+    <string name="search_regex_rules_hint" formatted="false">የቁጥር ቅጦችን ይፈልጉ</string>
+    <string name="search_subscriptions_hint" formatted="false">ምዝገባዎችን ይፈልጉ</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">በስልክ ጥሪዎች አትመኑ። የአገልግሎት ማዕከል ቁጥሮችን ሁልጊዜ በራስዎ ያረጋግጡ። የይለፍ ቃሎችን፣ የማረጋገጫ ኮዶችን፣ የካርድ ቁጥሮችን ወይም የግል መረጃን በጭራሽ አያጋሩ።</string>
+    <string name="select_action" formatted="false">ክንዋኔውን ይምረጡ</string>
+    <string name="select_action_when_blocking_calls" formatted="false">ጥሪዎችን በሚያግዱበት ጊዜ እርምጃ ይምረጡ</string>
+    <string name="select_action_when_rule_matches" formatted="false">ህጉ በሚዛመድበት ጊዜ እርምጃ ይምረጡ</string>
+    <string name="select_all" formatted="false">ሁሉንም ምረጥ</string>
+    <string name="select_country" formatted="false">ሀገር ምረጥ</string>
+    <string name="select_export_format" formatted="false">የላኪ ቅርጸት ምረጥ</string>
+    <string name="select_label" formatted="false">መለያ ምረጥ</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">እባክዎ መለያ ይምረጡ እና ትክክለኛ የስልክ ቁጥር ያስገቡ</string>
+    <string name="select_language" formatted="false">ቋንቋ ምረጥ</string>
+    <string name="select_multiple" formatted="false">ብዙ ምረጥ</string>
+    <string name="select_sim_card" formatted="false">የሲም ካርድ ምረጥ</string>
+    <string name="select_tags" formatted="false">መለያዎች ምረጥ</string>
+    <string name="select_target_service" formatted="false">ዒላማውን አገልግሎት ይምረጡ</string>
+    <string name="select_trusted_data_source" formatted="false">እባክዎ የታመኑ የውሂብ ምንጮችን ይምረጡ</string>
+    <string name="select_your_language" formatted="false">ቋንቋዎን ይምረጡ</string>
+    <string name="selected_items" formatted="false">{count} ንጥሎች ተመርጠዋል</string>
+    <string name="selected_label" formatted="false">የተመረጠ:</string>
+    <string name="sender" formatted="false">ላኪ</string>
+    <string name="sender_regex_optional" formatted="false">የላኪ ሬጉለር ኤክስፕሬሽን (አማራጭ)</string>
+    <string name="separate_sims" formatted="false">Separate SIMs</string>
+    <string name="separate_sims_desc" formatted="false">Enable separate filtering rules for each SIM card</string>
+    <string name="server_address_label" formatted="false">የአገልጋይ አድራሻ</string>
+    <string name="service_type_contact" formatted="false">የእውቂያ ምዝገባ</string>
+    <string name="service_type_label" formatted="false">የአገልግሎት ዓይነት</string>
+    <string name="service_type_phone" formatted="false">የስልክ ምዝገባ</string>
+    <string name="service_type_plugin" formatted="false">የፕለጊን ዝመና</string>
+    <string name="service_type_sms" formatted="false">የኤስኤምኤስ ምዝገባ</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">የመዘግየት ጊዜ ያዘጋጁ</string>
+    <string name="set_encryption_password" formatted="false">የምስጠራ የይለፍ ቃል አዘጋጅ</string>
+    <string name="settings" formatted="false">ቅንብሮች</string>
+    <string name="settings_backed_up_to" formatted="false">ቅንብሮች እዚህ ተቀምጠዋል፡ {path}</string>
+    <string name="settings_backup" formatted="false">ቅንብሮች ምትኬ </string>
+    <string name="settings_restored_successfully" formatted="false">ቅንብሮች በተሳካ ሁኔታ መልሰዋል። ለውጦቹ እንዲተገበሩ እባክዎ መተግበሪያውን እንደገና ያስጀምሩ።</string>
+    <string name="settings_save_failed" formatted="false">ቅንብሮችን ማስቀመጥ አልተቻለም፡ {error}</string>
+    <string name="settings_saved" formatted="false">ቅንብሮች ተቀምጠዋል</string>
+    <string name="settings_tab" formatted="false">ቅንብሮች</string>
+    <string name="settings_title" formatted="false">ቅንብሮች</string>
+    <string name="setup" formatted="false">ማዋቀር</string>
+    <string name="show_all_contacts" formatted="false">ሁሉንም እውቂያዎች አሳይ</string>
+    <string name="show_favorites" formatted="false">ተወዳጆችን አሳይ</string>
+    <string name="silence" formatted="false">ዝምታ</string>
+    <string name="silence_action_description" formatted="false">ጥሪዎች ዝም ይላሉ ነገር ግን በጥሪ ምዝግብ ማስታወሻ ውስጥ ይታያሉ።</string>
+    <string name="silence_and_no_answer" formatted="false">ዝምታ እና መልስ የለም</string>
+    <string name="silence_no_answer" formatted="false">ዝምታ መልስ የለም</string>
+    <string name="silent_call_voice_clone" formatted="false">የዝምታ ጥሪ የድምጽ ክሎን</string>
+    <string name="silent_rules" formatted="false">የዝምታ ህጎች</string>
+    <string name="sim_card" formatted="false">የሲም ካርድ {simNumber}</string>
+    <string name="sim_card_color" formatted="false">የሲም ካርድ ቀለም</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• የሲም ካርድ ማዋቀር፡ ለእያንዳንዱ ሲም ካርድ ገለልተኛ የማጣሪያ ህጎችን ያዘጋጁ</string>
+    <string name="sim_card_filter_rules" formatted="false">የሲም ካርድ ማጣሪያ ህጎች</string>
+    <string name="sim_card_filter_rules_description" formatted="false">በሲም ካርድ ማስገቢያዎች ላይ በመመስረት የተለያዩ የማጣሪያ ህጎችን ያዘጋጁ</string>
+    <string name="sim_card_font_size" formatted="false">የሲም ካርድ ቅርጸ-ቁምፊ መጠን</string>
+    <string name="sim_card_position" formatted="false">የሲም ካርድ ቦታ</string>
+    <string name="sim_card_title" formatted="false">የሲም ካርድ</string>
+    <string name="sim_country" formatted="false">የሲም ሀገር</string>
+    <string name="sim_info" formatted="false">ሲም {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">የSIM ማስገቢያ ደንቦች ለእያንዳንዱ የSIM ማስገቢያ የነጻ ማጣሪያ ደንቦችን እንዲያዘጋጁ ያስችሉዎታል።</string>
+    <string name="sim_rule_instructions_title" formatted="false">የSIM ማስገቢያ ደንቦች</string>
+    <string name="sim_rules_not_found" formatted="false">የሲም ህጎች አልተገኙም።</string>
+    <string name="sim_slot" formatted="false">የሲም ማስገቢያ</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">ለእያንዳንዱ SIM ካርድ ነጻ ማጣሪያ ደንቦችን ያዘጋጁ፡</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">የSIM ማስገቢያ {slotNumber} ማጣሪያ ቅንብሮች</string>
+    <string name="sim_slot_management" formatted="false">የSIM ማስገቢያ አስተዳደር</string>
+    <string name="sim_slot_position" formatted="false">የSIM ማስገቢያ ቦታ {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• የSIM ማስገቢያ ደንቦች፡ ለእያንዳንዱ SIM ነጻ የማጣሪያ ስልቶች</string>
+    <string name="sim_slot_rule_list_title" formatted="false">የSIM ማስገቢያ የደንቦች ዝርዝር</string>
+    <string name="sim_slot_rule_management" formatted="false">የSIM ማስገቢያ ደንቦች</string>
+    <string name="sim_slot_rules" formatted="false">የሲም ማስገቢያ ህጎች</string>
+    <string name="sim_slot_title" formatted="false">SIM ማስገቢያ {slotNumber}</string>
+    <string name="sim_state" formatted="false">የሲም ሁኔታ</string>
+    <string name="skip" formatted="false">ዝለል</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">ብልጥ የደዋይ መታወቂያ</string>
+    <string name="sms" formatted="false">ኤስኤምኤስ</string>
+    <string name="sms_filter_description" formatted="false">የኤስኤምኤስ ማጣሪያ አይፈለጌ መልዕክቶችን በራስ-ሰር እንዲያጣሩ እና የመልዕክት ዝርዝርዎን ንጹህ እንዲሆን ይረዳዎታል። የማጣሪያ ደንቦችን እና የማሳወቂያ ዘዴዎችን ማዘጋጀት ይችላሉ።</string>
+    <string name="sms_filter_disabled" formatted="false">የኤስኤምኤስ ማጣሪያ ተሰናክሏል</string>
+    <string name="sms_filter_enabled" formatted="false">የኤስኤምኤስ ማጣሪያ ነቅቷል</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">የኤስኤምኤስ ማጣሪያ ደንብ በተሳካ ሁኔታ ታክሏል</string>
+    <string name="sms_filter_rules" formatted="false">የኤስኤምኤስ ማጣሪያ ደንቦች</string>
+    <string name="sms_filter_settings" formatted="false">የኤስኤምኤስ ማጣሪያ ቅንብሮች</string>
+    <string name="sms_management" formatted="false">የኤስኤምኤስ አስተዳደር</string>
+    <string name="sms_permission" formatted="false">የኤስኤምኤስ ፈቃድ</string>
+    <string name="sms_permission_description" formatted="false">አይፈለጌ መልዕክቶችን ለማጣራት ጥቅም ላይ ይውላል።</string>
+    <string name="sms_rule_added_successfully" formatted="false">የኤስኤምኤስ ደንብ በተሳካ ሁኔታ ታክሏል</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">የኤስኤምኤስ ደንብ በተሳካ ሁኔታ ተሰርዟል</string>
+    <string name="sms_rule_load_failed" formatted="false">የኤስኤምኤስ ደንቦች መጫን አልተሳካም፡ {error}</string>
+    <string name="sms_rule_management" formatted="false">የኤስኤምኤስ የደንብ አስተዳደር</string>
+    <string name="sms_rule_subscription" formatted="false">የኤስኤምኤስ የደንብ ምዝገባ</string>
+    <string name="sms_subscription" formatted="false">የኤስኤምኤስ ምዝገባ</string>
+    <string name="sms_subscription_added_successfully" formatted="false">የኤስኤምኤስ ምዝገባ በተሳካ ሁኔታ ታክሏል</string>
+    <string name="sms_subscription_rules_description" formatted="false">የኤስኤምኤስ የደንብ ዝርዝሮችን በURL ይግቡ፣ መደበኛውን የቁጥር ግጥሚያ ይደግፋል። የማገድ ወይም የመፍቀድ እርምጃዎችን ማዘጋጀት ይችላሉ።</string>
+    <string name="sms_tab" formatted="false">ኤስኤምኤስ</string>
+    <string name="some_permissions_denied" formatted="false">አንዳንድ የፍቃድ ጥያቄዎች ተከልክለዋል</string>
+    <string name="sort_by" formatted="false">በ... ደርድር</string>
+    <string name="sort_least_popular" formatted="false">በጣም ያልተወዳጁትን ደርድር</string>
+    <string name="sort_most_popular" formatted="false">በጣም ተወዳጅ የሆኑትን ደርድር</string>
+    <string name="sort_newest" formatted="false">በጣም አዲሶቹን ደርድር</string>
+    <string name="sort_oldest" formatted="false">በጣም የቆዩትን ደርድር</string>
+    <string name="spam_likely" formatted="false">አይፈለጌ መልዕክት ሊሆን ይችላል</string>
+    <string name="start_color" formatted="false">የመነሻ ቀለም</string>
+    <string name="start_date" formatted="false">የመነሻ ቀን</string>
+    <string name="start_using" formatted="false">ጀምር</string>
+    <string name="stat_answered" formatted="false">መልስ የተሰጠባቸው</string>
+    <string name="stat_blocked" formatted="false">የታገዱ</string>
+    <string name="statistics" formatted="false">ስታቲስቲክስ</string>
+    <string name="statistics_page_title" formatted="false">የውሂብ ትንታኔ</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">STIR ቀለም</string>
+    <string name="stir_failed" formatted="false">ማረጋገጥ አልተሳካም</string>
+    <string name="stir_font_size" formatted="false">STIR የቅርጸ-ቁጥር መጠን</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">STIR ቦታ</string>
+    <string name="stir_unknown" formatted="false">የማረጋገጫ ሁኔታ ያልታወቀ</string>
+    <string name="stir_verification" formatted="false">STIR/SHAKEN ማረጋገጫ</string>
+    <string name="stir_verification_body" formatted="false">ለቁጥር {phoneNumber} {stirResultMessage}</string>
+    <string name="stir_verification_description" formatted="false">ለቁጥሮች የSTIR/SHAKEN ማረጋገጫ ውጤቶችን ያሳያል።</string>
+    <string name="stir_verification_title" formatted="false">STIR/SHAKEN ማረጋገጥ</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">የማከማቻ ፈቃድ</string>
+    <string name="storage_permission_description" formatted="false">ቅንብሮችን እና ደንቦችን ለማስቀመጥ ጥቅም ላይ ይውላል።</string>
+    <string name="submit" formatted="false">አስገባ</string>
+    <string name="subscribe" formatted="false">ይመዝገቡ</string>
+    <string name="subscription_add_success" formatted="false">ምዝገባ &quot;{name}&quot; በተሳካ ሁኔታ ታክሏል</string>
+    <string name="subscription_delete_confirm_content" formatted="false">ይህን ምዝገባ ለመሰረዝ እርግጠኛ ነዎት?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">ምዝገባን ሰርዝ</string>
+    <string name="subscription_delete_failed" formatted="false">ምዝገባን መሰረዝ አልተሳካም፡ {error}</string>
+    <string name="subscription_delete_success" formatted="false">ምዝገባ ተሰርዟል</string>
+    <string name="subscription_deleted" formatted="false">ምዝገባ ተሰርዟል</string>
+    <string name="subscription_load_failed" formatted="false">ምዝገባዎች መጫን አልተሳካም፡ {error}</string>
+    <string name="subscription_name" formatted="false">የምዝገባ ስም</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">የምዝገባ ስም እና URL ባዶ ሊሆኑ አይችሉም</string>
+    <string name="subscription_name_hint" formatted="false">የምዝገባ ስም ያስገቡ</string>
+    <string name="subscription_status_change_failed" formatted="false">የምዝገባ ሁኔታን መቀየር አልተሳካም፡ {error}</string>
+    <string name="subscription_update_failed" formatted="false">ምዝገባን ማዘመን አልተሳካም፡ {error}</string>
+    <string name="subscription_update_success" formatted="false">ምዝገባ በተሳካ ሁኔታ ተዘምኗል</string>
+    <string name="subscription_url" formatted="false">የምዝገባ URL</string>
+    <string name="subscription_url_hint" formatted="false">የምዝገባ URL ያስገቡ</string>
+    <string name="successfully_imported_rules" formatted="false">በተሳካ ሁኔታ {count} ደንቦች ገብተዋል</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">ድጋፍ</string>
+    <string name="support_count" formatted="false">ድጋፍ ({supportCount})</string>
+    <string name="support_sync" formatted="false">ማመሳሰልን ይደግፉ</string>
+    <string name="supported" formatted="false">ተደግፏል</string>
+    <string name="survey" formatted="false">ዳሰሳ ጥናት</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">መሣሪያዎችን አመሳስል</string>
+    <string name="sync_failed" formatted="false">ማመሳሰል አልተሳካም</string>
+    <string name="sync_failed_message" formatted="false">ማመሳሰል አልተሳካም</string>
+    <string name="sync_folder_name_label" formatted="false">የማመሳሰል አቃፊ ስም</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">አሁን አመሳስል</string>
+    <string name="sync_now_button" formatted="false">አሁን አመሳስል</string>
+    <string name="sync_status_title" formatted="false">የማመሳሰል ሁኔታ</string>
+    <string name="sync_status_updated_message" formatted="false">የማመሳሰል ሁኔታ ተዘምኗል</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">ማመሳሰል ተሳክቷል</string>
+    <string name="sync_with_cloud_storage" formatted="false">ከደመና ማከማቻ ጋር አመሳስል</string>
+    <string name="synced" formatted="false">ተመሳስሏል</string>
+    <string name="synchronized" formatted="false">ተመሳስሏል</string>
+    <string name="syncing" formatted="false">በማመሳሰል ላይ...</string>
+    <string name="system_features" formatted="false">የስርዓት ባህሪዎች:</string>
+    <string name="system_settings_title" formatted="false">የስርዓት ቅንብሮች</string>
+    <string name="tab_all" formatted="false">ሁሉም</string>
+    <string name="tab_answered" formatted="false">ምላሽ የተሰጠባቸው</string>
+    <string name="tab_blocked" formatted="false">የተከለከሉ</string>
+    <string name="tab_missed" formatted="false">ያመለጡ</string>
+    <string name="tab_outgoing" formatted="false">የወጪ ጥሪዎች</string>
+    <string name="tag_label" formatted="false">መለያ: {tag}</string>
+    <string name="takeaway" formatted="false">ማጠቃለያ</string>
+    <string name="telecommunication" formatted="false">የቴሌኮሙኒኬሽን</string>
+    <string name="telegram" formatted="false">ቴሌግራም</string>
+    <string name="telemarketing" formatted="false">የቴሌማርኬቲንግ</string>
+    <string name="temp_purchase_expired" formatted="false">ጊዜያዊ የግዢ መብቶች ጊዜያቸው አልፏል</string>
+    <string name="temporary_vip" formatted="false">ጊዜያዊ VIP</string>
+    <string name="test_button" formatted="false">ሙከራ</string>
+    <string name="test_connection_button" formatted="false">ግንኙነትን ፈትሽ</string>
+    <string name="test_plugin" formatted="false">ተሰኪን ይፈትኑ</string>
+    <string name="text_colors_setting" formatted="false">የጽሑፍ እና የመለያ ቀለሞች</string>
+    <string name="theme_dark" formatted="false">Dark</string>
+    <string name="theme_light" formatted="false">Light</string>
+    <string name="theme_settings_subtitle" formatted="false">የሚወዱትን ገጽታ ይምረጡ</string>
+    <string name="theme_settings_title" formatted="false">የገጽታ ቅንጅቶች</string>
+    <string name="theme_system" formatted="false">System</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">ይህ መተግበሪያ ኃይለኛ የጥሪ መታወቂያ መሣሪያ ሲሆን ያልተፈለጉ ጥሪዎችን ለመለየት እና ለመከልከል ያስችልዎታል።</string>
+    <string name="this_week" formatted="false">ይህ ሳምንት</string>
+    <string name="time_interceptor" formatted="false">የጊዜ ጣልቃ ገብ</string>
+    <string name="time_interceptor_description" formatted="false">በጥሪ ድግግሞሽ ላይ በመመስረት እምብዛም ጥሪዎችን በራስ-ሰር ይጥለፍ/ይፍቀድ</string>
+    <string name="time_interceptor_explanation" formatted="false">• የጊዜ ጣልቃ ገብ: በተደጋጋሚ የሚደወሉ ጥሪዎችን በአጭር ጊዜ ይጥለፍ/ይፍቀድ</string>
+    <string name="time_interceptor_explanation_content" formatted="false">የጥሪ ድግግሞሽ ጣልቃ ገብ ባህሪው ተደጋጋሚ አይፈለጌ ጥሪዎችን በራስ-ሰር ለመለየት እና ለመጥለፍ/ለመፍቀድ የጥሪ ድግግሞሹን ይተነትናል።</string>
+    <string name="time_interceptor_explanation_title" formatted="false">የጥሪ ድግግሞሽ ጣልቃ ገብ ማብራሪያ</string>
+    <string name="time_interceptor_settings_title" formatted="false">የጥሪ ድግግሞሽ ጣልቃ ገብ ቅንብሮች</string>
+    <string name="time_window_description" formatted="false">ለተደጋጋሚ ጥሪዎች የሚፈቀደውን የጊዜ መስኮት መጠን ያዘጋጁ። በዚህ መስኮት ውስጥ ካሉ ተመሳሳይ ቁጥር የተደረጉ ጥሪዎች ይፈቀዳሉ።</string>
+    <string name="time_window_label" formatted="false">የጣልቃ ገብ ጊዜ መስኮት (ደቂቃዎች): {minutes}</string>
+    <string name="timeline_view" formatted="false">የጊዜ መስመር እይታ</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">ዛሬ</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">አጠቃላይ</string>
+    <string name="total_blocked" formatted="false">ጠቅላላ የተከለከሉ</string>
+    <string name="total_pending_proposals" formatted="false">ጠቅላላ ጥያቄዎች በመጠባበቅ ላይ</string>
+    <string name="total_proposals" formatted="false">ጠቅላላ ጥያቄዎች</string>
+    <string name="total_votes" formatted="false">ጠቅላላ: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">በመሣሪያዎች ወይም መድረኮች መካከል ውሂብ ያስተላልፉ</string>
+    <string name="travel_ticketing" formatted="false">የጉዞ ትኬት</string>
+    <string name="tutorial" formatted="false">አጋዥ ስልጠና</string>
+    <string name="type" formatted="false">አይነት</string>
+    <string name="unassigned_s_i_m_card" formatted="false">ያልተመደበ SIM ካርድ</string>
+    <string name="unblock" formatted="false">አግድ</string>
+    <string name="unblock_number" formatted="false">ቁጥርን እገድ</string>
+    <string name="unblock_number_confirmation" formatted="false">{phoneNumber} ን ማገድ ይፈልጋሉ?</string>
+    <string name="unblock_number_failed" formatted="false">ቁጥርን ማገድ አልተሳካም</string>
+    <string name="unblock_number_success" formatted="false">ቁጥር በተሳካ ሁኔታ ታገደ</string>
+    <string name="unblocked" formatted="false">ያልታገደ</string>
+    <string name="unknown" formatted="false">ያልታወቀ</string>
+    <string name="unknown_tag" formatted="false">መለያ: ያልታወቀ</string>
+    <string name="unregister_button" formatted="false">ምዝገባ ስርዝ</string>
+    <string name="unregister_device_confirmation_message" formatted="false">{deviceName} ማሰናከልዎን እርግጠኛ ነዎት?</string>
+    <string name="unregister_device_title" formatted="false">መሣሪያን አሰናክል</string>
+    <string name="unsupported_file_format" formatted="false">የማይደገፍ የፋይል ቅርጸት</string>
+    <string name="update" formatted="false">አዘምን</string>
+    <string name="update_all_now" formatted="false">ሁሉንም አሁን አዘምን</string>
+    <string name="update_contact_failed" formatted="false">ዕውቂያን ማዘመን አልተሳካም: {error}</string>
+    <string name="update_favorite_status" formatted="false">ተወዳጅ ሁኔታን አዘምን</string>
+    <string name="update_interval" formatted="false">የማዘመኛ ክፍተት</string>
+    <string name="update_now" formatted="false">አሁን አዘምን</string>
+    <string name="update_plugin" formatted="false">ተሰኪን አዘምን</string>
+    <string name="update_plugin_failed" formatted="false">ተሰኪን ማዘመን አልተሳካም: {error}</string>
+    <string name="update_rule_failed" formatted="false">ደንብ ማዘመን አልተሳካም: {error}</string>
+    <string name="update_subscription_failed" formatted="false">ምዝገባ ማዘመን አልተሳካም: {error}</string>
+    <string name="update_success" formatted="false">{service} በተሳካ ሁኔታ ተዘምኗል ({count} ህጎች)</string>
+    <string name="upgrade_to_vip" formatted="false">ወደ VIP ያሳድጉ</string>
+    <string name="use_cases_point1" formatted="false">• ራስ-ሰርድ የውሸት ጥሪዎችን ይለዩ</string>
+    <string name="use_cases_point2" formatted="false">• በአጭር ጊዜ ውስጥ ብዙ ጊዜ የሚደውሉ የማስታወቂያ ጥሪዎችን ይጥለፍ</string>
+    <string name="use_cases_point3" formatted="false">• የልብ ምት ጥሪ እና አድባሪነትን ይከላከሉ</string>
+    <string name="use_cases_title" formatted="false">የአጠቃቀም ሁኔታዎች:</string>
+    <string name="use_global_settings" formatted="false">አለምአቀፍ ቅንብሮችን ይጠቀሙ</string>
+    <string name="use_local_notification" formatted="false">አካባቢያዊ ማሳወቂያዎችን ተጠቀም</string>
+    <string name="use_local_notification_description" formatted="false">ለገቢ ጥሪዎች የአካባቢ ማሳወቂያዎችን ያንቁ</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">ቅጦችን ለመግለጽ መደበኛ የ regex ሰዋስውን ይጠቀሙ። ምሳሌዎች:</string>
+    <string name="use_stir_notification" formatted="false">ከSTIR ማሳወቂያ ተጠቀም</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">የተጠቃሚ ስም</string>
+    <string name="verification_failed_text" formatted="false">አልተሳካም</string>
+    <string name="verification_report" formatted="false">የማረጋገጫ ሪፖርት</string>
+    <string name="verified_text" formatted="false">ተረጋግጧል</string>
+    <string name="verify" formatted="false">አረጋግጥ</string>
+    <string name="version" formatted="false">ስሪት: {version}</string>
+    <string name="very_high" formatted="false">በጣም ከፍተኛ</string>
+    <string name="very_low" formatted="false">በጣም ዝቅተኛ</string>
+    <string name="view_details" formatted="false">ዝርዝሮችን ይመልከቱ</string>
+    <string name="vip3_days_with_ads" formatted="false">3-ቀን ቪአይፒ በማስታወቂያዎች (ማመሳሰል ብቻ)</string>
+    <string name="vip5_days_no_ads" formatted="false">5-ቀን ሙሉ-ባህሪ ያለው ከማስታወቂያ ነፃ ቪአይፒ</string>
+    <string name="vip7_days_no_ads" formatted="false">7-ቀን ሙሉ-ባህሪ ያለው ከማስታወቂያ ነፃ ቪአይፒ</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">የቪአይፒ አባልነትን በስልክ ቁጥር የመመዝገቢያ ቆጠራ ይለዋወጡ</string>
+    <string name="vip_exchange_service" formatted="false">የቪአይፒ ልውውጥ አገልግሎት</string>
+    <string name="vip_exchange_title" formatted="false">ቪአይፒ ይለዋወጡ</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">VIP ተጠቃሚ</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">የድምፅ ማወቂያ</string>
+    <string name="vote_agree" formatted="false">ይስማሙ</string>
+    <string name="vote_count" formatted="false">የድምጽ ብዛት</string>
+    <string name="vote_disagree" formatted="false">አይስማሙ</string>
+    <string name="vote_submitted" formatted="false">ድምጽዎ በተሳካ ሁኔታ ገብቷል</string>
+    <string name="voted" formatted="false">ድምጽ ሰጥተዋል</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} ድምጾች ({supportPercentage}% ድጋፍ)</string>
+    <string name="voting_completed" formatted="false">የድምጽ መስጫ ተጠናቋል</string>
+    <string name="voting_completed_body" formatted="false">ለ {phoneNumber} የማህበረሰብ ድምጽ መስጫ ተጠናቋል። ውጤት: {result} ({supportPercentage}% ድጋፍ)።</string>
+    <string name="waiting_for_more_votes" formatted="false">ለተጨማሪ የማህበረሰብ ድምጾች በመጠበቅ ላይ</string>
+    <string name="watch_ad" formatted="false">ማስታወቂያ ተመልከት</string>
+    <string name="watch_ad_for_temp" formatted="false">ለጊዜያዊ መብቶች ማስታወቂያ ተመልከት</string>
+    <string name="watch_ad_for_temp_description" formatted="false">ፕሪሚየም ባህሪያትን ለጊዜው ለመክፈት አጭር ማስታወቂያ ይመልከቱ</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">ጊዜያዊ የቪአይፒ መብቶችን ለማግኘት {count} ተጨማሪ ማስታወቂያዎችን ማየት ያስፈልግዎታል</string>
+    <string name="web_d_a_v_config_title" formatted="false">WebDAV ውቅር</string>
+    <string name="week" formatted="false">ሳምንት</string>
+    <string name="welcome" formatted="false">እንኳን ደህና መጡ</string>
+    <string name="whitelist" formatted="false">ነጭ ዝርዝር</string>
+    <string name="width" formatted="false">ስፋት</string>
+    <string name="wildcard_matching_description" formatted="false">ማንኛውንም ቁምፊ ለመምሰል \'.\' ይጠቀሙ (ለምሳሌ \'123.456\' 123-456ን ይገጥማል)</string>
+    <string name="wildcard_matching_title" formatted="false">ዱርዬ ግጥሚያ:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">ለተለዋዋጭ ማጣሪያ የዱርዬ ድጋፍ</string>
+    <string name="window_size_setting" formatted="false">የመስኮት መጠን</string>
+    <string name="year" formatted="false">ዓመት</string>
+    <string name="yesterday" formatted="false">ትላንት</string>
+</resources>

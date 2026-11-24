@@ -1,50 +1,1510 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
 <resources>
-    <string name="app_name">Your Call Your Rule</string>
-    <string name="default_notification_channel_id">default_channel</string>
-    <string name="appAuthRedirectScheme">yourcallyourrule</string>
-
-    <!-- Widget Titles & Descriptions -->
-    <string name="widget_rules_sync_title">规则与数据库同步</string>
-    <string name="widget_rules_sync_description">展示本地规则统计与最近云端同步时间状态。</string>
-    <string name="widget_dashboard_overview_title">防护战报与数据看板</string>
-    <string name="widget_dashboard_overview_description">展示今日拦截次数、双卡分布与高峰骚扰时段。</string>
-    <string name="widget_community_judge_title">社区判官与治理</string>
-    <string name="widget_community_judge_description">展示社区热议提议、风险等级 Bento 盒与共识进度。</string>
-
-    <!-- Widget Labels -->
-    <string name="widget_sync_now">立即同步</string>
-    <string name="widget_view_logs">查看通话日志</string>
-    <string name="widget_vote_now">参与判官投票</string>
-    <string name="widget_last_sync">上次同步</string>
-    <string name="widget_total_rules">规则总数</string>
-    <string name="widget_blocked_today">今日拦截</string>
-    <string name="widget_passed_today">今日放行</string>
-    <string name="widget_protection_status">防护状态</string>
-    <string name="widget_status_active">已激活</string>
-    <string name="widget_peak_hours">高峰时段</string>
-    <string name="widget_sim_distribution">双卡分布</string>
-    <string name="widget_risk_high">高危</string>
-    <string name="widget_risk_medium">中危</string>
-    <string name="widget_risk_low">低危</string>
-    <string name="widget_consensus">共识完成度</string>
-    <string name="widget_service_label">服务</string>
-    <string name="widget_times_unit">次</string>
-    <string name="widget_participants">%1$d 人已参与</string>
-    <string name="widget_smart_mode">智能模式</string>
-    <string name="widget_risk_bento">风险 Bento</string>
-
-    <!-- Widget Configuration Screen -->
-    <string name="widget_config_title">小组件独立偏好设置</string>
-    <string name="widget_config_opacity">背景不透明度</string>
-    <string name="widget_config_font_scale">字号按比例缩放</string>
-    <string name="widget_config_theme">卡片主题模式</string>
-    <string name="widget_config_theme_system">跟随系统主题</string>
-    <string name="widget_config_theme_light">浅色模式 (Light)</string>
-    <string name="widget_config_theme_dark">深色模式 (Dark)</string>
-    <string name="widget_config_save">保存小组件偏好</string>
-    <string name="widget_config_show_breakdown">显示规则明细分布</string>
-    <string name="widget_config_show_sim">显示双卡分布比例</string>
-    <string name="widget_config_show_risk">显示风险等级 Bento 盒</string>
-    <string name="tile_expected_call">期待电话</string>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">关于联系人订阅</string>
+    <string name="about_labels" formatted="false">关于标签</string>
+    <string name="about_phone_subscription_rules" formatted="false">关于电话订阅规则</string>
+    <string name="about_sms_filter" formatted="false">关于短信过滤</string>
+    <string name="about_sms_subscription_rules" formatted="false">关于短信订阅规则</string>
+    <string name="about_subtitle" formatted="false">应用版本和法律信息</string>
+    <string name="about_title" formatted="false">关于</string>
+    <string name="access_target_url" formatted="false">访问目标 URL</string>
+    <string name="action" formatted="false">操作</string>
+    <string name="action_all" formatted="false">全部</string>
+    <string name="action_allow" formatted="false">允许</string>
+    <string name="action_block" formatted="false">阻止</string>
+    <string name="action_filter_title" formatted="false">按操作类型过滤</string>
+    <string name="action_filter_tooltip" formatted="false">操作过滤器</string>
+    <string name="action_none" formatted="false">无操作</string>
+    <string name="action_silence" formatted="false">静音</string>
+    <string name="action_tag" formatted="false">操作: {actionType}</string>
+    <string name="action_type" formatted="false">操作类型</string>
+    <string name="action_unknown" formatted="false">未知</string>
+    <string name="active_proposals" formatted="false">进行中提议</string>
+    <string name="add" formatted="false">添加</string>
+    <string name="add_allow_subscription" formatted="false">添加允许订阅</string>
+    <string name="add_allowed_blocked_rule" formatted="false">添加允许/阻止规则</string>
+    <string name="add_block_subscription" formatted="false">添加阻止订阅</string>
+    <string name="add_contact_button" formatted="false">添加联系人</string>
+    <string name="add_contact_failed" formatted="false">添加联系人失败: {error}</string>
+    <string name="add_label" formatted="false">添加标签</string>
+    <string name="add_label_button" formatted="false">添加标签</string>
+    <string name="add_label_failed" formatted="false">添加标签失败: {error}</string>
+    <string name="add_name" formatted="false">添加名称</string>
+    <string name="add_none_subscription" formatted="false">添加无订阅</string>
+    <string name="add_phone_mark" formatted="false">添加电话标记</string>
+    <string name="add_phone_number_rule" formatted="false">添加电话号码规则</string>
+    <string name="add_plugin" formatted="false">添加插件</string>
+    <string name="add_plugin_failed" formatted="false">添加插件失败</string>
+    <string name="add_plugin_failed_with_error" formatted="false">添加插件失败: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">从本地文件添加插件</string>
+    <string name="add_plugin_from_url" formatted="false">从 URL 添加插件</string>
+    <string name="add_regex_rule" formatted="false">添加正则表达式规则</string>
+    <string name="add_rule" formatted="false">添加规则</string>
+    <string name="add_rule_failed" formatted="false">添加规则失败：{error}</string>
+    <string name="add_rule_tooltip" formatted="false">添加规则</string>
+    <string name="add_silence_subscription" formatted="false">添加静音订阅</string>
+    <string name="add_sms_filter_rule" formatted="false">添加短信过滤规则</string>
+    <string name="add_sms_rule" formatted="false">添加短信规则</string>
+    <string name="add_sms_subscription" formatted="false">添加短信订阅</string>
+    <string name="add_subscription" formatted="false">添加订阅</string>
+    <string name="add_subscription_button" formatted="false">添加订阅</string>
+    <string name="add_subscription_failed" formatted="false">添加订阅失败：{error}</string>
+    <string name="add_subscription_tooltip" formatted="false">添加订阅</string>
+    <string name="add_to_blacklist" formatted="false">添加到黑名单</string>
+    <string name="add_to_favorites" formatted="false">添加到收藏夹</string>
+    <string name="add_to_rules" formatted="false">添加到规则</string>
+    <string name="add_to_whitelist" formatted="false">添加到白名单</string>
+    <string name="added_to_favorites" formatted="false">已添加到收藏联系人</string>
+    <string name="advanced_mode" formatted="false">高级模式</string>
+    <string name="agent" formatted="false">代理</string>
+    <string name="agree_votes" formatted="false">同意: {count}</string>
+    <string name="ai_marketing" formatted="false">AI 营销与推销</string>
+    <string name="ai_robocall" formatted="false">AI机器人外呼</string>
+    <string name="all" formatted="false">全部</string>
+    <string name="all_call_logs_cleared" formatted="false">所有通话记录已清除</string>
+    <string name="all_calls_tab" formatted="false">全部</string>
+    <string name="all_permissions_granted" formatted="false">已授予所有权限</string>
+    <string name="all_services_status_subtitle" formatted="false">每个云服务的当前状态</string>
+    <string name="all_services_status_title" formatted="false">当前服务状态</string>
+    <string name="all_settings_completed" formatted="false">所有设置已完成。</string>
+    <string name="all_update_success" formatted="false">所有更新已完成（{count} 条规则）</string>
+    <string name="allow" formatted="false">允许</string>
+    <string name="allow_action_description" formatted="false">即使号码在黑名单中，也将允许呼叫。</string>
+    <string name="allow_all_allow_rules" formatted="false">启用所有放行规则</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">应用所有配置的放行规则总开关</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">允许所有黑名单号码</string>
+    <string name="allow_all_block_rules" formatted="false">启用所有拦截规则</string>
+    <string name="allow_all_block_rules_desc" formatted="false">应用所有配置的拦截规则总开关</string>
+    <string name="allow_allowed_numbers" formatted="false">放行所有允许名单中的号码</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">允许允许名单中的所有来电</string>
+    <string name="allow_block" formatted="false">允许/阻止</string>
+    <string name="allow_blocked_numbers" formatted="false">暂停黑名单拦截</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">临时放行黑名单中的号码（绕过黑名单）</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">允许未超出限制的号码</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">自动允许未超过计数阈值的号码</string>
+    <string name="allow_regex_allow_rules" formatted="false">启用正则放行规则</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">启用正则放行规则模式匹配</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">启用基于正则表达式的允许规则</string>
+    <string name="allow_regex_block_rules" formatted="false">启用正则拦截规则</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">启用正则拦截规则模式匹配</string>
+    <string name="allow_regex_block_rules_description" formatted="false">启用基于正则表达式的阻止规则</string>
+    <string name="allow_rule" formatted="false">允许规则</string>
+    <string name="allow_rules" formatted="false">允许规则</string>
+    <string name="allowed_blocked_rule" formatted="false">允许/阻止规则</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">编辑允许/阻止规则</string>
+    <string name="allowed_blocked_rule_management" formatted="false">允许/阻止规则管理</string>
+    <string name="allowed_blocked_rules_info" formatted="false">允许/阻止规则用于匹配特定电话号码的呼叫，具有最高优先级。</string>
+    <string name="and_more_items" formatted="false">以及更多 {count} 个项目</string>
+    <string name="answer_then_hangup" formatted="false">接听然后挂断</string>
+    <string name="answer_then_hangup_description" formatted="false">自动接听来电并立即挂断以终止通话</string>
+    <string name="app_name" formatted="false">Your Call Your Rule</string>
+    <string name="application_software" formatted="false">应用软件</string>
+    <string name="apply" formatted="false">应用</string>
+    <string name="approved" formatted="false">已批准</string>
+    <string name="audit_stream_log" formatted="false">社区审议日志</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">授权失败：请检查客户端 ID 和密钥</string>
+    <string name="authorization_failed_message" formatted="false">授权失败</string>
+    <string name="authorization_success_message" formatted="false">授权成功</string>
+    <string name="authorize_login_button" formatted="false">授权登录</string>
+    <string name="auto_cancel_notification" formatted="false">自动取消通知</string>
+    <string name="auto_cancel_notification_description" formatted="false">如果选中，当用户点击通知时，通知将自动关闭。</string>
+    <string name="auto_sync_label" formatted="false">自动同步</string>
+    <string name="auto_update" formatted="false">自动更新</string>
+    <string name="auto_update_description" formatted="false">设置订阅的自动更新间隔或手动更新</string>
+    <string name="auto_update_settings" formatted="false">自动更新设置</string>
+    <string name="auto_update_subtitle" formatted="false">管理规则和插件的自动更新</string>
+    <string name="auto_update_title" formatted="false">自动更新</string>
+    <string name="auto_warranty_scam" formatted="false">汽车质保诈骗</string>
+    <string name="automotive_industry" formatted="false">汽车工业</string>
+    <string name="avatar" formatted="false">头像</string>
+    <string name="avatar_border_color" formatted="false">头像边框颜色</string>
+    <string name="avatar_border_size" formatted="false">头像边框大小</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">头像和图标大小</string>
+    <string name="avatar_position" formatted="false">头像位置</string>
+    <string name="avatar_size" formatted="false">头像大小</string>
+    <string name="axis_position" formatted="false">{axis} 位置</string>
+    <string name="background_gradient_setting" formatted="false">背景渐变</string>
+    <string name="background_opacity" formatted="false">背景不透明度</string>
+    <string name="backup" formatted="false">备份</string>
+    <string name="backup_and_restore" formatted="false">备份和还原</string>
+    <string name="backup_and_restore_subtitle" formatted="false">备份或还原应用程序数据</string>
+    <string name="backup_and_restore_title" formatted="false">备份和还原</string>
+    <string name="backup_failed" formatted="false">备份失败</string>
+    <string name="backup_settings" formatted="false">备份设置</string>
+    <string name="backup_to_cloud" formatted="false">备份到云</string>
+    <string name="backup_to_cloud_failed" formatted="false">备份到云失败：{error}</string>
+    <string name="backup_to_cloud_success" formatted="false">成功备份到云</string>
+    <string name="bank" formatted="false">银行</string>
+    <string name="basic_info" formatted="false">基本信息</string>
+    <string name="basic_rule_filter" formatted="false">基本规则过滤</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">使用黑名单/白名单和正则表达式过滤呼叫</string>
+    <string name="basic_rule_filtering" formatted="false">基本规则过滤</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• 基本规则过滤：基于黑名单、白名单和正则表达式的过滤规则</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">确定要删除 {count} 个选定的联系人吗？</string>
+    <string name="batch_delete_labels_confirm" formatted="false">确定要删除 {count} 个标签吗？</string>
+    <string name="battery_optimization_permission" formatted="false">电池优化</string>
+    <string name="battery_optimization_permission_description" formatted="false">允许应用程序在后台运行以提供来电显示等服务。</string>
+    <string name="black_white_list" formatted="false">黑/白名单</string>
+    <string name="blacklist" formatted="false">黑名单</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">黑名单和白名单</string>
+    <string name="block" formatted="false">阻止</string>
+    <string name="block_action_description" formatted="false">呼叫将被阻止并显示在通话记录中。</string>
+    <string name="block_calls" formatted="false">阻止呼叫</string>
+    <string name="block_international_calls" formatted="false">匹配不以 + 或 00 开头的号码</string>
+    <string name="block_international_calls_title" formatted="false">阻止国际呼叫</string>
+    <string name="block_mobile_numbers" formatted="false">匹配不以 13-19 开头的号码</string>
+    <string name="block_mobile_numbers_title" formatted="false">阻止手机号码</string>
+    <string name="block_number" formatted="false">阻止号码</string>
+    <string name="block_number_success" formatted="false">阻止号码成功</string>
+    <string name="block_premium_rate_numbers" formatted="false">匹配不以 118 或 120-190 开头的号码</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">阻止高价号码</string>
+    <string name="block_rule" formatted="false">阻止规则</string>
+    <string name="block_rules" formatted="false">阻止规则</string>
+    <string name="block_specific_area_codes" formatted="false">匹配以 0 + 2-3 位数字开头的号码</string>
+    <string name="block_specific_area_codes_title" formatted="false">阻止特定区号：</string>
+    <string name="block_type_analysis_title" formatted="false">阻止类型分析</string>
+    <string name="blocked" formatted="false">已阻止</string>
+    <string name="blocked_call_body" formatted="false">已阻止来自 {phoneNumber} 的呼叫</string>
+    <string name="blocked_call_notifications" formatted="false">拦截来电通知</string>
+    <string name="blocked_call_notifications_description" formatted="false">显示有关被阻止的呼叫的信息。</string>
+    <string name="blocked_call_title" formatted="false">已阻止的呼叫</string>
+    <string name="blocked_calls" formatted="false">已阻止的呼叫</string>
+    <string name="blocked_calls_title" formatted="false">已阻止的呼叫</string>
+    <string name="blocked_spam_calls" formatted="false">已阻止的垃圾呼叫</string>
+    <string name="blocking_trend" formatted="false">拦截趋势曲线</string>
+    <string name="both" formatted="false">两者</string>
+    <string name="bulk_delete" formatted="false">批量删除联系人</string>
+    <string name="bulk_delete_contacts" formatted="false">批量删除联系人</string>
+    <string name="bulk_delete_labels" formatted="false">批量删除标签</string>
+    <string name="call" formatted="false">呼叫</string>
+    <string name="call_blocking" formatted="false">呼叫阻止</string>
+    <string name="call_details" formatted="false">通话详情</string>
+    <string name="call_filter_rules" formatted="false">来电过滤规则</string>
+    <string name="call_filter_rules_description" formatted="false">设置来电过滤的基本规则</string>
+    <string name="call_filter_settings" formatted="false">来电过滤设置</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">设置呼叫频率限制和阻止规则</string>
+    <string name="call_frequency_interception_title" formatted="false">呼叫频率拦截</string>
+    <string name="call_history" formatted="false">通话记录</string>
+    <string name="call_history_info_desc" formatted="false">此处显示您的通话记录，包括来电、去电和未接来电。</string>
+    <string name="call_history_info_title" formatted="false">通话记录</string>
+    <string name="call_history_tab" formatted="false">通话记录</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">防范回拨吸费诈骗、3秒超时兜底与车载模式保护</string>
+    <string name="call_redirection_settings_title" formatted="false">呼出防诈重定向与确认</string>
+    <string name="call_screening_permission" formatted="false">来电筛选权限</string>
+    <string name="call_screening_permission_description" formatted="false">用于筛选和阻止垃圾电话。</string>
+    <string name="call_screening_permission_not_granted" formatted="false">未授予来电筛选权限，可能会影响应用程序功能。</string>
+    <string name="call_statistics" formatted="false">通话统计</string>
+    <string name="call_time" formatted="false">通话时间</string>
+    <string name="call_type" formatted="false">通话类型</string>
+    <string name="call_type_answered" formatted="false">已接听</string>
+    <string name="call_type_blocked" formatted="false">已阻止</string>
+    <string name="call_type_icon_color" formatted="false">通话类型图标颜色</string>
+    <string name="call_type_missed" formatted="false">未接来电</string>
+    <string name="call_type_outgoing" formatted="false">已拨出</string>
+    <string name="call_type_position" formatted="false">通话类型位置</string>
+    <string name="call_type_rejected" formatted="false">已拒绝</string>
+    <string name="call_type_silenced" formatted="false">已静音</string>
+    <string name="call_type_unknown" formatted="false">未知</string>
+    <string name="callback" formatted="false">回拨</string>
+    <string name="caller_id_app" formatted="false">来电显示应用</string>
+    <string name="caller_id_customization_subtitle" formatted="false">自定义来电显示布局</string>
+    <string name="caller_id_customization_title" formatted="false">自定义来电显示</string>
+    <string name="caller_id_display_mode" formatted="false">来电显示模式</string>
+    <string name="caller_id_enhancement" formatted="false">来电显示增强</string>
+    <string name="caller_id_marked_by_count" formatted="false">被标记 {count} 次</string>
+    <string name="caller_id_notification_title" formatted="false">来电信息</string>
+    <string name="caller_id_preview" formatted="false">来电显示预览</string>
+    <string name="caller_id_settings_subtitle" formatted="false">设置来电通知和显示模式</string>
+    <string name="caller_id_settings_title" formatted="false">来电显示设置</string>
+    <string name="calling_number_failed" formatted="false">呼叫号码失败</string>
+    <string name="cancel" formatted="false">取消</string>
+    <string name="cancel_button" formatted="false">取消</string>
+    <string name="cancel_local_notification" formatted="false">通话后自动清除通知</string>
+    <string name="cancel_local_notification_description" formatted="false">通话或挂断结束后，自动移除通知栏提示</string>
+    <string name="car_rental" formatted="false">汽车租赁</string>
+    <string name="carrier" formatted="false">运营商</string>
+    <string name="carrier_color" formatted="false">运营商颜色</string>
+    <string name="carrier_font_size" formatted="false">运营商字体大小</string>
+    <string name="carrier_position" formatted="false">运营商位置</string>
+    <string name="change_label" formatted="false">更改标签</string>
+    <string name="change_plugin_status_failed" formatted="false">更改插件状态失败: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">更改订阅状态失败: {error}</string>
+    <string name="charity" formatted="false">慈善机构</string>
+    <string name="chart_one_week_ago" formatted="false">1 周前</string>
+    <string name="chart_three_days_ago" formatted="false">3 天前</string>
+    <string name="chart_today" formatted="false">今天</string>
+    <string name="check_file_format" formatted="false">请检查文件格式或权限</string>
+    <string name="check_permission_failed" formatted="false">检查权限失败：{error}</string>
+    <string name="choose_default_intercept_action" formatted="false">选择默认拦截操作</string>
+    <string name="clear_all_call_logs" formatted="false">清除所有通话记录</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">确认清除所有通话记录</string>
+    <string name="clear_all_notifications" formatted="false">清除所有通知</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">确认清除所有通知</string>
+    <string name="clear_button" formatted="false">清除</string>
+    <string name="clear_filter" formatted="false">清除过滤器</string>
+    <string name="clear_label_filter_button" formatted="false">清除标签过滤器</string>
+    <string name="close_button" formatted="false">关闭</string>
+    <string name="cloud_backup" formatted="false">云备份</string>
+    <string name="cloud_sync" formatted="false">云同步</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">云同步和备份</string>
+    <string name="cloud_sync_service" formatted="false">云同步服务</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">配置 WebDAV、OneDrive 和 Google Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">云同步设置</string>
+    <string name="cloud_sync_title" formatted="false">云同步</string>
+    <string name="cluster_onboarding_description" formatted="false">配置本设备在多设备集群中的角色分工，实现无缝协同同步。</string>
+    <string name="cluster_onboarding_title" formatted="false">设备集群与节点角色分配</string>
+    <string name="collection" formatted="false">催收</string>
+    <string name="color_picker_title" formatted="false">选择颜色</string>
+    <string name="community_impact" formatted="false">社区影响</string>
+    <string name="community_participation" formatted="false">社区参与度</string>
+    <string name="community_threat_intelligence" formatted="false">社区威胁情报网</string>
+    <string name="community_votes" formatted="false">社区投票</string>
+    <string name="community_voting_started" formatted="false">社区投票已开始</string>
+    <string name="community_voting_started_body" formatted="false">对 {phoneNumber} 的新删除提议现已开放社区投票。</string>
+    <string name="completed" formatted="false">已完成</string>
+    <string name="config_management" formatted="false">配置管理</string>
+    <string name="config_saved" formatted="false">配置已保存！</string>
+    <string name="config_updated" formatted="false">配置已更新</string>
+    <string name="configuration_advice" formatted="false">通过适当的配置，您可以为工作和个人 SIM 卡设置不同的过滤策略。</string>
+    <string name="configure_backup_options" formatted="false">配置备份选项</string>
+    <string name="configure_cloud_sync_service" formatted="false">配置云同步服务</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">请配置云同步服务以启用多设备同步。</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">配置 SIM 卡过滤规则</string>
+    <string name="confirm" formatted="false">确认</string>
+    <string name="confirm_button" formatted="false">确认</string>
+    <string name="confirm_delete" formatted="false">确认删除</string>
+    <string name="confirm_delete_label" formatted="false">确定要删除标签 &quot;{name}&quot; 吗</string>
+    <string name="confirm_delete_plugin" formatted="false">确定要删除插件 &quot;{name}&quot; 吗？</string>
+    <string name="confirm_delete_plugins" formatted="false">确定要删除 {count} 个插件吗？</string>
+    <string name="confirm_delete_rule_message" formatted="false">确定要删除此规则吗？此操作无法撤销。</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">确定要删除此短信过滤规则吗？</string>
+    <string name="confirm_delete_sms_rule" formatted="false">确定要删除此短信规则吗？</string>
+    <string name="confirm_delete_subscriptions" formatted="false">确定要删除 {name} 吗？</string>
+    <string name="confirm_password" formatted="false">确认密码</string>
+    <string name="connected_cluster_nodes_list" formatted="false">集群已接入设备节点列表:</string>
+    <string name="connected_status" formatted="false">已连接</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">连接失败：请检查服务器地址、用户名和密码</string>
+    <string name="connection_failed_message" formatted="false">连接失败</string>
+    <string name="connection_status_label" formatted="false">连接状态</string>
+    <string name="connection_string" formatted="false">连接字符串 (URI)</string>
+    <string name="connection_string_helper" formatted="false">仅在“初始化数据库”时需要</string>
+    <string name="connection_success_message" formatted="false">连接成功</string>
+    <string name="consensus_pass_rate" formatted="false">社区共识通过率</string>
+    <string name="contact_add_success" formatted="false">联系人添加成功</string>
+    <string name="contact_deleted" formatted="false">联系人已删除</string>
+    <string name="contact_name_label" formatted="false">姓名</string>
+    <string name="contact_not_found" formatted="false">未找到联系人</string>
+    <string name="contact_subscription_description" formatted="false">通过 URL 订阅联系人列表，自动更新联系人信息和标签。支持 JSON 格式数据。</string>
+    <string name="contact_update_success" formatted="false">联系人更新成功</string>
+    <string name="contact_us" formatted="false">联系我们</string>
+    <string name="contacts" formatted="false">联系人</string>
+    <string name="contacts_deleted" formatted="false">已删除 {count} 个联系人</string>
+    <string name="contacts_management" formatted="false">联系人管理</string>
+    <string name="contacts_permission" formatted="false">联系人权限</string>
+    <string name="contacts_permission_description" formatted="false">用于识别联系人来电。</string>
+    <string name="contacts_tab" formatted="false">联系人</string>
+    <string name="container_width" formatted="false">容器宽度</string>
+    <string name="content" formatted="false">内容</string>
+    <string name="content_regex" formatted="false">内容正则表达式</string>
+    <string name="count_color" formatted="false">计数颜色</string>
+    <string name="count_font_size" formatted="false">计数字体大小</string>
+    <string name="count_position" formatted="false">计数位置</string>
+    <string name="count_threshold_description" formatted="false">设置触发过滤操作所需的最小计数阈值</string>
+    <string name="count_threshold_label" formatted="false">计数阈值</string>
+    <string name="country" formatted="false">国家/地区</string>
+    <string name="country_and_rule_library_group_title" formatted="false">地域与规则库设置</string>
+    <string name="country_code_hint" formatted="false">例如，US, CN, GB</string>
+    <string name="country_code_label" formatted="false">国家代码 (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">需要国家代码</string>
+    <string name="country_code_two_letters" formatted="false">国家代码 (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">请注意：数据库可能不包含所有特定国家或地区的数据。</string>
+    <string name="country_name_color" formatted="false">国家/地区名称颜色</string>
+    <string name="country_name_font_size" formatted="false">国家/地区名称字体大小</string>
+    <string name="country_region_name_position" formatted="false">国家/地区名称位置</string>
+    <string name="country_sync_settings_subtitle" formatted="false">选择用于数据同步的国家</string>
+    <string name="country_sync_settings_title" formatted="false">基于国家的数据库同步设置</string>
+    <string name="create_proposal" formatted="false">创建提议</string>
+    <string name="create_proposal_title" formatted="false">创建删除提议</string>
+    <string name="created_at" formatted="false">创建时间: {date}</string>
+    <string name="created_rules" formatted="false">已创建规则</string>
+    <string name="critical" formatted="false">严重</string>
+    <string name="critical_issues" formatted="false">关键问题</string>
+    <string name="csv_format" formatted="false">CSV 格式</string>
+    <string name="current_device_label" formatted="false">当前设备标签</string>
+    <string name="current_device_title" formatted="false">当前设备</string>
+    <string name="current_language" formatted="false">当前语言</string>
+    <string name="current_mark_count" formatted="false">当前积分数量</string>
+    <string name="custom" formatted="false">自定义</string>
+    <string name="custom_action_description" formatted="false">执行自定义操作。</string>
+    <string name="customer_service" formatted="false">客户服务</string>
+    <string name="dashboard_tab" formatted="false">仪表盘</string>
+    <string name="data_analysis" formatted="false">数据分析</string>
+    <string name="data_load_failure" formatted="false">数据加载失败：{error}</string>
+    <string name="data_loading_failed" formatted="false">加载数据失败：{error}</string>
+    <string name="data_migration" formatted="false">数据迁移</string>
+    <string name="data_migration_description" formatted="false">此功能允许您在设备之间传输所有数据。目前，您可以使用备份和还原功能手动迁移数据。</string>
+    <string name="data_source_disclaimer" formatted="false">号码来自互联网和用户提交。我们无法保证某个号码一旦被删除，就不会被其他用户或来源重新提交。请积极搜索和验证信息。</string>
+    <string name="data_source_reminder" formatted="false">数据源提醒</string>
+    <string name="database_sync_title" formatted="false">数据库同步</string>
+    <string name="days" formatted="false">{count, plural, =1{1 天} other{{count} 天}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 天前} other{{count} 天前}}</string>
+    <string name="days_vip" formatted="false">{days} 天 VIP</string>
+    <string name="db_init_success" formatted="false">数据库初始化成功！</string>
+    <string name="debt_collection" formatted="false">催收</string>
+    <string name="deep_link_confirm_button" formatted="false">确认导入</string>
+    <string name="deep_link_default_plugin_name" formatted="false">外部插件</string>
+    <string name="deep_link_default_sub_name" formatted="false">外部规则订阅</string>
+    <string name="deep_link_detected_title" formatted="false">检测到外部导入请求</string>
+    <string name="deep_link_empty_url_error" formatted="false">链接地址为空，无法导入</string>
+    <string name="deep_link_import_failed" formatted="false">导入失败: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ 导入成功</string>
+    <string name="deep_link_import_title" formatted="false">导入{type}</string>
+    <string name="deep_link_name_label" formatted="false">名称: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">下载或解析插件脚本失败</string>
+    <string name="deep_link_type_label" formatted="false">类型: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">插件</string>
+    <string name="deep_link_type_subscription" formatted="false">规则订阅</string>
+    <string name="deep_link_url_label" formatted="false">链接: {url}</string>
+    <string name="default_notifications" formatted="false">默认通知</string>
+    <string name="default_notifications_description" formatted="false">应用程序的默认通知通道。</string>
+    <string name="delete" formatted="false">删除</string>
+    <string name="delete_button" formatted="false">删除</string>
+    <string name="delete_contact" formatted="false">删除联系人</string>
+    <string name="delete_contact_confirm" formatted="false">确定要删除 {name} 吗？</string>
+    <string name="delete_failed" formatted="false">删除失败：{error}</string>
+    <string name="delete_label" formatted="false">删除标签</string>
+    <string name="delete_label_failed" formatted="false">删除标签失败：{error}</string>
+    <string name="delete_plugin" formatted="false">删除插件</string>
+    <string name="delete_plugin_failed" formatted="false">删除插件失败：{error}</string>
+    <string name="delete_plugins" formatted="false">删除插件</string>
+    <string name="delete_plugins_failed" formatted="false">删除插件失败：{error}</string>
+    <string name="delete_rule" formatted="false">删除规则</string>
+    <string name="delete_rule_failed" formatted="false">删除规则失败：{error}</string>
+    <string name="delete_selected" formatted="false">删除所选</string>
+    <string name="delete_subscription" formatted="false">删除订阅</string>
+    <string name="delete_subscription_confirm" formatted="false">确定要删除订阅 &quot;{name}&quot; 吗？</string>
+    <string name="delete_subscription_failed" formatted="false">删除订阅失败：{error}</string>
+    <string name="delete_success" formatted="false">删除成功</string>
+    <string name="deletion_proposal" formatted="false">删除提议</string>
+    <string name="deletion_proposal_created" formatted="false">删除提议已创建</string>
+    <string name="deletion_proposal_created_body" formatted="false">您对 {phoneNumber} 的删除提议已提交社区审核。</string>
+    <string name="deletion_proposal_description" formatted="false">建议删除违反社区准则的号码。您的参与有助于保持平台安全。</string>
+    <string name="deletion_proposal_notification_description" formatted="false">关于删除提议投票结果和更新的通知。</string>
+    <string name="deletion_proposals" formatted="false">删除提议</string>
+    <string name="delivery" formatted="false">快递</string>
+    <string name="description" formatted="false">描述</string>
+    <string name="detailed_settings_title" formatted="false">详细设置</string>
+    <string name="device_cluster_control_panel_title" formatted="false">设备集群与节点角色控制面板</string>
+    <string name="device_i_d_label" formatted="false">设备 ID</string>
+    <string name="device_management_subtitle" formatted="false">管理多设备同步</string>
+    <string name="device_management_title" formatted="false">设备管理</string>
+    <string name="device_model_label" formatted="false">设备型号</string>
+    <string name="device_name" formatted="false">设备名称</string>
+    <string name="device_name_label" formatted="false">设备名称</string>
+    <string name="device_renamed_successfully_message" formatted="false">设备重命名成功</string>
+    <string name="device_unregistered_successfully_message" formatted="false">设备注销成功</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">设备同步成功</string>
+    <string name="dialog_title" formatted="false">正则表达式说明</string>
+    <string name="different_from_local_counter" formatted="false">此功能与本地计数器过滤器不同，因为它侧重于短时间内的重复呼叫模式，而不是长期标记计数。</string>
+    <string name="disable_global_plugins" formatted="false">禁用全局插件</string>
+    <string name="disabled" formatted="false">已禁用</string>
+    <string name="disabled_status" formatted="false">已禁用</string>
+    <string name="disconnect_button" formatted="false">断开连接</string>
+    <string name="disconnect_failed_message" formatted="false">断开连接失败</string>
+    <string name="disconnected_message" formatted="false">已断开连接</string>
+    <string name="disconnected_status" formatted="false">已断开连接</string>
+    <string name="done" formatted="false">完成</string>
+    <string name="dual_sim_advice" formatted="false">此功能对于双 SIM 卡手机尤其有用，可以为工作和个人 SIM 卡设置不同的过滤策略。</string>
+    <string name="dual_sim_distribution" formatted="false">双卡拦截分布对比</string>
+    <string name="duration15_min" formatted="false">15分钟</string>
+    <string name="duration1_hour" formatted="false">1小时</string>
+    <string name="duration2_hours" formatted="false">2小时</string>
+    <string name="duration30_min" formatted="false">30分钟</string>
+    <string name="dynamic_filter_rules_description" formatted="false">支持通过 FilterUiRegistry 动态注册频次阈值、远端风险、时间拦截与双卡卡槽等拦截规则模块。</string>
+    <string name="dynamic_filter_rules_title" formatted="false">动态组合过滤规则与插件引擎</string>
+    <string name="e164_number" formatted="false">E.164 号码</string>
+    <string name="earlier" formatted="false">更早</string>
+    <string name="earned_temp_vip" formatted="false">获得临时 VIP</string>
+    <string name="ecommerce" formatted="false">电子商务</string>
+    <string name="edit" formatted="false">编辑</string>
+    <string name="edit_contact" formatted="false">编辑联系人</string>
+    <string name="edit_label" formatted="false">编辑标签</string>
+    <string name="edit_phone_rule" formatted="false">编辑电话规则</string>
+    <string name="edit_rule" formatted="false">编辑规则</string>
+    <string name="edit_script" formatted="false">编辑脚本</string>
+    <string name="edit_script_for" formatted="false">编辑 {pluginName} 的脚本</string>
+    <string name="edit_subscription" formatted="false">编辑订阅</string>
+    <string name="education" formatted="false">教育</string>
+    <string name="element_positions_setting" formatted="false">元素位置</string>
+    <string name="elements_settings_title" formatted="false">元素设置</string>
+    <string name="email" formatted="false">电子邮件</string>
+    <string name="enable_call_filter" formatted="false">启用呼叫过滤</string>
+    <string name="enable_call_filter_description" formatted="false">启用后，传入呼叫将根据以下规则列表进行检查。默认情况下，呼叫过滤规则不会在设备之间同步。</string>
+    <string name="enable_encryption" formatted="false">启用加密</string>
+    <string name="enable_encryption_description" formatted="false">加密备份文件</string>
+    <string name="enable_filtering" formatted="false">启用筛选</string>
+    <string name="enable_fraud_alert" formatted="false">启用欺诈警报</string>
+    <string name="enable_fraud_alert_description" formatted="false">疑似诈骗电话警报</string>
+    <string name="enable_global_plugins" formatted="false">启用全局插件</string>
+    <string name="enable_local_count_filter" formatted="false">启用本地标记阈值防护</string>
+    <string name="enable_local_count_filter_description" formatted="false">当本地标记次数超过阈值时进行拦截</string>
+    <string name="enable_local_notification" formatted="false">使用本地通知</string>
+    <string name="enable_local_notification_description" formatted="false">启用后，过滤后的消息的通知将显示在设备上</string>
+    <string name="enable_location_summary" formatted="false">位置</string>
+    <string name="enable_mute_rules" formatted="false">拦截时静音响铃</string>
+    <string name="enable_mute_rules_desc" formatted="false">拦截时静音响铃而非挂断</string>
+    <string name="enable_none_action_rules" formatted="false">仅记录与标记（不打断）</string>
+    <string name="enable_none_action_rules_desc" formatted="false">仅记录和标记来电，不执行拦截动作</string>
+    <string name="enable_remote_number_filter" formatted="false">启用云端数据库阈值防护</string>
+    <string name="enable_remote_number_filter_description" formatted="false">当云端标记次数超过阈值时进行拦截</string>
+    <string name="enable_rule" formatted="false">启用规则</string>
+    <string name="enable_security_message" formatted="false">启用安全消息</string>
+    <string name="enable_sms_filter" formatted="false">启用短信过滤</string>
+    <string name="enable_sms_filter_description" formatted="false">启用后，消息将根据规则自动过滤</string>
+    <string name="enable_time_interception" formatted="false">启用时间拦截</string>
+    <string name="enable_time_interception_description" formatted="false">短时间内拦截同一号码的频繁连拨</string>
+    <string name="enable_time_interceptor" formatted="false">启用时间拦截器</string>
+    <string name="enable_vibration" formatted="false">启用震动</string>
+    <string name="enable_vibration_description" formatted="false">当呼叫疑似诈骗电话时震动</string>
+    <string name="enabled" formatted="false">已启用</string>
+    <string name="enabled_status" formatted="false">已启用</string>
+    <string name="end_call_immediately" formatted="false">立即挂断</string>
+    <string name="end_color" formatted="false">结束颜色</string>
+    <string name="end_date" formatted="false">结束日期</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">增强型过滤系统</string>
+    <string name="enhanced_filter_settings" formatted="false">增强型过滤设置</string>
+    <string name="enhanced_filter_settings_title" formatted="false">增强型过滤设置</string>
+    <string name="enhanced_filter_system_description" formatted="false">增强型过滤系统支持全局规则和每个 SIM 卡的过滤配置。</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">请输入电话号码和正则表达式模式。</string>
+    <string name="enter_contact_name" formatted="false">请输入联系人姓名</string>
+    <string name="enter_device_name" formatted="false">输入设备名称</string>
+    <string name="enter_email_optional" formatted="false">请输入电子邮件（可选）</string>
+    <string name="enter_encryption_password_hint" formatted="false">输入加密密码</string>
+    <string name="enter_icon_code" formatted="false">输入图标代码</string>
+    <string name="enter_name" formatted="false">输入联系人姓名</string>
+    <string name="enter_new_device_name_hint" formatted="false">输入此设备的新名称</string>
+    <string name="enter_password_again" formatted="false">再次输入密码</string>
+    <string name="enter_phone_number" formatted="false">输入电话号码</string>
+    <string name="enter_phone_number_hint" formatted="false">输入电话号码进行测试</string>
+    <string name="enter_phone_number_multiple" formatted="false">请输入电话号码，多个号码用逗号分隔</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">输入电话号码以开始搜索</string>
+    <string name="enter_phone_number_to_verify" formatted="false">输入电话号码以验证</string>
+    <string name="enter_plugin_description" formatted="false">输入插件描述</string>
+    <string name="enter_plugin_name" formatted="false">输入插件名称</string>
+    <string name="enter_plugin_url" formatted="false">输入插件 URL 地址</string>
+    <string name="enter_regex_hint" formatted="false">输入正则表达式模式</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">请输入规则名称和正则表达式模式。</string>
+    <string name="enter_rule_name_hint" formatted="false">输入规则名称</string>
+    <string name="enter_search_content" formatted="false">请输入搜索内容</string>
+    <string name="enter_subscription_name" formatted="false">输入订阅名称</string>
+    <string name="enter_subscription_url" formatted="false">输入订阅 URL</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">请输入同步文件夹名称（默认：NotificationManager）</string>
+    <string name="enter_valid_name_and_url" formatted="false">请输入有效的名称和 URL</string>
+    <string name="enter_valid_url" formatted="false">请输入有效的 URL</string>
+    <string name="enter_version" formatted="false">输入版本</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">请输入 WebDAV 密码</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">请输入 WebDAV 服务器地址</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">请输入 WebDAV 用户名</string>
+    <string name="entertainment" formatted="false">娱乐</string>
+    <string name="entity_export_failed" formatted="false">导出 {entityTypeName} 失败: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} 导出成功</string>
+    <string name="entity_import_failed" formatted="false">导入 {entityTypeName} 失败: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} 导入成功，共导入 {count} 条记录</string>
+    <string name="entry_point_view_title" formatted="false">入口点视图</string>
+    <string name="error_loading_settings" formatted="false">加载设置错误</string>
+    <string name="error_message" formatted="false">错误：{error}</string>
+    <string name="error_occurred_message" formatted="false">发生错误：{error}</string>
+    <string name="error_prefix" formatted="false">错误</string>
+    <string name="error_renaming_device_message" formatted="false">重命名设备时出错：{error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">同步设备时出错：{error}</string>
+    <string name="error_unregistering_device_message" formatted="false">注销设备时出错：{error}</string>
+    <string name="example_block400_prefix" formatted="false">例如，阻止 400 前缀号码</string>
+    <string name="example_block_marketing_sms" formatted="false">例如，阻止营销短信</string>
+    <string name="example_content_regex_hint" formatted="false">内容正则表达式示例</string>
+    <string name="example_coupon_promotion_discount" formatted="false">例如，.*(优惠券|促销|折扣).*</string>
+    <string name="example_family_friends" formatted="false">例如，家人、朋友等</string>
+    <string name="example_phone_number" formatted="false">例如，10086、12345 等</string>
+    <string name="example_regex400_prefix" formatted="false">400 前缀的正则表达式示例</string>
+    <string name="example_sender_regex_hint" formatted="false">示例</string>
+    <string name="exchange" formatted="false">兑换</string>
+    <string name="exchange_failed" formatted="false">兑换失败：{error}</string>
+    <string name="exchange_now" formatted="false">立即兑换</string>
+    <string name="exchange_success" formatted="false">成功兑换 {description}，到期日期：{expiryDate}</string>
+    <string name="exchange_vip" formatted="false">兑换 VIP</string>
+    <string name="expected_call_active_desc" formatted="false">正在临时放行所有未知来电 (剩余 {remaining})</string>
+    <string name="expected_call_add_tile" formatted="false">添加“期待电话”至系统下拉控制中心 (Quick Settings Tile)</string>
+    <string name="expected_call_inactive_desc" formatted="false">等外卖/快递时临时豁免拦截规则</string>
+    <string name="expected_call_title" formatted="false">期待电话 · 临时放行</string>
+    <string name="expiry_time" formatted="false">到期时间：{time}</string>
+    <string name="export" formatted="false">导出</string>
+    <string name="export_all_application_settings" formatted="false">导出所有应用程序设置</string>
+    <string name="export_all_rule_configurations" formatted="false">导出所有规则配置</string>
+    <string name="export_config" formatted="false">导出配置</string>
+    <string name="export_contacts" formatted="false">导出联系人</string>
+    <string name="export_data" formatted="false">导出数据</string>
+    <string name="export_entity" formatted="false">导出 {entityTypeName}</string>
+    <string name="export_failed" formatted="false">导出失败</string>
+    <string name="export_failure" formatted="false">导出配置失败</string>
+    <string name="export_feature_coming_soon" formatted="false">导出功能即将推出</string>
+    <string name="export_labels" formatted="false">导出标签</string>
+    <string name="export_labels_failed" formatted="false">导出标签失败: {error}</string>
+    <string name="export_plugin_list" formatted="false">导出插件列表</string>
+    <string name="export_plugin_list_failed" formatted="false">导出插件列表失败: {error}</string>
+    <string name="export_rules" formatted="false">导出规则</string>
+    <string name="export_sms_rules" formatted="false">导出短信规则</string>
+    <string name="export_statistics_data" formatted="false">导出统计数据</string>
+    <string name="export_successlly" formatted="false">配置导出成功</string>
+    <string name="failed_to_add_rule" formatted="false">添加规则失败: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">添加短信订阅失败: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">备份设置失败: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">解密备份文件失败</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">删除短信规则失败: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">导出规则失败: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">获取来电显示信息失败: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">导入规则失败: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">加载设置架构失败: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">恢复设置失败</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">恢复设置失败: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">切换规则状态失败: {error}</string>
+    <string name="false_positive_clean" formatted="false">误报号段清洗</string>
+    <string name="favorite_contacts" formatted="false">收藏的联系人</string>
+    <string name="feature" formatted="false">功能</string>
+    <string name="feature_add_rules" formatted="false">• 添加特定电话号码的规则</string>
+    <string name="feature_center" formatted="false">功能中心</string>
+    <string name="feature_enable_disable" formatted="false">• 启用/禁用每个SIM卡的不同过滤器</string>
+    <string name="feature_list_title" formatted="false">功能：</string>
+    <string name="feature_manage_rules" formatted="false">• 管理每个SIM卡的规则列表</string>
+    <string name="features" formatted="false">功能</string>
+    <string name="fetching_caller_id_info" formatted="false">正在获取来电显示信息...</string>
+    <string name="field_is_required" formatted="false">此字段为必填项</string>
+    <string name="file_saved_to" formatted="false">文件保存到：{path}</string>
+    <string name="filter" formatted="false">过滤器</string>
+    <string name="filter_and_sort_title" formatted="false">筛选和排序</string>
+    <string name="filter_by" formatted="false">筛选方式</string>
+    <string name="filter_by_action" formatted="false">按操作筛选</string>
+    <string name="filter_by_label" formatted="false">按标签过滤</string>
+    <string name="filter_control_panel_title" formatted="false">过滤器控制面板</string>
+    <string name="filter_control_subtitle" formatted="false">管理所有过滤器的开启/关闭状态</string>
+    <string name="filter_control_title" formatted="false">筛选器控制</string>
+    <string name="filter_explanation" formatted="false">筛选器说明</string>
+    <string name="filter_management" formatted="false">筛选器管理</string>
+    <string name="filter_management_description" formatted="false">设置呼叫过滤</string>
+    <string name="filter_name" formatted="false">筛选器名称</string>
+    <string name="filter_priority_note" formatted="false">注意：筛选器之间存在优先级关系，详情请参考帮助文档</string>
+    <string name="filter_s_m_s" formatted="false">筛选短信</string>
+    <string name="filter_settings" formatted="false">筛选器设置</string>
+    <string name="filter_settings_title" formatted="false">筛选器设置</string>
+    <string name="filter_toggle_instructions" formatted="false">为此 SIM 卡槽启用或禁用筛选器：</string>
+    <string name="filter_toggle_status" formatted="false">{status} 筛选器：{filterName}</string>
+    <string name="filter_type" formatted="false">筛选器类型</string>
+    <string name="filter_verified_owner" formatted="false">筛选已验证的所有者</string>
+    <string name="filtered" formatted="false">已筛选</string>
+    <string name="final_risk" formatted="false">最终风险</string>
+    <string name="financial" formatted="false">金融</string>
+    <string name="flexible_combination_feature" formatted="false">• 灵活组合：为每个 SIM 卡槽启用/禁用筛选器</string>
+    <string name="font_sizes_setting" formatted="false">字体大小</string>
+    <string name="found_rules" formatted="false">找到 {count} 条规则</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">设置欺诈警报</string>
+    <string name="fraud_aler_setting_title" formatted="false">欺诈警报设置</string>
+    <string name="fraud_alert" formatted="false">欺诈警报 - 挂断电话</string>
+    <string name="fraud_alert_title" formatted="false">欺诈警报</string>
+    <string name="fraud_alerts" formatted="false">欺诈警报</string>
+    <string name="fraud_alerts_description" formatted="false">显示潜在欺诈呼叫的警告。</string>
+    <string name="fraud_scam_likely" formatted="false">疑似欺诈诈骗</string>
+    <string name="free" formatted="false">免费</string>
+    <string name="function_settings_title" formatted="false">功能设置</string>
+    <string name="general_update_failure" formatted="false">更新失败：{error}</string>
+    <string name="get_free" formatted="false">获取免费</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">配置所有 SIM 卡的全局筛选器：</string>
+    <string name="global_filter_feature" formatted="false">• 全局筛选器：所有来电的基本规则</string>
+    <string name="global_filter_settings" formatted="false">全局筛选器设置</string>
+    <string name="global_settings" formatted="false">全局设置</string>
+    <string name="google_drive_auth_description" formatted="false">使用系统配置的 Google Drive 客户端 ID 和密钥进行授权</string>
+    <string name="google_drive_config_title" formatted="false">Google Drive 配置</string>
+    <string name="government" formatted="false">政府</string>
+    <string name="grant_necessary_permissions" formatted="false">授予必要的权限</string>
+    <string name="grant_permissions" formatted="false">授予权限</string>
+    <string name="granted" formatted="false">已授予</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">您已获得 {days} 天的临时购买权限。到期日期：{expiryDate}</string>
+    <string name="guidelines_label" formatted="false">指南</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">您已经拥有临时权限，到期日期：{expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">您已经拥有 VIP 权限（广告除外）</string>
+    <string name="headhunter" formatted="false">猎头</string>
+    <string name="healthcare" formatted="false">医疗健康就诊</string>
+    <string name="height" formatted="false">身高</string>
+    <string name="high" formatted="false">高</string>
+    <string name="high_risk" formatted="false">高风险</string>
+    <string name="home_tab" formatted="false">主页</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 小时前} other{{count} 小时前}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 小时} =1{1 小时} other{{count} 小时}}</string>
+    <string name="how_it_works_point1" formatted="false">• 系统将自动允许在设定的时间窗口内来自同一号码的呼叫</string>
+    <string name="how_it_works_point2" formatted="false">• 较短的时间窗口会导致更严格的拦截；较长的时间窗口会导致更宽松的拦截</string>
+    <string name="how_it_works_point3" formatted="false">• 系统检查通话记录以确定是否是重复呼叫</string>
+    <string name="how_it_works_title" formatted="false">工作原理：</string>
+    <string name="icon_code_optional" formatted="false">图标代码（可选）</string>
+    <string name="icon_size" formatted="false">图标大小</string>
+    <string name="import" formatted="false">导入</string>
+    <string name="import_config" formatted="false">导入配置</string>
+    <string name="import_contacts" formatted="false">导入联系人</string>
+    <string name="import_entity" formatted="false">导入 {entityTypeName}</string>
+    <string name="import_export" formatted="false">导入/导出</string>
+    <string name="import_export_contacts" formatted="false">导入/导出联系人</string>
+    <string name="import_export_contacts_tooltip" formatted="false">导入/导出联系人</string>
+    <string name="import_export_description" formatted="false">导入或导出 {entityTypeName} 数据</string>
+    <string name="import_export_rules" formatted="false">导入/导出规则</string>
+    <string name="import_export_title" formatted="false">导入/导出</string>
+    <string name="import_failed" formatted="false">导入失败：{error}</string>
+    <string name="import_failure" formatted="false">导入配置失败</string>
+    <string name="import_feature_coming_soon" formatted="false">导入功能即将推出</string>
+    <string name="import_labels" formatted="false">导入标签</string>
+    <string name="import_labels_failed" formatted="false">导入标签失败：{error}</string>
+    <string name="import_plugin_list" formatted="false">导入插件列表</string>
+    <string name="import_plugin_list_failed" formatted="false">导入插件列表失败：{error}</string>
+    <string name="import_plugin_success" formatted="false">成功导入 {count} 个插件</string>
+    <string name="import_rule_configurations_from_file" formatted="false">从文件导入规则配置</string>
+    <string name="import_rules" formatted="false">导入规则</string>
+    <string name="import_success" formatted="false">导入成功</string>
+    <string name="important" formatted="false">重要</string>
+    <string name="important_notice_title" formatted="false">重要提示</string>
+    <string name="incoming_call_intercept_action" formatted="false">来电拦截动作</string>
+    <string name="incorrect_password" formatted="false">密码错误</string>
+    <string name="init_db_button" formatted="false">初始化数据库</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">输入自定义配置清单链接 (JSON)</string>
+    <string name="initial_setup_custom_url_load" formatted="false">加载配置</string>
+    <string name="initial_setup_desc" formatted="false">请选择您需要拦截的地区规则库。这些规则可以帮助您自动屏蔽当地的常见推销和诈骗电话。</string>
+    <string name="initial_setup_deselect_all" formatted="false">取消全选</string>
+    <string name="initial_setup_detected_location" formatted="false">推荐当前所在地区</string>
+    <string name="initial_setup_get_failed" formatted="false">获取配置失败</string>
+    <string name="initial_setup_go_to_settings" formatted="false">前往设置</string>
+    <string name="initial_setup_retry" formatted="false">重试</string>
+    <string name="initial_setup_save" formatted="false">一键配置所选</string>
+    <string name="initial_setup_save_failed" formatted="false">保存配置失败: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ 配置已保存成功，规则已获取生效</string>
+    <string name="initial_setup_saving" formatted="false">正在保存...</string>
+    <string name="initial_setup_search_hint" formatted="false">搜索规则库或国家...</string>
+    <string name="initial_setup_select_all" formatted="false">全选</string>
+    <string name="initial_setup_selected_count" formatted="false">已选择 {count} 项</string>
+    <string name="initial_setup_settings_hint" formatted="false">提示：后续您可以随时在“设置”中重新打开此配置页面。</string>
+    <string name="initial_setup_skip" formatted="false">跳过</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN 加速镜像</string>
+    <string name="initial_setup_source_custom" formatted="false">自定义链接</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub 原源</string>
+    <string name="initial_setup_source_title" formatted="false">数据源选择</string>
+    <string name="initial_setup_title" formatted="false">规则库初始化设置</string>
+    <string name="initializing" formatted="false">正在初始化</string>
+    <string name="installed" formatted="false">已安装</string>
+    <string name="insufficient_marks" formatted="false">分数不足</string>
+    <string name="insurance" formatted="false">保险</string>
+    <string name="intercept_action" formatted="false">拦截动作</string>
+    <string name="interception_action_settings_subtitle" formatted="false">设置如何处理被阻止的呼叫</string>
+    <string name="interception_action_settings_title" formatted="false">拦截动作设置</string>
+    <string name="interception_time_interval" formatted="false">拦截时间间隔</string>
+    <string name="internet" formatted="false">互联网</string>
+    <string name="interval_set_success" formatted="false">{service} 更新间隔设置为 {days} 天</string>
+    <string name="invalid_content_regex" formatted="false">无效的内容正则表达式</string>
+    <string name="invalid_exchange_rule" formatted="false">无效的兑换规则</string>
+    <string name="invalid_label" formatted="false">无效标签</string>
+    <string name="invalid_regex_pattern" formatted="false">无效的正则表达式模式</string>
+    <string name="invalid_sender_regex" formatted="false">无效的发件人正则表达式</string>
+    <string name="invalid_sim_data" formatted="false">无效的 SIM 数据</string>
+    <string name="ip_country" formatted="false">IP 国家/地区</string>
+    <string name="is_number_match" formatted="false">号码匹配</string>
+    <string name="is_roaming" formatted="false">正在漫游</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">加入 Telegram 频道和群组以获取更多信息</string>
+    <string name="json_format" formatted="false">JSON 格式</string>
+    <string name="just_now" formatted="false">刚刚</string>
+    <string name="keep_all_versions" formatted="false">保留所有版本</string>
+    <string name="keep_all_versions_description" formatted="false">保留每个备份的所有历史版本</string>
+    <string name="label" formatted="false">标签</string>
+    <string name="label_action_description" formatted="false">为呼叫添加标签，以便于识别。</string>
+    <string name="label_added_successfully" formatted="false">成功添加标签 &quot;{name}&quot;</string>
+    <string name="label_categories" formatted="false">标签类别</string>
+    <string name="label_deleted" formatted="false">标签已删除</string>
+    <string name="label_description" formatted="false">标签可帮助您更好地管理联系人，将自定义标签添加到电话号码，以便于识别来电和消息。</string>
+    <string name="label_filter_tooltip" formatted="false">标签筛选</string>
+    <string name="label_icon_color" formatted="false">标签图标颜色</string>
+    <string name="label_management" formatted="false">标签管理</string>
+    <string name="label_not_found" formatted="false">未找到标签</string>
+    <string name="label_tag" formatted="false">标签: {labelId}</string>
+    <string name="label_update_failed" formatted="false">更新标签失败：{error}</string>
+    <string name="label_update_success" formatted="false">标签 &quot;$labelText&quot; 更新成功</string>
+    <string name="labels" formatted="false">标签</string>
+    <string name="labels_color" formatted="false">标签颜色</string>
+    <string name="labels_deleted" formatted="false">已删除 {count} 个标签</string>
+    <string name="labels_exported_successfully" formatted="false">标签导出成功</string>
+    <string name="labels_font_size" formatted="false">标签字体大小</string>
+    <string name="labels_imported_successfully" formatted="false">成功导入 {count} 个标签</string>
+    <string name="labels_position" formatted="false">标签位置</string>
+    <string name="language_settings" formatted="false">语言设置</string>
+    <string name="language_settings_subtitle" formatted="false">更改应用程序显示语言</string>
+    <string name="language_settings_title" formatted="false">语言设置</string>
+    <string name="last_sync_label" formatted="false">上次同步</string>
+    <string name="last_updated" formatted="false">上次更新时间：{date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">留空使用默认值</string>
+    <string name="lifetime_membership" formatted="false">终身会员</string>
+    <string name="lifetime_membership_description" formatted="false">一次性购买，永久解锁所有高级功能和未来更新</string>
+    <string name="list_view" formatted="false">列表视图</string>
+    <string name="live_activities_settings_title" formatted="false">实时活动设置</string>
+    <string name="live_activities_test_end_activity" formatted="false">结束活动</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">发送新活动</string>
+    <string name="live_activities_test_title" formatted="false">实时活动测试</string>
+    <string name="live_activities_test_update_activity" formatted="false">更新活动</string>
+    <string name="live_activity_controls_title" formatted="false">实时活动控件</string>
+    <string name="live_activity_mode" formatted="false">实时活动</string>
+    <string name="live_activity_mode_description" formatted="false">在锁定屏幕和灵动岛 (iOS) 上将呼叫信息显示为持久通知。</string>
+    <string name="live_notification_customization_subtitle" formatted="false">自定义实时通知的外观。</string>
+    <string name="live_notification_customization_title" formatted="false">实时通知自定义</string>
+    <string name="live_stream" formatted="false">实时数据流</string>
+    <string name="load_contacts_failed" formatted="false">加载联系人失败：{error}</string>
+    <string name="load_data_failed" formatted="false">加载数据失败</string>
+    <string name="load_label_failed" formatted="false">加载标签失败：{error}</string>
+    <string name="load_labels_failed" formatted="false">加载标签失败：{error}</string>
+    <string name="load_mark_count_failed" formatted="false">加载标记的电话号码失败：{error}</string>
+    <string name="load_marked_phones_failed" formatted="false">加载标记的电话失败：{error}</string>
+    <string name="load_plugins_failed" formatted="false">加载插件失败：{error}</string>
+    <string name="load_settings_failed" formatted="false">加载设置失败：{error}</string>
+    <string name="load_sms_rules_failed" formatted="false">加载短信规则失败：{error}</string>
+    <string name="load_status_failed_message" formatted="false">加载状态失败</string>
+    <string name="load_subscriptions_failed" formatted="false">加载订阅失败：{error}</string>
+    <string name="loading" formatted="false">加载中...</string>
+    <string name="loading_ad" formatted="false">正在加载广告...</string>
+    <string name="loading_tags" formatted="false">正在加载标签...</string>
+    <string name="loan" formatted="false">贷款</string>
+    <string name="local_count_filter" formatted="false">本地标记阈值防护</string>
+    <string name="local_count_filter_description" formatted="false">自动拦截超过本地标记阈值的来电</string>
+    <string name="local_count_filter_explanation_content" formatted="false">本地计数过滤器分析通话历史记录，以自动识别和阻止频繁的垃圾电话。</string>
+    <string name="local_count_filter_explanation_title" formatted="false">本地计数过滤器说明</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• 确定是否根据号码的计数值进行阻止</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• 当号码的计数超过设置的阈值时，您可以选择自动阻止它</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• 您可以选择允许未超过阈值的号码</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• 您可以选择是否记录所有查询日志</string>
+    <string name="local_count_filter_settings" formatted="false">本地计数过滤器设置</string>
+    <string name="local_count_filter_use_cases" formatted="false">此过滤器特别适合于识别自动拨打的垃圾电话和营销电话。</string>
+    <string name="local_count_filtering" formatted="false">本地计数过滤</string>
+    <string name="local_count_filtering_explanation" formatted="false">• 本地计数过滤：基于本地标记计数的过滤规则</string>
+    <string name="local_counter_filter" formatted="false">本地计数器过滤器</string>
+    <string name="local_counter_filter_subtitle" formatted="false">根据通话频率自动过滤垃圾电话</string>
+    <string name="local_database_sync_subtitle" formatted="false">跨设备同步数据</string>
+    <string name="local_database_sync_title" formatted="false">本地数据库同步</string>
+    <string name="local_device_suffix" formatted="false">(本机)</string>
+    <string name="local_filter_settings" formatted="false">本地过滤器设置</string>
+    <string name="local_first_privacy_description" formatted="false">通话记录与通讯录 100% 仅在您的手机本地处理；仅当您主动标记骚扰并选择提交时，才会共享该号码标记。</string>
+    <string name="local_first_privacy_title" formatted="false">本地优先 &amp; 零自动上传</string>
+    <string name="local_notification_disabled" formatted="false">本地通知已禁用</string>
+    <string name="local_notification_enabled" formatted="false">本地通知已启用</string>
+    <string name="local_services" formatted="false">本地服务</string>
+    <string name="location" formatted="false">位置</string>
+    <string name="location_color" formatted="false">位置颜色</string>
+    <string name="location_font_size" formatted="false">位置字体大小</string>
+    <string name="location_icon_color" formatted="false">位置图标颜色</string>
+    <string name="location_position" formatted="false">位置</string>
+    <string name="log" formatted="false">日志</string>
+    <string name="log_action_description" formatted="false">记录呼叫信息而不采取任何其他操作。</string>
+    <string name="log_all_local_queries" formatted="false">记录所有本地查询</string>
+    <string name="log_all_local_queries_description" formatted="false">记录所有本地号码查询的日志</string>
+    <string name="log_all_remote_queries" formatted="false">记录所有远程查询</string>
+    <string name="log_all_remote_queries_description" formatted="false">记录所有远程号码查询操作</string>
+    <string name="low" formatted="false">低</string>
+    <string name="low_risk" formatted="false">低风险</string>
+    <string name="manage" formatted="false">管理联系人</string>
+    <string name="manage_favorite_contacts" formatted="false">管理收藏联系人</string>
+    <string name="manage_filter_rules" formatted="false">管理过滤规则</string>
+    <string name="manage_filter_rules_description" formatted="false">添加、编辑或删除短信过滤规则</string>
+    <string name="manual_entry" formatted="false">手动输入信息</string>
+    <string name="mark_count" formatted="false">标记计数</string>
+    <string name="mark_counts" formatted="false">标记计数</string>
+    <string name="mark_exchange" formatted="false">标记交换</string>
+    <string name="mark_more_numbers_for_more" formatted="false">标记更多号码以获得更多积分</string>
+    <string name="mark_phone" formatted="false">标记电话号码</string>
+    <string name="mark_phone_failed" formatted="false">标记电话号码失败: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">标记电话管理</string>
+    <string name="mark_phone_success" formatted="false">电话号码标记成功</string>
+    <string name="marked_by_count" formatted="false">标记为 {count}</string>
+    <string name="marked_phones_list" formatted="false">标记的电话号码</string>
+    <string name="marks_insufficient" formatted="false">兑换积分不足</string>
+    <string name="master_and_overrides" formatted="false">主控开关</string>
+    <string name="master_and_overrides_desc" formatted="false">全局规则设置</string>
+    <string name="master_device_help" formatted="false">只有主设备可以初始化数据库结构。</string>
+    <string name="master_device_label" formatted="false">主设备 (管理员)</string>
+    <string name="master_permission_help" formatted="false">角色: 主设备 (Primary) 拥有全局数据库初始化与协同同步权限。</string>
+    <string name="master_role_description" formatted="false">具备全局数据库初始化权限，统一管理云端密钥与协同同步。</string>
+    <string name="master_role_title" formatted="false">主设备 (Primary)</string>
+    <string name="master_slave_onboarding_description" formatted="false">了解主设备与从属设备的角色分工。主设备负责数据库初始化与协同；从属设备继承云端密钥，免除重复初始化。</string>
+    <string name="master_slave_onboarding_title" formatted="false">设备集群与节点角色分配</string>
+    <string name="match_failed_message" formatted="false">匹配失败。</string>
+    <string name="match_numbers_with_special_characters" formatted="false">匹配特定的号码格式</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">匹配带特殊字符的号码:</string>
+    <string name="match_specific_digit_patterns" formatted="false">匹配 XXX-XXXX-XXXX 格式</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">匹配特定的数字模式:</string>
+    <string name="match_successful_message" formatted="false">匹配成功!</string>
+    <string name="medical" formatted="false">医疗</string>
+    <string name="medium" formatted="false">媒介</string>
+    <string name="medium_risk" formatted="false">中风险</string>
+    <string name="membership_center" formatted="false">会员中心</string>
+    <string name="membership_privileges" formatted="false">会员特权</string>
+    <string name="message_background_color" formatted="false">消息背景颜色</string>
+    <string name="message_color" formatted="false">消息颜色</string>
+    <string name="message_font_size" formatted="false">消息字体大小</string>
+    <string name="message_position" formatted="false">消息位置</string>
+    <string name="migration_tool" formatted="false">迁移工具</string>
+    <string name="minutes" formatted="false">分钟</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 分钟前} other{{count} 分钟前}}</string>
+    <string name="moderate" formatted="false">中等</string>
+    <string name="month" formatted="false">月</string>
+    <string name="monthly" formatted="false">每月</string>
+    <string name="monthly_call_count" formatted="false">每月通话</string>
+    <string name="monthly_membership" formatted="false">每月会员</string>
+    <string name="monthly_membership_description" formatted="false">解锁所有高级功能，每月自动续订</string>
+    <string name="monthly_total" formatted="false">每月总计</string>
+    <string name="more_options" formatted="false">更多选项</string>
+    <string name="mute" formatted="false">静音</string>
+    <string name="name" formatted="false">名称</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">名称和电话号码不能为空</string>
+    <string name="name_cannot_be_empty" formatted="false">名称不能为空</string>
+    <string name="name_color" formatted="false">姓名颜色</string>
+    <string name="name_font_size" formatted="false">姓名字体大小</string>
+    <string name="name_position" formatted="false">姓名位置</string>
+    <string name="name_unknown" formatted="false">姓名：未知</string>
+    <string name="national_number" formatted="false">国内号码</string>
+    <string name="need_vip_access" formatted="false">您需要 VIP 权限才能使用此功能</string>
+    <string name="new_vote_received" formatted="false">收到新投票</string>
+    <string name="new_vote_received_body" formatted="false">有人投票{voteType}删除 {phoneNumber}。当前票数：{totalVotes}。</string>
+    <string name="next_step" formatted="false">下一步</string>
+    <string name="no_action" formatted="false">无操作</string>
+    <string name="no_action_rules" formatted="false">无操作规则</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">没有活动的云同步服务</string>
+    <string name="no_activity" formatted="false">无活动</string>
+    <string name="no_ads" formatted="false">无广告</string>
+    <string name="no_allowed_blocked_rules" formatted="false">未找到允许/阻止规则</string>
+    <string name="no_blocked_type_data" formatted="false">无可用阻止类型数据</string>
+    <string name="no_call_records" formatted="false">没有通话记录</string>
+    <string name="no_contacts_yet" formatted="false">还没有联系人</string>
+    <string name="no_data" formatted="false">没有数据</string>
+    <string name="no_devices_registered_message" formatted="false">没有注册的设备</string>
+    <string name="no_labels" formatted="false">还没有标签</string>
+    <string name="no_marked_phones" formatted="false">没有标记的电话号码</string>
+    <string name="no_matching_contacts_found" formatted="false">没有找到匹配的联系人</string>
+    <string name="no_matching_numbers_found" formatted="false">没有找到匹配的号码</string>
+    <string name="no_matching_rules" formatted="false">没有匹配的 {ruleType}</string>
+    <string name="no_notifications" formatted="false">没有通知</string>
+    <string name="no_other_nodes_found" formatted="false">暂无发现其他设备节点</string>
+    <string name="no_phone_rules" formatted="false">未找到电话规则</string>
+    <string name="no_plugins" formatted="false">暂无插件</string>
+    <string name="no_proposals_found" formatted="false">未找到提议</string>
+    <string name="no_regex_rules" formatted="false">未找到正则表达式规则</string>
+    <string name="no_rules" formatted="false">暂无 {ruleType}</string>
+    <string name="no_rules_prompt" formatted="false">未找到规则，请添加规则</string>
+    <string name="no_rules_to_export" formatted="false">没有要导出的规则</string>
+    <string name="no_sim_card_detected" formatted="false">未检测到 SIM 卡</string>
+    <string name="no_sim_cards_detected" formatted="false">未检测到 SIM 卡</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">还没有短信过滤规则</string>
+    <string name="no_sms_rules_yet" formatted="false">还没有短信规则</string>
+    <string name="no_subscriptions" formatted="false">没有订阅</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">文件中未找到有效的短信规则</string>
+    <string name="none" formatted="false">无</string>
+    <string name="none_action_description" formatted="false">不会对呼叫采取任何特殊操作。</string>
+    <string name="none_service_type" formatted="false">无</string>
+    <string name="normal_user" formatted="false">普通用户</string>
+    <string name="not_granted" formatted="false">未授权</string>
+    <string name="not_verified_text" formatted="false">未验证</string>
+    <string name="notification_frequency_hours" formatted="false">通知频率（小时）</string>
+    <string name="notification_frequency_title" formatted="false">通知频率</string>
+    <string name="notification_mode" formatted="false">通知模式</string>
+    <string name="notification_mode_description" formatted="false">在通知栏中显示来电信息</string>
+    <string name="notification_permission" formatted="false">通知权限</string>
+    <string name="notification_permission_description" formatted="false">用于显示来电和消息通知。</string>
+    <string name="notification_settings" formatted="false">通知设置</string>
+    <string name="notification_settings_title" formatted="false">通知设置</string>
+    <string name="notification_instructions" formatted="false">说明：
+1. 点击“发送”以创建或更新通知。
+2. 转到您的主屏幕或下拉通知栏以查看结果。
+3. 点击“结束”以关闭通知。</string>
+    <string name="notifications" formatted="false">通知</string>
+    <string name="notify" formatted="false">通知</string>
+    <string name="notify_action_description" formatted="false">收到呼叫时发送通知。</string>
+    <string name="number" formatted="false">号码</string>
+    <string name="number_color" formatted="false">号码颜色</string>
+    <string name="number_font_size" formatted="false">号码字体大小</string>
+    <string name="number_format" formatted="false">号码格式</string>
+    <string name="number_invalid_format" formatted="false">号码格式无效</string>
+    <string name="number_position" formatted="false">号码位置</string>
+    <string name="number_search" formatted="false">号码搜索</string>
+    <string name="number_type_color" formatted="false">号码类型颜色</string>
+    <string name="number_type_font_size" formatted="false">号码类型字体大小</string>
+    <string name="number_type_position" formatted="false">号码类型位置</string>
+    <string name="ok_button" formatted="false">确定</string>
+    <string name="onboarding_complete_description" formatted="false">您的通话安全管家已准备就绪，开始享受安全的通话体验！</string>
+    <string name="onboarding_language_description" formatted="false">选择您喜欢的语言，以获得最佳体验。</string>
+    <string name="onboarding_permissions_description" formatted="false">为了提供完整的服务，我们需要以下权限：</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">一键拦截垃圾来电和短信，自定义拦截规则，给您一个安静的环境。</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">自动识别未知来电，标记可疑号码，保护您的通话安全。</string>
+    <string name="onboarding_welcome_description" formatted="false">您的通话管理专家，提供全面的来电识别和拦截服务。</string>
+    <string name="one_drive_auth_description" formatted="false">使用系统配置的 OneDrive 客户端 ID 和密钥进行授权</string>
+    <string name="one_drive_config_title" formatted="false">OneDrive 配置</string>
+    <string name="online_caller_id_subscription" formatted="false">在线来电显示订阅</string>
+    <string name="open_app_settings" formatted="false">打开应用设置</string>
+    <string name="open_app_settings_failed" formatted="false">打开应用设置失败：{error}</string>
+    <string name="open_in_web_view" formatted="false">在 WebView 中打开</string>
+    <string name="operation_failed" formatted="false">操作失败：{error}</string>
+    <string name="operation_failure" formatted="false">操作失败</string>
+    <string name="operation_success" formatted="false">操作成功</string>
+    <string name="oppose" formatted="false">反对</string>
+    <string name="oppose_count" formatted="false">反对（{opposeCount}）</string>
+    <string name="opposed" formatted="false">反对</string>
+    <string name="other" formatted="false">其他</string>
+    <string name="our_other_apps" formatted="false">我们的其他应用</string>
+    <string name="overlay_mode" formatted="false">悬浮窗</string>
+    <string name="overlay_mode_description" formatted="false">在悬浮窗中显示来电信息</string>
+    <string name="overlay_permission" formatted="false">悬浮窗权限</string>
+    <string name="overlay_permission_description" formatted="false">用于显示来电悬浮窗。</string>
+    <string name="overlay_settings_subtitle" formatted="false">配置悬浮窗样式、画中画与系统悬浮权限</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / 悬浮窗显示与权限设置</string>
+    <string name="overview" formatted="false">概览</string>
+    <string name="participant_count" formatted="false">%1$d 人已参与</string>
+    <string name="password" formatted="false">密码</string>
+    <string name="password_cannot_be_empty" formatted="false">密码不能为空</string>
+    <string name="password_label" formatted="false">密码</string>
+    <string name="passwords_do_not_match" formatted="false">密码不匹配</string>
+    <string name="pattern" formatted="false">模式</string>
+    <string name="peak_harassment_hours" formatted="false">24小时骚扰打扰热力图</string>
+    <string name="pending" formatted="false">待处理</string>
+    <string name="pending_proposals" formatted="false">待定提案</string>
+    <string name="pending_proposals_body" formatted="false">您有 {count, plural, =0 {没有待定提案} one {1 个待定提案} other {{count} 个待定提案}}。</string>
+    <string name="pending_sync" formatted="false">待同步</string>
+    <string name="period_month" formatted="false">月</string>
+    <string name="period_week" formatted="false">周</string>
+    <string name="period_year" formatted="false">年</string>
+    <string name="permission_denied" formatted="false">权限请求被拒绝</string>
+    <string name="permission_granted" formatted="false">权限已授予</string>
+    <string name="permission_management" formatted="false">权限管理</string>
+    <string name="permission_subtitle" formatted="false">管理悬浮窗和电池优化权限</string>
+    <string name="permission_title" formatted="false">特殊权限</string>
+    <string name="phone_calls_tab" formatted="false">电话</string>
+    <string name="phone_number" formatted="false">电话号码</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">电话号码不能为空</string>
+    <string name="phone_number_hint" formatted="false">输入电话号码</string>
+    <string name="phone_number_label" formatted="false">电话号码</string>
+    <string name="phone_number_min_digits" formatted="false">电话号码必须至少为 7 位数字</string>
+    <string name="phone_number_required" formatted="false">电话号码是必需的</string>
+    <string name="phone_number_type" formatted="false">电话号码类型</string>
+    <string name="phone_number_type_fixed_line" formatted="false">固定电话</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">固定电话或移动电话</string>
+    <string name="phone_number_type_mobile" formatted="false">移动电话</string>
+    <string name="phone_number_type_pager" formatted="false">寻呼机</string>
+    <string name="phone_number_type_personal_number" formatted="false">个人号码</string>
+    <string name="phone_number_type_premium_rate" formatted="false">高价电话</string>
+    <string name="phone_number_type_shared_cost" formatted="false">分摊费用电话</string>
+    <string name="phone_number_type_toll_free" formatted="false">免费电话</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">未知</string>
+    <string name="phone_number_type_voicemail" formatted="false">语音邮件</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">电话权限</string>
+    <string name="phone_permission_description" formatted="false">用于识别和阻止来电。</string>
+    <string name="phone_rule" formatted="false">电话规则</string>
+    <string name="phone_rule_management" formatted="false">电话规则管理</string>
+    <string name="phone_rule_subscription" formatted="false">电话规则订阅</string>
+    <string name="phone_rules_info" formatted="false">电话规则用于匹配特定电话号码的呼叫，优先级较低。有些来自 phoneRule 订阅</string>
+    <string name="phone_subscription" formatted="false">电话订阅</string>
+    <string name="phone_subscription_rules_description" formatted="false">通过 URL 订阅电话规则列表，以自动更新白名单和黑名单规则。支持 JSON 格式的规则文件。</string>
+    <string name="please_enter_at_least_one_number" formatted="false">请至少输入一个号码。</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">请选择一个标签并输入有效的电话号码</string>
+    <string name="plugin_added_success" formatted="false">插件 &quot;{name}&quot; 添加成功</string>
+    <string name="plugin_deleted" formatted="false">插件已删除</string>
+    <string name="plugin_description" formatted="false">插件描述</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">插件标签</string>
+    <string name="plugin_latest_version" formatted="false">插件已是最新版本</string>
+    <string name="plugin_list_export_success" formatted="false">插件列表导出成功</string>
+    <string name="plugin_management" formatted="false">插件管理</string>
+    <string name="plugin_management_subtitle" formatted="false">管理和配置第三方插件</string>
+    <string name="plugin_name" formatted="false">插件名称</string>
+    <string name="plugin_rules_info" formatted="false">为了安全起见，请仅使用来自可信来源的插件。 欢迎使用我们的模板创建您自己的自定义插件！</string>
+    <string name="plugin_service" formatted="false">插件服务</string>
+    <string name="plugin_test_page_title" formatted="false">插件测试</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">插件更新成功</string>
+    <string name="plugin_url" formatted="false">插件 URL</string>
+    <string name="plugin_version" formatted="false">插件版本</string>
+    <string name="plugins_deleted" formatted="false">成功删除 {count} 个插件。</string>
+    <string name="political" formatted="false">政治</string>
+    <string name="powerful_spam_blocking" formatted="false">强大的垃圾邮件拦截</string>
+    <string name="previous_step" formatted="false">上一步</string>
+    <string name="primary_permission_help" formatted="false">主设备需要完整电话与短信处理权限。</string>
+    <string name="primary_role_description" formatted="false">具备全局数据库初始化与规则协同管理权限。</string>
+    <string name="primary_role_title" formatted="false">主设备</string>
+    <string name="prioritize_remote_action" formatted="false">优先使用远程操作设置</string>
+    <string name="prioritize_remote_action_description" formatted="false">优先使用来自远程数据库的操作设置</string>
+    <string name="processed" formatted="false">已处理</string>
+    <string name="processing" formatted="false">处理中...</string>
+    <string name="processing_operation" formatted="false">处理中...</string>
+    <string name="proposal_approved" formatted="false">提议已通过 ✅</string>
+    <string name="proposal_approved_body" formatted="false">对 {phoneNumber} 的删除提议已被社区通过（{supportPercentage}% 支持，{totalVotes} 票）。</string>
+    <string name="proposal_created" formatted="false">提议创建成功</string>
+    <string name="proposal_details" formatted="false">提案详情</string>
+    <string name="proposal_not_found" formatted="false">未找到提案</string>
+    <string name="proposal_processed" formatted="false">此提案已处理完成</string>
+    <string name="proposal_rejected" formatted="false">提议已拒绝 ❌</string>
+    <string name="proposal_rejected_body" formatted="false">对 {phoneNumber} 的删除提议已被社区拒绝（{supportPercentage}% 支持，{totalVotes} 票）。</string>
+    <string name="proposal_statistics" formatted="false">提议统计</string>
+    <string name="provide_detailed_explanation" formatted="false">提供详细的解释（最少 10 个字符）</string>
+    <string name="public_safety" formatted="false">公共安全与应急</string>
+    <string name="purchase" formatted="false">购买</string>
+    <string name="purchase_subtitle" formatted="false">购买服务</string>
+    <string name="purchase_title" formatted="false">购买</string>
+    <string name="quarterly_membership" formatted="false">季度会员</string>
+    <string name="quarterly_membership_description" formatted="false">解锁所有高级功能，每季度自动续订</string>
+    <string name="ready" formatted="false">准备就绪！</string>
+    <string name="realtime_shield_active" formatted="false">系统全天候守护中</string>
+    <string name="reason" formatted="false">原因</string>
+    <string name="reason_inaccurate_info" formatted="false">信息不准确</string>
+    <string name="reason_min_characters" formatted="false">原因必须至少 10 个字符</string>
+    <string name="reason_not_in_service" formatted="false">停止服务</string>
+    <string name="reason_other" formatted="false">其他</string>
+    <string name="reason_outdated" formatted="false">号码已过期</string>
+    <string name="reason_privacy" formatted="false">隐私问题</string>
+    <string name="reason_required" formatted="false">必须填写理由</string>
+    <string name="reason_wrongly_identified" formatted="false">错误识别</string>
+    <string name="recruiter" formatted="false">招聘人员</string>
+    <string name="redeem_vip_with_marks" formatted="false">使用积分兑换 VIP</string>
+    <string name="redirect" formatted="false">重定向</string>
+    <string name="redirect_action_description" formatted="false">将呼叫重定向到指定的号码。</string>
+    <string name="refresh" formatted="false">刷新</string>
+    <string name="refresh_permission_status" formatted="false">刷新权限状态</string>
+    <string name="refresh_proposals" formatted="false">刷新提议</string>
+    <string name="refresh_tooltip" formatted="false">刷新</string>
+    <string name="regex_error_message" formatted="false">正则表达式错误：{error}</string>
+    <string name="regex_pattern" formatted="false">正则表达式</string>
+    <string name="regex_pattern_explanation" formatted="false">正则表达式解释</string>
+    <string name="regex_pattern_explanation_button" formatted="false">正则表达式解释</string>
+    <string name="regex_pattern_label" formatted="false">正则表达式</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">用于电话号码匹配的正则表达式</string>
+    <string name="regex_rule" formatted="false">正则表达式规则</string>
+    <string name="regex_rule_add_failed" formatted="false">添加正则表达式规则失败：{error}</string>
+    <string name="regex_rule_add_success" formatted="false">正则表达式规则添加成功</string>
+    <string name="regex_rule_management" formatted="false">正则表达式规则管理</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">规则名称和正则表达式不能为空</string>
+    <string name="regex_rules" formatted="false">正则表达式规则</string>
+    <string name="regex_rules_info" formatted="false">正则表达式规则用于基于正则表达式模式过滤呼叫。</string>
+    <string name="regex_tester_title" formatted="false">正则表达式测试器</string>
+    <string name="region" formatted="false">地区</string>
+    <string name="registered_devices_title" formatted="false">注册设备</string>
+    <string name="reject_all_calls" formatted="false">拒绝所有来电</string>
+    <string name="reject_all_calls_description" formatted="false">启用后，所有来电都将被以最高优先级拒绝</string>
+    <string name="reject_all_numbers" formatted="false">拒接所有来电</string>
+    <string name="reject_all_numbers_desc" formatted="false">优先拒接所有来电</string>
+    <string name="reject_exceeded_numbers" formatted="false">拒绝超出数量的号码</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">自动拒绝超过数量阈值的号码</string>
+    <string name="rejected" formatted="false">已拒绝</string>
+    <string name="remote_filter_settings" formatted="false">远程过滤设置</string>
+    <string name="remote_filter_settings_page_title" formatted="false">远程号码过滤设置</string>
+    <string name="remote_number_filter" formatted="false">云端数据库阈值防护</string>
+    <string name="remote_number_filter_description" formatted="false">自动拦截超过云端标记阈值的来电</string>
+    <string name="remote_number_filter_subtitle" formatted="false">使用云数据库和社区报告识别垃圾电话</string>
+    <string name="remote_number_filtering" formatted="false">远程号码过滤</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• 远程号码过滤：基于远程数据库信息的过滤规则</string>
+    <string name="remove_ads" formatted="false">移除广告</string>
+    <string name="remove_ads_description" formatted="false">永久删除应用程序中的所有广告，以获得更流畅的体验</string>
+    <string name="remove_ads_title" formatted="false">移除广告</string>
+    <string name="remove_from_favorites" formatted="false">从收藏夹中移除</string>
+    <string name="removed_from_favorites" formatted="false">从收藏夹中移除</string>
+    <string name="rename_device_title" formatted="false">重命名设备</string>
+    <string name="reporting_guidelines" formatted="false">• 仅报告真正有问题的号码
+• 提供准确和详细的原因
+• 根据严重程度选择适当的风险等级
+• 虚假报告可能会导致帐户受限</string>
+    <string name="request_all_permissions" formatted="false">请求所有权限</string>
+    <string name="request_permission" formatted="false">请求权限</string>
+    <string name="request_permission_failed" formatted="false">请求权限失败：{error}</string>
+    <string name="required_field" formatted="false">必填</string>
+    <string name="required_init_field" formatted="false">初始化必填</string>
+    <string name="required_marks" formatted="false">{count} 个标记</string>
+    <string name="reset" formatted="false">重置</string>
+    <string name="response_latency" formatted="false">拦截响应</string>
+    <string name="restore" formatted="false">恢复</string>
+    <string name="restore_application_settings_from_backup" formatted="false">从备份恢复应用程序设置</string>
+    <string name="restore_from_cloud" formatted="false">从云恢复</string>
+    <string name="restore_from_cloud_failed" formatted="false">从云恢复失败：{error}</string>
+    <string name="restore_from_cloud_success" formatted="false">从云恢复成功</string>
+    <string name="restore_purchases" formatted="false">恢复购买</string>
+    <string name="restore_settings" formatted="false">恢复设置</string>
+    <string name="restore_settings_confirmation" formatted="false">这将替换您当前的所有设置。您确定要继续吗？</string>
+    <string name="result" formatted="false">结果</string>
+    <string name="retry" formatted="false">重试</string>
+    <string name="rewarded_ad_service" formatted="false">激励广告服务</string>
+    <string name="ridesharing" formatted="false">共享出行</string>
+    <string name="risk" formatted="false">风险</string>
+    <string name="risk_level" formatted="false">风险等级</string>
+    <string name="risk_level_critical" formatted="false">严重</string>
+    <string name="risk_level_high" formatted="false">高风险</string>
+    <string name="risk_level_label" formatted="false">风险等级</string>
+    <string name="risk_level_low" formatted="false">低风险</string>
+    <string name="risk_level_medium" formatted="false">中等</string>
+    <string name="risk_level_very_low" formatted="false">非常低</string>
+    <string name="robocall" formatted="false">自动电话</string>
+    <string name="rule_action" formatted="false">规则操作</string>
+    <string name="rule_action_breakdown" formatted="false">规则动作分布</string>
+    <string name="rule_add_success" formatted="false">规则添加成功</string>
+    <string name="rule_added_success" formatted="false">规则添加成功</string>
+    <string name="rule_delete_confirm_content" formatted="false">您确定要删除此{ruleType}吗？</string>
+    <string name="rule_delete_confirm_title" formatted="false">删除规则</string>
+    <string name="rule_delete_failed" formatted="false">删除规则失败：{error}</string>
+    <string name="rule_delete_success" formatted="false">规则删除成功</string>
+    <string name="rule_deleted_successfully" formatted="false">规则删除成功</string>
+    <string name="rule_disabled_successfully" formatted="false">规则已成功禁用</string>
+    <string name="rule_enabled_successfully" formatted="false">规则已成功启用</string>
+    <string name="rule_load_failed" formatted="false">加载规则失败：{error}</string>
+    <string name="rule_management" formatted="false">规则管理</string>
+    <string name="rule_name" formatted="false">规则名称</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">规则名称和内容正则表达式不能为空</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">规则名称和电话号码不能为空</string>
+    <string name="rule_name_hint" formatted="false">例如，家人、朋友等。</string>
+    <string name="rule_name_label" formatted="false">规则名称</string>
+    <string name="rule_name_required" formatted="false">规则名称和电话号码不能为空</string>
+    <string name="rule_not_exist" formatted="false">规则不存在或已被删除</string>
+    <string name="rule_not_found" formatted="false">未找到规则：{error}</string>
+    <string name="rule_saved_success_message" formatted="false">规则保存成功！</string>
+    <string name="rule_status_changed" formatted="false">规则 {status} 成功</string>
+    <string name="rule_store_title" formatted="false">规则库商店</string>
+    <string name="rule_toggle_failed" formatted="false">操作失败: {error}</string>
+    <string name="rule_toggle_success" formatted="false">规则 {status} 成功</string>
+    <string name="rule_type" formatted="false">规则类型</string>
+    <string name="rule_update_failed" formatted="false">更新规则失败: {error}</string>
+    <string name="rule_update_success" formatted="false">规则更新成功</string>
+    <string name="rule_verification" formatted="false">规则验证</string>
+    <string name="rules_exported_successfully" formatted="false">规则导出成功</string>
+    <string name="rules_exported_to" formatted="false">规则导出到: {path}</string>
+    <string name="rules_imported" formatted="false">规则导入成功</string>
+    <string name="rules_imported_successfully" formatted="false">{count} 条规则导入成功</string>
+    <string name="save" formatted="false">保存</string>
+    <string name="save_button" formatted="false">保存</string>
+    <string name="save_button_text" formatted="false">保存</string>
+    <string name="save_failed" formatted="false">保存失败: {error}</string>
+    <string name="save_script" formatted="false">保存脚本</string>
+    <string name="save_settings" formatted="false">保存设置</string>
+    <string name="scam_fraud" formatted="false">欺诈与强力骚扰</string>
+    <string name="scams_likely" formatted="false">疑似诈骗</string>
+    <string name="script_saved" formatted="false">脚本已保存</string>
+    <string name="scroll_speed" formatted="false">滚动速度</string>
+    <string name="scrolling_security_message_settings" formatted="false">滚动安全消息设置</string>
+    <string name="search" formatted="false">搜索</string>
+    <string name="search_by_name_or_phone_number" formatted="false">按姓名或电话号码搜索</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">搜索联系人订阅</string>
+    <string name="search_contacts" formatted="false">搜索联系人</string>
+    <string name="search_error" formatted="false">搜索错误: {error}</string>
+    <string name="search_hint" formatted="false">搜索...</string>
+    <string name="search_labels_hint" formatted="false">搜索标签</string>
+    <string name="search_marked_phones_hint" formatted="false">搜索标记的电话</string>
+    <string name="search_phone_rules_hint" formatted="false">搜索电话规则</string>
+    <string name="search_plugins_hint" formatted="false">搜索插件</string>
+    <string name="search_proposals" formatted="false">搜索建议</string>
+    <string name="search_regex_rules_hint" formatted="false">搜索正则表达式规则</string>
+    <string name="search_subscriptions_hint" formatted="false">搜索订阅</string>
+    <string name="secondary_permission_help" formatted="false">从设备仅需要同步与通知相关权限。</string>
+    <string name="secondary_role_description" formatted="false">直接继承主设备规则与云端密钥，免除重复初始化。</string>
+    <string name="secondary_role_title" formatted="false">从设备</string>
+    <string name="security_message" formatted="false">不要相信任何电话。始终独立验证客户服务号码。切勿分享密码、验证码、银行卡号或个人信息。</string>
+    <string name="select_action" formatted="false">选择操作</string>
+    <string name="select_action_when_blocking_calls" formatted="false">选择阻止呼叫时的操作</string>
+    <string name="select_action_when_rule_matches" formatted="false">选择规则匹配时的操作</string>
+    <string name="select_all" formatted="false">全选</string>
+    <string name="select_country" formatted="false">选择国家</string>
+    <string name="select_export_format" formatted="false">选择导出格式</string>
+    <string name="select_label" formatted="false">选择标签</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">请选择一个标签并输入有效的电话号码</string>
+    <string name="select_language" formatted="false">选择语言</string>
+    <string name="select_multiple" formatted="false">选择多个</string>
+    <string name="select_sim_card" formatted="false">选择 SIM 卡</string>
+    <string name="select_tags" formatted="false">选择标签</string>
+    <string name="select_target_service" formatted="false">选择目标服务</string>
+    <string name="select_trusted_data_source" formatted="false">请选择受信任的数据源</string>
+    <string name="select_your_language" formatted="false">选择您的语言</string>
+    <string name="selected_items" formatted="false">已选择 {count} 项</string>
+    <string name="selected_label" formatted="false">已选择：</string>
+    <string name="sender" formatted="false">发送者</string>
+    <string name="sender_regex_optional" formatted="false">发送者正则表达式（可选）</string>
+    <string name="separate_sims" formatted="false">独立 SIM 卡规则</string>
+    <string name="separate_sims_desc" formatted="false">为每张 SIM 卡启用独立的过滤规则</string>
+    <string name="server_address_label" formatted="false">服务器地址</string>
+    <string name="service_type_contact" formatted="false">联系人订阅</string>
+    <string name="service_type_label" formatted="false">服务类型</string>
+    <string name="service_type_phone" formatted="false">电话订阅</string>
+    <string name="service_type_plugin" formatted="false">插件更新</string>
+    <string name="service_type_sms" formatted="false">短信订阅</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">清除延迟时间</string>
+    <string name="set_encryption_password" formatted="false">设置加密密码</string>
+    <string name="settings" formatted="false">设置</string>
+    <string name="settings_backed_up_to" formatted="false">设置已备份到：{path}</string>
+    <string name="settings_backup" formatted="false">设置备份</string>
+    <string name="settings_restored_successfully" formatted="false">设置已成功恢复。请重启应用以使更改生效。</string>
+    <string name="settings_save_failed" formatted="false">保存设置失败：{error}</string>
+    <string name="settings_saved" formatted="false">设置已保存</string>
+    <string name="settings_tab" formatted="false">设置</string>
+    <string name="settings_title" formatted="false">设置</string>
+    <string name="setup" formatted="false">设置</string>
+    <string name="show_all_contacts" formatted="false">显示所有联系人</string>
+    <string name="show_favorites" formatted="false">显示收藏夹</string>
+    <string name="silence" formatted="false">静音</string>
+    <string name="silence_action_description" formatted="false">呼叫将被静音但显示在通话记录中。</string>
+    <string name="silence_and_no_answer" formatted="false">静音响铃</string>
+    <string name="silence_no_answer" formatted="false">静音不接听</string>
+    <string name="silent_call_voice_clone" formatted="false">静音呼叫语音克隆</string>
+    <string name="silent_rules" formatted="false">静音规则</string>
+    <string name="sim_card" formatted="false">SIM 卡 {simNumber}</string>
+    <string name="sim_card_color" formatted="false">SIM 卡颜色</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• SIM 卡配置：为每个 SIM 卡设置独立的过滤规则</string>
+    <string name="sim_card_filter_rules" formatted="false">SIM 卡过滤规则</string>
+    <string name="sim_card_filter_rules_description" formatted="false">根据 SIM 卡槽设置不同的过滤规则</string>
+    <string name="sim_card_font_size" formatted="false">SIM 卡字体大小</string>
+    <string name="sim_card_position" formatted="false">SIM 卡位置</string>
+    <string name="sim_card_title" formatted="false">SIM 卡</string>
+    <string name="sim_country" formatted="false">SIM 卡国家/地区</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">SIM 卡槽规则允许您为每个 SIM 卡槽配置独立的过滤规则。</string>
+    <string name="sim_rule_instructions_title" formatted="false">SIM 卡槽规则</string>
+    <string name="sim_rules_not_found" formatted="false">未找到 SIM 规则</string>
+    <string name="sim_slot" formatted="false">SIM 卡槽</string>
+    <string name="sim_slot1" formatted="false">SIM卡 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM卡 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">为每个SIM卡配置独立的过滤规则：</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">SIM卡槽 {slotNumber} 过滤设置</string>
+    <string name="sim_slot_management" formatted="false">SIM卡槽管理</string>
+    <string name="sim_slot_position" formatted="false">SIM卡槽位置 {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• SIM卡槽规则：每个SIM卡独立的过滤策略</string>
+    <string name="sim_slot_rule_list_title" formatted="false">SIM卡槽规则列表</string>
+    <string name="sim_slot_rule_management" formatted="false">SIM卡槽规则</string>
+    <string name="sim_slot_rules" formatted="false">SIM 卡槽规则</string>
+    <string name="sim_slot_title" formatted="false">SIM卡槽 {slotNumber}</string>
+    <string name="sim_state" formatted="false">SIM 卡状态</string>
+    <string name="skip" formatted="false">跳过</string>
+    <string name="slave_permission_help" formatted="false">角色: 从属设备 (Secondary) 具备全量云端安全密钥，直接接收同步，免除重复初始化。</string>
+    <string name="slave_role_description" formatted="false">直接继承主设备云端安全密钥，免去重复繁琐的初始化步骤。</string>
+    <string name="slave_role_title" formatted="false">从属设备 (Secondary)</string>
+    <string name="smart_caller_id" formatted="false">智能来电识别</string>
+    <string name="sms" formatted="false">短信</string>
+    <string name="sms_filter_description" formatted="false">短信过滤可帮助您自动过滤垃圾短信，并保持您的短信列表干净。您可以设置过滤规则和通知方法。</string>
+    <string name="sms_filter_disabled" formatted="false">短信过滤已禁用</string>
+    <string name="sms_filter_enabled" formatted="false">短信过滤已启用</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">短信过滤规则添加成功</string>
+    <string name="sms_filter_rules" formatted="false">短信过滤规则</string>
+    <string name="sms_filter_settings" formatted="false">短信过滤设置</string>
+    <string name="sms_management" formatted="false">短信管理</string>
+    <string name="sms_permission" formatted="false">短信权限</string>
+    <string name="sms_permission_description" formatted="false">用于过滤垃圾短信。</string>
+    <string name="sms_rule_added_successfully" formatted="false">短信规则添加成功</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">短信规则删除成功</string>
+    <string name="sms_rule_load_failed" formatted="false">加载短信规则失败: {error}</string>
+    <string name="sms_rule_management" formatted="false">短信规则管理</string>
+    <string name="sms_rule_subscription" formatted="false">短信规则订阅</string>
+    <string name="sms_subscription" formatted="false">短信订阅</string>
+    <string name="sms_subscription_added_successfully" formatted="false">短信订阅添加成功</string>
+    <string name="sms_subscription_rules_description" formatted="false">通过URL订阅短信规则列表，支持正则表达式匹配。您可以设置阻止或允许操作。</string>
+    <string name="sms_tab" formatted="false">短信</string>
+    <string name="some_permissions_denied" formatted="false">某些权限请求被拒绝</string>
+    <string name="sort_by" formatted="false">排序方式</string>
+    <string name="sort_least_popular" formatted="false">按最不受欢迎排序</string>
+    <string name="sort_most_popular" formatted="false">按最受欢迎排序</string>
+    <string name="sort_newest" formatted="false">按最新排序</string>
+    <string name="sort_oldest" formatted="false">按最旧排序</string>
+    <string name="spam_likely" formatted="false">可能是垃圾信息</string>
+    <string name="start_color" formatted="false">起始颜色</string>
+    <string name="start_date" formatted="false">开始日期</string>
+    <string name="start_using" formatted="false">开始使用</string>
+    <string name="stat_answered" formatted="false">已接听</string>
+    <string name="stat_blocked" formatted="false">已阻止</string>
+    <string name="statistics" formatted="false">统计</string>
+    <string name="statistics_page_title" formatted="false">数据分析</string>
+    <string name="status_connected" formatted="false">已连接 / 已配置</string>
+    <string name="status_label" formatted="false">状态</string>
+    <string name="status_not_configured" formatted="false">未配置</string>
+    <string name="stir_color" formatted="false">STIR 颜色</string>
+    <string name="stir_failed" formatted="false">验证失败</string>
+    <string name="stir_font_size" formatted="false">STIR 字体大小</string>
+    <string name="stir_not_verified" formatted="false">STIR 未通过</string>
+    <string name="stir_position" formatted="false">STIR 位置</string>
+    <string name="stir_unknown" formatted="false">未知的验证状态</string>
+    <string name="stir_verification" formatted="false">STIR/SHAKEN 验证</string>
+    <string name="stir_verification_body" formatted="false">号码 {phoneNumber} 的 {stirResultMessage}</string>
+    <string name="stir_verification_description" formatted="false">显示号码的 STIR/SHAKEN 验证结果。</string>
+    <string name="stir_verification_title" formatted="false">STIR/SHAKEN 验证</string>
+    <string name="stir_verified" formatted="false">STIR 通过</string>
+    <string name="storage_permission" formatted="false">存储权限</string>
+    <string name="storage_permission_description" formatted="false">用于保存设置和规则。</string>
+    <string name="submit" formatted="false">提交</string>
+    <string name="subscribe" formatted="false">订阅</string>
+    <string name="subscription_add_success" formatted="false">成功添加订阅 &quot;{name}&quot;</string>
+    <string name="subscription_delete_confirm_content" formatted="false">确定要删除此订阅吗？</string>
+    <string name="subscription_delete_confirm_title" formatted="false">删除订阅</string>
+    <string name="subscription_delete_failed" formatted="false">删除订阅失败：{error}</string>
+    <string name="subscription_delete_success" formatted="false">订阅已删除</string>
+    <string name="subscription_deleted" formatted="false">订阅已删除</string>
+    <string name="subscription_load_failed" formatted="false">加载订阅失败：{error}</string>
+    <string name="subscription_name" formatted="false">订阅名称</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">订阅名称和 URL 不能为空</string>
+    <string name="subscription_name_hint" formatted="false">输入订阅名称</string>
+    <string name="subscription_status_change_failed" formatted="false">更改订阅状态失败：{error}</string>
+    <string name="subscription_update_failed" formatted="false">更新订阅失败：{error}</string>
+    <string name="subscription_update_success" formatted="false">订阅已成功更新</string>
+    <string name="subscription_url" formatted="false">订阅 URL</string>
+    <string name="subscription_url_hint" formatted="false">输入订阅 URL</string>
+    <string name="successfully_imported_rules" formatted="false">成功导入 {count} 条规则</string>
+    <string name="supabase_anon_key" formatted="false">Anon 密钥</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key，匿名公钥</string>
+    <string name="supabase_project_url" formatted="false">Supabase 项目 URL</string>
+    <string name="support" formatted="false">支持</string>
+    <string name="support_count" formatted="false">支持（{supportCount}）</string>
+    <string name="support_sync" formatted="false">支持同步</string>
+    <string name="supported" formatted="false">支持</string>
+    <string name="survey" formatted="false">调查</string>
+    <string name="sync_call_history" formatted="false">同步通话记录</string>
+    <string name="sync_call_history_subtitle" formatted="false">同步时包含私密通话日志</string>
+    <string name="sync_devices_button" formatted="false">同步设备</string>
+    <string name="sync_failed" formatted="false">同步失败</string>
+    <string name="sync_failed_message" formatted="false">同步失败</string>
+    <string name="sync_folder_name_label" formatted="false">同步文件夹名称</string>
+    <string name="sync_interval_label" formatted="false">自动同步间隔</string>
+    <string name="sync_interval_value" formatted="false">每 {hours} 小时</string>
+    <string name="sync_now" formatted="false">立即同步</string>
+    <string name="sync_now_button" formatted="false">立即同步</string>
+    <string name="sync_status_title" formatted="false">同步状态</string>
+    <string name="sync_status_updated_message" formatted="false">同步状态已更新</string>
+    <string name="sync_success" formatted="false">同步完成。发送: {pushed}，接收: {pulled}</string>
+    <string name="sync_success_message" formatted="false">同步成功</string>
+    <string name="sync_with_cloud_storage" formatted="false">与云存储同步</string>
+    <string name="synced" formatted="false">已同步</string>
+    <string name="synchronized" formatted="false">已同步</string>
+    <string name="syncing" formatted="false">正在同步...</string>
+    <string name="system_features" formatted="false">系统功能：</string>
+    <string name="system_settings_title" formatted="false">系统设置</string>
+    <string name="tab_all" formatted="false">全部</string>
+    <string name="tab_answered" formatted="false">已接听</string>
+    <string name="tab_blocked" formatted="false">已拦截</string>
+    <string name="tab_missed" formatted="false">未接来电</string>
+    <string name="tab_outgoing" formatted="false">已拨出</string>
+    <string name="tag_label" formatted="false">标签：{tag}</string>
+    <string name="takeaway" formatted="false">外卖</string>
+    <string name="telecommunication" formatted="false">电信</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">电话销售</string>
+    <string name="temp_purchase_expired" formatted="false">临时购买权限已过期</string>
+    <string name="temporary_vip" formatted="false">临时 VIP</string>
+    <string name="test_button" formatted="false">测试</string>
+    <string name="test_connection_button" formatted="false">测试连接</string>
+    <string name="test_plugin" formatted="false">测试插件</string>
+    <string name="text_colors_setting" formatted="false">文本和标签颜色</string>
+    <string name="theme_dark" formatted="false">深色</string>
+    <string name="theme_light" formatted="false">浅色</string>
+    <string name="theme_settings_subtitle" formatted="false">选择你喜欢的主题</string>
+    <string name="theme_settings_title" formatted="false">主题设置</string>
+    <string name="theme_system" formatted="false">跟随系统</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">这款应用是一款强大的来电显示工具，可以识别并拦截不需要的来电。</string>
+    <string name="this_week" formatted="false">本周</string>
+    <string name="time_interceptor" formatted="false">高频连拨防护</string>
+    <string name="time_interceptor_description" formatted="false">短时间内拦截同一号码的频繁连拨</string>
+    <string name="time_interceptor_explanation" formatted="false">• 时间拦截器：在短时间内拦截/允许重复呼叫</string>
+    <string name="time_interceptor_explanation_content" formatted="false">呼叫频率拦截功能分析呼叫频率，以自动识别和拦截/允许频繁的垃圾电话。</string>
+    <string name="time_interceptor_explanation_title" formatted="false">呼叫频率拦截说明</string>
+    <string name="time_interceptor_settings_title" formatted="false">呼叫频率拦截设置</string>
+    <string name="time_window_description" formatted="false">设置允许重复呼叫的时间窗口大小。来自同一号码在此窗口内的呼叫将被允许</string>
+    <string name="time_window_label" formatted="false">拦截时间窗口（分钟）：{minutes}</string>
+    <string name="timeline_view" formatted="false">时间线视图</string>
+    <string name="times_unit" formatted="false">次</string>
+    <string name="today" formatted="false">今天</string>
+    <string name="top_triggered_rules" formatted="false">热门触发规则排行榜</string>
+    <string name="total" formatted="false">总计</string>
+    <string name="total_blocked" formatted="false">总拦截</string>
+    <string name="total_pending_proposals" formatted="false">待处理提议总数</string>
+    <string name="total_proposals" formatted="false">总提议数</string>
+    <string name="total_votes" formatted="false">总计: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">在设备或平台之间传输数据</string>
+    <string name="travel_ticketing" formatted="false">旅游票务</string>
+    <string name="tutorial" formatted="false">教程</string>
+    <string name="type" formatted="false">类型</string>
+    <string name="unassigned_s_i_m_card" formatted="false">未分配的 SIM 卡</string>
+    <string name="unblock" formatted="false">取消阻止</string>
+    <string name="unblock_number" formatted="false">取消阻止号码</string>
+    <string name="unblock_number_confirmation" formatted="false">确定要取消阻止 {phoneNumber} 吗？</string>
+    <string name="unblock_number_failed" formatted="false">取消阻止号码失败</string>
+    <string name="unblock_number_success" formatted="false">号码已成功取消阻止</string>
+    <string name="unblocked" formatted="false">已取消阻止</string>
+    <string name="unknown" formatted="false">未知</string>
+    <string name="unknown_tag" formatted="false">标签：未知</string>
+    <string name="unregister_button" formatted="false">取消注册</string>
+    <string name="unregister_device_confirmation_message" formatted="false">确定要取消注册 {deviceName} 吗？</string>
+    <string name="unregister_device_title" formatted="false">取消注册设备</string>
+    <string name="unsupported_file_format" formatted="false">不支持的文件格式</string>
+    <string name="update" formatted="false">更新</string>
+    <string name="update_all_now" formatted="false">立即全部更新</string>
+    <string name="update_contact_failed" formatted="false">更新联系人失败：{error}</string>
+    <string name="update_favorite_status" formatted="false">更新收藏状态</string>
+    <string name="update_interval" formatted="false">更新间隔</string>
+    <string name="update_now" formatted="false">立即更新</string>
+    <string name="update_plugin" formatted="false">更新插件</string>
+    <string name="update_plugin_failed" formatted="false">更新插件失败：{error}</string>
+    <string name="update_rule_failed" formatted="false">更新规则失败：{error}</string>
+    <string name="update_subscription_failed" formatted="false">更新订阅失败：{error}</string>
+    <string name="update_success" formatted="false">{service} 成功更新（{count} 条规则）</string>
+    <string name="upgrade_to_vip" formatted="false">升级到 VIP</string>
+    <string name="use_cases_point1" formatted="false">• 识别自动重拨的垃圾电话</string>
+    <string name="use_cases_point2" formatted="false">• 拦截在短时间内多次拨打的营销电话</string>
+    <string name="use_cases_point3" formatted="false">• 阻止电话轰炸和骚扰</string>
+    <string name="use_cases_title" formatted="false">使用场景：</string>
+    <string name="use_global_settings" formatted="false">使用全局设置</string>
+    <string name="use_local_notification" formatted="false">来电时显示通知</string>
+    <string name="use_local_notification_description" formatted="false">有来电时，在系统通知栏提示来电信息</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">使用标准正则表达式语法来定义模式。例如：</string>
+    <string name="use_stir_notification" formatted="false">使用来自 STIR 的通知</string>
+    <string name="user_database_sync_subtitle" formatted="false">管理本地 Drift、Cloudflare D1 与 Supabase 云节点同步</string>
+    <string name="user_database_sync_title" formatted="false">用户个人数据库与 Supabase 同步</string>
+    <string name="user_guide_subtitle" formatted="false">随时查阅与微调全量功能卡片指引与交互配置</string>
+    <string name="user_guide_title" formatted="false">用户指南与使用手册</string>
+    <string name="username_label" formatted="false">用户名</string>
+    <string name="verification_failed_text" formatted="false">失败</string>
+    <string name="verification_report" formatted="false">验证报告</string>
+    <string name="verified_text" formatted="false">已验证</string>
+    <string name="verify" formatted="false">验证</string>
+    <string name="version" formatted="false">版本：{version}</string>
+    <string name="very_high" formatted="false">很高</string>
+    <string name="very_low" formatted="false">极低</string>
+    <string name="view_details" formatted="false">查看详情</string>
+    <string name="vip3_days_with_ads" formatted="false">3 天 VIP（含广告，仅同步）</string>
+    <string name="vip5_days_no_ads" formatted="false">5 天全功能无广告 VIP</string>
+    <string name="vip7_days_no_ads" formatted="false">7 天全功能无广告 VIP</string>
+    <string name="vip_access_subtitle" formatted="false">看广告免费体验或购买 VIP</string>
+    <string name="vip_exchange_description" formatted="false">用电话号码标记计数交换 VIP 会员资格</string>
+    <string name="vip_exchange_service" formatted="false">VIP 兑换服务</string>
+    <string name="vip_exchange_title" formatted="false">标记交换 VIP</string>
+    <string name="vip_privilege_progress" formatted="false">VIP 特权解锁进度</string>
+    <string name="vip_user" formatted="false">VIP 用户</string>
+    <string name="voice_clone_scam" formatted="false">AI拟声诈骗</string>
+    <string name="voice_recognition" formatted="false">语音识别</string>
+    <string name="vote_agree" formatted="false">同意</string>
+    <string name="vote_count" formatted="false">投票数</string>
+    <string name="vote_disagree" formatted="false">反对</string>
+    <string name="vote_submitted" formatted="false">投票提交成功</string>
+    <string name="voted" formatted="false">已投票</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} 票（{supportPercentage}% 支持）</string>
+    <string name="voting_completed" formatted="false">投票已完成</string>
+    <string name="voting_completed_body" formatted="false">对 {phoneNumber} 的社区投票已结束。结果：{result}（{supportPercentage}% 支持）。</string>
+    <string name="waiting_for_more_votes" formatted="false">等待更多社区投票</string>
+    <string name="watch_ad" formatted="false">观看广告</string>
+    <string name="watch_ad_for_temp" formatted="false">观看广告以获得临时权限</string>
+    <string name="watch_ad_for_temp_description" formatted="false">观看一个短片广告，以暂时解锁一些高级功能</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">您需要观看 {count} 个广告才能获得临时 VIP 权限</string>
+    <string name="web_d_a_v_config_title" formatted="false">WebDAV 配置</string>
+    <string name="week" formatted="false">周</string>
+    <string name="welcome" formatted="false">欢迎</string>
+    <string name="whitelist" formatted="false">白名单</string>
+    <string name="width" formatted="false">宽度</string>
+    <string name="wildcard_matching_description" formatted="false">使用 \'.\' 匹配任何字符 (例如 \'123.456\' 匹配 123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">通配符匹配:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">通配符支持灵活过滤</string>
+    <string name="window_size_setting" formatted="false">窗口大小</string>
+    <string name="year" formatted="false">年</string>
+    <string name="yesterday" formatted="false">昨天</string>
 </resources>

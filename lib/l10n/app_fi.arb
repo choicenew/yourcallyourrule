@@ -2458,5 +2458,8 @@
     }
   },
   "initialSetupSettingsHint": "Vinkki: Voit avata tämän määrityssivun uudelleen Asetuksista.",
-  "initialSetupGoToSettings": "Siirry Asetuksiin"
+  "initialSetupGoToSettings": "Siirry Asetuksiin",
+  "backgroundOpacity": "Background Opacity",
+  "timesUnit": "times",
+  "participantCount": "%1$d Participants"
 }

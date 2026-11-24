@@ -175,7 +175,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                         .padding(horizontal = 8.dp, vertical = 4.dp)
                 ) {
                     Text(
-                        text = "$totalRules ${localizedContext.getString(R.string.widget_total_rules)}",
+                        text = "$totalRules ${localizedContext.getString(R.string.rules)}",
                         style = TextStyle(
                             fontSize = (10f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
@@ -234,7 +234,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                             .padding(10.dp)
                     ) {
                         Text(
-                            text = localizedContext.getString(R.string.widget_total_rules),
+                            text = localizedContext.getString(R.string.rules),
                             style = TextStyle(
                                 fontSize = (10f * fontScale).sp,
                                 color = ColorProvider(secondaryTextColor)
@@ -262,7 +262,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                     ) {
                         if (showDetail) {
                             Text(
-                                text = "${localizedContext.getString(R.string.widget_service_label)}: $serviceType",
+                                text = "${localizedContext.getString(R.string.service_type_label)}: $serviceType",
                                 style = TextStyle(
                                     fontSize = (11f * fontScale).sp,
                                     fontWeight = FontWeight.Bold,
@@ -272,7 +272,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                             Spacer(modifier = GlanceModifier.height(4.dp))
                         }
                         Text(
-                            text = "${localizedContext.getString(R.string.widget_last_sync)}: $lastSync",
+                            text = "${localizedContext.getString(R.string.last_sync_label)}: $lastSync",
                             style = TextStyle(
                                 fontSize = (10f * fontScale).sp,
                                 color = ColorProvider(secondaryTextColor)
@@ -293,7 +293,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "🔄 ${localizedContext.getString(R.string.widget_sync_now)}",
+                        text = "🔄 ${localizedContext.getString(R.string.sync_now)}",
                         style = TextStyle(
                             fontSize = (11.5f * fontScale).sp,
                             fontWeight = FontWeight.Bold,

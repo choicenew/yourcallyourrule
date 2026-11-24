@@ -2458,5 +2458,8 @@
   "separateSims": "Samostatné SIM karty",
   "separateSimsDesc": "Povolit samostatná pravidla filtrování pro každou SIM kartu",
   "masterAndOverrides": "Hlavní ovládací prvky",
-  "masterAndOverridesDesc": "Globální nastavení правил"
+  "masterAndOverridesDesc": "Globální nastavení правил",
+  "backgroundOpacity": "Background Opacity",
+  "timesUnit": "times",
+  "participantCount": "%1$d Participants"
 }

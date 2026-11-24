@@ -198,7 +198,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                     )
                     Spacer(modifier = GlanceModifier.width(6.dp))
                     Text(
-                        text = localizedContext.getString(R.string.widget_community_judge_title),
+                        text = localizedContext.getString(R.string.community_impact),
                         style = TextStyle(
                             fontSize = (14f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
@@ -213,7 +213,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                             .padding(horizontal = 10.dp, vertical = 4.dp)
                     ) {
                         Text(
-                            text = localizedContext.getString(R.string.widget_participants, voteCount),
+                            text = localizedContext.getString(R.string.participant_count, voteCount),
                             style = TextStyle(
                                 fontSize = (10f * fontScale).sp,
                                 fontWeight = FontWeight.Bold,
@@ -263,7 +263,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                                 .padding(10.dp)
                         ) {
                             Text(
-                                text = "⚠️ ${localizedContext.getString(R.string.widget_risk_bento)}",
+                                text = "⚠️ ${localizedContext.getString(R.string.risk_level)}",
                                 style = TextStyle(
                                     fontSize = (10f * fontScale).sp,
                                     color = ColorProvider(secondaryTextColor)
@@ -314,7 +314,7 @@ class CommunityJudgeGlanceWidget : GlanceAppWidget() {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "🗳️ ${localizedContext.getString(R.string.widget_vote_now)}",
+                        text = "🗳️ ${localizedContext.getString(R.string.community_votes)}",
                         style = TextStyle(
                             fontSize = (11.5f * fontScale).sp,
                             fontWeight = FontWeight.Bold,

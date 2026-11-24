@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">เกี่ยวกับ การสมัครรับข้อมูลผู้ติดต่อ</string>
+    <string name="about_labels" formatted="false">เกี่ยวกับ ป้ายกำกับ</string>
+    <string name="about_phone_subscription_rules" formatted="false">เกี่ยวกับ กฎการสมัครรับข้อมูลโทรศัพท์</string>
+    <string name="about_sms_filter" formatted="false">เกี่ยวกับ การกรอง SMS</string>
+    <string name="about_sms_subscription_rules" formatted="false">เกี่ยวกับ กฎการสมัครรับข้อมูล SMS</string>
+    <string name="about_subtitle" formatted="false">ข้อมูลเวอร์ชันแอปพลิเคชันและข้อมูลทางกฎหมาย</string>
+    <string name="about_title" formatted="false">เกี่ยวกับ</string>
+    <string name="access_target_url" formatted="false">เข้าถึง URL เป้าหมาย</string>
+    <string name="action" formatted="false">การดำเนินการ</string>
+    <string name="action_all" formatted="false">ทั้งหมด</string>
+    <string name="action_allow" formatted="false">อนุญาต</string>
+    <string name="action_block" formatted="false">บล็อก</string>
+    <string name="action_filter_title" formatted="false">กรองตามประเภทการดำเนินการ</string>
+    <string name="action_filter_tooltip" formatted="false">ตัวกรองการดำเนินการ</string>
+    <string name="action_none" formatted="false">ไม่มีการดำเนินการ</string>
+    <string name="action_silence" formatted="false">ปิดเสียง</string>
+    <string name="action_tag" formatted="false">การดำเนินการ: {actionType}</string>
+    <string name="action_type" formatted="false">ประเภทการดำเนินการ</string>
+    <string name="action_unknown" formatted="false">ไม่รู้จัก</string>
+    <string name="active_proposals" formatted="false">ข้อเสนอที่ใช้งานอยู่</string>
+    <string name="add" formatted="false">เพิ่ม</string>
+    <string name="add_allow_subscription" formatted="false">เพิ่มการสมัครรับข้อมูลอนุญาต</string>
+    <string name="add_allowed_blocked_rule" formatted="false">เพิ่มกฎอนุญาต/บล็อก</string>
+    <string name="add_block_subscription" formatted="false">เพิ่มการสมัครรับข้อมูลบล็อก</string>
+    <string name="add_contact_button" formatted="false">เพิ่มผู้ติดต่อ</string>
+    <string name="add_contact_failed" formatted="false">เพิ่มผู้ติดต่อไม่สำเร็จ: {error}</string>
+    <string name="add_label" formatted="false">เพิ่มป้ายกำกับ</string>
+    <string name="add_label_button" formatted="false">เพิ่มป้ายกำกับ</string>
+    <string name="add_label_failed" formatted="false">เพิ่มป้ายกำกับไม่สำเร็จ: {error}</string>
+    <string name="add_name" formatted="false">เพิ่มชื่อ</string>
+    <string name="add_none_subscription" formatted="false">เพิ่มการสมัครรับข้อมูลไม่มี</string>
+    <string name="add_phone_mark" formatted="false">เพิ่มเครื่องหมายโทรศัพท์</string>
+    <string name="add_phone_number_rule" formatted="false">เพิ่มกฎหมายเลขโทรศัพท์</string>
+    <string name="add_plugin" formatted="false">เพิ่มปลั๊กอิน</string>
+    <string name="add_plugin_failed" formatted="false">เพิ่มปลั๊กอินไม่สำเร็จ</string>
+    <string name="add_plugin_failed_with_error" formatted="false">เพิ่มปลั๊กอินไม่สำเร็จ: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">เพิ่มปลั๊กอินจากไฟล์ในเครื่อง</string>
+    <string name="add_plugin_from_url" formatted="false">เพิ่มปลั๊กอินจาก URL</string>
+    <string name="add_regex_rule" formatted="false">เพิ่มกฎ Regex</string>
+    <string name="add_rule" formatted="false">เพิ่มกฎ</string>
+    <string name="add_rule_failed" formatted="false">เพิ่มกฎไม่สำเร็จ: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">เพิ่มกฎ</string>
+    <string name="add_silence_subscription" formatted="false">เพิ่มการสมัครรับข้อมูลปิดเสียง</string>
+    <string name="add_sms_filter_rule" formatted="false">เพิ่มกฎตัวกรอง SMS</string>
+    <string name="add_sms_rule" formatted="false">เพิ่มกฎ SMS</string>
+    <string name="add_sms_subscription" formatted="false">เพิ่มการสมัครรับข้อมูล SMS</string>
+    <string name="add_subscription" formatted="false">เพิ่มการสมัครรับข้อมูล</string>
+    <string name="add_subscription_button" formatted="false">เพิ่มการสมัครรับข้อมูล</string>
+    <string name="add_subscription_failed" formatted="false">เพิ่มการสมัครรับข้อมูลไม่สำเร็จ: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">เพิ่มการสมัครรับข้อมูล</string>
+    <string name="add_to_blacklist" formatted="false">เพิ่มในรายการบล็อก</string>
+    <string name="add_to_favorites" formatted="false">เพิ่มในรายการโปรด</string>
+    <string name="add_to_rules" formatted="false">เพิ่มในกฎ</string>
+    <string name="add_to_whitelist" formatted="false">เพิ่มในรายการที่อนุญาต</string>
+    <string name="added_to_favorites" formatted="false">เพิ่มในรายการโปรดแล้ว</string>
+    <string name="advanced_mode" formatted="false">โหมดขั้นสูง</string>
+    <string name="agent" formatted="false">ตัวแทน</string>
+    <string name="agree_votes" formatted="false">เห็นด้วย: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">ทั้งหมด</string>
+    <string name="all_call_logs_cleared" formatted="false">ประวัติการโทรทั้งหมดถูกล้างแล้ว</string>
+    <string name="all_calls_tab" formatted="false">ทั้งหมด</string>
+    <string name="all_permissions_granted" formatted="false">ได้รับสิทธิ์ทั้งหมดแล้ว</string>
+    <string name="all_services_status_subtitle" formatted="false">สถานะปัจจุบันของแต่ละบริการคลาวด์</string>
+    <string name="all_services_status_title" formatted="false">สถานะบริการปัจจุบัน</string>
+    <string name="all_settings_completed" formatted="false">ตั้งค่าทั้งหมดเสร็จสมบูรณ์แล้ว</string>
+    <string name="all_update_success" formatted="false">อัปเดตทั้งหมดเสร็จสมบูรณ์แล้ว ({count} กฎ)</string>
+    <string name="allow" formatted="false">อนุญาต</string>
+    <string name="allow_action_description" formatted="false">การโทรจะได้รับอนุญาต แม้ว่าหมายเลขจะอยู่ในรายการบล็อก</string>
+    <string name="allow_all_allow_rules" formatted="false">อนุญาตกฎอนุญาตทั้งหมด</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">อนุญาตการโทรจากกฎอนุญาต</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">อนุญาตหมายเลขที่อยู่ในรายการบล็อกทั้งหมด</string>
+    <string name="allow_all_block_rules" formatted="false">อนุญาตกฎบล็อกทั้งหมด</string>
+    <string name="allow_all_block_rules_desc" formatted="false">อนุญาตการโทรจากกฎบล็อก</string>
+    <string name="allow_allowed_numbers" formatted="false">อนุญาตหมายเลขที่อนุญาต</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">อนุญาตการโทรจากรายการที่อนุญาต</string>
+    <string name="allow_block" formatted="false">อนุญาต/บล็อก</string>
+    <string name="allow_blocked_numbers" formatted="false">อนุญาตหมายเลขที่บล็อก</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">อนุญาตการโทรจากรายการบล็อก</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">อนุญาตหมายเลขที่ไม่เกิน</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">อนุญาตหมายเลขโดยอัตโนมัติที่ไม่เกินเกณฑ์จำนวน</string>
+    <string name="allow_regex_allow_rules" formatted="false">อนุญาตกฎ Regex</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">เปิดใช้งานการจับคู่รูปแบบ regex สำหรับกฎอนุญาต</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">เปิดใช้งานกฎตามรูปแบบ Regex สำหรับการอนุญาต</string>
+    <string name="allow_regex_block_rules" formatted="false">อนุญาตกฎ Regex</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">เปิดใช้งานการจับคู่รูปแบบ regex สำหรับกฎบล็อก</string>
+    <string name="allow_regex_block_rules_description" formatted="false">เปิดใช้งานกฎตามรูปแบบ Regex สำหรับการบล็อก</string>
+    <string name="allow_rule" formatted="false">กฎอนุญาต</string>
+    <string name="allow_rules" formatted="false">กฎอนุญาต</string>
+    <string name="allowed_blocked_rule" formatted="false">กฎอนุญาต/บล็อก</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">แก้ไขกฎอนุญาต/บล็อก</string>
+    <string name="allowed_blocked_rule_management" formatted="false">การจัดการกฎอนุญาต/บล็อก</string>
+    <string name="allowed_blocked_rules_info" formatted="false">กฎที่อนุญาต/บล็อกใช้เพื่อจับคู่การโทรกับหมายเลขโทรศัพท์เฉพาะ ซึ่งมีลำดับความสำคัญสูงสุด</string>
+    <string name="and_more_items" formatted="false">และอีก {count} รายการ</string>
+    <string name="answer_then_hangup" formatted="false">รับสายแล้ววางสาย</string>
+    <string name="answer_then_hangup_description" formatted="false">รับสายก่อน จากนั้นวางสายทันที</string>
+    <string name="app_name" formatted="false">Your Call Your Rule</string>
+    <string name="application_software" formatted="false">ซอฟต์แวร์แอปพลิเคชัน</string>
+    <string name="apply" formatted="false">ใช้</string>
+    <string name="approved" formatted="false">อนุมัติ</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">การยืนยันตัวตนล้มเหลว: โปรดตรวจสอบรหัสไคลเอ็นต์และคีย์</string>
+    <string name="authorization_failed_message" formatted="false">การยืนยันตัวตนล้มเหลว</string>
+    <string name="authorization_success_message" formatted="false">การยืนยันตัวตนสำเร็จ</string>
+    <string name="authorize_login_button" formatted="false">อนุญาตการเข้าสู่ระบบ</string>
+    <string name="auto_cancel_notification" formatted="false">ยกเลิกการแจ้งเตือนอัตโนมัติ</string>
+    <string name="auto_cancel_notification_description" formatted="false">หากเลือก การแจ้งเตือนจะถูกยกเลิกโดยอัตโนมัติเมื่อผู้ใช้แตะ</string>
+    <string name="auto_sync_label" formatted="false">ซิงค์อัตโนมัติ</string>
+    <string name="auto_update" formatted="false">อัปเดตอัตโนมัติ</string>
+    <string name="auto_update_description" formatted="false">ตั้งค่าช่วงเวลาอัปเดตอัตโนมัติสำหรับการสมัครสมาชิกหรืออัปเดตด้วยตนเอง</string>
+    <string name="auto_update_settings" formatted="false">การตั้งค่าอัปเดตอัตโนมัติ</string>
+    <string name="auto_update_subtitle" formatted="false">จัดการการอัปเดตอัตโนมัติสำหรับกฎและปลั๊กอิน</string>
+    <string name="auto_update_title" formatted="false">อัปเดตอัตโนมัติ</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">อุตสาหกรรมยานยนต์</string>
+    <string name="avatar" formatted="false">อวาตาร์</string>
+    <string name="avatar_border_color" formatted="false">สีขอบอวาตาร์</string>
+    <string name="avatar_border_size" formatted="false">ขนาดขอบอวาตาร์</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">ขนาดอวาตาร์และไอคอน</string>
+    <string name="avatar_position" formatted="false">ตำแหน่งอวาตาร์</string>
+    <string name="avatar_size" formatted="false">ขนาดอวาตาร์</string>
+    <string name="axis_position" formatted="false">ตำแหน่ง {axis}</string>
+    <string name="background_gradient_setting" formatted="false">การไล่ระดับสีพื้นหลัง</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">สำรองข้อมูล</string>
+    <string name="backup_and_restore" formatted="false">สำรองและกู้คืน</string>
+    <string name="backup_and_restore_subtitle" formatted="false">สำรองหรือกู้คืนข้อมูลแอปพลิเคชัน</string>
+    <string name="backup_and_restore_title" formatted="false">สำรองและกู้คืน</string>
+    <string name="backup_failed" formatted="false">การสำรองข้อมูลล้มเหลว</string>
+    <string name="backup_settings" formatted="false">การตั้งค่าสำรองข้อมูล</string>
+    <string name="backup_to_cloud" formatted="false">สำรองข้อมูลไปยังคลาวด์</string>
+    <string name="backup_to_cloud_failed" formatted="false">ไม่สามารถสำรองข้อมูลไปยังคลาวด์ได้: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">สำรองข้อมูลไปยังคลาวด์สำเร็จแล้ว</string>
+    <string name="bank" formatted="false">ธนาคาร</string>
+    <string name="basic_info" formatted="false">ข้อมูลพื้นฐาน</string>
+    <string name="basic_rule_filter" formatted="false">ตัวกรองกฎพื้นฐาน</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">กรองการโทรโดยใช้รายการที่ถูกบล็อก/รายการที่อนุญาต และนิพจน์ทั่วไป</string>
+    <string name="basic_rule_filtering" formatted="false">การกรองกฎพื้นฐาน</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• การกรองกฎพื้นฐาน: กรองกฎตามรายการที่ถูกบล็อก รายการที่อนุญาต และนิพจน์ทั่วไป</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการลบผู้ติดต่อที่เลือก {count} รายการ</string>
+    <string name="batch_delete_labels_confirm" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการลบป้ายกำกับ {count} รายการ</string>
+    <string name="battery_optimization_permission" formatted="false">การเพิ่มประสิทธิภาพแบตเตอรี่</string>
+    <string name="battery_optimization_permission_description" formatted="false">อนุญาตให้แอปทำงานในเบื้องหลังเพื่อให้บริการต่างๆ เช่น ID ผู้โทร</string>
+    <string name="black_white_list" formatted="false">รายการที่ถูกบล็อก/รายการที่อนุญาต</string>
+    <string name="blacklist" formatted="false">รายการที่ถูกบล็อก</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">การบล็อกและการอนุญาต</string>
+    <string name="block" formatted="false">บล็อก</string>
+    <string name="block_action_description" formatted="false">การโทรจะถูกบล็อกและแสดงในบันทึกการโทร</string>
+    <string name="block_calls" formatted="false">บล็อกการโทร</string>
+    <string name="block_international_calls" formatted="false">ตรงกับหมายเลขที่ไม่ขึ้นต้นด้วย + หรือ 00</string>
+    <string name="block_international_calls_title" formatted="false">บล็อกสายต่างประเทศ</string>
+    <string name="block_mobile_numbers" formatted="false">ตรงกับหมายเลขที่ไม่ขึ้นต้นด้วย 13-19</string>
+    <string name="block_mobile_numbers_title" formatted="false">บล็อกหมายเลขโทรศัพท์มือถือ</string>
+    <string name="block_number" formatted="false">บล็อกหมายเลข</string>
+    <string name="block_number_success" formatted="false">บล็อกหมายเลขสำเร็จ</string>
+    <string name="block_premium_rate_numbers" formatted="false">ตรงกับหมายเลขที่ไม่ขึ้นต้นด้วย 118 หรือ 120-190</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">บล็อกหมายเลขโทรศัพท์อัตราพรีเมียม</string>
+    <string name="block_rule" formatted="false">กฎการบล็อก</string>
+    <string name="block_rules" formatted="false">กฎการบล็อก</string>
+    <string name="block_specific_area_codes" formatted="false">ตรงกับหมายเลขที่ขึ้นต้นด้วย 0 + 2-3 หลัก</string>
+    <string name="block_specific_area_codes_title" formatted="false">บล็อกรหัสพื้นที่เฉพาะ:</string>
+    <string name="block_type_analysis_title" formatted="false">การวิเคราะห์ประเภทการบล็อก</string>
+    <string name="blocked" formatted="false">ถูกบล็อก</string>
+    <string name="blocked_call_body" formatted="false">การโทรที่ถูกบล็อกจาก {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">การแจ้งเตือนสายที่ถูกบล็อก</string>
+    <string name="blocked_call_notifications_description" formatted="false">แสดงข้อมูลเกี่ยวกับสายเรียกเข้าที่ถูกบล็อก</string>
+    <string name="blocked_call_title" formatted="false">การโทรที่ถูกบล็อก</string>
+    <string name="blocked_calls" formatted="false">สายที่ถูกบล็อก</string>
+    <string name="blocked_calls_title" formatted="false">สายที่ถูกบล็อก</string>
+    <string name="blocked_spam_calls" formatted="false">สายสแปมที่ถูกบล็อก</string>
+    <string name="blocking_trend" formatted="false">แนวโน้มการบล็อก</string>
+    <string name="both" formatted="false">ทั้งสอง</string>
+    <string name="bulk_delete" formatted="false">ลบจำนวนมาก</string>
+    <string name="bulk_delete_contacts" formatted="false">ลบผู้ติดต่อจำนวนมาก</string>
+    <string name="bulk_delete_labels" formatted="false">ลบป้ายกำกับจำนวนมาก</string>
+    <string name="call" formatted="false">โทร</string>
+    <string name="call_blocking" formatted="false">การบล็อกสาย</string>
+    <string name="call_details" formatted="false">รายละเอียดการโทร</string>
+    <string name="call_filter_rules" formatted="false">กฎการกรองสาย</string>
+    <string name="call_filter_rules_description" formatted="false">ตั้งค่ากฎพื้นฐานสำหรับการกรองสาย</string>
+    <string name="call_filter_settings" formatted="false">การตั้งค่าการกรองสาย</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">ตั้งค่าขีดจำกัดความถี่การโทรและกฎการบล็อก</string>
+    <string name="call_frequency_interception_title" formatted="false">การดักจับความถี่การโทร</string>
+    <string name="call_history" formatted="false">ประวัติการโทร</string>
+    <string name="call_history_info_desc" formatted="false">แสดงประวัติการโทรของคุณที่นี่ รวมถึงสายเรียกเข้า สายโทรออก และสายที่ไม่ได้รับ</string>
+    <string name="call_history_info_title" formatted="false">ประวัติการโทร</string>
+    <string name="call_history_tab" formatted="false">ประวัติการโทร</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">สิทธิ์การคัดกรองสาย</string>
+    <string name="call_screening_permission_description" formatted="false">ใช้เพื่อคัดกรองและบล็อกสายสแปม</string>
+    <string name="call_screening_permission_not_granted" formatted="false">ไม่ได้รับสิทธิ์การคัดกรองสาย อาจส่งผลต่อการทำงานของแอป</string>
+    <string name="call_statistics" formatted="false">สถิติการโทร</string>
+    <string name="call_time" formatted="false">เวลาโทร</string>
+    <string name="call_type" formatted="false">ประเภทการโทร</string>
+    <string name="call_type_answered" formatted="false">รับสาย</string>
+    <string name="call_type_blocked" formatted="false">บล็อก</string>
+    <string name="call_type_icon_color" formatted="false">สีไอคอนประเภทการโทร</string>
+    <string name="call_type_missed" formatted="false">สายที่ไม่ได้รับ</string>
+    <string name="call_type_outgoing" formatted="false">สายโทรออก</string>
+    <string name="call_type_position" formatted="false">ตำแหน่งประเภทการโทร</string>
+    <string name="call_type_rejected" formatted="false">ปฏิเสธ</string>
+    <string name="call_type_silenced" formatted="false">ปิดเสียง</string>
+    <string name="call_type_unknown" formatted="false">ไม่ทราบ</string>
+    <string name="callback" formatted="false">โทรกลับ</string>
+    <string name="caller_id_app" formatted="false">แอป ID ผู้โทร</string>
+    <string name="caller_id_customization_subtitle" formatted="false">ปรับแต่งเลย์เอาต์ ID ผู้โทร</string>
+    <string name="caller_id_customization_title" formatted="false">ปรับแต่ง ID ผู้โทร</string>
+    <string name="caller_id_display_mode" formatted="false">รูปแบบการแสดงหมายเลขผู้โทร</string>
+    <string name="caller_id_enhancement" formatted="false">การปรับปรุง ID ผู้โทร</string>
+    <string name="caller_id_marked_by_count" formatted="false">ถูกทำเครื่องหมายโดย {count}</string>
+    <string name="caller_id_notification_title" formatted="false">ข้อมูลการโทรเข้า</string>
+    <string name="caller_id_preview" formatted="false">แสดงตัวอย่างหมายเลขผู้โทร</string>
+    <string name="caller_id_settings_subtitle" formatted="false">เพื่อตั้งค่าการแจ้งเตือนการโทรเข้าและโหมดการแสดงผล</string>
+    <string name="caller_id_settings_title" formatted="false">การตั้งค่า ID ผู้โทร</string>
+    <string name="calling_number_failed" formatted="false">การโทรหาหมายเลขล้มเหลว</string>
+    <string name="cancel" formatted="false">ยกเลิก</string>
+    <string name="cancel_button" formatted="false">ยกเลิก</string>
+    <string name="cancel_local_notification" formatted="false">ปิดการแจ้งเตือนในเครื่อง</string>
+    <string name="cancel_local_notification_description" formatted="false">ปิดการแจ้งเตือนในเครื่องโดยอัตโนมัติ</string>
+    <string name="car_rental" formatted="false">เช่ารถ</string>
+    <string name="carrier" formatted="false">ผู้ให้บริการ</string>
+    <string name="carrier_color" formatted="false">สีของผู้ให้บริการ</string>
+    <string name="carrier_font_size" formatted="false">ขนาดตัวอักษรของผู้ให้บริการ</string>
+    <string name="carrier_position" formatted="false">ตำแหน่งของผู้ให้บริการ</string>
+    <string name="change_label" formatted="false">เปลี่ยนป้ายกำกับ</string>
+    <string name="change_plugin_status_failed" formatted="false">ไม่สามารถเปลี่ยนสถานะปลั๊กอิน: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">ไม่สามารถเปลี่ยนสถานะการสมัครสมาชิก: {error}</string>
+    <string name="charity" formatted="false">การกุศล</string>
+    <string name="chart_one_week_ago" formatted="false">1 สัปดาห์ที่แล้ว</string>
+    <string name="chart_three_days_ago" formatted="false">3 วันที่แล้ว</string>
+    <string name="chart_today" formatted="false">วันนี้</string>
+    <string name="check_file_format" formatted="false">โปรดตรวจสอบรูปแบบไฟล์หรือสิทธิ์</string>
+    <string name="check_permission_failed" formatted="false">ไม่สามารถตรวจสอบสิทธิ์: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">เลือกการดำเนินการสกัดกั้นเริ่มต้น</string>
+    <string name="clear_all_call_logs" formatted="false">ล้างประวัติการโทรทั้งหมด</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">ยืนยันเพื่อล้างประวัติการโทรทั้งหมด</string>
+    <string name="clear_all_notifications" formatted="false">ล้างการแจ้งเตือนทั้งหมด</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">ยืนยันเพื่อล้างการแจ้งเตือนทั้งหมด</string>
+    <string name="clear_button" formatted="false">ล้าง</string>
+    <string name="clear_filter" formatted="false">ล้างตัวกรอง</string>
+    <string name="clear_label_filter_button" formatted="false">ล้างตัวกรองป้ายกำกับ</string>
+    <string name="close_button" formatted="false">ปิด</string>
+    <string name="cloud_backup" formatted="false">สำรองข้อมูลบนคลาวด์</string>
+    <string name="cloud_sync" formatted="false">การซิงโครไนซ์คลาวด์</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">การซิงโครไนซ์คลาวด์และการสำรองข้อมูล</string>
+    <string name="cloud_sync_service" formatted="false">บริการซิงค์คลาวด์</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">กำหนดค่า WebDAV, OneDrive และ Google Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">การตั้งค่าการซิงโครไนซ์คลาวด์</string>
+    <string name="cloud_sync_title" formatted="false">การซิงโครไนซ์คลาวด์</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">การทวงหนี้</string>
+    <string name="color_picker_title" formatted="false">เลือกสี</string>
+    <string name="community_impact" formatted="false">ผลกระทบต่อชุมชน</string>
+    <string name="community_participation" formatted="false">การมีส่วนร่วมของชุมชน</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">การโหวตของชุมชน</string>
+    <string name="community_voting_started" formatted="false">เริ่มการโหวตของชุมชนแล้ว</string>
+    <string name="community_voting_started_body" formatted="false">ข้อเสนอการลบหมายเลข {phoneNumber} ใหม่พร้อมให้ชุมชนโหวตแล้ว</string>
+    <string name="completed" formatted="false">เสร็จสมบูรณ์</string>
+    <string name="config_management" formatted="false">การจัดการการกำหนดค่า</string>
+    <string name="config_saved" formatted="false">บันทึกการกำหนดค่าแล้ว!</string>
+    <string name="config_updated" formatted="false">การกำหนดค่าอัปเดตแล้ว</string>
+    <string name="configuration_advice" formatted="false">ด้วยการกำหนดค่าที่เหมาะสม คุณสามารถตั้งค่ากลยุทธ์การกรองที่แตกต่างกันสำหรับซิมการ์ดทำงานและซิมการ์ดส่วนตัว</string>
+    <string name="configure_backup_options" formatted="false">กำหนดค่าตัวเลือกการสำรองข้อมูล</string>
+    <string name="configure_cloud_sync_service" formatted="false">กำหนดค่าบริการซิงโครไนซ์คลาวด์</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">โปรดกำหนดค่าบริการซิงโครไนซ์คลาวด์เพื่อเปิดใช้งานการซิงโครไนซ์หลายอุปกรณ์</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">กำหนดค่ากฎการกรองซิมการ์ด</string>
+    <string name="confirm" formatted="false">ยืนยัน</string>
+    <string name="confirm_button" formatted="false">ยืนยัน</string>
+    <string name="confirm_delete" formatted="false">ยืนยันการลบ</string>
+    <string name="confirm_delete_label" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการลบป้ายกำกับ &quot;{name}&quot;</string>
+    <string name="confirm_delete_plugin" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการลบปลั๊กอิน &quot;{name}&quot;?</string>
+    <string name="confirm_delete_plugins" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการลบ {count} ปลั๊กอิน?</string>
+    <string name="confirm_delete_rule_message" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการลบกฎนี้? การดำเนินการนี้ไม่สามารถยกเลิกได้</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการลบกฎตัวกรอง SMS นี้?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการลบกฎ SMS นี้?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการลบ {name}?</string>
+    <string name="confirm_password" formatted="false">ยืนยันรหัสผ่าน</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">เชื่อมต่อแล้ว</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">การเชื่อมต่อล้มเหลว: โปรดตรวจสอบที่อยู่เซิร์ฟเวอร์ ชื่อผู้ใช้ และรหัสผ่าน</string>
+    <string name="connection_failed_message" formatted="false">การเชื่อมต่อล้มเหลว</string>
+    <string name="connection_status_label" formatted="false">สถานะการเชื่อมต่อ</string>
+    <string name="connection_string" formatted="false">สตริงการเชื่อมต่อ (URI)</string>
+    <string name="connection_string_helper" formatted="false">จำเป็นเฉพาะเมื่อ \'เริ่มใช้งานฐานข้อมูล\'</string>
+    <string name="connection_success_message" formatted="false">เชื่อมต่อสำเร็จ</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">เพิ่มผู้ติดต่อสำเร็จ</string>
+    <string name="contact_deleted" formatted="false">ลบผู้ติดต่อแล้ว</string>
+    <string name="contact_name_label" formatted="false">ชื่อ</string>
+    <string name="contact_not_found" formatted="false">ไม่พบผู้ติดต่อ</string>
+    <string name="contact_subscription_description" formatted="false">สมัครรับรายชื่อผู้ติดต่อผ่าน URL อัปเดตข้อมูลผู้ติดต่อและป้ายกำกับโดยอัตโนมัติ รองรับข้อมูลรูปแบบ JSON</string>
+    <string name="contact_update_success" formatted="false">อัปเดตผู้ติดต่อสำเร็จ</string>
+    <string name="contact_us" formatted="false">ติดต่อเรา</string>
+    <string name="contacts" formatted="false">ผู้ติดต่อ</string>
+    <string name="contacts_deleted" formatted="false">ลบผู้ติดต่อแล้ว {count} รายการ</string>
+    <string name="contacts_management" formatted="false">การจัดการผู้ติดต่อ</string>
+    <string name="contacts_permission" formatted="false">สิทธิ์การเข้าถึงรายชื่อผู้ติดต่อ</string>
+    <string name="contacts_permission_description" formatted="false">ใช้เพื่อระบุสายเรียกเข้าจากผู้ติดต่อ</string>
+    <string name="contacts_tab" formatted="false">ผู้ติดต่อ</string>
+    <string name="container_width" formatted="false">ความกว้างคอนเทนเนอร์</string>
+    <string name="content" formatted="false">เนื้อหา</string>
+    <string name="content_regex" formatted="false">นิพจน์ทั่วไปของเนื้อหา</string>
+    <string name="count_color" formatted="false">สีของจำนวน</string>
+    <string name="count_font_size" formatted="false">ขนาดตัวอักษรของจำนวน</string>
+    <string name="count_position" formatted="false">ตำแหน่งของจำนวน</string>
+    <string name="count_threshold_description" formatted="false">ตั้งค่าเกณฑ์จำนวนขั้นต่ำที่ต้องการเพื่อเรียกใช้การดำเนินการกรอง</string>
+    <string name="count_threshold_label" formatted="false">เกณฑ์จำนวน</string>
+    <string name="country" formatted="false">ประเทศ</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">เช่น US, CN, GB</string>
+    <string name="country_code_label" formatted="false">รหัสประเทศ (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">ต้องระบุรหัสประเทศ</string>
+    <string name="country_code_two_letters" formatted="false">รหัสประเทศ (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">โปรดทราบ: ฐานข้อมูลอาจไม่มีข้อมูลสำหรับทุกประเทศหรือภูมิภาคที่เฉพาะเจาะจง</string>
+    <string name="country_name_color" formatted="false">สีชื่อประเทศ</string>
+    <string name="country_name_font_size" formatted="false">ขนาดตัวอักษรชื่อประเทศ</string>
+    <string name="country_region_name_position" formatted="false">ตำแหน่งชื่อประเทศ/ภูมิภาค</string>
+    <string name="country_sync_settings_subtitle" formatted="false">เลือกประเทศสำหรับการซิงโครไนซ์ข้อมูล</string>
+    <string name="country_sync_settings_title" formatted="false">การตั้งค่าการซิงค์ฐานข้อมูลตามประเทศ</string>
+    <string name="create_proposal" formatted="false">สร้างข้อเสนอ</string>
+    <string name="create_proposal_title" formatted="false">สร้างข้อเสนอการลบ</string>
+    <string name="created_at" formatted="false">สร้างเมื่อ: {date}</string>
+    <string name="created_rules" formatted="false">กฎที่สร้างขึ้น</string>
+    <string name="critical" formatted="false">วิกฤต</string>
+    <string name="critical_issues" formatted="false">ประเด็นวิกฤต</string>
+    <string name="csv_format" formatted="false">รูปแบบ CSV</string>
+    <string name="current_device_label" formatted="false">ป้ายกำกับอุปกรณ์ปัจจุบัน</string>
+    <string name="current_device_title" formatted="false">อุปกรณ์ปัจจุบัน</string>
+    <string name="current_language" formatted="false">ภาษาปัจจุบัน</string>
+    <string name="current_mark_count" formatted="false">จำนวนคะแนนปัจจุบัน</string>
+    <string name="custom" formatted="false">กำหนดเอง</string>
+    <string name="custom_action_description" formatted="false">ดำเนินการตามการดำเนินการที่กำหนดเอง</string>
+    <string name="customer_service" formatted="false">ฝ่ายบริการลูกค้า</string>
+    <string name="dashboard_tab" formatted="false">แดชบอร์ด</string>
+    <string name="data_analysis" formatted="false">การวิเคราะห์ข้อมูล</string>
+    <string name="data_load_failure" formatted="false">ไม่สามารถโหลดข้อมูลได้: {error}</string>
+    <string name="data_loading_failed" formatted="false">ไม่สามารถโหลดข้อมูลได้: {error}</string>
+    <string name="data_migration" formatted="false">การย้ายข้อมูล</string>
+    <string name="data_migration_description" formatted="false">ฟีเจอร์นี้ช่วยให้คุณถ่ายโอนข้อมูลทั้งหมดระหว่างอุปกรณ์ได้ ขณะนี้คุณสามารถใช้ฟีเจอร์สำรองและกู้คืนเพื่อย้ายข้อมูลของคุณด้วยตนเองได้</string>
+    <string name="data_source_disclaimer" formatted="false">หมายเลขถูกดึงมาจากอินเทอร์เน็ตและการส่งของผู้ใช้ เราไม่สามารถรับประกันได้ว่าหมายเลขที่ถูกลบไปแล้วจะไม่ถูกส่งเข้ามาอีกโดยผู้ใช้อื่นหรือแหล่งข้อมูลอื่น โปรดค้นหาและตรวจสอบข้อมูลอย่างแข็งขัน</string>
+    <string name="data_source_reminder" formatted="false">คำเตือนแหล่งข้อมูล</string>
+    <string name="database_sync_title" formatted="false">การซิงค์ฐานข้อมูล</string>
+    <string name="days" formatted="false">{count, plural, =1{1 วัน} other{{count} วัน}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 วันที่แล้ว} other{{count} วันที่แล้ว}}</string>
+    <string name="days_vip" formatted="false">{days} วัน VIP</string>
+    <string name="db_init_success" formatted="false">เริ่มต้นฐานข้อมูลสำเร็จ!</string>
+    <string name="debt_collection" formatted="false">การทวงหนี้</string>
+    <string name="deep_link_confirm_button" formatted="false">ยืนยันการนำเข้า</string>
+    <string name="deep_link_default_plugin_name" formatted="false">ปลั๊กอินที่นำเข้า</string>
+    <string name="deep_link_default_sub_name" formatted="false">การสมัครรับที่นำเข้า</string>
+    <string name="deep_link_detected_title" formatted="false">ตรวจพบดิปลิงก์</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL ต้องไม่ว่างเปล่า</string>
+    <string name="deep_link_import_failed" formatted="false">นำเข้าล้มเหลว: {error}</string>
+    <string name="deep_link_import_success" formatted="false">นำเข้าสำเร็จ</string>
+    <string name="deep_link_import_title" formatted="false">นำเข้าการกำหนดค่า</string>
+    <string name="deep_link_name_label" formatted="false">ชื่อ</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">ดาวน์โหลดปลั๊กอินล้มเหลว: {error}</string>
+    <string name="deep_link_type_label" formatted="false">ประเภท</string>
+    <string name="deep_link_type_plugin" formatted="false">ปลั๊กอิน</string>
+    <string name="deep_link_type_subscription" formatted="false">การสมัครรับ</string>
+    <string name="deep_link_url_label" formatted="false">URL</string>
+    <string name="default_notifications" formatted="false">การแจ้งเตือนเริ่มต้น</string>
+    <string name="default_notifications_description" formatted="false">ช่องทางการแจ้งเตือนเริ่มต้นสำหรับแอป</string>
+    <string name="delete" formatted="false">ลบ</string>
+    <string name="delete_button" formatted="false">ลบ</string>
+    <string name="delete_contact" formatted="false">ลบผู้ติดต่อ</string>
+    <string name="delete_contact_confirm" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการลบ {name}</string>
+    <string name="delete_failed" formatted="false">การล้มเหลวในการลบ: {error}</string>
+    <string name="delete_label" formatted="false">ลบป้ายกำกับ</string>
+    <string name="delete_label_failed" formatted="false">ไม่สามารถลบป้ายกำกับได้: {error}</string>
+    <string name="delete_plugin" formatted="false">ลบปลั๊กอิน</string>
+    <string name="delete_plugin_failed" formatted="false">ไม่สามารถลบปลั๊กอินได้: {error}</string>
+    <string name="delete_plugins" formatted="false">ลบปลั๊กอิน</string>
+    <string name="delete_plugins_failed" formatted="false">ไม่สามารถลบปลั๊กอินได้: {error}</string>
+    <string name="delete_rule" formatted="false">ลบกฎ</string>
+    <string name="delete_rule_failed" formatted="false">การล้มเหลวในการลบ: {error}</string>
+    <string name="delete_selected" formatted="false">ลบรายการที่เลือก</string>
+    <string name="delete_subscription" formatted="false">ลบการสมัครรับ</string>
+    <string name="delete_subscription_confirm" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการลบการสมัครรับ &quot;{name}&quot;</string>
+    <string name="delete_subscription_failed" formatted="false">ไม่สามารถลบการสมัครรับได้: {error}</string>
+    <string name="delete_success" formatted="false">ลบสำเร็จ</string>
+    <string name="deletion_proposal" formatted="false">ข้อเสนอการลบ</string>
+    <string name="deletion_proposal_created" formatted="false">สร้างข้อเสนอการลบแล้ว</string>
+    <string name="deletion_proposal_created_body" formatted="false">ข้อเสนอการลบหมายเลข {phoneNumber} ของคุณได้รับการส่งเพื่อชุมชนตรวจสอบแล้ว</string>
+    <string name="deletion_proposal_description" formatted="false">เสนอหมายเลขเพื่อลบซึ่งละเมิดแนวทางชุมชน การมีส่วนร่วมของคุณช่วยให้แพลตฟอร์มปลอดภัย</string>
+    <string name="deletion_proposal_notification_description" formatted="false">การแจ้งเตือนเกี่ยวกับผลการโหวตข้อเสนอการลบและการอัปเดต</string>
+    <string name="deletion_proposals" formatted="false">ข้อเสนอการลบ</string>
+    <string name="delivery" formatted="false">การจัดส่ง</string>
+    <string name="description" formatted="false">คำอธิบาย</string>
+    <string name="detailed_settings_title" formatted="false">การตั้งค่าโดยละเอียด</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">รหัสอุปกรณ์</string>
+    <string name="device_management_subtitle" formatted="false">จัดการการซิงโครไนซ์หลายอุปกรณ์</string>
+    <string name="device_management_title" formatted="false">การจัดการอุปกรณ์</string>
+    <string name="device_model_label" formatted="false">รุ่นอุปกรณ์</string>
+    <string name="device_name" formatted="false">ชื่ออุปกรณ์</string>
+    <string name="device_name_label" formatted="false">ชื่ออุปกรณ์</string>
+    <string name="device_renamed_successfully_message" formatted="false">เปลี่ยนชื่ออุปกรณ์สำเร็จแล้ว</string>
+    <string name="device_unregistered_successfully_message" formatted="false">ยกเลิกการลงทะเบียนอุปกรณ์สำเร็จแล้ว</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">ซิงโครไนซ์อุปกรณ์สำเร็จแล้ว</string>
+    <string name="dialog_title" formatted="false">คำอธิบายรูปแบบ Regex</string>
+    <string name="different_from_local_counter" formatted="false">ฟีเจอร์นี้แตกต่างจากตัวกรองตัวนับภายในเครื่อง เนื่องจากมุ่งเน้นไปที่รูปแบบการโทรซ้ำๆ ในช่วงเวลาสั้นๆ แทนที่จะเป็นการนับเครื่องหมายในระยะยาว</string>
+    <string name="disable_global_plugins" formatted="false">ปิดใช้งานปลั๊กอินทั่วโลก</string>
+    <string name="disabled" formatted="false">ปิดใช้งาน</string>
+    <string name="disabled_status" formatted="false">ปิดใช้งาน</string>
+    <string name="disconnect_button" formatted="false">ตัดการเชื่อมต่อ</string>
+    <string name="disconnect_failed_message" formatted="false">การตัดการเชื่อมต่อล้มเหลว</string>
+    <string name="disconnected_message" formatted="false">ตัดการเชื่อมต่อแล้ว</string>
+    <string name="disconnected_status" formatted="false">ตัดการเชื่อมต่อแล้ว</string>
+    <string name="done" formatted="false">เสร็จสิ้น</string>
+    <string name="dual_sim_advice" formatted="false">ฟีเจอร์นี้มีประโยชน์อย่างยิ่งสำหรับโทรศัพท์ Dual-SIM ในการตั้งค่ากลยุทธ์การกรองที่แตกต่างกันสำหรับซิมการ์ดที่ทำงานและส่วนตัว</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">หมายเลข E164</string>
+    <string name="earlier" formatted="false">ก่อนหน้านี้</string>
+    <string name="earned_temp_vip" formatted="false">ได้รับ VIP ชั่วคราว</string>
+    <string name="ecommerce" formatted="false">อีคอมเมิร์ซ</string>
+    <string name="edit" formatted="false">แก้ไข</string>
+    <string name="edit_contact" formatted="false">แก้ไขผู้ติดต่อ</string>
+    <string name="edit_label" formatted="false">แก้ไขป้ายกำกับ</string>
+    <string name="edit_phone_rule" formatted="false">แก้ไขกฎโทรศัพท์</string>
+    <string name="edit_rule" formatted="false">แก้ไขกฎ</string>
+    <string name="edit_script" formatted="false">แก้ไขสคริปต์</string>
+    <string name="edit_script_for" formatted="false">แก้ไขสคริปต์สำหรับ {pluginName}</string>
+    <string name="edit_subscription" formatted="false">แก้ไขการสมัครสมาชิก</string>
+    <string name="education" formatted="false">การศึกษา</string>
+    <string name="element_positions_setting" formatted="false">ตำแหน่งองค์ประกอบ</string>
+    <string name="elements_settings_title" formatted="false">การตั้งค่าองค์ประกอบ</string>
+    <string name="email" formatted="false">อีเมล</string>
+    <string name="enable_call_filter" formatted="false">เปิดใช้งานการกรองการโทร</string>
+    <string name="enable_call_filter_description" formatted="false">เมื่อเปิดใช้งาน การโทรเข้าจะถูกตรวจสอบกับรายการกฎด้านล่าง โดยค่าเริ่มต้น กฎการกรองการโทรจะไม่ถูกซิงโครไนซ์ระหว่างอุปกรณ์</string>
+    <string name="enable_encryption" formatted="false">เปิดใช้งานการเข้ารหัส</string>
+    <string name="enable_encryption_description" formatted="false">เข้ารหัสไฟล์สำรอง</string>
+    <string name="enable_filtering" formatted="false">เปิดใช้งานการกรอง</string>
+    <string name="enable_fraud_alert" formatted="false">เปิดใช้งานการแจ้งเตือนการฉ้อโกง</string>
+    <string name="enable_fraud_alert_description" formatted="false">แจ้งเตือนสำหรับการโทรที่สงสัยว่าเป็นการหลอกลวง</string>
+    <string name="enable_global_plugins" formatted="false">เปิดใช้งานปลั๊กอินทั่วโลก</string>
+    <string name="enable_local_count_filter" formatted="false">เปิดใช้งานตัวกรองตัวนับภายในเครื่อง</string>
+    <string name="enable_local_count_filter_description" formatted="false">กรองสายสแปมโดยอัตโนมัติตามจำนวนการตั้งค่าการโทร</string>
+    <string name="enable_local_notification" formatted="false">ใช้การแจ้งเตือนภายในเครื่อง</string>
+    <string name="enable_local_notification_description" formatted="false">เมื่อเปิดใช้งาน การแจ้งเตือนสำหรับข้อความที่กรองจะแสดงบนอุปกรณ์</string>
+    <string name="enable_location_summary" formatted="false">ตำแหน่ง</string>
+    <string name="enable_mute_rules" formatted="false">เปิดใช้งานกฎปิดเสียง</string>
+    <string name="enable_mute_rules_desc" formatted="false">ใช้การกำหนดค่ากฎการดักจับแบบปิดเสียง</string>
+    <string name="enable_none_action_rules" formatted="false">เปิดใช้งานกฎไม่มีการดำเนินการ</string>
+    <string name="enable_none_action_rules_desc" formatted="false">อนุญาตให้กำหนดค่ากฎที่ไม่มีการดำเนินการดักจับ</string>
+    <string name="enable_remote_number_filter" formatted="false">เปิดใช้งานตัวกรองหมายเลขระยะไกล</string>
+    <string name="enable_remote_number_filter_description" formatted="false">ใช้ฐานข้อมูลระยะไกลเพื่อกรองหมายเลข</string>
+    <string name="enable_rule" formatted="false">เปิดใช้งานกฎ</string>
+    <string name="enable_security_message" formatted="false">เปิดใช้งานข้อความรักษาความปลอดภัย</string>
+    <string name="enable_sms_filter" formatted="false">เปิดใช้งานการกรอง SMS</string>
+    <string name="enable_sms_filter_description" formatted="false">เมื่อเปิดใช้งาน ข้อความจะถูกกรองโดยอัตโนมัติตามกฎ</string>
+    <string name="enable_time_interception" formatted="false">เปิดใช้งานการดักจับเวลา</string>
+    <string name="enable_time_interception_description" formatted="false">ดักจับการโทรซ้ำๆ ภายในช่วงเวลาสั้นๆ</string>
+    <string name="enable_time_interceptor" formatted="false">เปิดใช้งานตัวดักจับเวลา</string>
+    <string name="enable_vibration" formatted="false">เปิดใช้งานการสั่น</string>
+    <string name="enable_vibration_description" formatted="false">สั่นเมื่อการโทรสงสัยว่าเป็นการหลอกลวง</string>
+    <string name="enabled" formatted="false">เปิดใช้งาน</string>
+    <string name="enabled_status" formatted="false">เปิดใช้งาน</string>
+    <string name="end_call_immediately" formatted="false">วางสายทันที</string>
+    <string name="end_color" formatted="false">สีสิ้นสุด</string>
+    <string name="end_date" formatted="false">วันที่สิ้นสุด</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">คำแนะนำระบบตัวกรองขั้นสูง</string>
+    <string name="enhanced_filter_settings" formatted="false">การตั้งค่าตัวกรองขั้นสูง</string>
+    <string name="enhanced_filter_settings_title" formatted="false">การตั้งค่าตัวกรองขั้นสูง</string>
+    <string name="enhanced_filter_system_description" formatted="false">ระบบตัวกรองขั้นสูงรองรับทั้งกฎทั่วโลกและการกำหนดค่าการกรองต่อซิมการ์ด</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">โปรดป้อนทั้งหมายเลขโทรศัพท์และรูปแบบ Regex</string>
+    <string name="enter_contact_name" formatted="false">โปรดป้อนชื่อผู้ติดต่อ</string>
+    <string name="enter_device_name" formatted="false">ป้อนชื่ออุปกรณ์</string>
+    <string name="enter_email_optional" formatted="false">โปรดป้อนอีเมล (ไม่บังคับ)</string>
+    <string name="enter_encryption_password_hint" formatted="false">ป้อนรหัสผ่านการเข้ารหัส</string>
+    <string name="enter_icon_code" formatted="false">ป้อนรหัสไอคอน</string>
+    <string name="enter_name" formatted="false">ป้อนชื่อผู้ติดต่อ</string>
+    <string name="enter_new_device_name_hint" formatted="false">ป้อนชื่อใหม่สำหรับอุปกรณ์นี้</string>
+    <string name="enter_password_again" formatted="false">ป้อนรหัสผ่านอีกครั้ง</string>
+    <string name="enter_phone_number" formatted="false">ป้อนหมายเลขโทรศัพท์</string>
+    <string name="enter_phone_number_hint" formatted="false">ป้อนหมายเลขโทรศัพท์เพื่อทดสอบ</string>
+    <string name="enter_phone_number_multiple" formatted="false">โปรดป้อนหมายเลขโทรศัพท์ หลายหมายเลขคั่นด้วยเครื่องหมายจุลภาค</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">ป้อนหมายเลขโทรศัพท์เพื่อเริ่มการค้นหา</string>
+    <string name="enter_phone_number_to_verify" formatted="false">ป้อนหมายเลขโทรศัพท์เพื่อยืนยัน</string>
+    <string name="enter_plugin_description" formatted="false">ป้อนคำอธิบายปลั๊กอิน</string>
+    <string name="enter_plugin_name" formatted="false">ป้อนชื่อปลั๊กอิน</string>
+    <string name="enter_plugin_url" formatted="false">ป้อนที่อยู่ URL ของปลั๊กอิน</string>
+    <string name="enter_regex_hint" formatted="false">ป้อนรูปแบบ regex</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">กรุณากรอกชื่อกฎและรูปแบบ Regex</string>
+    <string name="enter_rule_name_hint" formatted="false">กรอกชื่อกฎ</string>
+    <string name="enter_search_content" formatted="false">กรุณากรอกเนื้อหาที่ต้องการค้นหา</string>
+    <string name="enter_subscription_name" formatted="false">กรอกชื่อการสมัครสมาชิก</string>
+    <string name="enter_subscription_url" formatted="false">กรอก URL การสมัครสมาชิก</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">กรุณากรอกชื่อโฟลเดอร์ที่จะซิงค์ (ค่าเริ่มต้น: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">กรุณากรอกชื่อและ URL ที่ถูกต้อง</string>
+    <string name="enter_valid_url" formatted="false">กรุณากรอก URL ที่ถูกต้อง</string>
+    <string name="enter_version" formatted="false">กรอกเวอร์ชัน</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">กรุณากรอกรหัสผ่าน WebDAV</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">กรุณากรอกที่อยู่เซิร์ฟเวอร์ WebDAV</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">กรุณากรอกชื่อผู้ใช้ WebDAV</string>
+    <string name="entertainment" formatted="false">ความบันเทิง</string>
+    <string name="entity_export_failed" formatted="false">ไม่สามารถส่งออก {entityTypeName}: {error}</string>
+    <string name="entity_export_success" formatted="false">ส่งออก {entityTypeName} สำเร็จ</string>
+    <string name="entity_import_failed" formatted="false">ไม่สามารถนำเข้า {entityTypeName}: {error}</string>
+    <string name="entity_import_success" formatted="false">นำเข้า {entityTypeName} สำเร็จ, รวม {count} รายการ</string>
+    <string name="entry_point_view_title" formatted="false">หน้าจอจุดเริ่มต้น</string>
+    <string name="error_loading_settings" formatted="false">ข้อผิดพลาดในการโหลดการตั้งค่า</string>
+    <string name="error_message" formatted="false">ข้อผิดพลาด: {error}</string>
+    <string name="error_occurred_message" formatted="false">เกิดข้อผิดพลาด: {error}</string>
+    <string name="error_prefix" formatted="false">ข้อผิดพลาด</string>
+    <string name="error_renaming_device_message" formatted="false">เกิดข้อผิดพลาดในการเปลี่ยนชื่ออุปกรณ์: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">เกิดข้อผิดพลาดในการซิงค์อุปกรณ์: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">เกิดข้อผิดพลาดในการยกเลิกการลงทะเบียนอุปกรณ์: {error}</string>
+    <string name="example_block400_prefix" formatted="false">เช่น หมายเลขนำหน้า 400</string>
+    <string name="example_block_marketing_sms" formatted="false">เช่น บล็อก SMS การตลาด</string>
+    <string name="example_content_regex_hint" formatted="false">ตัวอย่าง Regex เนื้อหา</string>
+    <string name="example_coupon_promotion_discount" formatted="false">เช่น .*(coupon|promotion|discount).*</string>
+    <string name="example_family_friends" formatted="false">เช่น ครอบครัว, เพื่อน, ฯลฯ</string>
+    <string name="example_phone_number" formatted="false">เช่น 10086, 12345, ฯลฯ</string>
+    <string name="example_regex400_prefix" formatted="false">ตัวอย่าง Regex สำหรับหมายเลขนำหน้า 400</string>
+    <string name="example_sender_regex_hint" formatted="false">ตัวอย่าง</string>
+    <string name="exchange" formatted="false">แลกเปลี่ยน</string>
+    <string name="exchange_failed" formatted="false">การแลกเปลี่ยนล้มเหลว: {error}</string>
+    <string name="exchange_now" formatted="false">แลกเปลี่ยนทันที</string>
+    <string name="exchange_success" formatted="false">แลกเปลี่ยนสำเร็จเป็น {description} หมดอายุ: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">แลกเปลี่ยน VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">เวลาหมดอายุ: {time}</string>
+    <string name="export" formatted="false">ส่งออก</string>
+    <string name="export_all_application_settings" formatted="false">ส่งออกการตั้งค่าแอปพลิเคชันทั้งหมด</string>
+    <string name="export_all_rule_configurations" formatted="false">ส่งออกการกำหนดค่ากฎทั้งหมด</string>
+    <string name="export_config" formatted="false">ส่งออกการกำหนดค่า</string>
+    <string name="export_contacts" formatted="false">ส่งออกรายชื่อติดต่อ</string>
+    <string name="export_data" formatted="false">ส่งออกข้อมูล</string>
+    <string name="export_entity" formatted="false">ส่งออก {entityTypeName}</string>
+    <string name="export_failed" formatted="false">ส่งออกไม่สำเร็จ</string>
+    <string name="export_failure" formatted="false">ส่งออกการกำหนดค่าไม่สำเร็จ</string>
+    <string name="export_feature_coming_soon" formatted="false">ฟีเจอร์ส่งออกกำลังจะมาเร็วๆ นี้</string>
+    <string name="export_labels" formatted="false">ส่งออกป้ายกำกับ</string>
+    <string name="export_labels_failed" formatted="false">ส่งออกป้ายกำกับไม่สำเร็จ: {error}</string>
+    <string name="export_plugin_list" formatted="false">ส่งออกรายการปลั๊กอิน</string>
+    <string name="export_plugin_list_failed" formatted="false">ส่งออกรายการปลั๊กอินไม่สำเร็จ: {error}</string>
+    <string name="export_rules" formatted="false">ส่งออกกฎ</string>
+    <string name="export_sms_rules" formatted="false">ส่งออกกฎ SMS</string>
+    <string name="export_statistics_data" formatted="false">ส่งออกข้อมูลสถิติ</string>
+    <string name="export_successlly" formatted="false">ส่งออกการกำหนดค่าสำเร็จแล้ว</string>
+    <string name="failed_to_add_rule" formatted="false">เพิ่มกฎไม่สำเร็จ: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">เพิ่มการสมัครสมาชิก SMS ไม่สำเร็จ: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">สำรองข้อมูลการตั้งค่าไม่สำเร็จ: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">ถอดรหัสไฟล์สำรองไม่สำเร็จ</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">ลบกฎ SMS ไม่สำเร็จ: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">ส่งออกกฎไม่สำเร็จ: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">ไม่สามารถรับข้อมูล ID ผู้โทร: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">นำเข้ากฎไม่สำเร็จ: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">การโหลดเค้าโครง การตั้งค่าล้มเหลว: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">กู้คืนการตั้งค่าไม่สำเร็จ</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">กู้คืนการตั้งค่าไม่สำเร็จ: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">เปลี่ยนสถานะกฎไม่สำเร็จ: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">รายชื่อติดต่อที่ชื่นชอบ</string>
+    <string name="feature" formatted="false">คุณสมบัติ</string>
+    <string name="feature_add_rules" formatted="false">• เพิ่มกฎสำหรับเบอร์โทรศัพท์เฉพาะ</string>
+    <string name="feature_center" formatted="false">ศูนย์กลางฟีเจอร์</string>
+    <string name="feature_enable_disable" formatted="false">• เปิด/ปิดตัวกรองต่างๆ ต่อ SIM</string>
+    <string name="feature_list_title" formatted="false">ฟีเจอร์:</string>
+    <string name="feature_manage_rules" formatted="false">• จัดการรายการกฎต่อ SIM</string>
+    <string name="features" formatted="false">ฟีเจอร์</string>
+    <string name="fetching_caller_id_info" formatted="false">กำลังดึงข้อมูล ID ผู้โทร...</string>
+    <string name="field_is_required" formatted="false">จำเป็นต้องกรอกฟิลด์นี้</string>
+    <string name="file_saved_to" formatted="false">บันทึกไฟล์ที่: {path}</string>
+    <string name="filter" formatted="false">ตัวกรอง</string>
+    <string name="filter_and_sort_title" formatted="false">กรองและเรียงลำดับ</string>
+    <string name="filter_by" formatted="false">กรองด้วย</string>
+    <string name="filter_by_action" formatted="false">กรองตามการดำเนินการ</string>
+    <string name="filter_by_label" formatted="false">กรองตามป้ายกำกับ</string>
+    <string name="filter_control_panel_title" formatted="false">แผงควบคุมตัวกรอง</string>
+    <string name="filter_control_subtitle" formatted="false">จัดการสถานะเปิด/ปิดของตัวกรองทั้งหมด</string>
+    <string name="filter_control_title" formatted="false">ตัวควบคุมตัวกรอง</string>
+    <string name="filter_explanation" formatted="false">คำอธิบายตัวกรอง</string>
+    <string name="filter_management" formatted="false">การจัดการตัวกรอง</string>
+    <string name="filter_management_description" formatted="false">ตั้งค่าตัวกรองการโทร</string>
+    <string name="filter_name" formatted="false">ชื่อตัวกรอง</string>
+    <string name="filter_priority_note" formatted="false">หมายเหตุ: มีความสัมพันธ์ลำดับความสำคัญระหว่างตัวกรอง โปรดดูเอกสารช่วยเหลือสำหรับรายละเอียด</string>
+    <string name="filter_s_m_s" formatted="false">กรอง SMS</string>
+    <string name="filter_settings" formatted="false">การตั้งค่าตัวกรอง</string>
+    <string name="filter_settings_title" formatted="false">การตั้งค่าตัวกรอง</string>
+    <string name="filter_toggle_instructions" formatted="false">เปิดหรือปิดตัวกรองสำหรับช่อง SIM นี้:</string>
+    <string name="filter_toggle_status" formatted="false">เปิด/ปิดตัวกรอง: {filterName}</string>
+    <string name="filter_type" formatted="false">ประเภทตัวกรอง</string>
+    <string name="filter_verified_owner" formatted="false">กรองเจ้าของที่ยืนยันแล้ว</string>
+    <string name="filtered" formatted="false">กรองแล้ว</string>
+    <string name="final_risk" formatted="false">ความเสี่ยงสุดท้าย</string>
+    <string name="financial" formatted="false">การเงิน</string>
+    <string name="flexible_combination_feature" formatted="false">• การผสมผสานที่ยืดหยุ่น: เปิด/ปิดตัวกรองต่อช่อง SIM</string>
+    <string name="font_sizes_setting" formatted="false">ขนาดตัวอักษร</string>
+    <string name="found_rules" formatted="false">พบกฎ {count} รายการ</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">เพื่อตั้งค่าการแจ้งเตือนการฉ้อโกง</string>
+    <string name="fraud_aler_setting_title" formatted="false">การตั้งค่าการแจ้งเตือนการฉ้อโกง</string>
+    <string name="fraud_alert" formatted="false">การแจ้งเตือนการฉ้อโกง - วางสาย</string>
+    <string name="fraud_alert_title" formatted="false">การแจ้งเตือนการฉ้อโกง</string>
+    <string name="fraud_alerts" formatted="false">การแจ้งเตือนการฉ้อโกง</string>
+    <string name="fraud_alerts_description" formatted="false">แสดงคำเตือนสำหรับสายเรียกเข้าที่อาจเป็นการฉ้อโกง</string>
+    <string name="fraud_scam_likely" formatted="false">น่าจะเป็นการหลอกลวง</string>
+    <string name="free" formatted="false">ฟรี</string>
+    <string name="function_settings_title" formatted="false">การตั้งค่าฟังก์ชัน</string>
+    <string name="general_update_failure" formatted="false">อัปเดตล้มเหลว: {error}</string>
+    <string name="get_free" formatted="false">รับฟรี</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">กำหนดค่าตัวกรองทั่วโลกสำหรับซิมการ์ดทั้งหมด:</string>
+    <string name="global_filter_feature" formatted="false">• ตัวกรองทั่วโลก: กฎพื้นฐานสำหรับสายเรียกเข้าทั้งหมด</string>
+    <string name="global_filter_settings" formatted="false">การตั้งค่าตัวกรองทั่วโลก</string>
+    <string name="global_settings" formatted="false">การตั้งค่าทั่วโลก</string>
+    <string name="google_drive_auth_description" formatted="false">อนุญาตโดยใช้รหัสและคีย์ไคลเอ็นต์ Google Drive ที่กำหนดค่าในระบบ</string>
+    <string name="google_drive_config_title" formatted="false">การกำหนดค่า Google Drive</string>
+    <string name="government" formatted="false">รัฐบาล</string>
+    <string name="grant_necessary_permissions" formatted="false">ให้สิทธิ์ที่จำเป็น</string>
+    <string name="grant_permissions" formatted="false">ให้สิทธิ์</string>
+    <string name="granted" formatted="false">ได้รับอนุญาตแล้ว</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">คุณได้รับสิทธิ์การซื้อชั่วคราว {days} วัน หมดอายุ: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">แนวทางปฏิบัติ</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">คุณมีสิทธิ์ชั่วคราวแล้ว หมดอายุ: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">คุณมีสิทธิ์ VIP อยู่แล้ว (ยกเว้นโฆษณา)</string>
+    <string name="headhunter" formatted="false">ผู้สรรหาบุคลากร</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">ความสูง</string>
+    <string name="high" formatted="false">สูง</string>
+    <string name="high_risk" formatted="false">ความเสี่ยงสูง</string>
+    <string name="home_tab" formatted="false">หน้าแรก</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 ชั่วโมงที่แล้ว} other{{count} ชั่วโมงที่แล้ว}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 ชั่วโมง} =1{1 ชั่วโมง} other{{count} ชั่วโมง}}</string>
+    <string name="how_it_works_point1" formatted="false">• ระบบจะอนุญาตสายเรียกเข้าจากหมายเลขเดียวกันโดยอัตโนมัติภายในกรอบเวลาที่กำหนด</string>
+    <string name="how_it_works_point2" formatted="false">• กรอบเวลาที่สั้นลงจะทำให้การสกัดกั้นเข้มงวดขึ้น กรอบเวลาที่ยาวขึ้นจะทำให้การสกัดกั้นหลวมขึ้น</string>
+    <string name="how_it_works_point3" formatted="false">• ระบบจะตรวจสอบบันทึกการโทรเพื่อพิจารณาว่าเป็นสายที่โทรซ้ำหรือไม่</string>
+    <string name="how_it_works_title" formatted="false">วิธีการทำงาน:</string>
+    <string name="icon_code_optional" formatted="false">รหัสไอคอน (ไม่บังคับ)</string>
+    <string name="icon_size" formatted="false">ขนาดไอคอน</string>
+    <string name="import" formatted="false">นำเข้า</string>
+    <string name="import_config" formatted="false">นำเข้าการกำหนดค่า</string>
+    <string name="import_contacts" formatted="false">นำเข้าผู้ติดต่อ</string>
+    <string name="import_entity" formatted="false">นำเข้า {entityTypeName}</string>
+    <string name="import_export" formatted="false">นำเข้า/ส่งออก</string>
+    <string name="import_export_contacts" formatted="false">นำเข้า/ส่งออกผู้ติดต่อ</string>
+    <string name="import_export_contacts_tooltip" formatted="false">นำเข้า/ส่งออกผู้ติดต่อ</string>
+    <string name="import_export_description" formatted="false">นำเข้าหรือส่งออกข้อมูล {entityTypeName}</string>
+    <string name="import_export_rules" formatted="false">นำเข้า/ส่งออกกฎ</string>
+    <string name="import_export_title" formatted="false">นำเข้า/ส่งออก</string>
+    <string name="import_failed" formatted="false">การนำเข้าล้มเหลว: {error}</string>
+    <string name="import_failure" formatted="false">ไม่สามารถนำเข้าการกำหนดค่าได้</string>
+    <string name="import_feature_coming_soon" formatted="false">ฟีเจอร์นำเข้าจะมาเร็วๆ นี้</string>
+    <string name="import_labels" formatted="false">นำเข้าป้ายกำกับ</string>
+    <string name="import_labels_failed" formatted="false">ไม่สามารถนำเข้าป้ายกำกับได้: {error}</string>
+    <string name="import_plugin_list" formatted="false">นำเข้ารายการปลั๊กอิน</string>
+    <string name="import_plugin_list_failed" formatted="false">ไม่สามารถนำเข้ารายการปลั๊กอินได้: {error}</string>
+    <string name="import_plugin_success" formatted="false">นำเข้าปลั๊กอินสำเร็จ {count} รายการ</string>
+    <string name="import_rule_configurations_from_file" formatted="false">นำเข้าการกำหนดค่ากฎจากไฟล์</string>
+    <string name="import_rules" formatted="false">นำเข้ากฎ</string>
+    <string name="import_success" formatted="false">นำเข้าสำเร็จ</string>
+    <string name="important" formatted="false">สำคัญ</string>
+    <string name="important_notice_title" formatted="false">ประกาศสำคัญ</string>
+    <string name="incoming_call_intercept_action" formatted="false">การดำเนินการสกัดกั้นสายเรียกเข้า</string>
+    <string name="incorrect_password" formatted="false">รหัสผ่านไม่ถูกต้อง</string>
+    <string name="init_db_button" formatted="false">เริ่มใช้งานฐานข้อมูล</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">ป้อน URL กำหนดค่า JSON มิเรอร์ที่โฮสต์เอง</string>
+    <string name="initial_setup_custom_url_load" formatted="false">โหลดการกำหนดค่า</string>
+    <string name="initial_setup_desc" formatted="false">โปรดเลือกฐานข้อมูลกฎระดับภูมิภาคที่คุณต้องการบล็อก กฎเหล่านี้จะช่วยบล็อกสายขายของและสายฉ้อโกงโดยอัตโนมัติ</string>
+    <string name="initial_setup_deselect_all" formatted="false">ล้างการเลือก</string>
+    <string name="initial_setup_detected_location" formatted="false">ตำแหน่งที่ตรวจพบ</string>
+    <string name="initial_setup_get_failed" formatted="false">รับการกำหนดค่าล้มเหลว</string>
+    <string name="initial_setup_go_to_settings" formatted="false">ไปที่การตั้งค่า</string>
+    <string name="initial_setup_retry" formatted="false">ลองใหม่</string>
+    <string name="initial_setup_save" formatted="false">บันทึกกฎที่เลือก</string>
+    <string name="initial_setup_save_failed" formatted="false">บันทึกการกำหนดค่าล้มเหลว: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ บันทึกการกำหนดค่าสำเร็จ</string>
+    <string name="initial_setup_saving" formatted="false">กำลังบันทึก...</string>
+    <string name="initial_setup_search_hint" formatted="false">ค้นหาชุดกฎหรือประเทศ...</string>
+    <string name="initial_setup_select_all" formatted="false">เลือกทั้งหมด</string>
+    <string name="initial_setup_selected_count" formatted="false">เลือกแล้ว {count} รายการ</string>
+    <string name="initial_setup_settings_hint" formatted="false">คำแนะนำ: คุณสามารถเปิดหน้าการตั้งค่านี้อีกครั้งได้ตลอดเวลาในการตั้งค่า</string>
+    <string name="initial_setup_skip" formatted="false">ข้าม</string>
+    <string name="initial_setup_source_cdn" formatted="false">แหล่งเร่งความเร็ว CDN มิเรอร์</string>
+    <string name="initial_setup_source_custom" formatted="false">แหล่งมิเรอร์ที่โฮสต์เอง</string>
+    <string name="initial_setup_source_github" formatted="false">แหล่งทางการของ GitHub</string>
+    <string name="initial_setup_source_title" formatted="false">แหล่งฐานข้อมูลกฎ</string>
+    <string name="initial_setup_title" formatted="false">ตั้งค่าฐานข้อมูลกฎ</string>
+    <string name="initializing" formatted="false">กำลังเริ่มต้น</string>
+    <string name="installed" formatted="false">ติดตั้งแล้ว</string>
+    <string name="insufficient_marks" formatted="false">คะแนนไม่เพียงพอ</string>
+    <string name="insurance" formatted="false">ประกันภัย</string>
+    <string name="intercept_action" formatted="false">การดำเนินการสกัดกั้น</string>
+    <string name="interception_action_settings_subtitle" formatted="false">ตั้งค่าการจัดการสายที่ถูกบล็อก</string>
+    <string name="interception_action_settings_title" formatted="false">การตั้งค่าการดำเนินการสกัดกั้น</string>
+    <string name="interception_time_interval" formatted="false">ช่วงเวลาสกัดกั้น</string>
+    <string name="internet" formatted="false">อินเทอร์เน็ต</string>
+    <string name="interval_set_success" formatted="false">ตั้งค่าช่วงเวลาอัปเดต {service} เป็น {days} วันแล้ว</string>
+    <string name="invalid_content_regex" formatted="false">Regex เนื้อหาไม่ถูกต้อง</string>
+    <string name="invalid_exchange_rule" formatted="false">กฎการแลกเปลี่ยนไม่ถูกต้อง</string>
+    <string name="invalid_label" formatted="false">ป้ายชื่อไม่ถูกต้อง</string>
+    <string name="invalid_regex_pattern" formatted="false">รูปแบบนิพจน์ทั่วไปไม่ถูกต้อง</string>
+    <string name="invalid_sender_regex" formatted="false">รูปแบบนิพจน์ทั่วไปของผู้ส่งไม่ถูกต้อง</string>
+    <string name="invalid_sim_data" formatted="false">ข้อมูล SIM ไม่ถูกต้อง</string>
+    <string name="ip_country" formatted="false">ประเทศ IP</string>
+    <string name="is_number_match" formatted="false">ตรงกับหมายเลข</string>
+    <string name="is_roaming" formatted="false">กำลังโรมมิ่ง</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">เข้าร่วม Telegram Channel และ Group เพื่อข้อมูลเพิ่มเติม</string>
+    <string name="json_format" formatted="false">รูปแบบ JSON</string>
+    <string name="just_now" formatted="false">เมื่อสักครู่</string>
+    <string name="keep_all_versions" formatted="false">เก็บทุกเวอร์ชัน</string>
+    <string name="keep_all_versions_description" formatted="false">เก็บประวัติเวอร์ชันสำรองทั้งหมด</string>
+    <string name="label" formatted="false">ป้ายชื่อ</string>
+    <string name="label_action_description" formatted="false">เพิ่มป้ายกำกับให้กับการโทรเพื่อการระบุตัวตนที่ง่าย</string>
+    <string name="label_added_successfully" formatted="false">เพิ่มป้ายชื่อ &quot;{name}&quot; สำเร็จแล้ว</string>
+    <string name="label_categories" formatted="false">หมวดหมู่ป้ายชื่อ</string>
+    <string name="label_deleted" formatted="false">ลบป้ายชื่อแล้ว</string>
+    <string name="label_description" formatted="false">ป้ายชื่อช่วยให้คุณจัดการผู้ติดต่อได้ดีขึ้น เพิ่มป้ายชื่อแบบกำหนดเองให้กับหมายเลขโทรศัพท์เพื่อระบุการโทรและข้อความได้ง่าย</string>
+    <string name="label_filter_tooltip" formatted="false">ตัวกรองป้ายชื่อ</string>
+    <string name="label_icon_color" formatted="false">สีไอคอนป้ายชื่อ</string>
+    <string name="label_management" formatted="false">การจัดการป้ายชื่อ</string>
+    <string name="label_not_found" formatted="false">ไม่พบป้ายชื่อ</string>
+    <string name="label_tag" formatted="false">ป้ายชื่อ: {labelId}</string>
+    <string name="label_update_failed" formatted="false">ล้มเหลวในการอัปเดตป้ายชื่อ: {error}</string>
+    <string name="label_update_success" formatted="false">อัปเดตป้ายชื่อ &quot;$labelText&quot; สำเร็จแล้ว</string>
+    <string name="labels" formatted="false">ป้ายชื่อ</string>
+    <string name="labels_color" formatted="false">สีของป้ายชื่อ</string>
+    <string name="labels_deleted" formatted="false">ลบป้ายชื่อแล้ว {count} รายการ</string>
+    <string name="labels_exported_successfully" formatted="false">ส่งออกป้ายชื่อสำเร็จแล้ว</string>
+    <string name="labels_font_size" formatted="false">ขนาดตัวอักษรป้ายชื่อ</string>
+    <string name="labels_imported_successfully" formatted="false">นำเข้าป้ายชื่อสำเร็จแล้ว {count} รายการ</string>
+    <string name="labels_position" formatted="false">ตำแหน่งของป้ายชื่อ</string>
+    <string name="language_settings" formatted="false">การตั้งค่าภาษา</string>
+    <string name="language_settings_subtitle" formatted="false">เปลี่ยนภาษาที่แสดงของแอปพลิเคชัน</string>
+    <string name="language_settings_title" formatted="false">การตั้งค่าภาษา</string>
+    <string name="last_sync_label" formatted="false">การซิงค์ครั้งล่าสุด</string>
+    <string name="last_updated" formatted="false">อัปเดตล่าสุด: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">เว้นว่างไว้เพื่อใช้ค่าเริ่มต้น</string>
+    <string name="lifetime_membership" formatted="false">สมาชิกตลอดชีพ</string>
+    <string name="lifetime_membership_description" formatted="false">ซื้อครั้งเดียว ปลดล็อกฟีเจอร์พรีเมียมทั้งหมดและการอัปเดตในอนาคตอย่างถาวร</string>
+    <string name="list_view" formatted="false">มุมมองรายการ</string>
+    <string name="live_activities_settings_title" formatted="false">การตั้งค่ากิจกรรมสด</string>
+    <string name="live_activities_test_end_activity" formatted="false">สิ้นสุดกิจกรรม</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">ส่งกิจกรรมใหม่</string>
+    <string name="live_activities_test_title" formatted="false">ทดสอบกิจกรรมสด</string>
+    <string name="live_activities_test_update_activity" formatted="false">อัปเดตกิจกรรม</string>
+    <string name="live_activity_controls_title" formatted="false">การควบคุมกิจกรรมสด</string>
+    <string name="live_activity_mode" formatted="false">กิจกรรมสด</string>
+    <string name="live_activity_mode_description" formatted="false">แสดงข้อมูลสายเรียกเข้าเป็นการแจ้งเตือนที่คงอยู่บนหน้าจอล็อกและใน Dynamic Island (iOS)</string>
+    <string name="live_notification_customization_subtitle" formatted="false">ปรับแต่งรูปลักษณ์ของการแจ้งเตือนสด</string>
+    <string name="live_notification_customization_title" formatted="false">การปรับแต่งการแจ้งเตือนสด</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">ไม่สามารถโหลดรายชื่อผู้ติดต่อได้: {error}</string>
+    <string name="load_data_failed" formatted="false">ไม่สามารถโหลดข้อมูลได้</string>
+    <string name="load_label_failed" formatted="false">ไม่สามารถโหลดป้ายชื่อได้: {error}</string>
+    <string name="load_labels_failed" formatted="false">ไม่สามารถโหลดป้ายชื่อได้: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">ไม่สามารถโหลดหมายเลขโทรศัพท์ที่ถูกทำเครื่องหมายได้: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">ไม่สามารถโหลดหมายเลขโทรศัพท์ที่ถูกทำเครื่องหมายได้: {error}</string>
+    <string name="load_plugins_failed" formatted="false">ไม่สามารถโหลดปลั๊กอินได้: {error}</string>
+    <string name="load_settings_failed" formatted="false">ไม่สามารถโหลดการตั้งค่าได้: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">ไม่สามารถโหลดกฎ SMS ได้: {error}</string>
+    <string name="load_status_failed_message" formatted="false">ไม่สามารถโหลดสถานะได้</string>
+    <string name="load_subscriptions_failed" formatted="false">ไม่สามารถโหลดการสมัครสมาชิกได้: {error}</string>
+    <string name="loading" formatted="false">กำลังโหลด...</string>
+    <string name="loading_ad" formatted="false">กำลังโหลดโฆษณา...</string>
+    <string name="loading_tags" formatted="false">กำลังโหลดแท็ก...</string>
+    <string name="loan" formatted="false">เงินกู้</string>
+    <string name="local_count_filter" formatted="false">ตัวกรองจำนวนภายในเครื่อง</string>
+    <string name="local_count_filter_description" formatted="false">ดักจับสายที่โทรบ่อยตามจำนวนหมายเลขภายในเครื่อง</string>
+    <string name="local_count_filter_explanation_content" formatted="false">ตัวกรองจำนวนภายในเครื่องจะวิเคราะห์บันทึกประวัติการโทรเพื่อระบุและบล็อกสายสแปมที่โทรบ่อยโดยอัตโนมัติ</string>
+    <string name="local_count_filter_explanation_title" formatted="false">คำอธิบายตัวกรองจำนวนภายในเครื่อง</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• กำหนดว่าจะบล็อกหรือไม่ตามค่าจำนวนของหมายเลข</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• เมื่อจำนวนของหมายเลขเกินเกณฑ์ที่ตั้งไว้ คุณสามารถเลือกที่จะบล็อกโดยอัตโนมัติได้</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• คุณสามารถเลือกอนุญาตหมายเลขที่ไม่เกินเกณฑ์ได้</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• คุณสามารถเลือกว่าจะบันทึกบันทึกการสอบถามทั้งหมดหรือไม่</string>
+    <string name="local_count_filter_settings" formatted="false">การตั้งค่าตัวกรองจำนวนภายในเครื่อง</string>
+    <string name="local_count_filter_use_cases" formatted="false">ตัวกรองนี้เหมาะอย่างยิ่งสำหรับการระบุสายสแปมที่โทรอัตโนมัติและสายการตลาด</string>
+    <string name="local_count_filtering" formatted="false">การกรองจำนวนภายในเครื่อง</string>
+    <string name="local_count_filtering_explanation" formatted="false">• การกรองจำนวนภายในเครื่อง: กฎการกรองตามจำนวนการทำเครื่องหมายภายในเครื่อง</string>
+    <string name="local_counter_filter" formatted="false">ตัวกรองตัวนับภายในเครื่อง</string>
+    <string name="local_counter_filter_subtitle" formatted="false">กรองสายสแปมโดยอัตโนมัติตามความถี่ในการโทร</string>
+    <string name="local_database_sync_subtitle" formatted="false">ซิงค์ข้อมูลระหว่างอุปกรณ์</string>
+    <string name="local_database_sync_title" formatted="false">ซิงค์ฐานข้อมูลท้องถิ่น</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">การตั้งค่าตัวกรองภายในเครื่อง</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">การแจ้งเตือนภายในเครื่องปิดใช้งานแล้ว</string>
+    <string name="local_notification_enabled" formatted="false">การแจ้งเตือนภายในเครื่องเปิดใช้งานแล้ว</string>
+    <string name="local_services" formatted="false">บริการภายในเครื่อง</string>
+    <string name="location" formatted="false">สถานที่</string>
+    <string name="location_color" formatted="false">สีตำแหน่ง</string>
+    <string name="location_font_size" formatted="false">ขนาดตัวอักษรตำแหน่ง</string>
+    <string name="location_icon_color" formatted="false">สีไอคอนตำแหน่ง</string>
+    <string name="location_position" formatted="false">ตำแหน่งตำแหน่ง</string>
+    <string name="log" formatted="false">บันทึก</string>
+    <string name="log_action_description" formatted="false">บันทึกข้อมูลการโทรโดยไม่ดำเนินการอื่นใด</string>
+    <string name="log_all_local_queries" formatted="false">บันทึกการสอบถามภายในเครื่องทั้งหมด</string>
+    <string name="log_all_local_queries_description" formatted="false">บันทึกบันทึกสำหรับการสอบถามหมายเลขภายในเครื่องทั้งหมด</string>
+    <string name="log_all_remote_queries" formatted="false">บันทึกการสอบถามภายนอกทั้งหมด</string>
+    <string name="log_all_remote_queries_description" formatted="false">บันทึกการดำเนินการสอบถามหมายเลขภายนอกทั้งหมด</string>
+    <string name="low" formatted="false">ต่ำ</string>
+    <string name="low_risk" formatted="false">ความเสี่ยงต่ำ</string>
+    <string name="manage" formatted="false">จัดการ</string>
+    <string name="manage_favorite_contacts" formatted="false">จัดการรายชื่อผู้ติดต่อที่ชื่นชอบ</string>
+    <string name="manage_filter_rules" formatted="false">จัดการกฎตัวกรอง</string>
+    <string name="manage_filter_rules_description" formatted="false">เพิ่ม แก้ไข หรือลบกฎตัวกรอง SMS</string>
+    <string name="manual_entry" formatted="false">ข้อมูลการป้อนด้วยตนเอง</string>
+    <string name="mark_count" formatted="false">จำนวนเครื่องหมาย</string>
+    <string name="mark_counts" formatted="false">จำนวนเครื่องหมาย</string>
+    <string name="mark_exchange" formatted="false">แลกเปลี่ยนเครื่องหมาย</string>
+    <string name="mark_more_numbers_for_more" formatted="false">ทำเครื่องหมายหมายเลขเพิ่มเติมเพื่อรับคะแนนเพิ่ม</string>
+    <string name="mark_phone" formatted="false">ทำเครื่องหมายหมายเลขโทรศัพท์</string>
+    <string name="mark_phone_failed" formatted="false">ไม่สามารถตั้งค่าหมายเลขโทรศัพท์: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">การจัดการหมายเลขโทรศัพท์</string>
+    <string name="mark_phone_success" formatted="false">ตั้งค่าหมายเลขโทรศัพท์สำเร็จแล้ว</string>
+    <string name="marked_by_count" formatted="false">ทำเครื่องหมายโดย {count}</string>
+    <string name="marked_phones_list" formatted="false">รายการหมายเลขโทรศัพท์ที่ถูกทำเครื่องหมาย</string>
+    <string name="marks_insufficient" formatted="false">เครื่องหมายไม่เพียงพอสำหรับการแลก</string>
+    <string name="master_and_overrides" formatted="false">การควบคุมหลัก</string>
+    <string name="master_and_overrides_desc" formatted="false">การตั้งค่ากฎส่วนกลาง</string>
+    <string name="master_device_help" formatted="false">เฉพาะอุปกรณ์หลักเท่านั้นที่สามารถเริ่มต้นโครงสร้างฐานข้อมูลได้</string>
+    <string name="master_device_label" formatted="false">อุปกรณ์หลัก (ผู้ดูแลระบบ)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">ไม่ตรงกัน</string>
+    <string name="match_numbers_with_special_characters" formatted="false">ตรงกับรูปแบบตัวเลขเฉพาะ</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">ตรงกับตัวเลขที่มีอักขระพิเศษ:</string>
+    <string name="match_specific_digit_patterns" formatted="false">ตรงกับรูปแบบ XXX-XXXX-XXXX</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">ตรงกับรูปแบบตัวเลขเฉพาะ:</string>
+    <string name="match_successful_message" formatted="false">ตรงกันสำเร็จ!</string>
+    <string name="medical" formatted="false">การแพทย์</string>
+    <string name="medium" formatted="false">ปานกลาง</string>
+    <string name="medium_risk" formatted="false">ความเสี่ยงปานกลาง</string>
+    <string name="membership_center" formatted="false">ศูนย์สมาชิก</string>
+    <string name="membership_privileges" formatted="false">สิทธิประโยชน์สมาชิก</string>
+    <string name="message_background_color" formatted="false">สีพื้นหลังข้อความ</string>
+    <string name="message_color" formatted="false">สีข้อความ</string>
+    <string name="message_font_size" formatted="false">ขนาดตัวอักษรข้อความ</string>
+    <string name="message_position" formatted="false">ตำแหน่งข้อความ</string>
+    <string name="migration_tool" formatted="false">เครื่องมือย้ายข้อมูล</string>
+    <string name="minutes" formatted="false">นาที</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 นาทีที่แล้ว} other{{count} นาทีที่แล้ว}}</string>
+    <string name="moderate" formatted="false">ปานกลาง</string>
+    <string name="month" formatted="false">เดือน</string>
+    <string name="monthly" formatted="false">รายเดือน</string>
+    <string name="monthly_call_count" formatted="false">จำนวนสายรายเดือน</string>
+    <string name="monthly_membership" formatted="false">สมาชิกรายเดือน</string>
+    <string name="monthly_membership_description" formatted="false">ปลดล็อกฟีเจอร์พรีเมียมทั้งหมด, ต่ออายุอัตโนมัติรายเดือน</string>
+    <string name="monthly_total" formatted="false">ยอดรวมรายเดือน</string>
+    <string name="more_options" formatted="false">ตัวเลือกเพิ่มเติม</string>
+    <string name="mute" formatted="false">ปิดเสียง</string>
+    <string name="name" formatted="false">ชื่อ</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">ชื่อและหมายเลขโทรศัพท์ต้องไม่ว่างเปล่า</string>
+    <string name="name_cannot_be_empty" formatted="false">ชื่อต้องไม่ว่างเปล่า</string>
+    <string name="name_color" formatted="false">สีชื่อ</string>
+    <string name="name_font_size" formatted="false">ขนาดตัวอักษรชื่อ</string>
+    <string name="name_position" formatted="false">ตำแหน่งชื่อ</string>
+    <string name="name_unknown" formatted="false">ชื่อ: ไม่รู้จัก</string>
+    <string name="national_number" formatted="false">หมายเลขประจำชาติ</string>
+    <string name="need_vip_access" formatted="false">คุณต้องเข้าถึง VIP เพื่อใช้คุณสมบัตินี้</string>
+    <string name="new_vote_received" formatted="false">ได้รับโหวตใหม่แล้ว</string>
+    <string name="new_vote_received_body" formatted="false">มีคนโหวต {voteType} การลบหมายเลข {phoneNumber} แล้ว โหวตปัจจุบัน: {totalVotes}</string>
+    <string name="next_step" formatted="false">ถัดไป</string>
+    <string name="no_action" formatted="false">ไม่มีการดำเนินการ</string>
+    <string name="no_action_rules" formatted="false">ไม่มีกฎการดำเนินการ</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">ไม่มีบริการซิงค์คลาวด์ที่ใช้งานอยู่</string>
+    <string name="no_activity" formatted="false">ไม่มีกิจกรรม</string>
+    <string name="no_ads" formatted="false">ไม่มีโฆษณา</string>
+    <string name="no_allowed_blocked_rules" formatted="false">ไม่พบกฎที่อนุญาต/บล็อก</string>
+    <string name="no_blocked_type_data" formatted="false">ไม่มีข้อมูลประเภทที่ถูกบล็อก</string>
+    <string name="no_call_records" formatted="false">ไม่มีบันทึกการโทร</string>
+    <string name="no_contacts_yet" formatted="false">ยังไม่มีผู้ติดต่อ</string>
+    <string name="no_data" formatted="false">ไม่มีข้อมูล</string>
+    <string name="no_devices_registered_message" formatted="false">ยังไม่มีอุปกรณ์ที่ลงทะเบียน</string>
+    <string name="no_labels" formatted="false">ยังไม่มีป้ายกำกับ</string>
+    <string name="no_marked_phones" formatted="false">ยังไม่มีหมายเลขโทรศัพท์ที่ตั้งค่าไว้</string>
+    <string name="no_matching_contacts_found" formatted="false">ไม่พบผู้ติดต่อที่ตรงกัน</string>
+    <string name="no_matching_numbers_found" formatted="false">ไม่พบหมายเลขที่ตรงกัน</string>
+    <string name="no_matching_rules" formatted="false">ไม่พบ {ruleType} ที่ตรงกัน</string>
+    <string name="no_notifications" formatted="false">ไม่มีการแจ้งเตือน</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">ไม่พบกฎหมายเลขโทรศัพท์</string>
+    <string name="no_plugins" formatted="false">ยังไม่มีปลั๊กอิน</string>
+    <string name="no_proposals_found" formatted="false">ไม่พบข้อเสนอ</string>
+    <string name="no_regex_rules" formatted="false">ไม่พบกฎ regex</string>
+    <string name="no_rules" formatted="false">ยังไม่มี {ruleType}</string>
+    <string name="no_rules_prompt" formatted="false">ไม่พบกฎ, โปรดเพิ่มกฎ</string>
+    <string name="no_rules_to_export" formatted="false">ไม่มีกฎให้ส่งออก</string>
+    <string name="no_sim_card_detected" formatted="false">ไม่พบซิมการ์ด</string>
+    <string name="no_sim_cards_detected" formatted="false">ไม่พบซิมการ์ด</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">ยังไม่มีกฎตัวกรอง SMS</string>
+    <string name="no_sms_rules_yet" formatted="false">ยังไม่มีกฎ SMS</string>
+    <string name="no_subscriptions" formatted="false">ไม่มีการสมัครสมาชิก</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">ไม่พบกฎ SMS ที่ถูกต้องในไฟล์</string>
+    <string name="none" formatted="false">ไม่มี</string>
+    <string name="none_action_description" formatted="false">จะไม่มีการดำเนินการพิเศษใดๆ กับการโทร</string>
+    <string name="none_service_type" formatted="false">ไม่มี</string>
+    <string name="normal_user" formatted="false">ผู้ใช้ทั่วไป</string>
+    <string name="not_granted" formatted="false">ไม่ได้รับอนุญาต</string>
+    <string name="not_verified_text" formatted="false">ยังไม่ยืนยัน</string>
+    <string name="notification_frequency_hours" formatted="false">ความถี่ในการแจ้งเตือน (ชั่วโมง)</string>
+    <string name="notification_frequency_title" formatted="false">ความถี่ในการแจ้งเตือน</string>
+    <string name="notification_mode" formatted="false">โหมดการแจ้งเตือน</string>
+    <string name="notification_mode_description" formatted="false">แสดงข้อมูลผู้โทรในแถบแจ้งเตือน</string>
+    <string name="notification_permission" formatted="false">การอนุญาตแจ้งเตือน</string>
+    <string name="notification_permission_description" formatted="false">ใช้เพื่อแสดงการแจ้งเตือนสายเรียกเข้าและข้อความ</string>
+    <string name="notification_settings" formatted="false">การตั้งค่าการแจ้งเตือน</string>
+    <string name="notification_settings_title" formatted="false">การตั้งค่าการแจ้งเตือน</string>
+    <string name="notification_instructions" formatted="false">คำแนะนำ:
+1. แตะ &quot;ส่ง&quot; เพื่อสร้างหรืออัปเดตการแจ้งเตือน
+2. ไปที่หน้าจอหลักของคุณหรือดึงถาดการแจ้งเตือนลงเพื่อดูผลลัพธ์
+3. แตะ &quot;สิ้นสุด&quot; เพื่อยกเลิกการแจ้งเตือน</string>
+    <string name="notifications" formatted="false">การแจ้งเตือน</string>
+    <string name="notify" formatted="false">แจ้ง</string>
+    <string name="notify_action_description" formatted="false">ส่งการแจ้งเตือนเมื่อมีการรับสาย</string>
+    <string name="number" formatted="false">หมายเลข</string>
+    <string name="number_color" formatted="false">สีหมายเลข</string>
+    <string name="number_font_size" formatted="false">ขนาดตัวอักษรหมายเลข</string>
+    <string name="number_format" formatted="false">รูปแบบหมายเลข</string>
+    <string name="number_invalid_format" formatted="false">รูปแบบหมายเลขไม่ถูกต้อง</string>
+    <string name="number_position" formatted="false">ตำแหน่งหมายเลข</string>
+    <string name="number_search" formatted="false">ค้นหาหมายเลข</string>
+    <string name="number_type_color" formatted="false">สีประเภทหมายเลข</string>
+    <string name="number_type_font_size" formatted="false">ขนาดตัวอักษรประเภทหมายเลข</string>
+    <string name="number_type_position" formatted="false">ตำแหน่งประเภทหมายเลข</string>
+    <string name="ok_button" formatted="false">ตกลง</string>
+    <string name="onboarding_complete_description" formatted="false">ผู้จัดการความปลอดภัยการโทรของคุณพร้อมแล้ว, เริ่มต้นประสบการณ์การโทรที่ปลอดภัย!</string>
+    <string name="onboarding_language_description" formatted="false">เลือกภาษาที่คุณต้องการเพื่อประสบการณ์ที่ดีที่สุด</string>
+    <string name="onboarding_permissions_description" formatted="false">เพื่อให้การบริการเต็มรูปแบบ, เราต้องการการอนุญาตดังต่อไปนี้:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">บล็อกสายเรียกเข้าและข้อความสแปมด้วยคลิกเดียว, ปรับแต่งกฎการบล็อก, และมอบสภาพแวดล้อมที่เงียบสงบให้คุณ</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">ระบุสายเรียกเข้าที่ไม่รู้จักโดยอัตโนมัติ, ตั้งค่าหมายเลขที่น่าสงสัย, และปกป้องความปลอดภัยการโทรของคุณ</string>
+    <string name="onboarding_welcome_description" formatted="false">ผู้เชี่ยวชาญการจัดการการโทรของคุณ, ให้บริการระบุและบล็อกการโทรที่ครอบคลุม</string>
+    <string name="one_drive_auth_description" formatted="false">อนุญาตโดยใช้รหัสและคีย์ไคลเอ็นต์ OneDrive ที่กำหนดค่าระบบ</string>
+    <string name="one_drive_config_title" formatted="false">การตั้งค่า OneDrive</string>
+    <string name="online_caller_id_subscription" formatted="false">การสมัครสมาชิกหมายเลขผู้โทรออนไลน์</string>
+    <string name="open_app_settings" formatted="false">เปิดการตั้งค่าแอป</string>
+    <string name="open_app_settings_failed" formatted="false">ไม่สามารถเปิดการตั้งค่าแอปได้: {error}</string>
+    <string name="open_in_web_view" formatted="false">เปิดใน WebView</string>
+    <string name="operation_failed" formatted="false">การดำเนินการล้มเหลว: {error}</string>
+    <string name="operation_failure" formatted="false">การดำเนินการล้มเหลว</string>
+    <string name="operation_success" formatted="false">การดำเนินการสำเร็จ</string>
+    <string name="oppose" formatted="false">คัดค้าน</string>
+    <string name="oppose_count" formatted="false">คัดค้าน ({opposeCount})</string>
+    <string name="opposed" formatted="false">คัดค้าน</string>
+    <string name="other" formatted="false">อื่นๆ</string>
+    <string name="our_other_apps" formatted="false">แอปอื่นๆ ของเรา</string>
+    <string name="overlay_mode" formatted="false">หน้าต่างลอย</string>
+    <string name="overlay_mode_description" formatted="false">แสดงข้อมูลผู้โทรในหน้าต่างลอย</string>
+    <string name="overlay_permission" formatted="false">สิทธิ์หน้าต่างลอย</string>
+    <string name="overlay_permission_description" formatted="false">ใช้เพื่อแสดงการแจ้งสายเรียกเข้าแบบลอย</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">ภาพรวม</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">รหัสผ่าน</string>
+    <string name="password_cannot_be_empty" formatted="false">รหัสผ่านต้องไม่ว่างเปล่า</string>
+    <string name="password_label" formatted="false">รหัสผ่าน</string>
+    <string name="passwords_do_not_match" formatted="false">รหัสผ่านไม่ตรงกัน</string>
+    <string name="pattern" formatted="false">รูปแบบ</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">รอดำเนินการ</string>
+    <string name="pending_proposals" formatted="false">ข้อเสนอที่รอดำเนินการ</string>
+    <string name="pending_proposals_body" formatted="false">คุณมี {count, plural, =0 {ไม่มีข้อเสนอที่รอดำเนินการ} one {1 ข้อเสนอที่รอดำเนินการ} other {{count} ข้อเสนอที่รอดำเนินการ}}</string>
+    <string name="pending_sync" formatted="false">กำลังรอการซิงค์</string>
+    <string name="period_month" formatted="false">เดือน</string>
+    <string name="period_week" formatted="false">สัปดาห์</string>
+    <string name="period_year" formatted="false">ปี</string>
+    <string name="permission_denied" formatted="false">คำขอสิทธิ์ถูกปฏิเสธ</string>
+    <string name="permission_granted" formatted="false">สิทธิ์ได้รับการอนุมัติ</string>
+    <string name="permission_management" formatted="false">การจัดการสิทธิ์</string>
+    <string name="permission_subtitle" formatted="false">จัดการสิทธิ์การแสดงผลและการเพิ่มประสิทธิภาพแบตเตอรี่</string>
+    <string name="permission_title" formatted="false">สิทธิ์พิเศษ</string>
+    <string name="phone_calls_tab" formatted="false">โทรศัพท์</string>
+    <string name="phone_number" formatted="false">หมายเลขโทรศัพท์</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">หมายเลขโทรศัพท์ต้องไม่ว่างเปล่า</string>
+    <string name="phone_number_hint" formatted="false">ป้อนหมายเลขโทรศัพท์</string>
+    <string name="phone_number_label" formatted="false">หมายเลขโทรศัพท์</string>
+    <string name="phone_number_min_digits" formatted="false">หมายเลขโทรศัพท์ต้องมีอย่างน้อย 7 หลัก</string>
+    <string name="phone_number_required" formatted="false">ต้องมีหมายเลขโทรศัพท์</string>
+    <string name="phone_number_type" formatted="false">ประเภทหมายเลขโทรศัพท์</string>
+    <string name="phone_number_type_fixed_line" formatted="false">โทรศัพท์บ้าน</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">โทรศัพท์บ้านหรือมือถือ</string>
+    <string name="phone_number_type_mobile" formatted="false">มือถือ</string>
+    <string name="phone_number_type_pager" formatted="false">เพจเจอร์</string>
+    <string name="phone_number_type_personal_number" formatted="false">หมายเลขส่วนตัว</string>
+    <string name="phone_number_type_premium_rate" formatted="false">อัตราพรีเมียม</string>
+    <string name="phone_number_type_shared_cost" formatted="false">ค่าใช้จ่ายร่วมกัน</string>
+    <string name="phone_number_type_toll_free" formatted="false">โทรฟรี</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">ไม่ทราบ</string>
+    <string name="phone_number_type_voicemail" formatted="false">ข้อความเสียง</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">สิทธิ์โทรศัพท์</string>
+    <string name="phone_permission_description" formatted="false">ใช้เพื่อระบุและบล็อกสายเรียกเข้า</string>
+    <string name="phone_rule" formatted="false">กฎโทรศัพท์</string>
+    <string name="phone_rule_management" formatted="false">การจัดการกฎโทรศัพท์</string>
+    <string name="phone_rule_subscription" formatted="false">การสมัครสมาชิกกฎโทรศัพท์</string>
+    <string name="phone_rules_info" formatted="false">กฎโทรศัพท์ใช้เพื่อจับคู่การโทรกับหมายเลขโทรศัพท์เฉพาะ ซึ่งมีลำดับความสำคัญต่ำกว่า บางส่วนมาจากระบบการสมัครสมาชิก phoneRule</string>
+    <string name="phone_subscription" formatted="false">การสมัครสมาชิกโทรศัพท์</string>
+    <string name="phone_subscription_rules_description" formatted="false">สมัครรับรายชื่อกฎโทรศัพท์ผ่าน URL เพื่ออัปเดตรายการที่อนุญาตและรายการบล็อกโดยอัตโนมัติ รองรับไฟล์กฎรูปแบบ JSON</string>
+    <string name="please_enter_at_least_one_number" formatted="false">โปรดป้อนอย่างน้อยหนึ่งหมายเลข</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">โปรดเลือกป้ายกำกับและป้อนหมายเลขโทรศัพท์ที่ถูกต้อง</string>
+    <string name="plugin_added_success" formatted="false">เพิ่มปลั๊กอิน &quot;{name}&quot; สำเร็จแล้ว</string>
+    <string name="plugin_deleted" formatted="false">ลบปลั๊กอินแล้ว</string>
+    <string name="plugin_description" formatted="false">คำอธิบายปลั๊กอิน</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">ป้ายกำกับปลั๊กอิน</string>
+    <string name="plugin_latest_version" formatted="false">ปลั๊กอินเป็นเวอร์ชันล่าสุดแล้ว</string>
+    <string name="plugin_list_export_success" formatted="false">ส่งออกรายชื่อปลั๊กอินสำเร็จแล้ว</string>
+    <string name="plugin_management" formatted="false">การจัดการปลั๊กอิน</string>
+    <string name="plugin_management_subtitle" formatted="false">จัดการและกำหนดค่าปลั๊กอินของบุคคลที่สาม</string>
+    <string name="plugin_name" formatted="false">ชื่อปลั๊กอิน</string>
+    <string name="plugin_rules_info" formatted="false">เพื่อความปลอดภัย โปรดใช้ปลั๊กอินจากแหล่งที่เชื่อถือได้เท่านั้น รู้สึกอิสระที่จะใช้เทมเพลตของเราเพื่อสร้างปลั๊กอินที่กำหนดเองของคุณเอง!</string>
+    <string name="plugin_service" formatted="false">บริการปลั๊กอิน</string>
+    <string name="plugin_test_page_title" formatted="false">ทดสอบปลั๊กอิน</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">อัปเดตปลั๊กอินสำเร็จแล้ว</string>
+    <string name="plugin_url" formatted="false">URL ปลั๊กอิน</string>
+    <string name="plugin_version" formatted="false">เวอร์ชันปลั๊กอิน</string>
+    <string name="plugins_deleted" formatted="false">ลบปลั๊กอิน {count} รายการสำเร็จแล้ว</string>
+    <string name="political" formatted="false">การเมือง</string>
+    <string name="powerful_spam_blocking" formatted="false">การบล็อกสแปมที่ทรงพลัง</string>
+    <string name="previous_step" formatted="false">ก่อนหน้า</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">จัดลำดับความสำคัญการตั้งค่าการดำเนินการระยะไกล</string>
+    <string name="prioritize_remote_action_description" formatted="false">จัดลำดับความสำคัญการตั้งค่าการดำเนินการจากฐานข้อมูลระยะไกล</string>
+    <string name="processed" formatted="false">ดำเนินการแล้ว</string>
+    <string name="processing" formatted="false">กำลังประมวลผล...</string>
+    <string name="processing_operation" formatted="false">กำลังประมวลผล...</string>
+    <string name="proposal_approved" formatted="false">ข้อเสนอได้รับการอนุมัติแล้ว ✅</string>
+    <string name="proposal_approved_body" formatted="false">ข้อเสนอการลบหมายเลข {phoneNumber} ได้รับการอนุมัติจากชุมชนแล้ว ({supportPercentage}% การสนับสนุน, {totalVotes} โหวต)</string>
+    <string name="proposal_created" formatted="false">สร้างข้อเสนอสำเร็จ</string>
+    <string name="proposal_details" formatted="false">รายละเอียดข้อเสนอ</string>
+    <string name="proposal_not_found" formatted="false">ไม่พบข้อเสนอ</string>
+    <string name="proposal_processed" formatted="false">ข้อเสนอนี้ได้รับการประมวลผลแล้ว</string>
+    <string name="proposal_rejected" formatted="false">ข้อเสนอถูกปฏิเสธแล้ว ❌</string>
+    <string name="proposal_rejected_body" formatted="false">ข้อเสนอการลบหมายเลข {phoneNumber} ถูกปฏิเสธโดยชุมชนแล้ว ({supportPercentage}% การสนับสนุน, {totalVotes} โหวต)</string>
+    <string name="proposal_statistics" formatted="false">สถิติข้อเสนอ</string>
+    <string name="provide_detailed_explanation" formatted="false">ให้คำอธิบายโดยละเอียด (อย่างน้อย 10 ตัวอักษร)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">ซื้อ</string>
+    <string name="purchase_subtitle" formatted="false">เพื่อซื้อบริการ</string>
+    <string name="purchase_title" formatted="false">การซื้อ</string>
+    <string name="quarterly_membership" formatted="false">สมาชิกรายไตรมาส</string>
+    <string name="quarterly_membership_description" formatted="false">ปลดล็อกฟีเจอร์พรีเมียมทั้งหมด ต่ออายุอัตโนมัติทุกไตรมาส</string>
+    <string name="ready" formatted="false">พร้อมแล้ว!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">เหตุผล</string>
+    <string name="reason_inaccurate_info" formatted="false">ข้อมูลไม่ถูกต้อง</string>
+    <string name="reason_min_characters" formatted="false">เหตุผลต้องมีอย่างน้อย 10 ตัวอักษร</string>
+    <string name="reason_not_in_service" formatted="false">ไม่อยู่ในบริการ</string>
+    <string name="reason_other" formatted="false">อื่นๆ</string>
+    <string name="reason_outdated" formatted="false">หมายเลขที่ล้าสมัย</string>
+    <string name="reason_privacy" formatted="false">ข้อกังวลด้านความเป็นส่วนตัว</string>
+    <string name="reason_required" formatted="false">ต้องระบุเหตุผล</string>
+    <string name="reason_wrongly_identified" formatted="false">ระบุตัวตนผิด</string>
+    <string name="recruiter" formatted="false">ผู้สรรหา</string>
+    <string name="redeem_vip_with_marks" formatted="false">แลก VIP ด้วยคะแนน</string>
+    <string name="redirect" formatted="false">เปลี่ยนเส้นทาง</string>
+    <string name="redirect_action_description" formatted="false">เปลี่ยนเส้นทางการโทรไปยังหมายเลขที่ระบุ</string>
+    <string name="refresh" formatted="false">รีเฟรช</string>
+    <string name="refresh_permission_status" formatted="false">รีเฟรชสถานะสิทธิ์</string>
+    <string name="refresh_proposals" formatted="false">รีเฟรชข้อเสนอ</string>
+    <string name="refresh_tooltip" formatted="false">รีเฟรช</string>
+    <string name="regex_error_message" formatted="false">ข้อผิดพลาด Regex: {error}</string>
+    <string name="regex_pattern" formatted="false">รูปแบบ Regex</string>
+    <string name="regex_pattern_explanation" formatted="false">คำอธิบายรูปแบบ Regex</string>
+    <string name="regex_pattern_explanation_button" formatted="false">คำอธิบายรูปแบบ Regex</string>
+    <string name="regex_pattern_label" formatted="false">รูปแบบ Regex</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">รูปแบบ Regex สำหรับการจับคู่หมายเลขโทรศัพท์</string>
+    <string name="regex_rule" formatted="false">กฎ Regex</string>
+    <string name="regex_rule_add_failed" formatted="false">เพิ่มกฎ Regex ไม่สำเร็จ: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">เพิ่มกฎ Regex สำเร็จแล้ว</string>
+    <string name="regex_rule_management" formatted="false">การจัดการกฎ Regex</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">ชื่อกฎและรูปแบบ Regex ต้องไม่ว่างเปล่า</string>
+    <string name="regex_rules" formatted="false">กฎ Regex</string>
+    <string name="regex_rules_info" formatted="false">กฎ Regex ใช้เพื่อกรองการโทรตามรูปแบบ Regex</string>
+    <string name="regex_tester_title" formatted="false">เครื่องมือทดสอบ Regex</string>
+    <string name="region" formatted="false">ภูมิภาค</string>
+    <string name="registered_devices_title" formatted="false">อุปกรณ์ที่ลงทะเบียน</string>
+    <string name="reject_all_calls" formatted="false">ปฏิเสธสายทั้งหมด</string>
+    <string name="reject_all_calls_description" formatted="false">เมื่อเปิดใช้งาน สายทั้งหมดจะถูกปฏิเสธด้วยลำดับความสำคัญสูงสุด</string>
+    <string name="reject_all_numbers" formatted="false">ปฏิเสธตัวเลขทั้งหมด</string>
+    <string name="reject_all_numbers_desc" formatted="false">ปฏิเสธสายเรียกเข้าทั้งหมดเมื่อเปิดใช้งาน</string>
+    <string name="reject_exceeded_numbers" formatted="false">ปฏิเสธตัวเลขที่เกิน</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">ปฏิเสธหมายเลขที่เกินเกณฑ์จำนวนโดยอัตโนมัติ</string>
+    <string name="rejected" formatted="false">ปฏิเสธ</string>
+    <string name="remote_filter_settings" formatted="false">การตั้งค่าตัวกรองระยะไกล</string>
+    <string name="remote_filter_settings_page_title" formatted="false">การตั้งค่าตัวกรองหมายเลขระยะไกล</string>
+    <string name="remote_number_filter" formatted="false">ตัวกรองหมายเลขระยะไกล</string>
+    <string name="remote_number_filter_description" formatted="false">สกัดกั้นสายรบกวนตามข้อมูลฐานข้อมูลระยะไกล</string>
+    <string name="remote_number_filter_subtitle" formatted="false">ระบุสายสแปมโดยใช้ฐานข้อมูลคลาวด์และรายงานชุมชน</string>
+    <string name="remote_number_filtering" formatted="false">การกรองหมายเลขระยะไกล</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• การกรองหมายเลขระยะไกล: กฎการกรองตามข้อมูลฐานข้อมูลระยะไกล</string>
+    <string name="remove_ads" formatted="false">ลบโฆษณา</string>
+    <string name="remove_ads_description" formatted="false">ลบโฆษณาทั้งหมดในแอปอย่างถาวรเพื่อประสบการณ์ที่ราบรื่นยิ่งขึ้น</string>
+    <string name="remove_ads_title" formatted="false">ลบโฆษณา</string>
+    <string name="remove_from_favorites" formatted="false">นำออกจากรายการโปรด</string>
+    <string name="removed_from_favorites" formatted="false">นำออกจากรายการโปรด</string>
+    <string name="rename_device_title" formatted="false">เปลี่ยนชื่ออุปกรณ์</string>
+    <string name="reporting_guidelines" formatted="false">• รายงานเฉพาะหมายเลขที่เป็นปัญหาอย่างแท้จริงเท่านั้น
+• ให้เหตุผลที่ถูกต้องและละเอียด
+• เลือกระดับความเสี่ยงที่เหมาะสมตามความรุนแรง
+• การรายงานที่ไม่ถูกต้องอาจส่งผลให้บัญชีถูกจำกัด</string>
+    <string name="request_all_permissions" formatted="false">ขอสิทธิ์ทั้งหมด</string>
+    <string name="request_permission" formatted="false">ขอสิทธิ์</string>
+    <string name="request_permission_failed" formatted="false">ขอสิทธิ์ไม่สำเร็จ: {error}</string>
+    <string name="required_field" formatted="false">จำเป็น</string>
+    <string name="required_init_field" formatted="false">จำเป็นสำหรับการเริ่มต้น</string>
+    <string name="required_marks" formatted="false">{count} เครื่องหมาย</string>
+    <string name="reset" formatted="false">รีเซ็ต</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">กู้คืน</string>
+    <string name="restore_application_settings_from_backup" formatted="false">กู้คืนการตั้งค่าแอปพลิเคชันจากการสำรองข้อมูล</string>
+    <string name="restore_from_cloud" formatted="false">กู้คืนจากคลาวด์</string>
+    <string name="restore_from_cloud_failed" formatted="false">กู้คืนจากคลาวด์ไม่สำเร็จ: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">กู้คืนจากคลาวด์สำเร็จแล้ว</string>
+    <string name="restore_purchases" formatted="false">กู้คืนการซื้อ</string>
+    <string name="restore_settings" formatted="false">กู้คืนการตั้งค่า</string>
+    <string name="restore_settings_confirmation" formatted="false">นี่จะแทนที่การตั้งค่าปัจจุบันทั้งหมดของคุณ คุณแน่ใจหรือไม่ว่าต้องการดำเนินการต่อ?</string>
+    <string name="result" formatted="false">ผลลัพธ์</string>
+    <string name="retry" formatted="false">ลองอีกครั้ง</string>
+    <string name="rewarded_ad_service" formatted="false">บริการโฆษณาที่ได้รับรางวัล</string>
+    <string name="ridesharing" formatted="false">การแชร์รถ</string>
+    <string name="risk" formatted="false">ความเสี่ยง</string>
+    <string name="risk_level" formatted="false">ระดับความเสี่ยง</string>
+    <string name="risk_level_critical" formatted="false">วิกฤต</string>
+    <string name="risk_level_high" formatted="false">สูง</string>
+    <string name="risk_level_label" formatted="false">ระดับความเสี่ยง</string>
+    <string name="risk_level_low" formatted="false">ต่ำ</string>
+    <string name="risk_level_medium" formatted="false">ปานกลาง</string>
+    <string name="risk_level_very_low" formatted="false">ต่ำมาก</string>
+    <string name="robocall" formatted="false">สายรบกวน</string>
+    <string name="rule_action" formatted="false">การดำเนินการกฎ</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">เพิ่มกฎสำเร็จแล้ว</string>
+    <string name="rule_added_success" formatted="false">เพิ่มกฎสำเร็จแล้ว</string>
+    <string name="rule_delete_confirm_content" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการลบ {ruleType} นี้?</string>
+    <string name="rule_delete_confirm_title" formatted="false">ลบกฎ</string>
+    <string name="rule_delete_failed" formatted="false">ลบกฎไม่สำเร็จ: {error}</string>
+    <string name="rule_delete_success" formatted="false">ลบกฎสำเร็จแล้ว</string>
+    <string name="rule_deleted_successfully" formatted="false">ลบกฎสำเร็จแล้ว</string>
+    <string name="rule_disabled_successfully" formatted="false">ปิดใช้งานกฎสำเร็จแล้ว</string>
+    <string name="rule_enabled_successfully" formatted="false">เปิดใช้งานกฎสำเร็จแล้ว</string>
+    <string name="rule_load_failed" formatted="false">โหลดกฎไม่สำเร็จ: {error}</string>
+    <string name="rule_management" formatted="false">การจัดการกฎ</string>
+    <string name="rule_name" formatted="false">ชื่อกฎ</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">ชื่อกฎและเนื้อหา Regex ต้องไม่ว่างเปล่า</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">ชื่อกฎและหมายเลขโทรศัพท์ต้องไม่ว่างเปล่า</string>
+    <string name="rule_name_hint" formatted="false">เช่น ครอบครัว เพื่อน ฯลฯ</string>
+    <string name="rule_name_label" formatted="false">ชื่อกฎ</string>
+    <string name="rule_name_required" formatted="false">ชื่อกฎและหมายเลขโทรศัพท์ต้องไม่ว่างเปล่า</string>
+    <string name="rule_not_exist" formatted="false">กฎนี้ไม่มีอยู่จริง หรือถูกลบไปแล้ว</string>
+    <string name="rule_not_found" formatted="false">ไม่พบกฎ: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">บันทึกกฎสำเร็จแล้ว!</string>
+    <string name="rule_status_changed" formatted="false">เปลี่ยนสถานะกฎเป็น {status} สำเร็จแล้ว</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">การดำเนินการไม่สำเร็จ: {error}</string>
+    <string name="rule_toggle_success" formatted="false">เปลี่ยนสถานะกฎเป็น {status} สำเร็จแล้ว</string>
+    <string name="rule_type" formatted="false">ประเภทกฎ</string>
+    <string name="rule_update_failed" formatted="false">อัปเดตกฎไม่สำเร็จ: {error}</string>
+    <string name="rule_update_success" formatted="false">อัปเดตกฎสำเร็จแล้ว</string>
+    <string name="rule_verification" formatted="false">การยืนยันกฎ</string>
+    <string name="rules_exported_successfully" formatted="false">ส่งออกกฎสำเร็จแล้ว</string>
+    <string name="rules_exported_to" formatted="false">ส่งออกกฎไปยัง: {path}</string>
+    <string name="rules_imported" formatted="false">นำเข้ากฎสำเร็จแล้ว</string>
+    <string name="rules_imported_successfully" formatted="false">นำเข้ากฎ {count} รายการสำเร็จแล้ว</string>
+    <string name="save" formatted="false">บันทึก</string>
+    <string name="save_button" formatted="false">บันทึก</string>
+    <string name="save_button_text" formatted="false">บันทึก</string>
+    <string name="save_failed" formatted="false">บันทึกไม่สำเร็จ: {error}</string>
+    <string name="save_script" formatted="false">บันทึกสคริปต์</string>
+    <string name="save_settings" formatted="false">บันทึกการตั้งค่า</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">มีแนวโน้มเป็นการหลอกลวง</string>
+    <string name="script_saved" formatted="false">สคริปต์ถูกบันทึกแล้ว</string>
+    <string name="scroll_speed" formatted="false">ความเร็วในการเลื่อน</string>
+    <string name="scrolling_security_message_settings" formatted="false">การตั้งค่าข้อความรักษาความปลอดภัยแบบเลื่อน</string>
+    <string name="search" formatted="false">ค้นหา</string>
+    <string name="search_by_name_or_phone_number" formatted="false">ค้นหาตามชื่อหรือเบอร์โทรศัพท์</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">ค้นหาการสมัครสมาชิกผู้ติดต่อ</string>
+    <string name="search_contacts" formatted="false">ค้นหาผู้ติดต่อ</string>
+    <string name="search_error" formatted="false">ข้อผิดพลาดในการค้นหา: {error}</string>
+    <string name="search_hint" formatted="false">ค้นหา...</string>
+    <string name="search_labels_hint" formatted="false">ค้นหาป้ายกำกับ</string>
+    <string name="search_marked_phones_hint" formatted="false">ค้นหาโทรศัพท์ที่ทำเครื่องหมายไว้</string>
+    <string name="search_phone_rules_hint" formatted="false">ค้นหากฎโทรศัพท์</string>
+    <string name="search_plugins_hint" formatted="false">ค้นหาปลั๊กอิน</string>
+    <string name="search_proposals" formatted="false">ค้นหาข้อเสนอ</string>
+    <string name="search_regex_rules_hint" formatted="false">ค้นหากฎ regex</string>
+    <string name="search_subscriptions_hint" formatted="false">ค้นหาการสมัครสมาชิก</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">อย่าไว้ใจการโทรศัพท์ใดๆ ตรวจสอบหมายเลขบริการลูกค้าด้วยตนเองเสมอ ห้ามเปิดเผยรหัสผ่าน, รหัสยืนยัน, หมายเลขบัตร หรือข้อมูลส่วนตัว</string>
+    <string name="select_action" formatted="false">เลือกการดำเนินการ</string>
+    <string name="select_action_when_blocking_calls" formatted="false">เลือกการดำเนินการเมื่อบล็อกการโทร</string>
+    <string name="select_action_when_rule_matches" formatted="false">เลือกการดำเนินการเมนกฎตรงกัน</string>
+    <string name="select_all" formatted="false">เลือกทั้งหมด</string>
+    <string name="select_country" formatted="false">เลือกประเทศ</string>
+    <string name="select_export_format" formatted="false">เลือกรูปแบบการส่งออก</string>
+    <string name="select_label" formatted="false">เลือกป้ายกำกับ</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">โปรดเลือกป้ายกำกับและกรอกหมายเลขโทรศัพท์ที่ถูกต้อง</string>
+    <string name="select_language" formatted="false">เลือกภาษา</string>
+    <string name="select_multiple" formatted="false">เลือกหลายรายการ</string>
+    <string name="select_sim_card" formatted="false">เลือกซิมการ์ด</string>
+    <string name="select_tags" formatted="false">เลือกแท็ก</string>
+    <string name="select_target_service" formatted="false">เลือกบริการเป้าหมาย</string>
+    <string name="select_trusted_data_source" formatted="false">โปรดเลือกแหล่งข้อมูลที่เชื่อถือได้</string>
+    <string name="select_your_language" formatted="false">เลือกภาษาของคุณ</string>
+    <string name="selected_items" formatted="false">เลือกแล้ว {count} รายการ</string>
+    <string name="selected_label" formatted="false">เลือกแล้ว:</string>
+    <string name="sender" formatted="false">ผู้ส่ง</string>
+    <string name="sender_regex_optional" formatted="false">นิพจน์ทั่วไปของผู้ส่ง (ไม่บังคับ)</string>
+    <string name="separate_sims" formatted="false">ซิมการ์ดแยกกัน</string>
+    <string name="separate_sims_desc" formatted="false">เปิดใช้งานกฎการกรองแยกกันสำหรับซิมการ์ดแต่ละใบ</string>
+    <string name="server_address_label" formatted="false">ที่อยู่เซิร์ฟเวอร์</string>
+    <string name="service_type_contact" formatted="false">การสมัครสมาชิกผู้ติดต่อ</string>
+    <string name="service_type_label" formatted="false">ประเภทบริการ</string>
+    <string name="service_type_phone" formatted="false">การสมัครสมาชิกโทรศัพท์</string>
+    <string name="service_type_plugin" formatted="false">การอัปเดตปลั๊กอิน</string>
+    <string name="service_type_sms" formatted="false">การสมัครสมาชิก SMS</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">ตั้งเวลาหน่วง</string>
+    <string name="set_encryption_password" formatted="false">ตั้งรหัสผ่านการเข้ารหัส</string>
+    <string name="settings" formatted="false">การตั้งค่า</string>
+    <string name="settings_backed_up_to" formatted="false">สำรองการตั้งค่าไปยัง: {path}</string>
+    <string name="settings_backup" formatted="false">สำรองข้อมูลการตั้งค่า </string>
+    <string name="settings_restored_successfully" formatted="false">กู้คืนการตั้งค่าสำเร็จแล้ว โปรดรีสตาร์ทแอปเพื่อให้การเปลี่ยนแปลงมีผล</string>
+    <string name="settings_save_failed" formatted="false">บันทึกการตั้งค่าไม่สำเร็จ: {error}</string>
+    <string name="settings_saved" formatted="false">บันทึกการตั้งค่าแล้ว</string>
+    <string name="settings_tab" formatted="false">การตั้งค่า</string>
+    <string name="settings_title" formatted="false">การตั้งค่า</string>
+    <string name="setup" formatted="false">ตั้งค่า</string>
+    <string name="show_all_contacts" formatted="false">แสดงผู้ติดต่อทั้งหมด</string>
+    <string name="show_favorites" formatted="false">แสดงรายการโปรด</string>
+    <string name="silence" formatted="false">เงียบ</string>
+    <string name="silence_action_description" formatted="false">การโทรจะถูกปิดเสียง แต่จะแสดงในบันทึกการโทร</string>
+    <string name="silence_and_no_answer" formatted="false">เงียบและไม่มีคำตอบ</string>
+    <string name="silence_no_answer" formatted="false">เงียบ ไม่มีคำตอบ</string>
+    <string name="silent_call_voice_clone" formatted="false">โคลนเสียงโทรแบบเงียบ</string>
+    <string name="silent_rules" formatted="false">กฎแบบเงียบ</string>
+    <string name="sim_card" formatted="false">ซิมการ์ด {simNumber}</string>
+    <string name="sim_card_color" formatted="false">สีของซิมการ์ด</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• การกำหนดค่าซิมการ์ด: ตั้งกฎการกรองที่แตกต่างกันสำหรับแต่ละซิมการ์ด</string>
+    <string name="sim_card_filter_rules" formatted="false">กฎการกรองซิมการ์ด</string>
+    <string name="sim_card_filter_rules_description" formatted="false">ตั้งกฎการกรองที่แตกต่างกันตามสล็อตซิมการ์ด</string>
+    <string name="sim_card_font_size" formatted="false">ขนาดตัวอักษรซิมการ์ด</string>
+    <string name="sim_card_position" formatted="false">ตำแหน่งซิมการ์ด</string>
+    <string name="sim_card_title" formatted="false">ซิมการ์ด</string>
+    <string name="sim_country" formatted="false">ประเทศ SIM</string>
+    <string name="sim_info" formatted="false">ซิม {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">กฎสล็อต SIM ช่วยให้คุณกำหนดกฎการกรองที่แยกจากกันสำหรับแต่ละสล็อต SIM</string>
+    <string name="sim_rule_instructions_title" formatted="false">กฎสล็อต SIM</string>
+    <string name="sim_rules_not_found" formatted="false">ไม่พบกฎ SIM</string>
+    <string name="sim_slot" formatted="false">ช่อง SIM</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">กำหนดกฎการกรองที่แยกจากกันสำหรับซิมการ์ดแต่ละใบ:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">การตั้งค่าตัวกรองสล็อต SIM {slotNumber}</string>
+    <string name="sim_slot_management" formatted="false">การจัดการสล็อต SIM</string>
+    <string name="sim_slot_position" formatted="false">ตำแหน่งสล็อต SIM {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• กฎสล็อต SIM: กลยุทธ์การกรองที่แยกจากกันต่อ SIM</string>
+    <string name="sim_slot_rule_list_title" formatted="false">รายการกฎสล็อต SIM</string>
+    <string name="sim_slot_rule_management" formatted="false">กฎสล็อต SIM</string>
+    <string name="sim_slot_rules" formatted="false">กฎช่อง SIM</string>
+    <string name="sim_slot_title" formatted="false">สล็อต SIM {slotNumber}</string>
+    <string name="sim_state" formatted="false">สถานะ SIM</string>
+    <string name="skip" formatted="false">ข้าม</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">การระบุผู้โทรอัจฉริยะ</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">การกรอง SMS ช่วยให้คุณกรองข้อความสแปมโดยอัตโนมัติและรักษาความสะอาดของรายการข้อความของคุณ คุณสามารถตั้งค่ากฎการกรองและวิธีการแจ้งเตือนได้</string>
+    <string name="sms_filter_disabled" formatted="false">การกรอง SMS ปิดใช้งาน</string>
+    <string name="sms_filter_enabled" formatted="false">การกรอง SMS เปิดใช้งาน</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">เพิ่มกฎตัวกรอง SMS สำเร็จแล้ว</string>
+    <string name="sms_filter_rules" formatted="false">กฎตัวกรอง SMS</string>
+    <string name="sms_filter_settings" formatted="false">การตั้งค่าตัวกรอง SMS</string>
+    <string name="sms_management" formatted="false">การจัดการ SMS</string>
+    <string name="sms_permission" formatted="false">สิทธิ์ SMS</string>
+    <string name="sms_permission_description" formatted="false">ใช้เพื่อกรองข้อความสแปม</string>
+    <string name="sms_rule_added_successfully" formatted="false">เพิ่มกฎ SMS สำเร็จแล้ว</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">ลบกฎ SMS สำเร็จแล้ว</string>
+    <string name="sms_rule_load_failed" formatted="false">ไม่สามารถโหลดกฎ SMS ได้: {error}</string>
+    <string name="sms_rule_management" formatted="false">การจัดการกฎ SMS</string>
+    <string name="sms_rule_subscription" formatted="false">การสมัครรับข้อมูลกฎ SMS</string>
+    <string name="sms_subscription" formatted="false">การสมัครรับข้อมูล SMS</string>
+    <string name="sms_subscription_added_successfully" formatted="false">เพิ่มการสมัครรับข้อมูล SMS สำเร็จแล้ว</string>
+    <string name="sms_subscription_rules_description" formatted="false">สมัครรับรายการกฎ SMS ผ่าน URL รองรับการจับคู่รูปแบบปกติ คุณสามารถตั้งค่าการบล็อกหรืออนุญาตการดำเนินการได้</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">ปฏิเสธคำขอสิทธิ์บางส่วน</string>
+    <string name="sort_by" formatted="false">เรียงลำดับด้วย</string>
+    <string name="sort_least_popular" formatted="false">เรียงลำดับยอดนิยมน้อยที่สุด</string>
+    <string name="sort_most_popular" formatted="false">เรียงลำดับยอดนิยมสูงสุด</string>
+    <string name="sort_newest" formatted="false">เรียงลำดับใหม่สุด</string>
+    <string name="sort_oldest" formatted="false">เรียงลำดับเก่าสุด</string>
+    <string name="spam_likely" formatted="false">น่าจะเป็นสแปม</string>
+    <string name="start_color" formatted="false">สีเริ่มต้น</string>
+    <string name="start_date" formatted="false">วันที่เริ่มต้น</string>
+    <string name="start_using" formatted="false">เริ่มต้นใช้งาน</string>
+    <string name="stat_answered" formatted="false">รับสาย</string>
+    <string name="stat_blocked" formatted="false">บล็อก</string>
+    <string name="statistics" formatted="false">สถิติ</string>
+    <string name="statistics_page_title" formatted="false">การวิเคราะห์ข้อมูล</string>
+    <string name="status_connected" formatted="false">เชื่อมต่อแล้ว / กำหนดค่าแล้ว</string>
+    <string name="status_label" formatted="false">สถานะ</string>
+    <string name="status_not_configured" formatted="false">ยังไม่ได้กำหนดค่า</string>
+    <string name="stir_color" formatted="false">สี STIR</string>
+    <string name="stir_failed" formatted="false">การยืนยันล้มเหลว</string>
+    <string name="stir_font_size" formatted="false">ขนาดตัวอักษร STIR</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">ตำแหน่ง STIR</string>
+    <string name="stir_unknown" formatted="false">สถานะการยืนยันไม่ทราบ</string>
+    <string name="stir_verification" formatted="false">การยืนยัน STIR/SHAKEN</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} สำหรับหมายเลข {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">แสดงผลการยืนยัน STIR/SHAKEN สำหรับหมายเลข</string>
+    <string name="stir_verification_title" formatted="false">การยืนยัน STIR/SHAKEN</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">สิทธิ์ที่เก็บข้อมูล</string>
+    <string name="storage_permission_description" formatted="false">ใช้เพื่อบันทึกการตั้งค่าและกฎ</string>
+    <string name="submit" formatted="false">ส่ง</string>
+    <string name="subscribe" formatted="false">สมัคร</string>
+    <string name="subscription_add_success" formatted="false">เพิ่มการสมัครรับข้อมูล &quot;{name}&quot; สำเร็จแล้ว</string>
+    <string name="subscription_delete_confirm_content" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการลบการสมัครรับข้อมูลนี้?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">ลบการสมัครรับข้อมูล</string>
+    <string name="subscription_delete_failed" formatted="false">ไม่สามารถลบการสมัครรับข้อมูลได้: {error}</string>
+    <string name="subscription_delete_success" formatted="false">ลบการสมัครรับข้อมูลแล้ว</string>
+    <string name="subscription_deleted" formatted="false">ลบการสมัครรับข้อมูลแล้ว</string>
+    <string name="subscription_load_failed" formatted="false">ไม่สามารถโหลดการสมัครรับข้อมูลได้: {error}</string>
+    <string name="subscription_name" formatted="false">ชื่อการสมัครรับข้อมูล</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">ชื่อและการสมัครรับข้อมูล URL ต้องไม่ว่างเปล่า</string>
+    <string name="subscription_name_hint" formatted="false">ป้อนชื่อการสมัครรับข้อมูล</string>
+    <string name="subscription_status_change_failed" formatted="false">ไม่สามารถเปลี่ยนสถานะการสมัครรับข้อมูลได้: {error}</string>
+    <string name="subscription_update_failed" formatted="false">ไม่สามารถอัปเดตการสมัครรับข้อมูลได้: {error}</string>
+    <string name="subscription_update_success" formatted="false">อัปเดตการสมัครรับข้อมูลสำเร็จแล้ว</string>
+    <string name="subscription_url" formatted="false">URL การสมัครรับข้อมูล</string>
+    <string name="subscription_url_hint" formatted="false">ป้อน URL การสมัครรับข้อมูล</string>
+    <string name="successfully_imported_rules" formatted="false">นำเข้ากฎ {count} รายการสำเร็จแล้ว</string>
+    <string name="supabase_anon_key" formatted="false">คีย์ Anon</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, คีย์สาธารณะไม่ระบุชื่อ</string>
+    <string name="supabase_project_url" formatted="false">URL โครงการ Supabase</string>
+    <string name="support" formatted="false">สนับสนุน</string>
+    <string name="support_count" formatted="false">สนับสนุน ({supportCount})</string>
+    <string name="support_sync" formatted="false">รองรับการซิงค์</string>
+    <string name="supported" formatted="false">สนับสนุน</string>
+    <string name="survey" formatted="false">สำรวจ</string>
+    <string name="sync_call_history" formatted="false">ซิงค์ประวัติการโทร</string>
+    <string name="sync_call_history_subtitle" formatted="false">รวมบันทึกการโทรส่วนตัวในการซิงค์</string>
+    <string name="sync_devices_button" formatted="false">ซิงค์อุปกรณ์</string>
+    <string name="sync_failed" formatted="false">การซิงค์ล้มเหลว</string>
+    <string name="sync_failed_message" formatted="false">การซิงค์ล้มเหลว</string>
+    <string name="sync_folder_name_label" formatted="false">ชื่อโฟลเดอร์ซิงค์</string>
+    <string name="sync_interval_label" formatted="false">ช่วงเวลาซิงค์อัตโนมัติ</string>
+    <string name="sync_interval_value" formatted="false">ทุกๆ {hours} ชั่วโมง</string>
+    <string name="sync_now" formatted="false">ซิงค์ทันที</string>
+    <string name="sync_now_button" formatted="false">ซิงค์ตอนนี้</string>
+    <string name="sync_status_title" formatted="false">สถานะการซิงค์</string>
+    <string name="sync_status_updated_message" formatted="false">อัปเดตสถานะการซิงค์แล้ว</string>
+    <string name="sync_success" formatted="false">ซิงค์เสร็จสมบูรณ์ ส่ง: {pushed}, รับ: {pulled}</string>
+    <string name="sync_success_message" formatted="false">การซิงค์สำเร็จ</string>
+    <string name="sync_with_cloud_storage" formatted="false">ซิงค์กับที่เก็บข้อมูลบนคลาวด์</string>
+    <string name="synced" formatted="false">ซิงค์แล้ว</string>
+    <string name="synchronized" formatted="false">ซิงโครไนซ์แล้ว</string>
+    <string name="syncing" formatted="false">กำลังซิงค์...</string>
+    <string name="system_features" formatted="false">คุณสมบัติของระบบ:</string>
+    <string name="system_settings_title" formatted="false">การตั้งค่าระบบ</string>
+    <string name="tab_all" formatted="false">ทั้งหมด</string>
+    <string name="tab_answered" formatted="false">ตอบแล้ว</string>
+    <string name="tab_blocked" formatted="false">บล็อกแล้ว</string>
+    <string name="tab_missed" formatted="false">พลาดสาย</string>
+    <string name="tab_outgoing" formatted="false">สายออก</string>
+    <string name="tag_label" formatted="false">แท็ก: {tag}</string>
+    <string name="takeaway" formatted="false">ซื้อกลับบ้าน</string>
+    <string name="telecommunication" formatted="false">โทรคมนาคม</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">การตลาดทางโทรศัพท์</string>
+    <string name="temp_purchase_expired" formatted="false">สิทธิ์การซื้อชั่วคราวหมดอายุแล้ว</string>
+    <string name="temporary_vip" formatted="false">VIP ชั่วคราว</string>
+    <string name="test_button" formatted="false">ทดสอบ</string>
+    <string name="test_connection_button" formatted="false">ทดสอบการเชื่อมต่อ</string>
+    <string name="test_plugin" formatted="false">ทดสอบปลั๊กอิน</string>
+    <string name="text_colors_setting" formatted="false">สีข้อความและป้ายกำกับ</string>
+    <string name="theme_dark" formatted="false">มืด</string>
+    <string name="theme_light" formatted="false">สว่าง</string>
+    <string name="theme_settings_subtitle" formatted="false">เลือกธีมที่คุณชื่นชอบ</string>
+    <string name="theme_settings_title" formatted="false">การตั้งค่าธีม</string>
+    <string name="theme_system" formatted="false">ตามระบบ</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">แอปนี้เป็นเครื่องมือระบุเบอร์โทรที่มีประสิทธิภาพที่ช่วยให้คุณระบุและบล็อกสายที่ไม่ต้องการได้</string>
+    <string name="this_week" formatted="false">สัปดาห์นี้</string>
+    <string name="time_interceptor" formatted="false">ตัวสกัดกั้นเวลา</string>
+    <string name="time_interceptor_description" formatted="false">สกัดกั้น/อนุญาตสายที่อาจเกิดขึ้นโดยอัตโนมัติตามความถี่ในการโทร</string>
+    <string name="time_interceptor_explanation" formatted="false">• ตัวสกัดกั้นเวลา: สกัดกั้น/อนุญาตสายซ้ำๆ ภายในระยะเวลาสั้นๆ</string>
+    <string name="time_interceptor_explanation_content" formatted="false">ฟีเจอร์การสกัดกั้นความถี่ในการโทรจะวิเคราะห์ความถี่ในการโทรเพื่อระบุและสกัดกั้น/อนุญาตสายสแปมที่โทรบ่อยโดยอัตโนมัติ</string>
+    <string name="time_interceptor_explanation_title" formatted="false">คำอธิบายการสกัดกั้นความถี่ในการโทร</string>
+    <string name="time_interceptor_settings_title" formatted="false">การตั้งค่าการสกัดกั้นความถี่ในการโทร</string>
+    <string name="time_window_description" formatted="false">กำหนดขนาดหน้าต่างเวลาสำหรับการอนุญาตให้โทรซ้ำๆ สายจากหมายเลขเดียวกันภายในหน้าต่างนี้จะได้รับอนุญาต</string>
+    <string name="time_window_label" formatted="false">หน้าต่างเวลาสกัดกั้น (นาที): {minutes}</string>
+    <string name="timeline_view" formatted="false">มุมมองไทม์ไลน์</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">วันนี้</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">ทั้งหมด</string>
+    <string name="total_blocked" formatted="false">บล็อกทั้งหมด</string>
+    <string name="total_pending_proposals" formatted="false">ข้อเสนอที่รอดำเนินการทั้งหมด</string>
+    <string name="total_proposals" formatted="false">ข้อเสนอทั้งหมด</string>
+    <string name="total_votes" formatted="false">ทั้งหมด: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">ถ่ายโอนข้อมูลระหว่างอุปกรณ์หรือแพลตฟอร์ม</string>
+    <string name="travel_ticketing" formatted="false">ตั๋วเดินทาง</string>
+    <string name="tutorial" formatted="false">บทแนะนำ</string>
+    <string name="type" formatted="false">ประเภท</string>
+    <string name="unassigned_s_i_m_card" formatted="false">ซิมการ์ดที่ไม่ได้กำหนด</string>
+    <string name="unblock" formatted="false">ยกเลิกการบล็อก</string>
+    <string name="unblock_number" formatted="false">ยกเลิกการบล็อกหมายเลข</string>
+    <string name="unblock_number_confirmation" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการบล็อก {phoneNumber}</string>
+    <string name="unblock_number_failed" formatted="false">ยกเลิกการบล็อกหมายเลขล้มเหลว</string>
+    <string name="unblock_number_success" formatted="false">ยกเลิกการบล็อกหมายเลขสำเร็จ</string>
+    <string name="unblocked" formatted="false">ยกเลิกการบล็อก</string>
+    <string name="unknown" formatted="false">ไม่ทราบ</string>
+    <string name="unknown_tag" formatted="false">แท็ก: ไม่ทราบ</string>
+    <string name="unregister_button" formatted="false">ยกเลิกการลงทะเบียน</string>
+    <string name="unregister_device_confirmation_message" formatted="false">คุณแน่ใจหรือไม่ว่าต้องการยกเลิกการลงทะเบียน {deviceName}?</string>
+    <string name="unregister_device_title" formatted="false">ยกเลิกการลงทะเบียนอุปกรณ์</string>
+    <string name="unsupported_file_format" formatted="false">รูปแบบไฟล์ไม่รองรับ</string>
+    <string name="update" formatted="false">อัปเดต</string>
+    <string name="update_all_now" formatted="false">อัปเดตทั้งหมดตอนนี้</string>
+    <string name="update_contact_failed" formatted="false">ล้มเหลวในการอัปเดตผู้ติดต่อ: {error}</string>
+    <string name="update_favorite_status" formatted="false">อัปเดตสถานะรายการโปรด</string>
+    <string name="update_interval" formatted="false">ช่วงเวลาอัปเดต</string>
+    <string name="update_now" formatted="false">อัปเดตตอนนี้</string>
+    <string name="update_plugin" formatted="false">อัปเดตปลั๊กอิน</string>
+    <string name="update_plugin_failed" formatted="false">ล้มเหลวในการอัปเดตปลั๊กอิน: {error}</string>
+    <string name="update_rule_failed" formatted="false">ล้มเหลวในการอัปเดตกฎ: {error}</string>
+    <string name="update_subscription_failed" formatted="false">ล้มเหลวในการอัปเดตการสมัครสมาชิก: {error}</string>
+    <string name="update_success" formatted="false">{service} อัปเดตสำเร็จ ({count} กฎ)</string>
+    <string name="upgrade_to_vip" formatted="false">อัปเกรดเป็น VIP</string>
+    <string name="use_cases_point1" formatted="false">• ระบุสายสแปมที่โทรซ้ำอัตโนมัติ</string>
+    <string name="use_cases_point2" formatted="false">• สกัดกั้นสายการตลาดที่โทรหลายครั้งในเวลาอันสั้น</string>
+    <string name="use_cases_point3" formatted="false">• ป้องกันการก่อกวนและการคุกคามทางโทรศัพท์</string>
+    <string name="use_cases_title" formatted="false">กรณีการใช้งาน:</string>
+    <string name="use_global_settings" formatted="false">ใช้การตั้งค่าส่วนกลาง</string>
+    <string name="use_local_notification" formatted="false">ใช้การแจ้งเตือนในเครื่อง</string>
+    <string name="use_local_notification_description" formatted="false">เปิดใช้งานการแจ้งเตือนในเครื่องสำหรับการโทรเข้า</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">ใช้ไวยากรณ์ regex มาตรฐานเพื่อกำหนดรูปแบบ ตัวอย่าง:</string>
+    <string name="use_stir_notification" formatted="false">ใช้การแจ้งเตือนจาก STIR</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">ชื่อผู้ใช้</string>
+    <string name="verification_failed_text" formatted="false">ล้มเหลว</string>
+    <string name="verification_report" formatted="false">รายงานการตรวจสอบ</string>
+    <string name="verified_text" formatted="false">ยืนยันแล้ว</string>
+    <string name="verify" formatted="false">ยืนยัน</string>
+    <string name="version" formatted="false">เวอร์ชัน: {version}</string>
+    <string name="very_high" formatted="false">สูงมาก</string>
+    <string name="very_low" formatted="false">ต่ำมาก</string>
+    <string name="view_details" formatted="false">ดูรายละเอียด</string>
+    <string name="vip3_days_with_ads" formatted="false">VIP 3 วันพร้อมโฆษณา (ซิงค์เท่านั้น)</string>
+    <string name="vip5_days_no_ads" formatted="false">VIP 5 วันเต็มรูปแบบไม่มีโฆษณา</string>
+    <string name="vip7_days_no_ads" formatted="false">VIP 7 วันเต็มรูปแบบไม่มีโฆษณา</string>
+    <string name="vip_access_subtitle" formatted="false">ชมโฆษณาฟรีหรือซื้อ VIP</string>
+    <string name="vip_exchange_description" formatted="false">แลกเปลี่ยนสมาชิก VIP กับจำนวนการทำเครื่องหมายหมายเลขโทรศัพท์</string>
+    <string name="vip_exchange_service" formatted="false">บริการแลก VIP</string>
+    <string name="vip_exchange_title" formatted="false">แลกเปลี่ยน VIP</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">ผู้ใช้ VIP</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">การรู้จำเสียง</string>
+    <string name="vote_agree" formatted="false">เห็นด้วย</string>
+    <string name="vote_count" formatted="false">จำนวนโหวต</string>
+    <string name="vote_disagree" formatted="false">ไม่เห็นด้วย</string>
+    <string name="vote_submitted" formatted="false">ส่งการโหวตสำเร็จ</string>
+    <string name="voted" formatted="false">โหวตแล้ว</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} โหวต ({supportPercentage}% การสนับสนุน)</string>
+    <string name="voting_completed" formatted="false">การโหวตเสร็จสิ้นแล้ว</string>
+    <string name="voting_completed_body" formatted="false">การโหวตของชุมชนสำหรับหมายเลข {phoneNumber} สิ้นสุดลงแล้ว ผลลัพธ์: {result} ({supportPercentage}% การสนับสนุน)</string>
+    <string name="waiting_for_more_votes" formatted="false">รอการโหวตจากชุมชนเพิ่มเติม</string>
+    <string name="watch_ad" formatted="false">ดูโฆษณา</string>
+    <string name="watch_ad_for_temp" formatted="false">ดูโฆษณาเพื่อสิทธิ์ชั่วคราว</string>
+    <string name="watch_ad_for_temp_description" formatted="false">ดูโฆษณาสั้นๆ เพื่อปลดล็อกคุณสมบัติพรีเมียมบางอย่างชั่วคราว</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">คุณต้องดูโฆษณาอีก {count} รายการเพื่อรับสิทธิ์ VIP ชั่วคราว</string>
+    <string name="web_d_a_v_config_title" formatted="false">การกำหนดค่า WebDAV</string>
+    <string name="week" formatted="false">สัปดาห์</string>
+    <string name="welcome" formatted="false">ยินดีต้อนรับ</string>
+    <string name="whitelist" formatted="false">รายการที่อนุญาต</string>
+    <string name="width" formatted="false">ความกว้าง</string>
+    <string name="wildcard_matching_description" formatted="false">ใช้ \'.\' เพื่อจับคู่ตัวอักษรใดๆ (เช่น \'123.456\' จะตรงกับ 123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">การจับคู่ Wildcard:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">รองรับ Wildcard สำหรับการกรองที่ยืดหยุ่น</string>
+    <string name="window_size_setting" formatted="false">ขนาดหน้าต่าง</string>
+    <string name="year" formatted="false">ปี</string>
+    <string name="yesterday" formatted="false">เมื่อวานนี้</string>
+</resources>

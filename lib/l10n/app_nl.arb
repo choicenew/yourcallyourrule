@@ -2458,5 +2458,8 @@
   "entryPointViewTitle": "Entry Point View",
   "@entryPointViewTitle": {
     "description": "The title of the entry point view."
-  }
+  },
+  "backgroundOpacity": "Background Opacity",
+  "timesUnit": "times",
+  "participantCount": "%1$d Participants"
 }

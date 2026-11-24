@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">អំពីការជាវទំនាក់ទំនង</string>
+    <string name="about_labels" formatted="false">អំពីស្លាក</string>
+    <string name="about_phone_subscription_rules" formatted="false">អំពីច្បាប់ជាវទូរស័ព្ទ</string>
+    <string name="about_sms_filter" formatted="false">អំពីការត្រងសារ SMS</string>
+    <string name="about_sms_subscription_rules" formatted="false">អំពីច្បាប់ជាវសារ SMS</string>
+    <string name="about_subtitle" formatted="false">កំណែកម្មវិធី និងព័ត៌មានស្របច្បាប់</string>
+    <string name="about_title" formatted="false">អំពី</string>
+    <string name="access_target_url" formatted="false">ចូលប្រើ URL គោលដៅ</string>
+    <string name="action" formatted="false">សកម្មភាព</string>
+    <string name="action_all" formatted="false">ទាំងអស់</string>
+    <string name="action_allow" formatted="false">អនុញ្ញាត</string>
+    <string name="action_block" formatted="false">ទប់ស្កាត់</string>
+    <string name="action_filter_title" formatted="false">តម្រងតាមប្រភេទសកម្មភាព</string>
+    <string name="action_filter_tooltip" formatted="false">តម្រងសកម្មភាព</string>
+    <string name="action_none" formatted="false">គ្មានសកម្មភាព</string>
+    <string name="action_silence" formatted="false">ស្ងាត់</string>
+    <string name="action_tag" formatted="false">សកម្មភាព៖ {actionType}</string>
+    <string name="action_type" formatted="false">ប្រភេទសកម្មភាព</string>
+    <string name="action_unknown" formatted="false">មិនស្គាល់</string>
+    <string name="active_proposals" formatted="false">សំណើសកម្ម</string>
+    <string name="add" formatted="false">បន្ថែម</string>
+    <string name="add_allow_subscription" formatted="false">បន្ថែមការជាវអនុញ្ញាត</string>
+    <string name="add_allowed_blocked_rule" formatted="false">បន្ថែមច្បាប់អនុញ្ញាត/ទប់ស្កាត់</string>
+    <string name="add_block_subscription" formatted="false">បន្ថែមការជាវទប់ស្កាត់</string>
+    <string name="add_contact_button" formatted="false">បន្ថែមទំនាក់ទំនង</string>
+    <string name="add_contact_failed" formatted="false">បរាជ័យក្នុងការបន្ថែមទំនាក់ទំនង៖ {error}</string>
+    <string name="add_label" formatted="false">បន្ថែមស្លាក</string>
+    <string name="add_label_button" formatted="false">បន្ថែមស្លាក</string>
+    <string name="add_label_failed" formatted="false">បរាជ័យក្នុងការបន្ថែមស្លាក៖ {error}</string>
+    <string name="add_name" formatted="false">បន្ថែមឈ្មោះ</string>
+    <string name="add_none_subscription" formatted="false">បន្ថែមការជាវគ្មាន</string>
+    <string name="add_phone_mark" formatted="false">បន្ថែមសញ្ញាទូរស័ព្ទ</string>
+    <string name="add_phone_number_rule" formatted="false">បន្ថែមច្បាប់លេខទូរស័ព្ទ</string>
+    <string name="add_plugin" formatted="false">បន្ថែមកម្មវិធីជំនួយ</string>
+    <string name="add_plugin_failed" formatted="false">បរាជ័យក្នុងការបន្ថែមកម្មវិធីជំនួយ</string>
+    <string name="add_plugin_failed_with_error" formatted="false">បរាជ័យក្នុងការបន្ថែមកម្មវិធីជំនួយ៖ {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">បន្ថែមកម្មវិធីជំនួយពីឯកសារក្នុងមូលដ្ឋាន</string>
+    <string name="add_plugin_from_url" formatted="false">បន្ថែមកម្មវិធីជំនួយពី URL</string>
+    <string name="add_regex_rule" formatted="false">បន្ថែមច្បាប់ Regex</string>
+    <string name="add_rule" formatted="false">បន្ថែមច្បាប់</string>
+    <string name="add_rule_failed" formatted="false">បរាជ័យក្នុងការបន្ថែមច្បាប់៖ {error}</string>
+    <string name="add_rule_tooltip" formatted="false">បន្ថែមច្បាប់</string>
+    <string name="add_silence_subscription" formatted="false">បន្ថែមការជាវស្ងាត់</string>
+    <string name="add_sms_filter_rule" formatted="false">បន្ថែមច្បាប់ត្រង SMS</string>
+    <string name="add_sms_rule" formatted="false">បន្ថែមច្បាប់ SMS</string>
+    <string name="add_sms_subscription" formatted="false">បន្ថែមការជាវ SMS</string>
+    <string name="add_subscription" formatted="false">បន្ថែមការជាវ</string>
+    <string name="add_subscription_button" formatted="false">បន្ថែមការជាវ</string>
+    <string name="add_subscription_failed" formatted="false">បរាជ័យក្នុងការបន្ថែមការជាវ៖ {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">បន្ថែមការជាវ</string>
+    <string name="add_to_blacklist" formatted="false">បន្ថែមទៅក្នុងបញ្ជីខ្មៅ</string>
+    <string name="add_to_favorites" formatted="false">បន្ថែមទៅក្នុងទំនាក់ទំនងដែលចូលចិត្ត</string>
+    <string name="add_to_rules" formatted="false">បន្ថែមទៅក្នុងច្បាប់</string>
+    <string name="add_to_whitelist" formatted="false">បន្ថែមទៅក្នុងបញ្ជីស</string>
+    <string name="added_to_favorites" formatted="false">បានបន្ថែមទៅក្នុងទំនាក់ទំនងដែលចូលចិត្ត</string>
+    <string name="advanced_mode" formatted="false">របៀបកម្រិតខ្ពស់</string>
+    <string name="agent" formatted="false">ភ្នាក់ងារ</string>
+    <string name="agree_votes" formatted="false">យល់ព្រម: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">ទាំងអស់</string>
+    <string name="all_call_logs_cleared" formatted="false">កំណត់ហេតុការហៅទូរសព្ទទាំងអស់ត្រូវបានសម្អាត</string>
+    <string name="all_calls_tab" formatted="false">ទាំងអស់</string>
+    <string name="all_permissions_granted" formatted="false">បានផ្តល់សិទ្ធិទាំងអស់</string>
+    <string name="all_services_status_subtitle" formatted="false">ស្ថានភាពបច្ចុប្បន្ននៃសេវាកម្មពពកនីមួយៗ</string>
+    <string name="all_services_status_title" formatted="false">ស្ថានភាពសេវាកម្មបច្ចុប្បន្ន</string>
+    <string name="all_settings_completed" formatted="false">បានបញ្ចប់ការកំណត់ទាំងអស់។</string>
+    <string name="all_update_success" formatted="false">បានបញ្ចប់ការអាប់ដេតទាំងអស់ ({count} ច្បាប់)</string>
+    <string name="allow" formatted="false">អនុញ្ញាត</string>
+    <string name="allow_action_description" formatted="false">ការហៅទូរសព្ទនឹងត្រូវបានអនុញ្ញាត ទោះបីជាលេខនោះស្ថិតនៅក្នុងបញ្ជីបិទក៏ដោយ។</string>
+    <string name="allow_all_allow_rules" formatted="false">អនុញ្ញាតច្បាប់អនុញ្ញាតទាំងអស់</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">អនុញ្ញាតការហៅទូរស័ព្ទពីច្បាប់អនុញ្ញាត</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">អនុញ្ញាតលេខក្នុងបញ្ជីខ្មៅទាំងអស់</string>
+    <string name="allow_all_block_rules" formatted="false">អនុញ្ញាតច្បាប់ទប់ស្កាត់ទាំងអស់</string>
+    <string name="allow_all_block_rules_desc" formatted="false">អនុញ្ញាតការហៅទូរស័ព្ទពីច្បាប់ទប់ស្កាត់</string>
+    <string name="allow_allowed_numbers" formatted="false">អនុញ្ញាតលេខដែលបានអនុញ្ញាត</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">អនុញ្ញាតការហៅទូរស័ព្ទពីបញ្ជីអនុញ្ញាត</string>
+    <string name="allow_block" formatted="false">អនុញ្ញាត/ទប់ស្កាត់</string>
+    <string name="allow_blocked_numbers" formatted="false">អនុញ្ញាតលេខដែលបានទប់ស្កាត់</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">អនុញ្ញាតការហៅទូរស័ព្ទពីបញ្ជីទប់ស្កាត់</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">អនុញ្ញាតលេខដែលមិនលើសពីចំនួនកំណត់</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">អនុញ្ញាតដោយស្វ័យប្រវត្តិនូវលេខដែលមិនលើសពីចំនួនកំណត់</string>
+    <string name="allow_regex_allow_rules" formatted="false">អនុញ្ញាតច្បាប់ Regex អនុញ្ញាត</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">បើកដំណើរការការផ្គូផ្គងលំនាំ regex សម្រាប់ច្បាប់អនុញ្ញាត</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">បើកដំណើរការច្បាប់អនុញ្ញាតផ្អែកលើ regex</string>
+    <string name="allow_regex_block_rules" formatted="false">អនុញ្ញាតច្បាប់ Regex ទប់ស្កាត់</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">បើកដំណើរការការផ្គូផ្គងលំនាំ regex សម្រាប់ច្បាប់ទប់ស្កាត់</string>
+    <string name="allow_regex_block_rules_description" formatted="false">បើកដំណើរការច្បាប់ទប់ស្កាត់ផ្អែកលើ regex</string>
+    <string name="allow_rule" formatted="false">ច្បាប់អនុញ្ញាត</string>
+    <string name="allow_rules" formatted="false">ច្បាប់អនុញ្ញាត</string>
+    <string name="allowed_blocked_rule" formatted="false">ច្បាប់អនុញ្ញាត/ទប់ស្កាត់</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">កែសម្រួលច្បាប់អនុញ្ញាត/ទប់ស្កាត់</string>
+    <string name="allowed_blocked_rule_management" formatted="false">ការគ្រប់គ្រងច្បាប់អនុញ្ញាត/ទប់ស្កាត់</string>
+    <string name="allowed_blocked_rules_info" formatted="false">ច្បាប់អនុញ្ញាត/ទប់ស្កាត់ត្រូវបានប្រើដើម្បីផ្គូផ្គងការហៅទូរសព្ទទៅលេខទូរសព្ទជាក់លាក់ ដែលមានអាទិភាពខ្ពស់បំផុត។</string>
+    <string name="and_more_items" formatted="false">និង {count} ធាតុផ្សេងទៀត</string>
+    <string name="answer_then_hangup" formatted="false">ឆ្លើយតប រួចផ្ដាច់</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">Your Call Your Rule</string>
+    <string name="application_software" formatted="false">កម្មវិធី</string>
+    <string name="apply" formatted="false">អនុវត្ត</string>
+    <string name="approved" formatted="false">បានអនុម័ត</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">ការអនុញ្ញាតបរាជ័យ៖ សូមពិនិត្យមើល Client ID និង Key</string>
+    <string name="authorization_failed_message" formatted="false">ការអនុញ្ញាតបរាជ័យ</string>
+    <string name="authorization_success_message" formatted="false">ការអនុញ្ញាតជោគជ័យ</string>
+    <string name="authorize_login_button" formatted="false">អនុញ្ញាតការចូល</string>
+    <string name="auto_cancel_notification" formatted="false">ការលុបការជូនដំណឹងដោយស្វ័យប្រវត្តិ</string>
+    <string name="auto_cancel_notification_description" formatted="false">ប្រសិនបើធីក ការជូនដំណឹងនឹងត្រូវបានបិទដោយស្វ័យប្រវត្តិនៅពេលអ្នកប្រើប្រាស់ចុចលើវា។</string>
+    <string name="auto_sync_label" formatted="false">ធ្វើសមកាលកម្មដោយស្វ័យប្រវត្តិ</string>
+    <string name="auto_update" formatted="false">ធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ</string>
+    <string name="auto_update_description" formatted="false">កំណត់ចន្លោះពេលធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិសម្រាប់ការជាវ ឬធ្វើបច្ចុប្បន្នភាពដោយដៃ</string>
+    <string name="auto_update_settings" formatted="false">ការកំណត់ធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ</string>
+    <string name="auto_update_subtitle" formatted="false">គ្រប់គ្រងការធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិសម្រាប់ច្បាប់ និងកម្មវិធីបន្ថែម</string>
+    <string name="auto_update_title" formatted="false">ធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិ</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">ឧស្សាហកម្មរថយន្ត</string>
+    <string name="avatar" formatted="false">រូបតំណាង</string>
+    <string name="avatar_border_color" formatted="false">ពណ៌ព្រំដែនរូបតំណាង</string>
+    <string name="avatar_border_size" formatted="false">ទំហំព្រំដែនរូបតំណាង</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">ទំហំរូបតំណាង និងរូបសញ្ញា</string>
+    <string name="avatar_position" formatted="false">ទីតាំងរូបតំណាង</string>
+    <string name="avatar_size" formatted="false">ទំហំរូបតំណាង</string>
+    <string name="axis_position" formatted="false">ទីតាំង {axis}</string>
+    <string name="background_gradient_setting" formatted="false">ការកំណត់ជម្រាលផ្ទៃខាងក្រោយ</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">បម្រុងទុក</string>
+    <string name="backup_and_restore" formatted="false">បម្រុងទុក និងស្ដារឡើងវិញ</string>
+    <string name="backup_and_restore_subtitle" formatted="false">បម្រុងទុក ឬស្ដារទិន្នន័យកម្មវិធីឡើងវិញ</string>
+    <string name="backup_and_restore_title" formatted="false">បម្រុងទុក និងស្ដារឡើងវិញ</string>
+    <string name="backup_failed" formatted="false">ការបម្រុងទុកបរាជ័យ</string>
+    <string name="backup_settings" formatted="false">ការកំណត់ការបម្រុងទុក</string>
+    <string name="backup_to_cloud" formatted="false">បម្រុងទុកទៅពពក</string>
+    <string name="backup_to_cloud_failed" formatted="false">បរាជ័យក្នុងការបម្រុងទុកទៅពពក៖ {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">បានបម្រុងទុកទៅពពកដោយជោគជ័យ</string>
+    <string name="bank" formatted="false">ធនាគារ</string>
+    <string name="basic_info" formatted="false">ព័ត៌មានមូលដ្ឋាន</string>
+    <string name="basic_rule_filter" formatted="false">តម្រងច្បាប់មូលដ្ឋាន</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">ត្រងការហៅទូរស័ព្ទដោយប្រើបញ្ជីខ្មៅ/បញ្ជីស និងកន្សោមធម្មតា</string>
+    <string name="basic_rule_filtering" formatted="false">ការត្រងច្បាប់មូលដ្ឋាន</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• ការត្រងច្បាប់មូលដ្ឋាន៖ ត្រងច្បាប់ដោយផ្អែកលើបញ្ជីខ្មៅ បញ្ជីស និង regex</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">តើអ្នកប្រាកដថាអ្នកចង់លុបទំនាក់ទំនងដែលបានជ្រើសរើស {count} ដែរឬទេ?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">តើអ្នកប្រាកដថាអ្នកចង់លុបស្លាក {count} ដែរឬទេ?</string>
+    <string name="battery_optimization_permission" formatted="false">ការបង្កើនប្រសិទ្ធភាពថ្ម</string>
+    <string name="battery_optimization_permission_description" formatted="false">អនុញ្ញាតឱ្យកម្មវិធីដំណើរការក្នុងផ្ទៃខាងក្រោយដើម្បីផ្តល់សេវាកម្មដូចជា caller ID។</string>
+    <string name="black_white_list" formatted="false">បញ្ជីខ្មៅ/ស</string>
+    <string name="blacklist" formatted="false">បញ្ជីខ្មៅ</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">ការដាក់ក្នុងបញ្ជីខ្មៅ និងបញ្ជីស</string>
+    <string name="block" formatted="false">ទប់ស្កាត់</string>
+    <string name="block_action_description" formatted="false">ការហៅទូរសព្ទនឹងត្រូវបានបិទ និងបង្ហាញនៅក្នុងកំណត់ហេតុការហៅ។</string>
+    <string name="block_calls" formatted="false">ទប់ស្កាត់ការហៅទូរស័ព្ទ</string>
+    <string name="block_international_calls" formatted="false">ផ្គូផ្គងលេខដែលមិនចាប់ផ្តើមដោយ + ឬ 00</string>
+    <string name="block_international_calls_title" formatted="false">ទប់ស្កាត់ការហៅអន្តរជាតិ</string>
+    <string name="block_mobile_numbers" formatted="false">ផ្គូផ្គងលេខដែលមិនចាប់ផ្តើមដោយ 13-19</string>
+    <string name="block_mobile_numbers_title" formatted="false">ទប់ស្កាត់លេខទូរស័ព្ទចល័ត</string>
+    <string name="block_number" formatted="false">ទប់ស្កាត់លេខ</string>
+    <string name="block_number_success" formatted="false">ការទប់ស្កាត់លេខបានជោគជ័យ</string>
+    <string name="block_premium_rate_numbers" formatted="false">ផ្គូផ្គងលេខដែលមិនចាប់ផ្តើមដោយ 118 ឬ 120-190</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">ទប់ស្កាត់លេខគិតតម្លៃពិសេស</string>
+    <string name="block_rule" formatted="false">ច្បាប់ទប់ស្កាត់</string>
+    <string name="block_rules" formatted="false">ច្បាប់ទប់ស្កាត់</string>
+    <string name="block_specific_area_codes" formatted="false">ផ្គូផ្គងលេខដែលចាប់ផ្តើមដោយ 0 + 2-3 ខ្ទង់</string>
+    <string name="block_specific_area_codes_title" formatted="false">ទប់ស្កាត់លេខកូដតំបន់ជាក់លាក់៖</string>
+    <string name="block_type_analysis_title" formatted="false">ការវិភាគប្រភេទនៃការទប់ស្កាត់</string>
+    <string name="blocked" formatted="false">បានទប់ស្កាត់</string>
+    <string name="blocked_call_body" formatted="false">ការហៅដែលបានបិទពី {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">ការជូនដំណឹងការហៅទូរសព្ទដែលបានបិទ</string>
+    <string name="blocked_call_notifications_description" formatted="false">បង្ហាញព័ត៌មានអំពីការហៅទូរសព្ទដែលបានបិទ។</string>
+    <string name="blocked_call_title" formatted="false">ការហៅដែលបានបិទ</string>
+    <string name="blocked_calls" formatted="false">ការហៅដែលបានទប់ស្កាត់</string>
+    <string name="blocked_calls_title" formatted="false">ការហៅដែលបានទប់ស្កាត់</string>
+    <string name="blocked_spam_calls" formatted="false">ការហៅទូរស័ព្ទសារឥតបានការដែលបានទប់ស្កាត់</string>
+    <string name="blocking_trend" formatted="false">និន្នាការទប់ស្កាត់</string>
+    <string name="both" formatted="false">ទាំងពីរ</string>
+    <string name="bulk_delete" formatted="false">លុបជាបាច់ទំនាក់ទំនង</string>
+    <string name="bulk_delete_contacts" formatted="false">លុបទំនាក់ទំនងជាបាច់</string>
+    <string name="bulk_delete_labels" formatted="false">លុបស្លាបជាបាច់</string>
+    <string name="call" formatted="false">ហៅ</string>
+    <string name="call_blocking" formatted="false">ការទប់ស្កាត់ការហៅ</string>
+    <string name="call_details" formatted="false">ព័ត៌មានលម្អិតនៃការហៅទូរស័ព្ទ</string>
+    <string name="call_filter_rules" formatted="false">ច្បាប់​តម្រង​ការ​ហៅ</string>
+    <string name="call_filter_rules_description" formatted="false">កំណត់​ច្បាប់​ជា​មូលដ្ឋាន​សម្រាប់​តម្រង​ការ​ហៅ</string>
+    <string name="call_filter_settings" formatted="false">ការ​កំណត់​តម្រង​ការ​ហៅ</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">កំណត់​ដែន​កំណត់​ប្រេកង់​ការ​ហៅ និង​ច្បាប់​ទប់ស្កាត់</string>
+    <string name="call_frequency_interception_title" formatted="false">ការ​ទប់ស្កាត់​ប្រេកង់​ការ​ហៅ</string>
+    <string name="call_history" formatted="false">ប្រវត្តិ​ការ​ហៅ</string>
+    <string name="call_history_info_desc" formatted="false">នៅ​ទីនេះ​បង្ហាញ​ប្រវត្តិ​ការ​ហៅ​របស់​អ្នក រួម​ទាំង​ការ​ហៅ​ចូល ការ​ហៅ​ចេញ និង​ការ​ហៅ​ខកខាន។</string>
+    <string name="call_history_info_title" formatted="false">ប្រវត្តិ​ការ​ហៅ</string>
+    <string name="call_history_tab" formatted="false">ប្រវត្តិ​ការ​ហៅ</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">ការ​អនុញ្ញាត​ត្រួត​ពិនិត្យ​ការ​ហៅ</string>
+    <string name="call_screening_permission_description" formatted="false">ប្រើ​ដើម្បី​ត្រួត​ពិនិត្យ និង​ទប់ស្កាត់​ការ​ហៅ​សារ​ឥត​បាន​ការ។</string>
+    <string name="call_screening_permission_not_granted" formatted="false">មិន​បាន​ផ្ដល់​ការ​អនុញ្ញាត​ត្រួត​ពិនិត្យ​ការ​ហៅ​ទេ វា​អាច​ប៉ះពាល់​ដល់​មុខងារ​របស់​កម្មវិធី។</string>
+    <string name="call_statistics" formatted="false">ស្ថិតិ​ការ​ហៅ</string>
+    <string name="call_time" formatted="false">ពេលវេលាហៅទូរស័ព្ទ</string>
+    <string name="call_type" formatted="false">ប្រភេទនៃការហៅទូរស័ព្ទ</string>
+    <string name="call_type_answered" formatted="false">បាន​ឆ្លើយ</string>
+    <string name="call_type_blocked" formatted="false">បាន​ទប់ស្កាត់</string>
+    <string name="call_type_icon_color" formatted="false">ពណ៌​រូប​តំណាង​ប្រភេទ​ការ​ហៅ</string>
+    <string name="call_type_missed" formatted="false">ការ​ហៅ​ខកខាន</string>
+    <string name="call_type_outgoing" formatted="false">ការ​ហៅ​ចេញ</string>
+    <string name="call_type_position" formatted="false">ទីតាំង​ប្រភេទ​ការ​ហៅ</string>
+    <string name="call_type_rejected" formatted="false">បដិសេធ</string>
+    <string name="call_type_silenced" formatted="false">បិទសំឡេង</string>
+    <string name="call_type_unknown" formatted="false">មិន​ស្គាល់</string>
+    <string name="callback" formatted="false">ហៅត្រឡប់</string>
+    <string name="caller_id_app" formatted="false">កម្មវិធី Caller ID</string>
+    <string name="caller_id_customization_subtitle" formatted="false">ប្ដូររូបរាង Caller ID តាមចំណង់ចំណូលចិត្ត</string>
+    <string name="caller_id_customization_title" formatted="false">ប្ដូរតាមបំណង Caller ID</string>
+    <string name="caller_id_display_mode" formatted="false">របៀបបង្ហាញអត្តសញ្ញាណអ្នកហៅ</string>
+    <string name="caller_id_enhancement" formatted="false">ការពង្រឹង Caller ID</string>
+    <string name="caller_id_marked_by_count" formatted="false">សម្គាល់ដោយ {count}</string>
+    <string name="caller_id_notification_title" formatted="false">ព័ត៌មានការហៅចូល</string>
+    <string name="caller_id_preview" formatted="false">ទិដ្ឋភាព​ជា​មុន​អត្តសញ្ញាណ​អ្នក​ហៅ</string>
+    <string name="caller_id_settings_subtitle" formatted="false">ដើម្បីកំណត់ការជូនដំណឹងការហៅចូល &amp; របៀបបង្ហាញ</string>
+    <string name="caller_id_settings_title" formatted="false">ការកំណត់ Caller ID</string>
+    <string name="calling_number_failed" formatted="false">ការហៅទូរស័ព្ទបរាជ័យ</string>
+    <string name="cancel" formatted="false">បោះបង់</string>
+    <string name="cancel_button" formatted="false">បោះបង់</string>
+    <string name="cancel_local_notification" formatted="false">បិទការជូនដំណឹងក្នុងមូលដ្ឋាន</string>
+    <string name="cancel_local_notification_description" formatted="false">បិទការជូនដំណឹងក្នុងមូលដ្ឋានដោយស្វ័យប្រវត្តិ</string>
+    <string name="car_rental" formatted="false">ជួល​រថយន្ត</string>
+    <string name="carrier" formatted="false">ក្រុមហ៊ុន​ដឹក​ជញ្ជូន</string>
+    <string name="carrier_color" formatted="false">ពណ៌​ក្រុមហ៊ុន​ដឹក​ជញ្ជូន</string>
+    <string name="carrier_font_size" formatted="false">ទំហំ​អក្សរ​ក្រុមហ៊ុន​ដឹក​ជញ្ជូន</string>
+    <string name="carrier_position" formatted="false">ទីតាំង​ក្រុមហ៊ុន​ដឹក​ជញ្ជូន</string>
+    <string name="change_label" formatted="false">ផ្លាស់ប្ដូរ​ស្លាក</string>
+    <string name="change_plugin_status_failed" formatted="false">មិន​អាច​ផ្លាស់ប្ដូរ​ស្ថានភាព​កម្មវិធី​ជំនួយ​បាន​ទេ៖ {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">មិន​អាច​ផ្លាស់ប្ដូរ​ស្ថានភាព​ការ​ជាវ​បាន​ទេ៖ {error}</string>
+    <string name="charity" formatted="false">អង្គការ​សប្បុរសធម៌</string>
+    <string name="chart_one_week_ago" formatted="false">១ សប្តាហ៍​មុន</string>
+    <string name="chart_three_days_ago" formatted="false">៣ ថ្ងៃ​មុន</string>
+    <string name="chart_today" formatted="false">ថ្ងៃ​នេះ</string>
+    <string name="check_file_format" formatted="false">សូម​ពិនិត្យ​ទ្រង់ទ្រាយ​ឯកសារ ឬ​ការ​អនុញ្ញាត</string>
+    <string name="check_permission_failed" formatted="false">មិន​អាច​ត្រួត​ពិនិត្យ​ការ​អនុញ្ញាត​បាន​ទេ៖ {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">ជ្រើសរើស​សកម្មភាព​ទប់ស្កាត់​លំនាំដើម</string>
+    <string name="clear_all_call_logs" formatted="false">សម្អាតកំណត់ហេតុការហៅទូរសព្ទទាំងអស់</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">បញ្ជាក់ដើម្បីសម្អាតកំណត់ហេតុការហៅទូរសព្ទទាំងអស់</string>
+    <string name="clear_all_notifications" formatted="false">សម្អាតការជូនដំណឹងទាំងអស់</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">បញ្ជាក់ដើម្បីសម្អាតការជូនដំណឹងទាំងអស់</string>
+    <string name="clear_button" formatted="false">ជម្រះ</string>
+    <string name="clear_filter" formatted="false">លុប​តម្រង</string>
+    <string name="clear_label_filter_button" formatted="false">លុប​តម្រង​ស្លាក</string>
+    <string name="close_button" formatted="false">បិទ</string>
+    <string name="cloud_backup" formatted="false">បម្រុងទុកពពក</string>
+    <string name="cloud_sync" formatted="false">ការ​ធ្វើ​សមកាលកម្ម​ពពក</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">ការ​ធ្វើ​សមកាលកម្ម &amp; ការ​បម្រុង​ទុក​ពពក</string>
+    <string name="cloud_sync_service" formatted="false">សេវាកម្មធ្វើសមកាលកម្មពពក</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">កំណត់​រចនាសម្ព័ន្ធ WebDAV, OneDrive និង Google Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">ការ​កំណត់​ការ​ធ្វើ​សមកាលកម្ម​ពពក</string>
+    <string name="cloud_sync_title" formatted="false">ការ​ធ្វើ​សមកាលកម្ម​ពពក</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">ការ​ប្រមូល​បំណុល</string>
+    <string name="color_picker_title" formatted="false">ជ្រើសរើស​ពណ៌</string>
+    <string name="community_impact" formatted="false">ផលប៉ះពាល់សហគមន៍</string>
+    <string name="community_participation" formatted="false">ការចូលរួមសហគមន៍</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">ការបោះឆ្នោតសហគមន៍</string>
+    <string name="community_voting_started" formatted="false">ការបោះឆ្នោតសហគមន៍បានចាប់ផ្តើម</string>
+    <string name="community_voting_started_body" formatted="false">សំណើលុបថ្មីសម្រាប់ {phoneNumber} ឥឡូវនេះបើកសម្រាប់ការបោះឆ្នោតសហគមន៍ហើយ។</string>
+    <string name="completed" formatted="false">បានបញ្ចប់</string>
+    <string name="config_management" formatted="false">ការ​គ្រប់គ្រង​ការ​កំណត់​រចនាសម្ព័ន្ធ</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">ការ​កំណត់​រចនាសម្ព័ន្ធ​ត្រូវ​បាន​ធ្វើ​បច្ចុប្បន្នភាព</string>
+    <string name="configuration_advice" formatted="false">តាម​រយៈ​ការ​កំណត់​រចនាសម្ព័ន្ធ​ត្រឹមត្រូវ អ្នក​អាច​កំណត់​យុទ្ធសាស្ត្រ​តម្រង​ផ្សេងៗ​គ្នា​សម្រាប់​ស៊ីម​កាត​ការងារ និង​ស៊ីម​កាត​ផ្ទាល់ខ្លួន។</string>
+    <string name="configure_backup_options" formatted="false">កំណត់​រចនាសម្ព័ន្ធ​ជម្រើស​បម្រុង​ទុក</string>
+    <string name="configure_cloud_sync_service" formatted="false">កំណត់​រចនាសម្ព័ន្ធ​សេវា​ធ្វើ​សមកាលកម្ម​ពពក</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">សូម​កំណត់​រចនាសម្ព័ន្ធ​សេវា​ធ្វើ​សមកាលកម្ម​ពពក​ដើម្បី​បើក​ដំណើរការ​ការ​ធ្វើ​សមកាលកម្ម​ច្រើន​ឧបករណ៍។</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">កំណត់​រចនាសម្ព័ន្ធ​ច្បាប់​តម្រង​ស៊ីម​កាត</string>
+    <string name="confirm" formatted="false">បញ្ជាក់</string>
+    <string name="confirm_button" formatted="false">បញ្ជាក់</string>
+    <string name="confirm_delete" formatted="false">បញ្ជាក់​ការ​លុប</string>
+    <string name="confirm_delete_label" formatted="false">តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ស្លាក &quot;{name}&quot;</string>
+    <string name="confirm_delete_plugin" formatted="false">តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​កម្មវិធី​ជំនួយ &quot;{name}&quot;?</string>
+    <string name="confirm_delete_plugins" formatted="false">តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​កម្មវិធី​ជំនួយ {count} នេះ?</string>
+    <string name="confirm_delete_rule_message" formatted="false">តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ច្បាប់​នេះ? សកម្មភាព​នេះ​មិន​អាច​យក​មក​វិញ​បាន​ទេ។</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ច្បាប់​តម្រង SMS នេះ?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប​ច្បាប់ SMS នេះ?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">តើ​អ្នក​ប្រាកដ​ទេ​ថា​អ្នក​ចង់​លុប {name}?</string>
+    <string name="confirm_password" formatted="false">បញ្ជាក់​ពាក្យ​សម្ងាត់</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">បាន​ភ្ជាប់</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">ការ​តភ្ជាប់​បរាជ័យ៖ សូម​ពិនិត្យ​អាសយដ្ឋាន​ម៉ាស៊ីន​បម្រើ ឈ្មោះ​អ្នក​ប្រើ និង​ពាក្យ​សម្ងាត់</string>
+    <string name="connection_failed_message" formatted="false">ការ​តភ្ជាប់​បរាជ័យ</string>
+    <string name="connection_status_label" formatted="false">ស្ថានភាព</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">ការតភ្ជាប់ជោគជ័យ</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">ទំនាក់ទំនងត្រូវបានបន្ថែមដោយជោគជ័យ</string>
+    <string name="contact_deleted" formatted="false">ទំនាក់ទំនងត្រូវបានលុប</string>
+    <string name="contact_name_label" formatted="false">ឈ្មោះ</string>
+    <string name="contact_not_found" formatted="false">រកមិនឃើញទំនាក់ទំនង</string>
+    <string name="contact_subscription_description" formatted="false">ជាវបញ្ជីទំនាក់ទំនងតាមរយៈ URL អាប់ដេតព័ត៌មានទំនាក់ទំនង និងស្លាកដោយស្វ័យប្រវត្តិ។ គាំទ្រទិន្នន័យទ្រង់ទ្រាយ JSON។</string>
+    <string name="contact_update_success" formatted="false">ទំនាក់ទំនងត្រូវបានអាប់ដេតដោយជោគជ័យ</string>
+    <string name="contact_us" formatted="false">ទាក់ទងមកយើង</string>
+    <string name="contacts" formatted="false">ទំនាក់ទំនង</string>
+    <string name="contacts_deleted" formatted="false">បានលុបទំនាក់ទំនង {count}</string>
+    <string name="contacts_management" formatted="false">ការគ្រប់គ្រងទំនាក់ទំនង</string>
+    <string name="contacts_permission" formatted="false">ការអនុញ្ញាតទំនាក់ទំនង</string>
+    <string name="contacts_permission_description" formatted="false">ប្រើដើម្បីកំណត់អត្តសញ្ញាណការហៅទូរស័ព្ទទំនាក់ទំនង។</string>
+    <string name="contacts_tab" formatted="false">ទំនាក់ទំនង</string>
+    <string name="container_width" formatted="false">ទទឹងប្រអប់</string>
+    <string name="content" formatted="false">ខ្លឹមសារ</string>
+    <string name="content_regex" formatted="false">ខ្លឹមសារ Regex</string>
+    <string name="count_color" formatted="false">ពណ៌ចំនួន</string>
+    <string name="count_font_size" formatted="false">ទំហំពុម្ពអក្សរចំនួន</string>
+    <string name="count_position" formatted="false">ទីតាំងចំនួន</string>
+    <string name="count_threshold_description" formatted="false">កំណត់ចំនួនអប្បបរមាដែលទាមទារដើម្បីបង្កឱ្យមានសកម្មភាពត្រង</string>
+    <string name="count_threshold_label" formatted="false">ដែនកំណត់ចំនួន</string>
+    <string name="country" formatted="false">ប្រទេស</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">ឧទាហរណ៍៖ US, CN, GB</string>
+    <string name="country_code_label" formatted="false">លេខកូដប្រទេស (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">លេខកូដប្រទេសត្រូវបានទាមទារ</string>
+    <string name="country_code_two_letters" formatted="false">លេខកូដប្រទេស (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">សូមចំណាំ៖ មូលដ្ឋានទិន្នន័យអាចមិនរួមបញ្ចូលទិន្នន័យសម្រាប់ប្រទេស ឬតំបន់ជាក់លាក់ទាំងអស់នោះទេ។</string>
+    <string name="country_name_color" formatted="false">ពណ៌ឈ្មោះប្រទេស</string>
+    <string name="country_name_font_size" formatted="false">ទំហំពុម្ពអក្សរឈ្មោះប្រទេស</string>
+    <string name="country_region_name_position" formatted="false">ទីតាំងឈ្មោះប្រទេស/តំបន់</string>
+    <string name="country_sync_settings_subtitle" formatted="false">ជ្រើសរើសប្រទេសសម្រាប់ការធ្វើសមកាលកម្មទិន្នន័យ</string>
+    <string name="country_sync_settings_title" formatted="false">ការកំណត់ការធ្វើសមកាលកម្មមូលដ្ឋានទិន្នន័យតាមប្រទេស</string>
+    <string name="create_proposal" formatted="false">បង្កើតសំណើ</string>
+    <string name="create_proposal_title" formatted="false">បង្កើតសំណើលុប</string>
+    <string name="created_at" formatted="false">បានបង្កើត: {date}</string>
+    <string name="created_rules" formatted="false">ច្បាប់ដែលបានបង្កើត</string>
+    <string name="critical" formatted="false">សំខាន់</string>
+    <string name="critical_issues" formatted="false">បញ្ហាសំខាន់</string>
+    <string name="csv_format" formatted="false">ទ្រង់ទ្រាយ CSV</string>
+    <string name="current_device_label" formatted="false">ស្លាប៊ rekordឧបករណ៍បច្ចុប្បន្ន</string>
+    <string name="current_device_title" formatted="false">ឧបករណ៍បច្ចុប្បន្ន</string>
+    <string name="current_language" formatted="false">ភាសា​បច្ចុប្បន្ន</string>
+    <string name="current_mark_count" formatted="false">ចំនួន Marks បច្ចុប្បន្ន</string>
+    <string name="custom" formatted="false">ផ្ទាល់ខ្លួន</string>
+    <string name="custom_action_description" formatted="false">អនុវត្តសកម្មភាពផ្ទាល់ខ្លួន។</string>
+    <string name="customer_service" formatted="false">សេវាកម្មអតិថិជន</string>
+    <string name="dashboard_tab" formatted="false">ផ្ទាំងគ្រប់គ្រង</string>
+    <string name="data_analysis" formatted="false">ការវិភាគទិន្នន័យ</string>
+    <string name="data_load_failure" formatted="false">មិនអាចផ្ទុកទិន្នន័យ៖ {error}</string>
+    <string name="data_loading_failed" formatted="false">មិនអាចផ្ទុកទិន្នន័យ៖ {error}</string>
+    <string name="data_migration" formatted="false">ការផ្លាស់ទីលំនៅទិន្នន័យ</string>
+    <string name="data_migration_description" formatted="false">មុខងារនេះអនុញ្ញាតឱ្យអ្នកផ្ទេរទិន្នន័យទាំងអស់របស់អ្នករវាងឧបករណ៍។ បច្ចុប្បន្នអ្នកអាចប្រើមុខងារបម្រុងទុក និងស្តារឡើងវិញដើម្បីផ្លាស់ទីលំនៅទិន្នន័យរបស់អ្នកដោយដៃ។</string>
+    <string name="data_source_disclaimer" formatted="false">លេខត្រូវបានដកស្រង់ចេញពីអ៊ីនធឺណិត និងការដាក់ស្នើរបស់អ្នកប្រើប្រាស់។ យើងមិនអាចធានាថាលេខមួយនៅពេលដែលត្រូវបានលុបនឹងមិនត្រូវបានដាក់ស្នើឡើងវិញដោយអ្នកប្រើប្រាស់ ឬប្រភពផ្សេងទៀតទេ។ សូមស្វែងរក និងផ្ទៀងផ្ទាត់ព័ត៌មានយ៉ាងសកម្ម។</string>
+    <string name="data_source_reminder" formatted="false">ការរំលឹកប្រភពទិន្នន័យ</string>
+    <string name="database_sync_title" formatted="false">ការធ្វើសមកាលកម្មមូលដ្ឋានទិន្នន័យ</string>
+    <string name="days" formatted="false">{count, plural, =1{1 ថ្ងៃ} other{{count} ថ្ងៃ}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 ថ្ងៃមុន} other{{count} ថ្ងៃមុន}}</string>
+    <string name="days_vip" formatted="false">{days} ថ្ងៃ VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">ការប្រមូលបំណុល</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">ការជូនដំណឹងលំនាំដើម</string>
+    <string name="default_notifications_description" formatted="false">ឆានែលជូនដំណឹងលំនាំដើមសម្រាប់កម្មវិធី។</string>
+    <string name="delete" formatted="false">លុប</string>
+    <string name="delete_button" formatted="false">លុប</string>
+    <string name="delete_contact" formatted="false">លុបទំនាក់ទំនង</string>
+    <string name="delete_contact_confirm" formatted="false">តើអ្នកប្រាកដថាអ្នកចង់លុប {name}?</string>
+    <string name="delete_failed" formatted="false">លុបរងការខាតបង់៖ {error}</string>
+    <string name="delete_label" formatted="false">លុបស្លាប៊ rekord</string>
+    <string name="delete_label_failed" formatted="false">មិនអាចលុបស្លាប៊ rekord៖ {error}</string>
+    <string name="delete_plugin" formatted="false">លុបកម្មវិធីបន្ថែម</string>
+    <string name="delete_plugin_failed" formatted="false">មិនអាចលុបកម្មវិធីបន្ថែម៖ {error}</string>
+    <string name="delete_plugins" formatted="false">លុបកម្មវិធីបន្ថែម</string>
+    <string name="delete_plugins_failed" formatted="false">មិនអាចលុបកម្មវិធីបន្ថែម៖ {error}</string>
+    <string name="delete_rule" formatted="false">លុបច្បាប់</string>
+    <string name="delete_rule_failed" formatted="false">លុបរងការខាតបង់៖ {error}</string>
+    <string name="delete_selected" formatted="false">លុបដែលបានជ្រើសរើស</string>
+    <string name="delete_subscription" formatted="false">លុបការជាវ</string>
+    <string name="delete_subscription_confirm" formatted="false">តើអ្នកប្រាកដថាអ្នកចង់លុបការជាវ &quot;{name}&quot;?</string>
+    <string name="delete_subscription_failed" formatted="false">មិនអាចលុបការជាវ៖ {error}</string>
+    <string name="delete_success" formatted="false">លុបជោគជ័យ</string>
+    <string name="deletion_proposal" formatted="false">សំណើលុប</string>
+    <string name="deletion_proposal_created" formatted="false">សំណើលុបត្រូវបានបង្កើត</string>
+    <string name="deletion_proposal_created_body" formatted="false">សំណើលុបរបស់អ្នកសម្រាប់ {phoneNumber} ត្រូវបានដាក់ស្នើសម្រាប់ការពិនិត្យសហគមន៍។</string>
+    <string name="deletion_proposal_description" formatted="false">ស្នើសុំលេខសម្រាប់លុបដែលបំពានគោលការណ៍ណែនាំសហគមន៍។ ការចូលរួមរបស់អ្នកជួយរក្សាវេទិកាឱ្យមានសុវត្ថិភាព។</string>
+    <string name="deletion_proposal_notification_description" formatted="false">ការជូនដំណឹងអំពីលទ្ធផលបោះឆ្នោតសំណើលុប និងការអាប់ដេត។</string>
+    <string name="deletion_proposals" formatted="false">សំណើលុប</string>
+    <string name="delivery" formatted="false">ការដឹកជញ្ជូន</string>
+    <string name="description" formatted="false">ការពិពណ៌នា</string>
+    <string name="detailed_settings_title" formatted="false">ការកំណត់លម្អិត</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">លេខសម្គាល់ឧបករណ៍</string>
+    <string name="device_management_subtitle" formatted="false">គ្រប់គ្រងការធ្វើសមកាលកម្មឧបករណ៍ច្រើន</string>
+    <string name="device_management_title" formatted="false">ការគ្រប់គ្រងឧបករណ៍</string>
+    <string name="device_model_label" formatted="false">ម៉ូដែលឧបករណ៍</string>
+    <string name="device_name" formatted="false">ឈ្មោះឧបករណ៍</string>
+    <string name="device_name_label" formatted="false">ឈ្មោះឧបករណ៍</string>
+    <string name="device_renamed_successfully_message" formatted="false">បានប្តូរឈ្មោះឧបករណ៍ដោយជោគជ័យ</string>
+    <string name="device_unregistered_successfully_message" formatted="false">បានលុបការចុះឈ្មោះឧបករណ៍ដោយជោគជ័យ</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">បានធ្វើសមកាលកម្មឧបករណ៍ដោយជោគជ័យ</string>
+    <string name="dialog_title" formatted="false">ការពន្យល់គំរូ Regex</string>
+    <string name="different_from_local_counter" formatted="false">មុខងារនេះខុសពីតម្រងរាប់ក្នុងមូលដ្ឋាន ដោយសារវាកផ្តោតលើលំនាំការហៅទូរស័ព្ទដែលកើតឡើងម្តងហើយម្តងទៀតក្នុងរយៈពេលខ្លី ជាជាងចំនួនកំណត់ចំណាំរយៈពេលវែង។</string>
+    <string name="disable_global_plugins" formatted="false">បិទកម្មវិធីជំនួយសកល</string>
+    <string name="disabled" formatted="false">បានបិទ</string>
+    <string name="disabled_status" formatted="false">បានបិទ</string>
+    <string name="disconnect_button" formatted="false">ផ្តាច់</string>
+    <string name="disconnect_failed_message" formatted="false">ការផ្តាច់មិនបានជោគជ័យ</string>
+    <string name="disconnected_message" formatted="false">បានផ្តាច់</string>
+    <string name="disconnected_status" formatted="false">បានផ្តាច់</string>
+    <string name="done" formatted="false">រួចរាល់</string>
+    <string name="dual_sim_advice" formatted="false">មុខងារនេះមានប្រយោជន៍ជាពិសេសសម្រាប់ទូរស័ព្ទ Dual-SIM ដើម្បីកំណត់យុទ្ធសាស្ត្រតម្រងផ្សេងៗគ្នាសម្រាប់កាត SIM ការងារ និងផ្ទាល់ខ្លួន។</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">លេខ E164</string>
+    <string name="earlier" formatted="false">ពីមុន</string>
+    <string name="earned_temp_vip" formatted="false">ទទួលបាន VIP បណ្ដោះអាសន្ន</string>
+    <string name="ecommerce" formatted="false">ពាណិជ្ជកម្មអេឡិចត្រូនិក</string>
+    <string name="edit" formatted="false">កែសម្រួល</string>
+    <string name="edit_contact" formatted="false">កែសម្រួលទំនាក់ទំនង</string>
+    <string name="edit_label" formatted="false">កែសម្រួលស្លាក</string>
+    <string name="edit_phone_rule" formatted="false">កែសម្រួលច្បាប់ទូរស័ព្ទ</string>
+    <string name="edit_rule" formatted="false">កែសម្រួលច្បាប់</string>
+    <string name="edit_script" formatted="false">កែសម្រួលស្គ្រីប</string>
+    <string name="edit_script_for" formatted="false">កែសម្រួលស្គ្រីបសម្រាប់ {pluginName}</string>
+    <string name="edit_subscription" formatted="false">កែសម្រួលការជាវ</string>
+    <string name="education" formatted="false">អប់រំ</string>
+    <string name="element_positions_setting" formatted="false">ទីតាំងធាតុ</string>
+    <string name="elements_settings_title" formatted="false">ការកំណត់ធាតុ</string>
+    <string name="email" formatted="false">អ៊ីមែល</string>
+    <string name="enable_call_filter" formatted="false">បើកដំណើរការតម្រងការហៅទូរស័ព្ទ</string>
+    <string name="enable_call_filter_description" formatted="false">នៅពេលបើកដំណើរការ ការហៅទូរស័ព្ទចូលនឹងត្រូវបានពិនិត្យដោយប្រៀបធៀបជាមួយបញ្ជីច្បាប់ខាងក្រោម។ ច្បាប់តម្រងការហៅទូរស័ព្ទមិនត្រូវបានធ្វើសមកាលកម្មរវាងឧបករណ៍ដោយលំនាំដើមទេ។</string>
+    <string name="enable_encryption" formatted="false">បើកការអ៊ិនគ្រីប</string>
+    <string name="enable_encryption_description" formatted="false">អ៊ិនគ្រីបឯកសារបម្រុងទុក</string>
+    <string name="enable_filtering" formatted="false">បើកការចម្រោះ</string>
+    <string name="enable_fraud_alert" formatted="false">បើកការជូនដំណឹងក្លែងក្លាយ</string>
+    <string name="enable_fraud_alert_description" formatted="false">ជូនដំណឹងសម្រាប់ការហៅទូរសព្ទដែលសង្ស័យថាជាការបោកប្រាស់</string>
+    <string name="enable_global_plugins" formatted="false">បើកកម្មវិធីជំនួយសកល</string>
+    <string name="enable_local_count_filter" formatted="false">បើកដំណើរការតម្រងរាប់ក្នុងមូលដ្ឋាន</string>
+    <string name="enable_local_count_filter_description" formatted="false">តម្រងការហៅទូរស័ព្ទឥតបានការដោយស្វ័យប្រវត្តិដោយផ្អែកលើចំនួនកំណត់ចំណាំការហៅទូរស័ព្ទ</string>
+    <string name="enable_local_notification" formatted="false">ប្រើការជូនដំណឹងក្នុងមូលដ្ឋាន</string>
+    <string name="enable_local_notification_description" formatted="false">នៅពេលបើកដំណើរការ ការជូនដំណឹងសម្រាប់សារដែលបានតម្រងនឹងត្រូវបានបង្ហាញនៅលើឧបករណ៍</string>
+    <string name="enable_location_summary" formatted="false">ទីតាំង</string>
+    <string name="enable_mute_rules" formatted="false">បើកដំណើរការច្បាប់បិទសំឡេង</string>
+    <string name="enable_mute_rules_desc" formatted="false">អនុវត្តការកំណត់រចនាសម្ព័ន្ធច្បាប់ទប់ស្កាត់ការបិទសំឡេង</string>
+    <string name="enable_none_action_rules" formatted="false">បើកដំណើរការច្បាប់គ្មានសកម្មភាព</string>
+    <string name="enable_none_action_rules_desc" formatted="false">អនុញ្ញាតការកំណត់រចនាសម្ព័ន្ធច្បាប់ដោយគ្មានសកម្មភាពទប់ស្កាត់</string>
+    <string name="enable_remote_number_filter" formatted="false">បើកដំណើរការតម្រងលេខពីចម្ងាយ</string>
+    <string name="enable_remote_number_filter_description" formatted="false">ប្រើមូលដ្ឋានទិន្នន័យពីចម្ងាយដើម្បីតម្រងលេខ</string>
+    <string name="enable_rule" formatted="false">បើកដំណើរការច្បាប់</string>
+    <string name="enable_security_message" formatted="false">បើកសារសុវត្ថិភាព</string>
+    <string name="enable_sms_filter" formatted="false">បើកដំណើរការតម្រង SMS</string>
+    <string name="enable_sms_filter_description" formatted="false">នៅពេលបើកដំណើរការ សារនឹងត្រូវបានតម្រងដោយស្វ័យប្រវត្តិដោយយោងតាមច្បាប់</string>
+    <string name="enable_time_interception" formatted="false">បើកដំណើរការការទប់ស្កាត់ពេលវេលា</string>
+    <string name="enable_time_interception_description" formatted="false">ទប់ស្កាត់ការហៅទូរស័ព្ទម្តងហើយម្តងទៀតក្នុងរយៈពេលខ្លី</string>
+    <string name="enable_time_interceptor" formatted="false">បើកដំណើរការឧបករណ៍ទប់ស្កាត់ពេលវេលា</string>
+    <string name="enable_vibration" formatted="false">បើកការរំញ័រ</string>
+    <string name="enable_vibration_description" formatted="false">រំញ័រនៅពេលហៅទូរសព្ទដែលសង្ស័យថាជាការបោកប្រាស់</string>
+    <string name="enabled" formatted="false">បានបើក</string>
+    <string name="enabled_status" formatted="false">បានបើក</string>
+    <string name="end_call_immediately" formatted="false">បញ្ចប់ការហៅភ្លាមៗ</string>
+    <string name="end_color" formatted="false">ពណ៌បញ្ចប់</string>
+    <string name="end_date" formatted="false">កាលបរិច្ឆេទបញ្ចប់</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">ចំណារពន្យល់ប្រព័ន្ធតម្រងកែលម្អ</string>
+    <string name="enhanced_filter_settings" formatted="false">ការកំណត់ប្រព័ន្ធតម្រងកែលម្អ</string>
+    <string name="enhanced_filter_settings_title" formatted="false">ការកំណត់ប្រព័ន្ធតម្រងកែលម្អ</string>
+    <string name="enhanced_filter_system_description" formatted="false">ប្រព័ន្ធតម្រងកែលម្អគាំទ្រទាំងច្បាប់សកល និងការកំណត់រចនាសម្ព័ន្ធតម្រងក្នុងមួយកាត SIM</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">សូមបញ្ចូលទាំងលេខទូរស័ព្ទ និងគំរូ Regex។</string>
+    <string name="enter_contact_name" formatted="false">សូមបញ្ចូលឈ្មោះទំនាក់ទំនង</string>
+    <string name="enter_device_name" formatted="false">បញ្ចូលឈ្មោះឧបករណ៍</string>
+    <string name="enter_email_optional" formatted="false">សូមបញ្ចូលអ៊ីមែល (ជាជម្រើស)</string>
+    <string name="enter_encryption_password_hint" formatted="false">បញ្ចូលពាក្យសម្ងាត់អ៊ិនគ្រីប</string>
+    <string name="enter_icon_code" formatted="false">បញ្ចូលកូដរូបតំណាង</string>
+    <string name="enter_name" formatted="false">បញ្ចូលឈ្មោះទំនាក់ទំនង</string>
+    <string name="enter_new_device_name_hint" formatted="false">បញ្ចូលឈ្មោះថ្មីសម្រាប់ឧបករណ៍នេះ</string>
+    <string name="enter_password_again" formatted="false">បញ្ចូលពាក្យសម្ងាត់ម្តងទៀត</string>
+    <string name="enter_phone_number" formatted="false">បញ្ចូលលេខទូរស័ព្ទ</string>
+    <string name="enter_phone_number_hint" formatted="false">បញ្ចូលលេខទូរស័ព្ទដើម្បីសាកល្បង</string>
+    <string name="enter_phone_number_multiple" formatted="false">សូមបញ្ចូលលេខទូរស័ព្ទ លេខជាច្រើនបំបែកដោយសញ្ញាក្បៀស</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">បញ្ចូលលេខទូរស័ព្ទដើម្បីចាប់ផ្តើមស្វែងរក</string>
+    <string name="enter_phone_number_to_verify" formatted="false">បញ្ចូលលេខទូរស័ព្ទដើម្បីផ្ទៀងផ្ទាត់</string>
+    <string name="enter_plugin_description" formatted="false">បញ្ចូលការពិពណ៌នាកម្មវិធីជំនួយ</string>
+    <string name="enter_plugin_name" formatted="false">បញ្ចូលឈ្មោះកម្មវិធីជំនួយ</string>
+    <string name="enter_plugin_url" formatted="false">បញ្ចូលអាសយដ្ឋាន URL របស់កម្មវិធីជំនួយ</string>
+    <string name="enter_regex_hint" formatted="false">បញ្ចូលគំរូ regex</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">សូមបញ្ចូលnému ក្បួន និងលំនាំ regex ទាំងពីរ។</string>
+    <string name="enter_rule_name_hint" formatted="false">បញ្ចូលឈ្មោះក្បួន</string>
+    <string name="enter_search_content" formatted="false">សូមបញ្ចូលមាតិកាស្វែងរក</string>
+    <string name="enter_subscription_name" formatted="false">បញ្ចូលឈ្មោះការជាវ</string>
+    <string name="enter_subscription_url" formatted="false">បញ្ចូល URL ការជាវ</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">សូមបញ្ចូលឈ្មោះថតសម្រាប់ធ្វើសមកាលកម្ម (លំនាំដើម: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">សូមបញ្ចូលឈ្មោះ និង URL ដែលត្រឹមត្រូវ</string>
+    <string name="enter_valid_url" formatted="false">សូមបញ្ចូល URL ដែលត្រឹមត្រូវ</string>
+    <string name="enter_version" formatted="false">បញ្ចូលកំណែ</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">សូមបញ្ចូលលេខសម្ងាត់ WebDAV</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">សូមបញ្ចូលអាសយដ្ឋានម៉ាស៊ីទ័រ WebDAV</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">សូមបញ្ចូលឈ្មោះអ្នកប្រើ WebDAV</string>
+    <string name="entertainment" formatted="false">កម្សាន្ត</string>
+    <string name="entity_export_failed" formatted="false">បរាជ័យក្នុងការនាំចេញ {entityTypeName}: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} បាននាំចេញដោយជោគជ័យ</string>
+    <string name="entity_import_failed" formatted="false">បរាជ័យក្នុងការនាំចូល {entityTypeName}: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} បាននាំចូលដោយជោគជ័យ សរុប {count} កំណត់ត្រាបាននាំចូល</string>
+    <string name="entry_point_view_title" formatted="false">ទិដ្ឋភាពចំណុចចូល</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">កំហុស៖ {error}</string>
+    <string name="error_occurred_message" formatted="false">មានកំហុសកើតឡើង៖ {error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">មានកំហុសក្នុងការប្តូរឈ្មោះឧបករណ៍៖ {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">មានកំហុសក្នុងការធ្វើសមកាលកម្មឧបករណ៍៖ {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">មានកំហុសក្នុងការលុបការចុះឈ្មោះឧបករណ៍៖ {error}</string>
+    <string name="example_block400_prefix" formatted="false">ឧទាហរណ៍ ប្លុកលេខ 400 មុខ</string>
+    <string name="example_block_marketing_sms" formatted="false">ឧទាហរណ៍ ប្លុក SMS ទីផ្សារ</string>
+    <string name="example_content_regex_hint" formatted="false">ឧទាហរណ៍ លំនាំ regex មាតិកា</string>
+    <string name="example_coupon_promotion_discount" formatted="false">ឧទាហរណ៍ .*(coupon|promotion|discount).*</string>
+    <string name="example_family_friends" formatted="false">ឧទាហរណ៍ គ្រួសារ, មិត្តភក្តិ, ល.</string>
+    <string name="example_phone_number" formatted="false">ឧទាហរណ៍ 10086, 12345, ល.</string>
+    <string name="example_regex400_prefix" formatted="false">ឧទាហរណ៍ លំនាំ regex សម្រាប់លេខ 400 មុខ</string>
+    <string name="example_sender_regex_hint" formatted="false">ឧទាហរណ៍</string>
+    <string name="exchange" formatted="false">ផ្លាស់ប្តូរ</string>
+    <string name="exchange_failed" formatted="false">ការប្តូរបរាជ័យ៖ {error}</string>
+    <string name="exchange_now" formatted="false">ផ្លាស់ប្តូរឥឡូវនេះ</string>
+    <string name="exchange_success" formatted="false">បានប្តូរជោគជ័យសម្រាប់ {description} ថ្ងៃផុតកំណត់៖ {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">ផ្លាស់ប្តូរ VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">ពេលវេលាផុតកំណត់៖ {time}</string>
+    <string name="export" formatted="false">នាំចេញ</string>
+    <string name="export_all_application_settings" formatted="false">នាំចេញការកំណត់កម្មវិធីទាំងអស់</string>
+    <string name="export_all_rule_configurations" formatted="false">នាំចេញការកំណត់ក្បួនទាំងអស់</string>
+    <string name="export_config" formatted="false">នាំចេញការកំណត់</string>
+    <string name="export_contacts" formatted="false">នាំចេញទំនាក់ទំនង</string>
+    <string name="export_data" formatted="false">នាំចេញទិន្នន័យ</string>
+    <string name="export_entity" formatted="false">នាំចេញ {entityTypeName}</string>
+    <string name="export_failed" formatted="false">បរាជ័យក្នុងការនាំចេញ</string>
+    <string name="export_failure" formatted="false">បរាជ័យក្នុងការនាំចេញការកំណត់</string>
+    <string name="export_feature_coming_soon" formatted="false">មុខងារនាំចេញនឹងមកដល់ឆាប់ៗនេះ</string>
+    <string name="export_labels" formatted="false">នាំចេញស្លាក</string>
+    <string name="export_labels_failed" formatted="false">បរាជ័យក្នុងការនាំចេញស្លាក៖ {error}</string>
+    <string name="export_plugin_list" formatted="false">នាំចេញបញ្ជីកម្មវិធីបន្ថែម</string>
+    <string name="export_plugin_list_failed" formatted="false">បរាជ័យក្នុងការនាំចេញបញ្ជីកម្មវិធីបន្ថែម៖ {error}</string>
+    <string name="export_rules" formatted="false">នាំចេញក្បួន</string>
+    <string name="export_sms_rules" formatted="false">នាំចេញក្បួន SMS</string>
+    <string name="export_statistics_data" formatted="false">នាំចេញទិន្នន័យស្ថិតិ</string>
+    <string name="export_successlly" formatted="false">ការកំណត់ត្រូវបាននាំចេញដោយជោគជ័យ</string>
+    <string name="failed_to_add_rule" formatted="false">បរាជ័យក្នុងការបន្ថែមប��ួន៖ {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">បរាជ័យក្នុងការបន្ថែមការជាវ SMS៖ {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">បរាជ័យក្នុងការបម្រុងទុកការកំណត់៖ {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">បរាជ័យក្នុងការឌិកគ្រីបឯ��រ����������</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">បរាជ័យក្នុងការលុបប��ួន SMS៖ {error}</string>
+    <string name="failed_to_export_rules" formatted="false">បរាជ័យក្នុងការនាំចេញក្បួន៖ {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">បរាជ័យក្នុងការទទួលព័����������������������</string>
+    <string name="failed_to_import_rules" formatted="false">បរាជ័យក្នុងការនាំចូលក្បួន៖ {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">បរាជ័យក្នុងការ������������</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">បរាជ័យក្នុងការ������������៖ {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">បរាជ័យក្នុងការប������������</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">ទំនាក់ទំនងដែលចូលចិត្ត</string>
+    <string name="feature" formatted="false">លក្ខណៈពិសេស</string>
+    <string name="feature_add_rules" formatted="false">• បន្ថែម������������</string>
+    <string name="feature_center" formatted="false">មជ្ឈមណ្ឌ����</string>
+    <string name="feature_enable_disable" formatted="false">• ������������</string>
+    <string name="feature_list_title" formatted="false">មុខងារ៖</string>
+    <string name="feature_manage_rules" formatted="false">• ������������</string>
+    <string name="features" formatted="false">មុខងារ</string>
+    <string name="fetching_caller_id_info" formatted="false">កំព����������</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">ឯ������������</string>
+    <string name="filter" formatted="false">����������</string>
+    <string name="filter_and_sort_title" formatted="false">ចម្រោះ និងតម្រៀប</string>
+    <string name="filter_by" formatted="false">ចម្រោះតាម</string>
+    <string name="filter_by_action" formatted="false">ត្រងតាមសកម្មភាព</string>
+    <string name="filter_by_label" formatted="false">����������</string>
+    <string name="filter_control_panel_title" formatted="false">����������</string>
+    <string name="filter_control_subtitle" formatted="false">����������</string>
+    <string name="filter_control_title" formatted="false">ការគ្រប់គ្រងតម្រង</string>
+    <string name="filter_explanation" formatted="false">ការព������������������</string>
+    <string name="filter_management" formatted="false">ការគ្រប់គ្រងតម្រ����</string>
+    <string name="filter_management_description" formatted="false">កំណត់តម្រងការហៅទូរសព្ទ</string>
+    <string name="filter_name" formatted="false">ឈ្មោះតម្រ����</string>
+    <string name="filter_priority_note" formatted="false">ចំណ���������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������</string>
+    <string name="filter_s_m_s" formatted="false">តម្រ���� SMS</string>
+    <string name="filter_settings" formatted="false">ការកំណត់រ������</string>
+    <string name="filter_settings_title" formatted="false">ការកំណត់តម្រ����</string>
+    <string name="filter_toggle_instructions" formatted="false">បើ����������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������������</string>
+    <string name="filter_toggle_status" formatted="false">{status} filter: {filterName}</string>
+    <string name="filter_type" formatted="false">ប្រភេទ����</string>
+    <string name="filter_verified_owner" formatted="false">ចម្រោះម្ចាស់ដែលបានផ្ទៀងផ្ទាត់</string>
+    <string name="filtered" formatted="false">បានតម្រ����</string>
+    <string name="final_risk" formatted="false">ហានិភ័យចុងក្រោយ</string>
+    <string name="financial" formatted="false">ហ��������</string>
+    <string name="flexible_combination_feature" formatted="false">• ��������������������������������������������������������</string>
+    <string name="font_sizes_setting" formatted="false">������������</string>
+    <string name="found_rules" formatted="false">������ {count} rules</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">ដើម្បីកំណត់ការជូនដំណឹងក្លែងក្លាយ</string>
+    <string name="fraud_aler_setting_title" formatted="false">ការកំណត់ការជូនដំណឹងក្លែងក្លាយ</string>
+    <string name="fraud_alert" formatted="false">FRAUD ALERT - Hang up the call</string>
+    <string name="fraud_alert_title" formatted="false">ការជូនដំណឹងក្លែងក្លាយ</string>
+    <string name="fraud_alerts" formatted="false">ការជូនដំណឹងអំពីការបន្លំ</string>
+    <string name="fraud_alerts_description" formatted="false">បង្ហាញការព្រមានសម្រាប់ការហៅទូរសព្ទដែលអាចបោកប្រាស់បាន។</string>
+    <string name="fraud_scam_likely" formatted="false">Fraud Scam Likely</string>
+    <string name="free" formatted="false">Free</string>
+    <string name="function_settings_title" formatted="false">Function Settings</string>
+    <string name="general_update_failure" formatted="false">Update failed: {error}</string>
+    <string name="get_free" formatted="false">Get Free</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Configure global filters for all SIM cards:</string>
+    <string name="global_filter_feature" formatted="false">• Global Filters: Basic rules for all incoming calls</string>
+    <string name="global_filter_settings" formatted="false">Global Filter Settings</string>
+    <string name="global_settings" formatted="false">Global Settings</string>
+    <string name="google_drive_auth_description" formatted="false">Authorize using system-configured Google Drive client ID and key</string>
+    <string name="google_drive_config_title" formatted="false">Google Drive Configuration</string>
+    <string name="government" formatted="false">Government</string>
+    <string name="grant_necessary_permissions" formatted="false">Grant Necessary Permissions</string>
+    <string name="grant_permissions" formatted="false">Grant Permissions</string>
+    <string name="granted" formatted="false">Granted</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">អ្នកត្រូវបានផ្តល់សិទ្ធិទិញបណ្ដោះអាសន្ន {days} ថ្ងៃ។ ថ្ងៃផុតកំណត់៖ {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">គោលការណ៍ណែនាំ</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">អ្នកមានសិទ្ធិបណ្ដោះអាសន្នរួចហើយ ថ្ងៃផុតកំណត់៖ {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">អ្នកមានសិទ្ធិ VIP រួចហើយ (លើកលែងតែការផ្សាយពាណិជ្ជកម្ម)</string>
+    <string name="headhunter" formatted="false">Headhunter</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Height</string>
+    <string name="high" formatted="false">ខ្ពស់</string>
+    <string name="high_risk" formatted="false">ហានិភ័យខ្ពស់</string>
+    <string name="home_tab" formatted="false">Home</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 ម៉ោងមុន} other{{count} ម៉ោងមុន}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 ម៉ោង} =1{1 ម៉ោង} other{{count} ម៉ោង}}</string>
+    <string name="how_it_works_point1" formatted="false">• The system will automatically allow calls from the same number within the set time window</string>
+    <string name="how_it_works_point2" formatted="false">• Shorter time windows result in stricter interception; longer time windows result in looser interception</string>
+    <string name="how_it_works_point3" formatted="false">• The system checks call logs to determine if it\'s a repeated call</string>
+    <string name="how_it_works_title" formatted="false">How It Works:</string>
+    <string name="icon_code_optional" formatted="false">Icon Code (Optional)</string>
+    <string name="icon_size" formatted="false">Icon Size</string>
+    <string name="import" formatted="false">Import</string>
+    <string name="import_config" formatted="false">Import Configuration</string>
+    <string name="import_contacts" formatted="false">Import Contacts</string>
+    <string name="import_entity" formatted="false">នាំចូល {entityTypeName}</string>
+    <string name="import_export" formatted="false">នាំចូល/នាំចេញ</string>
+    <string name="import_export_contacts" formatted="false">Import/Export Contacts</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Import/Export Contacts</string>
+    <string name="import_export_description" formatted="false">នាំចូល ឬនាំចេញទិន្នន័យ {entityTypeName}</string>
+    <string name="import_export_rules" formatted="false">Import/Export Rules</string>
+    <string name="import_export_title" formatted="false">នាំចូល/នាំចេញ</string>
+    <string name="import_failed" formatted="false">Import failed: {error}</string>
+    <string name="import_failure" formatted="false">Failed to import configuration</string>
+    <string name="import_feature_coming_soon" formatted="false">Import feature coming soon</string>
+    <string name="import_labels" formatted="false">Import Labels</string>
+    <string name="import_labels_failed" formatted="false">Failed to import labels: {error}</string>
+    <string name="import_plugin_list" formatted="false">Import Plugin List</string>
+    <string name="import_plugin_list_failed" formatted="false">Failed to import plugin list: {error}</string>
+    <string name="import_plugin_success" formatted="false">Successfully imported {count} plugins</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Import Rule Configurations from File</string>
+    <string name="import_rules" formatted="false">Import Rules</string>
+    <string name="import_success" formatted="false">Import successful</string>
+    <string name="important" formatted="false">Important</string>
+    <string name="important_notice_title" formatted="false">សេចក្តីជូនដំណឹងសំខាន់</string>
+    <string name="incoming_call_intercept_action" formatted="false">Incoming Call Intercept Action</string>
+    <string name="incorrect_password" formatted="false">Incorrect password</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.</string>
+    <string name="initial_setup_deselect_all" formatted="false">សម្អាតការជ្រើសរើស</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">Failed to get configuration</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">Retry</string>
+    <string name="initial_setup_save" formatted="false">One-click setup selected</string>
+    <string name="initial_setup_save_failed" formatted="false">Failed to save configuration: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Configuration saved successfully, rules will be fetched automatically soon</string>
+    <string name="initial_setup_saving" formatted="false">Saving...</string>
+    <string name="initial_setup_search_hint" formatted="false">ស្វែងរកសំណុំច្បាប់ ឬប្រទេស...</string>
+    <string name="initial_setup_select_all" formatted="false">ជ្រើសរើសទាំងអស់</string>
+    <string name="initial_setup_selected_count" formatted="false">បានជ្រើសរើស {count}</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">Skip</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">Rule Library Setup</string>
+    <string name="initializing" formatted="false">Initializing</string>
+    <string name="installed" formatted="false">Installed</string>
+    <string name="insufficient_marks" formatted="false">Insufficient Marks</string>
+    <string name="insurance" formatted="false">Insurance</string>
+    <string name="intercept_action" formatted="false">Intercept Action</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Set how blocked calls are handled</string>
+    <string name="interception_action_settings_title" formatted="false">Interception Action Settings</string>
+    <string name="interception_time_interval" formatted="false">Interception Time Interval</string>
+    <string name="internet" formatted="false">Internet</string>
+    <string name="interval_set_success" formatted="false">{service} update interval set to {days} days</string>
+    <string name="invalid_content_regex" formatted="false">Invalid content regex</string>
+    <string name="invalid_exchange_rule" formatted="false">ច្បាប់ប្តូរមិនត្រឹមត្រូវ</string>
+    <string name="invalid_label" formatted="false">ស្លាកដែលមិនត្រឹមត្រូវ</string>
+    <string name="invalid_regex_pattern" formatted="false">លំនាំ​អិច​ប្រេស​ដែល​មិន​ត្រឹមត្រូវ</string>
+    <string name="invalid_sender_regex" formatted="false">លំនាំ​អិច​ប្រេស​អ្នក​ផ្ញើ​ដែល​មិន​ត្រឹមត្រូវ</string>
+    <string name="invalid_sim_data" formatted="false">ទិន្នន័យ SIM មិនត្រឹមត្រូវ</string>
+    <string name="ip_country" formatted="false">ប្រទេស IP</string>
+    <string name="is_number_match" formatted="false">ផ្គូផ្គងលេខ</string>
+    <string name="is_roaming" formatted="false">រ៉ូមីង</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">ចូល Telegram 頻道和群組以獲取更多資訊</string>
+    <string name="json_format" formatted="false">ទម្រង់ JSON</string>
+    <string name="just_now" formatted="false">ឥឡូវនេះ</string>
+    <string name="keep_all_versions" formatted="false">រក្សា​កំណែ​ទាំងអស់</string>
+    <string name="keep_all_versions_description" formatted="false">រក្សា​កំណែ​ប្រវត្តិសាស្រ្ត​ទាំងអស់​នៃ​ការ​បម្រុង​ទុក​នីមួយៗ</string>
+    <string name="label" formatted="false">ស្លាក</string>
+    <string name="label_action_description" formatted="false">បន្ថែមស្លាកទៅការហៅសម្រាប់ការកំណត់អត្តសញ្ញាណងាយស្រួល។</string>
+    <string name="label_added_successfully" formatted="false">ស្លាក &quot;{name}&quot; ត្រូវបានបន្ថែមដោយជោគជ័យ</string>
+    <string name="label_categories" formatted="false">ប្រភេទស្លាក</string>
+    <string name="label_deleted" formatted="false">ស្លាក​ត្រូវបាន​លុប</string>
+    <string name="label_description" formatted="false">ស្លាក​ជួយ​អ្នក​គ្រប់គ្រង​ទំនាក់ទំនង​បាន​កាន់តែ​ប្រសើរ​ បន្ថែម​ស្លាក​ផ្ទាល់ខ្លួន​ទៅ​លេខ​ទូរស័ព្ទ​ដើម្បី​កំណត់​អត្តសញ្ញាណ​ការ​ហៅ​ទូរស័ព្ទ​និង​សារ​បាន​យ៉ាង​ងាយស្រួល</string>
+    <string name="label_filter_tooltip" formatted="false">តម្រង​ស្លាក</string>
+    <string name="label_icon_color" formatted="false">ពណ៌​រូបតំណាង​ស្លាក</string>
+    <string name="label_management" formatted="false">ការ​គ្រប់គ្រង​ស្លាក</string>
+    <string name="label_not_found" formatted="false">រក​មិនឃើញ​ស្លាក</string>
+    <string name="label_tag" formatted="false">ស្លាក៖ {labelId}</string>
+    <string name="label_update_failed" formatted="false">បរាជ័យ​ក្នុងការ​ធ្វើបច្ចុប្បន្នភាព​ស្លាក៖ {error}</string>
+    <string name="label_update_success" formatted="false">ស្លាក &quot;$labelText&quot; ត្រូវបាន​ធ្វើបច្ចុប្បន្នភាព​ដោយ​ជោគជ័យ</string>
+    <string name="labels" formatted="false">ស្លាក</string>
+    <string name="labels_color" formatted="false">ពណ៌​ស្លាក</string>
+    <string name="labels_deleted" formatted="false">លុប​ស្លាក​{count}</string>
+    <string name="labels_exported_successfully" formatted="false">នាំចេញ​ស្លាក​ដោយ​ជោគជ័យ</string>
+    <string name="labels_font_size" formatted="false">ទំហំ​ពុម្ព​អក្សរ​ស្លាក</string>
+    <string name="labels_imported_successfully" formatted="false">បាន​នាំចូល​ស្លាក​{count} ដោយ​ជោគជ័យ</string>
+    <string name="labels_position" formatted="false">ទីតាំង​ស្លាក</string>
+    <string name="language_settings" formatted="false">ការ​កំណត់​ភាសា</string>
+    <string name="language_settings_subtitle" formatted="false">ផ្លាស់ប្តូរ​ភាសា​បង្ហាញ​កម្មវិធី</string>
+    <string name="language_settings_title" formatted="false">ការ​កំណត់​ភាសា</string>
+    <string name="last_sync_label" formatted="false">ការ​ធ្វើ​សមកាលកម្ម​ចុងក្រោយ</string>
+    <string name="last_updated" formatted="false">ធ្វើបច្ចុប្បន្នភាព​ចុងក្រោយ៖ {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">សមាជិកភាព​ពេញ​មួយជីវិត</string>
+    <string name="lifetime_membership_description" formatted="false">ការទិញ​តែមួយ​ដង​ปลด​សោរ​មុខងារ​ពិសេស​ទាំងអស់​និង​ការ​អាប់ដេត​នាពេល​អនាគត​ជា​រៀង​រហូត</string>
+    <string name="list_view" formatted="false">ទិដ្ឋភាពបញ្ជី</string>
+    <string name="live_activities_settings_title" formatted="false">ការកំណត់សកម្មភាពបន្តផ្ទាល់</string>
+    <string name="live_activities_test_end_activity" formatted="false">បញ្ចប់សកម្មភាព</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">ផ្ញើសកម្មភាពថ្មី</string>
+    <string name="live_activities_test_title" formatted="false">ការសាកល្បងសកម្មភាពបន្តផ្ទាល់</string>
+    <string name="live_activities_test_update_activity" formatted="false">អាប់ដេតសកម្មភាព</string>
+    <string name="live_activity_controls_title" formatted="false">ការត្រួតពិនិត្យសកម្មភាពបន្តផ្ទាល់</string>
+    <string name="live_activity_mode" formatted="false">សកម្មភាពបន្តផ្ទាល់</string>
+    <string name="live_activity_mode_description" formatted="false">បង្ហាញព័ត៌មានការហៅទូរសព្ទជាការជូនដំណឹងជាប់លាប់នៅលើអេក្រង់ចាក់សោ និងនៅក្នុង Dynamic Island (iOS)។</string>
+    <string name="live_notification_customization_subtitle" formatted="false">ប្ដូរតាមបំណងរូបរាងនៃការជូនដំណឹងបន្តផ្ទាល់។</string>
+    <string name="live_notification_customization_title" formatted="false">ការប្ដូរតាមបំណងការជូនដំណឹងបន្តផ្ទាល់</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">បរាជ័យ​ក្នុងការ​ផ្ទុក​ទំនាក់ទំនង៖ {error}</string>
+    <string name="load_data_failed" formatted="false">បរាជ័យ​ក្នុងការ​ផ្ទុក​ទិន្នន័យ</string>
+    <string name="load_label_failed" formatted="false">បរាជ័យ​ក្នុងការ​ផ្ទុក​ស្លាក៖ {error}</string>
+    <string name="load_labels_failed" formatted="false">បរាជ័យ​ក្នុងការ​ផ្ទុក​ស្លាក៖ {error}</string>
+    <string name="load_mark_count_failed" formatted="false">បរាជ័យ​ក្នុងការ​ផ្ទុក​លេខ​ទូរស័ព្ទ​ដែល​បាន​សម្គាល់៖ {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">បរាជ័យ​ក្នុងការ​ផ្ទុក​លេខ​ទូរស័ព្ទ​ដែល​បាន​សម្គាល់៖ {error}</string>
+    <string name="load_plugins_failed" formatted="false">បរាជ័យ​ក្នុងការ​ផ្ទុក​កម្មវិធី​ជំនួយ៖ {error}</string>
+    <string name="load_settings_failed" formatted="false">បរាជ័យ​ក្នុងការ​ផ្ទុក​ការ​កំណត់៖ {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">បរាជ័យ​ក្នុងការ​ផ្ទុក​ច្បាប់ SMS៖ {error}</string>
+    <string name="load_status_failed_message" formatted="false">បរាជ័យ​ក្នុងការ​ផ្ទុក​ស្ថានភាព</string>
+    <string name="load_subscriptions_failed" formatted="false">បរាជ័យ​ក្នុងការ​ផ្ទុក​ការ​ជាវ៖ {error}</string>
+    <string name="loading" formatted="false">កំពុង​ផ្ទុក...</string>
+    <string name="loading_ad" formatted="false">កំពុងផ្ទុកការផ្សាយពាណិជ្ជកម្ម...</string>
+    <string name="loading_tags" formatted="false">កំពុង​ផ្ទុក​ស្លាក...</string>
+    <string name="loan" formatted="false">ប្រាក់កម្ចី</string>
+    <string name="local_count_filter" formatted="false">តម្រង​ចំនួន​ក្នុង​មូលដ្ឋាន</string>
+    <string name="local_count_filter_description" formatted="false">ទប់ស្កាត់​ការ​ហៅ​ញឹកញាប់​ដោយ​ផ្អែក​លើ​ចំនួន​លេខ​ក្នុង​មូលដ្ឋាន</string>
+    <string name="local_count_filter_explanation_content" formatted="false">តម្រង​ចំនួន​ក្នុង​មូលដ្ឋាន​វិភាគ​កំណត់ហេតុ​ប្រវត្តិ​ការ​ហៅ​ដើម្បី​កំណត់​អត្តសញ្ញាណ​និង​ទប់ស្កាត់​ការ​ហៅ​ដែល​មិន​ចង់បាន​ញឹកញាប់​ដោយ​ស្វ័យប្រវត្តិកម្ម</string>
+    <string name="local_count_filter_explanation_title" formatted="false">ការពន្យល់​អំពី​តម្រង​ចំនួន​ក្នុង​មូលដ្ឋាន</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• កំណត់​ថាតើ​ត្រូវ​ទប់ស្កាត់​ដោយ​ផ្អែក​លើ​តម្លៃ​ចំនួន​របស់​លេខ</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• នៅពេល​ចំនួន​របស់​លេខ​លើស​ពី​ដែន​កំណត់​ អ្នក​អាច​ជ្រើសរើស​ទប់ស្កាត់​ដោយ​ស្វ័យប្រវត្តិកម្ម</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• អ្នក​អាច​ជ្រើសរើស​អនុញ្ញាត​លេខ​ដែល​មិន​លើស​ពី​ដែន​</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• អ្នក​អាច​ជ្រើសរើស​ថាតើ​ត្រូវ​កត់ត្រា​កំណត់ហេតុ​សំណួរ​ទាំងអស់</string>
+    <string name="local_count_filter_settings" formatted="false">ការ​កំណត់​តម្រង​ចំនួន​ក្នុង​មូលដ្ឋាន</string>
+    <string name="local_count_filter_use_cases" formatted="false">តម្រង​នេះ​គឺ​សមរម្យ​ជាពិសេស​សម្រាប់​ការ​កំណត់​អត្តសញ្ញាណ​ការ​ហៅ​ដែល​មិន​ចង់បាន​ដោយ​ម៉ាស៊ីន​ស្វ័យប្រវត្តិ​និង​ការ​ហៅ​ទីផ្សារ</string>
+    <string name="local_count_filtering" formatted="false">ការ​ច្រោះ​តាម​ចំនួន​ក្នុង​មូលដ្ឋាន</string>
+    <string name="local_count_filtering_explanation" formatted="false">• ការ​ច្រោះ​តាម​ចំនួន​ក្នុង​មូលដ្ឋាន៖ ច្បាប់​ច្រោះ​ដោយ​ផ្អែក​លើ​ចំនួន​សម្គាល់​ក្នុង​មូលដ្ឋាន</string>
+    <string name="local_counter_filter" formatted="false">តម្រង​ឧបករណ៍​រាប់​ក្នុង​មូលដ្ឋាន</string>
+    <string name="local_counter_filter_subtitle" formatted="false">ស្វ័យប្រវត្តិកម្ម​ច្រោះ​ការ​ហៅ​ដែល​មិន​ចង់បាន​ដោយ​ផ្អែក​លើ​ភាពញឹកញាប់​នៃ​ការ​ហៅ</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">ការ​កំណត់​តម្រង​ក្នុង​មូលដ្ឋាន</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">ការ​ជូនដំណឹង​ក្នុង​មូលដ្ឋាន​ត្រូវបាន​បិទ</string>
+    <string name="local_notification_enabled" formatted="false">ការ​ជូនដំណឹង​ក្នុង​មូលដ្ឋាន​ត្រូវបាន​បើក</string>
+    <string name="local_services" formatted="false">សេវា​ក្នុង​មូលដ្ឋាន</string>
+    <string name="location" formatted="false">ទីតាំង</string>
+    <string name="location_color" formatted="false">ពណ៌​ទីតាំង</string>
+    <string name="location_font_size" formatted="false">ទំហំ​ពុម្ព​អក្សរ​ទីតាំង</string>
+    <string name="location_icon_color" formatted="false">ពណ៌​រូបតំណាង​ទីតាំង</string>
+    <string name="location_position" formatted="false">ទីតាំង​ទីតាំង</string>
+    <string name="log" formatted="false">កំណត់ហេតុ</string>
+    <string name="log_action_description" formatted="false">កត់ត្រាព័ត៌មានការហៅដោយមិនធ្វើសកម្មភាពផ្សេងទៀត។</string>
+    <string name="log_all_local_queries" formatted="false">កត់ត្រា​សំណួរ​ក្នុង​មូលដ្ឋាន​ទាំងអស់</string>
+    <string name="log_all_local_queries_description" formatted="false">កត់ត្រា​កំណត់ហេតុ​សម្រាប់​សំណួរ​លេខ​ក្នុង​មូលដ្ឋាន​ទាំងអស់</string>
+    <string name="log_all_remote_queries" formatted="false">កត់ត្រា​សំណួរ​ពី​ចម្ងាយ​ទាំងអស់</string>
+    <string name="log_all_remote_queries_description" formatted="false">កត់ត្រា​ប្រតិបត្តិការ​សំណួរ​លេខ​ពី​ចម្ងាយ​ទាំងអស់</string>
+    <string name="low" formatted="false">ទាប</string>
+    <string name="low_risk" formatted="false">ហានិភ័យទាប</string>
+    <string name="manage" formatted="false">គ្រប់គ្រង</string>
+    <string name="manage_favorite_contacts" formatted="false">គ្រប់គ្រង​ទំនាក់ទំនង​ដែល​ចូលចិត្ត</string>
+    <string name="manage_filter_rules" formatted="false">គ្រប់គ្រង​ច្បាប់​តម្រង</string>
+    <string name="manage_filter_rules_description" formatted="false">បន្ថែម​ កែសម្រួល​ ឬ​លុប​ច្បាប់​តម្រង SMS</string>
+    <string name="manual_entry" formatted="false">ព័ត៌មានបញ្ចូលដោយដៃ</string>
+    <string name="mark_count" formatted="false">ចំនួន​សម្គាល់</string>
+    <string name="mark_counts" formatted="false">ចំនួន​សម្គាល់</string>
+    <string name="mark_exchange" formatted="false">ផ្លាស់ប្តូរ​ស្លាក</string>
+    <string name="mark_more_numbers_for_more" formatted="false">សម្គាល់លេខបន្ថែមដើម្បីទទួលបាន Marks បន្ថែម</string>
+    <string name="mark_phone" formatted="false">សម្គាល់​លេខ​ទូរស័ព្ទ</string>
+    <string name="mark_phone_failed" formatted="false">បរាជ័យ​ក្នុងការ​សម្គាល់​លេខ​ទូរស័ព្ទ៖ {error}</string>
+    <string name="mark_phone_management_title" formatted="false">ការ​គ្រប់គ្រង​សម្គាល់​លេខ​ទូរស័ព្ទ</string>
+    <string name="mark_phone_success" formatted="false">លេខ​ទូរស័ព្ទ​ត្រូវ​បាន​សម្គាល់​ដោយ​ជោគជ័យ</string>
+    <string name="marked_by_count" formatted="false">បាន​សម្គាល់​ដោយ​{count}</string>
+    <string name="marked_phones_list" formatted="false">បញ្ជី​លេខ​ទូរស័ព្ទ​ដែល​បាន​សម្គាល់</string>
+    <string name="marks_insufficient" formatted="false">ពិន្ទុមិនគ្រប់គ្រាន់ដើម្បីប្តូរ</string>
+    <string name="master_and_overrides" formatted="false">Master Controls</string>
+    <string name="master_and_overrides_desc" formatted="false">Global Rule Settings</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">ការ​ផ្គូផ្គង​បរាជ័យ។</string>
+    <string name="match_numbers_with_special_characters" formatted="false">ផ្គូផ្គង​ទ្រង់ទ្រាយ​លេខ​ពិសេស</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">ផ្គូផ្គង​លេខ​ជាមួយ​តួអក្សរ​ពិសេស៖</string>
+    <string name="match_specific_digit_patterns" formatted="false">ផ្គូផ្គង​ទ្រង់ទ្រាយ XXX-XXXX-XXXX</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">ផ្គូផ្គង​លំនាំ​លេខ​ជាក់លាក់៖</string>
+    <string name="match_successful_message" formatted="false">ការ​ផ្គូផ្គង​ជោគជ័យ!</string>
+    <string name="medical" formatted="false">វេជ្ជសាស្ត្រ</string>
+    <string name="medium" formatted="false">មធ្យម</string>
+    <string name="medium_risk" formatted="false">ហានិភ័យមធ្យម</string>
+    <string name="membership_center" formatted="false">មជ្ឈមណ្ឌលសមាជិកភាព</string>
+    <string name="membership_privileges" formatted="false">សិទ្ធិ​ជា​សមាជិក</string>
+    <string name="message_background_color" formatted="false">ពណ៌ផ្ទៃខាងក្រោយសារ</string>
+    <string name="message_color" formatted="false">ពណ៌សារ</string>
+    <string name="message_font_size" formatted="false">ទំហំអក្សរសារ</string>
+    <string name="message_position" formatted="false">ទីតាំងសារ</string>
+    <string name="migration_tool" formatted="false">ឧបករណ៍​ផ្លាស់ទី​ទិន្នន័យ</string>
+    <string name="minutes" formatted="false">នាទី</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 នាទីមុន} other{{count} នាទីមុន}}</string>
+    <string name="moderate" formatted="false">មធ្យម</string>
+    <string name="month" formatted="false">ខែ</string>
+    <string name="monthly" formatted="false">ប្រចាំខែ</string>
+    <string name="monthly_call_count" formatted="false">ការ​ហៅ​ទូរស័ព្ទ​ប្រចាំខែ</string>
+    <string name="monthly_membership" formatted="false">សមាជិកភាព​ប្រចាំខែ</string>
+    <string name="monthly_membership_description" formatted="false">ដោះសោ​លក្ខណៈ​ពិសេស​ទាំងអស់​ដែល​ជា​បុព្វលាភ​ដោយ​ស្វ័យប្រវត្តិ​បន្ត​រៀងរាល់ខែ</string>
+    <string name="monthly_total" formatted="false">សរុប​ប្រចាំខែ</string>
+    <string name="more_options" formatted="false">ជម្រើស​បន្ថែម</string>
+    <string name="mute" formatted="false">បិទ​សំឡេង</string>
+    <string name="name" formatted="false">ឈ្មោះ</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">ឈ្មោះ និង​លេខ​ទូរស័ព្ទ​មិន​អាច​ទទេ​បាន​ទេ</string>
+    <string name="name_cannot_be_empty" formatted="false">ឈ្មោះមិនអាចទទេបានទេ</string>
+    <string name="name_color" formatted="false">ពណ៌​ឈ្មោះ</string>
+    <string name="name_font_size" formatted="false">ទំហំ​ពុម្ព​អក្សរ​ឈ្មោះ</string>
+    <string name="name_position" formatted="false">ទីតាំង​ឈ្មោះ</string>
+    <string name="name_unknown" formatted="false">ឈ្មោះ៖ មិន​ស្គាល់</string>
+    <string name="national_number" formatted="false">លេខជាតិ</string>
+    <string name="need_vip_access" formatted="false">អ្នកត្រូវការសិទ្ធិ VIP ដើម្បីប្រើលក្ខណៈពិសេសនេះ</string>
+    <string name="new_vote_received" formatted="false">បានទទួលសន្លឹកឆ្នោតថ្មី</string>
+    <string name="new_vote_received_body" formatted="false">នរណាម្នាក់បានបោះឆ្នោត {voteType} ការលុប {phoneNumber}។ សន្លឹកឆ្នោតបច្ចុប្បន្ន៖ {totalVotes}។</string>
+    <string name="next_step" formatted="false">បន្ទាប់</string>
+    <string name="no_action" formatted="false">គ្មាន​សកម្មភាព</string>
+    <string name="no_action_rules" formatted="false">គ្មាន​ច្បាប់​សកម្មភាព</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">គ្មាន​សេវា​ធ្វើ​សមកាលកម្ម​ពពក​សកម្ម</string>
+    <string name="no_activity" formatted="false">គ្មានសកម្មភាព</string>
+    <string name="no_ads" formatted="false">គ្មានពាណិជ្ជកម្ម</string>
+    <string name="no_allowed_blocked_rules" formatted="false">មិនបានរកឃើញច្បាប់អនុញ្ញាត/បិទទេ</string>
+    <string name="no_blocked_type_data" formatted="false">គ្មានទិន្នន័យប្រភេទដែលបានបិទទេ</string>
+    <string name="no_call_records" formatted="false">គ្មាន​កំណត់ត្រា​ការ​ហៅ​ទូរស័ព្ទ</string>
+    <string name="no_contacts_yet" formatted="false">មិន​ទាន់​មាន​ទំនាក់ទំនង</string>
+    <string name="no_data" formatted="false">គ្មាន​ទិន្នន័យ</string>
+    <string name="no_devices_registered_message" formatted="false">មិន​មាន​ឧបករណ៍​ដែល​បាន​ចុះឈ្មោះ</string>
+    <string name="no_labels" formatted="false">មិន​ទាន់​មាន​ស្លាក</string>
+    <string name="no_marked_phones" formatted="false">គ្មាន​លេខ​ទូរស័ព្ទ​ដែល​បាន​សម្គាល់</string>
+    <string name="no_matching_contacts_found" formatted="false">រក​មិន​ឃើញ​ទំនាក់ទំនង​ដែល​ផ្គូផ្គង</string>
+    <string name="no_matching_numbers_found" formatted="false">រក​មិន​ឃើញ​លេខ​ដែល​ផ្គូផ្គង</string>
+    <string name="no_matching_rules" formatted="false">គ្មាន​{ruleType}​ដែល​ផ្គូផ្គង</string>
+    <string name="no_notifications" formatted="false">គ្មានការជូនដំណឹង</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">មិនបានរកឃើញច្បាប់ទូរសព្ទទេ</string>
+    <string name="no_plugins" formatted="false">មិន​ទាន់​មាន​កម្មវិធី​ជំនួយ</string>
+    <string name="no_proposals_found" formatted="false">មិនមានសំណើទេ</string>
+    <string name="no_regex_rules" formatted="false">មិនបានរកឃើញច្បាប់ regex ទេ</string>
+    <string name="no_rules" formatted="false">មិន​ទាន់​មាន​{ruleType}</string>
+    <string name="no_rules_prompt" formatted="false">រក​មិន​ឃើញ​ច្បាប់ សូម​បន្ថែម​ច្បាប់</string>
+    <string name="no_rules_to_export" formatted="false">គ្មាន​ច្បាប់​សម្រាប់​នាំចេញ</string>
+    <string name="no_sim_card_detected" formatted="false">រកមិនឃើញកាត SIM</string>
+    <string name="no_sim_cards_detected" formatted="false">មិនបានរកឃើញស៊ីមកាតទេ</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">មិន​ទាន់​មាន​ច្បាប់​តម្រង SMS</string>
+    <string name="no_sms_rules_yet" formatted="false">មិន​ទាន់​មាន​ច្បាប់ SMS</string>
+    <string name="no_subscriptions" formatted="false">គ្មាន​ការ​ជាវ</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">រក​មិន​ឃើញ​ច្បាប់ SMS ដែល​មាន​សុពលភាព​ក្នុង​ឯកសារ</string>
+    <string name="none" formatted="false">គ្មាន</string>
+    <string name="none_action_description" formatted="false">គ្មានសកម្មភាពពិសេសណាមួយនឹងត្រូវធ្វើសម្រាប់ការហៅទូរសព្ទនោះទេ។</string>
+    <string name="none_service_type" formatted="false">គ្មាន</string>
+    <string name="normal_user" formatted="false">អ្នកប្រើប្រាស់ធម្មតា</string>
+    <string name="not_granted" formatted="false">មិន​បាន​ផ្តល់</string>
+    <string name="not_verified_text" formatted="false">មិន​បាន​ផ្ទៀងផ្ទាត់</string>
+    <string name="notification_frequency_hours" formatted="false">ភាពញឹកញាប់នៃការជូនដំណឹង (ម៉ោង)</string>
+    <string name="notification_frequency_title" formatted="false">ភាពញឹកញាប់នៃការជូនដំណឹង</string>
+    <string name="notification_mode" formatted="false">របៀប​ជូន​ដំណឹង</string>
+    <string name="notification_mode_description" formatted="false">បង្ហាញ​ព័ត៌មាន​អ្នក​ហៅ​ក្នុង​របារ​ជូន​ដំណឹង</string>
+    <string name="notification_permission" formatted="false">ការ​អនុញ្ញាត​ការ​ជូន​ដំណឹង</string>
+    <string name="notification_permission_description" formatted="false">ប្រើ​ដើម្បី​បង្ហាញ​ការ​ជូន​ដំណឹង​ការ​ហៅ​ចូល និង​សារ។</string>
+    <string name="notification_settings" formatted="false">ការ​កំណត់​ការ​ជូន​ដំណឹង</string>
+    <string name="notification_settings_title" formatted="false">ការកំណត់ការជូនដំណឹង</string>
+    <string name="notification_instructions" formatted="false">វិធីណែនាំ៖
+1. ចុច &quot;SEND&quot; ដើម្បីបង្កើត ឬអាប់ដេតការជូនដំណឹង។
+2. ចូលទៅកាន់អេក្រង់ដើមរបស់អ្នក ឬទាញថាសការជូនដំណឹងចុះក្រោមដើម្បីមើលលទ្ធផល។
+3. ចុច &quot;END&quot; ដើម្បីបិទការជូនដំណឹង។</string>
+    <string name="notifications" formatted="false">ការ​ជូន​ដំណឹង</string>
+    <string name="notify" formatted="false">ជូនដំណឹង</string>
+    <string name="notify_action_description" formatted="false">ផ្ញើការជូនដំណឹងនៅពេលទទួលបានការហៅទូរសព្ទ។</string>
+    <string name="number" formatted="false">លេខ</string>
+    <string name="number_color" formatted="false">ពណ៌​លេខ</string>
+    <string name="number_font_size" formatted="false">ទំហំ​ពុម្ព​អក្សរ​លេខ</string>
+    <string name="number_format" formatted="false">ទម្រង់លេខ</string>
+    <string name="number_invalid_format" formatted="false">ទម្រង់លេខមិនត្រឹមត្រូវ</string>
+    <string name="number_position" formatted="false">ទីតាំង​លេខ</string>
+    <string name="number_search" formatted="false">ស្វែងរក​លេខ</string>
+    <string name="number_type_color" formatted="false">ពណ៌​ប្រភេទ​លេខ</string>
+    <string name="number_type_font_size" formatted="false">ទំហំ​ពុម្ព​អក្សរ​ប្រភេទ​លេខ</string>
+    <string name="number_type_position" formatted="false">ទីតាំង​ប្រភេទ​លេខ</string>
+    <string name="ok_button" formatted="false">យល់ព្រម</string>
+    <string name="onboarding_complete_description" formatted="false">អ្នក​គ្រប់គ្រង​សុវត្ថិភាព​ការ​ហៅ​ទូរស័ព្ទ​របស់​អ្នក​រួចរាល់​ហើយ ចាប់ផ្តើម​រីករាយ​នឹង​បទពិសោធន៍​ការ​ហៅ​ទូរស័ព្ទ​ប្រកបដោយ​សុវត្ថិភាព!</string>
+    <string name="onboarding_language_description" formatted="false">ជ្រើសរើស​ភាសា​ដែល​អ្នក​ពេញចិត្ត​សម្រាប់​បទពិសោធន៍​ល្អ​បំផុត។</string>
+    <string name="onboarding_permissions_description" formatted="false">ដើម្បី​ផ្តល់​សេវា​ពេញលេញ យើង​ត្រូវការ​ការ​អនុញ្ញាត​ដូចខាងក្រោម៖</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">ទប់ស្កាត់​ការ​ហៅ​ទូរស័ព្ទ​សារ​ឥតបានការ​ដោយ​ចុច​តែ​ម្តង ប្តូរ​ច្បាប់​ទប់ស្កាត់ ហើយ​ផ្តល់​បរិយាកាស​ស្ងប់ស្ងាត់​ដល់​អ្នក។</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">កំណត់​អត្តសញ្ញាណ​ការ​ហៅ​ទូរស័ព្ទ​ដែល​មិន​ស្គាល់​ដោយ​ស្វ័យប្រវត្តិ សម្គាល់​លេខ​ដែល​គួរ​ឱ្យ​សង្ស័យ ហើយ​ការពារ​សុវត្ថិភាព​ការ​ហៅ​ទូរស័ព្ទ​របស់​អ្នក។</string>
+    <string name="onboarding_welcome_description" formatted="false">អ្នក​ជំនាញ​គ្រប់គ្រង​ការ​ហៅ​ទូរស័ព្ទ​របស់​អ្នក ដែល​ផ្តល់​សេវា​កំណត់​អត្តសញ្ញាណ និង​ទប់ស្កាត់​ការ​ហៅ​ទូរស័ព្ទ​គ្រប់ជ្រុងជ្រោយ។</string>
+    <string name="one_drive_auth_description" formatted="false">ផ្តល់​សិទ្ធិ​ដោយ​ប្រើ​អត្តសញ្ញាណ​អតិថិជន OneDrive ដែល​បាន​កំណត់​រចនាសម្ព័ន្ធ​ប្រព័ន្ធ និង​កូនសោ</string>
+    <string name="one_drive_config_title" formatted="false">ការ​កំណត់​រចនាសម្ព័ន្ធ OneDrive</string>
+    <string name="online_caller_id_subscription" formatted="false">ការជាវលេខសម្គាល់អ្នកហៅចូលតាមអ៊ីនធឺណិត</string>
+    <string name="open_app_settings" formatted="false">បើកការកំណត់កម្មវិធី</string>
+    <string name="open_app_settings_failed" formatted="false">បរាជ័យក្នុងការបើកការកំណត់កម្មវិធី៖ {error}</string>
+    <string name="open_in_web_view" formatted="false">បើកក្នុង WebView</string>
+    <string name="operation_failed" formatted="false">ប្រតិបត្តិការបរាជ័យ៖ {error}</string>
+    <string name="operation_failure" formatted="false">ប្រតិបត្តិការបរាជ័យ</string>
+    <string name="operation_success" formatted="false">ប្រតិបត្តិការបានជោគជ័យ</string>
+    <string name="oppose" formatted="false">ប្រឆាំង</string>
+    <string name="oppose_count" formatted="false">ប្រឆាំង ({opposeCount})</string>
+    <string name="opposed" formatted="false">បានប្រឆាំង</string>
+    <string name="other" formatted="false">ផ្សេងទៀត</string>
+    <string name="our_other_apps" formatted="false">កម្មវិធីផ្សេងទៀតរបស់យើង</string>
+    <string name="overlay_mode" formatted="false">បង្អួចអណ្តែត</string>
+    <string name="overlay_mode_description" formatted="false">បង្ហាញព័ត៌មានអ្នកហៅចូលក្នុងបង្អួចអណ្តែត</string>
+    <string name="overlay_permission" formatted="false">ការអនុញ្ញាតបង្អួចអណ្តែត</string>
+    <string name="overlay_permission_description" formatted="false">ប្រើដើម្បីបង្ហាញបង្អួចហៅចូល។</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">ទិដ្ឋភាពទូទៅ</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">ពាក្យសម្ងាត់</string>
+    <string name="password_cannot_be_empty" formatted="false">ពាក្យសម្ងាត់មិនអាចទទេបានទេ</string>
+    <string name="password_label" formatted="false">ពាក្យសម្ងាត់</string>
+    <string name="passwords_do_not_match" formatted="false">ពាក្យសម្ងាត់មិនស៊ីគ្នាទេ</string>
+    <string name="pattern" formatted="false">គំរូ</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">កំពុងរង់ចាំ</string>
+    <string name="pending_proposals" formatted="false">សំណើដែលកំពុងរង់ចាំ</string>
+    <string name="pending_proposals_body" formatted="false">អ្នកមាន {count, plural, =0 {គ្មានសំណើដែលកំពុងរង់ចាំ} one {សំណើដែលកំពុងរង់ចាំ ១} other {{count} សំណើដែលកំពុងរង់ចាំ}}។</string>
+    <string name="pending_sync" formatted="false">កំពុងរង់ចាំការធ្វើសមកាលកម្ម</string>
+    <string name="period_month" formatted="false">ខែ</string>
+    <string name="period_week" formatted="false">សប្តាហ៍</string>
+    <string name="period_year" formatted="false">ឆ្នាំ</string>
+    <string name="permission_denied" formatted="false">សំណើអនុញ្ញាតត្រូវបានបដិសេធ</string>
+    <string name="permission_granted" formatted="false">ការអនុញ្ញាតត្រូវបានផ្តល់ជូន</string>
+    <string name="permission_management" formatted="false">ការគ្រប់គ្រងការអនុញ្ញាត</string>
+    <string name="permission_subtitle" formatted="false">គ្រប់គ្រងសិទ្ធិត្រួតលើ និងការបង្កើនប្រសិទ្ធភាពថ្ម</string>
+    <string name="permission_title" formatted="false">សិទ្ធិពិសេស</string>
+    <string name="phone_calls_tab" formatted="false">ទូរស័ព្ទ</string>
+    <string name="phone_number" formatted="false">លេខទូរស័ព្ទ</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">លេខទូរស័ព្ទមិនអាចទទេបានទេ</string>
+    <string name="phone_number_hint" formatted="false">បញ្ចូលលេខទូរស័ព្ទ</string>
+    <string name="phone_number_label" formatted="false">លេខទូរស័ព្ទ</string>
+    <string name="phone_number_min_digits" formatted="false">លេខទូរសព្ទត្រូវតែមានយ៉ាងហោចណាស់ ៧ ខ្ទង់</string>
+    <string name="phone_number_required" formatted="false">លេខទូរស័ព្ទត្រូវបានទាមទារ</string>
+    <string name="phone_number_type" formatted="false">ប្រភេទលេខទូរសព្ទ</string>
+    <string name="phone_number_type_fixed_line" formatted="false">ទូរស័ព្ទស្ថានីយ</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">ទូរស័ព្ទស្ថានីយ ឬទូរស័ព្ទចល័ត</string>
+    <string name="phone_number_type_mobile" formatted="false">ទូរស័ព្ទចល័ត</string>
+    <string name="phone_number_type_pager" formatted="false">ទូរសារ</string>
+    <string name="phone_number_type_personal_number" formatted="false">លេខផ្ទាល់ខ្លួន</string>
+    <string name="phone_number_type_premium_rate" formatted="false">អត្រាបុព្វលាភ</string>
+    <string name="phone_number_type_shared_cost" formatted="false">ការចំណាយរួមគ្នា</string>
+    <string name="phone_number_type_toll_free" formatted="false">ឥតគិតថ្លៃ</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">មិនស្គាល់</string>
+    <string name="phone_number_type_voicemail" formatted="false">សារជាសំឡេង</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">ការអនុញ្ញាតទូរស័ព្ទ</string>
+    <string name="phone_permission_description" formatted="false">ប្រើដើម្បីកំណត់អត្តសញ្ញាណ និងទប់ស្កាត់ការហៅចូល។</string>
+    <string name="phone_rule" formatted="false">ច្បាប់ទូរស័ព្ទ</string>
+    <string name="phone_rule_management" formatted="false">ការគ្រប់គ្រងច្បាប់ទូរស័ព្ទ</string>
+    <string name="phone_rule_subscription" formatted="false">ការជាវច្បាប់ទូរស័ព្ទ</string>
+    <string name="phone_rules_info" formatted="false">ច្បាប់ទូរស័ព្ទត្រូវបានប្រើដើម្បីផ្គូផ្គងការហៅទូរសព្ទទៅលេខទូរសព្ទជាក់លាក់ ដែលមានអាទិភាពទាបជាង។ មួយចំនួនបានមកពីការជាវ phoneRule</string>
+    <string name="phone_subscription" formatted="false">ការជាវទូរស័ព្ទ</string>
+    <string name="phone_subscription_rules_description" formatted="false">ជាវបញ្ជីច្បាប់ទូរស័ព្ទតាមរយៈ URL ដើម្បីធ្វើបច្ចុប្បន្នភាពបញ្ជីសរុប និងបញ្ជីខ្មៅដោយស្វ័យប្រវត្តិ។ គាំទ្រឯកសារច្បាប់ក្នុងទម្រង់ JSON។</string>
+    <string name="please_enter_at_least_one_number" formatted="false">សូមបញ្ចូលយ៉ាងហោចណាស់មួយលេខ។</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">សូមជ្រើសរើសស្លាក និងបញ្ចូលលេខទូរស័ព្ទត្រឹមត្រូវ</string>
+    <string name="plugin_added_success" formatted="false">បានបន្ថែមកម្មវិធីជំនួយ &quot;{name}&quot; ដោយជោគជ័យ</string>
+    <string name="plugin_deleted" formatted="false">បានលុបកម្មវិធីជំនួយ</string>
+    <string name="plugin_description" formatted="false">ការពិពណ៌នាកម្មវិធីជំនួយ</string>
+    <string name="plugin_i_d" formatted="false">លេខសម្គាល់</string>
+    <string name="plugin_label" formatted="false">ស្លាកកម្មវិធីជំនួយ</string>
+    <string name="plugin_latest_version" formatted="false">កម្មវិធីជំនួយគឺជាកំណែចុងក្រោយបំផុតហើយ</string>
+    <string name="plugin_list_export_success" formatted="false">បាននាំចេញបញ្ជីកម្មវិធីជំនួយដោយជោគជ័យ</string>
+    <string name="plugin_management" formatted="false">ការគ្រប់គ្រងកម្មវិធីជំនួយ</string>
+    <string name="plugin_management_subtitle" formatted="false">គ្រប់គ្រង និងកំណត់រចនាសម្ព័ន្ធកម្មវិធីជំនួយភាគីទីបី</string>
+    <string name="plugin_name" formatted="false">ឈ្មោះកម្មវិធីជំនួយ</string>
+    <string name="plugin_rules_info" formatted="false">សម្រាប់សុវត្ថិភាព សូមប្រើកម្មវិធីជំនួយពីប្រភពដែលគួរឱ្យទុកចិត្តតែប៉ុណ្ណោះ។ មានអារម្មណ៍សេរីក្នុងការប្រើប្រាស់គំរូរបស់យើងដើម្បីបង្កើតកម្មវិធីជំនួយផ្ទាល់ខ្លួនរបស់អ្នក!</string>
+    <string name="plugin_service" formatted="false">សេវាកម្មកម្មវិធីជំនួយ</string>
+    <string name="plugin_test_page_title" formatted="false">ការធ្វើតេស្តកម្មវិធីជំនួយ</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">បានធ្វើបច្ចុប្បន្នភាពកម្មវិធីជំនួយដោយជោគជ័យ</string>
+    <string name="plugin_url" formatted="false">URL កម្មវិធីជំនួយ</string>
+    <string name="plugin_version" formatted="false">កំណែកម្មវិធីជំនួយ</string>
+    <string name="plugins_deleted" formatted="false">បានលុបកម្មវិធីជំនួយ {count} ដោយជោគជ័យ។</string>
+    <string name="political" formatted="false">នយោបាយ</string>
+    <string name="powerful_spam_blocking" formatted="false">ការទប់ស្កាត់សារឥតបានការដ៏មានអានុភាព</string>
+    <string name="previous_step" formatted="false">មុន</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false"> prioritizing action settings from the remote database</string>
+    <string name="prioritize_remote_action_description" formatted="false"> prioritize action settings from the remote database</string>
+    <string name="processed" formatted="false">បានដំណើរការ</string>
+    <string name="processing" formatted="false">កំពុងដំណើរការ...</string>
+    <string name="processing_operation" formatted="false">កំពុងដំណើរការ...</string>
+    <string name="proposal_approved" formatted="false">សំណើត្រូវបានអនុម័ត ✅</string>
+    <string name="proposal_approved_body" formatted="false">សំណើលុបសម្រាប់ {phoneNumber} ត្រូវបានអនុម័តដោយសហគមន៍ ({supportPercentage}% គាំទ្រ, {totalVotes} សន្លឹកឆ្នោត)។</string>
+    <string name="proposal_created" formatted="false">សំណើត្រូវបានបង្កើតដោយជោគជ័យ</string>
+    <string name="proposal_details" formatted="false">ព័ត៌មានលម្អិតសំណើ</string>
+    <string name="proposal_not_found" formatted="false">រកមិនឃើញសំណើ</string>
+    <string name="proposal_processed" formatted="false">សំណើនេះត្រូវបានដំណើរការហើយ</string>
+    <string name="proposal_rejected" formatted="false">សំណើត្រូវបានបដិសេធ ❌</string>
+    <string name="proposal_rejected_body" formatted="false">សំណើលុបសម្រាប់ {phoneNumber} ត្រូវបានបដិសេធដោយសហគមន៍ ({supportPercentage}% គាំទ្រ, {totalVotes} សន្លឹកឆ្នោត)។</string>
+    <string name="proposal_statistics" formatted="false">ស្ថិតិសំណើ</string>
+    <string name="provide_detailed_explanation" formatted="false">ផ្ដល់ការពន្យល់លម្អិត (យ៉ាងហោចណាស់ ១០ តួអក្សរ)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">ទិញ</string>
+    <string name="purchase_subtitle" formatted="false">ដើម្បីទិញសេវាកម្ម</string>
+    <string name="purchase_title" formatted="false">ទិញ</string>
+    <string name="quarterly_membership" formatted="false">សមាជិកភាពប្រចាំត្រីមាស</string>
+    <string name="quarterly_membership_description" formatted="false">ដោះសោមុខងារបុព្វលាភទាំងអស់ ធ្វើបច្ចុប្បន្នភាពដោយស្វ័យប្រវត្តិរៀងរាល់ត្រីមាស</string>
+    <string name="ready" formatted="false">រួចរាល់!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">មូលហេតុ</string>
+    <string name="reason_inaccurate_info" formatted="false">ព័ត៌មានមិនត្រឹមត្រូវ</string>
+    <string name="reason_min_characters" formatted="false">ហេតុផលត្រូវតែមានយ៉ាងហោចណាស់ ១០ តួអក្សរ</string>
+    <string name="reason_not_in_service" formatted="false">មិនដំណើរការ</string>
+    <string name="reason_other" formatted="false">ផ្សេងៗ</string>
+    <string name="reason_outdated" formatted="false">លេខហួសសម័យ</string>
+    <string name="reason_privacy" formatted="false">បញ្ហាឯកជនភាព</string>
+    <string name="reason_required" formatted="false">ហេតុផលត្រូវបានទាមទារ</string>
+    <string name="reason_wrongly_identified" formatted="false">កំណត់អត្តសញ្ញាណខុស</string>
+    <string name="recruiter" formatted="false">អ្នកជ្រើសរើសបុគ្គលិក</string>
+    <string name="redeem_vip_with_marks" formatted="false">ប្តូរ VIP ដោយប្រើ Marks</string>
+    <string name="redirect" formatted="false">ប្តូរទិស</string>
+    <string name="redirect_action_description" formatted="false">ប្តូរទិសការហៅទៅកាន់លេខដែលបានបញ្ជាក់។</string>
+    <string name="refresh" formatted="false">ធ្វើបច្ចុប្បន្នភាព</string>
+    <string name="refresh_permission_status" formatted="false">ធ្វើបច្ចុប្បន្នភាពស្ថានភាពការអនុញ្ញាត</string>
+    <string name="refresh_proposals" formatted="false">ធ្វើបច្ចុប្បន្នភាពសំណើ</string>
+    <string name="refresh_tooltip" formatted="false">ធ្វើបច្ចុប្បន្នភាព</string>
+    <string name="regex_error_message" formatted="false">កំហុស Regex៖ {error}</string>
+    <string name="regex_pattern" formatted="false">ទម្រង់​正则表达式</string>
+    <string name="regex_pattern_explanation" formatted="false">ការពន្យល់​ទម្រង់​正则表达式</string>
+    <string name="regex_pattern_explanation_button" formatted="false">ការពន្យល់​ទម្រង់​正则表达式</string>
+    <string name="regex_pattern_label" formatted="false">ទម្រង់​正则表达式</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">ទម្រង់​正则表达式​សម្រាប់​ការ​ផ្គូផ្គង​លេខ​ទូរស័ព្ទ</string>
+    <string name="regex_rule" formatted="false">ច្បាប់​正则表达式</string>
+    <string name="regex_rule_add_failed" formatted="false">បរាជ័យ​ក្នុង​ការ​បន្ថែម​ច្បាប់​正则表达式​៖ {error}</string>
+    <string name="regex_rule_add_success" formatted="false">បាន​បន្ថែម​ច្បាប់​正则表达式​ដោយ​ជោគជ័យ</string>
+    <string name="regex_rule_management" formatted="false">ការ​គ្រប់គ្រង​ច្បាប់​正则表达式</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">ឈ្មោះ​ច្បាប់​និង​ទម្រង់​正则表达式​មិន​អាច​ទទេ​បាន​ទេ</string>
+    <string name="regex_rules" formatted="false">ច្បាប់​正则表达式</string>
+    <string name="regex_rules_info" formatted="false">ច្បាប់ Regex ត្រូវបានប្រើដើម្បីច្រោះការហៅទូរសព្ទដោយផ្អែកលើលំនាំ Regex។</string>
+    <string name="regex_tester_title" formatted="false">ឧបករណ៍​ทดสอบ​正则表达式</string>
+    <string name="region" formatted="false">តំបន់</string>
+    <string name="registered_devices_title" formatted="false">ឧបករណ៍​ដែល​បាន​ចុះបញ្ជី</string>
+    <string name="reject_all_calls" formatted="false">បដិសេធ​ការ​ហៅ​ទាំងអស់</string>
+    <string name="reject_all_calls_description" formatted="false">ពេល​បើក​, ការ​ហៅ​ទាំងអស់​នឹង​ត្រូវ​បាន​បដិសេធ​ដោយ​មាន​អាទិភាព​ខ្ពស់​បំផុត</string>
+    <string name="reject_all_numbers" formatted="false">បដិសេធ​លេខ​ទាំងអស់</string>
+    <string name="reject_all_numbers_desc" formatted="false">បដិសេធ​ការ​ហៅ​ចូល​ទាំងអស់​ពេល​បើក</string>
+    <string name="reject_exceeded_numbers" formatted="false">បដិសេធ​លេខ​ដែល​លើស​កំណត់</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">បដិសេធ​លេខ​ដោយ​ស្វ័យ​ប្រវត្តិ​ដែល​លើស​ពី​ចំនួន​កំណត់</string>
+    <string name="rejected" formatted="false">បានបដិសេធ</string>
+    <string name="remote_filter_settings" formatted="false">ការ​កំណត់​តម្រង​ពី​ចម្ងាយ</string>
+    <string name="remote_filter_settings_page_title" formatted="false">ការ​កំណត់​តម្រង​លេខ​ពី​ចម្ងាយ</string>
+    <string name="remote_number_filter" formatted="false">តម្រង​លេខ​ពី​ចម្ងាយ</string>
+    <string name="remote_number_filter_description" formatted="false">ស្ទាក់​ចាប់​ការ​ហៅ​រំខាន​ដោយ​ផ្អែក​លើ​ព័ត៌មាន​មូលដ្ឋាន​ទិន្នន័យ​ពី​ចម្ងាយ</string>
+    <string name="remote_number_filter_subtitle" formatted="false">កំណត់​អត្តសញ្ញាណ​ការ​ហៅ​សារ​ឥត​បាន​ការ​ដោយ​ប្រើ​មូលដ្ឋាន​ទិន្នន័យ​ពពក​និង​របាយការណ៍​សហគមន៍</string>
+    <string name="remote_number_filtering" formatted="false">ការ​กรอง​លេខ​ពី​ចម្ងាយ</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• ការ​กรอง​លេខ​ពី​ចម្ងាយ​៖ ច្បាប់​តម្រង​ផ្អែក​លើ​ព័ត៌មាន​មូលដ្ឋាន​ទិន្នន័យ​ពី​ចម្ងាយ</string>
+    <string name="remove_ads" formatted="false">លុបពាណិជ្ជកម្ម</string>
+    <string name="remove_ads_description" formatted="false">លុប​ការ​ផ្សាយ​ទាំងអស់​ជា​អចិន្ត្រៃយ៍​ក្នុង​កម្មវិធី​ដើម្បី​បទពិសោធន៍​កាន់តែ​រលូន</string>
+    <string name="remove_ads_title" formatted="false">លុប​ការ​ផ្សាយ</string>
+    <string name="remove_from_favorites" formatted="false">ដក​ចេញ​ពី​ទំនាក់ទំនង​ដែល​ចូលចិត្ត</string>
+    <string name="removed_from_favorites" formatted="false">បាន​ដក​ចេញ​ពី​ទំនាក់ទំនង​ដែល​ចូលចិត្ត</string>
+    <string name="rename_device_title" formatted="false">ប្តូរ​ឈ្មោះ​ឧបករណ៍</string>
+    <string name="reporting_guidelines" formatted="false">• រាយការណ៍តែលេខដែលពិតជាមានបញ្ហា
+• ផ្ដល់ហេតុផលត្រឹមត្រូវ និងលម្អិត
+• ជ្រើសរើសកម្រិតហានិភ័យសមស្របដោយផ្អែកលើភាពធ្ងន់ធ្ងរ
+• ការរាយការណ៍មិនពិតអាចបណ្ដាលឱ្យមានការរឹតបន្តឹងគណនី</string>
+    <string name="request_all_permissions" formatted="false">ស្នើសុំ​សិទ្ធិ​ទាំងអស់</string>
+    <string name="request_permission" formatted="false">ស្នើសុំ​សិទ្ធិ</string>
+    <string name="request_permission_failed" formatted="false">បរាជ័យ​ក្នុង​ការ​ស្នើសុំ​សិទ្ធិ​៖ {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">{count} ពិន្ទុ</string>
+    <string name="reset" formatted="false">កំណត់​ឡើងវិញ</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">ស្តារ​ឡើងវិញ</string>
+    <string name="restore_application_settings_from_backup" formatted="false">ស្តារ​ការ​កំណត់​កម្មវិធី​ឡើងវិញ​ពី​ការ​បម្រុង​ទុក</string>
+    <string name="restore_from_cloud" formatted="false">ស្តារ​ឡើងវិញ​ពី​ពពក</string>
+    <string name="restore_from_cloud_failed" formatted="false">បរាជ័យ​ក្នុង​ការ​ស្តារ​ពី​ពពក​៖ {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">បាន​ស្តារ​ឡើងវិញ​ពី​ពពក​ដោយ​ជោគជ័យ</string>
+    <string name="restore_purchases" formatted="false">ស្តារ​ការ​ទិញ​ឡើងវិញ</string>
+    <string name="restore_settings" formatted="false">ស្តារ​ការ​កំណត់​ឡើងវិញ</string>
+    <string name="restore_settings_confirmation" formatted="false">នេះ​នឹង​ជំនួស​ការ​កំណត់​បច្ចុប្បន្ន​ទាំងអស់​របស់​អ្នក​។ តើ​អ្នក​ប្រាកដ​ថា​ចង់​បន្ត​ទេ​?</string>
+    <string name="result" formatted="false">លទ្ធផល</string>
+    <string name="retry" formatted="false">ព្យាយាម​ម្ដង​ទៀត</string>
+    <string name="rewarded_ad_service" formatted="false">សេវាកម្មផ្សាយពាណិជ្ជកម្មដែលទទួលបានរង្វាន់</string>
+    <string name="ridesharing" formatted="false">ការ​ចែករំលែក​ការ​ជិះ</string>
+    <string name="risk" formatted="false">ហានិភ័យ</string>
+    <string name="risk_level" formatted="false">កម្រិតហានិភ័យ</string>
+    <string name="risk_level_critical" formatted="false">ធ្ងន់ធ្ងរ</string>
+    <string name="risk_level_high" formatted="false">ខ្ពស់</string>
+    <string name="risk_level_label" formatted="false">កម្រិតហានិភ័យ</string>
+    <string name="risk_level_low" formatted="false">ទាប</string>
+    <string name="risk_level_medium" formatted="false">មធ្យម</string>
+    <string name="risk_level_very_low" formatted="false">ទាបបំផុត</string>
+    <string name="robocall" formatted="false">ការ​ហៅ​ robo</string>
+    <string name="rule_action" formatted="false">សកម្មភាព​ច្បាប់</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">បាន​បន្ថែម​ច្បាប់​ដោយ​ជោគជ័យ</string>
+    <string name="rule_added_success" formatted="false">បាន​បន្ថែម​ច្បាប់​ដោយ​ជោគជ័យ</string>
+    <string name="rule_delete_confirm_content" formatted="false">តើ​អ្នក​ប្រាកដ​ថា​ចង់​លុប​ {ruleType} នេះ​ទេ​?</string>
+    <string name="rule_delete_confirm_title" formatted="false">លុប​ច្បាប់</string>
+    <string name="rule_delete_failed" formatted="false">បរាជ័យ​ក្នុង​ការ​លុប​ច្បាប់​៖ {error}</string>
+    <string name="rule_delete_success" formatted="false">បាន​លុប​ច្បាប់​ដោយ​ជោគជ័យ</string>
+    <string name="rule_deleted_successfully" formatted="false">បាន​លុប​ច្បាប់​ដោយ​ជោគជ័យ</string>
+    <string name="rule_disabled_successfully" formatted="false">បាន​បិទ​ច្បាប់​ដោយ​ជោគជ័យ</string>
+    <string name="rule_enabled_successfully" formatted="false">បាន​បើក​ច្បាប់​ដោយ​ជោគជ័យ</string>
+    <string name="rule_load_failed" formatted="false">បរាជ័យ​ក្នុង​ការ​ផ្ទុក​ច្បាប់​៖ {error}</string>
+    <string name="rule_management" formatted="false">ការ​គ្រប់គ្រង​ច្បាប់</string>
+    <string name="rule_name" formatted="false">ឈ្មោះ​ច្បាប់</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">ឈ្មោះ​ច្បាប់​និង​ទម្រង់​正则表达式​នៃ​ខ្លឹមសារ​មិន​អាច​ទទេ​បាន​ទេ</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">ឈ្មោះ​ច្បាប់​និង​លេខ​ទូរស័ព្ទ​មិន​អាច​ទទេ​បាន​ទេ</string>
+    <string name="rule_name_hint" formatted="false">ឧទាហរណ៍​៖ គ្រួសារ​, មិត្តភក្តិ​, ល​។</string>
+    <string name="rule_name_label" formatted="false">ឈ្មោះ​ច្បាប់</string>
+    <string name="rule_name_required" formatted="false">ឈ្មោះ​ច្បាប់​និង​លេខ​ទូរស័ព្ទ​មិន​អាច​ទទេ​បាន​ទេ</string>
+    <string name="rule_not_exist" formatted="false">ច្បាប់មិនមាន ឬត្រូវបានលុបចោល</string>
+    <string name="rule_not_found" formatted="false">មិនរកឃើញច្បាប់៖ {error}</string>
+    <string name="rule_saved_success_message" formatted="false">រក្សាទុកច្បាប់ដោយជោគជ័យ!</string>
+    <string name="rule_status_changed" formatted="false">ច្បាប់ {status} ដោយជោគជ័យ</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">ប្រតិបត្តិការមិនបានសម្រេច៖ {error}</string>
+    <string name="rule_toggle_success" formatted="false">ច្បាប់ {status} ដោយជោគជ័យ</string>
+    <string name="rule_type" formatted="false">Rule Type</string>
+    <string name="rule_update_failed" formatted="false">មិនអាចធ្វើបច្ចុប្បន្នភាពច្បាប់បាន៖ {error}</string>
+    <string name="rule_update_success" formatted="false">ធ្វើបច្ចុប្បន្នភាពច្បាប់ដោយជោគជ័យ</string>
+    <string name="rule_verification" formatted="false">ការផ្ទៀងផ្ទាត់ច្បាប់</string>
+    <string name="rules_exported_successfully" formatted="false">បាននាំចេញច្បាប់ដោយជោគជ័យ</string>
+    <string name="rules_exported_to" formatted="false">បាននាំចេញច្បាប់ទៅ៖ {path}</string>
+    <string name="rules_imported" formatted="false">បាននាំចូលច្បាប់ដោយជោគជ័យ</string>
+    <string name="rules_imported_successfully" formatted="false">បាននាំចូលច្បាប់ {count} ដោយជោគជ័យ</string>
+    <string name="save" formatted="false">រក្សាទុក</string>
+    <string name="save_button" formatted="false">រក្សាទុក</string>
+    <string name="save_button_text" formatted="false">រក្សាទុក</string>
+    <string name="save_failed" formatted="false">រក្សាទុកមិនបានសម្រេច៖ {error}</string>
+    <string name="save_script" formatted="false">រក្សាទុកស្គ្រីប</string>
+    <string name="save_settings" formatted="false">រក្សាទុកការកំណត់</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">លទ្ធភាពនៃការបោកប្រាស់</string>
+    <string name="script_saved" formatted="false">ស្គ្រីបត្រូវបានរក្សាទុក</string>
+    <string name="scroll_speed" formatted="false">ល្បឿនរំកិល</string>
+    <string name="scrolling_security_message_settings" formatted="false">ការកំណត់សារសុវត្ថិភាពរំកិល</string>
+    <string name="search" formatted="false">ស្វែងរក</string>
+    <string name="search_by_name_or_phone_number" formatted="false">ស្វែងរកតាមឈ្មោះ ឬលេខទូរស័ព្ទ</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">ស្វែងរកការជាវទំនាក់ទំនង</string>
+    <string name="search_contacts" formatted="false">ស្វែងរកទំនាក់ទំនង</string>
+    <string name="search_error" formatted="false">កំហុសក្នុងការស្វែងរក៖ {error}</string>
+    <string name="search_hint" formatted="false">ស្វែងរក...</string>
+    <string name="search_labels_hint" formatted="false">ស្វែងរកស្លាក</string>
+    <string name="search_marked_phones_hint" formatted="false">ស្វែងរកលេខទូរស័ព្ទដែលបានសម្គាល់</string>
+    <string name="search_phone_rules_hint" formatted="false">ស្វែងរកច្បាប់ទូរស័ព្ទ</string>
+    <string name="search_plugins_hint" formatted="false">ស្វែងរកកម្មវិធីជំនួយ</string>
+    <string name="search_proposals" formatted="false">ស្វែងរកសំណើ</string>
+    <string name="search_regex_rules_hint" formatted="false">ស្វែងរកច្បាប់ Regex</string>
+    <string name="search_subscriptions_hint" formatted="false">ស្វែងរកការជាវ</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">កុំទុកចិត្តការហៅទូរស័ព្ទណាមួយ។ តែងតែផ្ទៀងផ្ទាត់លេខសេវាអតិថិជនដោយឯករាជ្យ។ កុំចែករំលែកលេខសម្ងាត់, លេខកូដផ្ទៀងផ្ទាត់, លេខកាត, ឬព័ត៌មានផ្ទាល់ខ្លួន។</string>
+    <string name="select_action" formatted="false">ជ្រើសរើសសកម្មភាព</string>
+    <string name="select_action_when_blocking_calls" formatted="false">ជ្រើសរើសសកម្មភាព នៅពេលរារាំងការហៅទូរស័ព្ទ</string>
+    <string name="select_action_when_rule_matches" formatted="false">ជ្រើសរើសសកម្មភាព នៅពេលច្បាប់ត្រូវគ្នា</string>
+    <string name="select_all" formatted="false">ជ្រើសរើសទាំងអស់</string>
+    <string name="select_country" formatted="false">ជ្រើសរើសប្រទេស</string>
+    <string name="select_export_format" formatted="false">ជ្រើសរើសទម្រង់នាំចេញ</string>
+    <string name="select_label" formatted="false">ជ្រើសរើសស្លាក</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">សូមជ្រើសរើសស្លាក និងបញ្ចូលលេខទូរស័ព្ទដែលមានសុពលភាព</string>
+    <string name="select_language" formatted="false">ជ្រើសរើសភាសា</string>
+    <string name="select_multiple" formatted="false">ជ្រើសរើសច្រើន</string>
+    <string name="select_sim_card" formatted="false">ជ្រើសរើសកាត SIM</string>
+    <string name="select_tags" formatted="false">ជ្រើសរើសស្លាក</string>
+    <string name="select_target_service" formatted="false">ជ្រើសរើសសេវាកម្មគោលដៅ</string>
+    <string name="select_trusted_data_source" formatted="false">សូមជ្រើសរើសប្រភពទិន្នន័យដែលទុកចិត្ត</string>
+    <string name="select_your_language" formatted="false">ជ្រើសរើសភាសារបស់អ្នក</string>
+    <string name="selected_items" formatted="false">{count} អង្គភាពបានជ្រើសរើស</string>
+    <string name="selected_label" formatted="false">បានជ្រើសរើស៖</string>
+    <string name="sender" formatted="false">អ្នកផ្ញើ</string>
+    <string name="sender_regex_optional" formatted="false">អ្នកផ្ញើ Regex (ស្រេចចិត្ត)</string>
+    <string name="separate_sims" formatted="false">Separate SIMs</string>
+    <string name="separate_sims_desc" formatted="false">Enable separate filtering rules for each SIM card</string>
+    <string name="server_address_label" formatted="false">អាសយដ្ឋានម៉ាស៊ីនមេ</string>
+    <string name="service_type_contact" formatted="false">ការជាវទំនាក់ទំនង</string>
+    <string name="service_type_label" formatted="false">ប្រភេទសេវា</string>
+    <string name="service_type_phone" formatted="false">ការជាវទូរស័ព្ទ</string>
+    <string name="service_type_plugin" formatted="false">ការធ្វើបច្ចុប្បន្នភាពកម្មវិធីជំនួយ</string>
+    <string name="service_type_sms" formatted="false">ការជាវ SMS</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">កំណត់ពេលវេលាពន្យារពេល</string>
+    <string name="set_encryption_password" formatted="false">កំណត់លេខសម្ងាត់ការអ៊ិនគ្រីប</string>
+    <string name="settings" formatted="false">ការកំណត់</string>
+    <string name="settings_backed_up_to" formatted="false">ការកំណត់ត្រូវបានបម្រុងទុកទៅ៖ {path}</string>
+    <string name="settings_backup" formatted="false">ការបម្រុងទុកការកំណត់</string>
+    <string name="settings_restored_successfully" formatted="false">បានស្ដារការកំណត់ដោយជោគជ័យ។ សូមចាប់ផ្ដើមកម្មវិធីឡើងវិញ ដើម្បីឲ្យការផ្លាស់ប្ដូរមានប្រសិទ្ធភាព។</string>
+    <string name="settings_save_failed" formatted="false">មិនអាចរក្សាទុកការកំណត់បាន៖ {error}</string>
+    <string name="settings_saved" formatted="false">ការកំណត់ត្រូវបានរក្សាទុក</string>
+    <string name="settings_tab" formatted="false">ការកំណត់</string>
+    <string name="settings_title" formatted="false">ការកំណត់</string>
+    <string name="setup" formatted="false">ការរៀបចំ</string>
+    <string name="show_all_contacts" formatted="false">បង្ហាញទំនាក់ទំនងទាំងអស់</string>
+    <string name="show_favorites" formatted="false">បង្ហាញចំណូលចិត្ត</string>
+    <string name="silence" formatted="false">ស្ងាត់</string>
+    <string name="silence_action_description" formatted="false">ការហៅទូរសព្ទនឹងត្រូវបានបិទសំឡេង ប៉ុន្តែបង្ហាញនៅក្នុងកំណត់ហេតុការហៅ។</string>
+    <string name="silence_and_no_answer" formatted="false">ស្ងាត់ និងគ្មានចម្លើយ</string>
+    <string name="silence_no_answer" formatted="false">ស្ងាត់គ្មានចម្លើយ</string>
+    <string name="silent_call_voice_clone" formatted="false">ការក្លូនសំឡេងហៅទូរស័ព្ទស្ងាត់</string>
+    <string name="silent_rules" formatted="false">ច្បាប់ស្ងាត់</string>
+    <string name="sim_card" formatted="false">កាត SIM {simNumber}</string>
+    <string name="sim_card_color" formatted="false">ពណ៌កាត SIM</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• ការកំណត់រចនាសម្ព័ន្ធកាត SIM៖ កំណត់ច្បាប់ច្រោះឯករាជ្យសម្រាប់កាត SIM នីមួយៗ</string>
+    <string name="sim_card_filter_rules" formatted="false">ច្បាប់ច្រោះកាត SIM</string>
+    <string name="sim_card_filter_rules_description" formatted="false">កំណត់ច្បាប់ច្រោះផ្សេងៗគ្នា ដោយផ្អែកលើរន្ធ SIM</string>
+    <string name="sim_card_font_size" formatted="false">ទំហំពុម្ពអក្សរកាត SIM</string>
+    <string name="sim_card_position" formatted="false">ទីតាំងកាត SIM</string>
+    <string name="sim_card_title" formatted="false">កាត SIM</string>
+    <string name="sim_country" formatted="false">ប្រទេសស៊ីម</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">ច្បាប់​រន្ធ SIM អនុញ្ញាត​ឱ្យ​អ្នក​កំណត់​រចនាសម្ព័ន្ធ​ច្បាប់​តម្រង​ឯករាជ្យ​សម្រាប់​រន្ធ SIM នីមួយៗ។</string>
+    <string name="sim_rule_instructions_title" formatted="false">ច្បាប់​រន្ធ SIM</string>
+    <string name="sim_rules_not_found" formatted="false">រកមិនឃើញច្បាប់ SIM</string>
+    <string name="sim_slot" formatted="false">រន្ធ SIM</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">កំណត់​រចនាសម្ព័ន្ធ​ច្បាប់​តម្រង​ឯករាជ្យ​សម្រាប់​កាត SIM នីមួយៗ៖</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">ការ​កំណត់​រចនាសម្ព័ន្ធ​តម្រង​រន្ធ SIM {slotNumber}</string>
+    <string name="sim_slot_management" formatted="false">ការ​គ្រប់គ្រង​រន្ធ SIM</string>
+    <string name="sim_slot_position" formatted="false">ទីតាំង​រន្ធ SIM {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• SIM Slot Rules: Independent filtering strategies per SIM</string>
+    <string name="sim_slot_rule_list_title" formatted="false">បញ្ជី​ច្បាប់​រន្ធ SIM</string>
+    <string name="sim_slot_rule_management" formatted="false">ច្បាប់​រន្ធ SIM</string>
+    <string name="sim_slot_rules" formatted="false">ច្បាប់រន្ធ SIM</string>
+    <string name="sim_slot_title" formatted="false">រន្ធ SIM {slotNumber}</string>
+    <string name="sim_state" formatted="false">ស្ថានភាពស៊ីម</string>
+    <string name="skip" formatted="false">រំលង</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">ការ​កំណត់​អត្តសញ្ញាណ​អ្នក​ហៅ​ទូរសព្ទ​ឆ្លាតវៃ</string>
+    <string name="sms" formatted="false">សារ SMS</string>
+    <string name="sms_filter_description" formatted="false">ការ​ច្រោះ​សារ SMS ជួយ​អ្នក​ច្រោះ​សារ​ឥត​បាន​ការ​ដោយ​ស្វ័យ​ប្រវត្តិ​ និង​រក្សា​បញ្ជី​សារ​របស់​អ្នក​ឱ្យ​ស្អាត។ អ្នក​អាច​កំណត់​ច្បាប់​ច្រោះ​ និង​វិធី​ជូន​ដំណឹង។</string>
+    <string name="sms_filter_disabled" formatted="false">ការ​ច្រោះ​សារ SMS ៖ ៖</string>
+    <string name="sms_filter_enabled" formatted="false">ការ​ច្រោះ​សារ SMS ៖ ៖</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">បាន​បន្ថែម​ច្បាប់​ច្រោះ​សារ SMS ជោគជ័យ</string>
+    <string name="sms_filter_rules" formatted="false">ច្បាប់​ច្រោះ​សារ SMS</string>
+    <string name="sms_filter_settings" formatted="false">ការ​កំណត់​រចនាសម្ព័ន្ធ​តម្រង​សារ SMS</string>
+    <string name="sms_management" formatted="false">ការ​គ្រប់គ្រង​សារ SMS</string>
+    <string name="sms_permission" formatted="false">ការ​អនុញ្ញាត​សារ SMS</string>
+    <string name="sms_permission_description" formatted="false">ប្រើ​ដើម្បី​ច្រោះ​សារ​ឥត​បាន​ការ។</string>
+    <string name="sms_rule_added_successfully" formatted="false">បាន​បន្ថែម​ច្បាប់​សារ SMS ជោគជ័យ</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">បាន​លុប​ច្បាប់​សារ SMS ជោគជ័យ</string>
+    <string name="sms_rule_load_failed" formatted="false">បរាជ័យ​ក្នុង​ការ​ផ្ទុក​ច្បាប់​សារ SMS៖ {error}</string>
+    <string name="sms_rule_management" formatted="false">ការ​គ្រប់គ្រង​ច្បាប់​សារ SMS</string>
+    <string name="sms_rule_subscription" formatted="false">ការ​ជាវ​ច្បាប់​សារ SMS</string>
+    <string name="sms_subscription" formatted="false">ការ​ជាវ​សារ SMS</string>
+    <string name="sms_subscription_added_successfully" formatted="false">បាន​បន្ថែម​ការ​ជាវ​សារ SMS ជោគជ័យ</string>
+    <string name="sms_subscription_rules_description" formatted="false">ជាវ​បញ្ជី​ច្បាប់​សារ SMS តាម​រយៈ URL ដែល​គាំទ្រ​ការ​ផ្គូផ្គង​កន្សោម​ទៀងទាត់។ អ្នក​អាច​កំណត់​សកម្មភាព​ទប់ស្កាត់​ ឬ​អនុញ្ញាត។</string>
+    <string name="sms_tab" formatted="false">សារ SMS</string>
+    <string name="some_permissions_denied" formatted="false">ការ​ស្នើសុំ​ការ​អនុញ្ញាត​មួយ​ចំនួន​ត្រូវ​បាន​បដិសេធ</string>
+    <string name="sort_by" formatted="false">តម្រៀបតាម</string>
+    <string name="sort_least_popular" formatted="false">តម្រៀបពេញនិយមតិចបំផុត</string>
+    <string name="sort_most_popular" formatted="false">តម្រៀបពេញនិយមបំផុត</string>
+    <string name="sort_newest" formatted="false">តម្រៀបថ្មីជាងគេ</string>
+    <string name="sort_oldest" formatted="false">តម្រៀបចាស់ជាងគេ</string>
+    <string name="spam_likely" formatted="false">ទំនង​ជា​សារ​ឥត​បាន​ការ</string>
+    <string name="start_color" formatted="false">ពណ៌​ចាប់ផ្ដើម</string>
+    <string name="start_date" formatted="false">កាលបរិច្ឆេទ​ចាប់ផ្ដើម</string>
+    <string name="start_using" formatted="false">ចាប់ផ្ដើម​ប្រើ</string>
+    <string name="stat_answered" formatted="false">បាន​ឆ្លើយ</string>
+    <string name="stat_blocked" formatted="false">បាន​ទប់ស្កាត់</string>
+    <string name="statistics" formatted="false">ស្ថិតិ</string>
+    <string name="statistics_page_title" formatted="false">ការ​វិភាគ​ទិន្នន័យ</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">ពណ៌ STIR</string>
+    <string name="stir_failed" formatted="false">ការផ្ទៀងផ្ទាត់បរាជ័យ</string>
+    <string name="stir_font_size" formatted="false">ទំហំ​ពុម្ព STIR</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">ទីតាំង STIR</string>
+    <string name="stir_unknown" formatted="false">ស្ថានភាពផ្ទៀងផ្ទាត់មិនស្គាល់</string>
+    <string name="stir_verification" formatted="false">ការផ្ទៀងផ្ទាត់ STIR/SHAKEN</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} សម្រាប់លេខ {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">បង្ហាញលទ្ធផលផ្ទៀងផ្ទាត់ STIR/SHAKEN សម្រាប់លេខទូរសព្ទ។</string>
+    <string name="stir_verification_title" formatted="false">ការផ្ទៀងផ្ទាត់ STIR/SHAKEN</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">ការ​អនុញ្ញាត​ផ្ទុក</string>
+    <string name="storage_permission_description" formatted="false">ប្រើ​ដើម្បី​រក្សា​ទុក​ការ​កំណត់​ និង​ច្បាប់។</string>
+    <string name="submit" formatted="false">ដាក់ស្នើ</string>
+    <string name="subscribe" formatted="false">ជាវ</string>
+    <string name="subscription_add_success" formatted="false">បាន​បន្ថែម​ការ​ជាវ &quot;{name}&quot; ជោគជ័យ</string>
+    <string name="subscription_delete_confirm_content" formatted="false">តើ​អ្នក​ប្រាកដ​ថា​អ្នក​ចង់​លុប​ការ​ជាវ​នេះ​ទេ?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">លុប​ការ​ជាវ</string>
+    <string name="subscription_delete_failed" formatted="false">បរាជ័យ​ក្នុង​ការ​លុប​ការ​ជាវ៖ {error}</string>
+    <string name="subscription_delete_success" formatted="false">បាន​លុប​ការ​ជាវ</string>
+    <string name="subscription_deleted" formatted="false">បាន​លុប​ការ​ជាវ</string>
+    <string name="subscription_load_failed" formatted="false">បរាជ័យ​ក្នុង​ការ​ផ្ទុក​ការ​ជាវ៖ {error}</string>
+    <string name="subscription_name" formatted="false">ឈ្មោះ​ការ​ជាវ</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">ឈ្មោះ​ការ​ជាវ និង URL មិន​អាច​ទទេ។</string>
+    <string name="subscription_name_hint" formatted="false">បញ្ចូល​ឈ្មោះ​ការ​ជាវ</string>
+    <string name="subscription_status_change_failed" formatted="false">បរាជ័យ​ក្នុង​ការ​ផ្លាស់ប្ដូរ​ស្ថានភាព​ការ​ជាវ៖ {error}</string>
+    <string name="subscription_update_failed" formatted="false">បរាជ័យ​ក្នុង​ការ​ធ្វើ​បច្ចុប្បន្នភាព​ការ​ជាវ៖ {error}</string>
+    <string name="subscription_update_success" formatted="false">បាន​ធ្វើ​បច្ចុប្បន្នភាព​ការ​ជាវ​ជោគជ័យ</string>
+    <string name="subscription_url" formatted="false">URL ការ​ជាវ</string>
+    <string name="subscription_url_hint" formatted="false">បញ្ចូល​ URL ការ​ជាវ</string>
+    <string name="successfully_imported_rules" formatted="false">បាន​នាំចូល​ច្បាប់ {count} ជោគជ័យ</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">ជំនួយ</string>
+    <string name="support_count" formatted="false">គាំទ្រ ({supportCount})</string>
+    <string name="support_sync" formatted="false">គាំទ្រ​ការ​ធ្វើ​សមកាលកម្ម</string>
+    <string name="supported" formatted="false">បានគាំទ្រ</string>
+    <string name="survey" formatted="false">ការ​ស្ទង់​មតិ</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">ធ្វើ​សមកាលកម្ម​ឧបករណ៍</string>
+    <string name="sync_failed" formatted="false">បរាជ័យ​ក្នុង​ការ​ធ្វើ​សមកាលកម្ម</string>
+    <string name="sync_failed_message" formatted="false">បរាជ័យ​ក្នុង​ការ​ធ្វើ​សមកាលកម្ម</string>
+    <string name="sync_folder_name_label" formatted="false">ឈ្មោះ​ថត​ធ្វើ​សមកាលកម្ម</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">ធ្វើ​សមកាលកម្ម​ឥឡូវនេះ</string>
+    <string name="sync_now_button" formatted="false">ធ្វើសមកាលកម្មឥឡូវនេះ</string>
+    <string name="sync_status_title" formatted="false">ស្ថានភាពធ្វើសមកាលកម្ម</string>
+    <string name="sync_status_updated_message" formatted="false">ស្ថានភាពធ្វើសមកាលកម្មត្រូវបានអាប់ដេត</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">ធ្វើសមកាលកម្មបានជោគជ័យ</string>
+    <string name="sync_with_cloud_storage" formatted="false">ធ្វើសមកាលកម្មជាមួយ Cloud Storage</string>
+    <string name="synced" formatted="false">ធ្វើសមកាលកម្មហើយ</string>
+    <string name="synchronized" formatted="false">បាន​ធ្វើ​សមកាលកម្ម</string>
+    <string name="syncing" formatted="false">កំពុង​ធ្វើ​សមកាលកម្ម...</string>
+    <string name="system_features" formatted="false">លក្ខណៈពិសេសប្រព័ន្ធ៖</string>
+    <string name="system_settings_title" formatted="false">ការកំណត់ប្រព័ន្ធ</string>
+    <string name="tab_all" formatted="false">ទាំងអស់</string>
+    <string name="tab_answered" formatted="false">បានទទួល</string>
+    <string name="tab_blocked" formatted="false">បានទប់ស្កាត់</string>
+    <string name="tab_missed" formatted="false">បានខកខាន</string>
+    <string name="tab_outgoing" formatted="false">ការហៅចេញ</string>
+    <string name="tag_label" formatted="false">ស្លាក៖ {tag}</string>
+    <string name="takeaway" formatted="false">ចំណុចសំខាន់</string>
+    <string name="telecommunication" formatted="false">ទូរគមនាគមន៍</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">ទីផ្សារទូរស័ព្ទ</string>
+    <string name="temp_purchase_expired" formatted="false">សិទ្ធិទិញបណ្ដោះអាសន្នបានផុតកំណត់</string>
+    <string name="temporary_vip" formatted="false">VIP បណ្តោះអាសន្ន</string>
+    <string name="test_button" formatted="false">សាកល្បង</string>
+    <string name="test_connection_button" formatted="false">សាកល្បងការតភ្ជាប់</string>
+    <string name="test_plugin" formatted="false">សាកល្បងកម្មវិធីជំនួយ</string>
+    <string name="text_colors_setting" formatted="false">ពណ៌អក្សរ និងស្លាក</string>
+    <string name="theme_dark" formatted="false">Dark</string>
+    <string name="theme_light" formatted="false">Light</string>
+    <string name="theme_settings_subtitle" formatted="false">ជ្រើសរើសរូបរាងដែលអ្នកចូលចិត្ត</string>
+    <string name="theme_settings_title" formatted="false">ការកំណត់រូបរាង</string>
+    <string name="theme_system" formatted="false">System</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">This app is a powerful caller ID tool that allows you to identify and block unwanted calls.</string>
+    <string name="this_week" formatted="false">សប្តាហ៍នេះ</string>
+    <string name="time_interceptor" formatted="false">ការស្ទាក់ចាប់តាមពេលវេលា</string>
+    <string name="time_interceptor_description" formatted="false">ស្ទាក់ចាប់/អនុញ្ញាតការហៅទូរសព្ទដោយស្វ័យប្រវត្តិដោយផ្អែកលើភាពញឹកញាប់នៃការហៅទូរសព្ទ</string>
+    <string name="time_interceptor_explanation" formatted="false">• ឧបករណ៍ស្ទាក់ចាប់ពេលវេលា៖ ស្ទាក់ចាប់/អនុញ្ញាតការហៅទូរសព្ទដដែលៗក្នុងរយៈពេលខ្លី</string>
+    <string name="time_interceptor_explanation_content" formatted="false">មុខងារស្ទាក់ចាប់ភាពញឹកញាប់នៃការហៅទូរសព្ទ វិភាគភាពញឹកញាប់នៃការហៅទូរសព្ទ ដើម្បីកំណត់អត្តសញ្ញាណ និងស្ទាក់ចាប់/អនុញ្ញាតការហៅទូរសព្ទសារឥតបានការញឹកញាប់ដោយស្វ័យប្រវត្តិ។</string>
+    <string name="time_interceptor_explanation_title" formatted="false">ការពន្យល់អំពីការស្ទាក់ចាប់ភាពញឹកញាប់នៃការហៅទូរសព្ទ</string>
+    <string name="time_interceptor_settings_title" formatted="false">ការកំណត់ការស្ទាក់ចាប់ភាពញឹកញាប់នៃការហៅទូរសព្ទ</string>
+    <string name="time_window_description" formatted="false">កំណត់ទំហំបង្អួចពេលវេលាសម្រាប់ការអនុញ្ញាតការហៅទូរសព្ទដដែលៗ។ ការហៅទូរសព្ទពីលេខដដែលៗក្នុងបង្អួចនេះនឹងត្រូវបានអនុញ្ញាត</string>
+    <string name="time_window_label" formatted="false">បង្អួចពេលវេលាស្ទាក់ចាប់ (នាទី)៖ {minutes}</string>
+    <string name="timeline_view" formatted="false">ទិដ្ឋភាពបន្ទាត់ពេលវេលា</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">ថ្ងៃនេះ</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">សរុប</string>
+    <string name="total_blocked" formatted="false">សរុបដែលបានទប់ស្កាត់</string>
+    <string name="total_pending_proposals" formatted="false">សំណើកំពុងរង់ចាំសរុប</string>
+    <string name="total_proposals" formatted="false">សំណើសរុប</string>
+    <string name="total_votes" formatted="false">សរុប: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">ផ្ទេរទិន្នន័យរវាងឧបករណ៍ ឬវេទិកា</string>
+    <string name="travel_ticketing" formatted="false">សំបុត្រធ្វើដំណើរ</string>
+    <string name="tutorial" formatted="false">ការបង្រៀន</string>
+    <string name="type" formatted="false">ប្រភេទ</string>
+    <string name="unassigned_s_i_m_card" formatted="false">ស៊ីមកាតដែលមិនបានកំណត់</string>
+    <string name="unblock" formatted="false">ដោះប្លុក</string>
+    <string name="unblock_number" formatted="false">ដោះប្លុកលេខ</string>
+    <string name="unblock_number_confirmation" formatted="false">តើអ្នកប្រាកដថាចង់ដោះប្លុក {phoneNumber} មែនទេ?</string>
+    <string name="unblock_number_failed" formatted="false">ការដោះប្លុកលេខបរាជ័យ</string>
+    <string name="unblock_number_success" formatted="false">លេខត្រូវបានដោះប្លុកដោយជោគជ័យ</string>
+    <string name="unblocked" formatted="false">បានដោះប្លុក</string>
+    <string name="unknown" formatted="false">មិនស្គាល់</string>
+    <string name="unknown_tag" formatted="false">ស្លាក៖ មិនស្គាល់</string>
+    <string name="unregister_button" formatted="false">លុបការចុះឈ្មោះ</string>
+    <string name="unregister_device_confirmation_message" formatted="false">តើអ្នកប្រាកដថាចង់លុបការចុះឈ្មោះ {deviceName} ដែរឬទេ?</string>
+    <string name="unregister_device_title" formatted="false">លុបការចុះឈ្មោះឧបករណ៍</string>
+    <string name="unsupported_file_format" formatted="false">ទម្រង់ឯកសារមិនត្រូវបានគាំទ្រ</string>
+    <string name="update" formatted="false">អាប់ដេត</string>
+    <string name="update_all_now" formatted="false">អាប់ដេតទាំងអស់ឥឡូវនេះ</string>
+    <string name="update_contact_failed" formatted="false">មិនអាចអាប់ដេតទំនាក់ទំនងបានទេ៖ {error}</string>
+    <string name="update_favorite_status" formatted="false">អាប់ដេតស្ថានភាពដែលពេញចិត្ត</string>
+    <string name="update_interval" formatted="false">ចន្លោះពេលអាប់ដេត</string>
+    <string name="update_now" formatted="false">អាប់ដេតឥឡូវនេះ</string>
+    <string name="update_plugin" formatted="false">អាប់ដេត Plugin</string>
+    <string name="update_plugin_failed" formatted="false">មិនអាចអាប់ដេត Plugin បានទេ៖ {error}</string>
+    <string name="update_rule_failed" formatted="false">មិនអាចអាប់ដេតក្បួនបានទេ៖ {error}</string>
+    <string name="update_subscription_failed" formatted="false">មិនអាចអាប់ដេតការជាវបានទេ៖ {error}</string>
+    <string name="update_success" formatted="false">{service} ត្រូវបានអាប់ដេតដោយជោគជ័យ ({count} ក្បួន)</string>
+    <string name="upgrade_to_vip" formatted="false">ដំឡើងទៅ VIP</string>
+    <string name="use_cases_point1" formatted="false">• កំណត់អត្តសញ្ញាណការហៅទូរសព្ទសារឥតបានការដែលហៅត្រឡប់ដោយស្វ័យប្រវត្តិ</string>
+    <string name="use_cases_point2" formatted="false">• ស្ទាក់ចាប់ការហៅទូរសព្ទទីផ្សារដែលហៅច្រើនដងក្នុងរយៈពេលខ្លី</string>
+    <string name="use_cases_point3" formatted="false">• ការពារការទម្លាក់គ្រាប់បែកតាមទូរស័ព្ទ និងការយាយី</string>
+    <string name="use_cases_title" formatted="false">ករណីប្រើប្រាស់៖</string>
+    <string name="use_global_settings" formatted="false">ប្រើការកំណត់សកល</string>
+    <string name="use_local_notification" formatted="false">ប្រើការជូនដំណឹងក្នុងមូលដ្ឋាន</string>
+    <string name="use_local_notification_description" formatted="false">បើកការជូនដំណឹងក្នុងមូលដ្ឋានសម្រាប់ការហៅចូល</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">ប្រើវាក្យសម្ព័ន្ធ regex ស្តង់ដារដើម្បីកំណត់លំនាំ។ ឧទាហរណ៍៖</string>
+    <string name="use_stir_notification" formatted="false">ប្រើការជូនដំណឹងពី STIR</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">ឈ្មោះអ្នកប្រើប្រាស់</string>
+    <string name="verification_failed_text" formatted="false">បរាជ័យ</string>
+    <string name="verification_report" formatted="false">របាយការណ៍ផ្ទៀងផ្ទាត់</string>
+    <string name="verified_text" formatted="false">បានផ្ទៀងផ្ទាត់</string>
+    <string name="verify" formatted="false">ផ្ទៀងផ្ទាត់</string>
+    <string name="version" formatted="false">កំណែ៖ {version}</string>
+    <string name="very_high" formatted="false">ខ្ពស់ខ្លាំង</string>
+    <string name="very_low" formatted="false">ទាបខ្លាំង</string>
+    <string name="view_details" formatted="false">មើលលម្អិត</string>
+    <string name="vip3_days_with_ads" formatted="false">VIP 3 ថ្ងៃជាមួយការផ្សាយពាណិជ្ជកម្ម (ធ្វើសមកាលកម្មតែប៉ុណ្ណោះ)</string>
+    <string name="vip5_days_no_ads" formatted="false">VIP 5 ថ្ងៃពេញលេញគ្មានការផ្សាយពាណិជ្ជកម្ម</string>
+    <string name="vip7_days_no_ads" formatted="false">VIP 7 ថ្ងៃពេញលេញគ្មានការផ្សាយពាណិជ្ជកម្ម</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">ប្ដូរសមាជិកភាព VIP ជាមួយនឹងចំនួនសម្គាល់លេខទូរសព្ទ</string>
+    <string name="vip_exchange_service" formatted="false">សេវាកម្មប្តូរ VIP</string>
+    <string name="vip_exchange_title" formatted="false">ប្តូរសម្គាល់ VIP</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">អ្នកប្រើប្រាស់ VIP</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">ការសម្គាល់សំឡេង</string>
+    <string name="vote_agree" formatted="false">យល់ព្រម</string>
+    <string name="vote_count" formatted="false">ចំនួនសន្លឹកឆ្នោត</string>
+    <string name="vote_disagree" formatted="false">មិនយល់ព្រម</string>
+    <string name="vote_submitted" formatted="false">ការបោះឆ្នោតត្រូវបានដាក់ស្នើដោយជោគជ័យ</string>
+    <string name="voted" formatted="false">បានបោះឆ្នោត</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} សំឡេងឆ្នោត ({supportPercentage}% គាំទ្រ)</string>
+    <string name="voting_completed" formatted="false">ការបោះឆ្នោតបានបញ្ចប់</string>
+    <string name="voting_completed_body" formatted="false">ការបោះឆ្នោតសហគមន៍សម្រាប់ {phoneNumber} បានបញ្ចប់។ លទ្ធផល៖ {result} ({supportPercentage}% គាំទ្រ)។</string>
+    <string name="waiting_for_more_votes" formatted="false">កំពុងរង់ចាំការបោះឆ្នោតសហគមន៍បន្ថែម</string>
+    <string name="watch_ad" formatted="false">មើលពាណិជ្ជកម្ម</string>
+    <string name="watch_ad_for_temp" formatted="false">មើលពាណិជ្ជកម្មសម្រាប់ឯកសិទ្ធិបណ្ដោះអាសន្ន</string>
+    <string name="watch_ad_for_temp_description" formatted="false">មើលពាណិជ្ជកម្មខ្លីមួយដើម្បីដោះសោមុខងារពិសេសមួយចំនួនជាបណ្ដោះអាសន្ន</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">អ្នកត្រូវមើលការផ្សាយពាណិជ្ជកម្ម {count} បន្ថែមទៀតដើម្បីទទួលបានសិទ្ធិ VIP បណ្ដោះអាសន្ន</string>
+    <string name="web_d_a_v_config_title" formatted="false">ការកំណត់រចនាសម្ព័ន្ធ WebDAV</string>
+    <string name="week" formatted="false">សប្តាហ៍</string>
+    <string name="welcome" formatted="false">សូមស្វាគមន៍</string>
+    <string name="whitelist" formatted="false">បញ្ជីអនុញ្ញាត</string>
+    <string name="width" formatted="false">ទទឹង</string>
+    <string name="wildcard_matching_description" formatted="false">ប្រើ \'.\' ដើម្បីផ្គូផ្គងតួអក្សរណាមួយ (ឧទាហរណ៍ \'123.456\' ផ្គូផ្គង 123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">ការផ្គូផ្គងវ៉ាយខាត:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">ការគាំទ្រវ៉ាយខាតសម្រាប់ការត្រងបត់បែន</string>
+    <string name="window_size_setting" formatted="false">ទំហំបង្អួច</string>
+    <string name="year" formatted="false">ឆ្នាំ</string>
+    <string name="yesterday" formatted="false">ម្សិលមិញ</string>
+</resources>

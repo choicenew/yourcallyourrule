@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">О подписке на контакты</string>
+    <string name="about_labels" formatted="false">О метках</string>
+    <string name="about_phone_subscription_rules" formatted="false">О правилах подписки на телефон</string>
+    <string name="about_sms_filter" formatted="false">Об SMS фильтрации</string>
+    <string name="about_sms_subscription_rules" formatted="false">О правилах подписки на SMS</string>
+    <string name="about_subtitle" formatted="false">Версия приложения и юридическая информация</string>
+    <string name="about_title" formatted="false">О программе</string>
+    <string name="access_target_url" formatted="false">Доступ к целевому URL</string>
+    <string name="action" formatted="false">Действие</string>
+    <string name="action_all" formatted="false">Все</string>
+    <string name="action_allow" formatted="false">Разрешить</string>
+    <string name="action_block" formatted="false">Блокировать</string>
+    <string name="action_filter_title" formatted="false">Фильтровать по типу действия</string>
+    <string name="action_filter_tooltip" formatted="false">Фильтр действий</string>
+    <string name="action_none" formatted="false">Нет действий</string>
+    <string name="action_silence" formatted="false">Без звука</string>
+    <string name="action_tag" formatted="false">Действие: {actionType}</string>
+    <string name="action_type" formatted="false">Тип действия</string>
+    <string name="action_unknown" formatted="false">Неизвестно</string>
+    <string name="active_proposals" formatted="false">Активные предложения</string>
+    <string name="add" formatted="false">Добавить</string>
+    <string name="add_allow_subscription" formatted="false">Добавить подписку разрешения</string>
+    <string name="add_allowed_blocked_rule" formatted="false">Добавить правило разрешения/блокировки</string>
+    <string name="add_block_subscription" formatted="false">Добавить подписку блокировки</string>
+    <string name="add_contact_button" formatted="false">Добавить контакт</string>
+    <string name="add_contact_failed" formatted="false">Не удалось добавить контакт: {error}</string>
+    <string name="add_label" formatted="false">Добавить метку</string>
+    <string name="add_label_button" formatted="false">Добавить метку</string>
+    <string name="add_label_failed" formatted="false">Не удалось добавить метку: {error}</string>
+    <string name="add_name" formatted="false">Добавить имя</string>
+    <string name="add_none_subscription" formatted="false">Добавить подписку &quot;Нет&quot;</string>
+    <string name="add_phone_mark" formatted="false">Добавить отметку телефона</string>
+    <string name="add_phone_number_rule" formatted="false">Добавить правило для номера телефона</string>
+    <string name="add_plugin" formatted="false">Добавить плагин</string>
+    <string name="add_plugin_failed" formatted="false">Не удалось добавить плагин</string>
+    <string name="add_plugin_failed_with_error" formatted="false">Не удалось добавить плагин: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">Добавить плагин из локального файла</string>
+    <string name="add_plugin_from_url" formatted="false">Добавить плагин из URL</string>
+    <string name="add_regex_rule" formatted="false">Добавить правило регулярного выражения</string>
+    <string name="add_rule" formatted="false">Добавить правило</string>
+    <string name="add_rule_failed" formatted="false">Не удалось добавить правило: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">Добавить правило</string>
+    <string name="add_silence_subscription" formatted="false">Добавить подписку на тишину</string>
+    <string name="add_sms_filter_rule" formatted="false">Добавить правило фильтрации SMS</string>
+    <string name="add_sms_rule" formatted="false">Добавить SMS правило</string>
+    <string name="add_sms_subscription" formatted="false">Добавить SMS подписку</string>
+    <string name="add_subscription" formatted="false">Добавить подписку</string>
+    <string name="add_subscription_button" formatted="false">Добавить подписку</string>
+    <string name="add_subscription_failed" formatted="false">Не удалось добавить подписку: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">Добавить подписку</string>
+    <string name="add_to_blacklist" formatted="false">Добавить в черный список</string>
+    <string name="add_to_favorites" formatted="false">Добавить в избранное</string>
+    <string name="add_to_rules" formatted="false">Добавить в правила</string>
+    <string name="add_to_whitelist" formatted="false">Добавить в белый список</string>
+    <string name="added_to_favorites" formatted="false">Добавлено в избранное</string>
+    <string name="advanced_mode" formatted="false">Расширенный режим</string>
+    <string name="agent" formatted="false">Агент</string>
+    <string name="agree_votes" formatted="false">За: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">Все</string>
+    <string name="all_call_logs_cleared" formatted="false">Все журналы вызовов очищены</string>
+    <string name="all_calls_tab" formatted="false">Все</string>
+    <string name="all_permissions_granted" formatted="false">Все разрешения предоставлены</string>
+    <string name="all_services_status_subtitle" formatted="false">Текущий статус каждого облачного сервиса</string>
+    <string name="all_services_status_title" formatted="false">Текущий статус сервисов</string>
+    <string name="all_settings_completed" formatted="false">Все настройки завершены.</string>
+    <string name="all_update_success" formatted="false">Все обновления завершены ({count} правил)</string>
+    <string name="allow" formatted="false">Разрешить</string>
+    <string name="allow_action_description" formatted="false">Вызовы будут разрешены, даже если номер находится в черном списке.</string>
+    <string name="allow_all_allow_rules" formatted="false">Включить все правила разрешения</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">Главный переключатель для применения всех настроенных правил разрешения</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">Разрешить все номера из черного списка</string>
+    <string name="allow_all_block_rules" formatted="false">Включить все правила блокировки</string>
+    <string name="allow_all_block_rules_desc" formatted="false">Главный переключатель для применения всех настроенных правил блокировки</string>
+    <string name="allow_allowed_numbers" formatted="false">Разрешить все одобренные номера</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">Разрешить все входящие вызовы с номеров из вашего белого списка</string>
+    <string name="allow_block" formatted="false">Разрешить/Заблокировать</string>
+    <string name="allow_blocked_numbers" formatted="false">Приостановить черный список</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">Временно разрешить вызовы с номеров из черного списка</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">Разрешить номера, не превышающие лимит</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">Автоматически разрешать номера, не превышающие пороговое значение количества</string>
+    <string name="allow_regex_allow_rules" formatted="false">Включить правила разрешения Regex</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">Включить сопоставление шаблонов регулярных выражений для правил разрешения</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">Включить разрешающие правила на основе regex</string>
+    <string name="allow_regex_block_rules" formatted="false">Включить правила блокировки Regex</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">Включить сопоставление шаблонов регулярных выражений для правил блокировки</string>
+    <string name="allow_regex_block_rules_description" formatted="false">Включить блокирующие правила на основе regex</string>
+    <string name="allow_rule" formatted="false">Разрешающее правило</string>
+    <string name="allow_rules" formatted="false">Разрешающие правила</string>
+    <string name="allowed_blocked_rule" formatted="false">Правило разрешения/блокировки</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">Редактировать правило разрешения/блокировки</string>
+    <string name="allowed_blocked_rule_management" formatted="false">Управление правилами разрешения/блокировки</string>
+    <string name="allowed_blocked_rules_info" formatted="false">Разрешенные/заблокированные правила используются для сопоставления вызовов с определенными номерами телефонов, которые имеют наивысший приоритет.</string>
+    <string name="and_more_items" formatted="false">и еще {count} элемента</string>
+    <string name="answer_then_hangup" formatted="false">Ответить и положить трубку</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">Your Call Your Rule</string>
+    <string name="application_software" formatted="false">Прикладное ПО</string>
+    <string name="apply" formatted="false">Применить</string>
+    <string name="approved" formatted="false">ОДОБРЕНО</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">Ошибка авторизации: Пожалуйста, проверьте ID и ключ клиента</string>
+    <string name="authorization_failed_message" formatted="false">Ошибка авторизации</string>
+    <string name="authorization_success_message" formatted="false">Авторизация успешна</string>
+    <string name="authorize_login_button" formatted="false">Авторизовать вход</string>
+    <string name="auto_cancel_notification" formatted="false">Автоматическое отклонение уведомления</string>
+    <string name="auto_cancel_notification_description" formatted="false">Если отмечено, уведомление будет автоматически отклонено при нажатии пользователем.</string>
+    <string name="auto_sync_label" formatted="false">Автоматическая синхронизация</string>
+    <string name="auto_update" formatted="false">Автообновление</string>
+    <string name="auto_update_description" formatted="false">Установите интервалы автоматического обновления для подписок или обновляйте вручную</string>
+    <string name="auto_update_settings" formatted="false">Настройки автообновления</string>
+    <string name="auto_update_subtitle" formatted="false">Управление автоматическими обновлениями правил и плагинов</string>
+    <string name="auto_update_title" formatted="false">Автообновление</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">Автомобильная промышленность</string>
+    <string name="avatar" formatted="false">Аватар</string>
+    <string name="avatar_border_color" formatted="false">Цвет границы аватара</string>
+    <string name="avatar_border_size" formatted="false">Размер границы аватара</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">Размеры аватаров и значков</string>
+    <string name="avatar_position" formatted="false">Положение аватара</string>
+    <string name="avatar_size" formatted="false">Размер аватара</string>
+    <string name="axis_position" formatted="false">Положение {axis}</string>
+    <string name="background_gradient_setting" formatted="false">Градиент фона</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">Резервное копирование</string>
+    <string name="backup_and_restore" formatted="false">Резервное копирование и восстановление</string>
+    <string name="backup_and_restore_subtitle" formatted="false">Резервное копирование или восстановление данных приложения</string>
+    <string name="backup_and_restore_title" formatted="false">Резервное копирование и восстановление</string>
+    <string name="backup_failed" formatted="false">Ошибка резервного копирования</string>
+    <string name="backup_settings" formatted="false">Настройки резервного копирования</string>
+    <string name="backup_to_cloud" formatted="false">Резервное копирование в облако</string>
+    <string name="backup_to_cloud_failed" formatted="false">Не удалось выполнить резервное копирование в облако: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">Успешно скопировано в облако</string>
+    <string name="bank" formatted="false">Банк</string>
+    <string name="basic_info" formatted="false">Основная информация</string>
+    <string name="basic_rule_filter" formatted="false">Базовый фильтр правил</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">Фильтрация вызовов с использованием черного/белого списков и регулярных выражений</string>
+    <string name="basic_rule_filtering" formatted="false">Базовая фильтрация правил</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• Базовая фильтрация правил: правила фильтрации на основе черного списка, белого списка и регулярных выражений</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">Вы уверены, что хотите удалить {count} выбранных контактов?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">Вы уверены, что хотите удалить {count} меток?</string>
+    <string name="battery_optimization_permission" formatted="false">Оптимизация батареи</string>
+    <string name="battery_optimization_permission_description" formatted="false">Разрешите приложению работать в фоновом режиме для предоставления таких сервисов, как идентификатор вызывающего абонента.</string>
+    <string name="black_white_list" formatted="false">Черный/Белый список</string>
+    <string name="blacklist" formatted="false">Черный список</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">Черный и белый списки</string>
+    <string name="block" formatted="false">Блокировать</string>
+    <string name="block_action_description" formatted="false">Вызовы будут заблокированы и отображены в журнале вызовов.</string>
+    <string name="block_calls" formatted="false">Блокировать вызовы</string>
+    <string name="block_international_calls" formatted="false">соответствует номерам, которые не начинаются с + или 00</string>
+    <string name="block_international_calls_title" formatted="false">Блокировать международные звонки</string>
+    <string name="block_mobile_numbers" formatted="false">соответствует номерам, которые не начинаются с 13-19</string>
+    <string name="block_mobile_numbers_title" formatted="false">Блокировать номера мобильных телефонов</string>
+    <string name="block_number" formatted="false">Номер блока</string>
+    <string name="block_number_success" formatted="false">Номер блока успешно</string>
+    <string name="block_premium_rate_numbers" formatted="false">соответствует номерам, которые не начинаются с 118 или 120-190</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">Блокировать номера с премиум-тарифом</string>
+    <string name="block_rule" formatted="false">Правило блокировки</string>
+    <string name="block_rules" formatted="false">Правила блокировки</string>
+    <string name="block_specific_area_codes" formatted="false">соответствует номерам, начинающимся с 0 + 2-3 цифры</string>
+    <string name="block_specific_area_codes_title" formatted="false">Блокировать определенные коды городов:</string>
+    <string name="block_type_analysis_title" formatted="false">Анализ типа блокировки</string>
+    <string name="blocked" formatted="false">Заблокировано</string>
+    <string name="blocked_call_body" formatted="false">Заблокированный вызов от {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">Уведомления о заблокированных вызовах</string>
+    <string name="blocked_call_notifications_description" formatted="false">Отображает информацию о заблокированных вызовах.</string>
+    <string name="blocked_call_title" formatted="false">Заблокированный вызов</string>
+    <string name="blocked_calls" formatted="false">Заблокированные вызовы</string>
+    <string name="blocked_calls_title" formatted="false">Заблокированные вызовы</string>
+    <string name="blocked_spam_calls" formatted="false">Заблокированные спам-вызовы</string>
+    <string name="blocking_trend" formatted="false">Тенденция блокировки</string>
+    <string name="both" formatted="false">Оба</string>
+    <string name="bulk_delete" formatted="false">Пакетное удаление контактов</string>
+    <string name="bulk_delete_contacts" formatted="false">Пакетное удаление контактов</string>
+    <string name="bulk_delete_labels" formatted="false">Пакетное удаление меток</string>
+    <string name="call" formatted="false">Вызов</string>
+    <string name="call_blocking" formatted="false">Блокировка вызовов</string>
+    <string name="call_details" formatted="false">Детали звонка</string>
+    <string name="call_filter_rules" formatted="false">Правила фильтрации вызовов</string>
+    <string name="call_filter_rules_description" formatted="false">Установите основные правила для фильтрации вызовов</string>
+    <string name="call_filter_settings" formatted="false">Настройки фильтра вызовов</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">Установите лимиты частоты вызовов и правила блокировки</string>
+    <string name="call_frequency_interception_title" formatted="false">Перехват частоты вызовов</string>
+    <string name="call_history" formatted="false">История вызовов</string>
+    <string name="call_history_info_desc" formatted="false">Здесь отображается ваша история вызовов, включая входящие, исходящие и пропущенные вызовы.</string>
+    <string name="call_history_info_title" formatted="false">История вызовов</string>
+    <string name="call_history_tab" formatted="false">История вызовов</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">Разрешение на фильтрацию вызовов</string>
+    <string name="call_screening_permission_description" formatted="false">Используется для фильтрации и блокировки спам-звонков.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">Разрешение на фильтрацию вызовов не предоставлено, может повлиять на функциональность приложения.</string>
+    <string name="call_statistics" formatted="false">Статистика вызовов</string>
+    <string name="call_time" formatted="false">Время вызова</string>
+    <string name="call_type" formatted="false">Тип вызова</string>
+    <string name="call_type_answered" formatted="false">Ответил</string>
+    <string name="call_type_blocked" formatted="false">Заблокирован</string>
+    <string name="call_type_icon_color" formatted="false">Цвет значка типа вызова</string>
+    <string name="call_type_missed" formatted="false">Пропущенный вызов</string>
+    <string name="call_type_outgoing" formatted="false">Исходящий</string>
+    <string name="call_type_position" formatted="false">Положение типа вызова</string>
+    <string name="call_type_rejected" formatted="false">Отклонено</string>
+    <string name="call_type_silenced" formatted="false">Отключен</string>
+    <string name="call_type_unknown" formatted="false">Неизвестно</string>
+    <string name="callback" formatted="false">Перезвонить</string>
+    <string name="caller_id_app" formatted="false">Приложение Caller ID</string>
+    <string name="caller_id_customization_subtitle" formatted="false">Настроить макет идентификатора вызывающего абонента</string>
+    <string name="caller_id_customization_title" formatted="false">Настроить Caller ID</string>
+    <string name="caller_id_display_mode" formatted="false">Режим отображения идентификатора вызывающего абонента</string>
+    <string name="caller_id_enhancement" formatted="false">Улучшение идентификации звонящего</string>
+    <string name="caller_id_marked_by_count" formatted="false">Отмечено {count}</string>
+    <string name="caller_id_notification_title" formatted="false">Информация о входящем вызове</string>
+    <string name="caller_id_preview" formatted="false">Предварительный просмотр идентификатора вызывающего абонента</string>
+    <string name="caller_id_settings_subtitle" formatted="false">Чтобы настроить уведомления о входящих вызовах и режим отображения</string>
+    <string name="caller_id_settings_title" formatted="false">Настройки идентификатора вызывающего абонента</string>
+    <string name="calling_number_failed" formatted="false">Вызов номера не удался</string>
+    <string name="cancel" formatted="false">Отмена</string>
+    <string name="cancel_button" formatted="false">Отмена</string>
+    <string name="cancel_local_notification" formatted="false">Закрыть локальные уведомления</string>
+    <string name="cancel_local_notification_description" formatted="false">Автоматически закрывать локальные уведомления</string>
+    <string name="car_rental" formatted="false">Аренда автомобиля</string>
+    <string name="carrier" formatted="false">Оператор</string>
+    <string name="carrier_color" formatted="false">Цвет оператора</string>
+    <string name="carrier_font_size" formatted="false">Размер шрифта оператора</string>
+    <string name="carrier_position" formatted="false">Положение оператора</string>
+    <string name="change_label" formatted="false">Изменить метку</string>
+    <string name="change_plugin_status_failed" formatted="false">Не удалось изменить статус плагина: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">Не удалось изменить статус подписки: {error}</string>
+    <string name="charity" formatted="false">Благотворительность</string>
+    <string name="chart_one_week_ago" formatted="false">1 неделю назад</string>
+    <string name="chart_three_days_ago" formatted="false">3 дня назад</string>
+    <string name="chart_today" formatted="false">Сегодня</string>
+    <string name="check_file_format" formatted="false">Пожалуйста, проверьте формат файла или разрешения</string>
+    <string name="check_permission_failed" formatted="false">Не удалось проверить разрешения: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">Выберите действие перехвата по умолчанию</string>
+    <string name="clear_all_call_logs" formatted="false">Очистить все журналы вызовов</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">Подтвердите очистку всех журналов вызовов</string>
+    <string name="clear_all_notifications" formatted="false">Очистить все уведомления</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">Подтвердите очистку всех уведомлений</string>
+    <string name="clear_button" formatted="false">Очистить</string>
+    <string name="clear_filter" formatted="false">Очистить фильтр</string>
+    <string name="clear_label_filter_button" formatted="false">Очистить фильтр меток</string>
+    <string name="close_button" formatted="false">Закрыть</string>
+    <string name="cloud_backup" formatted="false">Облачное резервное копирование</string>
+    <string name="cloud_sync" formatted="false">Синхронизация с облаком</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">Синхронизация с облаком и резервное копирование</string>
+    <string name="cloud_sync_service" formatted="false">Сервис облачной синхронизации</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">Настройте WebDAV, OneDrive и Google Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">Настройки синхронизации с облаком</string>
+    <string name="cloud_sync_title" formatted="false">Синхронизация с облаком</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">Сбор долгов</string>
+    <string name="color_picker_title" formatted="false">Выбрать цвет</string>
+    <string name="community_impact" formatted="false">Влияние на сообщество</string>
+    <string name="community_participation" formatted="false">Участие сообщества</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">Голоса сообщества</string>
+    <string name="community_voting_started" formatted="false">Голосование сообщества началось</string>
+    <string name="community_voting_started_body" formatted="false">Новое предложение об удалении номера {phoneNumber} открыто для голосования сообществом.</string>
+    <string name="completed" formatted="false">ЗАВЕРШЕНО</string>
+    <string name="config_management" formatted="false">Управление конфигурацией</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">Конфигурация обновлена</string>
+    <string name="configuration_advice" formatted="false">Благодаря правильной настройке, вы можете установить различные стратегии фильтрации для рабочих и личных SIM-карт.</string>
+    <string name="configure_backup_options" formatted="false">Настроить параметры резервного копирования</string>
+    <string name="configure_cloud_sync_service" formatted="false">Настроить службу синхронизации с облаком</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">Пожалуйста, настройте службу синхронизации с облаком, чтобы включить синхронизацию между несколькими устройствами.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">Настроить правила фильтрации SIM-карт</string>
+    <string name="confirm" formatted="false">Подтвердить</string>
+    <string name="confirm_button" formatted="false">Подтвердить</string>
+    <string name="confirm_delete" formatted="false">Подтвердить удаление</string>
+    <string name="confirm_delete_label" formatted="false">Вы уверены, что хотите удалить метку &quot;{name}&quot;</string>
+    <string name="confirm_delete_plugin" formatted="false">Вы уверены, что хотите удалить плагин &quot;{name}&quot;?</string>
+    <string name="confirm_delete_plugins" formatted="false">Вы уверены, что хотите удалить {count} плагинов?</string>
+    <string name="confirm_delete_rule_message" formatted="false">Вы уверены, что хотите удалить это правило? Это действие нельзя отменить.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">Вы уверены, что хотите удалить это правило фильтрации SMS?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">Вы уверены, что хотите удалить это правило SMS?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">Вы уверены, что хотите удалить {name}?</string>
+    <string name="confirm_password" formatted="false">Подтвердите пароль</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">Подключено</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">Не удалось подключиться: Проверьте адрес сервера, имя пользователя и пароль</string>
+    <string name="connection_failed_message" formatted="false">Подключение не удалось</string>
+    <string name="connection_status_label" formatted="false">Статус подключения</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">Подключение успешно</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">Контакт успешно добавлен</string>
+    <string name="contact_deleted" formatted="false">Контакт удален</string>
+    <string name="contact_name_label" formatted="false">Имя</string>
+    <string name="contact_not_found" formatted="false">Контакт не найден</string>
+    <string name="contact_subscription_description" formatted="false">Подпишитесь на списки контактов по URL, автоматически обновляйте информацию о контактах и метки. Поддерживает формат данных JSON.</string>
+    <string name="contact_update_success" formatted="false">Контакт успешно обновлен</string>
+    <string name="contact_us" formatted="false">Свяжитесь с нами</string>
+    <string name="contacts" formatted="false">Контакты</string>
+    <string name="contacts_deleted" formatted="false">Удалено {count} контактов</string>
+    <string name="contacts_management" formatted="false">Управление контактами</string>
+    <string name="contacts_permission" formatted="false">Разрешение на контакты</string>
+    <string name="contacts_permission_description" formatted="false">Используется для идентификации звонков контактов.</string>
+    <string name="contacts_tab" formatted="false">Контакты</string>
+    <string name="container_width" formatted="false">Ширина контейнера</string>
+    <string name="content" formatted="false">Содержание</string>
+    <string name="content_regex" formatted="false">Регулярное выражение содержимого</string>
+    <string name="count_color" formatted="false">Цвет счетчика</string>
+    <string name="count_font_size" formatted="false">Размер шрифта счетчика</string>
+    <string name="count_position" formatted="false">Позиция счетчика</string>
+    <string name="count_threshold_description" formatted="false">Установите минимальный порог счетчика, необходимый для запуска действий фильтрации</string>
+    <string name="count_threshold_label" formatted="false">Порог счетчика</string>
+    <string name="country" formatted="false">Страна</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">например, US, CN, GB</string>
+    <string name="country_code_label" formatted="false">Код страны (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">Код страны обязателен</string>
+    <string name="country_code_two_letters" formatted="false">Код страны (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">Пожалуйста, обратите внимание: база данных может не содержать данные для всех конкретных стран или регионов.</string>
+    <string name="country_name_color" formatted="false">Цвет названия страны</string>
+    <string name="country_name_font_size" formatted="false">Размер шрифта названия страны</string>
+    <string name="country_region_name_position" formatted="false">Позиция названия страны/региона</string>
+    <string name="country_sync_settings_subtitle" formatted="false">Выберите страны для синхронизации данных</string>
+    <string name="country_sync_settings_title" formatted="false">Настройки синхронизации базы данных по странам</string>
+    <string name="create_proposal" formatted="false">Создать предложение</string>
+    <string name="create_proposal_title" formatted="false">Создать предложение об удалении</string>
+    <string name="created_at" formatted="false">Создано: {date}</string>
+    <string name="created_rules" formatted="false">Созданные правила</string>
+    <string name="critical" formatted="false">Критический</string>
+    <string name="critical_issues" formatted="false">Критические проблемы</string>
+    <string name="csv_format" formatted="false">Формат CSV</string>
+    <string name="current_device_label" formatted="false">Метка текущего устройства</string>
+    <string name="current_device_title" formatted="false">Текущее устройство</string>
+    <string name="current_language" formatted="false">Текущий язык</string>
+    <string name="current_mark_count" formatted="false">Текущее количество баллов</string>
+    <string name="custom" formatted="false">Пользовательский</string>
+    <string name="custom_action_description" formatted="false">Выполните пользовательское действие.</string>
+    <string name="customer_service" formatted="false">Служба поддержки</string>
+    <string name="dashboard_tab" formatted="false">Панель</string>
+    <string name="data_analysis" formatted="false">Анализ данных</string>
+    <string name="data_load_failure" formatted="false">Не удалось загрузить данные: {error}</string>
+    <string name="data_loading_failed" formatted="false">Не удалось загрузить данные: {error}</string>
+    <string name="data_migration" formatted="false">Миграция данных</string>
+    <string name="data_migration_description" formatted="false">Эта функция позволяет переносить все ваши данные между устройствами. В настоящее время вы можете использовать функции резервного копирования и восстановления для ручной миграции данных.</string>
+    <string name="data_source_disclaimer" formatted="false">Числа взяты из Интернета и отправленных пользователями данных. Мы не можем гарантировать, что номер, удаленный однажды, не будет повторно отправлен другими пользователями или источниками. Пожалуйста, активно ищите и проверяйте информацию.</string>
+    <string name="data_source_reminder" formatted="false">Напоминание об источнике данных</string>
+    <string name="database_sync_title" formatted="false">Синхронизация базы данных</string>
+    <string name="days" formatted="false">{count, plural, =1{1 день} other{{count} дней}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 день назад} other{{count} дней назад}}</string>
+    <string name="days_vip" formatted="false">{days} Дней VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">Сбор долгов</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">Уведомления по умолчанию</string>
+    <string name="default_notifications_description" formatted="false">Канал уведомлений по умолчанию для приложения.</string>
+    <string name="delete" formatted="false">Удалить</string>
+    <string name="delete_button" formatted="false">Удалить</string>
+    <string name="delete_contact" formatted="false">Удалить контакт</string>
+    <string name="delete_contact_confirm" formatted="false">Вы уверены, что хотите удалить {name}?</string>
+    <string name="delete_failed" formatted="false">Не удалось удалить: {error}</string>
+    <string name="delete_label" formatted="false">Удалить метку</string>
+    <string name="delete_label_failed" formatted="false">Не удалось удалить метку: {error}</string>
+    <string name="delete_plugin" formatted="false">Удалить плагин</string>
+    <string name="delete_plugin_failed" formatted="false">Не удалось удалить плагин: {error}</string>
+    <string name="delete_plugins" formatted="false">Удалить плагины</string>
+    <string name="delete_plugins_failed" formatted="false">Не удалось удалить плагины: {error}</string>
+    <string name="delete_rule" formatted="false">Удалить правило</string>
+    <string name="delete_rule_failed" formatted="false">Не удалось удалить: {error}</string>
+    <string name="delete_selected" formatted="false">Удалить выбранное</string>
+    <string name="delete_subscription" formatted="false">Удалить подписку</string>
+    <string name="delete_subscription_confirm" formatted="false">Вы уверены, что хотите удалить подписку &quot;{name}&quot;?</string>
+    <string name="delete_subscription_failed" formatted="false">Не удалось удалить подписку: {error}</string>
+    <string name="delete_success" formatted="false">Успешно удалено</string>
+    <string name="deletion_proposal" formatted="false">Предложение об удалении</string>
+    <string name="deletion_proposal_created" formatted="false">Предложение об удалении создано</string>
+    <string name="deletion_proposal_created_body" formatted="false">Ваше предложение об удалении номера {phoneNumber} было отправлено на рассмотрение сообществом.</string>
+    <string name="deletion_proposal_description" formatted="false">Предложите номера для удаления, которые нарушают правила сообщества. Ваше участие помогает поддерживать безопасность платформы.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">Уведомления о результатах голосования и обновлениях по предложениям об удалении.</string>
+    <string name="deletion_proposals" formatted="false">Предложения об удалении</string>
+    <string name="delivery" formatted="false">Доставка</string>
+    <string name="description" formatted="false">Описание</string>
+    <string name="detailed_settings_title" formatted="false">Подробные настройки</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">ID устройства</string>
+    <string name="device_management_subtitle" formatted="false">Управление синхронизацией нескольких устройств</string>
+    <string name="device_management_title" formatted="false">Управление устройствами</string>
+    <string name="device_model_label" formatted="false">Модель устройства</string>
+    <string name="device_name" formatted="false">Имя устройства</string>
+    <string name="device_name_label" formatted="false">Имя устройства</string>
+    <string name="device_renamed_successfully_message" formatted="false">Устройство переименовано успешно</string>
+    <string name="device_unregistered_successfully_message" formatted="false">Устройство успешно удалено</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">Устройства успешно синхронизированы</string>
+    <string name="dialog_title" formatted="false">Объяснение шаблона Regex</string>
+    <string name="different_from_local_counter" formatted="false">Эта функция отличается от локального счетчика, так как она фокусируется на повторяющихся паттернах вызовов за короткое время, а не на долгосрочном подсчете пометок.</string>
+    <string name="disable_global_plugins" formatted="false">Отключить глобальные плагины</string>
+    <string name="disabled" formatted="false">Отключено</string>
+    <string name="disabled_status" formatted="false">Отключено</string>
+    <string name="disconnect_button" formatted="false">Отключить</string>
+    <string name="disconnect_failed_message" formatted="false">Не удалось отключиться</string>
+    <string name="disconnected_message" formatted="false">Отключено</string>
+    <string name="disconnected_status" formatted="false">Отключено</string>
+    <string name="done" formatted="false">Готово</string>
+    <string name="dual_sim_advice" formatted="false">Эта функция особенно полезна для телефонов с двумя SIM-картами, чтобы установить разные стратегии фильтрации для рабочих и личных SIM-карт.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">Номер E164</string>
+    <string name="earlier" formatted="false">Ранее</string>
+    <string name="earned_temp_vip" formatted="false">Заработанный временный VIP</string>
+    <string name="ecommerce" formatted="false">Электронная коммерция</string>
+    <string name="edit" formatted="false">Редактировать</string>
+    <string name="edit_contact" formatted="false">Редактировать контакт</string>
+    <string name="edit_label" formatted="false">Редактировать метку</string>
+    <string name="edit_phone_rule" formatted="false">Редактировать правило для телефона</string>
+    <string name="edit_rule" formatted="false">Редактировать правило</string>
+    <string name="edit_script" formatted="false">Редактировать скрипт</string>
+    <string name="edit_script_for" formatted="false">Редактировать скрипт для {pluginName}</string>
+    <string name="edit_subscription" formatted="false">Редактировать подписку</string>
+    <string name="education" formatted="false">Образование</string>
+    <string name="element_positions_setting" formatted="false">Положения элементов</string>
+    <string name="elements_settings_title" formatted="false">Настройки элементов</string>
+    <string name="email" formatted="false">Электронная почта</string>
+    <string name="enable_call_filter" formatted="false">Включить фильтр вызовов</string>
+    <string name="enable_call_filter_description" formatted="false">При включении входящие вызовы проверяются по списку правил ниже. Правила фильтрации вызовов по умолчанию не синхронизируются между устройствами.</string>
+    <string name="enable_encryption" formatted="false">Включить шифрование</string>
+    <string name="enable_encryption_description" formatted="false">Зашифровать файлы резервных копий</string>
+    <string name="enable_filtering" formatted="false">Включить фильтрацию</string>
+    <string name="enable_fraud_alert" formatted="false">Включить оповещение о мошенничестве</string>
+    <string name="enable_fraud_alert_description" formatted="false">Оповещение о подозрительных мошеннических вызовах</string>
+    <string name="enable_global_plugins" formatted="false">Включить глобальные плагины</string>
+    <string name="enable_local_count_filter" formatted="false">Включить защиту по порогу локальных меток</string>
+    <string name="enable_local_count_filter_description" formatted="false">Блокировать входящие вызовы, если количество локальных жалоб превышает порог</string>
+    <string name="enable_local_notification" formatted="false">Использовать локальное уведомление</string>
+    <string name="enable_local_notification_description" formatted="false">При включении уведомления для отфильтрованных сообщений будут отображаться на устройстве</string>
+    <string name="enable_location_summary" formatted="false">Местоположение</string>
+    <string name="enable_mute_rules" formatted="false">Глушить звонок при перехвате</string>
+    <string name="enable_mute_rules_desc" formatted="false">Отключать звук звонка для перехваченных вызовов вместо сброса</string>
+    <string name="enable_none_action_rules" formatted="false">Только запись и метка (без блокировки)</string>
+    <string name="enable_none_action_rules_desc" formatted="false">Записывать и помечать совпадения вызовов без выполнения каких-либо действий по блокировке</string>
+    <string name="enable_remote_number_filter" formatted="false">Включить защиту по порогу облачных запросов</string>
+    <string name="enable_remote_number_filter_description" formatted="false">Блокировать входящие вызовы, если количество жалоб в облачной базе превышает порог</string>
+    <string name="enable_rule" formatted="false">Включить правило</string>
+    <string name="enable_security_message" formatted="false">Включить сообщение безопасности</string>
+    <string name="enable_sms_filter" formatted="false">Включить SMS фильтрацию</string>
+    <string name="enable_sms_filter_description" formatted="false">При включении сообщения будут автоматически фильтроваться в соответствии с правилами</string>
+    <string name="enable_time_interception" formatted="false">Включить перехват по времени</string>
+    <string name="enable_time_interception_description" formatted="false">Блокировать повторные вызовы с одного и того же номера за короткое время</string>
+    <string name="enable_time_interceptor" formatted="false">Включить временной перехватчик</string>
+    <string name="enable_vibration" formatted="false">Включить вибрацию</string>
+    <string name="enable_vibration_description" formatted="false">Вибрировать, когда вызов подозревается в мошенничестве</string>
+    <string name="enabled" formatted="false">Включено</string>
+    <string name="enabled_status" formatted="false">Включено</string>
+    <string name="end_call_immediately" formatted="false">Сбросить немедленно</string>
+    <string name="end_color" formatted="false">Конечный цвет</string>
+    <string name="end_date" formatted="false">Дата окончания</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">Улучшенная система фильтрации</string>
+    <string name="enhanced_filter_settings" formatted="false">Расширенные настройки фильтрации</string>
+    <string name="enhanced_filter_settings_title" formatted="false">Расширенные настройки фильтрации</string>
+    <string name="enhanced_filter_system_description" formatted="false">Улучшенная система фильтрации поддерживает как глобальные правила, так и конфигурации фильтрации для каждой SIM-карты.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">Пожалуйста, введите номер телефона и шаблон регулярного выражения.</string>
+    <string name="enter_contact_name" formatted="false">Пожалуйста, введите имя контакта</string>
+    <string name="enter_device_name" formatted="false">Введите название устройства</string>
+    <string name="enter_email_optional" formatted="false">Введите адрес электронной почты (необязательно)</string>
+    <string name="enter_encryption_password_hint" formatted="false">Введите пароль шифрования</string>
+    <string name="enter_icon_code" formatted="false">Введите код значка</string>
+    <string name="enter_name" formatted="false">Введите имя контакта</string>
+    <string name="enter_new_device_name_hint" formatted="false">Введите новое имя для этого устройства</string>
+    <string name="enter_password_again" formatted="false">Повторите пароль</string>
+    <string name="enter_phone_number" formatted="false">Введите номер телефона</string>
+    <string name="enter_phone_number_hint" formatted="false">Введите номер телефона для тестирования</string>
+    <string name="enter_phone_number_multiple" formatted="false">Пожалуйста, введите номер телефона, несколько номеров разделенных запятыми</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">Введите номер телефона для начала поиска</string>
+    <string name="enter_phone_number_to_verify" formatted="false">Введите номер телефона для подтверждения</string>
+    <string name="enter_plugin_description" formatted="false">Введите описание плагина</string>
+    <string name="enter_plugin_name" formatted="false">Введите имя плагина</string>
+    <string name="enter_plugin_url" formatted="false">Введите URL-адрес плагина</string>
+    <string name="enter_regex_hint" formatted="false">Введите шаблон регулярного выражения</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">Пожалуйста, введите название правила и шаблон регулярного выражения.</string>
+    <string name="enter_rule_name_hint" formatted="false">Введите название правила</string>
+    <string name="enter_search_content" formatted="false">Пожалуйста, введите поисковый запрос</string>
+    <string name="enter_subscription_name" formatted="false">Введите название подписки</string>
+    <string name="enter_subscription_url" formatted="false">Введите URL подписки</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">Пожалуйста, введите имя папки синхронизации (по умолчанию: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">Пожалуйста, введите действительное имя и URL</string>
+    <string name="enter_valid_url" formatted="false">Пожалуйста, введите действительный URL</string>
+    <string name="enter_version" formatted="false">Введите версию</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">Пожалуйста, введите пароль WebDAV</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">Пожалуйста, введите адрес сервера WebDAV</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">Пожалуйста, введите имя пользователя WebDAV</string>
+    <string name="entertainment" formatted="false">Развлечения</string>
+    <string name="entity_export_failed" formatted="false">Не удалось экспортировать {entityTypeName}: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} успешно экспортирован</string>
+    <string name="entity_import_failed" formatted="false">Не удалось импортировать {entityTypeName}: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} успешно импортирован, всего импортировано {count} записей</string>
+    <string name="entry_point_view_title" formatted="false">Вход</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">Ошибка: {error}</string>
+    <string name="error_occurred_message" formatted="false">Произошла ошибка: {error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">Ошибка при переименовании устройства: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">Ошибка при синхронизации устройств: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">Ошибка при отмене регистрации устройства: {error}</string>
+    <string name="example_block400_prefix" formatted="false">например, префиксы номеров 400</string>
+    <string name="example_block_marketing_sms" formatted="false">например, Блокировать рекламные SMS</string>
+    <string name="example_content_regex_hint" formatted="false">Пример регулярного выражения для контента</string>
+    <string name="example_coupon_promotion_discount" formatted="false">например, .*(coupon|promotion|discount).*</string>
+    <string name="example_family_friends" formatted="false">например, Семья, Друзья и т. д.</string>
+    <string name="example_phone_number" formatted="false">например, 10086, 12345 и т. д.</string>
+    <string name="example_regex400_prefix" formatted="false">Пример регулярного выражения для префикса 400</string>
+    <string name="example_sender_regex_hint" formatted="false">Пример</string>
+    <string name="exchange" formatted="false">Обмен</string>
+    <string name="exchange_failed" formatted="false">Обмен не удался: {error}</string>
+    <string name="exchange_now" formatted="false">Обменять сейчас</string>
+    <string name="exchange_success" formatted="false">Успешно обменено на {description}, дата истечения срока действия: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">Обмен VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">Время истечения срока действия: {time}</string>
+    <string name="export" formatted="false">Экспорт</string>
+    <string name="export_all_application_settings" formatted="false">Экспортировать все настройки приложения</string>
+    <string name="export_all_rule_configurations" formatted="false">Экспортировать все конфигурации правил</string>
+    <string name="export_config" formatted="false">Экспорт конфигурации</string>
+    <string name="export_contacts" formatted="false">Экспортировать контакты</string>
+    <string name="export_data" formatted="false">Экспортировать данные</string>
+    <string name="export_entity" formatted="false">Экспортировать {entityTypeName}</string>
+    <string name="export_failed" formatted="false">Экспорт не удался</string>
+    <string name="export_failure" formatted="false">Не удалось экспортировать конфигурацию</string>
+    <string name="export_feature_coming_soon" formatted="false">Функция экспорта скоро появится</string>
+    <string name="export_labels" formatted="false">Экспорт меток</string>
+    <string name="export_labels_failed" formatted="false">Не удалось экспортировать метки: {error}</string>
+    <string name="export_plugin_list" formatted="false">Экспорт списка плагинов</string>
+    <string name="export_plugin_list_failed" formatted="false">Не удалось экспортировать список плагинов: {error}</string>
+    <string name="export_rules" formatted="false">Экспорт правил</string>
+    <string name="export_sms_rules" formatted="false">Экспорт SMS правил</string>
+    <string name="export_statistics_data" formatted="false">Экспорт данных статистики</string>
+    <string name="export_successlly" formatted="false">Конфигурация успешно экспортирована</string>
+    <string name="failed_to_add_rule" formatted="false">Не удалось добавить правило: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">Не удалось добавить SMS подписку: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">Не удалось создать резервную копию настроек: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">Не удалось расшифровать файл резервной копии</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">Не удалось удалить SMS правило: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">Не удалось экспортировать правила: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">Не удалось получить информацию об идентификаторе вызывающего абонента: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">Не удалось импортировать правила: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">Не удалось восстановить настройки</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">Не удалось восстановить настройки: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">Не удалось изменить статус правила: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">Избранные контакты</string>
+    <string name="feature" formatted="false">Функция</string>
+    <string name="feature_add_rules" formatted="false">• Добавление правил для конкретных номеров телефонов</string>
+    <string name="feature_center" formatted="false">Центр функций</string>
+    <string name="feature_enable_disable" formatted="false">• Включение/отключение различных фильтров для каждой SIM-карты</string>
+    <string name="feature_list_title" formatted="false">Функции:</string>
+    <string name="feature_manage_rules" formatted="false">• Управление списками правил для каждой SIM-карты</string>
+    <string name="features" formatted="false">Функции</string>
+    <string name="fetching_caller_id_info" formatted="false">Получение информации об идентификаторе вызывающего абонента...</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">Файл сохранен в: {path}</string>
+    <string name="filter" formatted="false">Фильтр</string>
+    <string name="filter_and_sort_title" formatted="false">Фильтр и сортировка</string>
+    <string name="filter_by" formatted="false">Фильтровать по</string>
+    <string name="filter_by_action" formatted="false">Фильтровать по действию</string>
+    <string name="filter_by_label" formatted="false">Фильтр по метке</string>
+    <string name="filter_control_panel_title" formatted="false">Панель управления фильтрами</string>
+    <string name="filter_control_subtitle" formatted="false">Управление статусом включения/выключения всех фильтров</string>
+    <string name="filter_control_title" formatted="false">Управление фильтрами</string>
+    <string name="filter_explanation" formatted="false">Объяснение фильтра</string>
+    <string name="filter_management" formatted="false">Управление фильтрами</string>
+    <string name="filter_management_description" formatted="false">Установить фильтры вызовов</string>
+    <string name="filter_name" formatted="false">Имя фильтра</string>
+    <string name="filter_priority_note" formatted="false">Примечание: между фильтрами существуют приоритетные отношения, подробности см. в документации.</string>
+    <string name="filter_s_m_s" formatted="false">Фильтр SMS</string>
+    <string name="filter_settings" formatted="false">Настройки фильтра</string>
+    <string name="filter_settings_title" formatted="false">Настройки фильтра</string>
+    <string name="filter_toggle_instructions" formatted="false">Включить или отключить фильтры для этого слота SIM-карты:</string>
+    <string name="filter_toggle_status" formatted="false">Фильтр {status}: {filterName}</string>
+    <string name="filter_type" formatted="false">Тип фильтра</string>
+    <string name="filter_verified_owner" formatted="false">Фильтровать по проверенному владельцу</string>
+    <string name="filtered" formatted="false">Отфильтровано</string>
+    <string name="final_risk" formatted="false">Конечный риск</string>
+    <string name="financial" formatted="false">Финансовый</string>
+    <string name="flexible_combination_feature" formatted="false">• Гибкие комбинации: Включение/отключение фильтров для каждого слота SIM-карты</string>
+    <string name="font_sizes_setting" formatted="false">Размеры шрифта</string>
+    <string name="found_rules" formatted="false">Найдено {count} правил</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">Чтобы настроить оповещение о мошенничестве</string>
+    <string name="fraud_aler_setting_title" formatted="false">Настройка оповещения о мошенничестве</string>
+    <string name="fraud_alert" formatted="false">ПРЕДУПРЕЖДЕНИЕ О МОШЕННИЧЕСТВЕ - Положите трубку</string>
+    <string name="fraud_alert_title" formatted="false">Предупреждение о мошенничестве</string>
+    <string name="fraud_alerts" formatted="false">Предупреждения о мошенничестве</string>
+    <string name="fraud_alerts_description" formatted="false">Отображает предупреждения о потенциально мошеннических вызовах.</string>
+    <string name="fraud_scam_likely" formatted="false">Вероятно мошенничество</string>
+    <string name="free" formatted="false">Бесплатно</string>
+    <string name="function_settings_title" formatted="false">Настройки функций</string>
+    <string name="general_update_failure" formatted="false">Ошибка обновления: {error}</string>
+    <string name="get_free" formatted="false">Получить бесплатно</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Настройте глобальные фильтры для всех SIM-карт:</string>
+    <string name="global_filter_feature" formatted="false">• Глобальные фильтры: Основные правила для всех входящих вызовов</string>
+    <string name="global_filter_settings" formatted="false">Настройки глобальных фильтров</string>
+    <string name="global_settings" formatted="false">Глобальные настройки</string>
+    <string name="google_drive_auth_description" formatted="false">Авторизуйтесь, используя настроенные в системе идентификатор и ключ клиента Google Drive</string>
+    <string name="google_drive_config_title" formatted="false">Конфигурация Google Drive</string>
+    <string name="government" formatted="false">Правительство</string>
+    <string name="grant_necessary_permissions" formatted="false">Предоставить необходимые разрешения</string>
+    <string name="grant_permissions" formatted="false">Предоставить разрешения</string>
+    <string name="granted" formatted="false">Предоставлено</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">Вам предоставлено {days} дней временных привилегий на покупку. Дата истечения срока действия: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">Рекомендации</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">У вас уже есть временные привилегии, дата истечения срока действия: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">У вас уже есть VIP-привилегии (за исключением рекламы)</string>
+    <string name="headhunter" formatted="false">Headhunter</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Рост</string>
+    <string name="high" formatted="false">Высокий</string>
+    <string name="high_risk" formatted="false">Высокий риск</string>
+    <string name="home_tab" formatted="false">Главная</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 час назад} other{{count} часов назад}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 часов} =1{1 час} other{{count} часов}}</string>
+    <string name="how_it_works_point1" formatted="false">• Система автоматически разрешит звонки с того же номера в течение установленного временного окна</string>
+    <string name="how_it_works_point2" formatted="false">• Более короткие временные окна приводят к более строгой перехвату; более длинные временные окна приводят к более слабому перехвату</string>
+    <string name="how_it_works_point3" formatted="false">• Система проверяет журналы вызовов, чтобы определить, является ли это повторным вызовом</string>
+    <string name="how_it_works_title" formatted="false">Как это работает:</string>
+    <string name="icon_code_optional" formatted="false">Код значка (Необязательно)</string>
+    <string name="icon_size" formatted="false">Размер значка</string>
+    <string name="import" formatted="false">Импорт</string>
+    <string name="import_config" formatted="false">Импорт конфигурации</string>
+    <string name="import_contacts" formatted="false">Импорт контактов</string>
+    <string name="import_entity" formatted="false">Импортировать {entityTypeName}</string>
+    <string name="import_export" formatted="false">Импорт/Экспорт</string>
+    <string name="import_export_contacts" formatted="false">Импорт/Экспорт контактов</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Импорт/Экспорт контактов</string>
+    <string name="import_export_description" formatted="false">Импортировать или экспортировать данные {entityTypeName}</string>
+    <string name="import_export_rules" formatted="false">Импорт/Экспорт правил</string>
+    <string name="import_export_title" formatted="false">Импорт/Экспорт</string>
+    <string name="import_failed" formatted="false">Импорт не удался: {error}</string>
+    <string name="import_failure" formatted="false">Не удалось импортировать конфигурацию</string>
+    <string name="import_feature_coming_soon" formatted="false">Функция импорта скоро появится</string>
+    <string name="import_labels" formatted="false">Импорт меток</string>
+    <string name="import_labels_failed" formatted="false">Не удалось импортировать метки: {error}</string>
+    <string name="import_plugin_list" formatted="false">Импорт списка плагинов</string>
+    <string name="import_plugin_list_failed" formatted="false">Не удалось импортировать список плагинов: {error}</string>
+    <string name="import_plugin_success" formatted="false">Успешно импортировано {count} плагинов</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Импортировать конфигурации правил из файла</string>
+    <string name="import_rules" formatted="false">Импорт правил</string>
+    <string name="import_success" formatted="false">Импорт выполнен успешно</string>
+    <string name="important" formatted="false">Важно</string>
+    <string name="important_notice_title" formatted="false">Важное уведомление</string>
+    <string name="incoming_call_intercept_action" formatted="false">Действие перехвата входящего вызова</string>
+    <string name="incorrect_password" formatted="false">Неверный пароль</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">Пожалуйста, выберите региональные библиотеки правил для блокировки. Эти правила помогут вам автоматически блокировать распространенные рекламные и мошеннические вызовы в вашем регионе.</string>
+    <string name="initial_setup_deselect_all" formatted="false">Снять выделение</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">Не удалось получить конфигурацию</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">Повторить</string>
+    <string name="initial_setup_save" formatted="false">Настроить выбранное в один клик</string>
+    <string name="initial_setup_save_failed" formatted="false">Не удалось сохранить конфигурацию: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Конфигурация успешно сохранена, правила скоро будут загружены автоматически</string>
+    <string name="initial_setup_saving" formatted="false">Сохранение...</string>
+    <string name="initial_setup_search_hint" formatted="false">Поиск набора правил или страны...</string>
+    <string name="initial_setup_select_all" formatted="false">Выбрать все</string>
+    <string name="initial_setup_selected_count" formatted="false">Выбрано: {count}</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">Пропустить</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">Настройка библиотеки правил</string>
+    <string name="initializing" formatted="false">Инициализация</string>
+    <string name="installed" formatted="false">Установлено</string>
+    <string name="insufficient_marks" formatted="false">Недостаточно баллов</string>
+    <string name="insurance" formatted="false">Страхование</string>
+    <string name="intercept_action" formatted="false">Действие перехвата</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Установите, как обрабатываются заблокированные вызовы</string>
+    <string name="interception_action_settings_title" formatted="false">Настройки действия перехвата</string>
+    <string name="interception_time_interval" formatted="false">Интервал времени перехвата</string>
+    <string name="internet" formatted="false">Интернет</string>
+    <string name="interval_set_success" formatted="false">Интервал обновления {service} установлен на {days} дней</string>
+    <string name="invalid_content_regex" formatted="false">Недопустимое регулярное выражение контента</string>
+    <string name="invalid_exchange_rule" formatted="false">Неверное правило обмена</string>
+    <string name="invalid_label" formatted="false">Неверная метка</string>
+    <string name="invalid_regex_pattern" formatted="false">Неверный шаблон регулярного выражения</string>
+    <string name="invalid_sender_regex" formatted="false">Неверный regex отправителя</string>
+    <string name="invalid_sim_data" formatted="false">Неверные данные SIM-карты</string>
+    <string name="ip_country" formatted="false">IP-страна</string>
+    <string name="is_number_match" formatted="false">Совпадение номеров</string>
+    <string name="is_roaming" formatted="false">Роуминг</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">Присоединяйтесь к каналу и группе Telegram для получения дополнительной информации</string>
+    <string name="json_format" formatted="false">Формат JSON</string>
+    <string name="just_now" formatted="false">Только что</string>
+    <string name="keep_all_versions" formatted="false">Сохранять все версии</string>
+    <string name="keep_all_versions_description" formatted="false">Сохранять все исторические версии каждой резервной копии</string>
+    <string name="label" formatted="false">Метка</string>
+    <string name="label_action_description" formatted="false">Добавьте метку к вызову для облегчения идентификации.</string>
+    <string name="label_added_successfully" formatted="false">Метка &quot;{name}&quot; успешно добавлена</string>
+    <string name="label_categories" formatted="false">Категории меток</string>
+    <string name="label_deleted" formatted="false">Метка удалена</string>
+    <string name="label_description" formatted="false">Метки помогают вам лучше управлять контактами, добавлять пользовательские метки к номерам телефонов для упрощения идентификации звонков и сообщений.</string>
+    <string name="label_filter_tooltip" formatted="false">Фильтр меток</string>
+    <string name="label_icon_color" formatted="false">Цвет значка метки</string>
+    <string name="label_management" formatted="false">Управление метками</string>
+    <string name="label_not_found" formatted="false">Метка не найдена</string>
+    <string name="label_tag" formatted="false">Метка: {labelId}</string>
+    <string name="label_update_failed" formatted="false">Не удалось обновить метку: {error}</string>
+    <string name="label_update_success" formatted="false">Метка &quot;$labelText&quot; успешно обновлена</string>
+    <string name="labels" formatted="false">Метки</string>
+    <string name="labels_color" formatted="false">Цвет меток</string>
+    <string name="labels_deleted" formatted="false">Удалено меток: {count}</string>
+    <string name="labels_exported_successfully" formatted="false">Метки успешно экспортированы</string>
+    <string name="labels_font_size" formatted="false">Размер шрифта меток</string>
+    <string name="labels_imported_successfully" formatted="false">Успешно импортировано {count} меток</string>
+    <string name="labels_position" formatted="false">Положение меток</string>
+    <string name="language_settings" formatted="false">Настройки языка</string>
+    <string name="language_settings_subtitle" formatted="false">Изменить язык отображения приложения</string>
+    <string name="language_settings_title" formatted="false">Настройки языка</string>
+    <string name="last_sync_label" formatted="false">Последняя синхронизация</string>
+    <string name="last_updated" formatted="false">Последнее обновление: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">Пожизненное членство</string>
+    <string name="lifetime_membership_description" formatted="false">Единовременная покупка, навсегда разблокирует все премиум-функции и будущие обновления</string>
+    <string name="list_view" formatted="false">Вид списка</string>
+    <string name="live_activities_settings_title" formatted="false">Настройки Live Activities</string>
+    <string name="live_activities_test_end_activity" formatted="false">Завершить Activity</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">Отправить новое Activity</string>
+    <string name="live_activities_test_title" formatted="false">Тест Live Activities</string>
+    <string name="live_activities_test_update_activity" formatted="false">Обновить Activity</string>
+    <string name="live_activity_controls_title" formatted="false">Элементы управления Live Activity</string>
+    <string name="live_activity_mode" formatted="false">Live Activity</string>
+    <string name="live_activity_mode_description" formatted="false">Отображает информацию о вызове в виде постоянного уведомления на экране блокировки и в Dynamic Island (iOS).</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Настройте внешний вид live уведомлений.</string>
+    <string name="live_notification_customization_title" formatted="false">Настройка Live уведомления</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">Не удалось загрузить контакты: {error}</string>
+    <string name="load_data_failed" formatted="false">Не удалось загрузить данные</string>
+    <string name="load_label_failed" formatted="false">Не удалось загрузить метки: {error}</string>
+    <string name="load_labels_failed" formatted="false">Не удалось загрузить метки: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">Не удалось загрузить помеченные номера телефонов: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">Не удалось загрузить помеченные телефоны: {error}</string>
+    <string name="load_plugins_failed" formatted="false">Не удалось загрузить плагины: {error}</string>
+    <string name="load_settings_failed" formatted="false">Не удалось загрузить настройки: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">Не удалось загрузить правила SMS: {error}</string>
+    <string name="load_status_failed_message" formatted="false">Не удалось загрузить статус</string>
+    <string name="load_subscriptions_failed" formatted="false">Не удалось загрузить подписки: {error}</string>
+    <string name="loading" formatted="false">Загрузка...</string>
+    <string name="loading_ad" formatted="false">Загрузка рекламы...</string>
+    <string name="loading_tags" formatted="false">Загрузка меток...</string>
+    <string name="loan" formatted="false">Кредит</string>
+    <string name="local_count_filter" formatted="false">Защита по порогу локальных меток</string>
+    <string name="local_count_filter_description" formatted="false">Автоматически блокировать вызовы, превышающие порог локальных жалоб</string>
+    <string name="local_count_filter_explanation_content" formatted="false">Локальный счетчик фильтра анализирует записи истории звонков для автоматической идентификации и блокировки частых спам-звонков.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">Пояснение к локальному счетчику фильтрации</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• Определить, следует ли блокировать, на основе значения счетчика номера</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• Когда количество номеров превышает установленный порог, вы можете выбрать автоматическую блокировку</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• Вы можете выборочно разрешить номера, которые не превышают порог</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• Вы можете выбрать, следует ли записывать все журналы запросов</string>
+    <string name="local_count_filter_settings" formatted="false">Настройки локального счетчика фильтрации</string>
+    <string name="local_count_filter_use_cases" formatted="false">Этот фильтр особенно подходит для выявления автодозвона и маркетинговых звонков.</string>
+    <string name="local_count_filtering" formatted="false">Локальная фильтрация по счетчику</string>
+    <string name="local_count_filtering_explanation" formatted="false">• Локальная фильтрация по счетчику: правила фильтрации на основе количества локальных меток</string>
+    <string name="local_counter_filter" formatted="false">Локальный счетчик фильтра</string>
+    <string name="local_counter_filter_subtitle" formatted="false">Автоматически фильтровать спам-звонки на основе частоты звонков</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">Настройки локального фильтра</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">Локальное уведомление отключено</string>
+    <string name="local_notification_enabled" formatted="false">Локальное уведомление включено</string>
+    <string name="local_services" formatted="false">Локальные сервисы</string>
+    <string name="location" formatted="false">Местоположение</string>
+    <string name="location_color" formatted="false">Цвет местоположения</string>
+    <string name="location_font_size" formatted="false">Размер шрифта местоположения</string>
+    <string name="location_icon_color" formatted="false">Цвет значка местоположения</string>
+    <string name="location_position" formatted="false">Положение местоположения</string>
+    <string name="log" formatted="false">Логировать</string>
+    <string name="log_action_description" formatted="false">Залогируйте информацию о вызове, не предпринимая никаких других действий.</string>
+    <string name="log_all_local_queries" formatted="false">Записывать все локальные запросы</string>
+    <string name="log_all_local_queries_description" formatted="false">Записывать журналы для всех локальных запросов номеров</string>
+    <string name="log_all_remote_queries" formatted="false">Записывать все удаленные запросы</string>
+    <string name="log_all_remote_queries_description" formatted="false">Записывать все операции удаленных запросов номеров</string>
+    <string name="low" formatted="false">Низкий</string>
+    <string name="low_risk" formatted="false">Низкий риск</string>
+    <string name="manage" formatted="false">Управление контактами</string>
+    <string name="manage_favorite_contacts" formatted="false">Управление избранными контактами</string>
+    <string name="manage_filter_rules" formatted="false">Управление правилами фильтрации</string>
+    <string name="manage_filter_rules_description" formatted="false">Добавление, редактирование или удаление правил фильтрации SMS</string>
+    <string name="manual_entry" formatted="false">Информация о ручном вводе</string>
+    <string name="mark_count" formatted="false">Количество меток</string>
+    <string name="mark_counts" formatted="false">Количество меток</string>
+    <string name="mark_exchange" formatted="false">Обмен метками</string>
+    <string name="mark_more_numbers_for_more" formatted="false">Отмечайте больше номеров для получения большего количества баллов</string>
+    <string name="mark_phone" formatted="false">Пометить номер телефона</string>
+    <string name="mark_phone_failed" formatted="false">Не удалось пометить номер телефона: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">Управление пометкой номеров телефонов</string>
+    <string name="mark_phone_success" formatted="false">Номер телефона успешно помечен</string>
+    <string name="marked_by_count" formatted="false">Отмечено {count}</string>
+    <string name="marked_phones_list" formatted="false">Список отмеченных номеров телефонов</string>
+    <string name="marks_insufficient" formatted="false">Недостаточно баллов для обмена</string>
+    <string name="master_and_overrides" formatted="false">Главные элементы управления</string>
+    <string name="master_and_overrides_desc" formatted="false">Глобальные настройки правил</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">Совпадение не найдено.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">соответствует определенному формату номера</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">Сопоставление номеров со специальными символами:</string>
+    <string name="match_specific_digit_patterns" formatted="false">соответствует формату XXX-XXXX-XXXX</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">Сопоставление определенных шаблонов цифр:</string>
+    <string name="match_successful_message" formatted="false">Совпадение найдено!</string>
+    <string name="medical" formatted="false">Медицинский</string>
+    <string name="medium" formatted="false">Средний</string>
+    <string name="medium_risk" formatted="false">Средний риск</string>
+    <string name="membership_center" formatted="false">Центр членства</string>
+    <string name="membership_privileges" formatted="false">Привилегии членства</string>
+    <string name="message_background_color" formatted="false">Цвет фона сообщения</string>
+    <string name="message_color" formatted="false">Цвет сообщения</string>
+    <string name="message_font_size" formatted="false">Размер шрифта сообщения</string>
+    <string name="message_position" formatted="false">Положение сообщения</string>
+    <string name="migration_tool" formatted="false">Инструмент миграции</string>
+    <string name="minutes" formatted="false">минут</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 минуту назад} other{{count} минут назад}}</string>
+    <string name="moderate" formatted="false">Умеренный</string>
+    <string name="month" formatted="false">Месяц</string>
+    <string name="monthly" formatted="false">Ежемесячно</string>
+    <string name="monthly_call_count" formatted="false">Ежемесячные звонки</string>
+    <string name="monthly_membership" formatted="false">Ежемесячное членство</string>
+    <string name="monthly_membership_description" formatted="false">Откройте все премиум-функции, автоматическое продление ежемесячно</string>
+    <string name="monthly_total" formatted="false">Ежемесячная сумма</string>
+    <string name="more_options" formatted="false">Дополнительные опции</string>
+    <string name="mute" formatted="false">Отключить звук</string>
+    <string name="name" formatted="false">Имя</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">Имя и номер телефона не могут быть пустыми</string>
+    <string name="name_cannot_be_empty" formatted="false">Имя не может быть пустым</string>
+    <string name="name_color" formatted="false">Цвет имени</string>
+    <string name="name_font_size" formatted="false">Размер шрифта имени</string>
+    <string name="name_position" formatted="false">Положение имени</string>
+    <string name="name_unknown" formatted="false">Имя: Неизвестно</string>
+    <string name="national_number" formatted="false">Национальный номер</string>
+    <string name="need_vip_access" formatted="false">Вам нужен VIP доступ для использования этой функции</string>
+    <string name="new_vote_received" formatted="false">Получен новый голос</string>
+    <string name="new_vote_received_body" formatted="false">Кто-то проголосовал {voteType} удаление номера {phoneNumber}. Текущие голоса: {totalVotes}.</string>
+    <string name="next_step" formatted="false">Далее</string>
+    <string name="no_action" formatted="false">Нет действия</string>
+    <string name="no_action_rules" formatted="false">Нет правил действия</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">Нет активной службы облачной синхронизации</string>
+    <string name="no_activity" formatted="false">Нет активности</string>
+    <string name="no_ads" formatted="false">Нет рекламы</string>
+    <string name="no_allowed_blocked_rules" formatted="false">Правила разрешения/блокировки не найдены</string>
+    <string name="no_blocked_type_data" formatted="false">Нет данных о заблокированных типах</string>
+    <string name="no_call_records" formatted="false">Нет записей вызовов</string>
+    <string name="no_contacts_yet" formatted="false">Контактов пока нет</string>
+    <string name="no_data" formatted="false">Нет данных</string>
+    <string name="no_devices_registered_message" formatted="false">Устройства не зарегистрированы</string>
+    <string name="no_labels" formatted="false">Нет меток</string>
+    <string name="no_marked_phones" formatted="false">Нет отмеченных номеров телефонов</string>
+    <string name="no_matching_contacts_found" formatted="false">Не найдено подходящих контактов</string>
+    <string name="no_matching_numbers_found" formatted="false">Не найдено подходящих номеров</string>
+    <string name="no_matching_rules" formatted="false">Нет соответствующих {ruleType}</string>
+    <string name="no_notifications" formatted="false">Нет уведомлений</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">Правила для номеров не найдены</string>
+    <string name="no_plugins" formatted="false">Еще нет плагинов</string>
+    <string name="no_proposals_found" formatted="false">Предложения не найдены</string>
+    <string name="no_regex_rules" formatted="false">Правила для регулярных выражений не найдены</string>
+    <string name="no_rules" formatted="false">Нет {ruleType}</string>
+    <string name="no_rules_prompt" formatted="false">Правила не найдены, добавьте правила</string>
+    <string name="no_rules_to_export" formatted="false">Нет правил для экспорта</string>
+    <string name="no_sim_card_detected" formatted="false">SIM-карта не обнаружена</string>
+    <string name="no_sim_cards_detected" formatted="false">SIM-карты не обнаружены</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">Еще нет правил фильтрации SMS</string>
+    <string name="no_sms_rules_yet" formatted="false">Еще нет правил SMS</string>
+    <string name="no_subscriptions" formatted="false">Нет подписок</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">В файле не найдено действительных правил SMS</string>
+    <string name="none" formatted="false">Нет</string>
+    <string name="none_action_description" formatted="false">Никаких специальных действий не будет предпринято для вызова.</string>
+    <string name="none_service_type" formatted="false">Нет</string>
+    <string name="normal_user" formatted="false">Обычный пользователь</string>
+    <string name="not_granted" formatted="false">Не предоставлено</string>
+    <string name="not_verified_text" formatted="false">Не проверено</string>
+    <string name="notification_frequency_hours" formatted="false">Частота уведомлений (часы)</string>
+    <string name="notification_frequency_title" formatted="false">Частота уведомлений</string>
+    <string name="notification_mode" formatted="false">Режим уведомлений</string>
+    <string name="notification_mode_description" formatted="false">Показывать информацию о вызывающем абоненте в строке уведомлений</string>
+    <string name="notification_permission" formatted="false">Разрешение на уведомления</string>
+    <string name="notification_permission_description" formatted="false">Используется для отображения уведомлений о входящих вызовах и сообщениях.</string>
+    <string name="notification_settings" formatted="false">Настройки уведомлений</string>
+    <string name="notification_settings_title" formatted="false">Настройки уведомлений</string>
+    <string name="notification_instructions" formatted="false">Инструкции:
+1. Нажмите &quot;ОТПРАВИТЬ&quot;, чтобы создать или обновить уведомление.
+2. Перейдите на главный экран или потяните вниз панель уведомлений, чтобы увидеть результат.
+3. Нажмите &quot;ЗАВЕРШИТЬ&quot;, чтобы отклонить уведомление.</string>
+    <string name="notifications" formatted="false">Уведомления</string>
+    <string name="notify" formatted="false">Уведомлять</string>
+    <string name="notify_action_description" formatted="false">Отправьте уведомление при получении вызова.</string>
+    <string name="number" formatted="false">Номер</string>
+    <string name="number_color" formatted="false">Цвет номера</string>
+    <string name="number_font_size" formatted="false">Размер шрифта номера</string>
+    <string name="number_format" formatted="false">Формат номера</string>
+    <string name="number_invalid_format" formatted="false">Неверный формат номера</string>
+    <string name="number_position" formatted="false">Положение номера</string>
+    <string name="number_search" formatted="false">Поиск по номеру</string>
+    <string name="number_type_color" formatted="false">Цвет типа номера</string>
+    <string name="number_type_font_size" formatted="false">Размер шрифта типа номера</string>
+    <string name="number_type_position" formatted="false">Положение типа номера</string>
+    <string name="ok_button" formatted="false">OK</string>
+    <string name="onboarding_complete_description" formatted="false">Ваш менеджер безопасности вызовов готов, начните пользоваться безопасными вызовами!</string>
+    <string name="onboarding_language_description" formatted="false">Выберите предпочитаемый язык для наилучшего опыта.</string>
+    <string name="onboarding_permissions_description" formatted="false">Для предоставления полного сервиса нам необходимы следующие разрешения:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">Блокировка спам-звонков и сообщений в один клик, настройка правил блокировки и создание спокойной обстановки.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">Автоматическое определение неизвестных вызовов, отметка подозрительных номеров и защита вашей безопасности вызовов.</string>
+    <string name="onboarding_welcome_description" formatted="false">Ваш эксперт по управлению вызовами, предоставляющий комплексные услуги по идентификации и блокировке вызовов.</string>
+    <string name="one_drive_auth_description" formatted="false">Авторизоваться с использованием настроенных системой идентификатора и ключа клиента OneDrive</string>
+    <string name="one_drive_config_title" formatted="false">Конфигурация OneDrive</string>
+    <string name="online_caller_id_subscription" formatted="false">Подписка на онлайн-определение номера</string>
+    <string name="open_app_settings" formatted="false">Открыть настройки приложения</string>
+    <string name="open_app_settings_failed" formatted="false">Не удалось открыть настройки приложения: {error}</string>
+    <string name="open_in_web_view" formatted="false">Открыть в WebView</string>
+    <string name="operation_failed" formatted="false">Операция не удалась: {error}</string>
+    <string name="operation_failure" formatted="false">Операция не удалась</string>
+    <string name="operation_success" formatted="false">Операция выполнена успешно</string>
+    <string name="oppose" formatted="false">Против</string>
+    <string name="oppose_count" formatted="false">Против ({opposeCount})</string>
+    <string name="opposed" formatted="false">ПРОТИВ</string>
+    <string name="other" formatted="false">Другое</string>
+    <string name="our_other_apps" formatted="false">Другие наши приложения</string>
+    <string name="overlay_mode" formatted="false">Всплывающее окно</string>
+    <string name="overlay_mode_description" formatted="false">Показывать информацию о вызывающем абоненте во всплывающем окне</string>
+    <string name="overlay_permission" formatted="false">Разрешение на отображение поверх других окон</string>
+    <string name="overlay_permission_description" formatted="false">Используется для отображения всплывающего окна входящего вызова.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">Обзор</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">Пароль</string>
+    <string name="password_cannot_be_empty" formatted="false">Пароль не может быть пустым</string>
+    <string name="password_label" formatted="false">Пароль</string>
+    <string name="passwords_do_not_match" formatted="false">Пароли не совпадают</string>
+    <string name="pattern" formatted="false">Шаблон</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">ОЖИДАЕТСЯ</string>
+    <string name="pending_proposals" formatted="false">Ожидающие предложения</string>
+    <string name="pending_proposals_body" formatted="false">У вас {count, plural, =0 {нет ожидающих предложений} one {1 ожидающее предложение} other {{count} ожидающих предложений}}.</string>
+    <string name="pending_sync" formatted="false">Ожидает синхронизации</string>
+    <string name="period_month" formatted="false">Месяц</string>
+    <string name="period_week" formatted="false">Неделя</string>
+    <string name="period_year" formatted="false">Год</string>
+    <string name="permission_denied" formatted="false">В разрешении отказано</string>
+    <string name="permission_granted" formatted="false">Разрешение предоставлено</string>
+    <string name="permission_management" formatted="false">Управление разрешениями</string>
+    <string name="permission_subtitle" formatted="false">Управление разрешениями на наложение и оптимизацию батареи</string>
+    <string name="permission_title" formatted="false">Специальные разрешения</string>
+    <string name="phone_calls_tab" formatted="false">Телефон</string>
+    <string name="phone_number" formatted="false">Номер телефона</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">Номер телефона не может быть пустым</string>
+    <string name="phone_number_hint" formatted="false">Введите номер телефона</string>
+    <string name="phone_number_label" formatted="false">Номер телефона</string>
+    <string name="phone_number_min_digits" formatted="false">Номер телефона должен состоять как минимум из 7 цифр</string>
+    <string name="phone_number_required" formatted="false">Номер телефона обязателен</string>
+    <string name="phone_number_type" formatted="false">Тип номера телефона</string>
+    <string name="phone_number_type_fixed_line" formatted="false">Стационарный</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">Стационарный или мобильный</string>
+    <string name="phone_number_type_mobile" formatted="false">Мобильный</string>
+    <string name="phone_number_type_pager" formatted="false">Пейджер</string>
+    <string name="phone_number_type_personal_number" formatted="false">Личный номер</string>
+    <string name="phone_number_type_premium_rate" formatted="false">Премиум-тариф</string>
+    <string name="phone_number_type_shared_cost" formatted="false">Общий тариф</string>
+    <string name="phone_number_type_toll_free" formatted="false">Бесплатный</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">Неизвестный</string>
+    <string name="phone_number_type_voicemail" formatted="false">Голосовая почта</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">Разрешение на доступ к телефону</string>
+    <string name="phone_permission_description" formatted="false">Используется для идентификации и блокировки входящих вызовов.</string>
+    <string name="phone_rule" formatted="false">Правило для телефона</string>
+    <string name="phone_rule_management" formatted="false">Управление правилами телефона</string>
+    <string name="phone_rule_subscription" formatted="false">Подписка на правила телефона</string>
+    <string name="phone_rules_info" formatted="false">Правила телефона используются для сопоставления вызовов с определенными номерами телефонов, которые имеют более низкий приоритет. Некоторые из них поступают из подписок на правила телефона.</string>
+    <string name="phone_subscription" formatted="false">Подписка на телефон</string>
+    <string name="phone_subscription_rules_description" formatted="false">Подпишитесь на списки правил телефона по URL для автоматического обновления правил белого и черного списков. Поддерживает файлы правил в формате JSON.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">Пожалуйста, введите хотя бы один номер.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">Пожалуйста, выберите метку и введите действительный номер телефона</string>
+    <string name="plugin_added_success" formatted="false">Плагин &quot;{name}&quot; успешно добавлен</string>
+    <string name="plugin_deleted" formatted="false">Плагин удален</string>
+    <string name="plugin_description" formatted="false">Описание плагина</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">Метка плагина</string>
+    <string name="plugin_latest_version" formatted="false">Плагин уже последней версии</string>
+    <string name="plugin_list_export_success" formatted="false">Список плагинов успешно экспортирован</string>
+    <string name="plugin_management" formatted="false">Управление плагинами</string>
+    <string name="plugin_management_subtitle" formatted="false">Управление и настройка сторонних плагинов</string>
+    <string name="plugin_name" formatted="false">Имя плагина</string>
+    <string name="plugin_rules_info" formatted="false">В целях безопасности используйте плагины только из проверенных источников. Не стесняйтесь использовать наши шаблоны для создания собственных пользовательских плагинов!</string>
+    <string name="plugin_service" formatted="false">Сервис плагинов</string>
+    <string name="plugin_test_page_title" formatted="false">Тестирование плагина</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">Плагин успешно обновлен</string>
+    <string name="plugin_url" formatted="false">URL плагина</string>
+    <string name="plugin_version" formatted="false">Версия плагина</string>
+    <string name="plugins_deleted" formatted="false">Успешно удалено {count} плагинов.</string>
+    <string name="political" formatted="false">Политический</string>
+    <string name="powerful_spam_blocking" formatted="false">Мощная блокировка спама</string>
+    <string name="previous_step" formatted="false">Предыдущий</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">Приоритезировать настройки удаленного действия</string>
+    <string name="prioritize_remote_action_description" formatted="false">Приоритезировать настройки действий из удаленной базы данных</string>
+    <string name="processed" formatted="false">Обработано</string>
+    <string name="processing" formatted="false">Обработка...</string>
+    <string name="processing_operation" formatted="false">Обработка...</string>
+    <string name="proposal_approved" formatted="false">Предложение одобрено ✅</string>
+    <string name="proposal_approved_body" formatted="false">Предложение об удалении номера {phoneNumber} было одобрено сообществом ({supportPercentage}% поддержки, {totalVotes} голосов).</string>
+    <string name="proposal_created" formatted="false">Предложение успешно создано</string>
+    <string name="proposal_details" formatted="false">Детали предложения</string>
+    <string name="proposal_not_found" formatted="false">Предложение не найдено</string>
+    <string name="proposal_processed" formatted="false">Это предложение было обработано</string>
+    <string name="proposal_rejected" formatted="false">Предложение отклонено ❌</string>
+    <string name="proposal_rejected_body" formatted="false">Предложение об удалении номера {phoneNumber} было отклонено сообществом ({supportPercentage}% поддержки, {totalVotes} голосов).</string>
+    <string name="proposal_statistics" formatted="false">Статистика предложений</string>
+    <string name="provide_detailed_explanation" formatted="false">Предоставьте подробное объяснение (минимум 10 символов)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">Купить</string>
+    <string name="purchase_subtitle" formatted="false">Для приобретения услуги</string>
+    <string name="purchase_title" formatted="false">Покупка</string>
+    <string name="quarterly_membership" formatted="false">Ежеквартальное членство</string>
+    <string name="quarterly_membership_description" formatted="false">Разблокировать все премиум функции, автопродление ежеквартально</string>
+    <string name="ready" formatted="false">Готово!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">Причина</string>
+    <string name="reason_inaccurate_info" formatted="false">Неточная информация</string>
+    <string name="reason_min_characters" formatted="false">Причина должна содержать не менее 10 символов</string>
+    <string name="reason_not_in_service" formatted="false">Не используется</string>
+    <string name="reason_other" formatted="false">Другое</string>
+    <string name="reason_outdated" formatted="false">Устаревший номер</string>
+    <string name="reason_privacy" formatted="false">Проблема с конфиденциальностью</string>
+    <string name="reason_required" formatted="false">Причина обязательна</string>
+    <string name="reason_wrongly_identified" formatted="false">Неправильно идентифицирован</string>
+    <string name="recruiter" formatted="false">Рекрутер</string>
+    <string name="redeem_vip_with_marks" formatted="false">Активировать VIP с помощью баллов</string>
+    <string name="redirect" formatted="false">Переадресация</string>
+    <string name="redirect_action_description" formatted="false">Переадресуйте вызов на указанный номер.</string>
+    <string name="refresh" formatted="false">Обновить</string>
+    <string name="refresh_permission_status" formatted="false">Обновить статус разрешений</string>
+    <string name="refresh_proposals" formatted="false">Обновить предложения</string>
+    <string name="refresh_tooltip" formatted="false">Обновить</string>
+    <string name="regex_error_message" formatted="false">Ошибка Regex: {error}</string>
+    <string name="regex_pattern" formatted="false">Регулярное выражение</string>
+    <string name="regex_pattern_explanation" formatted="false">Объяснение регулярного выражения</string>
+    <string name="regex_pattern_explanation_button" formatted="false">Объяснение регулярного выражения</string>
+    <string name="regex_pattern_label" formatted="false">Регулярное выражение</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">Регулярные выражения для сопоставления номеров телефонов</string>
+    <string name="regex_rule" formatted="false">Правило регулярного выражения</string>
+    <string name="regex_rule_add_failed" formatted="false">Не удалось добавить правило регулярного выражения: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">Правило регулярного выражения успешно добавлено</string>
+    <string name="regex_rule_management" formatted="false">Управление правилами регулярных выражений</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">Имя правила и шаблон регулярного выражения не могут быть пустыми</string>
+    <string name="regex_rules" formatted="false">Правила регулярных выражений</string>
+    <string name="regex_rules_info" formatted="false">Правила Regex используются для фильтрации вызовов на основе шаблонов Regex.</string>
+    <string name="regex_tester_title" formatted="false">Тестер регулярных выражений</string>
+    <string name="region" formatted="false">Регион</string>
+    <string name="registered_devices_title" formatted="false">Зарегистрированные устройства</string>
+    <string name="reject_all_calls" formatted="false">Отклонить все вызовы</string>
+    <string name="reject_all_calls_description" formatted="false">При включении все вызовы будут отклонены с наивысшим приоритетом</string>
+    <string name="reject_all_numbers" formatted="false">Отклонять все входящие вызовы</string>
+    <string name="reject_all_numbers_desc" formatted="false">Отклонять все входящие вызовы с наивысшим приоритетом</string>
+    <string name="reject_exceeded_numbers" formatted="false">Отклонить превышающие номера</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">Автоматически отклонять номера, превышающие пороговое значение количества</string>
+    <string name="rejected" formatted="false">ОТКЛОНЕНО</string>
+    <string name="remote_filter_settings" formatted="false">Настройки удаленного фильтра</string>
+    <string name="remote_filter_settings_page_title" formatted="false">Настройки удаленного фильтра номеров</string>
+    <string name="remote_number_filter" formatted="false">Защита по порогу облачных запросов</string>
+    <string name="remote_number_filter_description" formatted="false">Автоматически блокировать вызовы, превышающие порог облачных жалоб</string>
+    <string name="remote_number_filter_subtitle" formatted="false">Идентифицируйте спам-вызовы, используя облачную базу данных и отчеты сообщества</string>
+    <string name="remote_number_filtering" formatted="false">Удаленная фильтрация номеров</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• Удаленная фильтрация номеров: Правила фильтрации на основе информации из удаленной базы данных</string>
+    <string name="remove_ads" formatted="false">Удалить рекламу</string>
+    <string name="remove_ads_description" formatted="false">Навсегда удалить всю рекламу в приложении для более плавного взаимодействия</string>
+    <string name="remove_ads_title" formatted="false">Удалить рекламу</string>
+    <string name="remove_from_favorites" formatted="false">Удалить из избранного</string>
+    <string name="removed_from_favorites" formatted="false">Удалено из избранного</string>
+    <string name="rename_device_title" formatted="false">Переименовать устройство</string>
+    <string name="reporting_guidelines" formatted="false">• Сообщайте только о номерах, которые действительно вызывают проблемы
+• Предоставляйте точные и подробные причины
+• Выбирайте соответствующий уровень риска в зависимости от серьезности
+• Ложные сообщения могут привести к ограничениям учетной записи</string>
+    <string name="request_all_permissions" formatted="false">Запросить все разрешения</string>
+    <string name="request_permission" formatted="false">Запросить разрешение</string>
+    <string name="request_permission_failed" formatted="false">Не удалось запросить разрешение: {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">{count} Оценки</string>
+    <string name="reset" formatted="false">Сброс</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">Восстановить</string>
+    <string name="restore_application_settings_from_backup" formatted="false">Восстановить настройки приложения из резервной копии</string>
+    <string name="restore_from_cloud" formatted="false">Восстановить из облака</string>
+    <string name="restore_from_cloud_failed" formatted="false">Не удалось восстановить из облака: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">Успешно восстановлено из облака</string>
+    <string name="restore_purchases" formatted="false">Восстановить покупки</string>
+    <string name="restore_settings" formatted="false">Восстановить настройки</string>
+    <string name="restore_settings_confirmation" formatted="false">Это заменит все ваши текущие настройки. Вы уверены, что хотите продолжить?</string>
+    <string name="result" formatted="false">Результат</string>
+    <string name="retry" formatted="false">Повторить</string>
+    <string name="rewarded_ad_service" formatted="false">Служба рекламы с вознаграждением</string>
+    <string name="ridesharing" formatted="false">Поездки</string>
+    <string name="risk" formatted="false">Риск</string>
+    <string name="risk_level" formatted="false">Уровень риска</string>
+    <string name="risk_level_critical" formatted="false">Критический</string>
+    <string name="risk_level_high" formatted="false">Высокий</string>
+    <string name="risk_level_label" formatted="false">Уровень риска</string>
+    <string name="risk_level_low" formatted="false">Низкий</string>
+    <string name="risk_level_medium" formatted="false">Средний</string>
+    <string name="risk_level_very_low" formatted="false">Очень низкий</string>
+    <string name="robocall" formatted="false">Робозвонок</string>
+    <string name="rule_action" formatted="false">Действие правила</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">Правило успешно добавлено</string>
+    <string name="rule_added_success" formatted="false">Правило успешно добавлено</string>
+    <string name="rule_delete_confirm_content" formatted="false">Вы уверены, что хотите удалить это {ruleType}?</string>
+    <string name="rule_delete_confirm_title" formatted="false">Удалить правило</string>
+    <string name="rule_delete_failed" formatted="false">Не удалось удалить правило: {error}</string>
+    <string name="rule_delete_success" formatted="false">Правило успешно удалено</string>
+    <string name="rule_deleted_successfully" formatted="false">Правило успешно удалено</string>
+    <string name="rule_disabled_successfully" formatted="false">Правило успешно отключено</string>
+    <string name="rule_enabled_successfully" formatted="false">Правило успешно включено</string>
+    <string name="rule_load_failed" formatted="false">Не удалось загрузить правила: {error}</string>
+    <string name="rule_management" formatted="false">Управление правилами</string>
+    <string name="rule_name" formatted="false">Имя правила</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">Имя правила и регулярное выражение контента не могут быть пустыми</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">Имя правила и номер телефона не могут быть пустыми</string>
+    <string name="rule_name_hint" formatted="false">Например, Семья, Друзья и т. д.</string>
+    <string name="rule_name_label" formatted="false">Имя правила</string>
+    <string name="rule_name_required" formatted="false">Имя правила и номер телефона не могут быть пустыми</string>
+    <string name="rule_not_exist" formatted="false">Правило не существует или было удалено</string>
+    <string name="rule_not_found" formatted="false">Правило не найдено: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">Правило успешно сохранено!</string>
+    <string name="rule_status_changed" formatted="false">Статус правила {status} успешно изменен</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">Операция не удалась: {error}</string>
+    <string name="rule_toggle_success" formatted="false">Статус правила {status} успешно изменен</string>
+    <string name="rule_type" formatted="false">Rule Type</string>
+    <string name="rule_update_failed" formatted="false">Не удалось обновить правило: {error}</string>
+    <string name="rule_update_success" formatted="false">Правило успешно обновлено</string>
+    <string name="rule_verification" formatted="false">Проверка правила</string>
+    <string name="rules_exported_successfully" formatted="false">Правила успешно экспортированы</string>
+    <string name="rules_exported_to" formatted="false">Правила экспортированы в: {path}</string>
+    <string name="rules_imported" formatted="false">Правила успешно импортированы</string>
+    <string name="rules_imported_successfully" formatted="false">Успешно импортировано {count} правил</string>
+    <string name="save" formatted="false">Сохранить</string>
+    <string name="save_button" formatted="false">Сохранить</string>
+    <string name="save_button_text" formatted="false">Сохранить</string>
+    <string name="save_failed" formatted="false">Не удалось сохранить: {error}</string>
+    <string name="save_script" formatted="false">Сохранить скрипт</string>
+    <string name="save_settings" formatted="false">Сохранить настройки</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">Вероятно, мошенничество</string>
+    <string name="script_saved" formatted="false">Скрипт сохранен</string>
+    <string name="scroll_speed" formatted="false">Скорость прокрутки</string>
+    <string name="scrolling_security_message_settings" formatted="false">Настройки прокручиваемого сообщения безопасности</string>
+    <string name="search" formatted="false">Поиск</string>
+    <string name="search_by_name_or_phone_number" formatted="false">Поиск по имени или номеру телефона</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">Поиск подписок контактов</string>
+    <string name="search_contacts" formatted="false">Поиск контактов</string>
+    <string name="search_error" formatted="false">Ошибка поиска: {error}</string>
+    <string name="search_hint" formatted="false">Поиск...</string>
+    <string name="search_labels_hint" formatted="false">Поиск меток</string>
+    <string name="search_marked_phones_hint" formatted="false">Поиск помеченных телефонов</string>
+    <string name="search_phone_rules_hint" formatted="false">Поиск правил телефона</string>
+    <string name="search_plugins_hint" formatted="false">Поиск плагинов</string>
+    <string name="search_proposals" formatted="false">Поиск предложений</string>
+    <string name="search_regex_rules_hint" formatted="false">Поиск правил Regex</string>
+    <string name="search_subscriptions_hint" formatted="false">Поиск подписок</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">Не доверяйте телефонным звонкам. Всегда проверяйте номера служб поддержки независимо. Никогда не сообщайте пароли, коды подтверждения, номера карт или личную информацию.</string>
+    <string name="select_action" formatted="false">Выберите действие</string>
+    <string name="select_action_when_blocking_calls" formatted="false">Выберите действие при блокировке вызовов</string>
+    <string name="select_action_when_rule_matches" formatted="false">Выберите действие, если правило совпадает</string>
+    <string name="select_all" formatted="false">Выбрать все</string>
+    <string name="select_country" formatted="false">Выберите страну</string>
+    <string name="select_export_format" formatted="false">Выберите формат экспорта</string>
+    <string name="select_label" formatted="false">Выберите метку</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">Пожалуйста, выберите метку и введите действительный номер телефона</string>
+    <string name="select_language" formatted="false">Выберите язык</string>
+    <string name="select_multiple" formatted="false">Выбрать несколько</string>
+    <string name="select_sim_card" formatted="false">Выбрать SIM-карту</string>
+    <string name="select_tags" formatted="false">Выбрать теги</string>
+    <string name="select_target_service" formatted="false">Выберите целевую службу</string>
+    <string name="select_trusted_data_source" formatted="false">Пожалуйста, выберите доверенные источники данных</string>
+    <string name="select_your_language" formatted="false">Выберите свой язык</string>
+    <string name="selected_items" formatted="false">Выбрано {count} элементов</string>
+    <string name="selected_label" formatted="false">Выбрано:</string>
+    <string name="sender" formatted="false">Отправитель</string>
+    <string name="sender_regex_optional" formatted="false">Регулярное выражение отправителя (необязательно)</string>
+    <string name="separate_sims" formatted="false">Раздельные SIM-карты</string>
+    <string name="separate_sims_desc" formatted="false">Включить отдельные правила фильтрации для каждой SIM-карты</string>
+    <string name="server_address_label" formatted="false">Адрес сервера</string>
+    <string name="service_type_contact" formatted="false">Подписка на контакт</string>
+    <string name="service_type_label" formatted="false">Тип сервиса</string>
+    <string name="service_type_phone" formatted="false">Подписка на телефон</string>
+    <string name="service_type_plugin" formatted="false">Обновление плагина</string>
+    <string name="service_type_sms" formatted="false">SMS-подписка</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">Установить время задержки</string>
+    <string name="set_encryption_password" formatted="false">Установить пароль шифрования</string>
+    <string name="settings" formatted="false">Настройки</string>
+    <string name="settings_backed_up_to" formatted="false">Настройки скопированы в: {path}</string>
+    <string name="settings_backup" formatted="false">Резервное копирование настроек</string>
+    <string name="settings_restored_successfully" formatted="false">Настройки успешно восстановлены. Пожалуйста, перезапустите приложение, чтобы изменения вступили в силу.</string>
+    <string name="settings_save_failed" formatted="false">Не удалось сохранить настройки: {error}</string>
+    <string name="settings_saved" formatted="false">Настройки сохранены</string>
+    <string name="settings_tab" formatted="false">Настройки</string>
+    <string name="settings_title" formatted="false">Настройки</string>
+    <string name="setup" formatted="false">Настройка</string>
+    <string name="show_all_contacts" formatted="false">Показать все контакты</string>
+    <string name="show_favorites" formatted="false">Показать избранное</string>
+    <string name="silence" formatted="false">Тишина</string>
+    <string name="silence_action_description" formatted="false">Вызовы будут заглушены, но отображены в журнале вызовов.</string>
+    <string name="silence_and_no_answer" formatted="false">Заглушить звонок</string>
+    <string name="silence_no_answer" formatted="false">Тишина без ответа</string>
+    <string name="silent_call_voice_clone" formatted="false">Клонирование голоса тихого вызова</string>
+    <string name="silent_rules" formatted="false">Тихие правила</string>
+    <string name="sim_card" formatted="false">SIM-карта {simNumber}</string>
+    <string name="sim_card_color" formatted="false">Цвет SIM-карты</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• Конфигурация SIM-карты: установите отдельные правила фильтрации для каждой SIM-карты</string>
+    <string name="sim_card_filter_rules" formatted="false">Правила фильтрации SIM-карты</string>
+    <string name="sim_card_filter_rules_description" formatted="false">Установите разные правила фильтрации в зависимости от слотов SIM-карты</string>
+    <string name="sim_card_font_size" formatted="false">Размер шрифта SIM-карты</string>
+    <string name="sim_card_position" formatted="false">Положение SIM-карты</string>
+    <string name="sim_card_title" formatted="false">SIM-карта</string>
+    <string name="sim_country" formatted="false">Страна SIM-карты</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">Правила для SIM-карт позволяют настраивать независимые правила фильтрации для каждого слота SIM-карты.</string>
+    <string name="sim_rule_instructions_title" formatted="false">Правила для SIM-карт</string>
+    <string name="sim_rules_not_found" formatted="false">Правила SIM-карты не найдены</string>
+    <string name="sim_slot" formatted="false">Слот SIM-карты</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">Настройте независимые правила фильтрации для каждой SIM-карты:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">Настройки фильтра для SIM-карты {slotNumber}</string>
+    <string name="sim_slot_management" formatted="false">Управление слотами SIM-карт</string>
+    <string name="sim_slot_position" formatted="false">Положение слота SIM-карты {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• Правила для SIM-карт: независимые стратегии фильтрации для каждой SIM-карты</string>
+    <string name="sim_slot_rule_list_title" formatted="false">Список правил для SIM-карт</string>
+    <string name="sim_slot_rule_management" formatted="false">Правила для SIM-карт</string>
+    <string name="sim_slot_rules" formatted="false">Правила слота SIM-карты</string>
+    <string name="sim_slot_title" formatted="false">Слот SIM-карты {slotNumber}</string>
+    <string name="sim_state" formatted="false">Состояние SIM-карты</string>
+    <string name="skip" formatted="false">Пропустить</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">Интеллектуальная идентификация вызова</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">Фильтрация SMS помогает автоматически фильтровать спам-сообщения и поддерживать чистоту списка сообщений. Вы можете настроить правила фильтрации и методы уведомлений.</string>
+    <string name="sms_filter_disabled" formatted="false">Фильтрация SMS отключена</string>
+    <string name="sms_filter_enabled" formatted="false">Фильтрация SMS включена</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">Правило фильтрации SMS успешно добавлено</string>
+    <string name="sms_filter_rules" formatted="false">Правила фильтрации SMS</string>
+    <string name="sms_filter_settings" formatted="false">Настройки фильтрации SMS</string>
+    <string name="sms_management" formatted="false">Управление SMS</string>
+    <string name="sms_permission" formatted="false">Разрешение SMS</string>
+    <string name="sms_permission_description" formatted="false">Используется для фильтрации спам-сообщений.</string>
+    <string name="sms_rule_added_successfully" formatted="false">Правило SMS успешно добавлено</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">Правило SMS успешно удалено</string>
+    <string name="sms_rule_load_failed" formatted="false">Не удалось загрузить правила SMS: {error}</string>
+    <string name="sms_rule_management" formatted="false">Управление правилами SMS</string>
+    <string name="sms_rule_subscription" formatted="false">Подписка на правила SMS</string>
+    <string name="sms_subscription" formatted="false">Подписка SMS</string>
+    <string name="sms_subscription_added_successfully" formatted="false">Подписка на SMS успешно добавлена</string>
+    <string name="sms_subscription_rules_description" formatted="false">Подпишитесь на списки правил SMS по URL, поддерживается сопоставление регулярных выражений. Вы можете установить действия блокировки или разрешения.</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">Некоторые запросы разрешений отклонены</string>
+    <string name="sort_by" formatted="false">Сортировать по</string>
+    <string name="sort_least_popular" formatted="false">Сначала непопулярные</string>
+    <string name="sort_most_popular" formatted="false">Сначала популярные</string>
+    <string name="sort_newest" formatted="false">Сначала новые</string>
+    <string name="sort_oldest" formatted="false">Сначала старые</string>
+    <string name="spam_likely" formatted="false">Вероятно спам</string>
+    <string name="start_color" formatted="false">Начальный цвет</string>
+    <string name="start_date" formatted="false">Дата начала</string>
+    <string name="start_using" formatted="false">Начать</string>
+    <string name="stat_answered" formatted="false">Отвечено</string>
+    <string name="stat_blocked" formatted="false">Заблокировано</string>
+    <string name="statistics" formatted="false">Статистика</string>
+    <string name="statistics_page_title" formatted="false">Анализ данных</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">Цвет STIR</string>
+    <string name="stir_failed" formatted="false">Сбой проверки</string>
+    <string name="stir_font_size" formatted="false">Размер шрифта STIR</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">Положение STIR</string>
+    <string name="stir_unknown" formatted="false">Неизвестный статус проверки</string>
+    <string name="stir_verification" formatted="false">Проверка STIR/SHAKEN</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} для номера {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">Отображает результаты проверки STIR/SHAKEN для номеров.</string>
+    <string name="stir_verification_title" formatted="false">Проверка STIR/SHAKEN</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">Разрешение на хранение</string>
+    <string name="storage_permission_description" formatted="false">Используется для сохранения настроек и правил.</string>
+    <string name="submit" formatted="false">Отправить</string>
+    <string name="subscribe" formatted="false">Подписаться</string>
+    <string name="subscription_add_success" formatted="false">Подписка &quot;{name}&quot; успешно добавлена</string>
+    <string name="subscription_delete_confirm_content" formatted="false">Вы уверены, что хотите удалить эту подписку?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">Удалить подписку</string>
+    <string name="subscription_delete_failed" formatted="false">Не удалось удалить подписку: {error}</string>
+    <string name="subscription_delete_success" formatted="false">Подписка удалена</string>
+    <string name="subscription_deleted" formatted="false">Подписка удалена</string>
+    <string name="subscription_load_failed" formatted="false">Не удалось загрузить подписки: {error}</string>
+    <string name="subscription_name" formatted="false">Название подписки</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">Название и URL подписки не могут быть пустыми</string>
+    <string name="subscription_name_hint" formatted="false">Введите название подписки</string>
+    <string name="subscription_status_change_failed" formatted="false">Не удалось изменить статус подписки: {error}</string>
+    <string name="subscription_update_failed" formatted="false">Не удалось обновить подписку: {error}</string>
+    <string name="subscription_update_success" formatted="false">Подписка успешно обновлена</string>
+    <string name="subscription_url" formatted="false">URL подписки</string>
+    <string name="subscription_url_hint" formatted="false">Введите URL подписки</string>
+    <string name="successfully_imported_rules" formatted="false">Успешно импортировано {count} правил</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">Поддержка</string>
+    <string name="support_count" formatted="false">Поддержать ({supportCount})</string>
+    <string name="support_sync" formatted="false">Поддержка синхронизации</string>
+    <string name="supported" formatted="false">ПОДДЕРЖАНО</string>
+    <string name="survey" formatted="false">Опрос</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">Синхронизировать устройства</string>
+    <string name="sync_failed" formatted="false">Синхронизация не удалась</string>
+    <string name="sync_failed_message" formatted="false">Синхронизация не удалась</string>
+    <string name="sync_folder_name_label" formatted="false">Имя папки синхронизации</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">Синхронизировать сейчас</string>
+    <string name="sync_now_button" formatted="false">Синхронизировать сейчас</string>
+    <string name="sync_status_title" formatted="false">Статус синхронизации</string>
+    <string name="sync_status_updated_message" formatted="false">Статус синхронизации обновлен</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">Синхронизация успешна</string>
+    <string name="sync_with_cloud_storage" formatted="false">Синхронизация с облачным хранилищем</string>
+    <string name="synced" formatted="false">Синхронизировано</string>
+    <string name="synchronized" formatted="false">Синхронизировано</string>
+    <string name="syncing" formatted="false">Синхронизация...</string>
+    <string name="system_features" formatted="false">Системные функции:</string>
+    <string name="system_settings_title" formatted="false">Настройки системы</string>
+    <string name="tab_all" formatted="false">Все</string>
+    <string name="tab_answered" formatted="false">Отвеченные</string>
+    <string name="tab_blocked" formatted="false">Заблокировано</string>
+    <string name="tab_missed" formatted="false">Пропущенные</string>
+    <string name="tab_outgoing" formatted="false">Исходящие</string>
+    <string name="tag_label" formatted="false">Тег: {tag}</string>
+    <string name="takeaway" formatted="false">Вывод</string>
+    <string name="telecommunication" formatted="false">Телекоммуникации</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">Телемаркетинг</string>
+    <string name="temp_purchase_expired" formatted="false">Срок действия временных привилегий на покупку истек</string>
+    <string name="temporary_vip" formatted="false">Временный VIP</string>
+    <string name="test_button" formatted="false">ТЕСТ</string>
+    <string name="test_connection_button" formatted="false">Проверить соединение</string>
+    <string name="test_plugin" formatted="false">Протестировать плагин</string>
+    <string name="text_colors_setting" formatted="false">Цвета текста и меток</string>
+    <string name="theme_dark" formatted="false">Dark</string>
+    <string name="theme_light" formatted="false">Light</string>
+    <string name="theme_settings_subtitle" formatted="false">Выберите свою любимую тему</string>
+    <string name="theme_settings_title" formatted="false">Настройки темы</string>
+    <string name="theme_system" formatted="false">System</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">Это приложение — мощный инструмент идентификации абонентов, который позволяет идентифицировать и блокировать нежелательные вызовы.</string>
+    <string name="this_week" formatted="false">На этой неделе</string>
+    <string name="time_interceptor" formatted="false">Защита от частых звонков</string>
+    <string name="time_interceptor_description" formatted="false">Блокировать повторные вызовы с одного и того же номера за короткое время</string>
+    <string name="time_interceptor_explanation" formatted="false">• Временной перехватчик: перехватывать/разрешать повторяющиеся вызовы за короткий промежуток времени</string>
+    <string name="time_interceptor_explanation_content" formatted="false">Функция перехвата частоты вызовов анализирует частоту вызовов, чтобы автоматически выявлять и перехватывать/разрешать частые спам-вызовы.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">Пояснение по перехвату частоты вызовов</string>
+    <string name="time_interceptor_settings_title" formatted="false">Настройки перехвата частоты вызовов</string>
+    <string name="time_window_description" formatted="false">Установите размер временного окна для разрешения повторяющихся вызовов. Вызовы с одного и того же номера в пределах этого окна будут разрешены</string>
+    <string name="time_window_label" formatted="false">Временное окно перехвата (минут): {minutes}</string>
+    <string name="timeline_view" formatted="false">Вид временной шкалы</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">Сегодня</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">Всего</string>
+    <string name="total_blocked" formatted="false">Всего заблокировано</string>
+    <string name="total_pending_proposals" formatted="false">Всего ожидающих предложений</string>
+    <string name="total_proposals" formatted="false">Всего предложений</string>
+    <string name="total_votes" formatted="false">Всего: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">Перенос данных между устройствами или платформами</string>
+    <string name="travel_ticketing" formatted="false">Бронирование билетов</string>
+    <string name="tutorial" formatted="false">Руководство</string>
+    <string name="type" formatted="false">Тип</string>
+    <string name="unassigned_s_i_m_card" formatted="false">Неназначенная SIM-карта</string>
+    <string name="unblock" formatted="false">Разблокировать</string>
+    <string name="unblock_number" formatted="false">Разблокировать номер</string>
+    <string name="unblock_number_confirmation" formatted="false">Вы уверены, что хотите разблокировать номер {phoneNumber}?</string>
+    <string name="unblock_number_failed" formatted="false">Разблокировка номера не удалась</string>
+    <string name="unblock_number_success" formatted="false">Номер успешно разблокирован</string>
+    <string name="unblocked" formatted="false">Разблокировано</string>
+    <string name="unknown" formatted="false">Неизвестно</string>
+    <string name="unknown_tag" formatted="false">Тег: Неизвестно</string>
+    <string name="unregister_button" formatted="false">Отменить регистрацию</string>
+    <string name="unregister_device_confirmation_message" formatted="false">Вы уверены, что хотите отменить регистрацию {deviceName}?</string>
+    <string name="unregister_device_title" formatted="false">Отмена регистрации устройства</string>
+    <string name="unsupported_file_format" formatted="false">Неподдерживаемый формат файла</string>
+    <string name="update" formatted="false">Обновить</string>
+    <string name="update_all_now" formatted="false">Обновить все сейчас</string>
+    <string name="update_contact_failed" formatted="false">Не удалось обновить контакт: {error}</string>
+    <string name="update_favorite_status" formatted="false">Обновить статус избранного</string>
+    <string name="update_interval" formatted="false">Интервал обновления</string>
+    <string name="update_now" formatted="false">Обновить сейчас</string>
+    <string name="update_plugin" formatted="false">Обновить плагин</string>
+    <string name="update_plugin_failed" formatted="false">Не удалось обновить плагин: {error}</string>
+    <string name="update_rule_failed" formatted="false">Не удалось обновить правило: {error}</string>
+    <string name="update_subscription_failed" formatted="false">Не удалось обновить подписку: {error}</string>
+    <string name="update_success" formatted="false">{service} успешно обновлен ({count} правил)</string>
+    <string name="upgrade_to_vip" formatted="false">Перейти на VIP</string>
+    <string name="use_cases_point1" formatted="false">• Определять спам-звонки с автодозвоном</string>
+    <string name="use_cases_point2" formatted="false">• Перехватывать маркетинговые звонки, которые звонят несколько раз за короткий период времени</string>
+    <string name="use_cases_point3" formatted="false">• Предотвращать телефонный терроризм и преследования</string>
+    <string name="use_cases_title" formatted="false">Варианты использования:</string>
+    <string name="use_global_settings" formatted="false">Использовать глобальные настройки</string>
+    <string name="use_local_notification" formatted="false">Использовать локальные уведомления</string>
+    <string name="use_local_notification_description" formatted="false">Включить локальные уведомления для входящих вызовов</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">Используйте стандартный синтаксис регулярных выражений для определения шаблонов. Примеры:</string>
+    <string name="use_stir_notification" formatted="false">Использовать уведомления от STIR</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">Имя пользователя</string>
+    <string name="verification_failed_text" formatted="false">Не удалось</string>
+    <string name="verification_report" formatted="false">Отчет о проверке</string>
+    <string name="verified_text" formatted="false">Проверено</string>
+    <string name="verify" formatted="false">Проверить</string>
+    <string name="version" formatted="false">Версия: {version}</string>
+    <string name="very_high" formatted="false">Очень высокий</string>
+    <string name="very_low" formatted="false">Очень низкий</string>
+    <string name="view_details" formatted="false">Просмотреть детали</string>
+    <string name="vip3_days_with_ads" formatted="false">3-дневный VIP с рекламой (только синхронизация)</string>
+    <string name="vip5_days_no_ads" formatted="false">5-дневный полнофункциональный VIP без рекламы</string>
+    <string name="vip7_days_no_ads" formatted="false">7-дневный полнофункциональный VIP без рекламы</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">Обмен VIP-членства на количество отметок номеров телефонов</string>
+    <string name="vip_exchange_service" formatted="false">Служба обмена VIP</string>
+    <string name="vip_exchange_title" formatted="false">Отметка Exchange VIP</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">VIP пользователь</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">Распознавание голоса</string>
+    <string name="vote_agree" formatted="false">За</string>
+    <string name="vote_count" formatted="false">Количество голосов</string>
+    <string name="vote_disagree" formatted="false">Против</string>
+    <string name="vote_submitted" formatted="false">Голос успешно отправлен</string>
+    <string name="voted" formatted="false">Проголосовано</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} голосов ({supportPercentage}% поддержка)</string>
+    <string name="voting_completed" formatted="false">Голосование завершено</string>
+    <string name="voting_completed_body" formatted="false">Голосование сообщества по {phoneNumber} завершено. Результат: {result} ({supportPercentage}% поддержки).</string>
+    <string name="waiting_for_more_votes" formatted="false">Ожидание дополнительных голосов сообщества</string>
+    <string name="watch_ad" formatted="false">Смотреть рекламу</string>
+    <string name="watch_ad_for_temp" formatted="false">Смотреть рекламу для временных привилегий</string>
+    <string name="watch_ad_for_temp_description" formatted="false">Посмотрите короткую рекламу, чтобы временно разблокировать некоторые премиум-функции</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">Вам нужно посмотреть еще {count} реклам, чтобы получить временные VIP-привилегии</string>
+    <string name="web_d_a_v_config_title" formatted="false">Конфигурация WebDAV</string>
+    <string name="week" formatted="false">Неделя</string>
+    <string name="welcome" formatted="false">Добро пожаловать</string>
+    <string name="whitelist" formatted="false">Белый список</string>
+    <string name="width" formatted="false">Ширина</string>
+    <string name="wildcard_matching_description" formatted="false">Используйте \'.\' для соответствия любому символу (например, \'123.456\' соответствует 123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">Сопоставление с подстановочными знаками:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">Поддержка подстановочных знаков для гибкой фильтрации</string>
+    <string name="window_size_setting" formatted="false">Размер окна</string>
+    <string name="year" formatted="false">Год</string>
+    <string name="yesterday" formatted="false">Вчера</string>
+</resources>

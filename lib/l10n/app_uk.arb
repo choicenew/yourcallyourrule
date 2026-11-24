@@ -2458,5 +2458,8 @@
   "sms": "SMS",
   "smsTab": "SMS",
   "telegram": "Telegram",
-  "liveActivityMode": "Live Activity"
+  "liveActivityMode": "Live Activity",
+  "backgroundOpacity": "Background Opacity",
+  "timesUnit": "times",
+  "participantCount": "%1$d Participants"
 }

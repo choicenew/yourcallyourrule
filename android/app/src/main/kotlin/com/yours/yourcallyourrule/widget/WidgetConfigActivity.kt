@@ -85,7 +85,7 @@ class WidgetConfigActivity : Activity() {
         }
 
         val titleText = TextView(this).apply {
-            text = localizedContext.getString(R.string.widget_config_title)
+            text = localizedContext.getString(R.string.theme_settings_title)
             textSize = 20f
             setTextColor(txtMainColor)
         }
@@ -105,7 +105,7 @@ class WidgetConfigActivity : Activity() {
         }
 
         val alphaLabel = TextView(this).apply {
-            text = localizedContext.getString(R.string.widget_config_opacity)
+            text = localizedContext.getString(R.string.background_opacity)
             textSize = 14f
             setTextColor(txtMutedColor)
             layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f)
@@ -154,7 +154,7 @@ class WidgetConfigActivity : Activity() {
         }
 
         val fontLabel = TextView(this).apply {
-            text = localizedContext.getString(R.string.widget_config_font_scale)
+            text = localizedContext.getString(R.string.font_sizes_setting)
             textSize = 14f
             setTextColor(txtMutedColor)
             layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f)
@@ -192,7 +192,7 @@ class WidgetConfigActivity : Activity() {
 
         // 3. 显示选项 CheckBox
         cbShowDetail = CheckBox(this).apply {
-            text = localizedContext.getString(R.string.widget_config_show_breakdown)
+            text = localizedContext.getString(R.string.manage_filter_rules_description)
             isChecked = prefs.getBoolean("widget_${appWidgetId}_show_detail", true)
             textSize = 14f
             setTextColor(txtMainColor)
@@ -207,7 +207,7 @@ class WidgetConfigActivity : Activity() {
 
         // 4. 保存按钮
         val saveBtn = Button(this).apply {
-            text = localizedContext.getString(R.string.widget_config_save)
+            text = localizedContext.getString(R.string.save_settings)
             textSize = 15f
             setTextColor(Color.WHITE)
             setBackgroundColor(accentColor)

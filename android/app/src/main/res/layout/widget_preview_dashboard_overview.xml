@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="5dp"
-            android:text="@string/widget_dashboard_overview_title"
+            android:text="@string/overview"
             android:textColor="#FFFFFF"
             android:textSize="9sp"
             android:textStyle="bold"
@@ -36,7 +36,7 @@
             android:background="@drawable/widget_preview_pill_blue"
             android:paddingHorizontal="5dp"
             android:paddingVertical="2dp"
-            android:text="@string/widget_smart_mode"
+            android:text="@string/smart_caller_id"
             android:textColor="#3B82F6"
             android:textSize="7.5sp"
             android:textStyle="bold" />
@@ -63,7 +63,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/widget_blocked_today"
+                android:text="@string/total_blocked"
                 android:textColor="#94A3B8"
                 android:textSize="7sp" />
 
@@ -112,7 +112,7 @@
         android:background="@drawable/widget_preview_pill_blue"
         android:paddingHorizontal="6dp"
         android:paddingVertical="3dp"
-        android:text="@string/widget_view_logs"
+        android:text="@string/clear_all_call_logs"
         android:textColor="#3B82F6"
         android:textSize="7.5sp"
         android:textStyle="bold" />

@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">Game da Biyan Kuɗi na Lambobi</string>
+    <string name="about_labels" formatted="false">Game da Lakabi</string>
+    <string name="about_phone_subscription_rules" formatted="false">Game da Dokokin Biyan Kuɗi na Wayar</string>
+    <string name="about_sms_filter" formatted="false">Game da Tace SMS</string>
+    <string name="about_sms_subscription_rules" formatted="false">Game da Dokokin Biyan Kuɗi na SMS</string>
+    <string name="about_subtitle" formatted="false">Bayanin sigar aikace-aikacen da na doka</string>
+    <string name="about_title" formatted="false">Game da</string>
+    <string name="access_target_url" formatted="false">Shiga Target URL</string>
+    <string name="action" formatted="false">Aiki</string>
+    <string name="action_all" formatted="false">Duka</string>
+    <string name="action_allow" formatted="false">Bada damar</string>
+    <string name="action_block" formatted="false">Gina</string>
+    <string name="action_filter_title" formatted="false">Tace ta Nau\'in Aiki</string>
+    <string name="action_filter_tooltip" formatted="false">Tace Aiki</string>
+    <string name="action_none" formatted="false">Babu Aiki</string>
+    <string name="action_silence" formatted="false">Shiru</string>
+    <string name="action_tag" formatted="false">Aiki: {actionType}</string>
+    <string name="action_type" formatted="false">Nau\'in Aiki</string>
+    <string name="action_unknown" formatted="false">Babu Sananne</string>
+    <string name="active_proposals" formatted="false">Shawara Mai Aiki</string>
+    <string name="add" formatted="false">Ƙara</string>
+    <string name="add_allow_subscription" formatted="false">Ƙara Biyan Kuɗi na Ba da</string>
+    <string name="add_allowed_blocked_rule" formatted="false">Ƙara Dama/Gina Dokar</string>
+    <string name="add_block_subscription" formatted="false">Ƙara Biyan Kuɗi na Gina</string>
+    <string name="add_contact_button" formatted="false">Ƙara Lambar</string>
+    <string name="add_contact_failed" formatted="false">An kasa ƙara lambar: {error}</string>
+    <string name="add_label" formatted="false">Ƙara Lakabi</string>
+    <string name="add_label_button" formatted="false">Ƙara Lakabi</string>
+    <string name="add_label_failed" formatted="false">An kasa ƙara lakabi: {error}</string>
+    <string name="add_name" formatted="false">Ƙara Suna</string>
+    <string name="add_none_subscription" formatted="false">Ƙara Biyan Kuɗi na Babu</string>
+    <string name="add_phone_mark" formatted="false">Ƙara Alamar Wayar</string>
+    <string name="add_phone_number_rule" formatted="false">Ƙara Dokar Lambar Wayar</string>
+    <string name="add_plugin" formatted="false">Ƙara Plugin</string>
+    <string name="add_plugin_failed" formatted="false">An kasa ƙara plugin</string>
+    <string name="add_plugin_failed_with_error" formatted="false">An kasa ƙara plugin: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">Ƙara Plugin daga Fayil na Gida</string>
+    <string name="add_plugin_from_url" formatted="false">Ƙara Plugin daga URL</string>
+    <string name="add_regex_rule" formatted="false">Ƙara Dokar Regex</string>
+    <string name="add_rule" formatted="false">Ƙara Dokar</string>
+    <string name="add_rule_failed" formatted="false">An kasa ƙara doka: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">Ƙara Dokar</string>
+    <string name="add_silence_subscription" formatted="false">Ƙara Biyan Kuɗi na Shiru</string>
+    <string name="add_sms_filter_rule" formatted="false">Ƙara Dokar Tace SMS</string>
+    <string name="add_sms_rule" formatted="false">Ƙara Dokar SMS</string>
+    <string name="add_sms_subscription" formatted="false">Ƙara Biyan Kuɗi na SMS</string>
+    <string name="add_subscription" formatted="false">Ƙara Biyan Kuɗi</string>
+    <string name="add_subscription_button" formatted="false">Ƙara Biyan Kuɗi</string>
+    <string name="add_subscription_failed" formatted="false">An kasa ƙara biyan kuɗi: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">Ƙara Biyan Kuɗi</string>
+    <string name="add_to_blacklist" formatted="false">Ƙara zuwa Baƙar Fata</string>
+    <string name="add_to_favorites" formatted="false">Ƙara zuwa Waɗanda Aka Fi So</string>
+    <string name="add_to_rules" formatted="false">Ƙara zuwa Dokoki</string>
+    <string name="add_to_whitelist" formatted="false">Ƙara zuwa Jerin Farar Fata</string>
+    <string name="added_to_favorites" formatted="false">An ƙara shi zuwa waɗanda aka fi so</string>
+    <string name="advanced_mode" formatted="false">Yanayin Ci gaba</string>
+    <string name="agent" formatted="false">Wakilin</string>
+    <string name="agree_votes" formatted="false">Yardajewa: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">Duka</string>
+    <string name="all_call_logs_cleared" formatted="false">An share duk tarihin kira</string>
+    <string name="all_calls_tab" formatted="false">Duka</string>
+    <string name="all_permissions_granted" formatted="false">An bada duk izini</string>
+    <string name="all_services_status_subtitle" formatted="false">Matsayin Yanzu na Kowace Sabis na Girgije</string>
+    <string name="all_services_status_title" formatted="false">Matsayin Sabis na Yanzu</string>
+    <string name="all_settings_completed" formatted="false">An kammala duk saitunan.</string>
+    <string name="all_update_success" formatted="false">An kammala duk sabuntawa ({count} dokoki)</string>
+    <string name="allow" formatted="false">Bada damar</string>
+    <string name="allow_action_description" formatted="false">Za a bawa kiran dama, ko da kuwa lambar tana kan jerin da aka toshe.</string>
+    <string name="allow_all_allow_rules" formatted="false">Bada Dama Ga Duk Dokokin Ba da Dama</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">Bada damar kiran daga dokokin ba da dama</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">Bada Dama Ga Duk Lambobin da Aka Lissafa</string>
+    <string name="allow_all_block_rules" formatted="false">Bada Dama Ga Duk Dokokin Gina</string>
+    <string name="allow_all_block_rules_desc" formatted="false">Bada damar kiran daga dokokin gina</string>
+    <string name="allow_allowed_numbers" formatted="false">Bada Dama Ga Lambobin Da Aka Ba Da Dama</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">Bada damar kiran daga jerin ba da dama</string>
+    <string name="allow_block" formatted="false">Bada Dama/Gina</string>
+    <string name="allow_blocked_numbers" formatted="false">Bada Dama Ga Lambobin Gina</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">Bada damar kiran daga jerin baƙi</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">Bada Dama Ga Lambobi Marasa Wuce Gona</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">Bada damar lambobi ta atomatik ba tare da wuce iyakacin adadi ba</string>
+    <string name="allow_regex_allow_rules" formatted="false">Bada Dama Ga Dokokin Regex</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">Karfafa dacewa da tsarin regex don dokokin ba da dama</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">Karfafa dokokin ba da dama ta hanyar regex</string>
+    <string name="allow_regex_block_rules" formatted="false">Bada Dama Ga Dokokin Regex na Gina</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">Karfafa dacewa da tsarin regex don dokokin gina</string>
+    <string name="allow_regex_block_rules_description" formatted="false">Karfafa dokokin gina ta hanyar regex</string>
+    <string name="allow_rule" formatted="false">Dokar Ba Da Dama</string>
+    <string name="allow_rules" formatted="false">Dokoki Na Ba Da Dama</string>
+    <string name="allowed_blocked_rule" formatted="false">Dokar Ba Da Dama/Gina</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">Gyara Dokar Ba Da Dama/Gina</string>
+    <string name="allowed_blocked_rule_management" formatted="false">Gudanarwar Dokar Ba Da Dama/Gina</string>
+    <string name="allowed_blocked_rules_info" formatted="false">Ana amfani da ƙa\'idodin da aka yarda/ƙi don dacewa da kira ga takamaiman lambobin waya, waɗanda ke da fifiko mafi girma.</string>
+    <string name="and_more_items" formatted="false">da ƙarin abubuwa {count}</string>
+    <string name="answer_then_hangup" formatted="false">Amsa sannan a kashe</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">Kira naka Dokarka</string>
+    <string name="application_software" formatted="false">Sabis na Aikace-aikace</string>
+    <string name="apply" formatted="false">Aiwatar</string>
+    <string name="approved" formatted="false">AN YARDA</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">An kasa izini: Da fatan za a duba ID na abokin ciniki da kuma maɓalli</string>
+    <string name="authorization_failed_message" formatted="false">An kasa izini</string>
+    <string name="authorization_success_message" formatted="false">An samu izini yayi nasara</string>
+    <string name="authorize_login_button" formatted="false">Amince shiga</string>
+    <string name="auto_cancel_notification" formatted="false">Soke Sanarwa Ta atomatik</string>
+    <string name="auto_cancel_notification_description" formatted="false">Idan aka duba, sanarwar za a soke ta ta atomatik lokacin da mai amfani ya matsa ta.</string>
+    <string name="auto_sync_label" formatted="false">Hada kai ta atomatik</string>
+    <string name="auto_update" formatted="false">Sabunta ta atomatik</string>
+    <string name="auto_update_description" formatted="false">Saita lokutan sabuntawa ta atomatik don biyan kuɗi ko sabuntawa da hannu</string>
+    <string name="auto_update_settings" formatted="false">Saitunan sabuntawa ta atomatik</string>
+    <string name="auto_update_subtitle" formatted="false">Gudanar da sabuntawa ta atomatik don dokoki da fakiti</string>
+    <string name="auto_update_title" formatted="false">Sabunta ta atomatik</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">Sashin Kera ababan hawa</string>
+    <string name="avatar" formatted="false">Hoto</string>
+    <string name="avatar_border_color" formatted="false">Launin gefen hoto</string>
+    <string name="avatar_border_size" formatted="false">Girman gefen hoto</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">Girman Hoto &amp; Gumaka</string>
+    <string name="avatar_position" formatted="false">Matsayin hoto</string>
+    <string name="avatar_size" formatted="false">Girman hoto</string>
+    <string name="axis_position" formatted="false">{axis} Matsayi</string>
+    <string name="background_gradient_setting" formatted="false">Fitarwa ta baya</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">Ajiyayyi</string>
+    <string name="backup_and_restore" formatted="false">Ajiyayyi da Maidawa</string>
+    <string name="backup_and_restore_subtitle" formatted="false">Ajiyayyi ko mayar da bayanan aikace-aikace</string>
+    <string name="backup_and_restore_title" formatted="false">Ajiyayyi &amp; Maidawa</string>
+    <string name="backup_failed" formatted="false">Ajiyayyi ta gaza</string>
+    <string name="backup_settings" formatted="false">Saitunan Ajiyayyi</string>
+    <string name="backup_to_cloud" formatted="false">Ajiyayyi zuwa Gajimare</string>
+    <string name="backup_to_cloud_failed" formatted="false">An kasa ajiyayyi zuwa gajimare: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">An yi ajiyayyi cikin nasara zuwa gajimare</string>
+    <string name="bank" formatted="false">Banki</string>
+    <string name="basic_info" formatted="false">Bayanai na Asali</string>
+    <string name="basic_rule_filter" formatted="false">Tace Dokoki na Asali</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">Tace kiran ta amfani da jerin bakar fata/gwaje-gwaje da lambobin regex</string>
+    <string name="basic_rule_filtering" formatted="false">Tace Dokoki na Asali</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• Tace Dokoki na Asali: Tace dokoki gwargwadon jerin bakar fata, jerin gwaje-gwaje, da regex</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">Shin haƙiƙa kuna son share lambobi {count} da aka zaɓa?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">Shin haƙiƙa kuna son share alamun {count} da aka zaɓa?</string>
+    <string name="battery_optimization_permission" formatted="false">Inganta Baturi</string>
+    <string name="battery_optimization_permission_description" formatted="false">Bada damar app ɗin ya gudana a bango don bayar da sabis kamar tantance mai kira.</string>
+    <string name="black_white_list" formatted="false">Jerin Bakar Fata/Gwaje-gwaje</string>
+    <string name="blacklist" formatted="false">Jerin Bakar Fata</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">Rubuta a jerin bakar fata da gwaje-gwaje</string>
+    <string name="block" formatted="false">Mata</string>
+    <string name="block_action_description" formatted="false">Za a toshe kiran kuma a nuna su a rajistar kira.</string>
+    <string name="block_calls" formatted="false">Mata kiran</string>
+    <string name="block_international_calls" formatted="false">ya dace da lambobi waɗanda basu fara da + ko 00 ba</string>
+    <string name="block_international_calls_title" formatted="false">Mata kiran kasa da kasa</string>
+    <string name="block_mobile_numbers" formatted="false">ya dace da lambobi waɗanda basu fara da 13-19 ba</string>
+    <string name="block_mobile_numbers_title" formatted="false">Mata lambobi na wayar hannu</string>
+    <string name="block_number" formatted="false">Toshe Lamba</string>
+    <string name="block_number_success" formatted="false">An toshe lambar da nasara</string>
+    <string name="block_premium_rate_numbers" formatted="false">ya dace da lambobi waɗanda basu fara da 118 ko 120-190 ba</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">Mata lambobi masu tsada</string>
+    <string name="block_rule" formatted="false">Dokar Mata</string>
+    <string name="block_rules" formatted="false">Dokokin Mata</string>
+    <string name="block_specific_area_codes" formatted="false">ya dace da lambobi masu fara da 0 + 2-3 lambobi</string>
+    <string name="block_specific_area_codes_title" formatted="false">Mata lambobin yankin takamaiman:</string>
+    <string name="block_type_analysis_title" formatted="false">Binciken Nau\'in Mata</string>
+    <string name="blocked" formatted="false">An Mata</string>
+    <string name="blocked_call_body" formatted="false">An toshe kira daga {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">Sanarwar Kira da aka Toshe</string>
+    <string name="blocked_call_notifications_description" formatted="false">Yana nuna bayani game da kira da aka toshe.</string>
+    <string name="blocked_call_title" formatted="false">Kira da aka toshe</string>
+    <string name="blocked_calls" formatted="false">Kiran da aka Mata</string>
+    <string name="blocked_calls_title" formatted="false">Kiran da aka Mata</string>
+    <string name="blocked_spam_calls" formatted="false">Kiran spam da aka Mata</string>
+    <string name="blocking_trend" formatted="false">Halin Mata</string>
+    <string name="both" formatted="false">Dukansu</string>
+    <string name="bulk_delete" formatted="false">Share Lambobi ta Rukuni</string>
+    <string name="bulk_delete_contacts" formatted="false">Share Lambobi ta Rukuni</string>
+    <string name="bulk_delete_labels" formatted="false">Share Alamomi ta Rukuni</string>
+    <string name="call" formatted="false">Kira</string>
+    <string name="call_blocking" formatted="false">Mata kiran</string>
+    <string name="call_details" formatted="false">Cikakkun Bayanan Kira</string>
+    <string name="call_filter_rules" formatted="false">Ka\'idodin Tace Kira</string>
+    <string name="call_filter_rules_description" formatted="false">Saita asali ka\'idodi don tace kira</string>
+    <string name="call_filter_settings" formatted="false">Saitunan Tace Kira</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">Saita iyakokin ƙimar kira da ka\'idodin toshewa</string>
+    <string name="call_frequency_interception_title" formatted="false">Cakulan Ƙimar Kira</string>
+    <string name="call_history" formatted="false">Tarihin Kira</string>
+    <string name="call_history_info_desc" formatted="false">Anan yana nuna tarihin kiranku, gami da kiran da aka karɓa, fita, da waɗanda aka rasa.</string>
+    <string name="call_history_info_title" formatted="false">Tarihin Kira</string>
+    <string name="call_history_tab" formatted="false">Tarihin Kira</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">Izinin Shirye-shiryen Kira</string>
+    <string name="call_screening_permission_description" formatted="false">Ana amfani da shi don dubawa da toshe kiran spam.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">An kasa bayar da izinin duba kira, zai iya shafar aikin app.</string>
+    <string name="call_statistics" formatted="false">Kididdigar Kira</string>
+    <string name="call_time" formatted="false">Lokacin Kira</string>
+    <string name="call_type" formatted="false">Nau\'in Kira</string>
+    <string name="call_type_answered" formatted="false">An Amsa</string>
+    <string name="call_type_blocked" formatted="false">An Toshe</string>
+    <string name="call_type_icon_color" formatted="false">Launin Gumakan Nauyin Kira</string>
+    <string name="call_type_missed" formatted="false">An Rasa Kira</string>
+    <string name="call_type_outgoing" formatted="false">Fita</string>
+    <string name="call_type_position" formatted="false">Matsayin Nauyin Kira</string>
+    <string name="call_type_rejected" formatted="false">An ƙi</string>
+    <string name="call_type_silenced" formatted="false">An yi shiru</string>
+    <string name="call_type_unknown" formatted="false">Babu Sani</string>
+    <string name="callback" formatted="false">Kira koma</string>
+    <string name="caller_id_app" formatted="false">Aikace-aikacen ID na wanda ya kira</string>
+    <string name="caller_id_customization_subtitle" formatted="false">Sanya Salo na ID Mai Kira</string>
+    <string name="caller_id_customization_title" formatted="false">Keɓance ID na wanda ya kira</string>
+    <string name="caller_id_display_mode" formatted="false">Hanyar Nuna ID Mai Kira</string>
+    <string name="caller_id_enhancement" formatted="false">Ingantaccen ID Mai Kira</string>
+    <string name="caller_id_marked_by_count" formatted="false">Alama ta {count}</string>
+    <string name="caller_id_notification_title" formatted="false">Bayanin Kira mai shigowa</string>
+    <string name="caller_id_preview" formatted="false">Binciken ID Mai Kira</string>
+    <string name="caller_id_settings_subtitle" formatted="false">Don Sanya Sanarwa &amp; Yanayin Nuni na Kira</string>
+    <string name="caller_id_settings_title" formatted="false">Saitunan ID Mai Kira</string>
+    <string name="calling_number_failed" formatted="false">Kira lambar ya gaza</string>
+    <string name="cancel" formatted="false">Soke</string>
+    <string name="cancel_button" formatted="false">Soke</string>
+    <string name="cancel_local_notification" formatted="false">Rufe Sanarwa ta Gida</string>
+    <string name="cancel_local_notification_description" formatted="false">Rufe Sanarwa ta Gida ta atomatik</string>
+    <string name="car_rental" formatted="false">Hayar Mota</string>
+    <string name="carrier" formatted="false">Mai ɗaukar Hoto</string>
+    <string name="carrier_color" formatted="false">Launin Mai ɗaukar Hoto</string>
+    <string name="carrier_font_size" formatted="false">Girman Font na Mai ɗaukar Hoto</string>
+    <string name="carrier_position" formatted="false">Matsayin Mai ɗaukar Hoto</string>
+    <string name="change_label" formatted="false">Canza Lakabi</string>
+    <string name="change_plugin_status_failed" formatted="false">Gaza canza matsayin plugin: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">Gaza canza matsayin biyan kuɗi: {error}</string>
+    <string name="charity" formatted="false">Agaji</string>
+    <string name="chart_one_week_ago" formatted="false">Mako 1 da ta wuce</string>
+    <string name="chart_three_days_ago" formatted="false">Kwanaki 3 da suka wuce</string>
+    <string name="chart_today" formatted="false">Yau</string>
+    <string name="check_file_format" formatted="false">Da fatan za a duba tsarin fayil ko izini</string>
+    <string name="check_permission_failed" formatted="false">Gaza duba izini: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">Zaɓi aikin dakatarwa na tsohuwa</string>
+    <string name="clear_all_call_logs" formatted="false">Share Duk Tarihin Kira</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">Tabbatar don share duk tarihin kira</string>
+    <string name="clear_all_notifications" formatted="false">Share Duk Sanarwa</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">Tabbatar don share duk sanarwa</string>
+    <string name="clear_button" formatted="false">Share</string>
+    <string name="clear_filter" formatted="false">Share Tace</string>
+    <string name="clear_label_filter_button" formatted="false">Share Tace Lakabi</string>
+    <string name="close_button" formatted="false">Rufe</string>
+    <string name="cloud_backup" formatted="false">Ajiyayye na Girgije</string>
+    <string name="cloud_sync" formatted="false">Daidaita ta Gizon</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">Daidaita ta Gizon &amp; Ajiyayye</string>
+    <string name="cloud_sync_service" formatted="false">Sabis na Hadin Kai na Girgije</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">Sanya WebDAV, OneDrive, da Google Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">Saitunan Daidaita ta Gizon</string>
+    <string name="cloud_sync_title" formatted="false">Daidaita ta Gizon</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">Tarar Bashi</string>
+    <string name="color_picker_title" formatted="false">Zaɓi Launi</string>
+    <string name="community_impact" formatted="false">Tasirin Al\'umma</string>
+    <string name="community_participation" formatted="false">Shigowar Al\'umma</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">Zaɓen Al\'umma</string>
+    <string name="community_voting_started" formatted="false">An Fara Zaɓen Al\'umma</string>
+    <string name="community_voting_started_body" formatted="false">Wata sabuwar shawarar goge bayani don {phoneNumber} ta buɗe yanzu don zaɓen al\'umma.</string>
+    <string name="completed" formatted="false">AN KAMMALA</string>
+    <string name="config_management" formatted="false">Gudanarwar Sanyi</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">An sabunta sanyi</string>
+    <string name="configuration_advice" formatted="false">Ta hanyar da ta dace, zaku iya saita daban-daban hanyoyin tacewa don katunan SIM na aiki da na sirri.</string>
+    <string name="configure_backup_options" formatted="false">Sanya zaɓuɓɓukan Ajiyayye</string>
+    <string name="configure_cloud_sync_service" formatted="false">Sanya sabis na Daidaita ta Gizon</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">Da fatan za a saita sabis na daidaita ta gizon don kunna daidaita na\'urori da yawa.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">Sanya Ka\'idodin Tace Katin SIM</string>
+    <string name="confirm" formatted="false">Tabbatar</string>
+    <string name="confirm_button" formatted="false">Tabbatar</string>
+    <string name="confirm_delete" formatted="false">Tabbatar Sharewa</string>
+    <string name="confirm_delete_label" formatted="false">Kuna tabbatar da cewa kuna son share lakabi &quot;{name}&quot;</string>
+    <string name="confirm_delete_plugin" formatted="false">Kuna tabbatar da cewa kuna son share plugin &quot;{name}&quot;?</string>
+    <string name="confirm_delete_plugins" formatted="false">Kuna tabbatar da cewa kuna son share plugins {count} ?</string>
+    <string name="confirm_delete_rule_message" formatted="false">Kuna tabbatar da cewa kuna son share wannan ka\'idar? Wannan aikin ba za a iya mayar da shi ba.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">Kuna tabbatar da cewa kuna son share wannan ka\'idar tace SMS?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">Kuna tabbatar da cewa kuna son share wannan ka\'idar SMS?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">Kuna tabbatar da cewa kuna son share {name}?</string>
+    <string name="confirm_password" formatted="false">Tabbatar Kalmar Wucewa</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">An Haɗa</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">Haɗin ya gaza: Da fatan za a duba adireshin uwar garke, sunan mai amfani, da kalmar wucewa</string>
+    <string name="connection_failed_message" formatted="false">Haɗin ya gaza</string>
+    <string name="connection_status_label" formatted="false">Halin Haɗin</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">An yi nasarar haɗawa</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">An ƙara lamba a nasara</string>
+    <string name="contact_deleted" formatted="false">An goge lamba</string>
+    <string name="contact_name_label" formatted="false">Suna</string>
+    <string name="contact_not_found" formatted="false">Ba a sami lamba ba</string>
+    <string name="contact_subscription_description" formatted="false">Yi rijistar jerin lambobi ta hanyar URL, dawo da sabbin bayanan lamba da lakabi. Yana goyan bayan bayanan tsarin JSON.</string>
+    <string name="contact_update_success" formatted="false">An sabunta lamba a nasara</string>
+    <string name="contact_us" formatted="false">Tuntube Mu</string>
+    <string name="contacts" formatted="false">lambobi</string>
+    <string name="contacts_deleted" formatted="false">An goge lambobi {count}</string>
+    <string name="contacts_management" formatted="false">Gudanar da Lambobi</string>
+    <string name="contacts_permission" formatted="false">Izinin Lambobi</string>
+    <string name="contacts_permission_description" formatted="false">Ana amfani dashi don gano kiran lambobi.</string>
+    <string name="contacts_tab" formatted="false">Lambobi</string>
+    <string name="container_width" formatted="false">Nisan Akwati</string>
+    <string name="content" formatted="false">Abun ciki</string>
+    <string name="content_regex" formatted="false">Abun ciki Regex</string>
+    <string name="count_color" formatted="false">Launin Ƙididdiga</string>
+    <string name="count_font_size" formatted="false">Girman Font Ƙididdiga</string>
+    <string name="count_position" formatted="false">Matsayin Ƙididdiga</string>
+    <string name="count_threshold_description" formatted="false">Saita mafi ƙarancin iyaka na Ƙididdiga da ake buƙata don kunna ayyukan tacewa</string>
+    <string name="count_threshold_label" formatted="false">Iyaka Ƙididdiga</string>
+    <string name="country" formatted="false">Ƙasa</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">misali, US, CN, GB</string>
+    <string name="country_code_label" formatted="false">Lambobin Ƙasa (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">Lambobin ƙasa wajibi ne</string>
+    <string name="country_code_two_letters" formatted="false">Lambobin Ƙasa (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">Don Allah lura: Database ɗin bazai haɗa da bayanai na dukkan ƙasashe ko yankuna ba.</string>
+    <string name="country_name_color" formatted="false">Launin Sunan Ƙasa</string>
+    <string name="country_name_font_size" formatted="false">Girman Font Sunan Ƙasa</string>
+    <string name="country_region_name_position" formatted="false">Matsayin Sunan Ƙasa/Yanki</string>
+    <string name="country_sync_settings_subtitle" formatted="false">Zaɓi ƙasashe don daidaita bayanai</string>
+    <string name="country_sync_settings_title" formatted="false">Saitunan Haɗin Database Dangane da Kasa</string>
+    <string name="create_proposal" formatted="false">Ƙirƙiri Shawara</string>
+    <string name="create_proposal_title" formatted="false">Ƙirƙiri Shawarar Goge Bayani</string>
+    <string name="created_at" formatted="false">An Ƙirƙira: {date}</string>
+    <string name="created_rules" formatted="false">Ka\'idojin da aka kirkira</string>
+    <string name="critical" formatted="false">Mai Mahimmanci</string>
+    <string name="critical_issues" formatted="false">Batutuwa Masu Mahimmanci</string>
+    <string name="csv_format" formatted="false">Tsarin CSV</string>
+    <string name="current_device_label" formatted="false">Lakabin Na\'ura ta Yanzu</string>
+    <string name="current_device_title" formatted="false">Na\'ura ta Yanzu</string>
+    <string name="current_language" formatted="false">Harshen Yanzu</string>
+    <string name="current_mark_count" formatted="false">Yawan Marki na Yanzu</string>
+    <string name="custom" formatted="false">Musamman</string>
+    <string name="custom_action_description" formatted="false">Yi wani aiki na musamman.</string>
+    <string name="customer_service" formatted="false">Sabis na Abokin Ciniki</string>
+    <string name="dashboard_tab" formatted="false">Dashboard</string>
+    <string name="data_analysis" formatted="false">Binciken Bayanai</string>
+    <string name="data_load_failure" formatted="false">An kasa loda bayanan: {error}</string>
+    <string name="data_loading_failed" formatted="false">An kasa loda bayanan: {error}</string>
+    <string name="data_migration" formatted="false">Hijira ta Bayanai</string>
+    <string name="data_migration_description" formatted="false">Wannan fasalin yana ba ku damar canja wurin duk bayanan ku tsakanin na\'urori. A halin yanzu, zaku iya amfani da fasalolin madauki da maidowa don canja wurin bayanan ku.</string>
+    <string name="data_source_disclaimer" formatted="false">Ana samun lambobi daga intanet da kuma ta hanyar gabatarwa daga masu amfani. Ba za mu iya ba da tabbacin cewa wata lamba, da zarar an share ta, ba za a sake gabatar da ita ba ta wasu masu amfani ko tushe. Da fatan za a bincika da kuma tabbatar da bayanan da kanka.</string>
+    <string name="data_source_reminder" formatted="false">Taimakon Madogarar Bayanai</string>
+    <string name="database_sync_title" formatted="false">Haɗin Database</string>
+    <string name="days" formatted="false">{count, plural, =1{1 rana} other{{count} ranaku}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{kwana 1 da suka wuce} other{{count} kwanaki da suka wuce}}</string>
+    <string name="days_vip" formatted="false">{days} Ranar VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">Tattalin Bashi</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">Sanarwa na Asali</string>
+    <string name="default_notifications_description" formatted="false">Tashar sanarwa ta asali don manhajar.</string>
+    <string name="delete" formatted="false">Goge</string>
+    <string name="delete_button" formatted="false">Goge</string>
+    <string name="delete_contact" formatted="false">Goge Lamba</string>
+    <string name="delete_contact_confirm" formatted="false">Kuna tabbata kana son goge {name}?</string>
+    <string name="delete_failed" formatted="false">An gaza gogewa: {error}</string>
+    <string name="delete_label" formatted="false">Goge Lakabi</string>
+    <string name="delete_label_failed" formatted="false">An gaza goge lakabi: {error}</string>
+    <string name="delete_plugin" formatted="false">Goge Plugin</string>
+    <string name="delete_plugin_failed" formatted="false">An gaza goge plugin: {error}</string>
+    <string name="delete_plugins" formatted="false">Goge Plugins</string>
+    <string name="delete_plugins_failed" formatted="false">An gaza goge plugins: {error}</string>
+    <string name="delete_rule" formatted="false">Goge Ka\'ida</string>
+    <string name="delete_rule_failed" formatted="false">An gaza goge: {error}</string>
+    <string name="delete_selected" formatted="false">Goge Abubuwan da aka Zaba</string>
+    <string name="delete_subscription" formatted="false">Goge Rajista</string>
+    <string name="delete_subscription_confirm" formatted="false">Kuna tabbata kana son goge rijista &quot;{name}&quot;?</string>
+    <string name="delete_subscription_failed" formatted="false">An gaza goge rijista: {error}</string>
+    <string name="delete_success" formatted="false">An goge a nasara</string>
+    <string name="deletion_proposal" formatted="false">Shawarar Goge Bayani</string>
+    <string name="deletion_proposal_created" formatted="false">An Ƙirƙiri Shawarar Goge Bayani</string>
+    <string name="deletion_proposal_created_body" formatted="false">An miƙa shawarar ka ta goge bayani don {phoneNumber} don nazarin al\'umma.</string>
+    <string name="deletion_proposal_description" formatted="false">Miƙa shawarar lambobi don gogewa waɗanda suka saba wa ƙa\'idodin al\'umma. Shigar ka na taimakawa wajen kiyaye tsaron dandalin.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">Sanarwa game da sakamakon zaɓen shawarwarin gogewa da sabuntawa.</string>
+    <string name="deletion_proposals" formatted="false">Shawarar Goge Bayani</string>
+    <string name="delivery" formatted="false">Isarwa</string>
+    <string name="description" formatted="false">Bayani</string>
+    <string name="detailed_settings_title" formatted="false">Cikakkun Saituna</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">ID Na\'ura</string>
+    <string name="device_management_subtitle" formatted="false">Gudanar da daidaita na\'urori da yawa</string>
+    <string name="device_management_title" formatted="false">Gudanar da Na\'ura</string>
+    <string name="device_model_label" formatted="false">Samfurin Na\'ura</string>
+    <string name="device_name" formatted="false">Sunan Na\'ura</string>
+    <string name="device_name_label" formatted="false">Sunan Na\'ura</string>
+    <string name="device_renamed_successfully_message" formatted="false">An sake suna na\'urar cikin nasara</string>
+    <string name="device_unregistered_successfully_message" formatted="false">An cire rajistar na\'urar cikin nasara</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">An daidaita na\'urori cikin nasara</string>
+    <string name="dialog_title" formatted="false">Bayanin Tsarin Regex</string>
+    <string name="different_from_local_counter" formatted="false">Wannan fasalin ya bambanta da tacewa ta ƙididdiga ta gida, saboda yana mai da hankali kan tsarin kira mai maimaitawa cikin ɗan gajeren lokaci maimakon lissafin alama na dogon lokaci.</string>
+    <string name="disable_global_plugins" formatted="false">Kashe manyan plugins na duniya</string>
+    <string name="disabled" formatted="false">An kashe</string>
+    <string name="disabled_status" formatted="false">An kashe</string>
+    <string name="disconnect_button" formatted="false">Yanke</string>
+    <string name="disconnect_failed_message" formatted="false">Yanke ya kasa</string>
+    <string name="disconnected_message" formatted="false">An yanke</string>
+    <string name="disconnected_status" formatted="false">An yanke</string>
+    <string name="done" formatted="false">An gama</string>
+    <string name="dual_sim_advice" formatted="false">Wannan fasalin yana da amfani musamman ga wayoyin dual-SIM don saita daban-daban dabarun tacewa don SIM katin aiki da na sirri.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">Lambar E164</string>
+    <string name="earlier" formatted="false">A baya</string>
+    <string name="earned_temp_vip" formatted="false">An samu VIP na wucin gadi</string>
+    <string name="ecommerce" formatted="false">Ecommerce</string>
+    <string name="edit" formatted="false">Gyara</string>
+    <string name="edit_contact" formatted="false">Gyara Lara</string>
+    <string name="edit_label" formatted="false">Gyara Lakabi</string>
+    <string name="edit_phone_rule" formatted="false">Gyara Kaidar Wayar</string>
+    <string name="edit_rule" formatted="false">Gyara Kaida</string>
+    <string name="edit_script" formatted="false">Gyara Rubutun</string>
+    <string name="edit_script_for" formatted="false">Gyara rubutu don {pluginName}</string>
+    <string name="edit_subscription" formatted="false">Gyara Rajista</string>
+    <string name="education" formatted="false">Ilimi</string>
+    <string name="element_positions_setting" formatted="false">Bayanin Matsayin Abubuwa</string>
+    <string name="elements_settings_title" formatted="false">Saitunan Abubuwa</string>
+    <string name="email" formatted="false">Imel</string>
+    <string name="enable_call_filter" formatted="false">Ba da damar Tacewar Kira</string>
+    <string name="enable_call_filter_description" formatted="false">Lokacin da aka kunna, ana duba kiran shigowa akan jerin ka\'idoji a ƙasa. Ka\'idojin tacewar kira ba sa daidaitawa tsakanin na\'urori ta tsohuwa.</string>
+    <string name="enable_encryption" formatted="false">Ba da damar Encryption</string>
+    <string name="enable_encryption_description" formatted="false">Daidaita fayilolin ajiyar ku</string>
+    <string name="enable_filtering" formatted="false">Kunna Tace</string>
+    <string name="enable_fraud_alert" formatted="false">Kunna Gargadi game da Zamba</string>
+    <string name="enable_fraud_alert_description" formatted="false">Gargadi game da kiran da ake zaton zamba</string>
+    <string name="enable_global_plugins" formatted="false">Ba da damar manyan plugins na duniya</string>
+    <string name="enable_local_count_filter" formatted="false">Ba da damar Tacewar Ƙididdiga ta Gida</string>
+    <string name="enable_local_count_filter_description" formatted="false">T automatically filter spam calls based on call marking count</string>
+    <string name="enable_local_notification" formatted="false">Yi amfani da Sanarwa ta Gida</string>
+    <string name="enable_local_notification_description" formatted="false">Lokacin da aka kunna, za a nuna sanarwa don saƙonnin da aka tace a kan na\'ura</string>
+    <string name="enable_location_summary" formatted="false">Wuri</string>
+    <string name="enable_mute_rules" formatted="false">Ba da damar Ka\'idojin Shiru</string>
+    <string name="enable_mute_rules_desc" formatted="false">Aiwatar da saitunan ka\'idojin tsangwama na shiru</string>
+    <string name="enable_none_action_rules" formatted="false">Ba da damar Ka\'idojin Babu Aiki</string>
+    <string name="enable_none_action_rules_desc" formatted="false">Bada damar saitunan ka\'ida ba tare da ayyukan tsangwama ba</string>
+    <string name="enable_remote_number_filter" formatted="false">Ba da damar Tacewar Lambobin Nesa</string>
+    <string name="enable_remote_number_filter_description" formatted="false">Yi amfani da bayanan lambobin nesa don tace lambobi</string>
+    <string name="enable_rule" formatted="false">Ba da damar Kaida</string>
+    <string name="enable_security_message" formatted="false">Kunna Saƙon Tsaro</string>
+    <string name="enable_sms_filter" formatted="false">Ba da damar Tacewar SMS</string>
+    <string name="enable_sms_filter_description" formatted="false">Lokacin da aka kunna, za a tace saƙonni ta atomatik bisa ga ka\'idoji</string>
+    <string name="enable_time_interception" formatted="false">Ba da damar Tsangwamawa ta Lokaci</string>
+    <string name="enable_time_interception_description" formatted="false">Tsangwama ga kiran da aka maimaita a cikin ɗan gajeren lokaci</string>
+    <string name="enable_time_interceptor" formatted="false">Ba da damar Tsangwamawa ta Lokaci</string>
+    <string name="enable_vibration" formatted="false">Kunna Girgiza</string>
+    <string name="enable_vibration_description" formatted="false">Yi girgiza lokacin da aka yi zargin kiran zamba</string>
+    <string name="enabled" formatted="false">An kunna</string>
+    <string name="enabled_status" formatted="false">An kunna</string>
+    <string name="end_call_immediately" formatted="false">A ƙare kira nan take</string>
+    <string name="end_color" formatted="false">Kammala Launi</string>
+    <string name="end_date" formatted="false">Ranar Kammalawa</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">Bayanin Tsarin Tacewa na Ingantacce</string>
+    <string name="enhanced_filter_settings" formatted="false">Saitunan Tacewa na Ingantacce</string>
+    <string name="enhanced_filter_settings_title" formatted="false">Saitunan Tacewa na Ingantacce</string>
+    <string name="enhanced_filter_system_description" formatted="false">Tsarin tacewa na ingantacce yana goyan bayan ka\'idoji na duniya da kuma saitunan tacewa na kowane SIM.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">Da fatan za a shigar da duka lambar waya da tsarin regex.</string>
+    <string name="enter_contact_name" formatted="false">Da fatan za a shigar da sunan lamba</string>
+    <string name="enter_device_name" formatted="false">Shigar da Sunan Na\'ura</string>
+    <string name="enter_email_optional" formatted="false">Shigar da Imel (na son rai)</string>
+    <string name="enter_encryption_password_hint" formatted="false">Shigar da kalmar sirrin ɓoye</string>
+    <string name="enter_icon_code" formatted="false">Shigar da Lambar Alama</string>
+    <string name="enter_name" formatted="false">Shigar da Sunan Lara</string>
+    <string name="enter_new_device_name_hint" formatted="false">Shigar da sabon suna ga wannan na\'urar</string>
+    <string name="enter_password_again" formatted="false">Shigar da Kalmar Sirri A Sake</string>
+    <string name="enter_phone_number" formatted="false">Shigar da Lambar Wayar</string>
+    <string name="enter_phone_number_hint" formatted="false">Shigar da lambar waya don gwadawa</string>
+    <string name="enter_phone_number_multiple" formatted="false">Da fatan za a shigar da lambar waya, lambobi da yawa da aka raba da commas</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">Shigar da lambar waya don fara bincike</string>
+    <string name="enter_phone_number_to_verify" formatted="false">Shigar da lambar waya don tabbatarwa</string>
+    <string name="enter_plugin_description" formatted="false">Shigar da bayanin plugin</string>
+    <string name="enter_plugin_name" formatted="false">Shigar da Sunan Plugin</string>
+    <string name="enter_plugin_url" formatted="false">Shigar da adireshin URL na plugin</string>
+    <string name="enter_regex_hint" formatted="false">Shigar da tsarin regex</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">Da fatar sunan mulki da kuma tsarin regex.</string>
+    <string name="enter_rule_name_hint" formatted="false">Shigar da sunan mulki</string>
+    <string name="enter_search_content" formatted="false">Da fatar abin bincike</string>
+    <string name="enter_subscription_name" formatted="false">Shigar da sunan biyan kuɗi</string>
+    <string name="enter_subscription_url" formatted="false">Shigar da adireshin yanar gizo na biyan kuɗi</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">Da fatar sunan babban fayil ɗin haɗin kai (na al\'ada: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">Da fatar ingantaccen sunan da adireshin yanar gizo</string>
+    <string name="enter_valid_url" formatted="false">Da fatar ingantaccen adireshin yanar gizo</string>
+    <string name="enter_version" formatted="false">Shigar da Sigar</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">Da fatar kalmar sirri ta WebDAV</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">Da fatar adireshin uwar garken WebDAV</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">Da fatar sunan mai amfani na WebDAV</string>
+    <string name="entertainment" formatted="false">Nishaɗi</string>
+    <string name="entity_export_failed" formatted="false">Ya kasa fitarda {entityTypeName}: {error}</string>
+    <string name="entity_export_success" formatted="false">An fitarda {entityTypeName} cikin nasara</string>
+    <string name="entity_import_failed" formatted="false">Ya kasa shigo da {entityTypeName}: {error}</string>
+    <string name="entity_import_success" formatted="false">An shigo da {entityTypeName} cikin nasara, an shigo da jimillar bayanai {count}</string>
+    <string name="entry_point_view_title" formatted="false">Taga Fara Shiga</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">Kuskure: {error}</string>
+    <string name="error_occurred_message" formatted="false">Kuskure ya faru: {error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">Kuskuren sake suna na\'ura: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">Kuskuren haɗin na\'urori: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">Kuskuren cire rajistar na\'ura: {error}</string>
+    <string name="example_block400_prefix" formatted="false">misali. Lambobi na prefix na Block 400</string>
+    <string name="example_block_marketing_sms" formatted="false">misali. Block SMS na tallatawa</string>
+    <string name="example_content_regex_hint" formatted="false">Misali na abun ciki Regex</string>
+    <string name="example_coupon_promotion_discount" formatted="false">misali. .*(coupon|promotion|discount).*</string>
+    <string name="example_family_friends" formatted="false">misali. Iyali, Abokai, da dai sauransu.</string>
+    <string name="example_phone_number" formatted="false">misali. 10086, 12345, da dai sauransu.</string>
+    <string name="example_regex400_prefix" formatted="false">Misali regex don prefix 400</string>
+    <string name="example_sender_regex_hint" formatted="false">Misali</string>
+    <string name="exchange" formatted="false">Tukarwa</string>
+    <string name="exchange_failed" formatted="false">Musanyawa ya gaza: {error}</string>
+    <string name="exchange_now" formatted="false">Tukarwa Yanzu</string>
+    <string name="exchange_success" formatted="false">An musanya da nasara don {description}, ranar ƙarewa: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">Tukarwa VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">Lokacin karewa: {time}</string>
+    <string name="export" formatted="false">Fitowa</string>
+    <string name="export_all_application_settings" formatted="false">Fitowa duk saitunan aikace-aikace</string>
+    <string name="export_all_rule_configurations" formatted="false">Fitowa Duk Shirye-shiryen Mulki</string>
+    <string name="export_config" formatted="false">Fitowa Saituna</string>
+    <string name="export_contacts" formatted="false">Fitowa Abokan Hulɗa</string>
+    <string name="export_data" formatted="false">Fitowa Bayanai</string>
+    <string name="export_entity" formatted="false">Fitarda {entityTypeName}</string>
+    <string name="export_failed" formatted="false">Fitowa Ta Gaza</string>
+    <string name="export_failure" formatted="false">Ta kasa fitowa da tsari</string>
+    <string name="export_feature_coming_soon" formatted="false">Fitowa fasalulluka na zuwa nan da nan</string>
+    <string name="export_labels" formatted="false">Fitowa Lakabi</string>
+    <string name="export_labels_failed" formatted="false">Ta kasa fitowa da lakabi: {error}</string>
+    <string name="export_plugin_list" formatted="false">Fitowa Jerin Plugin</string>
+    <string name="export_plugin_list_failed" formatted="false">Ta kasa fitowa da jerin plugin: {error}</string>
+    <string name="export_rules" formatted="false">Fitowa Mulki</string>
+    <string name="export_sms_rules" formatted="false">Fitowa Mulkin SMS</string>
+    <string name="export_statistics_data" formatted="false">Fitowa Bayanai na Kididdiga</string>
+    <string name="export_successlly" formatted="false">An fitar da tsari cikin nasara</string>
+    <string name="failed_to_add_rule" formatted="false">Ta kasa ƙara mulki: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">Ta kasa ƙara biyan kuɗin SMS: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">Ta kasa adana saituna: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">Ta kasa buɗe fayil ɗin ajiyar da aka ɓoye</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">Ta kasa goge mulkin SMS: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">Ta kasa fitowa da mulki: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">Ta kasa samun bayanin ID mai kira: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">Ta kasa shigo da mulki: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">Ta kasa dawo da saituna</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">Ta kasa dawo da saituna: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">Ta kasa canza matsayin mulki: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">Abokan Hulɗa da Aka fi So</string>
+    <string name="feature" formatted="false">Fasali</string>
+    <string name="feature_add_rules" formatted="false">• Ƙara mulki na musamman ga lambobin waya</string>
+    <string name="feature_center" formatted="false">Cibiyar Fasalulluka</string>
+    <string name="feature_enable_disable" formatted="false">• Kunna/kashe masu tace daban-daban ga kowane SIM</string>
+    <string name="feature_list_title" formatted="false">Fasalulluka:</string>
+    <string name="feature_manage_rules" formatted="false">• Sarrafa jerin mulki ga kowane SIM</string>
+    <string name="features" formatted="false">Fasalulluka</string>
+    <string name="fetching_caller_id_info" formatted="false">Ana karɓar bayanin ID mai kira...</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">An adana fayil a: {path}</string>
+    <string name="filter" formatted="false">Tace</string>
+    <string name="filter_and_sort_title" formatted="false">Tace da Tsara</string>
+    <string name="filter_by" formatted="false">Tace ta</string>
+    <string name="filter_by_action" formatted="false">Tace ta Aiki</string>
+    <string name="filter_by_label" formatted="false">Tace ta Lakabi</string>
+    <string name="filter_control_panel_title" formatted="false">Majalisar Sarrafa Tace</string>
+    <string name="filter_control_subtitle" formatted="false">Sarrafa matsayin kunnawa/kashewa na duk masu tace</string>
+    <string name="filter_control_title" formatted="false">Tsofawa</string>
+    <string name="filter_explanation" formatted="false">Bayanin Tace</string>
+    <string name="filter_management" formatted="false">Gudanarwar Tace</string>
+    <string name="filter_management_description" formatted="false"> Saitin Tacewar Kira</string>
+    <string name="filter_name" formatted="false">Sunan Tace</string>
+    <string name="filter_priority_note" formatted="false">Lura: Akwai dangantakar fifiko tsakanin tace, da fatan duba littafin taimako don cikakkun bayanai</string>
+    <string name="filter_s_m_s" formatted="false">Tace SMS</string>
+    <string name="filter_settings" formatted="false">Saitunan Tace</string>
+    <string name="filter_settings_title" formatted="false">Saitunan Tace</string>
+    <string name="filter_toggle_instructions" formatted="false">Kunna ko kashe tace don wannan ramin SIM:</string>
+    <string name="filter_toggle_status" formatted="false">Tace {status}: {filterName}</string>
+    <string name="filter_type" formatted="false">Nau\'in Tace</string>
+    <string name="filter_verified_owner" formatted="false">Tace Ma\'abocin da Aka Tabbatar</string>
+    <string name="filtered" formatted="false">An Tace</string>
+    <string name="final_risk" formatted="false">Hadari Na Ƙarshe</string>
+    <string name="financial" formatted="false">Kudi</string>
+    <string name="flexible_combination_feature" formatted="false">• Haɗuwa masu sassauƙa: Kunna/kashe tace kowane ramin SIM</string>
+    <string name="font_sizes_setting" formatted="false">Girma Font</string>
+    <string name="found_rules" formatted="false">An Sami dokoki {count}</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">Don Saitin Gargadi game da Zamba</string>
+    <string name="fraud_aler_setting_title" formatted="false"> Saitin Gargadi game da Zamba</string>
+    <string name="fraud_alert" formatted="false">GARGADI MAKU - Kashe kiran</string>
+    <string name="fraud_alert_title" formatted="false">Gargadi game da Zamba</string>
+    <string name="fraud_alerts" formatted="false">Faɗakarwar Zamba</string>
+    <string name="fraud_alerts_description" formatted="false">Yana nuna gargaɗi game da yiwuwar kiran zamba.</string>
+    <string name="fraud_scam_likely" formatted="false">Mai Haddarar Zamba</string>
+    <string name="free" formatted="false">Kyauta</string>
+    <string name="function_settings_title" formatted="false">Saitunan Ayyuka</string>
+    <string name="general_update_failure" formatted="false">An kasa sabuntawa: {error}</string>
+    <string name="get_free" formatted="false">Samu Kyauta</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Saita tace na duniya don duk katunan SIM:</string>
+    <string name="global_filter_feature" formatted="false">• Tace Duniya: Shirye-shiryen asali don duk kiran da ke shigowa</string>
+    <string name="global_filter_settings" formatted="false">Saitunan Tace Duniya</string>
+    <string name="global_settings" formatted="false">Saitunan Duniya</string>
+    <string name="google_drive_auth_description" formatted="false">Bada izini ta amfani da ID da mabudin Google Drive da aka saita na tsarin</string>
+    <string name="google_drive_config_title" formatted="false">Saitunan Google Drive</string>
+    <string name="government" formatted="false">Gwamnati</string>
+    <string name="grant_necessary_permissions" formatted="false">Ba da Izini masu Buƙata</string>
+    <string name="grant_permissions" formatted="false">Ba da Izini</string>
+    <string name="granted" formatted="false">An Ba</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">An ba ku gatan siyan wucin gadi na {days} kwanaki. Ranar ƙarewa: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">Jagororin</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">Kun riga kuna da gatan wucin gadi, ranar ƙarewa: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">Kun riga kuna da gatan VIP (ban da tallace-tallace)</string>
+    <string name="headhunter" formatted="false">Mai Neman Ayyuka</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Tsayi</string>
+    <string name="high" formatted="false">Mai Girma</string>
+    <string name="high_risk" formatted="false">Hatsari Mai Girma</string>
+    <string name="home_tab" formatted="false">Farko</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{awa 1 da suka wuce} other{{count} awanni da suka wuce}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{sa\'o\'i 0} =1{awa 1} other{sa\'o\'i {count}}}</string>
+    <string name="how_it_works_point1" formatted="false">• Tsarin zai ta atomatik ba da damar kiran daga lambar da ta dace a cikin lokacin da aka saita</string>
+    <string name="how_it_works_point2" formatted="false">• Ƙananan lokaci yana haifar da tsauraran hana; tsawon lokaci yana haifar da hana mai sassauƙa</string>
+    <string name="how_it_works_point3" formatted="false">• Tsarin yana duba rajistar kiran don sanin ko kira ne mai maimaitawa</string>
+    <string name="how_it_works_title" formatted="false">Yadda Ake Aiki:</string>
+    <string name="icon_code_optional" formatted="false">Lambar Alama (Na Zaɓi)</string>
+    <string name="icon_size" formatted="false">Girma Alama</string>
+    <string name="import" formatted="false">Shigo</string>
+    <string name="import_config" formatted="false">Shigo da Saitunan</string>
+    <string name="import_contacts" formatted="false">Shigo da Lambobin Sadarwa</string>
+    <string name="import_entity" formatted="false">Shigo da {entityTypeName}</string>
+    <string name="import_export" formatted="false">Shigo/Fitarda</string>
+    <string name="import_export_contacts" formatted="false">Shigo/Fitar da Lambobin Sadarwa</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Shigo/Fitar da Lambobin Sadarwa</string>
+    <string name="import_export_description" formatted="false">Shigo ko fitar da bayanan {entityTypeName}</string>
+    <string name="import_export_rules" formatted="false">Shigo/Fitar da Dokoki</string>
+    <string name="import_export_title" formatted="false">Shigo/Fitarda</string>
+    <string name="import_failed" formatted="false">An kasa shigo da: {error}</string>
+    <string name="import_failure" formatted="false">An kasa shigo da saitunan</string>
+    <string name="import_feature_coming_soon" formatted="false">Fitar shigo da zai zo nan bada jimawa ba</string>
+    <string name="import_labels" formatted="false">Shigo da Lakabi</string>
+    <string name="import_labels_failed" formatted="false">An kasa shigo da lakabi: {error}</string>
+    <string name="import_plugin_list" formatted="false">Shigo da Jerin Plugin</string>
+    <string name="import_plugin_list_failed" formatted="false">An kasa shigo da jerin plugin: {error}</string>
+    <string name="import_plugin_success" formatted="false">An shigo da plugins {count} cikin nasara</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Shigo da Shirye-shiryen Doka daga Fayil</string>
+    <string name="import_rules" formatted="false">Shigo da Dokoki</string>
+    <string name="import_success" formatted="false">An shigo da cikin nasara</string>
+    <string name="important" formatted="false">Mahimmanci</string>
+    <string name="important_notice_title" formatted="false">Sanarwa Mai Muhimmanci</string>
+    <string name="incoming_call_intercept_action" formatted="false">Aikin Hana Kiran da ke Shigo</string>
+    <string name="incorrect_password" formatted="false">Makarancin Kalmar Sirri</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.</string>
+    <string name="initial_setup_deselect_all" formatted="false">Cire Zaɓi</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">Failed to get configuration</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">Retry</string>
+    <string name="initial_setup_save" formatted="false">One-click setup selected</string>
+    <string name="initial_setup_save_failed" formatted="false">Failed to save configuration: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Configuration saved successfully, rules will be fetched automatically soon</string>
+    <string name="initial_setup_saving" formatted="false">Saving...</string>
+    <string name="initial_setup_search_hint" formatted="false">Nemi tsari ko ƙasa...</string>
+    <string name="initial_setup_select_all" formatted="false">Zaɓi Duk</string>
+    <string name="initial_setup_selected_count" formatted="false">An Zaɓi {count}</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">Skip</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">Rule Library Setup</string>
+    <string name="initializing" formatted="false">Ana Fara</string>
+    <string name="installed" formatted="false">An Sanya</string>
+    <string name="insufficient_marks" formatted="false">Rasa Maki</string>
+    <string name="insurance" formatted="false">Inshora</string>
+    <string name="intercept_action" formatted="false">Aikin Hana</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Saita yadda ake sarrafa kiran da aka hana</string>
+    <string name="interception_action_settings_title" formatted="false">Saitunan Aikin Hana</string>
+    <string name="interception_time_interval" formatted="false">Lokacin Hana</string>
+    <string name="internet" formatted="false">Intanet</string>
+    <string name="interval_set_success" formatted="false">An saita tsawon lokaci {service} zuwa kwanaki {days}</string>
+    <string name="invalid_content_regex" formatted="false">Shirye-shiryen Abun Ciki Mara Inganci</string>
+    <string name="invalid_exchange_rule" formatted="false">Ƙa\'idar musayar mara inganci</string>
+    <string name="invalid_label" formatted="false">Hassas tambayi</string>
+    <string name="invalid_regex_pattern" formatted="false">Hassas regex pattern</string>
+    <string name="invalid_sender_regex" formatted="false">Hassas mai aikawa regex</string>
+    <string name="invalid_sim_data" formatted="false">Bayanin SIM mara inganci</string>
+    <string name="ip_country" formatted="false">Ƙasar IP</string>
+    <string name="is_number_match" formatted="false">Dacewar Lamba</string>
+    <string name="is_roaming" formatted="false">Yawo</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">Shiga Telegram Channel da Group don Karin Bayani</string>
+    <string name="json_format" formatted="false">JSON Tsarin</string>
+    <string name="just_now" formatted="false">Yanzun nan</string>
+    <string name="keep_all_versions" formatted="false">Ajiye Duk Sigogi</string>
+    <string name="keep_all_versions_description" formatted="false">Ajiye duk sigogin da suka gabata na kowane ajiyar waje</string>
+    <string name="label" formatted="false">Alama</string>
+    <string name="label_action_description" formatted="false">Ƙara lakabi ga kiran don sauƙin ganewa.</string>
+    <string name="label_added_successfully" formatted="false">Alamar &quot;{name}&quot; ta samu cikin nasara</string>
+    <string name="label_categories" formatted="false">Rukunan Alama</string>
+    <string name="label_deleted" formatted="false">An goge alama</string>
+    <string name="label_description" formatted="false">Alamomi suna taimaka muku sarrafa lamba, ƙara alamomi na musamman ga lambobin waya don sauƙin gano kiran da saƙonni.</string>
+    <string name="label_filter_tooltip" formatted="false">Alamar Tacewa</string>
+    <string name="label_icon_color" formatted="false">Lambar Launi Alama</string>
+    <string name="label_management" formatted="false">Sarrafa Alama</string>
+    <string name="label_not_found" formatted="false">Ba a sami alama ba</string>
+    <string name="label_tag" formatted="false">Alama: {labelId}</string>
+    <string name="label_update_failed" formatted="false">An kasa sabunta alama: {error}</string>
+    <string name="label_update_success" formatted="false">An sabunta alamar &quot;$labelText&quot; cikin nasara</string>
+    <string name="labels" formatted="false">Alamomi</string>
+    <string name="labels_color" formatted="false">Launukan Alamomi</string>
+    <string name="labels_deleted" formatted="false">An goge alamomi {count}</string>
+    <string name="labels_exported_successfully" formatted="false">An fitar da alamomi cikin nasara</string>
+    <string name="labels_font_size" formatted="false">Girman Font na Alamomi</string>
+    <string name="labels_imported_successfully" formatted="false">An shigo da alamomi {count} cikin nasara</string>
+    <string name="labels_position" formatted="false">Matsayin Alamomi</string>
+    <string name="language_settings" formatted="false">Saitunan Harshe</string>
+    <string name="language_settings_subtitle" formatted="false">Canza harshen aikace-aikacen nuni</string>
+    <string name="language_settings_title" formatted="false">Saitunan Harshe</string>
+    <string name="last_sync_label" formatted="false">Karshe Sync</string>
+    <string name="last_updated" formatted="false">Karshe Sabuntawa: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">Membobi na Rayuwa</string>
+    <string name="lifetime_membership_description" formatted="false">Siye sau daya, buɗe dukkan fasalulluka na premium da sabuntawa na gaba har abada</string>
+    <string name="list_view" formatted="false">Duban Jere</string>
+    <string name="live_activities_settings_title" formatted="false">Saitunan Ayyukan Kai tsaye</string>
+    <string name="live_activities_test_end_activity" formatted="false">Kawo Karshen Aiki</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">Aika Sabon Aiki</string>
+    <string name="live_activities_test_title" formatted="false">Gwaji Ayyukan Kai tsaye</string>
+    <string name="live_activities_test_update_activity" formatted="false">Sabunta Aiki</string>
+    <string name="live_activity_controls_title" formatted="false">Sarrafe-Sarrafe na Ayyukan Kai tsaye</string>
+    <string name="live_activity_mode" formatted="false">Ayyukan Kai tsaye</string>
+    <string name="live_activity_mode_description" formatted="false">Yana nuna bayanin kira a matsayin sanarwa mai dorewa akan allon kulle da kuma a cikin Dynamic Island (iOS).</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Saita yadda sanarwar kai tsaye zai bayyana.</string>
+    <string name="live_notification_customization_title" formatted="false">Saitin Sanarwa Na Kai tsaye</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">An kasa loda lambobi: {error}</string>
+    <string name="load_data_failed" formatted="false">An kasa loda bayanai</string>
+    <string name="load_label_failed" formatted="false">An kasa loda alamomi: {error}</string>
+    <string name="load_labels_failed" formatted="false">An kasa loda alamomi: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">An kasa loda lambobin waya da aka yiwa alama: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">An kasa loda lambobin waya da aka yiwa alama: {error}</string>
+    <string name="load_plugins_failed" formatted="false">An kasa loda plugins: {error}</string>
+    <string name="load_settings_failed" formatted="false">An kasa loda saituna: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">An kasa loda dokokin SMS: {error}</string>
+    <string name="load_status_failed_message" formatted="false">An kasa loda matsayi</string>
+    <string name="load_subscriptions_failed" formatted="false">An kasa loda rajista: {error}</string>
+    <string name="loading" formatted="false">Ana Loda...</string>
+    <string name="loading_ad" formatted="false">Ana ɗora Talla...</string>
+    <string name="loading_tags" formatted="false">Ana loda alamomi...</string>
+    <string name="loan" formatted="false">Lamuni</string>
+    <string name="local_count_filter" formatted="false">Tacewa ta Yankin Kididdiga</string>
+    <string name="local_count_filter_description" formatted="false">Cikewa kiran da ake yi akai-akai dangane da adadin lambobin gida</string>
+    <string name="local_count_filter_explanation_content" formatted="false">Tacewa ta Yankin Kididdiga tana nazarin bayanan tarihin kira don ganowa da toshe kiran spam da ake yi akai-akai ta atomatik.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">Bayanin Tacewa ta Yankin Kididdiga</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• Tantance ko za a toshe dangane da darajar lambar lambar</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• Lokacin da lambar lambar ta wuce iyakar da aka saita, zaku iya zaɓar toshe ta ta atomatik</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• Kuna iya zaɓar ƙyale lambobi waɗanda ba su wuce iyakar ba</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• Kuna iya zaɓar ko za a yi rikodin duk bayanan tambayoyi</string>
+    <string name="local_count_filter_settings" formatted="false">Saitunan Tacewa ta Yankin Kididdiga</string>
+    <string name="local_count_filter_use_cases" formatted="false">Wannan tacewa ta dace musamman don gano kiran spam da ake kira ta atomatik da kuma kiran tallan.</string>
+    <string name="local_count_filtering" formatted="false">Tacewa ta Yankin Kididdiga</string>
+    <string name="local_count_filtering_explanation" formatted="false">• Tacewa ta Yankin Kididdiga: Dokokin tacewa dangane da lambobi na gida</string>
+    <string name="local_counter_filter" formatted="false">Tacewa ta Yankin Kididdiga</string>
+    <string name="local_counter_filter_subtitle" formatted="false">Tattara kiran spam ta atomatik dangane da yawan kira</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">Saitunan Tacewa ta Gida</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">An kashe sanarwar gida</string>
+    <string name="local_notification_enabled" formatted="false">An kunna sanarwar gida</string>
+    <string name="local_services" formatted="false">Sabis na Gida</string>
+    <string name="location" formatted="false">Wuri</string>
+    <string name="location_color" formatted="false">Launi na Wuri</string>
+    <string name="location_font_size" formatted="false">Girman Font na Wuri</string>
+    <string name="location_icon_color" formatted="false">Launi na Alamar Wuri</string>
+    <string name="location_position" formatted="false">Matsayin Wuri</string>
+    <string name="log" formatted="false">Rajista</string>
+    <string name="log_action_description" formatted="false">Rubuta bayanan kiran ba tare da yin wani aiki ba.</string>
+    <string name="log_all_local_queries" formatted="false">Yi Rijistar Duk Tambayoyin Gida</string>
+    <string name="log_all_local_queries_description" formatted="false">Yi rikodin bayanan duk tambayoyin lambobin gida</string>
+    <string name="log_all_remote_queries" formatted="false">Yi Rijistar Duk Tambayoyin Nesa</string>
+    <string name="log_all_remote_queries_description" formatted="false">Yi rikodin duk ayyukan tambayar lambar nesa</string>
+    <string name="low" formatted="false">Ƙarami</string>
+    <string name="low_risk" formatted="false">Ƙaramin Hatsari</string>
+    <string name="manage" formatted="false">Gudanar da Lambobi</string>
+    <string name="manage_favorite_contacts" formatted="false">Gudanar da Lambobin da Aka Fi So</string>
+    <string name="manage_filter_rules" formatted="false">Gudanar da Dokokin Tacewa</string>
+    <string name="manage_filter_rules_description" formatted="false">Ƙara, gyara, ko share dokokin tacewa na SMS</string>
+    <string name="manual_entry" formatted="false">Bayanin Shigar da Hannu</string>
+    <string name="mark_count" formatted="false">Alamar Adadi</string>
+    <string name="mark_counts" formatted="false">Adadin Alama</string>
+    <string name="mark_exchange" formatted="false">Tushen Alama</string>
+    <string name="mark_more_numbers_for_more" formatted="false">Marka lambobi sama don samun ƙarin marki</string>
+    <string name="mark_phone" formatted="false">Yiwa Lambar Wayar Alama</string>
+    <string name="mark_phone_failed" formatted="false">An yi kasa mark phone number: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">Mark Phone Management</string>
+    <string name="mark_phone_success" formatted="false">An yi nasarar marking phone number</string>
+    <string name="marked_by_count" formatted="false">An yiwa alama da {count}</string>
+    <string name="marked_phones_list" formatted="false">Jerin Lambobin Wayar da Aka Yiwa Alama</string>
+    <string name="marks_insufficient" formatted="false">Alamomi basu isa don musanyawa ba</string>
+    <string name="master_and_overrides" formatted="false">Master Controls</string>
+    <string name="master_and_overrides_desc" formatted="false">Global Rule Settings</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">Match ya gaza.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">matches specific number format</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">Match lambobi tare da haruffa na musamman:</string>
+    <string name="match_specific_digit_patterns" formatted="false">matches XXX-XXXX-XXXX format</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">Match lambobi na musamman:</string>
+    <string name="match_successful_message" formatted="false">Match ya yi nasara!</string>
+    <string name="medical" formatted="false">Medical</string>
+    <string name="medium" formatted="false">Matsakaici</string>
+    <string name="medium_risk" formatted="false">Matsakaicin Hatsari</string>
+    <string name="membership_center" formatted="false">Cibiyar Membobin</string>
+    <string name="membership_privileges" formatted="false">Memba Privileges</string>
+    <string name="message_background_color" formatted="false">Launin Bango na Saƙo</string>
+    <string name="message_color" formatted="false">Launin Saƙo</string>
+    <string name="message_font_size" formatted="false">Girman Font na Saƙo</string>
+    <string name="message_position" formatted="false">Wurin Saƙo</string>
+    <string name="migration_tool" formatted="false">Migration Tool</string>
+    <string name="minutes" formatted="false">minutes</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{minti 1 da suka wuce} other{{count} mintuna da suka wuce}}</string>
+    <string name="moderate" formatted="false">Matsakaici</string>
+    <string name="month" formatted="false">Wata</string>
+    <string name="monthly" formatted="false">Wata-wata</string>
+    <string name="monthly_call_count" formatted="false">Wata-wata Kira</string>
+    <string name="monthly_membership" formatted="false">Wata-wata Memba</string>
+    <string name="monthly_membership_description" formatted="false">Bude duk premium fasali, sabunta ta atomatik duk wata</string>
+    <string name="monthly_total" formatted="false">Wata-wata Jimlar</string>
+    <string name="more_options" formatted="false"> Karin Zaɓuɓɓuka</string>
+    <string name="mute" formatted="false">Mute</string>
+    <string name="name" formatted="false">Suna</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">Suna da lambar waya ba za su iya zama fanko ba</string>
+    <string name="name_cannot_be_empty" formatted="false">Suna bazai zama fanko ba</string>
+    <string name="name_color" formatted="false">Suna Launi</string>
+    <string name="name_font_size" formatted="false">Suna Girman Font</string>
+    <string name="name_position" formatted="false">Suna Matsayi</string>
+    <string name="name_unknown" formatted="false">Suna: Ba a sani ba</string>
+    <string name="national_number" formatted="false">Lambar Ƙasa</string>
+    <string name="need_vip_access" formatted="false">Kuna buƙatar damar VIP don amfani da wannan fasali</string>
+    <string name="new_vote_received" formatted="false">An Sami Sabon Zaɓe</string>
+    <string name="new_vote_received_body" formatted="false">Wani ya zaɓi {voteType} gogewar {phoneNumber}. Jimillar zaɓe na yanzu: {totalVotes}.</string>
+    <string name="next_step" formatted="false">Na gaba</string>
+    <string name="no_action" formatted="false">Babu Aiki</string>
+    <string name="no_action_rules" formatted="false">Babu Dokokin Aiki</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">Babu sabis na sync na girgije mai aiki</string>
+    <string name="no_activity" formatted="false">Babu Aiki</string>
+    <string name="no_ads" formatted="false">Babu Iklilimi</string>
+    <string name="no_allowed_blocked_rules" formatted="false">Babu dokokin da aka ba dama/an toshe ba</string>
+    <string name="no_blocked_type_data" formatted="false">Babu bayanan nau\'in da aka toshe</string>
+    <string name="no_call_records" formatted="false">Babu bayanan kira</string>
+    <string name="no_contacts_yet" formatted="false">Babu lambobi tukuna</string>
+    <string name="no_data" formatted="false">Babu Bayani</string>
+    <string name="no_devices_registered_message" formatted="false">Babu na\'urori da aka yi rajista</string>
+    <string name="no_labels" formatted="false">Babu lakabi tukuna</string>
+    <string name="no_marked_phones" formatted="false">Babu lambobi masu alama</string>
+    <string name="no_matching_contacts_found" formatted="false">Babu lambobin da suka dace da aka samu</string>
+    <string name="no_matching_numbers_found" formatted="false">Babu lambobin da suka dace da aka samu</string>
+    <string name="no_matching_rules" formatted="false">Babu {ruleType} da suka dace</string>
+    <string name="no_notifications" formatted="false">Babu sanarwa</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">Babu dokokin waya da aka samu</string>
+    <string name="no_plugins" formatted="false">Babu plugins tukuna</string>
+    <string name="no_proposals_found" formatted="false">Ba a sami shawara ba</string>
+    <string name="no_regex_rules" formatted="false">Babu dokokin regex da aka samu</string>
+    <string name="no_rules" formatted="false">Babu {ruleType} tukuna</string>
+    <string name="no_rules_prompt" formatted="false">Babu dokoki da aka samu, da fatan za a ƙara dokoki</string>
+    <string name="no_rules_to_export" formatted="false">Babu dokoki da za a fitarwa</string>
+    <string name="no_sim_card_detected" formatted="false">Ba a gano katin SIM ba</string>
+    <string name="no_sim_cards_detected" formatted="false">Babu katunan SIM da aka gano</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">Babu dokoki masu tacewa ta SMS tukuna</string>
+    <string name="no_sms_rules_yet" formatted="false">Babu dokoki na SMS tukuna</string>
+    <string name="no_subscriptions" formatted="false">Babu biyan kuɗi</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">Babu ingantattun dokoki na SMS da aka samu a cikin fayil</string>
+    <string name="none" formatted="false">Babu</string>
+    <string name="none_action_description" formatted="false">Babu wani aiki na musamman da za a yi don kiran.</string>
+    <string name="none_service_type" formatted="false">Babu</string>
+    <string name="normal_user" formatted="false">Babban Mai Amfani</string>
+    <string name="not_granted" formatted="false">Ba a bayar ba</string>
+    <string name="not_verified_text" formatted="false">Ba a Tabbatar ba</string>
+    <string name="notification_frequency_hours" formatted="false">Mitar Sanarwa (Sa\'o\'i)</string>
+    <string name="notification_frequency_title" formatted="false">Mitar Sanarwa</string>
+    <string name="notification_mode" formatted="false">Yanayin Sanarwa</string>
+    <string name="notification_mode_description" formatted="false">Nuna bayanin mai kira a sandar sanarwa</string>
+    <string name="notification_permission" formatted="false">Sanarwar Izini</string>
+    <string name="notification_permission_description" formatted="false">Ana amfani da shi don nuna sanarwar kira da saƙo da ke shigowa.</string>
+    <string name="notification_settings" formatted="false">Saitunan Sanarwa</string>
+    <string name="notification_settings_title" formatted="false">Saitunan Sanarwa</string>
+    <string name="notification_instructions" formatted="false">Umarni:
+1. Matsa &quot;SEND&quot; don ƙirƙira ko sabunta sanarwa.
+2. Je zuwa allon gida ko jawo allon sanarwa don ganin sakamakon.
+3. Matsa &quot;END&quot; don korar sanarwar.</string>
+    <string name="notifications" formatted="false">Sanarwa</string>
+    <string name="notify" formatted="false">Sanarwa</string>
+    <string name="notify_action_description" formatted="false">Aiko da sanarwa lokacin da aka karɓi kira.</string>
+    <string name="number" formatted="false">Lamba</string>
+    <string name="number_color" formatted="false">Lamba Launi</string>
+    <string name="number_font_size" formatted="false">Lamba Girman Font</string>
+    <string name="number_format" formatted="false">Tsarin Lambobi</string>
+    <string name="number_invalid_format" formatted="false">Tsarin lambar mara inganci</string>
+    <string name="number_position" formatted="false">Lamba Matsayi</string>
+    <string name="number_search" formatted="false">Neman Lamba</string>
+    <string name="number_type_color" formatted="false">Lamba Nau\'in Launi</string>
+    <string name="number_type_font_size" formatted="false">Lamba Nau\'in Girman Font</string>
+    <string name="number_type_position" formatted="false">Lamba Nau\'in Matsayi</string>
+    <string name="ok_button" formatted="false">OK</string>
+    <string name="onboarding_complete_description" formatted="false">Manajan tsaron kiranku ya shirya, fara jin daɗin kwarewar kira mai tsaro!</string>
+    <string name="onboarding_language_description" formatted="false">Zaɓi yaren da kuka fi so don kwarewa mafi kyau.</string>
+    <string name="onboarding_permissions_description" formatted="false">Don samar da cikakken sabis, muna buƙatar izini masu zuƙan:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">Kisa-danna-danna na spam kira da saƙo, keɓance dokokin toshewa, kuma ku baku yanayi mai nutsuwa.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">Tattara kiran da ba a sani ba ta atomatik, yiwa lambobi masu tuhuma alama, kuma ku kare amincin kiranku.</string>
+    <string name="onboarding_welcome_description" formatted="false">Kwararren sarrafa kiranku, samar da cikakken ganewar kira da ayyukan toshewa.</string>
+    <string name="one_drive_auth_description" formatted="false">Bada izinin amfani da tsarin tsarin OneDrive na tsarin da aka tsara da kuma maɓalli</string>
+    <string name="one_drive_config_title" formatted="false">OneDrive Tsarin</string>
+    <string name="online_caller_id_subscription" formatted="false">Langganar ID Mai Kira Layi</string>
+    <string name="open_app_settings" formatted="false">Bude saitunan app</string>
+    <string name="open_app_settings_failed" formatted="false">Kasa wajen buɗe saitunan app: {error}</string>
+    <string name="open_in_web_view" formatted="false">Buɗe a cikin WebView</string>
+    <string name="operation_failed" formatted="false">Aikin ya kasa: {error}</string>
+    <string name="operation_failure" formatted="false">Aikin ya kasa</string>
+    <string name="operation_success" formatted="false">Aikin ya yi nasara</string>
+    <string name="oppose" formatted="false">Ƙi</string>
+    <string name="oppose_count" formatted="false">Adawa ({opposeCount})</string>
+    <string name="opposed" formatted="false">AN KI</string>
+    <string name="other" formatted="false">Sauran</string>
+    <string name="our_other_apps" formatted="false">Sauran Aikace-aikacenmu</string>
+    <string name="overlay_mode" formatted="false">Taga Mai Fitarwa</string>
+    <string name="overlay_mode_description" formatted="false">Nuna bayanan mai kira a cikin taga mai fitarwa</string>
+    <string name="overlay_permission" formatted="false">Amincin Taga Mai Fitarwa</string>
+    <string name="overlay_permission_description" formatted="false">Ana amfani dashi don nuna taga mai fitowa ta kira.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">Bayanin Gaba ɗaya</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">Kalmar Sirri</string>
+    <string name="password_cannot_be_empty" formatted="false">Ba za a iya barin kalmar sirri babu komai ba</string>
+    <string name="password_label" formatted="false">Kalmar Sirri</string>
+    <string name="passwords_do_not_match" formatted="false">Kalmar sirri ba ta dace ba</string>
+    <string name="pattern" formatted="false">Tsari</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">JIRAN AIKI</string>
+    <string name="pending_proposals" formatted="false">Shawara Mai Jiran Gata</string>
+    <string name="pending_proposals_body" formatted="false">Kuna da {count, plural, =0 {babu shawarwari masu jiran gata} one {shawara 1 mai jiran gata} other {{count} shawarwari masu jiran gata}}.</string>
+    <string name="pending_sync" formatted="false">Jiran Haɗakawa</string>
+    <string name="period_month" formatted="false">Wata</string>
+    <string name="period_week" formatted="false">Mako</string>
+    <string name="period_year" formatted="false">Shekara</string>
+    <string name="permission_denied" formatted="false">An ƙi buƙatar izini</string>
+    <string name="permission_granted" formatted="false">An ba da izini</string>
+    <string name="permission_management" formatted="false">Gudanarwar Izini</string>
+    <string name="permission_subtitle" formatted="false">Gudanar da izini na overlay da inganta baturi</string>
+    <string name="permission_title" formatted="false">Izini Na Musamman</string>
+    <string name="phone_calls_tab" formatted="false">Wayar</string>
+    <string name="phone_number" formatted="false">Lambar Wayar</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">Ba za a iya barin lambar waya babu komai ba</string>
+    <string name="phone_number_hint" formatted="false">Shigar da lambar waya</string>
+    <string name="phone_number_label" formatted="false">Lambar Wayar</string>
+    <string name="phone_number_min_digits" formatted="false">Lambar waya dole ne ta kasance aƙalla lambobi 7</string>
+    <string name="phone_number_required" formatted="false">Ana buƙatar lambar waya</string>
+    <string name="phone_number_type" formatted="false">Nau\'in Lambar Waya</string>
+    <string name="phone_number_type_fixed_line" formatted="false">Layin layi na Hannun</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">Layin layi ko Wayar Hannu</string>
+    <string name="phone_number_type_mobile" formatted="false">Wayar Hannu</string>
+    <string name="phone_number_type_pager" formatted="false">Mai Kira</string>
+    <string name="phone_number_type_personal_number" formatted="false">Lambar Mutum</string>
+    <string name="phone_number_type_premium_rate" formatted="false">Farashi na Musamman</string>
+    <string name="phone_number_type_shared_cost" formatted="false">Farashi na Tarewa</string>
+    <string name="phone_number_type_toll_free" formatted="false">Ba Ladi</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">Babu Tabbata</string>
+    <string name="phone_number_type_voicemail" formatted="false">Muryar Saƙo</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">Amincin Wayar</string>
+    <string name="phone_permission_description" formatted="false">Ana amfani dashi don gano da toshe kira masu shigowa.</string>
+    <string name="phone_rule" formatted="false">Doka ta Wayar</string>
+    <string name="phone_rule_management" formatted="false">Gudanarwar Dokokin Wayar</string>
+    <string name="phone_rule_subscription" formatted="false">Langganar Dokar Wayar</string>
+    <string name="phone_rules_info" formatted="false">Ana amfani da ƙa\'idodin waya don dacewa da kira ga takamaiman lambobin waya, waɗanda ke da ƙaramin fifiko. Wasu suna fitowa daga rajistan ƙa\'idodin waya.</string>
+    <string name="phone_subscription" formatted="false">Langganar Wayar</string>
+    <string name="phone_subscription_rules_description" formatted="false">Yi rijista don jerin dokokin waya ta URL don sabunta dokokin farar hula da baƙar fata ta atomatik. Yana goyan bayan fayilolin doka na tsarin JSON.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">Don Allah shigar da akalla lamba ɗaya.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">Da fatan za a zaɓi lakabi kuma shigar da ingantacciyar lambar waya</string>
+    <string name="plugin_added_success" formatted="false">An ƙara plugin &quot;{name}&quot; cikin nasara</string>
+    <string name="plugin_deleted" formatted="false">An share plugin</string>
+    <string name="plugin_description" formatted="false">Bayanin plugin</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">Alamar Plugin</string>
+    <string name="plugin_latest_version" formatted="false">Plugin yana riga yana mafi girman sigar</string>
+    <string name="plugin_list_export_success" formatted="false">An fitar da jerin plugins cikin nasara</string>
+    <string name="plugin_management" formatted="false">Gudanarwar Plugin</string>
+    <string name="plugin_management_subtitle" formatted="false">Gudanarwa da tsara plugins na ɓangare na uku</string>
+    <string name="plugin_name" formatted="false">Sunan Plugin</string>
+    <string name="plugin_rules_info" formatted="false">Don tsaro, don Allah yi amfani da plugins daga amintattun wurare kawai. Ji daɗin amfani da samfuranmu don ƙirƙirar plugins ɗin ku na musamman!</string>
+    <string name="plugin_service" formatted="false">Sabis na Plugin</string>
+    <string name="plugin_test_page_title" formatted="false">Gwaji na Plugin</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">An sabunta plugin cikin nasara</string>
+    <string name="plugin_url" formatted="false">URL na Plugin</string>
+    <string name="plugin_version" formatted="false">Sigar Plugin</string>
+    <string name="plugins_deleted" formatted="false">An share plugins {count} cikin nasara.</string>
+    <string name="political" formatted="false">Siyasa</string>
+    <string name="powerful_spam_blocking" formatted="false">Tushen Spam Mai Ƙarfi</string>
+    <string name="previous_step" formatted="false">Gabata</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">Fitar da Saitunan Aiki na Nesa</string>
+    <string name="prioritize_remote_action_description" formatted="false">Fitar da saitunan aiki daga bayanan nesa</string>
+    <string name="processed" formatted="false">An Ayyana</string>
+    <string name="processing" formatted="false">Yana Sarrafawa...</string>
+    <string name="processing_operation" formatted="false">Yana Sarrafawa...</string>
+    <string name="proposal_approved" formatted="false">An Yardar da Shawara ✅</string>
+    <string name="proposal_approved_body" formatted="false">An yardar da shawarar goge bayani don {phoneNumber} ta al\'umma ({supportPercentage}% tallafi, {totalVotes} zaɓe).</string>
+    <string name="proposal_created" formatted="false">An ƙirƙiri shawarar cikin nasara</string>
+    <string name="proposal_details" formatted="false">Cikakkun Bayanan Shawara</string>
+    <string name="proposal_not_found" formatted="false">Ba a sami shawara ba</string>
+    <string name="proposal_processed" formatted="false">An aiwatar da wannan shawarar</string>
+    <string name="proposal_rejected" formatted="false">An Ƙi Shawara ❌</string>
+    <string name="proposal_rejected_body" formatted="false">An ƙi shawarar goge bayani don {phoneNumber} ta al\'umma ({supportPercentage}% tallafi, {totalVotes} zaɓe).</string>
+    <string name="proposal_statistics" formatted="false">Kididdigar Shawara</string>
+    <string name="provide_detailed_explanation" formatted="false">Bayar da cikakken bayani (aƙalla haruffa 10)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">Saiya</string>
+    <string name="purchase_subtitle" formatted="false">Don Siyar da Sabis</string>
+    <string name="purchase_title" formatted="false">Siyarwa</string>
+    <string name="quarterly_membership" formatted="false">Membobi na Kwata-kwata</string>
+    <string name="quarterly_membership_description" formatted="false">Bude duk fasalolin premium, atomatik sabunta kowace kwata</string>
+    <string name="ready" formatted="false">Shirya!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">Dalili</string>
+    <string name="reason_inaccurate_info" formatted="false">Bayanin da ba daidai ba</string>
+    <string name="reason_min_characters" formatted="false">Dalili dole ne ya kasance aƙalla haruffa 10</string>
+    <string name="reason_not_in_service" formatted="false">Babu Aiki</string>
+    <string name="reason_other" formatted="false">Sauran</string>
+    <string name="reason_outdated" formatted="false">Lambar da ta ƙare</string>
+    <string name="reason_privacy" formatted="false">Damuwar Sirri</string>
+    <string name="reason_required" formatted="false">Dalili wajibi ne</string>
+    <string name="reason_wrongly_identified" formatted="false">An Gano shi da Kuskure</string>
+    <string name="recruiter" formatted="false">Mai daukar ma\'aikata</string>
+    <string name="redeem_vip_with_marks" formatted="false">Tukwasa VIP da Marki</string>
+    <string name="redirect" formatted="false">Canjawa wuri</string>
+    <string name="redirect_action_description" formatted="false">Canjawa wuri kiran zuwa wata lamba da aka ayyana.</string>
+    <string name="refresh" formatted="false">Sake Sakewa</string>
+    <string name="refresh_permission_status" formatted="false">Sake Sabunta Yanayin Aminci</string>
+    <string name="refresh_proposals" formatted="false">Sake ɗora Shawara</string>
+    <string name="refresh_tooltip" formatted="false">Sake Sakewa</string>
+    <string name="regex_error_message" formatted="false">Kuskuren Regex: {error}</string>
+    <string name="regex_pattern" formatted="false">Tsarin Regex</string>
+    <string name="regex_pattern_explanation" formatted="false">Bayanin Tsarin Regex</string>
+    <string name="regex_pattern_explanation_button" formatted="false">Bayanin Tsarin Regex</string>
+    <string name="regex_pattern_label" formatted="false">Tsarin Regex</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">Samfuran Regex don Daidaita Lambobin Wayar</string>
+    <string name="regex_rule" formatted="false">Dokar Regex</string>
+    <string name="regex_rule_add_failed" formatted="false">Gaza ƙara dokar regex: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">An ƙara dokar regex yadda ya kamata</string>
+    <string name="regex_rule_management" formatted="false">Gudanar da Dokokin Regex</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">Sunan doka da tsarin regex ba za su iya zama babu komai ba</string>
+    <string name="regex_rules" formatted="false">Dokokin Regex</string>
+    <string name="regex_rules_info" formatted="false">Ana amfani da ƙa\'idodin regex don tace kira bisa ga Tsarin Regex.</string>
+    <string name="regex_tester_title" formatted="false">Mai Gwajin Regex</string>
+    <string name="region" formatted="false">Yankin</string>
+    <string name="registered_devices_title" formatted="false">Na\'urori masu rijista</string>
+    <string name="reject_all_calls" formatted="false">Karyata Duk Kiran</string>
+    <string name="reject_all_calls_description" formatted="false">Lokacin da aka kunna, duk kira za a ƙaryata tare da mafi girman fifiko</string>
+    <string name="reject_all_numbers" formatted="false">Karyata Duk Lambobi</string>
+    <string name="reject_all_numbers_desc" formatted="false">Karyata duk kira mai shigowa lokacin da aka kunna</string>
+    <string name="reject_exceeded_numbers" formatted="false">Karyata Lambobi da Suka Wuce</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">Karyata lambobi ta atomatik waɗanda suka wuce ƙimar ƙididdiga</string>
+    <string name="rejected" formatted="false">AN ƘI</string>
+    <string name="remote_filter_settings" formatted="false">Saitunan Tacewar Nesa</string>
+    <string name="remote_filter_settings_page_title" formatted="false">Saitunan Tacewar Lambar Nesa</string>
+    <string name="remote_number_filter" formatted="false">Tacewar Lambar Nesa</string>
+    <string name="remote_number_filter_description" formatted="false">Cire kiran da ake dannawa bisa ga bayanan bayanai na nesa</string>
+    <string name="remote_number_filter_subtitle" formatted="false">Gano kiran spam ta amfani da bayanai na gajimare da rahoton al\'umma</string>
+    <string name="remote_number_filtering" formatted="false">Tacewar Lambar Nesa</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• Tacewar Lambar Nesa: Dokokin tace bisa ga bayanan bayanai na nesa</string>
+    <string name="remove_ads" formatted="false">Cire Iklilimi</string>
+    <string name="remove_ads_description" formatted="false">Cire dukkan tallace-tallace a cikin app har abada don kwarewa mai santsi</string>
+    <string name="remove_ads_title" formatted="false">Cire Tallace-tallace</string>
+    <string name="remove_from_favorites" formatted="false">Cire daga Masu Rabin Farko</string>
+    <string name="removed_from_favorites" formatted="false">An cire daga lambobin da aka fi so</string>
+    <string name="rename_device_title" formatted="false">Sake Sunan Na\'ura</string>
+    <string name="reporting_guidelines" formatted="false">• Kawai ka bada rahoto kan lambobi da suke da matsala sosai
+• Bayar da dalilai sahihai kuma cikakku
+• Zaɓi matakin haɗari da ya dace bisa ga tsanani
+• Rahotannin ƙarya na iya haifar da ƙuntatawa ga asusu</string>
+    <string name="request_all_permissions" formatted="false">Nemi Duk Izinai</string>
+    <string name="request_permission" formatted="false">Nemi Izin</string>
+    <string name="request_permission_failed" formatted="false">Gaza neman izini: {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">{count} Marks</string>
+    <string name="reset" formatted="false">Sake saiti</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">Maido</string>
+    <string name="restore_application_settings_from_backup" formatted="false">Maido da Saitunan Aikace-aikacen daga Madara</string>
+    <string name="restore_from_cloud" formatted="false">Maido daga Girgije</string>
+    <string name="restore_from_cloud_failed" formatted="false">Gaza maido daga girgije: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">An yi nasarar maido daga girgije</string>
+    <string name="restore_purchases" formatted="false">Maido da Sayayya</string>
+    <string name="restore_settings" formatted="false">Maido da Saituna</string>
+    <string name="restore_settings_confirmation" formatted="false">Wannan zai maye gurbin duk saitunan ku na yanzu. Kuna da tabbacin kuna son ci gaba?</string>
+    <string name="result" formatted="false">Sakamako</string>
+    <string name="retry" formatted="false">Sublim</string>
+    <string name="rewarded_ad_service" formatted="false">Sabis na Tallace-tallacen Kyauta</string>
+    <string name="ridesharing" formatted="false">Tafiya da Wurin Dauka</string>
+    <string name="risk" formatted="false">Hatsari</string>
+    <string name="risk_level" formatted="false">Matsayin Hatsari</string>
+    <string name="risk_level_critical" formatted="false">Mai Tsanani</string>
+    <string name="risk_level_high" formatted="false">Mai Girma</string>
+    <string name="risk_level_label" formatted="false">Matakin Haɗari</string>
+    <string name="risk_level_low" formatted="false">Ƙarami</string>
+    <string name="risk_level_medium" formatted="false">Matsakaici</string>
+    <string name="risk_level_very_low" formatted="false">Ƙasa sosai</string>
+    <string name="robocall" formatted="false">Robocall</string>
+    <string name="rule_action" formatted="false">Aikin Dokar</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">An ƙara dokar yadda ya kamata</string>
+    <string name="rule_added_success" formatted="false">An ƙara dokar yadda ya kamata</string>
+    <string name="rule_delete_confirm_content" formatted="false">Shin, kun tabbata kana son goge wannan {ruleType}?</string>
+    <string name="rule_delete_confirm_title" formatted="false">Goge Dokar</string>
+    <string name="rule_delete_failed" formatted="false">Gaza goge dokar: {error}</string>
+    <string name="rule_delete_success" formatted="false">An goge dokar yadda ya kamata</string>
+    <string name="rule_deleted_successfully" formatted="false">An goge dokar yadda ya kamata</string>
+    <string name="rule_disabled_successfully" formatted="false">An kashe dokar yadda ya kamata</string>
+    <string name="rule_enabled_successfully" formatted="false">An kunna dokar yadda ya kamata</string>
+    <string name="rule_load_failed" formatted="false">Gaza lodin dokoki: {error}</string>
+    <string name="rule_management" formatted="false">Gudanar da Dokoki</string>
+    <string name="rule_name" formatted="false">Sunan Dokar</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">Sunan doka da abun regex ba za su iya zama babu komai ba</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">Sunan doka da lambar waya ba za su iya zama babu komai ba</string>
+    <string name="rule_name_hint" formatted="false">misali, Iyali, Abokai, da dai sauransu.</string>
+    <string name="rule_name_label" formatted="false">Sunan Dokar</string>
+    <string name="rule_name_required" formatted="false">Sunan doka da lambar waya ba za su iya zama babu komai ba</string>
+    <string name="rule_not_exist" formatted="false">Rundunar ba ta wanzu ko kuma an goge ta</string>
+    <string name="rule_not_found" formatted="false">Ba a sami rundunar ba: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">An adana rundunar ta yi nasara!</string>
+    <string name="rule_status_changed" formatted="false">Runduna {status} ta yi nasara</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">Ayyukan ya kasa: {error}</string>
+    <string name="rule_toggle_success" formatted="false">Runduna {status} ta yi nasara</string>
+    <string name="rule_type" formatted="false">Rule Type</string>
+    <string name="rule_update_failed" formatted="false">An kasa sabunta rundunar: {error}</string>
+    <string name="rule_update_success" formatted="false">An sabunta rundunar ta yi nasara</string>
+    <string name="rule_verification" formatted="false">Tabbatar da Runduna</string>
+    <string name="rules_exported_successfully" formatted="false">An fitar da rundunonin ta yi nasara</string>
+    <string name="rules_exported_to" formatted="false">An fitar da rundunonin zuwa: {path}</string>
+    <string name="rules_imported" formatted="false">An shigo da rundunonin ta yi nasara</string>
+    <string name="rules_imported_successfully" formatted="false">An shigo da rundunoni {count} ta yi nasara</string>
+    <string name="save" formatted="false">Ajiye</string>
+    <string name="save_button" formatted="false">Ajiye</string>
+    <string name="save_button_text" formatted="false">Ajiye</string>
+    <string name="save_failed" formatted="false">Ajiye ya kasa: {error}</string>
+    <string name="save_script" formatted="false">Ajiye Rubutun</string>
+    <string name="save_settings" formatted="false">Ajiye Saituna</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">Yiwuwar Damfara</string>
+    <string name="script_saved" formatted="false">An ajiye rubutun</string>
+    <string name="scroll_speed" formatted="false">Gudun Gungura</string>
+    <string name="scrolling_security_message_settings" formatted="false">Saitunan Sakon Tsaro mai Gungura</string>
+    <string name="search" formatted="false">Nemo</string>
+    <string name="search_by_name_or_phone_number" formatted="false">Bincika Da Suna ko Lambar Waya</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">Bincika rajistar lambobin sadarwa</string>
+    <string name="search_contacts" formatted="false">Nemo Lambobi</string>
+    <string name="search_error" formatted="false">Kuskuren Bincike: {error}</string>
+    <string name="search_hint" formatted="false">Nemo...</string>
+    <string name="search_labels_hint" formatted="false">Bincika alamomi</string>
+    <string name="search_marked_phones_hint" formatted="false">Bincika wayoyin da aka yiwa alama</string>
+    <string name="search_phone_rules_hint" formatted="false">Bincika ƙa\'idodin waya</string>
+    <string name="search_plugins_hint" formatted="false">Bincika plugins</string>
+    <string name="search_proposals" formatted="false">Bincika Shawarwari</string>
+    <string name="search_regex_rules_hint" formatted="false">Bincika ƙa\'idodin regex</string>
+    <string name="search_subscriptions_hint" formatted="false">Bincika rajista</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">Kada ku amince da kowace wayar tarho. Koyaushe ku tabbatar da lambobin sabis na abokin ciniki da kanku. Kada ku taɓa raba kalmomin shiga, lambobin tabbaci, lambobin kati, ko bayanan sirri.</string>
+    <string name="select_action" formatted="false">Zaɓi aikin</string>
+    <string name="select_action_when_blocking_calls" formatted="false">Zaɓi aiki lokacin toshe kiran</string>
+    <string name="select_action_when_rule_matches" formatted="false">Zaɓi aiki lokacin da rundunar ta dace</string>
+    <string name="select_all" formatted="false">Zaɓi Duk</string>
+    <string name="select_country" formatted="false">Zaɓi Ƙasa</string>
+    <string name="select_export_format" formatted="false">Zaɓi Tsarin Fitowa</string>
+    <string name="select_label" formatted="false">Zaɓi Lakabi</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">Da fatan za a zaɓi lakabi kuma shigar da ingantacciyar lambar waya</string>
+    <string name="select_language" formatted="false">Zaɓi Harshe</string>
+    <string name="select_multiple" formatted="false">Zaɓi Mabambanta</string>
+    <string name="select_sim_card" formatted="false">Zaɓi SIM ɗin Waya</string>
+    <string name="select_tags" formatted="false">Zaɓi Alamomi</string>
+    <string name="select_target_service" formatted="false">Zaɓi sabis na manufa</string>
+    <string name="select_trusted_data_source" formatted="false">Da fatan za a zaɓi amintattun tushen bayanai</string>
+    <string name="select_your_language" formatted="false">Zaɓi Harshenku</string>
+    <string name="selected_items" formatted="false">An zaɓi abubuwa {count}</string>
+    <string name="selected_label" formatted="false">An zaɓa:</string>
+    <string name="sender" formatted="false">Wanda ya aika</string>
+    <string name="sender_regex_optional" formatted="false">Wanda ya aika Regex (Na zaɓi)</string>
+    <string name="separate_sims" formatted="false">Separate SIMs</string>
+    <string name="separate_sims_desc" formatted="false">Enable separate filtering rules for each SIM card</string>
+    <string name="server_address_label" formatted="false">Adireshin Sabar</string>
+    <string name="service_type_contact" formatted="false">Biyan Kuɗin Lambobi</string>
+    <string name="service_type_label" formatted="false">Nau\'in Sabis</string>
+    <string name="service_type_phone" formatted="false">Biyan Kuɗin Waya</string>
+    <string name="service_type_plugin" formatted="false">Sabunta Plugin</string>
+    <string name="service_type_sms" formatted="false">Biyan Kuɗin SMS</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">Saita Lokacin Jinkiri</string>
+    <string name="set_encryption_password" formatted="false">Saita Kalmar Sirri ta Ƙididdigewa</string>
+    <string name="settings" formatted="false">Saituna</string>
+    <string name="settings_backed_up_to" formatted="false">An adana saitunan zuwa: {path}</string>
+    <string name="settings_backup" formatted="false">Ajiyayye na Saiti </string>
+    <string name="settings_restored_successfully" formatted="false">An dawo da saituna ta yi nasara. Da fatan za a sake kunna aikace-aikacen don canje-canje su yi tasiri.</string>
+    <string name="settings_save_failed" formatted="false">An kasa adana saituna: {error}</string>
+    <string name="settings_saved" formatted="false">An adana saituna</string>
+    <string name="settings_tab" formatted="false">Saituna</string>
+    <string name="settings_title" formatted="false">Saituna</string>
+    <string name="setup" formatted="false">Shiryawa</string>
+    <string name="show_all_contacts" formatted="false">Nuna Duk Lambobin Sadarwa</string>
+    <string name="show_favorites" formatted="false">Nuna Abubuwan da aka fi so</string>
+    <string name="silence" formatted="false">Shuru</string>
+    <string name="silence_action_description" formatted="false">Za a yi shiru da kiran amma a nuna su a rajistar kira.</string>
+    <string name="silence_and_no_answer" formatted="false">Shuru da Babu Amsa</string>
+    <string name="silence_no_answer" formatted="false">Shuru Babu Amsa</string>
+    <string name="silent_call_voice_clone" formatted="false">Shiru Kiran Murya</string>
+    <string name="silent_rules" formatted="false">Shiru Runduna</string>
+    <string name="sim_card" formatted="false">SIM ɗin Waya {simNumber}</string>
+    <string name="sim_card_color" formatted="false">Launin SIM ɗin Waya</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• Shirye-shiryen SIM ɗin Waya: Saita dogon dokokin tacewa don kowane SIM ɗin Waya</string>
+    <string name="sim_card_filter_rules" formatted="false">Dokokin Tacewa na SIM ɗin Waya</string>
+    <string name="sim_card_filter_rules_description" formatted="false">Saita daban-daban dokokin tacewa dangane da ramummuka na SIM ɗin Waya</string>
+    <string name="sim_card_font_size" formatted="false">Girman Font ɗin SIM ɗin Waya</string>
+    <string name="sim_card_position" formatted="false">Matsayin SIM ɗin Waya</string>
+    <string name="sim_card_title" formatted="false">Katin SIM</string>
+    <string name="sim_country" formatted="false">Ƙasar SIM</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">Dokokin ramin SIM suna ba ka damar saita dokokin tacewa masu zaman kansu don kowane ramin SIM.</string>
+    <string name="sim_rule_instructions_title" formatted="false">Dokokin Ramuka na SIM</string>
+    <string name="sim_rules_not_found" formatted="false">Ba a sami Dokokin SIM ba</string>
+    <string name="sim_slot" formatted="false">Ramin SIM</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">Saita dokokin tacewa masu zaman kansu don kowace katin SIM:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">Saitunan Tacewa na Ramin SIM {slotNumber}</string>
+    <string name="sim_slot_management" formatted="false">Gudanar da Ramuka na SIM</string>
+    <string name="sim_slot_position" formatted="false">Matsayin Ramin SIM {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• Dokokin Ramuka na SIM: Dabarun tacewa masu zaman kansu ga kowane SIM</string>
+    <string name="sim_slot_rule_list_title" formatted="false">Jerin Dokokin Ramuka na SIM</string>
+    <string name="sim_slot_rule_management" formatted="false">Dokokin Ramuka na SIM</string>
+    <string name="sim_slot_rules" formatted="false">Dokokin Ramin SIM</string>
+    <string name="sim_slot_title" formatted="false">Ramin SIM {slotNumber}</string>
+    <string name="sim_state" formatted="false">Yanayin SIM</string>
+    <string name="skip" formatted="false">Tsallake</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">Gano Kira Mai Kyau</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">Tacewar SMS tana taimaka maka tattara saƙonnin spam ta atomatik kuma ka tsare lissafin saƙonninka. Zaka iya saita dokokin tacewa da hanyoyin sanarwa.</string>
+    <string name="sms_filter_disabled" formatted="false">Tacewar SMS ta kashe</string>
+    <string name="sms_filter_enabled" formatted="false">Tacewar SMS ta kunna</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">An ƙara dokar tacewar SMS yadda ya kamata</string>
+    <string name="sms_filter_rules" formatted="false">Dokokin Tacewa na SMS</string>
+    <string name="sms_filter_settings" formatted="false">Saitunan Tacewa na SMS</string>
+    <string name="sms_management" formatted="false">Gudanar da SMS</string>
+    <string name="sms_permission" formatted="false">Izinin SMS</string>
+    <string name="sms_permission_description" formatted="false">Ana amfani da shi don tattara saƙonnin spam.</string>
+    <string name="sms_rule_added_successfully" formatted="false">An ƙara dokar SMS yadda ya kamata</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">An share dokar SMS yadda ya kamata</string>
+    <string name="sms_rule_load_failed" formatted="false">An kasa loda dokokin SMS: {error}</string>
+    <string name="sms_rule_management" formatted="false">Gudanar da Dokokin SMS</string>
+    <string name="sms_rule_subscription" formatted="false">Biyan Kuɗin Dokar SMS</string>
+    <string name="sms_subscription" formatted="false">Biyan Kuɗin SMS</string>
+    <string name="sms_subscription_added_successfully" formatted="false">An ƙara biyan kuɗin SMS yadda ya kamata</string>
+    <string name="sms_subscription_rules_description" formatted="false">Biyan kuɗi zuwa jerin dokokin SMS ta hanyar URL, yana goyan bayan dacewa da dabarun regex. Zaka iya saita ayyukan toshewa ko yarda.</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">An ƙi wasu buƙatun izini</string>
+    <string name="sort_by" formatted="false">Tsara ta</string>
+    <string name="sort_least_popular" formatted="false">Tsara Mafi Ƙarancin Shahara</string>
+    <string name="sort_most_popular" formatted="false">Tsara Mafi Shahara</string>
+    <string name="sort_newest" formatted="false">Tsara Sababbi</string>
+    <string name="sort_oldest" formatted="false">Tsara Mafi Tsufa</string>
+    <string name="spam_likely" formatted="false">Wataƙila Spam</string>
+    <string name="start_color" formatted="false">Launin Farko</string>
+    <string name="start_date" formatted="false">Ranar Farko</string>
+    <string name="start_using" formatted="false">Fara Amfani</string>
+    <string name="stat_answered" formatted="false">An Amsa</string>
+    <string name="stat_blocked" formatted="false">An Toshe</string>
+    <string name="statistics" formatted="false">Kididdiga</string>
+    <string name="statistics_page_title" formatted="false">Binciken Bayanai</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">Launin STIR</string>
+    <string name="stir_failed" formatted="false">Tabbatarwa ta Fadu</string>
+    <string name="stir_font_size" formatted="false">Girman Font na STIR</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">Matsayin STIR</string>
+    <string name="stir_unknown" formatted="false">Matsayin Tabbatarwa Ba a Sani ba</string>
+    <string name="stir_verification" formatted="false">STIR/SHAKEN Tabbatarwa</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} ga lambar {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">Yana nuna sakamakon STIR/SHAKEN na tabbatarwa ga lambobi.</string>
+    <string name="stir_verification_title" formatted="false">STIR/SHAKEN Tabbatarwa</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">Izinin Ajiya</string>
+    <string name="storage_permission_description" formatted="false">Ana amfani da shi don adana saituna da dokoki.</string>
+    <string name="submit" formatted="false">Miƙa</string>
+    <string name="subscribe" formatted="false">Biya Kuɗi</string>
+    <string name="subscription_add_success" formatted="false">An ƙara biyan kuɗi &quot;{name}&quot; yadda ya kamata</string>
+    <string name="subscription_delete_confirm_content" formatted="false">Shin kana da tabbacin kana son share wannan biyan kuɗi?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">Share Biyan Kuɗi</string>
+    <string name="subscription_delete_failed" formatted="false">An kasa share biyan kuɗi: {error}</string>
+    <string name="subscription_delete_success" formatted="false">An share biyan kuɗi</string>
+    <string name="subscription_deleted" formatted="false">An share biyan kuɗi</string>
+    <string name="subscription_load_failed" formatted="false">An kasa loda biyan kuɗi: {error}</string>
+    <string name="subscription_name" formatted="false">Sunan Biyan Kuɗi</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">Sunan biyan kuɗi da URL ba za su iya zama babu komai ba</string>
+    <string name="subscription_name_hint" formatted="false">Shigar da sunan biyan kuɗi</string>
+    <string name="subscription_status_change_failed" formatted="false">An kasa canza matsayin biyan kuɗi: {error}</string>
+    <string name="subscription_update_failed" formatted="false">An kasa sabunta biyan kuɗi: {error}</string>
+    <string name="subscription_update_success" formatted="false">An sabunta biyan kuɗi yadda ya kamata</string>
+    <string name="subscription_url" formatted="false">URL na Biyan Kuɗi</string>
+    <string name="subscription_url_hint" formatted="false">Shigar da URL na biyan kuɗi</string>
+    <string name="successfully_imported_rules" formatted="false">An shigo da dokoki {count} yadda ya kamata</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">Taimako</string>
+    <string name="support_count" formatted="false">Goyon baya ({supportCount})</string>
+    <string name="support_sync" formatted="false">Taimakon Haɗin Kai</string>
+    <string name="supported" formatted="false">AN TALLAFA</string>
+    <string name="survey" formatted="false">Binciken Ra\'ayi</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">Haɗa Na\'urori</string>
+    <string name="sync_failed" formatted="false">Haɗin kai ya gaza</string>
+    <string name="sync_failed_message" formatted="false">Haɗin kai ya gaza</string>
+    <string name="sync_folder_name_label" formatted="false">Sunan Babban Fayil na Haɗin Kai</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">Haɗa Yanzu</string>
+    <string name="sync_now_button" formatted="false">Sync Yanzu</string>
+    <string name="sync_status_title" formatted="false">Dakin Duba Tashin Hankali</string>
+    <string name="sync_status_updated_message" formatted="false">An sabunta matsayin tattara bayanai</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">Tattara bayanai ya yi nasara</string>
+    <string name="sync_with_cloud_storage" formatted="false">Tattara tare da Ajiya na Girgije</string>
+    <string name="synced" formatted="false">An hada</string>
+    <string name="synchronized" formatted="false">An Haɗa</string>
+    <string name="syncing" formatted="false">Yana Haɗawa...</string>
+    <string name="system_features" formatted="false">Abubuwan Amfani na Tsarin:</string>
+    <string name="system_settings_title" formatted="false">Saitunan Tsarin</string>
+    <string name="tab_all" formatted="false">Duka</string>
+    <string name="tab_answered" formatted="false">An Amsa</string>
+    <string name="tab_blocked" formatted="false">An Hana</string>
+    <string name="tab_missed" formatted="false">An Rasa</string>
+    <string name="tab_outgoing" formatted="false">Fita</string>
+    <string name="tag_label" formatted="false">Tag: {tag}</string>
+    <string name="takeaway" formatted="false">Ɗauka</string>
+    <string name="telecommunication" formatted="false">Sadarwa ta Waya</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">Sarrafa ta Waya</string>
+    <string name="temp_purchase_expired" formatted="false">Gatan siyan wucin gadi ya ƙare</string>
+    <string name="temporary_vip" formatted="false">Mai Amfani VIP na Lokaci</string>
+    <string name="test_button" formatted="false">GWADA</string>
+    <string name="test_connection_button" formatted="false">Gwada Haɗin Kai</string>
+    <string name="test_plugin" formatted="false">Gwada Plugin</string>
+    <string name="text_colors_setting" formatted="false">Launukan Rubutu &amp; Alamar Alama</string>
+    <string name="theme_dark" formatted="false">Dark</string>
+    <string name="theme_light" formatted="false">Light</string>
+    <string name="theme_settings_subtitle" formatted="false">Zaɓi jigon da kafi so</string>
+    <string name="theme_settings_title" formatted="false">Saitunan Jigo</string>
+    <string name="theme_system" formatted="false">System</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">Wannan app ɗin yana da ƙarfin aikin gano mai kira wanda ke ba ku damar gano masu kira mara amfani da kuma toshe su.</string>
+    <string name="this_week" formatted="false">Wannan Makon</string>
+    <string name="time_interceptor" formatted="false">Mai Hana Lokaci</string>
+    <string name="time_interceptor_description" formatted="false">Tsayarwa/ba da damar kiran da za a iya yi ta atomatik dangane da yawan kiran</string>
+    <string name="time_interceptor_explanation" formatted="false">• Mai Hana Lokaci: Tsayarwa/ba da damar kiran da ake yi akai-akai a cikin ɗan lokaci kaɗan</string>
+    <string name="time_interceptor_explanation_content" formatted="false">Fasalin hana kiran da ake yi akai-akai yana nazarin yawan kiran don gano kiran spam akai-akai da kuma hana su ko ba su damar yin kira.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">Bayanin Hana Kiran da Ake Yi Akai-akai</string>
+    <string name="time_interceptor_settings_title" formatted="false">Saitunan Hana Kiran da Ake Yi Akai-akai</string>
+    <string name="time_window_description" formatted="false">Saita girman taga lokacin don ba da damar kiran da ake yi akai-akai. Kira daga lambar iri ɗaya a cikin wannan taga za a ba su dama</string>
+    <string name="time_window_label" formatted="false">Taga Lokacin Hana Kira (minti): {minutes}</string>
+    <string name="timeline_view" formatted="false">Duban Lokaci</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">Yau</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">Jimilla</string>
+    <string name="total_blocked" formatted="false">Jimillar Abubuwan Da Aka Hana</string>
+    <string name="total_pending_proposals" formatted="false">Jimillar Shawarwari Masu Jiran Aiki</string>
+    <string name="total_proposals" formatted="false">Jimillar Shawara</string>
+    <string name="total_votes" formatted="false">Jimilla: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">Canja bayanai tsakanin na\'urori ko dandamali</string>
+    <string name="travel_ticketing" formatted="false">Tikitin Tafiya</string>
+    <string name="tutorial" formatted="false">Jagora</string>
+    <string name="type" formatted="false">Nau\'i</string>
+    <string name="unassigned_s_i_m_card" formatted="false">SIM Card Mara Haɗi</string>
+    <string name="unblock" formatted="false">Cire Katanga</string>
+    <string name="unblock_number" formatted="false">Cire Katanga Lambar</string>
+    <string name="unblock_number_confirmation" formatted="false">Ka tabbata kana son cire katanga ga {phoneNumber}?</string>
+    <string name="unblock_number_failed" formatted="false">An kasa cire katanga lambar</string>
+    <string name="unblock_number_success" formatted="false">An cire katanga lambar da nasara</string>
+    <string name="unblocked" formatted="false">An cire katanga</string>
+    <string name="unknown" formatted="false">Babu Sani</string>
+    <string name="unknown_tag" formatted="false">Tag: Babu Sani</string>
+    <string name="unregister_button" formatted="false">Cire Rijista</string>
+    <string name="unregister_device_confirmation_message" formatted="false">Shin, ka tabbata kana son cire rijista {deviceName}?</string>
+    <string name="unregister_device_title" formatted="false">Cire Rijistar Na\'ura</string>
+    <string name="unsupported_file_format" formatted="false">Tsarin Fayil Mara Tallafi</string>
+    <string name="update" formatted="false">Sabuntawa</string>
+    <string name="update_all_now" formatted="false">Sabunta Duk Yanzu</string>
+    <string name="update_contact_failed" formatted="false">Faɗakarwa wajen sabunta lamba: {error}</string>
+    <string name="update_favorite_status" formatted="false">Sabunta Matsayin Abun So</string>
+    <string name="update_interval" formatted="false">Yanayin Sabuntawa</string>
+    <string name="update_now" formatted="false">Sabunta Yanzu</string>
+    <string name="update_plugin" formatted="false">Sabunta Plugin</string>
+    <string name="update_plugin_failed" formatted="false">Faɗakarwa wajen sabunta plugin: {error}</string>
+    <string name="update_rule_failed" formatted="false">Faɗakarwa wajen sabunta doka: {error}</string>
+    <string name="update_subscription_failed" formatted="false">Faɗakarwa wajen sabunta biyan kuɗi: {error}</string>
+    <string name="update_success" formatted="false">An sabunta {service} yadda ya kamata ({count} dokoki)</string>
+    <string name="upgrade_to_vip" formatted="false">Tukwasa zuwa VIP</string>
+    <string name="use_cases_point1" formatted="false">• Gano kiran spam na atomatik</string>
+    <string name="use_cases_point2" formatted="false">• Hana kiran tallace-tallace masu kira sau da yawa a cikin ɗan lokaci</string>
+    <string name="use_cases_point3" formatted="false">• Kare waya da zalunci</string>
+    <string name="use_cases_title" formatted="false">Abubuwan Amfani:</string>
+    <string name="use_global_settings" formatted="false">Yi Amfani da Saitunan Duniya</string>
+    <string name="use_local_notification" formatted="false">Yi amfani da Sanarwa ta Gida</string>
+    <string name="use_local_notification_description" formatted="false">Kunna sanarwa ta gida don kiran da ke shigowa</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">Yi amfani da tsarin regex na al\'ada don ayyana alamu. Misalan:</string>
+    <string name="use_stir_notification" formatted="false">Yi amfani da Sanarwa daga STIR</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">Sunan Mai Amfani</string>
+    <string name="verification_failed_text" formatted="false">Faɗakarwa</string>
+    <string name="verification_report" formatted="false">Rahoton Tantancewa</string>
+    <string name="verified_text" formatted="false">An Tabbatar</string>
+    <string name="verify" formatted="false">Tabbatar</string>
+    <string name="version" formatted="false">Sihiri: {version}</string>
+    <string name="very_high" formatted="false">Mai Girma Sosai</string>
+    <string name="very_low" formatted="false">Ƙarami Sosai</string>
+    <string name="view_details" formatted="false">Duba Cikakkun Bayanai</string>
+    <string name="vip3_days_with_ads" formatted="false">VIP na kwanaki 3 tare da tallace-tallace (daidaitawa kawai)</string>
+    <string name="vip5_days_no_ads" formatted="false">VIP na kwanaki 5 cike da fasali ba tare da tallace-tallace ba</string>
+    <string name="vip7_days_no_ads" formatted="false">VIP na kwanaki 7 cike da fasali ba tare da tallace-tallace ba</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">Tukar memba na VIP da adadin kira na lambar waya</string>
+    <string name="vip_exchange_service" formatted="false">Sabis na Musayar VIP</string>
+    <string name="vip_exchange_title" formatted="false">Musayar VIP Alama</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">Mai Amfani VIP</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">Gane Muryar</string>
+    <string name="vote_agree" formatted="false">Yardajewa</string>
+    <string name="vote_count" formatted="false">Adadin Zaɓe</string>
+    <string name="vote_disagree" formatted="false">Ƙi Yardajewa</string>
+    <string name="vote_submitted" formatted="false">An miƙa zaɓen cikin nasara</string>
+    <string name="voted" formatted="false">An Zaɓa</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} ƙuri\'u ({supportPercentage}% goyon baya)</string>
+    <string name="voting_completed" formatted="false">An Kammala Zaɓe</string>
+    <string name="voting_completed_body" formatted="false">Zaɓen al\'umma don {phoneNumber} ya ƙare. Sakamako: {result} ({supportPercentage}% tallafi).</string>
+    <string name="waiting_for_more_votes" formatted="false">Jiran ƙarin zaɓe daga al\'umma</string>
+    <string name="watch_ad" formatted="false">Kalli talla</string>
+    <string name="watch_ad_for_temp" formatted="false">Kalli talla don dindindin na wucin gadi</string>
+    <string name="watch_ad_for_temp_description" formatted="false">Kalli ɗan gajeren talla don buɗe wasu fasalulluka na farko na wucin gadi</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">Kuna buƙatar kallon tallace-tallace {count} ƙarin don samun gatan VIP na wucin gadi</string>
+    <string name="web_d_a_v_config_title" formatted="false">Saitunan WebDAV</string>
+    <string name="week" formatted="false">Mako</string>
+    <string name="welcome" formatted="false">Barka da zuwa</string>
+    <string name="whitelist" formatted="false">Fitar da jeri</string>
+    <string name="width" formatted="false">Nisa</string>
+    <string name="wildcard_matching_description" formatted="false">Yi amfani da \'.\' don dacewa da kowane hali (misali \'123.456\' ya dace da 123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">Dacewa da kowane hali:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">Taimakon dacewa da kowane hali don tsarin tacewa mai sassaucin ra\'ayi</string>
+    <string name="window_size_setting" formatted="false">Girma na Window</string>
+    <string name="year" formatted="false">Shekara</string>
+    <string name="yesterday" formatted="false">Jiya</string>
+</resources>

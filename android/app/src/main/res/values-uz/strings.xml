@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">Kontakt obunasi haqida</string>
+    <string name="about_labels" formatted="false">Yorliqlar haqida</string>
+    <string name="about_phone_subscription_rules" formatted="false">Telefon obunasi qoidalari haqida</string>
+    <string name="about_sms_filter" formatted="false">SMS filtrlash haqida</string>
+    <string name="about_sms_subscription_rules" formatted="false">SMS obunasi qoidalari haqida</string>
+    <string name="about_subtitle" formatted="false">Ilova versiyasi va yuridik ma\'lumotlar</string>
+    <string name="about_title" formatted="false">Haqida</string>
+    <string name="access_target_url" formatted="false">Maqsadli URLga kirish</string>
+    <string name="action" formatted="false">Harakat</string>
+    <string name="action_all" formatted="false">Hammasi</string>
+    <string name="action_allow" formatted="false">Ruxsat berish</string>
+    <string name="action_block" formatted="false">Bloklash</string>
+    <string name="action_filter_title" formatted="false">Harakat turiga ko\'ra filtrlash</string>
+    <string name="action_filter_tooltip" formatted="false">Harakat filtri</string>
+    <string name="action_none" formatted="false">Harakat yo\'q</string>
+    <string name="action_silence" formatted="false">Ovozsiz</string>
+    <string name="action_tag" formatted="false">Harakat: {actionType}</string>
+    <string name="action_type" formatted="false">Harakat turi</string>
+    <string name="action_unknown" formatted="false">Noma\'lum</string>
+    <string name="active_proposals" formatted="false">Faol takliflar</string>
+    <string name="add" formatted="false">Qo\'shish</string>
+    <string name="add_allow_subscription" formatted="false">Ruxsat etish obunasini qo\'shish</string>
+    <string name="add_allowed_blocked_rule" formatted="false">Ruxsat etish/Bloklash qoidasini qo\'shish</string>
+    <string name="add_block_subscription" formatted="false">Bloklash obunasini qo\'shish</string>
+    <string name="add_contact_button" formatted="false">Kontakt qo\'shish</string>
+    <string name="add_contact_failed" formatted="false">Kontaktni qo\'shishda xatolik: {error}</string>
+    <string name="add_label" formatted="false">Yorliq qo\'shish</string>
+    <string name="add_label_button" formatted="false">Yorliq qo\'shish</string>
+    <string name="add_label_failed" formatted="false">Yorliqni qo\'shishda xatolik: {error}</string>
+    <string name="add_name" formatted="false">Ism qo\'shish</string>
+    <string name="add_none_subscription" formatted="false">Obuna qo\'shmaslik</string>
+    <string name="add_phone_mark" formatted="false">Telefon belgisini qo\'shish</string>
+    <string name="add_phone_number_rule" formatted="false">Telefon raqami qoidasini qo\'shish</string>
+    <string name="add_plugin" formatted="false">Plugin qo\'shish</string>
+    <string name="add_plugin_failed" formatted="false">Pluginni qo\'shishda xatolik</string>
+    <string name="add_plugin_failed_with_error" formatted="false">Pluginni qo\'shishda xatolik: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">Mahalliy fayldan plugin qo\'shish</string>
+    <string name="add_plugin_from_url" formatted="false">URL manzilidan plugin qo\'shish</string>
+    <string name="add_regex_rule" formatted="false">Regex qoidasini qo\'shish</string>
+    <string name="add_rule" formatted="false">Qoida qo\'shish</string>
+    <string name="add_rule_failed" formatted="false">Qoidani qo\'shishda xatolik: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">Qoida qo\'shish</string>
+    <string name="add_silence_subscription" formatted="false">Ovozsiz obunani qo\'shish</string>
+    <string name="add_sms_filter_rule" formatted="false">SMS filtrlash qoidasini qo\'shish</string>
+    <string name="add_sms_rule" formatted="false">SMS qoidasini qo\'shish</string>
+    <string name="add_sms_subscription" formatted="false">SMS obunasini qo\'shish</string>
+    <string name="add_subscription" formatted="false">Obuna qo\'shish</string>
+    <string name="add_subscription_button" formatted="false">Obuna qo\'shish</string>
+    <string name="add_subscription_failed" formatted="false">Obunani qo\'shishda xatolik: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">Obuna qo\'shish</string>
+    <string name="add_to_blacklist" formatted="false">Qora ro\'yxatga qo\'shish</string>
+    <string name="add_to_favorites" formatted="false">Sevimli kontaktlarga qo\'shish</string>
+    <string name="add_to_rules" formatted="false">Qoidalarga qo\'shish</string>
+    <string name="add_to_whitelist" formatted="false">Oq ro\'yxatga qo\'shish</string>
+    <string name="added_to_favorites" formatted="false">Sevimli kontaktlarga qo\'shildi</string>
+    <string name="advanced_mode" formatted="false">Kengaytirilgan rejim</string>
+    <string name="agent" formatted="false">Agent</string>
+    <string name="agree_votes" formatted="false">Rozilar: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">Hammasi</string>
+    <string name="all_call_logs_cleared" formatted="false">Barcha qo\'ng\'iroqlar jurnali tozalandi</string>
+    <string name="all_calls_tab" formatted="false">Hammasi</string>
+    <string name="all_permissions_granted" formatted="false">Barcha ruxsatlar berildi</string>
+    <string name="all_services_status_subtitle" formatted="false">Har bir bulutli xizmatning joriy holati</string>
+    <string name="all_services_status_title" formatted="false">Joriy xizmat holati</string>
+    <string name="all_settings_completed" formatted="false">Barcha sozlamalar yakunlandi.</string>
+    <string name="all_update_success" formatted="false">Barcha yangilanishlar yakunlandi ({count} qoidalar)</string>
+    <string name="allow" formatted="false">Ruxsat berish</string>
+    <string name="allow_action_description" formatted="false">Raqam bloklash ro\'yxatida bo\'lsa ham, qo\'ng\'iroqlarga ruxsat beriladi.</string>
+    <string name="allow_all_allow_rules" formatted="false">Barcha ruxsat qoidalariga ruxsat berish</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">Ruxsat qoidalaridan qo\'ng\'iroqlarga ruxsat berish</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">Barcha qora ro\'yxatdagi raqamlarga ruxsat berish</string>
+    <string name="allow_all_block_rules" formatted="false">Barcha bloklash qoidalariga ruxsat berish</string>
+    <string name="allow_all_block_rules_desc" formatted="false">Blok qoidalaridan qo\'ng\'iroqlarga ruxsat berish</string>
+    <string name="allow_allowed_numbers" formatted="false">Ruxsat etilgan raqamlarga ruxsat berish</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">Ruxsat etilgan ro\'yxatdan qo\'ng\'iroqlarga ruxsat berish</string>
+    <string name="allow_block" formatted="false">Ruxsat etish/Bloklash</string>
+    <string name="allow_blocked_numbers" formatted="false">Bloklangan raqamlarga ruxsat berish</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">Blok ro\'yxatidan qo\'ng\'iroqlarga ruxsat berish</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">Oshib ketmagan raqamlarga ruxsat berish</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">Oshib ketish chegarasidan oshmagan raqamlarga avtomatik ravishda ruxsat berish</string>
+    <string name="allow_regex_allow_rules" formatted="false">Regex ruxsat qoidalariga ruxsat berish</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">Ruxsat qoidalari uchun regex naqshiga moslikni yoqish</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">Regex asosidagi ruxsat qoidalarini yoqish</string>
+    <string name="allow_regex_block_rules" formatted="false">Regex bloklash qoidalariga ruxsat berish</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">Blok qoidalari uchun regex naqshiga moslikni yoqish</string>
+    <string name="allow_regex_block_rules_description" formatted="false">Regex asosidagi bloklash qoidalarini yoqish</string>
+    <string name="allow_rule" formatted="false">Ruxsat etish qoidasi</string>
+    <string name="allow_rules" formatted="false">Ruxsat etish qoidalari</string>
+    <string name="allowed_blocked_rule" formatted="false">Ruxsat etish/Bloklash qoidasi</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">Ruxsat etish/Bloklash qoidasini tahrirlash</string>
+    <string name="allowed_blocked_rule_management" formatted="false">Ruxsat etish/Bloklash qoidalarini boshqarish</string>
+    <string name="allowed_blocked_rules_info" formatted="false">Ruxsat etilgan/bloklangan qoidalar qo\'ng\'iroqlarni aniq telefon raqamlariga moslashtirish uchun ishlatiladi, ular eng yuqori ustuvorlikka ega.</string>
+    <string name="and_more_items" formatted="false">va {count} ta qo\'shimcha element</string>
+    <string name="answer_then_hangup" formatted="false">Javob berish va keyin qo\'yib yuborish</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">Your Call Your Rule</string>
+    <string name="application_software" formatted="false">Dasturiy ta\'minot</string>
+    <string name="apply" formatted="false">Qo\'llash</string>
+    <string name="approved" formatted="false">TASDIQLANDI</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">Avtorizatsiya muvaffaqiyatsiz tugadi: Iltimos, mijoz ID va kalitni tekshiring</string>
+    <string name="authorization_failed_message" formatted="false">Avtorizatsiya muvaffaqiyatsiz tugadi</string>
+    <string name="authorization_success_message" formatted="false">Avtorizatsiya muvaffaqiyatli</string>
+    <string name="authorize_login_button" formatted="false">Kirishga ruxsat berish</string>
+    <string name="auto_cancel_notification" formatted="false">Avtomatik bildirishnomani bekor qilish</string>
+    <string name="auto_cancel_notification_description" formatted="false">Agar belgilansa, foydalanuvchi unga tegsa, bildirishnoma avtomatik ravishda yopiladi.</string>
+    <string name="auto_sync_label" formatted="false">Avtomatik sinxronlash</string>
+    <string name="auto_update" formatted="false">Avtomatik yangilash</string>
+    <string name="auto_update_description" formatted="false">Obunalar uchun avtomatik yangilanish oralig\'ini belgilash yoki qo\'lda yangilash</string>
+    <string name="auto_update_settings" formatted="false">Avtomatik yangilash sozlamalari</string>
+    <string name="auto_update_subtitle" formatted="false">Qoidalar va plaginlar uchun avtomatik yangilanishlarni boshqarish</string>
+    <string name="auto_update_title" formatted="false">Avtomatik yangilash</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">Avtomobil sanoati</string>
+    <string name="avatar" formatted="false">Avatar</string>
+    <string name="avatar_border_color" formatted="false">Avatar chegara rangi</string>
+    <string name="avatar_border_size" formatted="false">Avatar chegara hajmi</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">Avatar va belgi o\'lchamlari</string>
+    <string name="avatar_position" formatted="false">Avatar joylashuvi</string>
+    <string name="avatar_size" formatted="false">Avatar hajmi</string>
+    <string name="axis_position" formatted="false">{axis} Joylashuvi</string>
+    <string name="background_gradient_setting" formatted="false">Fon gradiyenti</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">Zaxira nusxasi</string>
+    <string name="backup_and_restore" formatted="false">Zaxira nusxalash va tiklash</string>
+    <string name="backup_and_restore_subtitle" formatted="false">Ilova ma\'lumotlarini zaxiralash yoki tiklash</string>
+    <string name="backup_and_restore_title" formatted="false">Zaxira nusxalash va tiklash</string>
+    <string name="backup_failed" formatted="false">Zaxira nusxa yaratish muvaffaqiyatsiz tugadi</string>
+    <string name="backup_settings" formatted="false">Zaxira nusxalash sozlamalari</string>
+    <string name="backup_to_cloud" formatted="false">Bulutga zaxira nusxalash</string>
+    <string name="backup_to_cloud_failed" formatted="false">Bulutga zaxira nusxalash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">Bulutga muvaffaqiyatli zaxira nusxa yaratildi</string>
+    <string name="bank" formatted="false">Bank</string>
+    <string name="basic_info" formatted="false">Asosiy ma\'lumotlar</string>
+    <string name="basic_rule_filter" formatted="false">Asosiy qoida filtri</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">Qora/oq ro\'yxat va muntazam ifodalar yordamida qo\'ng\'iroqlarni filtrlash</string>
+    <string name="basic_rule_filtering" formatted="false">Asosiy qoida filtrlash</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• Asosiy qoida filtrlash: Qoidalarni qora ro\'yxat, oq ro\'yxat va muntazam ifodalar asosida filtrlash</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">Haqiqatan ham {count} ta tanlangan kontaktni o\'chirmoqchimisiz?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">Haqiqatan ham {count} ta yorliqni o\'chirmoqchimisiz?</string>
+    <string name="battery_optimization_permission" formatted="false">Batareya optimallashtirilishi</string>
+    <string name="battery_optimization_permission_description" formatted="false">Qo\'ng\'iroq qiluvchi identifikatori kabi xizmatlarni taqdim etish uchun ilovaga fonda ishlashga ruxsat bering.</string>
+    <string name="black_white_list" formatted="false">Qora/Oq ro\'yxat</string>
+    <string name="blacklist" formatted="false">Qora ro\'yxat</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">Qora ro\'yxatga kiritish va oq ro\'yxatga kiritish</string>
+    <string name="block" formatted="false">Bloklash</string>
+    <string name="block_action_description" formatted="false">Qo\'ng\'iroqlar bloklanadi va qo\'ng\'iroqlar jurnalida ko\'rsatiladi.</string>
+    <string name="block_calls" formatted="false">Qo\'ng\'iroqlarni bloklash</string>
+    <string name="block_international_calls" formatted="false">raqamlari + yoki 00 bilan boshlanmaydigan raqamlarga mos keladi</string>
+    <string name="block_international_calls_title" formatted="false">Xalqaro qo\'ng\'iroqlarni bloklash</string>
+    <string name="block_mobile_numbers" formatted="false">raqamlari 13-19 bilan boshlanmaydigan raqamlarga mos keladi</string>
+    <string name="block_mobile_numbers_title" formatted="false">Mobil raqamlarni bloklash</string>
+    <string name="block_number" formatted="false">Raqamni bloklash</string>
+    <string name="block_number_success" formatted="false">Raqamni bloklash muvaffaqiyatli amalga oshirildi</string>
+    <string name="block_premium_rate_numbers" formatted="false">raqamlari 118 yoki 120-190 bilan boshlanmaydigan raqamlarga mos keladi</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">Premium stavkali raqamlarni bloklash</string>
+    <string name="block_rule" formatted="false">Bloklash qoidasi</string>
+    <string name="block_rules" formatted="false">Bloklash qoidalari</string>
+    <string name="block_specific_area_codes" formatted="false">0 + 2-3 raqam bilan boshlanadigan raqamlarga mos keladi</string>
+    <string name="block_specific_area_codes_title" formatted="false">Muayyan hudud kodlarini bloklash:</string>
+    <string name="block_type_analysis_title" formatted="false">Bloklash turini tahlil qilish</string>
+    <string name="blocked" formatted="false">Bloklangan</string>
+    <string name="blocked_call_body" formatted="false">{phoneNumber} raqamidan bloklangan qo\'ng\'iroq</string>
+    <string name="blocked_call_notifications" formatted="false">Bloklangan qo\'ng\'iroq bildirishnomalari</string>
+    <string name="blocked_call_notifications_description" formatted="false">Bloklangan qo\'ng\'iroqlar haqida ma\'lumot ko\'rsatadi.</string>
+    <string name="blocked_call_title" formatted="false">Bloklangan qo\'ng\'iroq</string>
+    <string name="blocked_calls" formatted="false">Bloklangan qo\'ng\'iroqlar</string>
+    <string name="blocked_calls_title" formatted="false">Bloklangan qo\'ng\'iroqlar</string>
+    <string name="blocked_spam_calls" formatted="false">Bloklangan spam qo\'ng\'iroqlari</string>
+    <string name="blocking_trend" formatted="false">Bloklash tendensiyasi</string>
+    <string name="both" formatted="false">Ikkalasi</string>
+    <string name="bulk_delete" formatted="false">Kontaktlarni ommaviy o\'chirish</string>
+    <string name="bulk_delete_contacts" formatted="false">Kontaktlarni ommaviy o\'chirish</string>
+    <string name="bulk_delete_labels" formatted="false">Yorliqlarni ommaviy o\'chirish</string>
+    <string name="call" formatted="false">Qo\'ng\'iroq</string>
+    <string name="call_blocking" formatted="false">Qo\'ng\'iroqlarni bloklash</string>
+    <string name="call_details" formatted="false">Qo\'ng\'iroq tafsilotlari</string>
+    <string name="call_filter_rules" formatted="false">Qo\'ng\'iroq filtri qoidalari</string>
+    <string name="call_filter_rules_description" formatted="false">Qo\'ng\'iroqlarni filtrlash uchun asosiy qoidalarni o\'rnating</string>
+    <string name="call_filter_settings" formatted="false">Qo\'ng\'iroq filtri sozlamalari</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">Qo\'ng\'iroq chastotasi chegaralari va bloklash qoidalarini o\'rnating</string>
+    <string name="call_frequency_interception_title" formatted="false">Qo\'ng\'iroq chastotasini ushlab qolish</string>
+    <string name="call_history" formatted="false">Qo\'ng\'iroqlar tarixi</string>
+    <string name="call_history_info_desc" formatted="false">Bu yerda sizning kiruvchi, chiquvchi va o\'tkazib yuborilgan qo\'ng\'iroqlaringizni o\'z ichiga olgan qo\'ng\'iroqlar tarixi ko\'rsatilgan.</string>
+    <string name="call_history_info_title" formatted="false">Qo\'ng\'iroqlar tarixi</string>
+    <string name="call_history_tab" formatted="false">Qo\'ng\'iroqlar tarixi</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">Qo\'ng\'iroqlarni tekshirish ruxsati</string>
+    <string name="call_screening_permission_description" formatted="false">Spam qo\'ng\'iroqlarni tekshirish va bloklash uchun ishlatiladi.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">Qo\'ng\'iroqlarni tekshirish ruxsati berilmagan, ilova funksionalligiga ta\'sir qilishi mumkin.</string>
+    <string name="call_statistics" formatted="false">Qo\'ng\'iroq statistikasi</string>
+    <string name="call_time" formatted="false">Qo\'ng\'iroq vaqti</string>
+    <string name="call_type" formatted="false">Qo\'ng\'iroq turi</string>
+    <string name="call_type_answered" formatted="false">Javob berilgan</string>
+    <string name="call_type_blocked" formatted="false">Bloklangan</string>
+    <string name="call_type_icon_color" formatted="false">Qo\'ng\'iroq turi belgisi rangi</string>
+    <string name="call_type_missed" formatted="false">O\'tkazib yuborilgan qo\'ng\'iroq</string>
+    <string name="call_type_outgoing" formatted="false">Chiquvchi</string>
+    <string name="call_type_position" formatted="false">Qo\'ng\'iroq turi joylashuvi</string>
+    <string name="call_type_rejected" formatted="false">Rad etilgan</string>
+    <string name="call_type_silenced" formatted="false">Jim qilingan</string>
+    <string name="call_type_unknown" formatted="false">Noma\'lum</string>
+    <string name="callback" formatted="false">Qayta qo\'ng\'iroq qilish</string>
+    <string name="caller_id_app" formatted="false">Qo\'ng\'iroq qiluvchi ID ilovasi</string>
+    <string name="caller_id_customization_subtitle" formatted="false">Qo\'ng\'iroq qiluvchi ID tartibini sozlash</string>
+    <string name="caller_id_customization_title" formatted="false">Qo\'ng\'iroq qiluvchi ID ni sozlash</string>
+    <string name="caller_id_display_mode" formatted="false">Qo\'ng\'iroq qiluvchi identifikatorini ko\'rsatish rejimi</string>
+    <string name="caller_id_enhancement" formatted="false">Qo\'ng\'iroq qiluvchi IDni takomillashtirish</string>
+    <string name="caller_id_marked_by_count" formatted="false">{count} tomonidan belgilangan</string>
+    <string name="caller_id_notification_title" formatted="false">Kiruvchi qo\'ng\'iroq ma\'lumoti</string>
+    <string name="caller_id_preview" formatted="false">Qo\'ng\'iroq qiluvchi identifikatorini oldindan ko\'rish</string>
+    <string name="caller_id_settings_subtitle" formatted="false">Kiruvchi qo\'ng\'iroq bildirishnomasi va ko\'rsatish rejimini sozlash uchun</string>
+    <string name="caller_id_settings_title" formatted="false">Qo\'ng\'iroq qiluvchi ID sozlamalari</string>
+    <string name="calling_number_failed" formatted="false">Raqamga qo\'ng\'iroq qilish muvaffaqiyatsiz tugadi</string>
+    <string name="cancel" formatted="false">Bekor qilish</string>
+    <string name="cancel_button" formatted="false">Bekor qilish</string>
+    <string name="cancel_local_notification" formatted="false">Mahalliy bildirishnomalarni yopish</string>
+    <string name="cancel_local_notification_description" formatted="false">Mahalliy bildirishnomalarni avtomatik yopish</string>
+    <string name="car_rental" formatted="false">Avtomobil ijarasi</string>
+    <string name="carrier" formatted="false">Operator</string>
+    <string name="carrier_color" formatted="false">Operator rangi</string>
+    <string name="carrier_font_size" formatted="false">Operator shrift o\'lchami</string>
+    <string name="carrier_position" formatted="false">Operator joylashuvi</string>
+    <string name="change_label" formatted="false">Yorliqni o\'zgartirish</string>
+    <string name="change_plugin_status_failed" formatted="false">Plagin holatini o\'zgartirib bo\'lmadi: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">Obuna holatini o\'zgartirib bo\'lmadi: {error}</string>
+    <string name="charity" formatted="false">Xayriya</string>
+    <string name="chart_one_week_ago" formatted="false">1 hafta oldin</string>
+    <string name="chart_three_days_ago" formatted="false">3 kun oldin</string>
+    <string name="chart_today" formatted="false">Bugun</string>
+    <string name="check_file_format" formatted="false">Iltimos, fayl formatini yoki ruxsatnomalarni tekshiring</string>
+    <string name="check_permission_failed" formatted="false">Ruxsatnomalarni tekshirib bo\'lmadi: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">Standart ushlab qolish harakatini tanlang</string>
+    <string name="clear_all_call_logs" formatted="false">Barcha qo\'ng\'iroqlar jurnalini tozalash</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">Barcha qo\'ng\'iroqlar jurnalini tozalashni tasdiqlang</string>
+    <string name="clear_all_notifications" formatted="false">Barcha bildirishnomalarni tozalash</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">Barcha bildirishnomalarni tozalashni tasdiqlang</string>
+    <string name="clear_button" formatted="false">Tozalash</string>
+    <string name="clear_filter" formatted="false">Filtrni tozalash</string>
+    <string name="clear_label_filter_button" formatted="false">Yorliq filtrini tozalash</string>
+    <string name="close_button" formatted="false">Yopish</string>
+    <string name="cloud_backup" formatted="false">Bulutli zaxira nusxasi</string>
+    <string name="cloud_sync" formatted="false">Bulutli sinxronizatsiya</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">Bulutli sinxronizatsiya va zaxiralash</string>
+    <string name="cloud_sync_service" formatted="false">Bulutli sinxronizatsiya xizmati</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">WebDAV, OneDrive va Google Drive\'ni sozlash</string>
+    <string name="cloud_sync_settings_title" formatted="false">Bulutli sinxronizatsiya sozlamalari</string>
+    <string name="cloud_sync_title" formatted="false">Bulutli sinxronizatsiya</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">Qarz yig\'ish</string>
+    <string name="color_picker_title" formatted="false">Rangni tanlash</string>
+    <string name="community_impact" formatted="false">Jamiyat ta\'siri</string>
+    <string name="community_participation" formatted="false">Jamiyat ishtiroki</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">Jamiyat ovozlari</string>
+    <string name="community_voting_started" formatted="false">Jamiyat ovoz berishni boshladi</string>
+    <string name="community_voting_started_body" formatted="false">{phoneNumber} uchun yangi o\'chirish taklifi jamiyat ovoz berishi uchun ochiq.</string>
+    <string name="completed" formatted="false">YAKUNLANDI</string>
+    <string name="config_management" formatted="false">Konfiguratsiyani boshqarish</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">Konfiguratsiya yangilandi</string>
+    <string name="configuration_advice" formatted="false">To\'g\'ri konfiguratsiya yordamida ish va shaxsiy SIM-kartalar uchun turli filtrlash strategiyalarini o\'rnatishingiz mumkin.</string>
+    <string name="configure_backup_options" formatted="false">Zaxira nusxalash parametrlarini sozlash</string>
+    <string name="configure_cloud_sync_service" formatted="false">Bulutli sinxronizatsiya xizmatini sozlash</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">Bir nechta qurilmani sinxronlashni yoqish uchun bulutli sinxronizatsiya xizmatini sozlang.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">SIM karta filtri qoidalarini sozlash</string>
+    <string name="confirm" formatted="false">Tasdiqlash</string>
+    <string name="confirm_button" formatted="false">Tasdiqlash</string>
+    <string name="confirm_delete" formatted="false">O\'chirishni tasdiqlash</string>
+    <string name="confirm_delete_label" formatted="false">Haqiqatan ham &quot;{name}&quot; yorlig\'ini o\'chirishni xohlaysizmi?</string>
+    <string name="confirm_delete_plugin" formatted="false">Haqiqatan ham &quot;{name}&quot; plaginini o\'chirishni xohlaysizmi?</string>
+    <string name="confirm_delete_plugins" formatted="false">Haqiqatan ham {count} ta plaginni o\'chirishni xohlaysizmi?</string>
+    <string name="confirm_delete_rule_message" formatted="false">Haqiqatan ham ushbu qoidani o\'chirishni xohlaysizmi? Bu amalni bekor qilib bo\'lmaydi.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">Haqiqatan ham ushbu SMS filtr qoidasini o\'chirishni xohlaysizmi?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">Haqiqatan ham ushbu SMS qoidasini o\'chirishni xohlaysizmi?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">Haqiqatan ham {name} ni o\'chirishni xohlaysizmi?</string>
+    <string name="confirm_password" formatted="false">Parolni tasdiqlash</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">Ulangan</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">Ulanish muvaffaqiyatsiz tugadi: Iltimos, server manzilini, foydalanuvchi nomini va parolni tekshiring</string>
+    <string name="connection_failed_message" formatted="false">Ulanish muvaffaqiyatsiz tugadi</string>
+    <string name="connection_status_label" formatted="false">Ulanish holati</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">Ulanish muvaffaqiyatli</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">Kontakt muvaffaqiyatli qo\'shildi</string>
+    <string name="contact_deleted" formatted="false">Kontakt o\'chirildi</string>
+    <string name="contact_name_label" formatted="false">Ism</string>
+    <string name="contact_not_found" formatted="false">Kontakt topilmadi</string>
+    <string name="contact_subscription_description" formatted="false">URL orqali kontaktlar ro\'yxatiga obuna bo\'ling, kontakt ma\'lumotlari va yorliqlarni avtomatik yangilang. JSON formatidagi ma\'lumotlarni qo\'llab-quvvatlaydi.</string>
+    <string name="contact_update_success" formatted="false">Kontakt muvaffaqiyatli yangilandi</string>
+    <string name="contact_us" formatted="false">Biz bilan bog\'laning</string>
+    <string name="contacts" formatted="false">kontaktlar</string>
+    <string name="contacts_deleted" formatted="false">{count} ta kontakt o\'chirildi</string>
+    <string name="contacts_management" formatted="false">Kontaktlarni boshqarish</string>
+    <string name="contacts_permission" formatted="false">Kontaktlarga ruxsat</string>
+    <string name="contacts_permission_description" formatted="false">Kontakt qo\'ng\'iroqlarini aniqlash uchun ishlatiladi.</string>
+    <string name="contacts_tab" formatted="false">Kontaktlar</string>
+    <string name="container_width" formatted="false">Konteyner kengligi</string>
+    <string name="content" formatted="false">Tarkib</string>
+    <string name="content_regex" formatted="false">Tarkib Regex</string>
+    <string name="count_color" formatted="false">Sanoq rangi</string>
+    <string name="count_font_size" formatted="false">Sanoq shrifti o\'lchami</string>
+    <string name="count_position" formatted="false">Sanoq pozitsiyasi</string>
+    <string name="count_threshold_description" formatted="false">Filtrlash harakatlarini ishga tushirish uchun zarur bo\'lgan minimal sanoq chegarasini o\'rnating</string>
+    <string name="count_threshold_label" formatted="false">Sanoq chegarasi</string>
+    <string name="country" formatted="false">Mamlakat</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">Masalan, US, CN, GB</string>
+    <string name="country_code_label" formatted="false">Davlat kodi (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">Davlat kodi talab qilinadi</string>
+    <string name="country_code_two_letters" formatted="false">Davlat kodi (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">Eslatma: Ma\'lumotlar bazasi barcha aniq mamlakatlar yoki mintaqalar uchun ma\'lumotlarni o\'z ichiga olmasligi mumkin.</string>
+    <string name="country_name_color" formatted="false">Mamlakat nomi rangi</string>
+    <string name="country_name_font_size" formatted="false">Mamlakat nomi shrifti o\'lchami</string>
+    <string name="country_region_name_position" formatted="false">Mamlakat/Mintaqa nomi pozitsiyasi</string>
+    <string name="country_sync_settings_subtitle" formatted="false">Ma\'lumotlarni sinxronlash uchun mamlakatlarni tanlang</string>
+    <string name="country_sync_settings_title" formatted="false">Mamlakatga asoslangan ma\'lumotlar bazasini sinxronlash sozlamalari</string>
+    <string name="create_proposal" formatted="false">Taklif yaratish</string>
+    <string name="create_proposal_title" formatted="false">O\'chirish taklifini yaratish</string>
+    <string name="created_at" formatted="false">Yaratilgan: {date}</string>
+    <string name="created_rules" formatted="false">Yaratilgan qoidalar</string>
+    <string name="critical" formatted="false">Jiddiy</string>
+    <string name="critical_issues" formatted="false">Jiddiy muammolar</string>
+    <string name="csv_format" formatted="false">CSV formati</string>
+    <string name="current_device_label" formatted="false">Joriy qurilma yorlig\'i</string>
+    <string name="current_device_title" formatted="false">Joriy qurilma</string>
+    <string name="current_language" formatted="false">Joriy til</string>
+    <string name="current_mark_count" formatted="false">Joriy belgi soni</string>
+    <string name="custom" formatted="false">Maxsus</string>
+    <string name="custom_action_description" formatted="false">Maxsus harakatni bajarish.</string>
+    <string name="customer_service" formatted="false">Mijozlarga xizmat ko\'rsatish</string>
+    <string name="dashboard_tab" formatted="false">Boshqaruv paneli</string>
+    <string name="data_analysis" formatted="false">Ma\'lumotlar tahlili</string>
+    <string name="data_load_failure" formatted="false">Ma\'lumotlarni yuklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="data_loading_failed" formatted="false">Ma\'lumotlarni yuklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="data_migration" formatted="false">Ma\'lumotlarni ko\'chirish</string>
+    <string name="data_migration_description" formatted="false">Bu funksiya barcha ma\'lumotlaringizni qurilmalar o\'rtasida o\'tkazish imkonini beradi. Hozirda siz ma\'lumotlaringizni qo\'lda ko\'chirish uchun zaxiralash va tiklash funksiyalaridan foydalanishingiz mumkin.</string>
+    <string name="data_source_disclaimer" formatted="false">Raqamlar internet va foydalanuvchilarning hisobotlaridan olingan. Biz raqam o\'chirilgandan keyin boshqa foydalanuvchilar yoki manbalar tomonidan qayta yuborilmasligiga kafolat bera olmaymiz. Iltimos, ma\'lumotlarni faol ravishda qidirib tekshiring.</string>
+    <string name="data_source_reminder" formatted="false">Ma\'lumot manbai eslatmasi</string>
+    <string name="database_sync_title" formatted="false">Ma\'lumotlar bazasini sinxronlash</string>
+    <string name="days" formatted="false">{count, plural, =1{1 kun} other{{count} kun}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 kun oldin} other{{count} kun oldin}}</string>
+    <string name="days_vip" formatted="false">{days} kun VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">Qarz yig\'ish</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">Standart bildirishnomalar</string>
+    <string name="default_notifications_description" formatted="false">Ilova uchun standart bildirishnoma kanali.</string>
+    <string name="delete" formatted="false">O\'chirish</string>
+    <string name="delete_button" formatted="false">O\'chirish</string>
+    <string name="delete_contact" formatted="false">Kontaktni o\'chirish</string>
+    <string name="delete_contact_confirm" formatted="false">{name}ni o\'chirmoqchimisiz?</string>
+    <string name="delete_failed" formatted="false">O\'chirish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="delete_label" formatted="false">Yorliqni o\'chirish</string>
+    <string name="delete_label_failed" formatted="false">Yorliqni o\'chirish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="delete_plugin" formatted="false">Pluginni o\'chirish</string>
+    <string name="delete_plugin_failed" formatted="false">Pluginni o\'chirish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="delete_plugins" formatted="false">Pluginlarni o\'chirish</string>
+    <string name="delete_plugins_failed" formatted="false">Pluginlarni o\'chirish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="delete_rule" formatted="false">Qoidani o\'chirish</string>
+    <string name="delete_rule_failed" formatted="false">O\'chirish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="delete_selected" formatted="false">Tanlanganlarni o\'chirish</string>
+    <string name="delete_subscription" formatted="false">Obunani o\'chirish</string>
+    <string name="delete_subscription_confirm" formatted="false">&quot;{name}&quot; obunasini o\'chirmoqchi ekanligingizga ishonchingiz komilmi?</string>
+    <string name="delete_subscription_failed" formatted="false">Obunani o\'chirish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="delete_success" formatted="false">Muvaffaqiyatli o\'chirildi</string>
+    <string name="deletion_proposal" formatted="false">O\'chirish taklifi</string>
+    <string name="deletion_proposal_created" formatted="false">O\'chirish taklifi yaratildi</string>
+    <string name="deletion_proposal_created_body" formatted="false">{phoneNumber} uchun o\'chirish taklifingiz jamiyat tomonidan ko\'rib chiqishga yuborildi.</string>
+    <string name="deletion_proposal_description" formatted="false">Jamiyat qoidalarini buzadigan raqamlarni o\'chirish uchun taklif qiling. Sizning ishtirokingiz platformani xavfsiz saqlashga yordam beradi.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">O\'chirish taklifi bo\'yicha ovoz berish natijalari va yangilanishlari haqida bildirishnomalar.</string>
+    <string name="deletion_proposals" formatted="false">O\'chirish takliflari</string>
+    <string name="delivery" formatted="false">Yetkazib berish</string>
+    <string name="description" formatted="false">Tavsif</string>
+    <string name="detailed_settings_title" formatted="false">Batafsil sozlamalar</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">Qurilma IDsi</string>
+    <string name="device_management_subtitle" formatted="false">Ko\'p qurilmali sinxronizatsiyani boshqarish</string>
+    <string name="device_management_title" formatted="false">Qurilmalarni boshqarish</string>
+    <string name="device_model_label" formatted="false">Qurilma modeli</string>
+    <string name="device_name" formatted="false">Qurilma nomi</string>
+    <string name="device_name_label" formatted="false">Qurilma nomi</string>
+    <string name="device_renamed_successfully_message" formatted="false">Qurilma nomi muvaffaqiyatli o\'zgartirildi</string>
+    <string name="device_unregistered_successfully_message" formatted="false">Qurilmaning roʻyxatdan oʻtkazilishi muvaffaqiyatli bekor qilindi</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">Qurilmalar muvaffaqiyatli sinxronlandi</string>
+    <string name="dialog_title" formatted="false">Regex namunasi tushuntirishlari</string>
+    <string name="different_from_local_counter" formatted="false">Bu funksiya mahalliy hisoblagich filtri bilan farq qiladi, chunki u uzoq muddatli belgilash hisobiga emas, balki qisqa vaqt ichida takroriy qo\'ng\'iroq namunalariga e\'tibor qaratadi.</string>
+    <string name="disable_global_plugins" formatted="false">Global plaginlarni o\'chirish</string>
+    <string name="disabled" formatted="false">O\'chirilgan</string>
+    <string name="disabled_status" formatted="false">O\'chirilgan holat</string>
+    <string name="disconnect_button" formatted="false">Uzish</string>
+    <string name="disconnect_failed_message" formatted="false">Ulanishni uzish muvaffaqiyatsiz tugadi</string>
+    <string name="disconnected_message" formatted="false">Uzulgan</string>
+    <string name="disconnected_status" formatted="false">Uzulgan holat</string>
+    <string name="done" formatted="false">Tayyor</string>
+    <string name="dual_sim_advice" formatted="false">Bu funksiya ikki SIM-kartali telefonlar uchun ish va shaxsiy SIM-kartalar uchun turli filtrlash strategiyalarini belgilashda ayniqsa foydalidir.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">E164 raqami</string>
+    <string name="earlier" formatted="false">Avvalroq</string>
+    <string name="earned_temp_vip" formatted="false">Vaqtinchalik VIP olindi</string>
+    <string name="ecommerce" formatted="false">Elektron tijorat</string>
+    <string name="edit" formatted="false">Tahrirlash</string>
+    <string name="edit_contact" formatted="false">Kontaktni tahrirlash</string>
+    <string name="edit_label" formatted="false">Yorliqni tahrirlash</string>
+    <string name="edit_phone_rule" formatted="false">Telefon qoidasini tahrirlash</string>
+    <string name="edit_rule" formatted="false">Qoidani tahrirlash</string>
+    <string name="edit_script" formatted="false">Skriptni tahrirlash</string>
+    <string name="edit_script_for" formatted="false">{pluginName} uchun skriptni tahrirlash</string>
+    <string name="edit_subscription" formatted="false">Obunani tahrirlash</string>
+    <string name="education" formatted="false">Ta\'lim</string>
+    <string name="element_positions_setting" formatted="false">Element joylashuvlari</string>
+    <string name="elements_settings_title" formatted="false">Elementlar sozlamalari</string>
+    <string name="email" formatted="false">Elektron pochta</string>
+    <string name="enable_call_filter" formatted="false">Qo\'ng\'iroq filtrini yoqish</string>
+    <string name="enable_call_filter_description" formatted="false">Yoqilganda, kiruvchi qo\'ng\'iroqlar quyidagi qoidalar ro\'yxati bo\'yicha tekshiriladi. Qo\'ng\'iroqlarni filtrlash qoidalari odatda qurilmalar o\'rtasida sinxronlanmaydi.</string>
+    <string name="enable_encryption" formatted="false">Shifrlashni yoqish</string>
+    <string name="enable_encryption_description" formatted="false">Zaxira nusxalash fayllarini shifrlash</string>
+    <string name="enable_filtering" formatted="false">Filtrlashni yoqish</string>
+    <string name="enable_fraud_alert" formatted="false">Firibgarlik haqida ogohlantirishni yoqish</string>
+    <string name="enable_fraud_alert_description" formatted="false">Shubhali firibgarlik qo\'ng\'iroqlari haqida ogohlantirish</string>
+    <string name="enable_global_plugins" formatted="false">Global plaginlarni yoqish</string>
+    <string name="enable_local_count_filter" formatted="false">Mahalliy hisoblagich filtrini yoqish</string>
+    <string name="enable_local_count_filter_description" formatted="false">Qo\'ng\'iroqlarni belgilash soniga qarab spam qo\'ng\'iroqlarni avtomatik filtrlash</string>
+    <string name="enable_local_notification" formatted="false">Mahalliy bildirishnomadan foydalanish</string>
+    <string name="enable_local_notification_description" formatted="false">Yoqilganda, filtrlangan xabarlar uchun bildirishnomalar qurilmada ko\'rsatiladi</string>
+    <string name="enable_location_summary" formatted="false">Manzil</string>
+    <string name="enable_mute_rules" formatted="false">Ovozsiz qoidalarini yoqish</string>
+    <string name="enable_mute_rules_desc" formatted="false">Ovozsiz ushlash qoidalari konfiguratsiyasini qo\'llash</string>
+    <string name="enable_none_action_rules" formatted="false">Harakatlanmaydigan qoidalarni yoqish</string>
+    <string name="enable_none_action_rules_desc" formatted="false">Hech qanday ushlash harakatlari bo\'lmagan qoida konfiguratsiyalariga ruxsat berish</string>
+    <string name="enable_remote_number_filter" formatted="false">Masofaviy raqam filtrini yoqish</string>
+    <string name="enable_remote_number_filter_description" formatted="false">Raqamlarni filtrlash uchun masofaviy ma\'lumotlar bazasidan foydalanish</string>
+    <string name="enable_rule" formatted="false">Qoidani yoqish</string>
+    <string name="enable_security_message" formatted="false">Xavfsizlik xabarini yoqish</string>
+    <string name="enable_sms_filter" formatted="false">SMS filtrlashni yoqish</string>
+    <string name="enable_sms_filter_description" formatted="false">Yoqilganda, xabarlar qoidalarga muvofiq avtomatik filtrladi</string>
+    <string name="enable_time_interception" formatted="false">Vaqt bo\'yicha ushlashni yoqish</string>
+    <string name="enable_time_interception_description" formatted="false">Qisqa vaqt ichida takroriy qo\'ng\'iroqlarni ushlash</string>
+    <string name="enable_time_interceptor" formatted="false">Vaqt bo\'yicha to\'siqni yoqish</string>
+    <string name="enable_vibration" formatted="false">Tebranishni yoqish</string>
+    <string name="enable_vibration_description" formatted="false">Qo\'ng\'iroq firibgarlik deb gumon qilinganda tebranish</string>
+    <string name="enabled" formatted="false">Yoqilgan</string>
+    <string name="enabled_status" formatted="false">Yoqilgan holat</string>
+    <string name="end_call_immediately" formatted="false">Qo\'ng\'iroqni darhol tugatish</string>
+    <string name="end_color" formatted="false">Yakuniy rang</string>
+    <string name="end_date" formatted="false">Yakuniy sana</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">Kengaytirilgan filtr tizimi</string>
+    <string name="enhanced_filter_settings" formatted="false">Kengaytirilgan filtr sozlamalari</string>
+    <string name="enhanced_filter_settings_title" formatted="false">Kengaytirilgan filtr sozlamalari</string>
+    <string name="enhanced_filter_system_description" formatted="false">Kengaytirilgan filtr tizimi ham global qoidalarni, ham har bir SIM-karta uchun filtrlash konfiguratsiyalarini qo\'llab-quvvatlaydi.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">Iltimos, telefon raqami va regex namunasini kiriting.</string>
+    <string name="enter_contact_name" formatted="false">Iltimos, kontakt nomini kiriting</string>
+    <string name="enter_device_name" formatted="false">Qurilma nomini kiriting</string>
+    <string name="enter_email_optional" formatted="false">Iltimos, elektron pochtani kiriting (ixtiyoriy)</string>
+    <string name="enter_encryption_password_hint" formatted="false">Shifrlash parolini kiriting</string>
+    <string name="enter_icon_code" formatted="false">Ikona kodini kiriting</string>
+    <string name="enter_name" formatted="false">Kontakt nomini kiriting</string>
+    <string name="enter_new_device_name_hint" formatted="false">Bu qurilma uchun yangi nom kiriting</string>
+    <string name="enter_password_again" formatted="false">Parolni qayta kiriting</string>
+    <string name="enter_phone_number" formatted="false">Telefon raqamini kiriting</string>
+    <string name="enter_phone_number_hint" formatted="false">Sinash uchun telefon raqamini kiriting</string>
+    <string name="enter_phone_number_multiple" formatted="false">Iltimos, telefon raqamini kiriting, bir nechta raqam vergul bilan ajratiladi</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">Qidiruvni boshlash uchun telefon raqamini kiriting</string>
+    <string name="enter_phone_number_to_verify" formatted="false">Tasdiqlash uchun telefon raqamini kiriting</string>
+    <string name="enter_plugin_description" formatted="false">Plagin tavsifini kiriting</string>
+    <string name="enter_plugin_name" formatted="false">Plagin nomini kiriting</string>
+    <string name="enter_plugin_url" formatted="false">Plagin URL manzilini kiriting</string>
+    <string name="enter_regex_hint" formatted="false">Regex namunasini kiriting</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">Iltimos, qoida nomi va regex shablonini kiriting.</string>
+    <string name="enter_rule_name_hint" formatted="false">Qoida nomini kiriting</string>
+    <string name="enter_search_content" formatted="false">Iltimos, qidiruv mazmunini kiriting</string>
+    <string name="enter_subscription_name" formatted="false">Obuna nomini kiriting</string>
+    <string name="enter_subscription_url" formatted="false">Obuna URL manzilini kiriting</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">Iltimos, sinxronizatsiya papkasi nomini kiriting (standart: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">Iltimos, haqiqiy nom va URL manzilini kiriting</string>
+    <string name="enter_valid_url" formatted="false">Iltimos, haqiqiy URL manzilini kiriting</string>
+    <string name="enter_version" formatted="false">Versiyani kiriting</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">Iltimos, WebDAV parolini kiriting</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">Iltimos, WebDAV server manzilini kiriting</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">Iltimos, WebDAV foydalanuvchi nomini kiriting</string>
+    <string name="entertainment" formatted="false">Ko\'ngilochar</string>
+    <string name="entity_export_failed" formatted="false">{entityTypeName} eksport qilinmadi: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} muvaffaqiyatli eksport qilindi</string>
+    <string name="entity_import_failed" formatted="false">{entityTypeName} import qilinmadi: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} muvaffaqiyatli import qilindi, jami {count} yozuv import qilindi</string>
+    <string name="entry_point_view_title" formatted="false">Kirish Nuqtasi Ko\'rinishi</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">Xato: {error}</string>
+    <string name="error_occurred_message" formatted="false">Xatolik yuz berdi: {error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">Qurilma nomini oʻzgartirishda xatolik: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">Qurilmalarni sinxronizatsiya qilishda xatolik: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">Qurilmani roʻyxatdan oʻchirishda xatolik: {error}</string>
+    <string name="example_block400_prefix" formatted="false">masalan. 400 prefiks raqamlarini bloklash</string>
+    <string name="example_block_marketing_sms" formatted="false">masalan. Marketing SMSlarini bloklash</string>
+    <string name="example_content_regex_hint" formatted="false">Kontent regex namunasi</string>
+    <string name="example_coupon_promotion_discount" formatted="false">masalan. .*(kupon|aksiya|chegirma).*</string>
+    <string name="example_family_friends" formatted="false">masalan. Oila, Doʻstlar va h.k.</string>
+    <string name="example_phone_number" formatted="false">masalan. 10086, 12345 va h.k.</string>
+    <string name="example_regex400_prefix" formatted="false">400 prefiksi uchun regex namunasi</string>
+    <string name="example_sender_regex_hint" formatted="false">Namuna</string>
+    <string name="exchange" formatted="false">Almashish</string>
+    <string name="exchange_failed" formatted="false">Almashtirish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="exchange_now" formatted="false">Hozir almashish</string>
+    <string name="exchange_success" formatted="false">{description} ga muvaffaqiyatli almashtirildi, amal qilish muddati: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">VIP almashish</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">Amal qilish muddati: {time}</string>
+    <string name="export" formatted="false">Eksport</string>
+    <string name="export_all_application_settings" formatted="false">Barcha dastur sozlamalarini eksport qilish</string>
+    <string name="export_all_rule_configurations" formatted="false">Barcha qoida konfiguratsiyalarini eksport qilish</string>
+    <string name="export_config" formatted="false">Konfiguratsiyani eksport qilish</string>
+    <string name="export_contacts" formatted="false">Kontaktlarni eksport qilish</string>
+    <string name="export_data" formatted="false">Maʼlumotlarni eksport qilish</string>
+    <string name="export_entity" formatted="false">{entityTypeName}ni eksport qilish</string>
+    <string name="export_failed" formatted="false">Eksport muvaffaqiyatsiz tugadi</string>
+    <string name="export_failure" formatted="false">Konfiguratsiyani eksport qilish muvaffaqiyatsiz tugadi</string>
+    <string name="export_feature_coming_soon" formatted="false">Eksport funksiyasi tez orada</string>
+    <string name="export_labels" formatted="false">Yorliqlarni eksport qilish</string>
+    <string name="export_labels_failed" formatted="false">Yorliqlarni eksport qilish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="export_plugin_list" formatted="false">Plaginlar roʻyxatini eksport qilish</string>
+    <string name="export_plugin_list_failed" formatted="false">Plaginlar roʻyxatini eksport qilish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="export_rules" formatted="false">Qoidalarni eksport qilish</string>
+    <string name="export_sms_rules" formatted="false">SMS qoidalarini eksport qilish</string>
+    <string name="export_statistics_data" formatted="false">Statistika maʼlumotlarini eksport qilish</string>
+    <string name="export_successlly" formatted="false">Konfiguratsiya muvaffaqiyatli eksport qilindi</string>
+    <string name="failed_to_add_rule" formatted="false">Qoida qoʻshish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">SMS obunasi qoʻshish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">Sozlamalarni zaxiralash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">Zaxira faylini shifrini ochish muvaffaqiyatsiz tugadi</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">SMS qoidasini oʻchirish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">Qoidalarni eksport qilish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">Qoʻngʻiroq qiluvchi ID maʼlumotlarini olish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">Qoidalarni import qilish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">Sozlamalarni tiklash muvaffaqiyatsiz tugadi</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">Sozlamalarni tiklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">Qoida holatini oʻzgartirish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">Tanlangan kontaktlar</string>
+    <string name="feature" formatted="false">Xususiyat</string>
+    <string name="feature_add_rules" formatted="false">• Telefon raqamiga xos qoidalar qoʻshish</string>
+    <string name="feature_center" formatted="false">Xususiyatlar markazi</string>
+    <string name="feature_enable_disable" formatted="false">• Har bir SIM karta uchun turli filtrlarni yoqish/oʻchirish</string>
+    <string name="feature_list_title" formatted="false">Xususiyatlar:</string>
+    <string name="feature_manage_rules" formatted="false">• Har bir SIM karta uchun qoidalar roʻyxatlarini boshqarish</string>
+    <string name="features" formatted="false">Xususiyatlar</string>
+    <string name="fetching_caller_id_info" formatted="false">Qoʻngʻiroq qiluvchi ID maʼlumotlari olinmoqda...</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">Fayl quyidagi manzilga saqlandi: {path}</string>
+    <string name="filter" formatted="false">Filtr</string>
+    <string name="filter_and_sort_title" formatted="false">Filtrlash va saralash</string>
+    <string name="filter_by" formatted="false">Bo\'yicha filtrlash</string>
+    <string name="filter_by_action" formatted="false">Harakat bo\'yicha filtrlash</string>
+    <string name="filter_by_label" formatted="false">Yorliq boʻyicha filtrlash</string>
+    <string name="filter_control_panel_title" formatted="false">Filtr boshqaruv paneli</string>
+    <string name="filter_control_subtitle" formatted="false">Barcha filtrlarning yoqish/oʻchirish holatini boshqarish</string>
+    <string name="filter_control_title" formatted="false">Filtr boshqaruvi</string>
+    <string name="filter_explanation" formatted="false">Filtr tushuntirishi</string>
+    <string name="filter_management" formatted="false">Filtrni boshqarish</string>
+    <string name="filter_management_description" formatted="false">Qo\'ng\'iroq filtrlarini sozlash</string>
+    <string name="filter_name" formatted="false">Filtr nomi</string>
+    <string name="filter_priority_note" formatted="false">Eslatma: Filtrlar o\'rtasida ustuvorlik munosabatlari mavjud, tafsilotlar uchun yordam hujjatlariga qarang</string>
+    <string name="filter_s_m_s" formatted="false">SMS filtri</string>
+    <string name="filter_settings" formatted="false">Filtr sozlamalari</string>
+    <string name="filter_settings_title" formatted="false">Filtr sozlamalari</string>
+    <string name="filter_toggle_instructions" formatted="false">Ushbu SIM uyasi uchun filtrlarni yoqish yoki o\'chirish:</string>
+    <string name="filter_toggle_status" formatted="false">{status} filtri: {filterName}</string>
+    <string name="filter_type" formatted="false">Filtr turi</string>
+    <string name="filter_verified_owner" formatted="false">Tasdiqlangan egasini filtrlash</string>
+    <string name="filtered" formatted="false">Filtrlangan</string>
+    <string name="final_risk" formatted="false">Yakuniy xavf</string>
+    <string name="financial" formatted="false">Moliyaviy</string>
+    <string name="flexible_combination_feature" formatted="false">• Moslashuvchan kombinatsiyalar: Har bir SIM uyasi uchun filtrlarni yoqish/o\'chirish</string>
+    <string name="font_sizes_setting" formatted="false">Shrift o\'lchamlari</string>
+    <string name="found_rules" formatted="false">{count} ta qoida topildi</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">Firibgarlik haqida ogohlantirishni sozlash uchun</string>
+    <string name="fraud_aler_setting_title" formatted="false">Firibgarlik haqida ogohlantirish sozlamasi</string>
+    <string name="fraud_alert" formatted="false">FIRIBGARLIK OGOHLANTIRISHI - Qo\'ng\'iroqni tugating</string>
+    <string name="fraud_alert_title" formatted="false">Firibgarlik haqida ogohlantirish</string>
+    <string name="fraud_alerts" formatted="false">Firibgarlik ogohlantirishlari</string>
+    <string name="fraud_alerts_description" formatted="false">Potentsial firibgarlik qo\'ng\'iroqlari haqida ogohlantirishlarni ko\'rsatadi.</string>
+    <string name="fraud_scam_likely" formatted="false">Firibgarlik ehtimoli yuqori</string>
+    <string name="free" formatted="false">Bepul</string>
+    <string name="function_settings_title" formatted="false">Funksiya sozlamalari</string>
+    <string name="general_update_failure" formatted="false">Yangilash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="get_free" formatted="false">Bepul oling</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Barcha SIM kartalar uchun global filtrlarni sozlang:</string>
+    <string name="global_filter_feature" formatted="false">• Global filtrlar: Barcha kiruvchi qo\'ng\'iroqlar uchun asosiy qoidalar</string>
+    <string name="global_filter_settings" formatted="false">Global filtr sozlamalari</string>
+    <string name="global_settings" formatted="false">Global sozlamalar</string>
+    <string name="google_drive_auth_description" formatted="false">Tizim tomonidan sozlangan Google Drive mijoz IDsi va kaliti yordamida avtorizatsiya qiling</string>
+    <string name="google_drive_config_title" formatted="false">Google Drive konfiguratsiyasi</string>
+    <string name="government" formatted="false">Davlat</string>
+    <string name="grant_necessary_permissions" formatted="false">Kerakli ruxsatlarni berish</string>
+    <string name="grant_permissions" formatted="false">Ruxsatlarni berish</string>
+    <string name="granted" formatted="false">Berilgan</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">Sizga {days} kunlik vaqtinchalik xarid qilish imtiyozlari berildi. Amal qilish muddati: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">Ko\'rsatmalar</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">Sizda allaqachon vaqtinchalik imtiyozlar mavjud, amal qilish muddati: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">Sizda allaqachon VIP imtiyozlari mavjud (reklamalardan tashqari)</string>
+    <string name="headhunter" formatted="false">Xedxanter</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Balandlik</string>
+    <string name="high" formatted="false">Yuqori</string>
+    <string name="high_risk" formatted="false">Yuqori xavf</string>
+    <string name="home_tab" formatted="false">Bosh sahifa</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 soat oldin} other{{count} soat oldin}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 soat} =1{1 soat} other{{count} soat}}</string>
+    <string name="how_it_works_point1" formatted="false">• Tizim belgilangan vaqt oralig\'ida bir xil raqamdan bo\'lgan qo\'ng\'iroqlarga avtomatik ruxsat beradi</string>
+    <string name="how_it_works_point2" formatted="false">• Qisqaroq vaqt oralig\'i qattiqroq ushlab qolishga olib keladi; uzoqroq vaqt oralig\'i yumshoqroq ushlab qolishga olib keladi</string>
+    <string name="how_it_works_point3" formatted="false">• Tizim takroriy qo\'ng\'iroq ekanligini aniqlash uchun qo\'ng\'iroqlar tarixini tekshiradi</string>
+    <string name="how_it_works_title" formatted="false">Qanday ishlaydi:</string>
+    <string name="icon_code_optional" formatted="false">Belgilar kodi (ixtiyoriy)</string>
+    <string name="icon_size" formatted="false">Belgilar o\'lchami</string>
+    <string name="import" formatted="false">Import qilish</string>
+    <string name="import_config" formatted="false">Konfiguratsiyani import qilish</string>
+    <string name="import_contacts" formatted="false">Kontaktlarni import qilish</string>
+    <string name="import_entity" formatted="false">{entityTypeName}ni import qilish</string>
+    <string name="import_export" formatted="false">Import/Eksport</string>
+    <string name="import_export_contacts" formatted="false">Kontaktlarni import/eksport qilish</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Kontaktlarni import/eksport qilish</string>
+    <string name="import_export_description" formatted="false">{entityTypeName} ma\'lumotlarini import yoki eksport qilish</string>
+    <string name="import_export_rules" formatted="false">Qoidalarni import/eksport qilish</string>
+    <string name="import_export_title" formatted="false">Import/Eksport</string>
+    <string name="import_failed" formatted="false">Import muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="import_failure" formatted="false">Konfiguratsiyani import qilish muvaffaqiyatsiz tugadi</string>
+    <string name="import_feature_coming_soon" formatted="false">Import funksiyasi tez orada</string>
+    <string name="import_labels" formatted="false">Yorliqlarni import qilish</string>
+    <string name="import_labels_failed" formatted="false">Yorliqlarni import qilish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="import_plugin_list" formatted="false">Plaginlar ro\'yxatini import qilish</string>
+    <string name="import_plugin_list_failed" formatted="false">Plaginlar ro\'yxatini import qilish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="import_plugin_success" formatted="false">{count} ta plagin muvaffaqiyatli import qilindi</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Fayldan qoida konfiguratsiyalarini import qilish</string>
+    <string name="import_rules" formatted="false">Qoidalarni import qilish</string>
+    <string name="import_success" formatted="false">Import muvaffaqiyatli yakunlandi</string>
+    <string name="important" formatted="false">Muhim</string>
+    <string name="important_notice_title" formatted="false">Muhim eslatma</string>
+    <string name="incoming_call_intercept_action" formatted="false">Kiruvchi qo\'ng\'iroqlarni ushlab qolish harakati</string>
+    <string name="incorrect_password" formatted="false">Noto\'g\'ri parol</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.</string>
+    <string name="initial_setup_deselect_all" formatted="false">Tanlovni tozalash</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">Failed to get configuration</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">Retry</string>
+    <string name="initial_setup_save" formatted="false">One-click setup selected</string>
+    <string name="initial_setup_save_failed" formatted="false">Failed to save configuration: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Configuration saved successfully, rules will be fetched automatically soon</string>
+    <string name="initial_setup_saving" formatted="false">Saving...</string>
+    <string name="initial_setup_search_hint" formatted="false">Qoidalar to\'plami yoki mamlakatni qidirish...</string>
+    <string name="initial_setup_select_all" formatted="false">Barchasini tanlash</string>
+    <string name="initial_setup_selected_count" formatted="false">{count} ta tanlandi</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">Skip</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">Rule Library Setup</string>
+    <string name="initializing" formatted="false">Boshlanmoqda</string>
+    <string name="installed" formatted="false">O\'rnatilgan</string>
+    <string name="insufficient_marks" formatted="false">Yetarli bo\'lmagan belgilar</string>
+    <string name="insurance" formatted="false">Sug\'urta</string>
+    <string name="intercept_action" formatted="false">Ushlab qolish harakati</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Bloklangan qo\'ng\'iroqlar qanday ishlashini sozlash</string>
+    <string name="interception_action_settings_title" formatted="false">Ushlab qolish harakati sozlamalari</string>
+    <string name="interception_time_interval" formatted="false">Ushlab qolish vaqti oralig\'i</string>
+    <string name="internet" formatted="false">Internet</string>
+    <string name="interval_set_success" formatted="false">{service} yangilash oralig\'i {days} kunga o\'rnatildi</string>
+    <string name="invalid_content_regex" formatted="false">Noto\'g\'ri tarkib regexi</string>
+    <string name="invalid_exchange_rule" formatted="false">Noto\'g\'ri almashtirish qoidasi</string>
+    <string name="invalid_label" formatted="false">Yaroqsiz yorliq</string>
+    <string name="invalid_regex_pattern" formatted="false">Yaroqsiz regex namunasi</string>
+    <string name="invalid_sender_regex" formatted="false">Yaroqsiz yuboruvchi regexi</string>
+    <string name="invalid_sim_data" formatted="false">Noto\'g\'ri SIM ma\'lumotlari</string>
+    <string name="ip_country" formatted="false">IP mamlakati</string>
+    <string name="is_number_match" formatted="false">Raqam mosligi</string>
+    <string name="is_roaming" formatted="false">Rouming</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">Qo\'shimcha ma\'lumot olish uchun Telegram kanal va guruhiga qo\'shiling</string>
+    <string name="json_format" formatted="false">JSON Formati</string>
+    <string name="just_now" formatted="false">Hozirgina</string>
+    <string name="keep_all_versions" formatted="false">Barcha versiyalarni saqlash</string>
+    <string name="keep_all_versions_description" formatted="false">Har bir zaxira nusxasining barcha tarixiy versiyalarini saqlab qolish</string>
+    <string name="label" formatted="false">Yorliq</string>
+    <string name="label_action_description" formatted="false">Oson aniqlash uchun qo\'ng\'iroqqa yorliq qo\'shish.</string>
+    <string name="label_added_successfully" formatted="false">Yorliq &quot;{name}&quot; muvaffaqiyatli qo\'shildi</string>
+    <string name="label_categories" formatted="false">Yorliq toifalari</string>
+    <string name="label_deleted" formatted="false">Yorliq o\'chirildi</string>
+    <string name="label_description" formatted="false">Yorliqlar kontaktlarni yaxshiroq boshqarishga yordam beradi, qo\'ng\'iroqlar va xabarlarni osongina aniqlash uchun telefon raqamlariga shaxsiy yorliqlar qo\'shing.</string>
+    <string name="label_filter_tooltip" formatted="false">Yorliq filtri</string>
+    <string name="label_icon_color" formatted="false">Yorliq belgisining rangi</string>
+    <string name="label_management" formatted="false">Yorliqlarni boshqarish</string>
+    <string name="label_not_found" formatted="false">Yorliq topilmadi</string>
+    <string name="label_tag" formatted="false">Yorliq: {labelId}</string>
+    <string name="label_update_failed" formatted="false">Yorliqni yangilash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="label_update_success" formatted="false">Yorliq &quot;$labelText&quot; muvaffaqiyatli yangilandi</string>
+    <string name="labels" formatted="false">Yorliqlar</string>
+    <string name="labels_color" formatted="false">Yorliqlar rangi</string>
+    <string name="labels_deleted" formatted="false">{count} ta yorliq o\'chirildi</string>
+    <string name="labels_exported_successfully" formatted="false">Yorliqlar muvaffaqiyatli eksport qilindi</string>
+    <string name="labels_font_size" formatted="false">Yorliqlar shrift o\'lchami</string>
+    <string name="labels_imported_successfully" formatted="false">{count} ta yorliq muvaffaqiyatli import qilindi</string>
+    <string name="labels_position" formatted="false">Yorliqlar joylashuvi</string>
+    <string name="language_settings" formatted="false">Til sozlamalari</string>
+    <string name="language_settings_subtitle" formatted="false">Ilova ko\'rsatish tilini o\'zgartirish</string>
+    <string name="language_settings_title" formatted="false">Til sozlamalari</string>
+    <string name="last_sync_label" formatted="false">Oxirgi sinxronizatsiya</string>
+    <string name="last_updated" formatted="false">Oxirgi yangilanish: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">Umrboqiy a\'zolik</string>
+    <string name="lifetime_membership_description" formatted="false">Bir martalik xarid, barcha premium funksiyalarni va kelajakdagi yangilanishlarni doimiy ravishda qulfdan chiqarish</string>
+    <string name="list_view" formatted="false">Ro\'yxat ko\'rinishi</string>
+    <string name="live_activities_settings_title" formatted="false">Jonli faoliyat sozlamalari</string>
+    <string name="live_activities_test_end_activity" formatted="false">Faoliyatni yakunlash</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">Yangi faoliyat yuborish</string>
+    <string name="live_activities_test_title" formatted="false">Jonli faoliyatni sinash</string>
+    <string name="live_activities_test_update_activity" formatted="false">Faoliyatni yangilash</string>
+    <string name="live_activity_controls_title" formatted="false">Jonli faoliyat boshqaruvi</string>
+    <string name="live_activity_mode" formatted="false">Jonli faoliyat</string>
+    <string name="live_activity_mode_description" formatted="false">Qo\'ng\'iroq ma\'lumotlarini qulflangan ekranda va Dynamic Island\'da (iOS) doimiy bildirishnoma sifatida ko\'rsatadi.</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Jonli bildirishnomalarning ko\'rinishini sozlash.</string>
+    <string name="live_notification_customization_title" formatted="false">Jonli bildirishnomani sozlash</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">Kontaktlarni yuklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="load_data_failed" formatted="false">Ma\'lumotlarni yuklash muvaffaqiyatsiz tugadi</string>
+    <string name="load_label_failed" formatted="false">Yorliqlarni yuklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="load_labels_failed" formatted="false">Yorliqlarni yuklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">Belgilangan telefon raqamlarini yuklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">Belgilangan telefonlarni yuklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="load_plugins_failed" formatted="false">Plaginlarni yuklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="load_settings_failed" formatted="false">Sozlamalarni yuklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">SMS qoidalarini yuklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="load_status_failed_message" formatted="false">Holatni yuklash muvaffaqiyatsiz tugadi</string>
+    <string name="load_subscriptions_failed" formatted="false">Obunalarni yuklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="loading" formatted="false">Yuklanmoqda...</string>
+    <string name="loading_ad" formatted="false">Reklama yuklanmoqda...</string>
+    <string name="loading_tags" formatted="false">Teglar yuklanmoqda...</string>
+    <string name="loan" formatted="false">Kredit</string>
+    <string name="local_count_filter" formatted="false">Mahalliy hisob filtri</string>
+    <string name="local_count_filter_description" formatted="false">Mahalliy raqam hisoblariga asoslanib tez-tez takrorlanadigan qo\'ng\'iroqlarni ushlab qolish</string>
+    <string name="local_count_filter_explanation_content" formatted="false">Mahalliy hisob filtri qo\'ng\'iroqlar tarixi yozuvlarini tahlil qiladi va tez-tez takrorlanadigan spam qo\'ng\'iroqlarni avtomatik aniqlaydi va bloklaydi.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">Mahalliy hisob filtri tushuntirishi</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• Raqamning hisob qiymatiga qarab bloklashni aniqlash</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• Raqamning hisobi belgilangan chegaradan oshib ketganda, uni avtomatik bloklashni tanlashingiz mumkin</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• Chegaradan oshmaydigan raqamlarni tanlab ruxsat berishingiz mumkin</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• Barcha so\'rov loglarini yozishni tanlashingiz mumkin</string>
+    <string name="local_count_filter_settings" formatted="false">Mahalliy hisob filtri sozlamalari</string>
+    <string name="local_count_filter_use_cases" formatted="false">Bu filtr, ayniqsa, avtomatik terilgan spam qo\'ng\'iroqlari va marketing qo\'ng\'iroqlarini aniqlash uchun mos keladi.</string>
+    <string name="local_count_filtering" formatted="false">Mahalliy hisobni filtrlash</string>
+    <string name="local_count_filtering_explanation" formatted="false">• Mahalliy hisobni filtrlash: Mahalliy belgilash hisobiga asoslangan filtrlash qoidalari</string>
+    <string name="local_counter_filter" formatted="false">Mahalliy hisoblagich filtri</string>
+    <string name="local_counter_filter_subtitle" formatted="false">Qo\'ng\'iroq chastotasiga qarab spam qo\'ng\'iroqlarni avtomatik filtrlash</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">Mahalliy filtr sozlamalari</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">Mahalliy bildirishnoma o\'chirilgan</string>
+    <string name="local_notification_enabled" formatted="false">Mahalliy bildirishnoma yoqilgan</string>
+    <string name="local_services" formatted="false">Mahalliy xizmatlar</string>
+    <string name="location" formatted="false">Joylashuv</string>
+    <string name="location_color" formatted="false">Manzil rangi</string>
+    <string name="location_font_size" formatted="false">Manzil shrift o\'lchami</string>
+    <string name="location_icon_color" formatted="false">Manzil belgisining rangi</string>
+    <string name="location_position" formatted="false">Manzil joylashuvi</string>
+    <string name="log" formatted="false">Jurnal</string>
+    <string name="log_action_description" formatted="false">Boshqa harakat qilmasdan qo\'ng\'iroq ma\'lumotlarini jurnalga kiritish.</string>
+    <string name="log_all_local_queries" formatted="false">Barcha mahalliy so\'rovlarni loglash</string>
+    <string name="log_all_local_queries_description" formatted="false">Barcha mahalliy raqam so\'rovlari uchun loglarni yozib olish</string>
+    <string name="log_all_remote_queries" formatted="false">Barcha masofaviy so\'rovlarni loglash</string>
+    <string name="log_all_remote_queries_description" formatted="false">Barcha masofaviy raqam so\'rov operatsiyalarini yozib olish</string>
+    <string name="low" formatted="false">Past</string>
+    <string name="low_risk" formatted="false">Past xavf</string>
+    <string name="manage" formatted="false">Kontaktlarni boshqarish</string>
+    <string name="manage_favorite_contacts" formatted="false">Sevimlilar ro\'yxatidagi kontaktlarni boshqarish</string>
+    <string name="manage_filter_rules" formatted="false">Filtrlash qoidalarini boshqarish</string>
+    <string name="manage_filter_rules_description" formatted="false">SMS filtrlash qoidalarini qo\'shish, tahrirlash yoki o\'chirish</string>
+    <string name="manual_entry" formatted="false">Qo\'lda kiritish ma\'lumotlari</string>
+    <string name="mark_count" formatted="false">Belgilash hisobi</string>
+    <string name="mark_counts" formatted="false">Belgilash hisoblari</string>
+    <string name="mark_exchange" formatted="false">Belgilash almashinuvi</string>
+    <string name="mark_more_numbers_for_more" formatted="false">Ko\'proq belgilar uchun ko\'proq raqamlarni belgilang</string>
+    <string name="mark_phone" formatted="false">Telefon raqamini belgilash</string>
+    <string name="mark_phone_failed" formatted="false">Telefon raqamini belgilashda xatolik yuz berdi: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">Telefon raqamlarini belgilashni boshqarish</string>
+    <string name="mark_phone_success" formatted="false">Telefon raqami muvaffaqiyatli belgilandi</string>
+    <string name="marked_by_count" formatted="false">{count} tomonidan belgilangan</string>
+    <string name="marked_phones_list" formatted="false">Belgilangan telefon raqamlari</string>
+    <string name="marks_insufficient" formatted="false">Almashtirish uchun etarli belgilar yo\'q</string>
+    <string name="master_and_overrides" formatted="false">Master Controls</string>
+    <string name="master_and_overrides_desc" formatted="false">Global Rule Settings</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">Moslik topilmadi.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">maxsus raqam formatiga mos keladi</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">Maxsus belgili raqamlarga moslik:</string>
+    <string name="match_specific_digit_patterns" formatted="false">XXX-XXXX-XXXX formatiga mos keladi</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">Maxsus raqam naqshlariga moslik:</string>
+    <string name="match_successful_message" formatted="false">Moslik muvaffaqiyatli topildi!</string>
+    <string name="medical" formatted="false">Tibbiy</string>
+    <string name="medium" formatted="false">O\'rta</string>
+    <string name="medium_risk" formatted="false">O\'rta xavf</string>
+    <string name="membership_center" formatted="false">A\'zolik markazi</string>
+    <string name="membership_privileges" formatted="false">A\'zolik imtiyozlari</string>
+    <string name="message_background_color" formatted="false">Xabar fon rangi</string>
+    <string name="message_color" formatted="false">Xabar rangi</string>
+    <string name="message_font_size" formatted="false">Xabar shrifti hajmi</string>
+    <string name="message_position" formatted="false">Xabar joylashuvi</string>
+    <string name="migration_tool" formatted="false">Migratsiya vositasi</string>
+    <string name="minutes" formatted="false">daqiqa</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 daqiqa oldin} other{{count} daqiqa oldin}}</string>
+    <string name="moderate" formatted="false">O\'rtacha</string>
+    <string name="month" formatted="false">Oy</string>
+    <string name="monthly" formatted="false">Oylik</string>
+    <string name="monthly_call_count" formatted="false">Oylik qo\'ng\'iroqlar</string>
+    <string name="monthly_membership" formatted="false">Oylik a\'zolik</string>
+    <string name="monthly_membership_description" formatted="false">Barcha premium xususiyatlarni oching, har oy avtomatik yangilanadi</string>
+    <string name="monthly_total" formatted="false">Oylik jami</string>
+    <string name="more_options" formatted="false">Ko\'proq imkoniyatlar</string>
+    <string name="mute" formatted="false">Ovozni o\'chirish</string>
+    <string name="name" formatted="false">Ism</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">Ism va telefon raqami bo\'sh bo\'lishi mumkin emas</string>
+    <string name="name_cannot_be_empty" formatted="false">Ism bo\'sh bo\'lishi mumkin emas</string>
+    <string name="name_color" formatted="false">Ism rangi</string>
+    <string name="name_font_size" formatted="false">Ism shrift hajmi</string>
+    <string name="name_position" formatted="false">Ism joylashuvi</string>
+    <string name="name_unknown" formatted="false">Ism: Noma\'lum</string>
+    <string name="national_number" formatted="false">Milliy raqam</string>
+    <string name="need_vip_access" formatted="false">Bu xususiyatdan foydalanish uchun sizga VIP kirish kerak</string>
+    <string name="new_vote_received" formatted="false">Yangi ovoz qabul qilindi</string>
+    <string name="new_vote_received_body" formatted="false">Kimdir {phoneNumber}ni o\'chirishga {voteType} ovoz berdi. Joriy ovozlar: {totalVotes}.</string>
+    <string name="next_step" formatted="false">Keyingi</string>
+    <string name="no_action" formatted="false">Harakat yo\'q</string>
+    <string name="no_action_rules" formatted="false">Harakat qoidalari yo\'q</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">Faol bulutli sinxronizatsiya xizmati yo\'q</string>
+    <string name="no_activity" formatted="false">Faoliyat yo\'q</string>
+    <string name="no_ads" formatted="false">Reklamasiz</string>
+    <string name="no_allowed_blocked_rules" formatted="false">Ruxsat berilgan/bloklangan qoidalar topilmadi</string>
+    <string name="no_blocked_type_data" formatted="false">Bloklangan turdagi ma\'lumotlar mavjud emas</string>
+    <string name="no_call_records" formatted="false">Qo\'ng\'iroq yozuvlari yo\'q</string>
+    <string name="no_contacts_yet" formatted="false">Hali kontaktlar yo\'q</string>
+    <string name="no_data" formatted="false">Ma\'lumotlar yo\'q</string>
+    <string name="no_devices_registered_message" formatted="false">Ro\'yxatdan o\'tgan qurilmalar yo\'q</string>
+    <string name="no_labels" formatted="false">Hali yorliqlar yo\'q</string>
+    <string name="no_marked_phones" formatted="false">Belgilangan telefon raqamlari yo\'q</string>
+    <string name="no_matching_contacts_found" formatted="false">Mos keladigan kontaktlar topilmadi</string>
+    <string name="no_matching_numbers_found" formatted="false">Mos keladigan raqamlar topilmadi</string>
+    <string name="no_matching_rules" formatted="false">Mos keladigan {ruleType} yo\'q</string>
+    <string name="no_notifications" formatted="false">Bildirishnomalar yo\'q</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">Telefon qoidalari topilmadi</string>
+    <string name="no_plugins" formatted="false">Hali plaginlar yo\'q</string>
+    <string name="no_proposals_found" formatted="false">Takliflar topilmadi</string>
+    <string name="no_regex_rules" formatted="false">Regex qoidalari topilmadi</string>
+    <string name="no_rules" formatted="false">Hali {ruleType} yo\'q</string>
+    <string name="no_rules_prompt" formatted="false">Qoidalar topilmadi, iltimos, qoidalar qo\'shing</string>
+    <string name="no_rules_to_export" formatted="false">Eksport qilish uchun qoidalar yo\'q</string>
+    <string name="no_sim_card_detected" formatted="false">SIM karta topilmadi</string>
+    <string name="no_sim_cards_detected" formatted="false">SIM kartalar topilmadi</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">Hali SMS filtr qoidalari yo\'q</string>
+    <string name="no_sms_rules_yet" formatted="false">Hali SMS qoidalari yo\'q</string>
+    <string name="no_subscriptions" formatted="false">Obunalar yo\'q</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">Faylda haqiqiy SMS qoidalari topilmadi</string>
+    <string name="none" formatted="false">Hech qaysi</string>
+    <string name="none_action_description" formatted="false">Qo\'ng\'iroq uchun hech qanday maxsus harakat qilinmaydi.</string>
+    <string name="none_service_type" formatted="false">Hech qaysi</string>
+    <string name="normal_user" formatted="false">Oddiy foydalanuvchi</string>
+    <string name="not_granted" formatted="false">Berilmagan</string>
+    <string name="not_verified_text" formatted="false">Tasdiqlanmagan</string>
+    <string name="notification_frequency_hours" formatted="false">Bildirishnoma chastotasi (soat)</string>
+    <string name="notification_frequency_title" formatted="false">Bildirishnoma chastotasi</string>
+    <string name="notification_mode" formatted="false">Bildirishnoma rejimi</string>
+    <string name="notification_mode_description" formatted="false">Qo\'ng\'iroq qiluvchi ma\'lumotlarini bildirishnoma panelida ko\'rsatish</string>
+    <string name="notification_permission" formatted="false">Bildirishnoma ruxsati</string>
+    <string name="notification_permission_description" formatted="false">Kiruvchi qo\'ng\'iroq va xabarlar bildirishnomalarini ko\'rsatish uchun ishlatiladi.</string>
+    <string name="notification_settings" formatted="false">Bildirishnoma sozlamalari</string>
+    <string name="notification_settings_title" formatted="false">Bildirishnoma sozlamalari</string>
+    <string name="notification_instructions" formatted="false">Ko\'rsatmalar:
+1. Bildirishnoma yaratish yoki yangilash uchun &quot;YUBORISH&quot; tugmasini bosing.
+2. Natijani ko\'rish uchun bosh ekranga o\'ting yoki bildirishnomalar panelini pastga torting.
+3. Bildirishnomani yopish uchun &quot;YAKUNLASH&quot; tugmasini bosing.</string>
+    <string name="notifications" formatted="false">Bildirishnomalar</string>
+    <string name="notify" formatted="false">Xabar berish</string>
+    <string name="notify_action_description" formatted="false">Qo\'ng\'iroq qabul qilinganda bildirishnoma yuborish.</string>
+    <string name="number" formatted="false">Raqam</string>
+    <string name="number_color" formatted="false">Raqam rangi</string>
+    <string name="number_font_size" formatted="false">Raqam shrift hajmi</string>
+    <string name="number_format" formatted="false">Raqam formati</string>
+    <string name="number_invalid_format" formatted="false">Raqam formati noto\'g\'ri</string>
+    <string name="number_position" formatted="false">Raqam joylashuvi</string>
+    <string name="number_search" formatted="false">Raqam qidiruvi</string>
+    <string name="number_type_color" formatted="false">Raqam turi rangi</string>
+    <string name="number_type_font_size" formatted="false">Raqam turi shrift hajmi</string>
+    <string name="number_type_position" formatted="false">Raqam turi joylashuvi</string>
+    <string name="ok_button" formatted="false">OK</string>
+    <string name="onboarding_complete_description" formatted="false">Sizning qo\'ng\'iroq xavfsizligi menejeringiz tayyor, xavfsiz qo\'ng\'iroq tajribasidan bahramand bo\'lishni boshlang!</string>
+    <string name="onboarding_language_description" formatted="false">Eng yaxshi tajriba uchun afzal ko\'rgan tilingizni tanlang.</string>
+    <string name="onboarding_permissions_description" formatted="false">To\'liq xizmat ko\'rsatish uchun bizga quyidagi ruxsatnomalar kerak:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">Spam qo\'ng\'iroqlari va xabarlarini bir marta bosish bilan bloklash, bloklash qoidalarini sozlash va sizga tinch muhitni ta\'minlash.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">Noma\'lum qo\'ng\'iroqlarni avtomatik aniqlash, shubhali raqamlarni belgilash va qo\'ng\'iroq xavfsizligingizni himoya qilish.</string>
+    <string name="onboarding_welcome_description" formatted="false">Sizning qo\'ng\'iroqlarni boshqarish bo\'yicha mutaxassisingiz, keng qamrovli qo\'ng\'iroqlarni aniqlash va bloklash xizmatlarini taqdim etadi.</string>
+    <string name="one_drive_auth_description" formatted="false">Tizimda sozlatilgan OneDrive mijoz IDsi va kaliti yordamida avtorizatsiya qiling</string>
+    <string name="one_drive_config_title" formatted="false">OneDrive konfiguratsiyasi</string>
+    <string name="online_caller_id_subscription" formatted="false">Onlayn Qo\'ng\'iroqchi ID Obunasi</string>
+    <string name="open_app_settings" formatted="false">Ilova sozlamalarini ochish</string>
+    <string name="open_app_settings_failed" formatted="false">Ilova sozlamalarini ochish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="open_in_web_view" formatted="false">WebViewda ochish</string>
+    <string name="operation_failed" formatted="false">Amal muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="operation_failure" formatted="false">Amal muvaffaqiyatsiz tugadi</string>
+    <string name="operation_success" formatted="false">Amal muvaffaqiyatli yakunlandi</string>
+    <string name="oppose" formatted="false">Qarshi chiqish</string>
+    <string name="oppose_count" formatted="false">Qarshi ({opposeCount})</string>
+    <string name="opposed" formatted="false">QARSHI CHIQILDI</string>
+    <string name="other" formatted="false">Boshqa</string>
+    <string name="our_other_apps" formatted="false">Boshqa ilovalarimiz</string>
+    <string name="overlay_mode" formatted="false">Qalqib chiquvchi oyna</string>
+    <string name="overlay_mode_description" formatted="false">Qo\'ng\'iroq qiluvchi ma\'lumotlarini qalqib chiquvchi oynada ko\'rsatish</string>
+    <string name="overlay_permission" formatted="false">Qalqib chiquvchi oyna ruxsati</string>
+    <string name="overlay_permission_description" formatted="false">Kiruvchi qo\'ng\'iroq qalqib chiqishini ko\'rsatish uchun ishlatiladi.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">Umumiy ko\'rinish</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">Parol</string>
+    <string name="password_cannot_be_empty" formatted="false">Parol bo\'sh bo\'lishi mumkin emas</string>
+    <string name="password_label" formatted="false">Parol</string>
+    <string name="passwords_do_not_match" formatted="false">Parollar mos kelmaydi</string>
+    <string name="pattern" formatted="false">Namuna</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">KUTILMOQDA</string>
+    <string name="pending_proposals" formatted="false">Kutilayotgan takliflar</string>
+    <string name="pending_proposals_body" formatted="false">Sizda {count, plural, =0 {kutilayotgan takliflar yo\'q} one {1 ta kutilayotgan taklif} other {{count} ta kutilayotgan taklif}} mavjud.</string>
+    <string name="pending_sync" formatted="false">Kutilayotgan sinxronizatsiya</string>
+    <string name="period_month" formatted="false">Oy</string>
+    <string name="period_week" formatted="false">Hafta</string>
+    <string name="period_year" formatted="false">Yil</string>
+    <string name="permission_denied" formatted="false">Ruxsat so\'rovi rad etildi</string>
+    <string name="permission_granted" formatted="false">Ruxsat berildi</string>
+    <string name="permission_management" formatted="false">Ruxsatlarni boshqarish</string>
+    <string name="permission_subtitle" formatted="false">Qoplama va batareya optimallashtirish ruxsatlarini boshqarish</string>
+    <string name="permission_title" formatted="false">Maxsus ruxsatlar</string>
+    <string name="phone_calls_tab" formatted="false">Telefon</string>
+    <string name="phone_number" formatted="false">Telefon raqami</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">Telefon raqami bo\'sh bo\'lishi mumkin emas</string>
+    <string name="phone_number_hint" formatted="false">Telefon raqamini kiriting</string>
+    <string name="phone_number_label" formatted="false">Telefon raqami</string>
+    <string name="phone_number_min_digits" formatted="false">Telefon raqami kamida 7 raqamdan iborat bo\'lishi kerak</string>
+    <string name="phone_number_required" formatted="false">Telefon raqami talab qilinadi</string>
+    <string name="phone_number_type" formatted="false">Telefon raqami turi</string>
+    <string name="phone_number_type_fixed_line" formatted="false">Statsionar liniya</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">Statsionar yoki mobil</string>
+    <string name="phone_number_type_mobile" formatted="false">Mobil</string>
+    <string name="phone_number_type_pager" formatted="false">Peyjer</string>
+    <string name="phone_number_type_personal_number" formatted="false">Shaxsiy raqam</string>
+    <string name="phone_number_type_premium_rate" formatted="false">Premium tarif</string>
+    <string name="phone_number_type_shared_cost" formatted="false">Umumiy xarajat</string>
+    <string name="phone_number_type_toll_free" formatted="false">Bepul</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">Noma\'lum</string>
+    <string name="phone_number_type_voicemail" formatted="false">Ovozli pochta</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">Telefon ruxsati</string>
+    <string name="phone_permission_description" formatted="false">Kiruvchi qo\'ng\'iroqlarni aniqlash va bloklash uchun ishlatiladi.</string>
+    <string name="phone_rule" formatted="false">Telefon qoidasi</string>
+    <string name="phone_rule_management" formatted="false">Telefon qoidalarini boshqarish</string>
+    <string name="phone_rule_subscription" formatted="false">Telefon qoidasi obunasi</string>
+    <string name="phone_rules_info" formatted="false">Telefon qoidalari qo\'ng\'iroqlarni aniq telefon raqamlariga moslashtirish uchun ishlatiladi, ular pastroq ustuvorlikka ega. Ba\'zilari phoneRule obunalaridan keladi</string>
+    <string name="phone_subscription" formatted="false">Telefon obunasi</string>
+    <string name="phone_subscription_rules_description" formatted="false">Avtomatik ravishda oq ro\'yxat va qora ro\'yxat qoidalarini yangilash uchun URL orqali telefon qoidalari ro\'yxatlariga obuna bo\'ling. JSON formatidagi qoida fayllarini qo\'llab-quvvatlaydi.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">Iltimos, kamida bitta raqam kiriting.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">Iltimos, yorliqni tanlang va to\'g\'ri telefon raqamini kiriting</string>
+    <string name="plugin_added_success" formatted="false">Plagin &quot;{name}&quot; muvaffaqiyatli qo\'shildi</string>
+    <string name="plugin_deleted" formatted="false">Plagin o\'chirildi</string>
+    <string name="plugin_description" formatted="false">Plagin tavsifi</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">Plagin yorlig\'i</string>
+    <string name="plugin_latest_version" formatted="false">Plagin allaqachon so\'nggi versiyada</string>
+    <string name="plugin_list_export_success" formatted="false">Plagin ro\'yxati muvaffaqiyatli eksport qilindi</string>
+    <string name="plugin_management" formatted="false">Plaginlarni boshqarish</string>
+    <string name="plugin_management_subtitle" formatted="false">Uchinchi tomon plaginlarini boshqarish va sozlash</string>
+    <string name="plugin_name" formatted="false">Plagin nomi</string>
+    <string name="plugin_rules_info" formatted="false">Xavfsizlik uchun faqat ishonchli manbalardan plaginlardan foydalaning. O\'zingizning shaxsiy plaginlaringizni yaratish uchun shablonlarimizdan foydalaning!</string>
+    <string name="plugin_service" formatted="false">Plagin xizmati</string>
+    <string name="plugin_test_page_title" formatted="false">Plagin testi</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">Plagin muvaffaqiyatli yangilandi</string>
+    <string name="plugin_url" formatted="false">Plagin URL\'i</string>
+    <string name="plugin_version" formatted="false">Plagin versiyasi</string>
+    <string name="plugins_deleted" formatted="false">{count} ta plagin muvaffaqiyatli o\'chirildi.</string>
+    <string name="political" formatted="false">Siyosiy</string>
+    <string name="powerful_spam_blocking" formatted="false">Kuchli spam bloklash</string>
+    <string name="previous_step" formatted="false">Oldingi qadam</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">Masofaviy harakat sozlamalariga ustunlik berish</string>
+    <string name="prioritize_remote_action_description" formatted="false">Masofaviy ma\'lumotlar bazasidan harakat sozlamalariga ustunlik berish</string>
+    <string name="processed" formatted="false">Qayta ishlangan</string>
+    <string name="processing" formatted="false">Qayta ishlanmoqda...</string>
+    <string name="processing_operation" formatted="false">Qayta ishlanmoqda...</string>
+    <string name="proposal_approved" formatted="false">Taklif tasdiqlandi ✅</string>
+    <string name="proposal_approved_body" formatted="false">{phoneNumber} uchun o\'chirish taklifi jamiyat tomonidan tasdiqlandi ({supportPercentage}% qo\'llab-quvvatlash, {totalVotes} ovoz).</string>
+    <string name="proposal_created" formatted="false">Taklif muvaffaqiyatli yaratildi</string>
+    <string name="proposal_details" formatted="false">Taklif tafsilotlari</string>
+    <string name="proposal_not_found" formatted="false">Taklif topilmadi</string>
+    <string name="proposal_processed" formatted="false">Bu taklif ko\'rib chiqildi</string>
+    <string name="proposal_rejected" formatted="false">Taklif rad etildi ❌</string>
+    <string name="proposal_rejected_body" formatted="false">{phoneNumber} uchun o\'chirish taklifi jamiyat tomonidan rad etildi ({supportPercentage}% qo\'llab-quvvatlash, {totalVotes} ovoz).</string>
+    <string name="proposal_statistics" formatted="false">Takliflar statistikasi</string>
+    <string name="provide_detailed_explanation" formatted="false">Batafsil tushuntirish bering (kamida 10 belgi)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">Xarid qilish</string>
+    <string name="purchase_subtitle" formatted="false">Xizmatni sotib olish uchun</string>
+    <string name="purchase_title" formatted="false">Sotib olish</string>
+    <string name="quarterly_membership" formatted="false">Chorak yillik a\'zolik</string>
+    <string name="quarterly_membership_description" formatted="false">Barcha premium funksiyalarni ochish, chorak yillik avtomatik yangilash</string>
+    <string name="ready" formatted="false">Tayyor!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">Sabab</string>
+    <string name="reason_inaccurate_info" formatted="false">Noto\'g\'ri ma\'lumot</string>
+    <string name="reason_min_characters" formatted="false">Sabab kamida 10 belgidan iborat bo\'lishi kerak</string>
+    <string name="reason_not_in_service" formatted="false">Xizmatda emas</string>
+    <string name="reason_other" formatted="false">Boshqa</string>
+    <string name="reason_outdated" formatted="false">Eskirgan raqam</string>
+    <string name="reason_privacy" formatted="false">Maxfiylik muammosi</string>
+    <string name="reason_required" formatted="false">Sabab talab qilinadi</string>
+    <string name="reason_wrongly_identified" formatted="false">Noto\'g\'ri aniqlangan</string>
+    <string name="recruiter" formatted="false">Ishga yollashchi</string>
+    <string name="redeem_vip_with_marks" formatted="false">Belgilar bilan VIPni sotib olish</string>
+    <string name="redirect" formatted="false">Yo\'naltirish</string>
+    <string name="redirect_action_description" formatted="false">Qo\'ng\'iroqni belgilangan raqamga yo\'naltirish.</string>
+    <string name="refresh" formatted="false">Yangilash</string>
+    <string name="refresh_permission_status" formatted="false">Ruxsat holatini yangilash</string>
+    <string name="refresh_proposals" formatted="false">Takliflarni yangilash</string>
+    <string name="refresh_tooltip" formatted="false">Yangilash</string>
+    <string name="regex_error_message" formatted="false">Regex xatosi: {error}</string>
+    <string name="regex_pattern" formatted="false">Regex naqshi</string>
+    <string name="regex_pattern_explanation" formatted="false">Regex naqshini tushuntirish</string>
+    <string name="regex_pattern_explanation_button" formatted="false">Regex naqshini tushuntirish</string>
+    <string name="regex_pattern_label" formatted="false">Regex naqshi</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">Telefon raqamini moslashtirish uchun Regex naqshlari</string>
+    <string name="regex_rule" formatted="false">Regex qoidasi</string>
+    <string name="regex_rule_add_failed" formatted="false">Regex qoidasini qo\'shish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">Regex qoidasi muvaffaqiyatli qo\'shildi</string>
+    <string name="regex_rule_management" formatted="false">Regex qoidalarini boshqarish</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">Qoida nomi va regex naqshi bo\'sh bo\'lishi mumkin emas</string>
+    <string name="regex_rules" formatted="false">Regex qoidalari</string>
+    <string name="regex_rules_info" formatted="false">Regex qoidalari Regex naqshlariga asoslangan qo\'ng\'iroqlarni filtrlash uchun ishlatiladi.</string>
+    <string name="regex_tester_title" formatted="false">Regex tekshirgich</string>
+    <string name="region" formatted="false">Hudud</string>
+    <string name="registered_devices_title" formatted="false">Ro\'yxatdan o\'tgan qurilmalar</string>
+    <string name="reject_all_calls" formatted="false">Barcha qo\'ng\'iroqlarni rad etish</string>
+    <string name="reject_all_calls_description" formatted="false">Yoqilganda, barcha qo\'ng\'iroqlar eng yuqori ustuvorlik bilan rad etiladi</string>
+    <string name="reject_all_numbers" formatted="false">Barcha raqamlarni rad etish</string>
+    <string name="reject_all_numbers_desc" formatted="false">Yoqilganda barcha kiruvchi qo\'ng\'iroqlarni rad etish</string>
+    <string name="reject_exceeded_numbers" formatted="false">Ortiqcha raqamlarni rad etish</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">Hisoblash chegarasidan oshgan raqamlarni avtomatik ravishda rad etish</string>
+    <string name="rejected" formatted="false">RAD ETILDI</string>
+    <string name="remote_filter_settings" formatted="false">Masofaviy filtr sozlamalari</string>
+    <string name="remote_filter_settings_page_title" formatted="false">Masofaviy raqam filtri sozlamalari</string>
+    <string name="remote_number_filter" formatted="false">Masofaviy raqam filtri</string>
+    <string name="remote_number_filter_description" formatted="false">Masofaviy ma\'lumotlar bazasidagi ma\'lumotlarga asoslanib bezovta qiluvchi qo\'ng\'iroqlarni to\'xtatish</string>
+    <string name="remote_number_filter_subtitle" formatted="false">Bulutli ma\'lumotlar bazasi va jamiyat hisobotlaridan foydalanib spam qo\'ng\'iroqlarni aniqlash</string>
+    <string name="remote_number_filtering" formatted="false">Masofaviy raqam filtrlash</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• Masofaviy raqam filtrlash: Masofaviy ma\'lumotlar bazasi ma\'lumotlariga asoslangan filtrlash qoidalari</string>
+    <string name="remove_ads" formatted="false">Reklamalarni olib tashlash</string>
+    <string name="remove_ads_description" formatted="false">Ilovadagi barcha reklamalarni butunlay olib tashlab, yanada silliq tajribani ta\'minlash</string>
+    <string name="remove_ads_title" formatted="false">Reklamalarni olib tashlash</string>
+    <string name="remove_from_favorites" formatted="false">Sevimlilardan olib tashlash</string>
+    <string name="removed_from_favorites" formatted="false">Sevimli kontaktlardan olib tashlandi</string>
+    <string name="rename_device_title" formatted="false">Qurilmani qayta nomlash</string>
+    <string name="reporting_guidelines" formatted="false">• Faqat haqiqatan ham muammoli bo\'lgan raqamlarni xabar qiling
+• Aniq va batafsil sabablarni taqdim eting
+• Jiddiyligiga qarab tegishli xavf darajasini tanlang
+• Yolg\'on hisobotlar hisob qaydnomasining cheklanishiga olib kelishi mumkin</string>
+    <string name="request_all_permissions" formatted="false">Barcha ruxsatnomalarni so\'rash</string>
+    <string name="request_permission" formatted="false">Ruxsat so\'rash</string>
+    <string name="request_permission_failed" formatted="false">Ruxsat so\'rash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">{count} belgi</string>
+    <string name="reset" formatted="false">Qayta o\'rnatish</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">Tiklash</string>
+    <string name="restore_application_settings_from_backup" formatted="false">Ilova sozlamalarini zaxiradan tiklash</string>
+    <string name="restore_from_cloud" formatted="false">Bulutdan tiklash</string>
+    <string name="restore_from_cloud_failed" formatted="false">Bulutdan tiklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">Bulutdan muvaffaqiyatli tiklandi</string>
+    <string name="restore_purchases" formatted="false">Xaridlarni tiklash</string>
+    <string name="restore_settings" formatted="false">Sozlamalarni tiklash</string>
+    <string name="restore_settings_confirmation" formatted="false">Bu sizning joriy sozlamalaringizni butunlay almashtiradi. Davom etishni xohlaysizmi?</string>
+    <string name="result" formatted="false">Natija</string>
+    <string name="retry" formatted="false">Qayta urinish</string>
+    <string name="rewarded_ad_service" formatted="false">Mukofotli reklama xizmati</string>
+    <string name="ridesharing" formatted="false">Yo\'lovchi tashish</string>
+    <string name="risk" formatted="false">Xavf</string>
+    <string name="risk_level" formatted="false">Xavf darajasi</string>
+    <string name="risk_level_critical" formatted="false">Muhim</string>
+    <string name="risk_level_high" formatted="false">Yuqori</string>
+    <string name="risk_level_label" formatted="false">Xavf darajasi</string>
+    <string name="risk_level_low" formatted="false">Past</string>
+    <string name="risk_level_medium" formatted="false">O\'rtacha</string>
+    <string name="risk_level_very_low" formatted="false">Juda past</string>
+    <string name="robocall" formatted="false">Roboqo\'ng\'iroq</string>
+    <string name="rule_action" formatted="false">Qoida harakati</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">Qoida muvaffaqiyatli qo\'shildi</string>
+    <string name="rule_added_success" formatted="false">Qoida muvaffaqiyatli qo\'shildi</string>
+    <string name="rule_delete_confirm_content" formatted="false">Siz haqiqatan ham ushbu {ruleType}ni o\'chirmoqchimisiz?</string>
+    <string name="rule_delete_confirm_title" formatted="false">Qoidani o\'chirish</string>
+    <string name="rule_delete_failed" formatted="false">Qoidani o\'chirish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="rule_delete_success" formatted="false">Qoida muvaffaqiyatli o\'chirildi</string>
+    <string name="rule_deleted_successfully" formatted="false">Qoida muvaffaqiyatli o\'chirildi</string>
+    <string name="rule_disabled_successfully" formatted="false">Qoida muvaffaqiyatli o\'chirildi</string>
+    <string name="rule_enabled_successfully" formatted="false">Qoida muvaffaqiyatli yoqildi</string>
+    <string name="rule_load_failed" formatted="false">Qoidalarni yuklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="rule_management" formatted="false">Qoidalarni boshqarish</string>
+    <string name="rule_name" formatted="false">Qoida nomi</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">Qoida nomi va kontent regexi bo\'sh bo\'lishi mumkin emas</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">Qoida nomi va telefon raqami bo\'sh bo\'lishi mumkin emas</string>
+    <string name="rule_name_hint" formatted="false">masalan, Oila, Do\'stlar va h.k.</string>
+    <string name="rule_name_label" formatted="false">Qoida nomi</string>
+    <string name="rule_name_required" formatted="false">Qoida nomi va telefon raqami bo\'sh bo\'lishi mumkin emas</string>
+    <string name="rule_not_exist" formatted="false">Qoida mavjud emas yoki o\'chirilgan</string>
+    <string name="rule_not_found" formatted="false">Qoida topilmadi: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">Qoida muvaffaqiyatli saqlandi!</string>
+    <string name="rule_status_changed" formatted="false">Qoida {status} muvaffaqiyatli o\'zgartirildi</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">Operatsiya muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="rule_toggle_success" formatted="false">Qoida {status} muvaffaqiyatli o\'zgartirildi</string>
+    <string name="rule_type" formatted="false">Rule Type</string>
+    <string name="rule_update_failed" formatted="false">Qoidani yangilash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="rule_update_success" formatted="false">Qoida muvaffaqiyatli yangilandi</string>
+    <string name="rule_verification" formatted="false">Qoidani tekshirish</string>
+    <string name="rules_exported_successfully" formatted="false">Qoidalar muvaffaqiyatli eksport qilindi</string>
+    <string name="rules_exported_to" formatted="false">Qoidalar eksport qilindi: {path}</string>
+    <string name="rules_imported" formatted="false">Qoidalar muvaffaqiyatli import qilindi</string>
+    <string name="rules_imported_successfully" formatted="false">{count} ta qoida muvaffaqiyatli import qilindi</string>
+    <string name="save" formatted="false">Saqlash</string>
+    <string name="save_button" formatted="false">Saqlash</string>
+    <string name="save_button_text" formatted="false">Saqlash</string>
+    <string name="save_failed" formatted="false">Saqlash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="save_script" formatted="false">Skriptni saqlash</string>
+    <string name="save_settings" formatted="false">Sozlamalarni saqlash</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">Firibgarlik ehtimoli bor</string>
+    <string name="script_saved" formatted="false">Skript saqlandi</string>
+    <string name="scroll_speed" formatted="false">Aylanish tezligi</string>
+    <string name="scrolling_security_message_settings" formatted="false">Aylanuvchi xavfsizlik xabari sozlamalari</string>
+    <string name="search" formatted="false">Qidirish</string>
+    <string name="search_by_name_or_phone_number" formatted="false">Ism yoki telefon raqami bo\'yicha qidirish</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">Kontakt obunalarini qidirish</string>
+    <string name="search_contacts" formatted="false">Kontaktlarni qidirish</string>
+    <string name="search_error" formatted="false">Qidiruv xatosi: {error}</string>
+    <string name="search_hint" formatted="false">Qidirish...</string>
+    <string name="search_labels_hint" formatted="false">Yorliqlarni qidirish</string>
+    <string name="search_marked_phones_hint" formatted="false">Belgilangan telefonlarni qidirish</string>
+    <string name="search_phone_rules_hint" formatted="false">Telefon qoidalarini qidirish</string>
+    <string name="search_plugins_hint" formatted="false">Plaginlarni qidirish</string>
+    <string name="search_proposals" formatted="false">Takliflarni qidirish</string>
+    <string name="search_regex_rules_hint" formatted="false">Regex qoidalarini qidirish</string>
+    <string name="search_subscriptions_hint" formatted="false">Obunalarni qidirish</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">Hech qanday telefon qo\'ng\'irog\'iga ishonmang. Har doim mijozlarga xizmat ko\'rsatish raqamlarini mustaqil ravishda tekshiring. Hech qachon parollarni, tasdiqlash kodlarini, karta raqamlarini yoki shaxsiy ma\'lumotlarni baham ko\'rmang.</string>
+    <string name="select_action" formatted="false">Harakatni tanlang</string>
+    <string name="select_action_when_blocking_calls" formatted="false">Qo\'ng\'iroqlarni bloklashda amalni tanlang</string>
+    <string name="select_action_when_rule_matches" formatted="false">Qoida mos kelganda amalni tanlang</string>
+    <string name="select_all" formatted="false">Hammasini tanlash</string>
+    <string name="select_country" formatted="false">Mamlakatni tanlash</string>
+    <string name="select_export_format" formatted="false">Eksport formatini tanlash</string>
+    <string name="select_label" formatted="false">Yorliqni tanlash</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">Iltimos, yorliqni tanlang va to\'g\'ri telefon raqamini kiriting</string>
+    <string name="select_language" formatted="false">Tilni tanlash</string>
+    <string name="select_multiple" formatted="false">Bir nechtasini tanlash</string>
+    <string name="select_sim_card" formatted="false">SIM kartani tanlash</string>
+    <string name="select_tags" formatted="false">Teglarni tanlash</string>
+    <string name="select_target_service" formatted="false">Maqsadli xizmatni tanlang</string>
+    <string name="select_trusted_data_source" formatted="false">Iltimos, ishonchli ma\'lumot manbalarini tanlang</string>
+    <string name="select_your_language" formatted="false">Tilingizni tanlang</string>
+    <string name="selected_items" formatted="false">{count} ta narsa tanlandi</string>
+    <string name="selected_label" formatted="false">Tanlangan:</string>
+    <string name="sender" formatted="false">Yuboruvchi</string>
+    <string name="sender_regex_optional" formatted="false">Yuboruvchi regex (ixtiyoriy)</string>
+    <string name="separate_sims" formatted="false">Separate SIMs</string>
+    <string name="separate_sims_desc" formatted="false">Enable separate filtering rules for each SIM card</string>
+    <string name="server_address_label" formatted="false">Server manzili</string>
+    <string name="service_type_contact" formatted="false">Kontakt obunasi</string>
+    <string name="service_type_label" formatted="false">Xizmat turi</string>
+    <string name="service_type_phone" formatted="false">Telefon obunasi</string>
+    <string name="service_type_plugin" formatted="false">Plugin yangilanishi</string>
+    <string name="service_type_sms" formatted="false">SMS obunasi</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">Kechikish vaqtini belgilash</string>
+    <string name="set_encryption_password" formatted="false">Shifrlash parolini o\'rnatish</string>
+    <string name="settings" formatted="false">Sozlamalar</string>
+    <string name="settings_backed_up_to" formatted="false">Sozlamalar zaxira nusxasi olindi: {path}</string>
+    <string name="settings_backup" formatted="false">Sozlamalar zaxira nusxasi</string>
+    <string name="settings_restored_successfully" formatted="false">Sozlamalar muvaffaqiyatli tiklandi. O\'zgarishlar kuchga kirishi uchun ilovani qayta ishga tushiring.</string>
+    <string name="settings_save_failed" formatted="false">Sozlamalarni saqlash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="settings_saved" formatted="false">Sozlamalar saqlandi</string>
+    <string name="settings_tab" formatted="false">Sozlamalar</string>
+    <string name="settings_title" formatted="false">Sozlamalar</string>
+    <string name="setup" formatted="false">Sozlash</string>
+    <string name="show_all_contacts" formatted="false">Barcha kontaktlarni ko\'rsatish</string>
+    <string name="show_favorites" formatted="false">Sevimlilarni ko\'rsatish</string>
+    <string name="silence" formatted="false">Ovozsizlantirish</string>
+    <string name="silence_action_description" formatted="false">Qo\'ng\'iroqlar ovozsiz qilinadi, ammo qo\'ng\'iroqlar jurnalida ko\'rsatiladi.</string>
+    <string name="silence_and_no_answer" formatted="false">Ovozsizlantirish va javob bermaslik</string>
+    <string name="silence_no_answer" formatted="false">Ovozsizlantirish, javob yo\'q</string>
+    <string name="silent_call_voice_clone" formatted="false">Ovozsiz qo\'ng\'iroq ovoz kloni</string>
+    <string name="silent_rules" formatted="false">Ovozsiz qoidalar</string>
+    <string name="sim_card" formatted="false">SIM karta {simNumber}</string>
+    <string name="sim_card_color" formatted="false">SIM karta rangi</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• SIM karta konfiguratsiyasi: Har bir SIM karta uchun alohida filtrlash qoidalarini o\'rnating</string>
+    <string name="sim_card_filter_rules" formatted="false">SIM karta filtrlash qoidalari</string>
+    <string name="sim_card_filter_rules_description" formatted="false">SIM karta slotlariga asoslanib turli filtrlash qoidalarini o\'rnating</string>
+    <string name="sim_card_font_size" formatted="false">SIM karta shrift hajmi</string>
+    <string name="sim_card_position" formatted="false">SIM karta joylashuvi</string>
+    <string name="sim_card_title" formatted="false">SIM karta</string>
+    <string name="sim_country" formatted="false">SIM mamlakati</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">SIM slot qoidalari har bir SIM slot uchun mustaqil filtrlash qoidalarini sozlash imkonini beradi.</string>
+    <string name="sim_rule_instructions_title" formatted="false">SIM Slot Qoidalari</string>
+    <string name="sim_rules_not_found" formatted="false">SIM qoidalari topilmadi</string>
+    <string name="sim_slot" formatted="false">SIM uyasi</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">Har bir SIM karta uchun mustaqil filtrlash qoidalarini sozlang:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">SIM Slot {slotNumber} Filtrlash Sozlamalari</string>
+    <string name="sim_slot_management" formatted="false">SIM Slotlarni Boshqarish</string>
+    <string name="sim_slot_position" formatted="false">SIM Slot Joylashuvi {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• SIM Slot Qoidalari: Har bir SIM uchun mustaqil filtrlash strategiyalari</string>
+    <string name="sim_slot_rule_list_title" formatted="false">SIM Slot Qoidalari Ro\'yxati</string>
+    <string name="sim_slot_rule_management" formatted="false">SIM Slot Qoidalari</string>
+    <string name="sim_slot_rules" formatted="false">SIM uyasi qoidalari</string>
+    <string name="sim_slot_title" formatted="false">SIM Slot {slotNumber}</string>
+    <string name="sim_state" formatted="false">SIM holati</string>
+    <string name="skip" formatted="false">O\'tkazish</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">Aqlli Qo\'ng\'iroqni Aniqlash</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">SMS filtrlash spam xabarlarni avtomatik filtrlashga va xabarlar ro\'yxatingizni toza saqlashga yordam beradi. Siz filtrlash qoidalari va bildirish usullarini o\'rnatishingiz mumkin.</string>
+    <string name="sms_filter_disabled" formatted="false">SMS filtrlash o\'chirilgan</string>
+    <string name="sms_filter_enabled" formatted="false">SMS filtrlash yoqilgan</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">SMS filtrlash qoidasi muvaffaqiyatli qo\'shildi</string>
+    <string name="sms_filter_rules" formatted="false">SMS Filtrlash Qoidalari</string>
+    <string name="sms_filter_settings" formatted="false">SMS Filtrlash Sozlamalari</string>
+    <string name="sms_management" formatted="false">SMS Boshqaruvi</string>
+    <string name="sms_permission" formatted="false">SMS Ruxsati</string>
+    <string name="sms_permission_description" formatted="false">Spam xabarlarni filtrlash uchun ishlatiladi.</string>
+    <string name="sms_rule_added_successfully" formatted="false">SMS qoidasi muvaffaqiyatli qo\'shildi</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">SMS qoidasi muvaffaqiyatli o\'chirildi</string>
+    <string name="sms_rule_load_failed" formatted="false">SMS qoidalarini yuklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="sms_rule_management" formatted="false">SMS Qoidalarini Boshqarish</string>
+    <string name="sms_rule_subscription" formatted="false">SMS Qoidasiga Obuna</string>
+    <string name="sms_subscription" formatted="false">SMS Obunasi</string>
+    <string name="sms_subscription_added_successfully" formatted="false">SMS obunasi muvaffaqiyatli qo\'shildi</string>
+    <string name="sms_subscription_rules_description" formatted="false">URL orqali SMS qoidalar ro\'yxatiga obuna bo\'ling, muntazam ifodalarni moslashtirishni qo\'llab-quvvatlaydi. Bloklash yoki ruxsat berish harakatlarini o\'rnatishingiz mumkin.</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">Ba\'zi ruxsat so\'rovlari rad etildi</string>
+    <string name="sort_by" formatted="false">Bo\'yicha saralash</string>
+    <string name="sort_least_popular" formatted="false">Eng kam mashhuri bo\'yicha saralash</string>
+    <string name="sort_most_popular" formatted="false">Eng mashhuri bo\'yicha saralash</string>
+    <string name="sort_newest" formatted="false">Eng yangisi bo\'yicha saralash</string>
+    <string name="sort_oldest" formatted="false">Eng eskisi bo\'yicha saralash</string>
+    <string name="spam_likely" formatted="false">Spam bo\'lishi ehtimoli bor</string>
+    <string name="start_color" formatted="false">Boshlang\'ich rang</string>
+    <string name="start_date" formatted="false">Boshlang\'ich sana</string>
+    <string name="start_using" formatted="false">Boshlash</string>
+    <string name="stat_answered" formatted="false">Javob berilgan</string>
+    <string name="stat_blocked" formatted="false">Bloklangan</string>
+    <string name="statistics" formatted="false">Statistika</string>
+    <string name="statistics_page_title" formatted="false">Ma\'lumotlar Tahlili</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">STIR Rangi</string>
+    <string name="stir_failed" formatted="false">Tasdiqlash muvaffaqiyatsiz tugadi</string>
+    <string name="stir_font_size" formatted="false">STIR Shrift Hajmi</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">STIR Joylashuvi</string>
+    <string name="stir_unknown" formatted="false">Noma\'lum tasdiqlash holati</string>
+    <string name="stir_verification" formatted="false">STIR/SHAKEN tekshiruvi</string>
+    <string name="stir_verification_body" formatted="false">{phoneNumber} raqami uchun {stirResultMessage}</string>
+    <string name="stir_verification_description" formatted="false">Raqamlar uchun STIR/SHAKEN tekshiruvi natijalarini ko\'rsatadi.</string>
+    <string name="stir_verification_title" formatted="false">STIR/SHAKEN Tasdiqlash</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">Xotiraga Ruxsat</string>
+    <string name="storage_permission_description" formatted="false">Sozlamalar va qoidalarni saqlash uchun ishlatiladi.</string>
+    <string name="submit" formatted="false">Yuborish</string>
+    <string name="subscribe" formatted="false">Obuna bo\'lish</string>
+    <string name="subscription_add_success" formatted="false">Obuna &quot;{name}&quot; muvaffaqiyatli qo\'shildi</string>
+    <string name="subscription_delete_confirm_content" formatted="false">Haqiqatan ham ushbu obunani o\'chirmoqchimisiz?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">Obunani o\'chirish</string>
+    <string name="subscription_delete_failed" formatted="false">Obunani o\'chirish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="subscription_delete_success" formatted="false">Obuna o\'chirildi</string>
+    <string name="subscription_deleted" formatted="false">Obuna o\'chirildi</string>
+    <string name="subscription_load_failed" formatted="false">Obunalarni yuklash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="subscription_name" formatted="false">Obuna nomi</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">Obuna nomi va URL bo\'sh bo\'lishi mumkin emas</string>
+    <string name="subscription_name_hint" formatted="false">Obuna nomini kiriting</string>
+    <string name="subscription_status_change_failed" formatted="false">Obuna holatini o\'zgartirish muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="subscription_update_failed" formatted="false">Obunani yangilash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="subscription_update_success" formatted="false">Obuna muvaffaqiyatli yangilandi</string>
+    <string name="subscription_url" formatted="false">Obuna URL</string>
+    <string name="subscription_url_hint" formatted="false">Obuna URL manzilini kiriting</string>
+    <string name="successfully_imported_rules" formatted="false">{count} ta qoida muvaffaqiyatli import qilindi</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">Qo\'llab-quvvatlash</string>
+    <string name="support_count" formatted="false">Qo\'llab-quvvatlash ({supportCount})</string>
+    <string name="support_sync" formatted="false">Sinxronizatsiyani qo\'llab-quvvatlash</string>
+    <string name="supported" formatted="false">QO\'LLAB-QUVVATLANDI</string>
+    <string name="survey" formatted="false">So\'rovnoma</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">Qurilmalarni sinxronlash</string>
+    <string name="sync_failed" formatted="false">Sinxronizatsiya muvaffaqiyatsiz tugadi</string>
+    <string name="sync_failed_message" formatted="false">Sinxronizatsiya muvaffaqiyatsiz tugadi</string>
+    <string name="sync_folder_name_label" formatted="false">Sinxronizatsiya jildi nomi</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">Hozir sinxronlash</string>
+    <string name="sync_now_button" formatted="false">Hozir sinxronlash</string>
+    <string name="sync_status_title" formatted="false">Sinxronlash holati</string>
+    <string name="sync_status_updated_message" formatted="false">Sinxronlash holati yangilandi</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">Sinxronlash muvaffaqiyatli</string>
+    <string name="sync_with_cloud_storage" formatted="false">Bulutli xotira bilan sinxronlash</string>
+    <string name="synced" formatted="false">Sinxronlashtirilgan</string>
+    <string name="synchronized" formatted="false">Sinxronlangan</string>
+    <string name="syncing" formatted="false">Sinxronlanmoqda...</string>
+    <string name="system_features" formatted="false">Tizim funksiyalari:</string>
+    <string name="system_settings_title" formatted="false">Tizim sozlamalari</string>
+    <string name="tab_all" formatted="false">Barchasi</string>
+    <string name="tab_answered" formatted="false">Javob berilgan</string>
+    <string name="tab_blocked" formatted="false">Bloklangan</string>
+    <string name="tab_missed" formatted="false">O\'tkazib yuborilgan</string>
+    <string name="tab_outgoing" formatted="false">Chiqish</string>
+    <string name="tag_label" formatted="false">Teg: {tag}</string>
+    <string name="takeaway" formatted="false">Olib ketish</string>
+    <string name="telecommunication" formatted="false">Telekommunikatsiya</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">Telemarketing</string>
+    <string name="temp_purchase_expired" formatted="false">Vaqtinchalik xarid qilish imtiyozi muddati tugadi</string>
+    <string name="temporary_vip" formatted="false">Vaqtinchalik VIP</string>
+    <string name="test_button" formatted="false">TEST</string>
+    <string name="test_connection_button" formatted="false">Ulanishni sinash</string>
+    <string name="test_plugin" formatted="false">Plaginni sinash</string>
+    <string name="text_colors_setting" formatted="false">Matn va yorliq ranglari</string>
+    <string name="theme_dark" formatted="false">To‘q</string>
+    <string name="theme_light" formatted="false">Yorug‘</string>
+    <string name="theme_settings_subtitle" formatted="false">Sevimli mavzuingizni tanlang</string>
+    <string name="theme_settings_title" formatted="false">Mavzu sozlamalari</string>
+    <string name="theme_system" formatted="false">System</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">Bu ilova keraksiz qo‘ng‘iroqlarni aniqlash va bloklash imkonini beruvchi kuchli raqamni aniqlash vositasidir.</string>
+    <string name="this_week" formatted="false">Bu hafta</string>
+    <string name="time_interceptor" formatted="false">Vaqt bo\'yicha to\'siq</string>
+    <string name="time_interceptor_description" formatted="false">Qo\'ng\'iroq chastotasiga qarab potentsial qo\'ng\'iroqlarni avtomatik to\'xtatish/ruxsat berish</string>
+    <string name="time_interceptor_explanation" formatted="false">• Vaqt bo\'yicha to\'siq: Qisqa vaqt ichida takroriy qo\'ng\'iroqlarni to\'xtatish/ruxsat berish</string>
+    <string name="time_interceptor_explanation_content" formatted="false">Qo\'ng\'iroq chastotasini to\'xtatish funksiyasi tez-tez takrorlanadigan spam qo\'ng\'iroqlarni avtomatik aniqlash va to\'xtatish/ruxsat berish uchun qo\'ng\'iroq chastotasini tahlil qiladi.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">Qo\'ng\'iroq chastotasini to\'xtatish tushuntirishi</string>
+    <string name="time_interceptor_settings_title" formatted="false">Qo\'ng\'iroq chastotasini to\'xtatish sozlamalari</string>
+    <string name="time_window_description" formatted="false">Takroriy qo\'ng\'iroqlarga ruxsat berish uchun vaqt oralig\'i hajmini belgilang. Shu vaqt oralig\'idagi bir xil raqamdan qilingan qo\'ng\'iroqlarga ruxsat beriladi</string>
+    <string name="time_window_label" formatted="false">To\'xtatish vaqt oralig\'i (daqiqalar): {minutes}</string>
+    <string name="timeline_view" formatted="false">Vaqt jadvali ko\'rinishi</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">Bugun</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">Jami</string>
+    <string name="total_blocked" formatted="false">Jami bloklangan</string>
+    <string name="total_pending_proposals" formatted="false">Jami kutilayotgan takliflar</string>
+    <string name="total_proposals" formatted="false">Jami takliflar</string>
+    <string name="total_votes" formatted="false">Jami: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">Qurilmalar yoki platformalar orasida ma\'lumotlarni uzatish</string>
+    <string name="travel_ticketing" formatted="false">Sayohat chiptalari</string>
+    <string name="tutorial" formatted="false">Qo\'llanma</string>
+    <string name="type" formatted="false">Turi</string>
+    <string name="unassigned_s_i_m_card" formatted="false">Tayinlanmagan SIM karta</string>
+    <string name="unblock" formatted="false">Blokdan chiqarish</string>
+    <string name="unblock_number" formatted="false">Raqamni blokdan chiqarish</string>
+    <string name="unblock_number_confirmation" formatted="false">{phoneNumber} ni blokdan chiqarishni xohlaysizmi?</string>
+    <string name="unblock_number_failed" formatted="false">Raqamni blokdan chiqarish muvaffaqiyatsiz tugadi</string>
+    <string name="unblock_number_success" formatted="false">Raqam muvaffaqiyatli blokdan chiqarildi</string>
+    <string name="unblocked" formatted="false">Blokdan chiqarildi</string>
+    <string name="unknown" formatted="false">Noma\'lum</string>
+    <string name="unknown_tag" formatted="false">Teg: Noma\'lum</string>
+    <string name="unregister_button" formatted="false">Ro\'yxatdan o\'chirish</string>
+    <string name="unregister_device_confirmation_message" formatted="false">Haqiqatan ham {deviceName} ro\'yxatdan o\'chirmoqchimisiz?</string>
+    <string name="unregister_device_title" formatted="false">Qurilmani ro\'yxatdan o\'chirish</string>
+    <string name="unsupported_file_format" formatted="false">Qo\'llab-quvvatlanmaydigan fayl formati</string>
+    <string name="update" formatted="false">Yangilash</string>
+    <string name="update_all_now" formatted="false">Hozir barchasini yangilash</string>
+    <string name="update_contact_failed" formatted="false">Kontaktni yangilash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="update_favorite_status" formatted="false">Sevimlilar holatini yangilash</string>
+    <string name="update_interval" formatted="false">Yangilash oralig\'i</string>
+    <string name="update_now" formatted="false">Hozir yangilash</string>
+    <string name="update_plugin" formatted="false">Plaginni yangilash</string>
+    <string name="update_plugin_failed" formatted="false">Plaginni yangilash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="update_rule_failed" formatted="false">Qoidani yangilash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="update_subscription_failed" formatted="false">Obunani yangilash muvaffaqiyatsiz tugadi: {error}</string>
+    <string name="update_success" formatted="false">{service} muvaffaqiyatli yangilandi ({count} qoida)</string>
+    <string name="upgrade_to_vip" formatted="false">VIPga yangilash</string>
+    <string name="use_cases_point1" formatted="false">• Avtomatik qayta terish spam qo\'ng\'iroqlarini aniqlash</string>
+    <string name="use_cases_point2" formatted="false">• Qisqa vaqt ichida bir necha marta qo\'ng\'iroq qiladigan marketing qo\'ng\'iroqlarini to\'xtatish</string>
+    <string name="use_cases_point3" formatted="false">• Telefon bombardimoni va ta\'qib qilishning oldini olish</string>
+    <string name="use_cases_title" formatted="false">Foydalanish holatlari:</string>
+    <string name="use_global_settings" formatted="false">Global sozlamalardan foydalanish</string>
+    <string name="use_local_notification" formatted="false">Mahalliy bildirishnomalardan foydalanish</string>
+    <string name="use_local_notification_description" formatted="false">Kiruvchi qo\'ng\'iroqlar uchun mahalliy bildirishnomalarni yoqish</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">Namunalarni aniqlash uchun standart regex sintaksisidan foydalaning. Misollar:</string>
+    <string name="use_stir_notification" formatted="false">STIR\'dan bildirishnomadan foydalanish</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">Foydalanuvchi nomi</string>
+    <string name="verification_failed_text" formatted="false">Muvaffaqiyatsiz</string>
+    <string name="verification_report" formatted="false">Tekshirish hisoboti</string>
+    <string name="verified_text" formatted="false">Tasdiqlangan</string>
+    <string name="verify" formatted="false">Tasdiqlash</string>
+    <string name="version" formatted="false">Versiya: {version}</string>
+    <string name="very_high" formatted="false">Juda yuqori</string>
+    <string name="very_low" formatted="false">Juda past</string>
+    <string name="view_details" formatted="false">Tafsilotlarni ko\'rish</string>
+    <string name="vip3_days_with_ads" formatted="false">3 kunlik reklamali VIP (faqat sinxronlash)</string>
+    <string name="vip5_days_no_ads" formatted="false">5 kunlik to\'liq xususiyatlarga ega reklamasiz VIP</string>
+    <string name="vip7_days_no_ads" formatted="false">7 kunlik to\'liq xususiyatlarga ega reklamasiz VIP</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">Telefon raqamini belgilash soni bilan VIP a\'zoligini almashtirish</string>
+    <string name="vip_exchange_service" formatted="false">VIP almashtirish xizmati</string>
+    <string name="vip_exchange_title" formatted="false">Belgi almashinuvi VIP</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">VIP foydalanuvchi</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">Ovozni aniqlash</string>
+    <string name="vote_agree" formatted="false">Roziman</string>
+    <string name="vote_count" formatted="false">Ovozlar soni</string>
+    <string name="vote_disagree" formatted="false">Qarshiman</string>
+    <string name="vote_submitted" formatted="false">Ovoz muvaffaqiyatli yuborildi</string>
+    <string name="voted" formatted="false">Ovoz berilgan</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} ovoz ({supportPercentage}% qo\'llab-quvvatlash)</string>
+    <string name="voting_completed" formatted="false">Ovoz berish yakunlandi</string>
+    <string name="voting_completed_body" formatted="false">{phoneNumber} uchun jamiyat ovoz berishi yakunlandi. Natija: {result} ({supportPercentage}% qo\'llab-quvvatlash).</string>
+    <string name="waiting_for_more_votes" formatted="false">Jamiyatning ko\'proq ovozlari kutilmoqda</string>
+    <string name="watch_ad" formatted="false">Reklama ko\'rish</string>
+    <string name="watch_ad_for_temp" formatted="false">Vaqtinchalik imtiyozlar uchun reklama ko\'rish</string>
+    <string name="watch_ad_for_temp_description" formatted="false">Ba\'zi premium funksiyalarni vaqtincha ochish uchun qisqa reklama ko\'ring</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">Vaqtinchalik VIP imtiyozlarga ega bo\'lish uchun siz {count} ta qo\'shimcha reklama ko\'rishingiz kerak</string>
+    <string name="web_d_a_v_config_title" formatted="false">WebDAV konfiguratsiyasi</string>
+    <string name="week" formatted="false">Hafta</string>
+    <string name="welcome" formatted="false">Xush kelibsiz</string>
+    <string name="whitelist" formatted="false">Ruxsat berilganlar ro\'yxati</string>
+    <string name="width" formatted="false">Kenglik</string>
+    <string name="wildcard_matching_description" formatted="false">Har qanday belgiga mos kelishi uchun \'.\' dan foydalaning (masalan, \'123.456\' 123-456 ga mos keladi)</string>
+    <string name="wildcard_matching_title" formatted="false">Universal belgi moslashuvi:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">Moslashuvchan filtrlash uchun universal belgilarni qo\'llab-quvvatlash</string>
+    <string name="window_size_setting" formatted="false">Oyna hajmi</string>
+    <string name="year" formatted="false">Yil</string>
+    <string name="yesterday" formatted="false">Kecha</string>
+</resources>

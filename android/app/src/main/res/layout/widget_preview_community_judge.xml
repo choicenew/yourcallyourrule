@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginStart="5dp"
-            android:text="@string/widget_community_judge_title"
+            android:text="@string/community_impact"
             android:textColor="#FFFFFF"
             android:textSize="9sp"
             android:textStyle="bold"
@@ -90,7 +90,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/widget_risk_bento"
+                android:text="@string/risk_level"
                 android:textColor="#94A3B8"
                 android:textSize="7sp" />
 
@@ -113,7 +113,7 @@
         android:background="@drawable/widget_preview_pill_amber"
         android:paddingHorizontal="6dp"
         android:paddingVertical="3dp"
-        android:text="@string/widget_vote_now"
+        android:text="@string/community_votes"
         android:textColor="#F59E0B"
         android:textSize="7.5sp"
         android:textStyle="bold" />

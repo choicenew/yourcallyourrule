@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">連絡先サブスクリプションについて</string>
+    <string name="about_labels" formatted="false">ラベルについて</string>
+    <string name="about_phone_subscription_rules" formatted="false">電話サブスクリプションルールについて</string>
+    <string name="about_sms_filter" formatted="false">SMSフィルタリングについて</string>
+    <string name="about_sms_subscription_rules" formatted="false">SMSサブスクリプションルールについて</string>
+    <string name="about_subtitle" formatted="false">アプリケーションのバージョンと法的情報</string>
+    <string name="about_title" formatted="false">概要</string>
+    <string name="access_target_url" formatted="false">ターゲットURLへのアクセス</string>
+    <string name="action" formatted="false">アクション</string>
+    <string name="action_all" formatted="false">すべて</string>
+    <string name="action_allow" formatted="false">許可</string>
+    <string name="action_block" formatted="false">ブロック</string>
+    <string name="action_filter_title" formatted="false">アクションタイプでフィルタリング</string>
+    <string name="action_filter_tooltip" formatted="false">アクションフィルター</string>
+    <string name="action_none" formatted="false">アクションなし</string>
+    <string name="action_silence" formatted="false">サイレント</string>
+    <string name="action_tag" formatted="false">アクション: {actionType}</string>
+    <string name="action_type" formatted="false">アクションタイプ</string>
+    <string name="action_unknown" formatted="false">不明</string>
+    <string name="active_proposals" formatted="false">アクティブな提案</string>
+    <string name="add" formatted="false">追加</string>
+    <string name="add_allow_subscription" formatted="false">許可サブスクリプションを追加</string>
+    <string name="add_allowed_blocked_rule" formatted="false">許可/ブロックルールを追加</string>
+    <string name="add_block_subscription" formatted="false">ブロックサブスクリプションを追加</string>
+    <string name="add_contact_button" formatted="false">連絡先を追加</string>
+    <string name="add_contact_failed" formatted="false">連絡先の追加に失敗しました: {error}</string>
+    <string name="add_label" formatted="false">ラベルを追加</string>
+    <string name="add_label_button" formatted="false">ラベルを追加</string>
+    <string name="add_label_failed" formatted="false">ラベルの追加に失敗しました: {error}</string>
+    <string name="add_name" formatted="false">名前を追加</string>
+    <string name="add_none_subscription" formatted="false">なしサブスクリプションを追加</string>
+    <string name="add_phone_mark" formatted="false">電話マークを追加</string>
+    <string name="add_phone_number_rule" formatted="false">電話番号ルールを追加</string>
+    <string name="add_plugin" formatted="false">プラグインを追加</string>
+    <string name="add_plugin_failed" formatted="false">プラグインの追加に失敗しました</string>
+    <string name="add_plugin_failed_with_error" formatted="false">プラグインの追加に失敗しました: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">ローカルファイルからプラグインを追加</string>
+    <string name="add_plugin_from_url" formatted="false">URLからプラグインを追加</string>
+    <string name="add_regex_rule" formatted="false">正規表現ルールを追加</string>
+    <string name="add_rule" formatted="false">ルールを追加</string>
+    <string name="add_rule_failed" formatted="false">ルールの追加に失敗しました: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">ルールを追加</string>
+    <string name="add_silence_subscription" formatted="false">サイレンスサブスクリプションを追加</string>
+    <string name="add_sms_filter_rule" formatted="false">SMSフィルタールールを追加</string>
+    <string name="add_sms_rule" formatted="false">SMSルールを追加</string>
+    <string name="add_sms_subscription" formatted="false">SMSサブスクリプションを追加</string>
+    <string name="add_subscription" formatted="false">サブスクリプションを追加</string>
+    <string name="add_subscription_button" formatted="false">サブスクリプションを追加</string>
+    <string name="add_subscription_failed" formatted="false">サブスクリプションの追加に失敗しました: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">サブスクリプションを追加</string>
+    <string name="add_to_blacklist" formatted="false">ブラックリストに追加</string>
+    <string name="add_to_favorites" formatted="false">お気に入りに追加</string>
+    <string name="add_to_rules" formatted="false">ルールに追加</string>
+    <string name="add_to_whitelist" formatted="false">ホワイトリストに追加</string>
+    <string name="added_to_favorites" formatted="false">お気に入りの連絡先に追加されました</string>
+    <string name="advanced_mode" formatted="false">詳細モード</string>
+    <string name="agent" formatted="false">エージェント</string>
+    <string name="agree_votes" formatted="false">賛成: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">すべて</string>
+    <string name="all_call_logs_cleared" formatted="false">すべての通話履歴がクリアされました</string>
+    <string name="all_calls_tab" formatted="false">すべて</string>
+    <string name="all_permissions_granted" formatted="false">すべての権限が付与されました</string>
+    <string name="all_services_status_subtitle" formatted="false">各クラウドサービスの現在のステータス</string>
+    <string name="all_services_status_title" formatted="false">現在のサービスステータス</string>
+    <string name="all_settings_completed" formatted="false">すべての設定が完了しました。</string>
+    <string name="all_update_success" formatted="false">すべての更新が完了しました ({count} 件のルール)</string>
+    <string name="allow" formatted="false">許可</string>
+    <string name="allow_action_description" formatted="false">番号がブロックリストに載っていても、通話は許可されます。</string>
+    <string name="allow_all_allow_rules" formatted="false">すべての許可ルールを有効化</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">設定されたすべての許可ルールを適用するメインスイッチ</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">すべてのブラックリストに登録された番号を許可する</string>
+    <string name="allow_all_block_rules" formatted="false">すべてのブロックルールを有効化</string>
+    <string name="allow_all_block_rules_desc" formatted="false">設定されたすべてのブロックルールを適用するメインスイッチ</string>
+    <string name="allow_allowed_numbers" formatted="false">承認済みリストの番号をすべて許可</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">許可リストにある番号からの着信をすべて許可</string>
+    <string name="allow_block" formatted="false">許可/ブロック</string>
+    <string name="allow_blocked_numbers" formatted="false">ブラックリストを一時解除</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">ブロックリスト内の番号からの着信を一時的に許可</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">制限を超えない番号を許可する</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">カウントのしきい値を超えない番号を自動的に許可する</string>
+    <string name="allow_regex_allow_rules" formatted="false">正規表現許可ルールを有効化</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">許可ルールの正規表現パターンマッチングを有効化</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">正規表現ベースの許可ルールを有効にする</string>
+    <string name="allow_regex_block_rules" formatted="false">正規表現ブロックルールを有効化</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">ブロックルールの正規表現パターンマッチングを有効化</string>
+    <string name="allow_regex_block_rules_description" formatted="false">正規表現ベースのブロックルールを有効にする</string>
+    <string name="allow_rule" formatted="false">許可ルール</string>
+    <string name="allow_rules" formatted="false">許可ルール</string>
+    <string name="allowed_blocked_rule" formatted="false">許可/ブロックルール</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">許可/ブロックルールの編集</string>
+    <string name="allowed_blocked_rule_management" formatted="false">許可/ブロックルールの管理</string>
+    <string name="allowed_blocked_rules_info" formatted="false">許可/ブロックルールは、特定の電話番号への通話に一致させるために使用され、これが最優先されます。</string>
+    <string name="and_more_items" formatted="false">他{count}件</string>
+    <string name="answer_then_hangup" formatted="false">応答してから電話を切る</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">Your Call Your Rule</string>
+    <string name="application_software" formatted="false">アプリケーションソフトウェア</string>
+    <string name="apply" formatted="false">適用</string>
+    <string name="approved" formatted="false">承認済み</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">認証に失敗しました: クライアントIDとキーを確認してください</string>
+    <string name="authorization_failed_message" formatted="false">認証に失敗しました</string>
+    <string name="authorization_success_message" formatted="false">認証に成功しました</string>
+    <string name="authorize_login_button" formatted="false">ログインを認証</string>
+    <string name="auto_cancel_notification" formatted="false">自動通知キャンセル</string>
+    <string name="auto_cancel_notification_description" formatted="false">チェックすると、ユーザーが通知をタップしたときに通知が自動的に閉じられます。</string>
+    <string name="auto_sync_label" formatted="false">自動同期</string>
+    <string name="auto_update" formatted="false">自動更新</string>
+    <string name="auto_update_description" formatted="false">サブスクリプションの自動更新間隔を設定するか、手動で更新します</string>
+    <string name="auto_update_settings" formatted="false">自動更新設定</string>
+    <string name="auto_update_subtitle" formatted="false">ルールとプラグインの自動更新を管理する</string>
+    <string name="auto_update_title" formatted="false">自動更新</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">自動車産業</string>
+    <string name="avatar" formatted="false">アバター</string>
+    <string name="avatar_border_color" formatted="false">アバターの境界線の色</string>
+    <string name="avatar_border_size" formatted="false">アバターの境界線のサイズ</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">アバターとアイコンのサイズ</string>
+    <string name="avatar_position" formatted="false">アバターの位置</string>
+    <string name="avatar_size" formatted="false">アバターのサイズ</string>
+    <string name="axis_position" formatted="false">{axis} の位置</string>
+    <string name="background_gradient_setting" formatted="false">背景のグラデーション</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">バックアップ</string>
+    <string name="backup_and_restore" formatted="false">バックアップと復元</string>
+    <string name="backup_and_restore_subtitle" formatted="false">アプリケーションデータをバックアップまたは復元します</string>
+    <string name="backup_and_restore_title" formatted="false">バックアップと復元</string>
+    <string name="backup_failed" formatted="false">バックアップに失敗しました</string>
+    <string name="backup_settings" formatted="false">バックアップ設定</string>
+    <string name="backup_to_cloud" formatted="false">クラウドにバックアップ</string>
+    <string name="backup_to_cloud_failed" formatted="false">クラウドへのバックアップに失敗しました: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">クラウドへのバックアップに成功しました</string>
+    <string name="bank" formatted="false">銀行</string>
+    <string name="basic_info" formatted="false">基本情報</string>
+    <string name="basic_rule_filter" formatted="false">基本ルールフィルタ</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">ブラックリスト/ホワイトリストと正規表現を使用して通話をフィルタリングします</string>
+    <string name="basic_rule_filtering" formatted="false">基本ルールフィルタリング</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• 基本ルールフィルタリング：ブラックリスト、ホワイトリスト、および正規表現に基づくフィルタリングルール</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">{count} 件の選択した連絡先を削除してもよろしいですか？</string>
+    <string name="batch_delete_labels_confirm" formatted="false">{count} 個のラベルを削除してもよろしいですか？</string>
+    <string name="battery_optimization_permission" formatted="false">バッテリー最適化</string>
+    <string name="battery_optimization_permission_description" formatted="false">発信者番号などのサービスを提供するために、アプリがバックグラウンドで実行されることを許可します。</string>
+    <string name="black_white_list" formatted="false">ブラック/ホワイトリスト</string>
+    <string name="blacklist" formatted="false">ブラックリスト</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">ブラックリストとホワイトリスト</string>
+    <string name="block" formatted="false">ブロック</string>
+    <string name="block_action_description" formatted="false">通話はブロックされ、通話履歴に表示されます。</string>
+    <string name="block_calls" formatted="false">通話をブロック</string>
+    <string name="block_international_calls" formatted="false">+ または 00 で始まらない番号に一致します</string>
+    <string name="block_international_calls_title" formatted="false">国際電話をブロック</string>
+    <string name="block_mobile_numbers" formatted="false">13～19 で始まらない番号に一致します</string>
+    <string name="block_mobile_numbers_title" formatted="false">携帯電話番号をブロック</string>
+    <string name="block_number" formatted="false">ブロック番号</string>
+    <string name="block_number_success" formatted="false">ブロック番号成功</string>
+    <string name="block_premium_rate_numbers" formatted="false">118 または 120～190 で始まらない番号に一致します</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">プレミアムレート番号をブロック</string>
+    <string name="block_rule" formatted="false">ブロックルール</string>
+    <string name="block_rules" formatted="false">ブロックルール</string>
+    <string name="block_specific_area_codes" formatted="false">0 + 2～3 桁で始まる番号に一致します</string>
+    <string name="block_specific_area_codes_title" formatted="false">特定の市外局番をブロック：</string>
+    <string name="block_type_analysis_title" formatted="false">ブロックタイプの分析</string>
+    <string name="blocked" formatted="false">ブロック済み</string>
+    <string name="blocked_call_body" formatted="false">{phoneNumber}からのブロックされた通話</string>
+    <string name="blocked_call_notifications" formatted="false">ブロックされた通話の通知</string>
+    <string name="blocked_call_notifications_description" formatted="false">ブロックされた通話に関する情報を表示します。</string>
+    <string name="blocked_call_title" formatted="false">ブロックされた通話</string>
+    <string name="blocked_calls" formatted="false">ブロックされた通話</string>
+    <string name="blocked_calls_title" formatted="false">ブロックされた通話</string>
+    <string name="blocked_spam_calls" formatted="false">ブロックされた迷惑電話</string>
+    <string name="blocking_trend" formatted="false">ブロックの傾向</string>
+    <string name="both" formatted="false">両方</string>
+    <string name="bulk_delete" formatted="false">連絡先を一括削除</string>
+    <string name="bulk_delete_contacts" formatted="false">連絡先を一括削除</string>
+    <string name="bulk_delete_labels" formatted="false">ラベルを一括削除</string>
+    <string name="call" formatted="false">電話</string>
+    <string name="call_blocking" formatted="false">通話ブロック</string>
+    <string name="call_details" formatted="false">通話の詳細</string>
+    <string name="call_filter_rules" formatted="false">通話フィルタールール</string>
+    <string name="call_filter_rules_description" formatted="false">通話フィルタリングの基本的なルールを設定する</string>
+    <string name="call_filter_settings" formatted="false">通話フィルター設定</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">通話頻度の制限とブロックルールを設定する</string>
+    <string name="call_frequency_interception_title" formatted="false">通話頻度インターセプション</string>
+    <string name="call_history" formatted="false">通話履歴</string>
+    <string name="call_history_info_desc" formatted="false">着信、発信、不在着信を含む、あなたの通話履歴を表示します。</string>
+    <string name="call_history_info_title" formatted="false">通話履歴</string>
+    <string name="call_history_tab" formatted="false">通話履歴</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">通話スクリーニング権限</string>
+    <string name="call_screening_permission_description" formatted="false">スパム通話のスクリーニングとブロックに使用されます。</string>
+    <string name="call_screening_permission_not_granted" formatted="false">通話スクリーニング権限が付与されていません。アプリの機能に影響する可能性があります。</string>
+    <string name="call_statistics" formatted="false">通話統計</string>
+    <string name="call_time" formatted="false">通話時間</string>
+    <string name="call_type" formatted="false">通話タイプ</string>
+    <string name="call_type_answered" formatted="false">応答済み</string>
+    <string name="call_type_blocked" formatted="false">ブロック</string>
+    <string name="call_type_icon_color" formatted="false">通話タイプのアイコンの色</string>
+    <string name="call_type_missed" formatted="false">不在着信</string>
+    <string name="call_type_outgoing" formatted="false">発信</string>
+    <string name="call_type_position" formatted="false">通話タイプの位置</string>
+    <string name="call_type_rejected" formatted="false">拒否</string>
+    <string name="call_type_silenced" formatted="false">サイレント</string>
+    <string name="call_type_unknown" formatted="false">不明</string>
+    <string name="callback" formatted="false">コールバック</string>
+    <string name="caller_id_app" formatted="false">発信者番号アプリ</string>
+    <string name="caller_id_customization_subtitle" formatted="false">発信者IDレイアウトをカスタマイズする</string>
+    <string name="caller_id_customization_title" formatted="false">発信者番号をカスタマイズ</string>
+    <string name="caller_id_display_mode" formatted="false">発信者ID表示モード</string>
+    <string name="caller_id_enhancement" formatted="false">発信者IDの強化</string>
+    <string name="caller_id_marked_by_count" formatted="false">{count} によってマークされました</string>
+    <string name="caller_id_notification_title" formatted="false">着信情報</string>
+    <string name="caller_id_preview" formatted="false">発信者IDプレビュー</string>
+    <string name="caller_id_settings_subtitle" formatted="false">着信通知と表示モードを設定する</string>
+    <string name="caller_id_settings_title" formatted="false">発信者ID設定</string>
+    <string name="calling_number_failed" formatted="false">電話番号への発信に失敗しました</string>
+    <string name="cancel" formatted="false">キャンセル</string>
+    <string name="cancel_button" formatted="false">キャンセル</string>
+    <string name="cancel_local_notification" formatted="false">ローカル通知を閉じる</string>
+    <string name="cancel_local_notification_description" formatted="false">ローカル通知を自動的に閉じる</string>
+    <string name="car_rental" formatted="false">レンタカー</string>
+    <string name="carrier" formatted="false">キャリア</string>
+    <string name="carrier_color" formatted="false">キャリアの色</string>
+    <string name="carrier_font_size" formatted="false">キャリアのフォントサイズ</string>
+    <string name="carrier_position" formatted="false">キャリアの位置</string>
+    <string name="change_label" formatted="false">ラベルを変更</string>
+    <string name="change_plugin_status_failed" formatted="false">プラグインステータスの変更に失敗しました: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">サブスクリプションステータスの変更に失敗しました: {error}</string>
+    <string name="charity" formatted="false">慈善団体</string>
+    <string name="chart_one_week_ago" formatted="false">1 週間前</string>
+    <string name="chart_three_days_ago" formatted="false">3 日前</string>
+    <string name="chart_today" formatted="false">今日</string>
+    <string name="check_file_format" formatted="false">ファイル形式または権限を確認してください</string>
+    <string name="check_permission_failed" formatted="false">権限の確認に失敗しました: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">デフォルトのインターセプトアクションを選択</string>
+    <string name="clear_all_call_logs" formatted="false">すべての通話履歴をクリア</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">すべての通話履歴をクリアすることを確認してください</string>
+    <string name="clear_all_notifications" formatted="false">すべての通知をクリア</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">すべての通知をクリアすることを確認しますか？</string>
+    <string name="clear_button" formatted="false">クリア</string>
+    <string name="clear_filter" formatted="false">フィルターをクリア</string>
+    <string name="clear_label_filter_button" formatted="false">ラベルフィルターをクリア</string>
+    <string name="close_button" formatted="false">閉じる</string>
+    <string name="cloud_backup" formatted="false">クラウドバックアップ</string>
+    <string name="cloud_sync" formatted="false">クラウド同期</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">クラウド同期とバックアップ</string>
+    <string name="cloud_sync_service" formatted="false">クラウド同期サービス</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">WebDAV、OneDrive、Google Driveを設定する</string>
+    <string name="cloud_sync_settings_title" formatted="false">クラウド同期設定</string>
+    <string name="cloud_sync_title" formatted="false">クラウド同期</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">債権回収</string>
+    <string name="color_picker_title" formatted="false">色を選択</string>
+    <string name="community_impact" formatted="false">コミュニティへの影響</string>
+    <string name="community_participation" formatted="false">コミュニティへの参加</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">コミュニティ投票</string>
+    <string name="community_voting_started" formatted="false">コミュニティ投票が開始されました</string>
+    <string name="community_voting_started_body" formatted="false">{phoneNumber} の新しい削除提案がコミュニティ投票のために公開されました。</string>
+    <string name="completed" formatted="false">完了</string>
+    <string name="config_management" formatted="false">構成管理</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">構成を更新しました</string>
+    <string name="configuration_advice" formatted="false">適切な構成を通じて、仕事用と個人用のSIMカードに異なるフィルタリング戦略を設定できます。</string>
+    <string name="configure_backup_options" formatted="false">バックアップオプションを設定</string>
+    <string name="configure_cloud_sync_service" formatted="false">クラウド同期サービスを設定</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">マルチデバイス同期を有効にするには、クラウド同期サービスを設定してください。</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">SIMカードフィルタールールを設定</string>
+    <string name="confirm" formatted="false">確認</string>
+    <string name="confirm_button" formatted="false">確認</string>
+    <string name="confirm_delete" formatted="false">削除の確認</string>
+    <string name="confirm_delete_label" formatted="false">ラベル &quot;{name}&quot; を削除してもよろしいですか</string>
+    <string name="confirm_delete_plugin" formatted="false">プラグイン &quot;{name}&quot; を削除してもよろしいですか？</string>
+    <string name="confirm_delete_plugins" formatted="false">{count}個のプラグインを削除してもよろしいですか？</string>
+    <string name="confirm_delete_rule_message" formatted="false">本当にこのルールを削除しますか？この操作は元に戻せません。</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">本当にこのSMSフィルタールールを削除しますか？</string>
+    <string name="confirm_delete_sms_rule" formatted="false">本当にこのSMSルールを削除しますか？</string>
+    <string name="confirm_delete_subscriptions" formatted="false">{name}を削除してもよろしいですか？</string>
+    <string name="confirm_password" formatted="false">パスワードの確認</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">接続済み</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">接続に失敗しました: サーバーアドレス、ユーザー名、パスワードを確認してください</string>
+    <string name="connection_failed_message" formatted="false">接続に失敗しました</string>
+    <string name="connection_status_label" formatted="false">接続ステータス</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">接続に成功しました</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">連絡先が正常に追加されました</string>
+    <string name="contact_deleted" formatted="false">連絡先を削除しました</string>
+    <string name="contact_name_label" formatted="false">名前</string>
+    <string name="contact_not_found" formatted="false">連絡先が見つかりません</string>
+    <string name="contact_subscription_description" formatted="false">URL経由で連絡先リストを購読し、連絡先情報とラベルを自動的に更新します。JSON形式のデータをサポートします。</string>
+    <string name="contact_update_success" formatted="false">連絡先が正常に更新されました</string>
+    <string name="contact_us" formatted="false">お問い合わせ</string>
+    <string name="contacts" formatted="false">連絡先</string>
+    <string name="contacts_deleted" formatted="false">{count} 件の連絡先を削除しました</string>
+    <string name="contacts_management" formatted="false">連絡先管理</string>
+    <string name="contacts_permission" formatted="false">連絡先権限</string>
+    <string name="contacts_permission_description" formatted="false">連絡先通話を識別するために使用します。</string>
+    <string name="contacts_tab" formatted="false">連絡先</string>
+    <string name="container_width" formatted="false">コンテナの幅</string>
+    <string name="content" formatted="false">コンテンツ</string>
+    <string name="content_regex" formatted="false">コンテンツ正規表現</string>
+    <string name="count_color" formatted="false">カウントの色</string>
+    <string name="count_font_size" formatted="false">カウントのフォントサイズ</string>
+    <string name="count_position" formatted="false">カウントの位置</string>
+    <string name="count_threshold_description" formatted="false">フィルタリングアクションをトリガーするために必要な最小カウントのしきい値を設定します</string>
+    <string name="count_threshold_label" formatted="false">カウントのしきい値</string>
+    <string name="country" formatted="false">国</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">例：US、CN、GB</string>
+    <string name="country_code_label" formatted="false">国コード (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">国コードは必須です</string>
+    <string name="country_code_two_letters" formatted="false">国コード (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">ご注意ください: データベースには、すべての特定の国または地域のデータが含まれていない場合があります。</string>
+    <string name="country_name_color" formatted="false">国名の色</string>
+    <string name="country_name_font_size" formatted="false">国名のフォントサイズ</string>
+    <string name="country_region_name_position" formatted="false">国/地域名の位置</string>
+    <string name="country_sync_settings_subtitle" formatted="false">データ同期する国を選択してください</string>
+    <string name="country_sync_settings_title" formatted="false">国別データベース同期設定</string>
+    <string name="create_proposal" formatted="false">提案を作成</string>
+    <string name="create_proposal_title" formatted="false">削除提案を作成</string>
+    <string name="created_at" formatted="false">作成日: {date}</string>
+    <string name="created_rules" formatted="false">作成されたルール</string>
+    <string name="critical" formatted="false">重大</string>
+    <string name="critical_issues" formatted="false">重大な問題</string>
+    <string name="csv_format" formatted="false">CSV形式</string>
+    <string name="current_device_label" formatted="false">現在のデバイスラベル</string>
+    <string name="current_device_title" formatted="false">現在のデバイス</string>
+    <string name="current_language" formatted="false">現在の言語</string>
+    <string name="current_mark_count" formatted="false">現在のマーク数</string>
+    <string name="custom" formatted="false">カスタム</string>
+    <string name="custom_action_description" formatted="false">カスタムアクションを実行します。</string>
+    <string name="customer_service" formatted="false">カスタマーサービス</string>
+    <string name="dashboard_tab" formatted="false">ダッシュボード</string>
+    <string name="data_analysis" formatted="false">データ分析</string>
+    <string name="data_load_failure" formatted="false">データの読み込みに失敗しました: {error}</string>
+    <string name="data_loading_failed" formatted="false">データの読み込みに失敗しました: {error}</string>
+    <string name="data_migration" formatted="false">データ移行</string>
+    <string name="data_migration_description" formatted="false">この機能により、デバイス間でデータをすべて転送できます。現在、バックアップと復元機能を使用して、手動でデータを移行できます。</string>
+    <string name="data_source_disclaimer" formatted="false">数値はインターネットとユーザーからの投稿に基づいています。削除された数値が、他のユーザーまたはソースによって再投稿されないことを保証することはできません。積極的に情報を検索し、検証してください。</string>
+    <string name="data_source_reminder" formatted="false">データソースのリマインダー</string>
+    <string name="database_sync_title" formatted="false">データベース同期</string>
+    <string name="days" formatted="false">{count, plural, =1{1日} other{{count}日}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1日前} other{{count}日前}}</string>
+    <string name="days_vip" formatted="false">{days} 日間VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">債権回収</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">デフォルトの通知</string>
+    <string name="default_notifications_description" formatted="false">アプリのデフォルト通知チャネル。</string>
+    <string name="delete" formatted="false">削除</string>
+    <string name="delete_button" formatted="false">削除</string>
+    <string name="delete_contact" formatted="false">連絡先を削除</string>
+    <string name="delete_contact_confirm" formatted="false">{name}を削除してもよろしいですか？</string>
+    <string name="delete_failed" formatted="false">削除に失敗しました: {error}</string>
+    <string name="delete_label" formatted="false">ラベルを削除</string>
+    <string name="delete_label_failed" formatted="false">ラベルの削除に失敗しました: {error}</string>
+    <string name="delete_plugin" formatted="false">プラグインを削除</string>
+    <string name="delete_plugin_failed" formatted="false">プラグインの削除に失敗しました: {error}</string>
+    <string name="delete_plugins" formatted="false">プラグインを削除</string>
+    <string name="delete_plugins_failed" formatted="false">プラグインの削除に失敗しました: {error}</string>
+    <string name="delete_rule" formatted="false">ルールを削除</string>
+    <string name="delete_rule_failed" formatted="false">削除に失敗しました: {error}</string>
+    <string name="delete_selected" formatted="false">選択したものを削除</string>
+    <string name="delete_subscription" formatted="false">サブスクリプションを削除</string>
+    <string name="delete_subscription_confirm" formatted="false">サブスクリプション &quot;{name}&quot; を削除してもよろしいですか？</string>
+    <string name="delete_subscription_failed" formatted="false">サブスクリプションの削除に失敗しました: {error}</string>
+    <string name="delete_success" formatted="false">削除に成功しました</string>
+    <string name="deletion_proposal" formatted="false">削除提案</string>
+    <string name="deletion_proposal_created" formatted="false">削除提案が作成されました</string>
+    <string name="deletion_proposal_created_body" formatted="false">{phoneNumber} の削除提案がコミュニティレビューのために提出されました。</string>
+    <string name="deletion_proposal_description" formatted="false">コミュニティガイドラインに違反する削除対象の番号を提案します。あなたの参加はプラットフォームの安全維持に役立ちます。</string>
+    <string name="deletion_proposal_notification_description" formatted="false">削除提案の投票結果と更新に関する通知。</string>
+    <string name="deletion_proposals" formatted="false">削除提案</string>
+    <string name="delivery" formatted="false">配信</string>
+    <string name="description" formatted="false">説明</string>
+    <string name="detailed_settings_title" formatted="false">詳細設定</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">デバイスID</string>
+    <string name="device_management_subtitle" formatted="false">マルチデバイス同期を管理する</string>
+    <string name="device_management_title" formatted="false">デバイス管理</string>
+    <string name="device_model_label" formatted="false">デバイスモデル</string>
+    <string name="device_name" formatted="false">デバイス名</string>
+    <string name="device_name_label" formatted="false">デバイス名</string>
+    <string name="device_renamed_successfully_message" formatted="false">デバイス名を正常に変更しました</string>
+    <string name="device_unregistered_successfully_message" formatted="false">デバイスの登録を解除しました</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">デバイスを正常に同期しました</string>
+    <string name="dialog_title" formatted="false">正規表現パターンの説明</string>
+    <string name="different_from_local_counter" formatted="false">この機能は、長期間のマークカウントではなく、短期間での繰り返し呼び出しパターンに焦点を当てているため、ローカルカウンターフィルターとは異なります。</string>
+    <string name="disable_global_plugins" formatted="false">グローバルプラグインを無効にする</string>
+    <string name="disabled" formatted="false">無効</string>
+    <string name="disabled_status" formatted="false">無効</string>
+    <string name="disconnect_button" formatted="false">切断</string>
+    <string name="disconnect_failed_message" formatted="false">切断に失敗しました</string>
+    <string name="disconnected_message" formatted="false">切断されました</string>
+    <string name="disconnected_status" formatted="false">切断</string>
+    <string name="done" formatted="false">完了</string>
+    <string name="dual_sim_advice" formatted="false">この機能は、仕事用と個人用のSIMカードで異なるフィルタリング戦略を設定するために、デュアルSIMの携帯電話で特に役立ちます。</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">E164番号</string>
+    <string name="earlier" formatted="false">前へ</string>
+    <string name="earned_temp_vip" formatted="false">一時的なVIPを獲得しました</string>
+    <string name="ecommerce" formatted="false">Eコマース</string>
+    <string name="edit" formatted="false">編集</string>
+    <string name="edit_contact" formatted="false">連絡先を編集</string>
+    <string name="edit_label" formatted="false">ラベルを編集</string>
+    <string name="edit_phone_rule" formatted="false">電話ルールを編集</string>
+    <string name="edit_rule" formatted="false">ルールを編集</string>
+    <string name="edit_script" formatted="false">スクリプトを編集</string>
+    <string name="edit_script_for" formatted="false">{pluginName}のスクリプトを編集</string>
+    <string name="edit_subscription" formatted="false">サブスクリプションを編集</string>
+    <string name="education" formatted="false">教育</string>
+    <string name="element_positions_setting" formatted="false">要素の位置</string>
+    <string name="elements_settings_title" formatted="false">要素設定</string>
+    <string name="email" formatted="false">メール</string>
+    <string name="enable_call_filter" formatted="false">コールフィルターを有効にする</string>
+    <string name="enable_call_filter_description" formatted="false">有効にすると、着信は以下のルールリストと照合されます。通話フィルタリングルールは、デフォルトではデバイス間で同期されません。</string>
+    <string name="enable_encryption" formatted="false">暗号化を有効にする</string>
+    <string name="enable_encryption_description" formatted="false">バックアップファイルを暗号化する</string>
+    <string name="enable_filtering" formatted="false">フィルタリングを有効にする</string>
+    <string name="enable_fraud_alert" formatted="false">詐欺アラートを有効にする</string>
+    <string name="enable_fraud_alert_description" formatted="false">詐欺の疑いのある通話に対するアラート</string>
+    <string name="enable_global_plugins" formatted="false">グローバルプラグインを有効にする</string>
+    <string name="enable_local_count_filter" formatted="false">ローカルマーク閾値保護を有効化</string>
+    <string name="enable_local_count_filter_description" formatted="false">ローカル報告数が閾値を超えた場合に着信をブロック</string>
+    <string name="enable_local_notification" formatted="false">ローカル通知を使用する</string>
+    <string name="enable_local_notification_description" formatted="false">有効にすると、フィルタリングされたメッセージの通知がデバイスに表示されます</string>
+    <string name="enable_location_summary" formatted="false">場所</string>
+    <string name="enable_mute_rules" formatted="false">遮断時に着信音を消音</string>
+    <string name="enable_mute_rules_desc" formatted="false">遮断された着信を拒否する代わりに着信音を消音</string>
+    <string name="enable_none_action_rules" formatted="false">記録とマークのみ（遮断なし）</string>
+    <string name="enable_none_action_rules_desc" formatted="false">遮断アクションを実行せずに着信を記録およびマーク</string>
+    <string name="enable_remote_number_filter" formatted="false">クラウド検索閾値保護を有効化</string>
+    <string name="enable_remote_number_filter_description" formatted="false">クラウド報告数が閾値を超えた場合に着信をブロック</string>
+    <string name="enable_rule" formatted="false">ルールを有効にする</string>
+    <string name="enable_security_message" formatted="false">セキュリティメッセージを有効にする</string>
+    <string name="enable_sms_filter" formatted="false">SMSフィルタリングを有効にする</string>
+    <string name="enable_sms_filter_description" formatted="false">有効にすると、メッセージはルールに従って自動的にフィルタリングされます</string>
+    <string name="enable_time_interception" formatted="false">時間インターセプションを有効にする</string>
+    <string name="enable_time_interception_description" formatted="false">短時間内の同一番号からの連続着信をブロック</string>
+    <string name="enable_time_interceptor" formatted="false">時間インターセプターを有効にする</string>
+    <string name="enable_vibration" formatted="false">バイブレーションを有効にする</string>
+    <string name="enable_vibration_description" formatted="false">詐欺の疑いのある通話の場合にバイブレーションする</string>
+    <string name="enabled" formatted="false">有効</string>
+    <string name="enabled_status" formatted="false">有効</string>
+    <string name="end_call_immediately" formatted="false">即座に切断</string>
+    <string name="end_color" formatted="false">終了色</string>
+    <string name="end_date" formatted="false">終了日</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">拡張フィルターシステム</string>
+    <string name="enhanced_filter_settings" formatted="false">拡張フィルター設定</string>
+    <string name="enhanced_filter_settings_title" formatted="false">拡張フィルター設定</string>
+    <string name="enhanced_filter_system_description" formatted="false">拡張フィルターシステムは、グローバルルールとSIMカードごとのフィルタリング設定の両方をサポートしています。</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">電話番号と正規表現パターンの両方入力してください。</string>
+    <string name="enter_contact_name" formatted="false">連絡先名を入力してください</string>
+    <string name="enter_device_name" formatted="false">デバイス名を入力してください</string>
+    <string name="enter_email_optional" formatted="false">メールアドレスを入力してください（オプション）</string>
+    <string name="enter_encryption_password_hint" formatted="false">暗号化パスワードを入力してください</string>
+    <string name="enter_icon_code" formatted="false">アイコンコードを入力してください</string>
+    <string name="enter_name" formatted="false">連絡先名を入力してください</string>
+    <string name="enter_new_device_name_hint" formatted="false">このデバイスの新しい名前を入力してください</string>
+    <string name="enter_password_again" formatted="false">パスワードを再入力してください</string>
+    <string name="enter_phone_number" formatted="false">電話番号を入力してください</string>
+    <string name="enter_phone_number_hint" formatted="false">テストする電話番号を入力してください</string>
+    <string name="enter_phone_number_multiple" formatted="false">電話番号を入力してください。複数の番号はカンマで区切ってください</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">検索を開始する電話番号を入力してください</string>
+    <string name="enter_phone_number_to_verify" formatted="false">確認する電話番号を入力してください</string>
+    <string name="enter_plugin_description" formatted="false">プラグインの説明を入力してください</string>
+    <string name="enter_plugin_name" formatted="false">プラグイン名を入力してください</string>
+    <string name="enter_plugin_url" formatted="false">プラグインURLアドレスを入力してください</string>
+    <string name="enter_regex_hint" formatted="false">正規表現パターンを入力してください</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">ルール名と正規表現パターンの両方を入力してください。</string>
+    <string name="enter_rule_name_hint" formatted="false">ルール名を入力してください</string>
+    <string name="enter_search_content" formatted="false">検索内容を入力してください</string>
+    <string name="enter_subscription_name" formatted="false">サブスクリプション名を入力してください</string>
+    <string name="enter_subscription_url" formatted="false">サブスクリプションURLを入力してください</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">同期フォルダー名を入力してください（デフォルト：NotificationManager）</string>
+    <string name="enter_valid_name_and_url" formatted="false">有効な名前とURLを入力してください</string>
+    <string name="enter_valid_url" formatted="false">有効なURLを入力してください</string>
+    <string name="enter_version" formatted="false">バージョンを入力してください</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">WebDAVパスワードを入力してください</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">WebDAVサーバーアドレスを入力してください</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">WebDAVユーザー名を入力してください</string>
+    <string name="entertainment" formatted="false">エンターテイメント</string>
+    <string name="entity_export_failed" formatted="false">{entityTypeName}のエクスポートに失敗しました: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName}のエクスポートに成功しました</string>
+    <string name="entity_import_failed" formatted="false">{entityTypeName}のインポートに失敗しました: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName}のインポートに成功しました。合計{count}件のレコードがインポートされました</string>
+    <string name="entry_point_view_title" formatted="false">エントリーポイントビュー</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">エラー: {error}</string>
+    <string name="error_occurred_message" formatted="false">エラーが発生しました：{error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">デバイスの名前変更エラー：{error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">デバイスの同期エラー：{error}</string>
+    <string name="error_unregistering_device_message" formatted="false">デバイスの登録解除エラー：{error}</string>
+    <string name="example_block400_prefix" formatted="false">例：400プレフィックス番号をブロック</string>
+    <string name="example_block_marketing_sms" formatted="false">例：マーケティングSMSをブロック</string>
+    <string name="example_content_regex_hint" formatted="false">コンテンツ正規表現の例</string>
+    <string name="example_coupon_promotion_discount" formatted="false">例：.*(coupon|promotion|discount).*</string>
+    <string name="example_family_friends" formatted="false">例：家族、友人など</string>
+    <string name="example_phone_number" formatted="false">例：10086、12345など</string>
+    <string name="example_regex400_prefix" formatted="false">400プレフィックスの正規表現の例</string>
+    <string name="example_sender_regex_hint" formatted="false">例</string>
+    <string name="exchange" formatted="false">交換</string>
+    <string name="exchange_failed" formatted="false">交換に失敗しました: {error}</string>
+    <string name="exchange_now" formatted="false">今すぐ交換</string>
+    <string name="exchange_success" formatted="false">{description}と交換しました。有効期限：{expiryDate}</string>
+    <string name="exchange_vip" formatted="false">VIPを交換</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">有効期限：{time}</string>
+    <string name="export" formatted="false">エクスポート</string>
+    <string name="export_all_application_settings" formatted="false">すべてのアプリケーション設定をエクスポート</string>
+    <string name="export_all_rule_configurations" formatted="false">すべてのルール設定をエクスポート</string>
+    <string name="export_config" formatted="false">設定をエクスポート</string>
+    <string name="export_contacts" formatted="false">連絡先をエクスポート</string>
+    <string name="export_data" formatted="false">データをエクスポート</string>
+    <string name="export_entity" formatted="false">{entityTypeName}をエクスポート</string>
+    <string name="export_failed" formatted="false">エクスポートに失敗しました</string>
+    <string name="export_failure" formatted="false">設定のエクスポートに失敗しました</string>
+    <string name="export_feature_coming_soon" formatted="false">エクスポート機能は間もなく利用可能になります</string>
+    <string name="export_labels" formatted="false">ラベルのエクスポート</string>
+    <string name="export_labels_failed" formatted="false">ラベルのエクスポートに失敗しました: {error}</string>
+    <string name="export_plugin_list" formatted="false">プラグインリストのエクスポート</string>
+    <string name="export_plugin_list_failed" formatted="false">プラグインリストのエクスポートに失敗しました: {error}</string>
+    <string name="export_rules" formatted="false">ルールのエクスポート</string>
+    <string name="export_sms_rules" formatted="false">SMSルールのエクスポート</string>
+    <string name="export_statistics_data" formatted="false">統計データのエクスポート</string>
+    <string name="export_successlly" formatted="false">設定のエクスポートに成功しました</string>
+    <string name="failed_to_add_rule" formatted="false">ルールの追加に失敗しました: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">SMSサブスクリプションの追加に失敗しました: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">設定のバックアップに失敗しました: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">バックアップファイルの復号に失敗しました</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">SMSルールの削除に失敗しました: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">ルールのエクスポートに失敗しました: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">発信者ID情報の取得に失敗しました: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">ルールのインポートに失敗しました: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">設定の復元に失敗しました</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">設定の復元に失敗しました: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">ルールのステータスの切り替えに失敗しました: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">お気に入りの連絡先</string>
+    <string name="feature" formatted="false">機能</string>
+    <string name="feature_add_rules" formatted="false">• 電話番号固有のルールを追加</string>
+    <string name="feature_center" formatted="false">機能センター</string>
+    <string name="feature_enable_disable" formatted="false">• SIMごとに異なるフィルターを有効/無効にする</string>
+    <string name="feature_list_title" formatted="false">機能:</string>
+    <string name="feature_manage_rules" formatted="false">• SIMごとにルールリストを管理</string>
+    <string name="features" formatted="false">機能</string>
+    <string name="fetching_caller_id_info" formatted="false">発信者ID情報を取得中...</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">ファイルは以下に保存されました: {path}</string>
+    <string name="filter" formatted="false">フィルター</string>
+    <string name="filter_and_sort_title" formatted="false">フィルターと並べ替え</string>
+    <string name="filter_by" formatted="false">フィルター</string>
+    <string name="filter_by_action" formatted="false">アクションでフィルタリング</string>
+    <string name="filter_by_label" formatted="false">ラベルでフィルタリング</string>
+    <string name="filter_control_panel_title" formatted="false">フィルターコントロールパネル</string>
+    <string name="filter_control_subtitle" formatted="false">すべてのフィルターのオン/オフステータスを管理</string>
+    <string name="filter_control_title" formatted="false">フィルターコントロール</string>
+    <string name="filter_explanation" formatted="false">フィルターの説明</string>
+    <string name="filter_management" formatted="false">フィルター管理</string>
+    <string name="filter_management_description" formatted="false">通話フィルターを設定する</string>
+    <string name="filter_name" formatted="false">フィルター名</string>
+    <string name="filter_priority_note" formatted="false">注意：フィルター間には優先順位の関係があります。詳細については、ヘルプドキュメントを参照してください。</string>
+    <string name="filter_s_m_s" formatted="false">SMSのフィルター</string>
+    <string name="filter_settings" formatted="false">フィルター設定</string>
+    <string name="filter_settings_title" formatted="false">フィルター設定</string>
+    <string name="filter_toggle_instructions" formatted="false">このSIMスロットのフィルターを有効または無効にします:</string>
+    <string name="filter_toggle_status" formatted="false">{status} フィルター: {filterName}</string>
+    <string name="filter_type" formatted="false">フィルタータイプ</string>
+    <string name="filter_verified_owner" formatted="false">検証済みの所有者をフィルタリング</string>
+    <string name="filtered" formatted="false">フィルタリング済み</string>
+    <string name="final_risk" formatted="false">最終的なリスク</string>
+    <string name="financial" formatted="false">金融</string>
+    <string name="flexible_combination_feature" formatted="false">• 柔軟な組み合わせ: SIMスロットごとにフィルターを有効/無効にする</string>
+    <string name="font_sizes_setting" formatted="false">フォントサイズ</string>
+    <string name="found_rules" formatted="false">{count}個のルールが見つかりました</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">詐欺アラートを設定する</string>
+    <string name="fraud_aler_setting_title" formatted="false">詐欺アラート設定</string>
+    <string name="fraud_alert" formatted="false">詐欺アラート - 通話を切断してください</string>
+    <string name="fraud_alert_title" formatted="false">詐欺アラート</string>
+    <string name="fraud_alerts" formatted="false">詐欺アラート</string>
+    <string name="fraud_alerts_description" formatted="false">詐欺の可能性のある通話に関する警告を表示します。</string>
+    <string name="fraud_scam_likely" formatted="false">詐欺の可能性あり</string>
+    <string name="free" formatted="false">無料</string>
+    <string name="function_settings_title" formatted="false">機能設定</string>
+    <string name="general_update_failure" formatted="false">更新に失敗しました: {error}</string>
+    <string name="get_free" formatted="false">無料で入手</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">すべてのSIMカードのグローバルフィルターを設定します:</string>
+    <string name="global_filter_feature" formatted="false">• グローバルフィルター: すべての着信通話の基本ルール</string>
+    <string name="global_filter_settings" formatted="false">グローバルフィルター設定</string>
+    <string name="global_settings" formatted="false">グローバル設定</string>
+    <string name="google_drive_auth_description" formatted="false">システム設定されたGoogle DriveクライアントIDとキーを使用して認証します</string>
+    <string name="google_drive_config_title" formatted="false">Googleドライブ設定</string>
+    <string name="government" formatted="false">政府</string>
+    <string name="grant_necessary_permissions" formatted="false">必要な権限を付与する</string>
+    <string name="grant_permissions" formatted="false">権限を付与する</string>
+    <string name="granted" formatted="false">許可済み</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">{days}日間の期間限定購入特典が付与されました。有効期限：{expiryDate}</string>
+    <string name="guidelines_label" formatted="false">ガイドライン</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">既に一時的な特典があり、有効期限は{expiryDate}です</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">既にVIP特典（広告を除く）があります</string>
+    <string name="headhunter" formatted="false">ヘッドハンター</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">高さ</string>
+    <string name="high" formatted="false">高</string>
+    <string name="high_risk" formatted="false">高リスク</string>
+    <string name="home_tab" formatted="false">ホーム</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1時間前} other{{count}時間前}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 時間} =1{1 時間} other{{count} 時間}}</string>
+    <string name="how_it_works_point1" formatted="false">• システムは、設定された時間枠内で同じ番号からの通話を自動的に許可します</string>
+    <string name="how_it_works_point2" formatted="false">• 時間枠が短いほど、インターセプトは厳しくなります。時間枠が長いほど、インターセプトは緩くなります</string>
+    <string name="how_it_works_point3" formatted="false">• システムは、コールログをチェックして、繰り返しコールかどうかを判断します</string>
+    <string name="how_it_works_title" formatted="false">仕組み:</string>
+    <string name="icon_code_optional" formatted="false">アイコンコード（オプション）</string>
+    <string name="icon_size" formatted="false">アイコンサイズ</string>
+    <string name="import" formatted="false">インポート</string>
+    <string name="import_config" formatted="false">設定をインポート</string>
+    <string name="import_contacts" formatted="false">連絡先をインポート</string>
+    <string name="import_entity" formatted="false">{entityTypeName}をインポート</string>
+    <string name="import_export" formatted="false">インポート/エクスポート</string>
+    <string name="import_export_contacts" formatted="false">連絡先のインポート/エクスポート</string>
+    <string name="import_export_contacts_tooltip" formatted="false">連絡先のインポート/エクスポート</string>
+    <string name="import_export_description" formatted="false">{entityTypeName}データをインポートまたはエクスポートします</string>
+    <string name="import_export_rules" formatted="false">ルールのインポート/エクスポート</string>
+    <string name="import_export_title" formatted="false">インポート/エクスポート</string>
+    <string name="import_failed" formatted="false">インポートに失敗しました：{error}</string>
+    <string name="import_failure" formatted="false">設定のインポートに失敗しました</string>
+    <string name="import_feature_coming_soon" formatted="false">インポート機能は近日公開予定です</string>
+    <string name="import_labels" formatted="false">ラベルのインポート</string>
+    <string name="import_labels_failed" formatted="false">ラベルのインポートに失敗しました：{error}</string>
+    <string name="import_plugin_list" formatted="false">プラグインリストをインポート</string>
+    <string name="import_plugin_list_failed" formatted="false">プラグインリストのインポートに失敗しました：{error}</string>
+    <string name="import_plugin_success" formatted="false">{count}個のプラグインを正常にインポートしました</string>
+    <string name="import_rule_configurations_from_file" formatted="false">ファイルからルール設定をインポート</string>
+    <string name="import_rules" formatted="false">ルールのインポート</string>
+    <string name="import_success" formatted="false">インポートに成功しました</string>
+    <string name="important" formatted="false">重要</string>
+    <string name="important_notice_title" formatted="false">重要なお知らせ</string>
+    <string name="incoming_call_intercept_action" formatted="false">着信時のインターセプトアクション</string>
+    <string name="incorrect_password" formatted="false">パスワードが正しくありません</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">ブロックする地域のルールライブラリを選択してください。これらのルールは、お住まいの地域における一般的な営業電話や詐欺電話を自動的にブロックするのに役立ちます。</string>
+    <string name="initial_setup_deselect_all" formatted="false">選択を解除</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">設定の取得に失敗しました</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">再試行</string>
+    <string name="initial_setup_save" formatted="false">選択した項目をワンクリックで設定</string>
+    <string name="initial_setup_save_failed" formatted="false">設定の保存に失敗しました: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ 設定が正常に保存されました。まもなくルールが自動的に取得されます</string>
+    <string name="initial_setup_saving" formatted="false">保存中...</string>
+    <string name="initial_setup_search_hint" formatted="false">ルールセットまたは国を検索...</string>
+    <string name="initial_setup_select_all" formatted="false">すべて選択</string>
+    <string name="initial_setup_selected_count" formatted="false">{count}件選択中</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">スキップ</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">ルールライブラリ設定</string>
+    <string name="initializing" formatted="false">初期化中</string>
+    <string name="installed" formatted="false">インストール済み</string>
+    <string name="insufficient_marks" formatted="false">十分なマークがありません</string>
+    <string name="insurance" formatted="false">保険</string>
+    <string name="intercept_action" formatted="false">インターセプトアクション</string>
+    <string name="interception_action_settings_subtitle" formatted="false">ブロックされた通話の処理方法を設定します</string>
+    <string name="interception_action_settings_title" formatted="false">インターセプトアクション設定</string>
+    <string name="interception_time_interval" formatted="false">インターセプト間隔</string>
+    <string name="internet" formatted="false">インターネット</string>
+    <string name="interval_set_success" formatted="false">{service} の更新間隔が{days}日に設定されました</string>
+    <string name="invalid_content_regex" formatted="false">無効なコンテンツ正規表現</string>
+    <string name="invalid_exchange_rule" formatted="false">無効な交換ルール</string>
+    <string name="invalid_label" formatted="false">無効なラベル</string>
+    <string name="invalid_regex_pattern" formatted="false">無効な正規表現パターン</string>
+    <string name="invalid_sender_regex" formatted="false">無効な送信者正規表現</string>
+    <string name="invalid_sim_data" formatted="false">無効なSIMデータ</string>
+    <string name="ip_country" formatted="false">IP国</string>
+    <string name="is_number_match" formatted="false">番号の一致</string>
+    <string name="is_roaming" formatted="false">ローミング中</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">詳細については、Telegramチャンネルとグループに参加してください</string>
+    <string name="json_format" formatted="false">JSON形式</string>
+    <string name="just_now" formatted="false">たった今</string>
+    <string name="keep_all_versions" formatted="false">すべてのバージョンを保持</string>
+    <string name="keep_all_versions_description" formatted="false">各バックアップのすべての履歴バージョンを保持します</string>
+    <string name="label" formatted="false">ラベル</string>
+    <string name="label_action_description" formatted="false">識別しやすいように通話にラベルを追加します。</string>
+    <string name="label_added_successfully" formatted="false">ラベル &quot;{name}&quot; が正常に追加されました</string>
+    <string name="label_categories" formatted="false">ラベルカテゴリ</string>
+    <string name="label_deleted" formatted="false">ラベルが削除されました</string>
+    <string name="label_description" formatted="false">ラベルは、連絡先の管理を改善し、電話番号にカスタムラベルを追加して、通話とメッセージを簡単に識別するのに役立ちます。</string>
+    <string name="label_filter_tooltip" formatted="false">ラベルフィルター</string>
+    <string name="label_icon_color" formatted="false">ラベルアイコンの色</string>
+    <string name="label_management" formatted="false">ラベル管理</string>
+    <string name="label_not_found" formatted="false">ラベルが見つかりません</string>
+    <string name="label_tag" formatted="false">ラベル: {labelId}</string>
+    <string name="label_update_failed" formatted="false">ラベルの更新に失敗しました: {error}</string>
+    <string name="label_update_success" formatted="false">ラベル &quot;$labelText&quot; が正常に更新されました</string>
+    <string name="labels" formatted="false">ラベル</string>
+    <string name="labels_color" formatted="false">ラベルの色</string>
+    <string name="labels_deleted" formatted="false">{count} 個のラベルが削除されました</string>
+    <string name="labels_exported_successfully" formatted="false">ラベルが正常にエクスポートされました</string>
+    <string name="labels_font_size" formatted="false">ラベルのフォントサイズ</string>
+    <string name="labels_imported_successfully" formatted="false">{count} 個のラベルが正常にインポートされました</string>
+    <string name="labels_position" formatted="false">ラベルの位置</string>
+    <string name="language_settings" formatted="false">言語設定</string>
+    <string name="language_settings_subtitle" formatted="false">アプリケーションの表示言語を変更します</string>
+    <string name="language_settings_title" formatted="false">言語設定</string>
+    <string name="last_sync_label" formatted="false">最終同期</string>
+    <string name="last_updated" formatted="false">最終更新: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">生涯メンバーシップ</string>
+    <string name="lifetime_membership_description" formatted="false">1回限りの購入で、すべてのプレミアム機能と今後のアップデートを永久にアンロックします</string>
+    <string name="list_view" formatted="false">リストビュー</string>
+    <string name="live_activities_settings_title" formatted="false">ライブアクティビティ設定</string>
+    <string name="live_activities_test_end_activity" formatted="false">アクティビティを終了</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">新しいアクティビティを送信</string>
+    <string name="live_activities_test_title" formatted="false">ライブアクティビティテスト</string>
+    <string name="live_activities_test_update_activity" formatted="false">アクティビティを更新</string>
+    <string name="live_activity_controls_title" formatted="false">ライブアクティビティコントロール</string>
+    <string name="live_activity_mode" formatted="false">ライブアクティビティ</string>
+    <string name="live_activity_mode_description" formatted="false">通話情報を、ロック画面とダイナミックアイランド（iOS）に永続的な通知として表示します。</string>
+    <string name="live_notification_customization_subtitle" formatted="false">ライブ通知の外観をカスタマイズします。</string>
+    <string name="live_notification_customization_title" formatted="false">ライブ通知のカスタマイズ</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">連絡先の読み込みに失敗しました: {error}</string>
+    <string name="load_data_failed" formatted="false">データの読み込みに失敗しました</string>
+    <string name="load_label_failed" formatted="false">ラベルの読み込みに失敗しました: {error}</string>
+    <string name="load_labels_failed" formatted="false">ラベルの読み込みに失敗しました: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">マークされた電話番号の読み込みに失敗しました: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">マークされた電話番号の読み込みに失敗しました: {error}</string>
+    <string name="load_plugins_failed" formatted="false">プラグインの読み込みに失敗しました: {error}</string>
+    <string name="load_settings_failed" formatted="false">設定の読み込みに失敗しました: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">SMSルールの読み込みに失敗しました: {error}</string>
+    <string name="load_status_failed_message" formatted="false">ステータスの読み込みに失敗しました</string>
+    <string name="load_subscriptions_failed" formatted="false">サブスクリプションの読み込みに失敗しました: {error}</string>
+    <string name="loading" formatted="false">読み込み中...</string>
+    <string name="loading_ad" formatted="false">広告を読み込み中...</string>
+    <string name="loading_tags" formatted="false">タグを読み込み中...</string>
+    <string name="loan" formatted="false">ローン</string>
+    <string name="local_count_filter" formatted="false">ローカルマーク閾値保護</string>
+    <string name="local_count_filter_description" formatted="false">ローカル報告の閾値を超える着信を自動的にブロック</string>
+    <string name="local_count_filter_explanation_content" formatted="false">ローカルカウントフィルターは、通話履歴を分析して、頻繁な迷惑電話を自動的に識別してブロックします。</string>
+    <string name="local_count_filter_explanation_title" formatted="false">ローカルカウントフィルターの説明</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• 番号のカウント値に基づいてブロックするかどうかを決定する</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• 番号のカウントが設定されたしきい値を超えた場合、自動的にブロックすることを選択できます</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• しきい値を超えない番号を個別に許可することができます</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• すべてのクエリログを記録するかどうかを選択できます</string>
+    <string name="local_count_filter_settings" formatted="false">ローカルカウントフィルター設定</string>
+    <string name="local_count_filter_use_cases" formatted="false">このフィルターは、自動ダイヤルによる迷惑電話やマーケティングコールを特定するのに特に適しています。</string>
+    <string name="local_count_filtering" formatted="false">ローカルカウントフィルタリング</string>
+    <string name="local_count_filtering_explanation" formatted="false">• ローカルカウントフィルタリング: ローカルマーキングカウントに基づくフィルタリングルール</string>
+    <string name="local_counter_filter" formatted="false">ローカルカウンターフィルター</string>
+    <string name="local_counter_filter_subtitle" formatted="false">通話頻度に基づいて迷惑電話を自動的にフィルタリングします</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">ローカルフィルター設定</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">ローカル通知は無効になっています</string>
+    <string name="local_notification_enabled" formatted="false">ローカル通知は有効になっています</string>
+    <string name="local_services" formatted="false">ローカルサービス</string>
+    <string name="location" formatted="false">場所</string>
+    <string name="location_color" formatted="false">位置の色</string>
+    <string name="location_font_size" formatted="false">位置のフォントサイズ</string>
+    <string name="location_icon_color" formatted="false">位置のアイコンの色</string>
+    <string name="location_position" formatted="false">位置</string>
+    <string name="log" formatted="false">ログ</string>
+    <string name="log_action_description" formatted="false">他のアクションを実行せずに、通話情報を記録します。</string>
+    <string name="log_all_local_queries" formatted="false">すべてのローカルクエリをログに記録する</string>
+    <string name="log_all_local_queries_description" formatted="false">すべてのローカル番号クエリのログを記録する</string>
+    <string name="log_all_remote_queries" formatted="false">すべてのリモートクエリをログに記録する</string>
+    <string name="log_all_remote_queries_description" formatted="false">すべてのリモート番号クエリ操作を記録する</string>
+    <string name="low" formatted="false">低</string>
+    <string name="low_risk" formatted="false">低リスク</string>
+    <string name="manage" formatted="false">連絡先の管理</string>
+    <string name="manage_favorite_contacts" formatted="false">お気に入りの連絡先を管理</string>
+    <string name="manage_filter_rules" formatted="false">フィルタールールの管理</string>
+    <string name="manage_filter_rules_description" formatted="false">SMSフィルタールールの追加、編集、または削除</string>
+    <string name="manual_entry" formatted="false">手動入力情報</string>
+    <string name="mark_count" formatted="false">マーク数</string>
+    <string name="mark_counts" formatted="false">マーク数</string>
+    <string name="mark_exchange" formatted="false">マーク交換</string>
+    <string name="mark_more_numbers_for_more" formatted="false">さらに多くのマークのためにさらに多くの番号をマーク</string>
+    <string name="mark_phone" formatted="false">電話番号をマーク</string>
+    <string name="mark_phone_failed" formatted="false">電話番号のマーキングに失敗しました: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">電話マーク管理</string>
+    <string name="mark_phone_success" formatted="false">電話番号が正常にマークされました</string>
+    <string name="marked_by_count" formatted="false">{count} によってマークされました</string>
+    <string name="marked_phones_list" formatted="false">マークされた電話番号</string>
+    <string name="marks_insufficient" formatted="false">交換に必要なポイントが不足しています</string>
+    <string name="master_and_overrides" formatted="false">マスターコントロール</string>
+    <string name="master_and_overrides_desc" formatted="false">グローバルルール設定</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">マッチングに失敗しました。</string>
+    <string name="match_numbers_with_special_characters" formatted="false">特定の番号形式に一致します</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">特殊文字を含む番号に一致させる:</string>
+    <string name="match_specific_digit_patterns" formatted="false">XXX-XXXX-XXXX形式に一致します</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">特定の数字パターンに一致させる:</string>
+    <string name="match_successful_message" formatted="false">マッチングに成功しました！</string>
+    <string name="medical" formatted="false">医療</string>
+    <string name="medium" formatted="false">媒体</string>
+    <string name="medium_risk" formatted="false">中リスク</string>
+    <string name="membership_center" formatted="false">メンバーシップセンター</string>
+    <string name="membership_privileges" formatted="false">メンバーシップ特典</string>
+    <string name="message_background_color" formatted="false">メッセージの背景色</string>
+    <string name="message_color" formatted="false">メッセージの色</string>
+    <string name="message_font_size" formatted="false">メッセージフォントサイズ</string>
+    <string name="message_position" formatted="false">メッセージの位置</string>
+    <string name="migration_tool" formatted="false">移行ツール</string>
+    <string name="minutes" formatted="false">分</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1分前} other{{count}分前}}</string>
+    <string name="moderate" formatted="false">中程度</string>
+    <string name="month" formatted="false">月</string>
+    <string name="monthly" formatted="false">毎月</string>
+    <string name="monthly_call_count" formatted="false">月間通話数</string>
+    <string name="monthly_membership" formatted="false">月額メンバーシップ</string>
+    <string name="monthly_membership_description" formatted="false">すべてのプレミアム機能をアンロックし、毎月自動更新されます</string>
+    <string name="monthly_total" formatted="false">月間合計</string>
+    <string name="more_options" formatted="false">その他のオプション</string>
+    <string name="mute" formatted="false">ミュート</string>
+    <string name="name" formatted="false">名前</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">名前と電話番号は空にできません</string>
+    <string name="name_cannot_be_empty" formatted="false">名前は空にできません</string>
+    <string name="name_color" formatted="false">名前の色</string>
+    <string name="name_font_size" formatted="false">名前のフォントサイズ</string>
+    <string name="name_position" formatted="false">名前の位置</string>
+    <string name="name_unknown" formatted="false">名前：不明</string>
+    <string name="national_number" formatted="false">国内番号</string>
+    <string name="need_vip_access" formatted="false">この機能を使用するには、VIPアクセスが必要です</string>
+    <string name="new_vote_received" formatted="false">新しい投票を受信しました</string>
+    <string name="new_vote_received_body" formatted="false">誰かが {phoneNumber} の削除に {voteType} と投票しました。現在の投票数: {totalVotes}。</string>
+    <string name="next_step" formatted="false">次へ</string>
+    <string name="no_action" formatted="false">アクションなし</string>
+    <string name="no_action_rules" formatted="false">アクションルールなし</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">アクティブなクラウド同期サービスがありません</string>
+    <string name="no_activity" formatted="false">活動なし</string>
+    <string name="no_ads" formatted="false">広告なし</string>
+    <string name="no_allowed_blocked_rules" formatted="false">許可/ブロックルールが見つかりません</string>
+    <string name="no_blocked_type_data" formatted="false">ブロックされた種類のデータはありません</string>
+    <string name="no_call_records" formatted="false">通話記録なし</string>
+    <string name="no_contacts_yet" formatted="false">まだ連絡先がありません</string>
+    <string name="no_data" formatted="false">データなし</string>
+    <string name="no_devices_registered_message" formatted="false">登録されているデバイスがありません</string>
+    <string name="no_labels" formatted="false">まだラベルがありません</string>
+    <string name="no_marked_phones" formatted="false">マークされた電話番号はありません</string>
+    <string name="no_matching_contacts_found" formatted="false">一致する連絡先が見つかりませんでした</string>
+    <string name="no_matching_numbers_found" formatted="false">一致する番号が見つかりませんでした</string>
+    <string name="no_matching_rules" formatted="false">一致する{ruleType}がありません</string>
+    <string name="no_notifications" formatted="false">通知はありません</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">電話ルールが見つかりません</string>
+    <string name="no_plugins" formatted="false">まだプラグインはありません</string>
+    <string name="no_proposals_found" formatted="false">提案が見つかりませんでした</string>
+    <string name="no_regex_rules" formatted="false">正規表現ルールが見つかりません</string>
+    <string name="no_rules" formatted="false">まだ{ruleType}がありません</string>
+    <string name="no_rules_prompt" formatted="false">ルールが見つかりませんでした。ルールを追加してください</string>
+    <string name="no_rules_to_export" formatted="false">エクスポートするルールがありません</string>
+    <string name="no_sim_card_detected" formatted="false">SIMカードが検出されません</string>
+    <string name="no_sim_cards_detected" formatted="false">SIMカードが検出されませんでした</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">まだSMSフィルタールールはありません</string>
+    <string name="no_sms_rules_yet" formatted="false">まだSMSルールはありません</string>
+    <string name="no_subscriptions" formatted="false">サブスクリプションがありません</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">ファイルに有効なSMSルールが見つかりませんでした</string>
+    <string name="none" formatted="false">なし</string>
+    <string name="none_action_description" formatted="false">通話に対して特別なアクションは実行されません。</string>
+    <string name="none_service_type" formatted="false">なし</string>
+    <string name="normal_user" formatted="false">通常ユーザー</string>
+    <string name="not_granted" formatted="false">許可されていません</string>
+    <string name="not_verified_text" formatted="false">未確認</string>
+    <string name="notification_frequency_hours" formatted="false">通知頻度（時間）</string>
+    <string name="notification_frequency_title" formatted="false">通知頻度</string>
+    <string name="notification_mode" formatted="false">通知モード</string>
+    <string name="notification_mode_description" formatted="false">通知バーに発信者情報を表示します</string>
+    <string name="notification_permission" formatted="false">通知許可</string>
+    <string name="notification_permission_description" formatted="false">着信通話とメッセージの通知を表示するために使用されます。</string>
+    <string name="notification_settings" formatted="false">通知設定</string>
+    <string name="notification_settings_title" formatted="false">通知設定</string>
+    <string name="notification_instructions" formatted="false">手順:
+1. 「送信」をタップして通知を作成または更新します。
+2. ホーム画面に移動するか、通知トレイを引き下げて結果を確認します。
+3. 「終了」をタップして通知を閉じます。</string>
+    <string name="notifications" formatted="false">通知</string>
+    <string name="notify" formatted="false">通知</string>
+    <string name="notify_action_description" formatted="false">通話を受信したときに通知を送信します。</string>
+    <string name="number" formatted="false">番号</string>
+    <string name="number_color" formatted="false">番号の色</string>
+    <string name="number_font_size" formatted="false">番号のフォントサイズ</string>
+    <string name="number_format" formatted="false">番号形式</string>
+    <string name="number_invalid_format" formatted="false">番号の形式が正しくありません</string>
+    <string name="number_position" formatted="false">番号の位置</string>
+    <string name="number_search" formatted="false">番号検索</string>
+    <string name="number_type_color" formatted="false">番号タイプの色</string>
+    <string name="number_type_font_size" formatted="false">番号タイプのフォントサイズ</string>
+    <string name="number_type_position" formatted="false">番号タイプの位置</string>
+    <string name="ok_button" formatted="false">OK</string>
+    <string name="onboarding_complete_description" formatted="false">あなたの通話セキュリティマネージャーは準備ができました。安全な通話体験をお楽しみください！</string>
+    <string name="onboarding_language_description" formatted="false">最高の体験のために、ご希望の言語を選択してください。</string>
+    <string name="onboarding_permissions_description" formatted="false">完全なサービスを提供するために、次の権限が必要です。</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">ワンクリックでスパム通話とメッセージをブロックし、ブロックルールをカスタマイズして、静かな環境を提供します。</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">不明な通話を自動的に識別し、不審な番号をマークし、通話の安全性を保護します。</string>
+    <string name="onboarding_welcome_description" formatted="false">あなたの通話管理のエキスパート。包括的な通話識別とブロックサービスを提供します。</string>
+    <string name="one_drive_auth_description" formatted="false">システムで設定されたOneDriveクライアントIDとキーを使用して承認します</string>
+    <string name="one_drive_config_title" formatted="false">OneDrive設定</string>
+    <string name="online_caller_id_subscription" formatted="false">オンライン発信者 ID サブスクリプション</string>
+    <string name="open_app_settings" formatted="false">アプリ設定を開く</string>
+    <string name="open_app_settings_failed" formatted="false">アプリ設定を開けませんでした: {error}</string>
+    <string name="open_in_web_view" formatted="false">WebViewで開く</string>
+    <string name="operation_failed" formatted="false">操作に失敗しました: {error}</string>
+    <string name="operation_failure" formatted="false">操作に失敗しました</string>
+    <string name="operation_success" formatted="false">操作は成功しました</string>
+    <string name="oppose" formatted="false">反対する</string>
+    <string name="oppose_count" formatted="false">反対 ({opposeCount})</string>
+    <string name="opposed" formatted="false">反対</string>
+    <string name="other" formatted="false">その他</string>
+    <string name="our_other_apps" formatted="false">その他のアプリ</string>
+    <string name="overlay_mode" formatted="false">フローティングウィンドウ</string>
+    <string name="overlay_mode_description" formatted="false">フローティングウィンドウで発信者情報を表示します</string>
+    <string name="overlay_permission" formatted="false">オーバーレイ許可</string>
+    <string name="overlay_permission_description" formatted="false">着信コールのオーバーレイを表示するために使用されます。</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">概要</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">パスワード</string>
+    <string name="password_cannot_be_empty" formatted="false">パスワードは空にできません</string>
+    <string name="password_label" formatted="false">パスワード</string>
+    <string name="passwords_do_not_match" formatted="false">パスワードが一致しません</string>
+    <string name="pattern" formatted="false">パターン</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">保留中</string>
+    <string name="pending_proposals" formatted="false">保留中の提案</string>
+    <string name="pending_proposals_body" formatted="false">保留中の提案が{count, plural, =0 {ありません} one {1件あります} other {{count}件あります}}。</string>
+    <string name="pending_sync" formatted="false">同期保留中</string>
+    <string name="period_month" formatted="false">月</string>
+    <string name="period_week" formatted="false">週</string>
+    <string name="period_year" formatted="false">年</string>
+    <string name="permission_denied" formatted="false">許可要求が拒否されました</string>
+    <string name="permission_granted" formatted="false">許可されました</string>
+    <string name="permission_management" formatted="false">許可管理</string>
+    <string name="permission_subtitle" formatted="false">オーバーレイとバッテリー最適化の許可を管理します</string>
+    <string name="permission_title" formatted="false">特別許可</string>
+    <string name="phone_calls_tab" formatted="false">電話</string>
+    <string name="phone_number" formatted="false">電話番号</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">電話番号は空にできません</string>
+    <string name="phone_number_hint" formatted="false">電話番号を入力してください</string>
+    <string name="phone_number_label" formatted="false">電話番号</string>
+    <string name="phone_number_min_digits" formatted="false">電話番号は7桁以上である必要があります</string>
+    <string name="phone_number_required" formatted="false">電話番号は必須です</string>
+    <string name="phone_number_type" formatted="false">電話番号の種類</string>
+    <string name="phone_number_type_fixed_line" formatted="false">固定回線</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">固定回線または携帯電話</string>
+    <string name="phone_number_type_mobile" formatted="false">携帯電話</string>
+    <string name="phone_number_type_pager" formatted="false">ポケットベル</string>
+    <string name="phone_number_type_personal_number" formatted="false">パーソナルナンバー</string>
+    <string name="phone_number_type_premium_rate" formatted="false">プレミアム料金</string>
+    <string name="phone_number_type_shared_cost" formatted="false">共有コスト</string>
+    <string name="phone_number_type_toll_free" formatted="false">フリーダイヤル</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">不明</string>
+    <string name="phone_number_type_voicemail" formatted="false">ボイスメール</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">電話許可</string>
+    <string name="phone_permission_description" formatted="false">着信を識別してブロックするために使用されます。</string>
+    <string name="phone_rule" formatted="false">電話ルール</string>
+    <string name="phone_rule_management" formatted="false">電話ルール管理</string>
+    <string name="phone_rule_subscription" formatted="false">電話ルールサブスクリプション</string>
+    <string name="phone_rules_info" formatted="false">電話ルールは、特定の電話番号への通話に一致させるために使用され、優先順位が低くなります。一部はphoneRuleサブスクリプションから取得されます</string>
+    <string name="phone_subscription" formatted="false">電話サブスクリプション</string>
+    <string name="phone_subscription_rules_description" formatted="false">URL経由で電話ルールリストをサブスクライブして、ホワイトリストとブラックリストのルールを自動的に更新します。JSON形式のルールファイルをサポートしています。</string>
+    <string name="please_enter_at_least_one_number" formatted="false">少なくとも1つの番号を入力してください。</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">ラベルを選択し、有効な電話番号を入力してください</string>
+    <string name="plugin_added_success" formatted="false">プラグイン &quot;{name}&quot; が正常に追加されました</string>
+    <string name="plugin_deleted" formatted="false">プラグインを削除しました</string>
+    <string name="plugin_description" formatted="false">プラグインの説明</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">プラグインラベル</string>
+    <string name="plugin_latest_version" formatted="false">プラグインはすでに最新バージョンです</string>
+    <string name="plugin_list_export_success" formatted="false">プラグインリストが正常にエクスポートされました</string>
+    <string name="plugin_management" formatted="false">プラグイン管理</string>
+    <string name="plugin_management_subtitle" formatted="false">サードパーティプラグインを管理および設定する</string>
+    <string name="plugin_name" formatted="false">プラグイン名</string>
+    <string name="plugin_rules_info" formatted="false">セキュリティのため、信頼できるソースのプラグインのみを使用してください。独自のカスタムプラグインを作成するために、当社のテンプレートをご自由にお使いください！</string>
+    <string name="plugin_service" formatted="false">プラグインサービス</string>
+    <string name="plugin_test_page_title" formatted="false">プラグインテスト</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">プラグインが正常に更新されました</string>
+    <string name="plugin_url" formatted="false">プラグインURL</string>
+    <string name="plugin_version" formatted="false">プラグインバージョン</string>
+    <string name="plugins_deleted" formatted="false">{count} 個のプラグインが正常に削除されました。</string>
+    <string name="political" formatted="false">政治的</string>
+    <string name="powerful_spam_blocking" formatted="false">強力なスパムブロック</string>
+    <string name="previous_step" formatted="false">前へ</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">リモートアクション設定を優先する</string>
+    <string name="prioritize_remote_action_description" formatted="false">リモートデータベースからのアクション設定を優先する</string>
+    <string name="processed" formatted="false">処理済み</string>
+    <string name="processing" formatted="false">処理中...</string>
+    <string name="processing_operation" formatted="false">処理中...</string>
+    <string name="proposal_approved" formatted="false">提案承認 ✅</string>
+    <string name="proposal_approved_body" formatted="false">{phoneNumber} の削除提案がコミュニティによって承認されました (支持率 {supportPercentage}%, 総投票数 {totalVotes}票)。</string>
+    <string name="proposal_created" formatted="false">提案が正常に作成されました</string>
+    <string name="proposal_details" formatted="false">提案の詳細</string>
+    <string name="proposal_not_found" formatted="false">提案が見つかりません</string>
+    <string name="proposal_processed" formatted="false">この提案は処理されました</string>
+    <string name="proposal_rejected" formatted="false">提案拒否 ❌</string>
+    <string name="proposal_rejected_body" formatted="false">{phoneNumber} の削除提案がコミュニティによって拒否されました (支持率 {supportPercentage}%, 総投票数 {totalVotes}票)。</string>
+    <string name="proposal_statistics" formatted="false">提案統計</string>
+    <string name="provide_detailed_explanation" formatted="false">詳細な説明を提供する（10文字以上）</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">購入</string>
+    <string name="purchase_subtitle" formatted="false">サービスを購入する</string>
+    <string name="purchase_title" formatted="false">購入</string>
+    <string name="quarterly_membership" formatted="false">四半期メンバーシップ</string>
+    <string name="quarterly_membership_description" formatted="false">すべてのプレミアム機能をアンロックし、四半期ごとに自動更新</string>
+    <string name="ready" formatted="false">準備完了！</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">理由</string>
+    <string name="reason_inaccurate_info" formatted="false">不正確な情報</string>
+    <string name="reason_min_characters" formatted="false">理由は10文字以上である必要があります</string>
+    <string name="reason_not_in_service" formatted="false">サービス対象外</string>
+    <string name="reason_other" formatted="false">その他</string>
+    <string name="reason_outdated" formatted="false">古くなった番号</string>
+    <string name="reason_privacy" formatted="false">プライバシーの問題</string>
+    <string name="reason_required" formatted="false">理由は必須です</string>
+    <string name="reason_wrongly_identified" formatted="false">誤って識別された</string>
+    <string name="recruiter" formatted="false">採用担当者</string>
+    <string name="redeem_vip_with_marks" formatted="false">マークでVIPを交換</string>
+    <string name="redirect" formatted="false">リダイレクト</string>
+    <string name="redirect_action_description" formatted="false">通話を指定された番号にリダイレクトします。</string>
+    <string name="refresh" formatted="false">更新</string>
+    <string name="refresh_permission_status" formatted="false">許可ステータスを更新</string>
+    <string name="refresh_proposals" formatted="false">提案を更新</string>
+    <string name="refresh_tooltip" formatted="false">更新</string>
+    <string name="regex_error_message" formatted="false">正規表現エラー: {error}</string>
+    <string name="regex_pattern" formatted="false">正規表現パターン</string>
+    <string name="regex_pattern_explanation" formatted="false">正規表現パターンの説明</string>
+    <string name="regex_pattern_explanation_button" formatted="false">正規表現パターンの説明</string>
+    <string name="regex_pattern_label" formatted="false">正規表現パターン</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">電話番号の一致のための正規表現パターン</string>
+    <string name="regex_rule" formatted="false">正規表現ルール</string>
+    <string name="regex_rule_add_failed" formatted="false">正規表現ルールの追加に失敗しました: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">正規表現ルールが正常に追加されました</string>
+    <string name="regex_rule_management" formatted="false">正規表現ルール管理</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">ルール名と正規表現パターンは空にできません</string>
+    <string name="regex_rules" formatted="false">正規表現ルール</string>
+    <string name="regex_rules_info" formatted="false">正規表現ルールは、正規表現パターンに基づいて通話をフィルタリングするために使用されます。</string>
+    <string name="regex_tester_title" formatted="false">正規表現テスター</string>
+    <string name="region" formatted="false">地域</string>
+    <string name="registered_devices_title" formatted="false">登録済みデバイス</string>
+    <string name="reject_all_calls" formatted="false">すべての通話を拒否</string>
+    <string name="reject_all_calls_description" formatted="false">有効にすると、すべての通話が最高の優先度で拒否されます</string>
+    <string name="reject_all_numbers" formatted="false">着信をすべて拒否</string>
+    <string name="reject_all_numbers_desc" formatted="false">最高優先度ですべての着信を拒否</string>
+    <string name="reject_exceeded_numbers" formatted="false">超過した番号を拒否</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">カウントのしきい値を超える番号を自動的に拒否します</string>
+    <string name="rejected" formatted="false">拒否されました</string>
+    <string name="remote_filter_settings" formatted="false">リモートフィルター設定</string>
+    <string name="remote_filter_settings_page_title" formatted="false">リモート番号フィルター設定</string>
+    <string name="remote_number_filter" formatted="false">クラウド検索閾値保護</string>
+    <string name="remote_number_filter_description" formatted="false">クラウド報告の閾値を超える着信を自動的にブロック</string>
+    <string name="remote_number_filter_subtitle" formatted="false">クラウドデータベースとコミュニティレポートを使用して、迷惑電話を特定します</string>
+    <string name="remote_number_filtering" formatted="false">リモート番号フィルタリング</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• リモート番号フィルタリング: リモートデータベース情報に基づくフィルタリングルール</string>
+    <string name="remove_ads" formatted="false">広告を削除</string>
+    <string name="remove_ads_description" formatted="false">よりスムーズな体験のために、アプリ内のすべての広告を完全に削除します</string>
+    <string name="remove_ads_title" formatted="false">広告を削除</string>
+    <string name="remove_from_favorites" formatted="false">お気に入りから削除</string>
+    <string name="removed_from_favorites" formatted="false">お気に入りから削除しました</string>
+    <string name="rename_device_title" formatted="false">デバイスの名前を変更</string>
+    <string name="reporting_guidelines" formatted="false">• 実際に問題のある番号のみを報告する
+• 正確で詳細な理由を提供する
+• 深刻度に応じて適切なリスクレベルを選択する
+• 虚偽の報告はアカウントの制限につながる可能性があります</string>
+    <string name="request_all_permissions" formatted="false">すべての権限を要求</string>
+    <string name="request_permission" formatted="false">権限を要求</string>
+    <string name="request_permission_failed" formatted="false">権限の要求に失敗しました: {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">{count} マーク</string>
+    <string name="reset" formatted="false">リセット</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">復元</string>
+    <string name="restore_application_settings_from_backup" formatted="false">バックアップからアプリケーション設定を復元</string>
+    <string name="restore_from_cloud" formatted="false">クラウドから復元</string>
+    <string name="restore_from_cloud_failed" formatted="false">クラウドからの復元に失敗しました: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">クラウドから正常に復元されました</string>
+    <string name="restore_purchases" formatted="false">購入を復元</string>
+    <string name="restore_settings" formatted="false">設定を復元</string>
+    <string name="restore_settings_confirmation" formatted="false">これにより、現在のすべての設定が置き換えられます。続行してもよろしいですか？</string>
+    <string name="result" formatted="false">結果</string>
+    <string name="retry" formatted="false">再試行</string>
+    <string name="rewarded_ad_service" formatted="false">リワード広告サービス</string>
+    <string name="ridesharing" formatted="false">ライドシェア</string>
+    <string name="risk" formatted="false">リスク</string>
+    <string name="risk_level" formatted="false">リスクレベル</string>
+    <string name="risk_level_critical" formatted="false">重大</string>
+    <string name="risk_level_high" formatted="false">高</string>
+    <string name="risk_level_label" formatted="false">リスクレベル</string>
+    <string name="risk_level_low" formatted="false">低</string>
+    <string name="risk_level_medium" formatted="false">中</string>
+    <string name="risk_level_very_low" formatted="false">非常に低い</string>
+    <string name="robocall" formatted="false">ロボコール</string>
+    <string name="rule_action" formatted="false">ルールの操作</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">ルールが正常に追加されました</string>
+    <string name="rule_added_success" formatted="false">ルールが正常に追加されました</string>
+    <string name="rule_delete_confirm_content" formatted="false">この{ruleType}を削除してもよろしいですか？</string>
+    <string name="rule_delete_confirm_title" formatted="false">ルールを削除</string>
+    <string name="rule_delete_failed" formatted="false">ルールの削除に失敗しました: {error}</string>
+    <string name="rule_delete_success" formatted="false">ルールが正常に削除されました</string>
+    <string name="rule_deleted_successfully" formatted="false">ルールが正常に削除されました</string>
+    <string name="rule_disabled_successfully" formatted="false">ルールは正常に無効化されました</string>
+    <string name="rule_enabled_successfully" formatted="false">ルールは正常に有効化されました</string>
+    <string name="rule_load_failed" formatted="false">ルールの読み込みに失敗しました: {error}</string>
+    <string name="rule_management" formatted="false">ルール管理</string>
+    <string name="rule_name" formatted="false">ルール名</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">ルール名とコンテンツの正規表現は空にできません</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">ルール名と電話番号は空にできません</string>
+    <string name="rule_name_hint" formatted="false">例：家族、友人など</string>
+    <string name="rule_name_label" formatted="false">ルール名</string>
+    <string name="rule_name_required" formatted="false">ルール名と電話番号は空にできません</string>
+    <string name="rule_not_exist" formatted="false">ルールが存在しないか、削除されました</string>
+    <string name="rule_not_found" formatted="false">ルールが見つかりません: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">ルールは正常に保存されました！</string>
+    <string name="rule_status_changed" formatted="false">ルール {status} は正常に変更されました</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">操作に失敗しました: {error}</string>
+    <string name="rule_toggle_success" formatted="false">ルール {status} は正常に変更されました</string>
+    <string name="rule_type" formatted="false">Rule Type</string>
+    <string name="rule_update_failed" formatted="false">ルールの更新に失敗しました: {error}</string>
+    <string name="rule_update_success" formatted="false">ルールは正常に更新されました</string>
+    <string name="rule_verification" formatted="false">ルール検証</string>
+    <string name="rules_exported_successfully" formatted="false">ルールは正常にエクスポートされました</string>
+    <string name="rules_exported_to" formatted="false">ルールがエクスポートされました: {path}</string>
+    <string name="rules_imported" formatted="false">ルールは正常にインポートされました</string>
+    <string name="rules_imported_successfully" formatted="false">{count} 件のルールが正常にインポートされました</string>
+    <string name="save" formatted="false">保存</string>
+    <string name="save_button" formatted="false">保存</string>
+    <string name="save_button_text" formatted="false">保存</string>
+    <string name="save_failed" formatted="false">保存に失敗しました: {error}</string>
+    <string name="save_script" formatted="false">スクリプトを保存</string>
+    <string name="save_settings" formatted="false">設定を保存</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">詐欺の可能性</string>
+    <string name="script_saved" formatted="false">スクリプトを保存しました</string>
+    <string name="scroll_speed" formatted="false">スクロール速度</string>
+    <string name="scrolling_security_message_settings" formatted="false">スクロールセキュリティメッセージ設定</string>
+    <string name="search" formatted="false">検索</string>
+    <string name="search_by_name_or_phone_number" formatted="false">名前または電話番号で検索</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">連絡先サブスクリプションを検索</string>
+    <string name="search_contacts" formatted="false">連絡先を検索</string>
+    <string name="search_error" formatted="false">検索エラー: {error}</string>
+    <string name="search_hint" formatted="false">検索...</string>
+    <string name="search_labels_hint" formatted="false">ラベルを検索</string>
+    <string name="search_marked_phones_hint" formatted="false">マークされた電話を検索</string>
+    <string name="search_phone_rules_hint" formatted="false">電話ルールを検索</string>
+    <string name="search_plugins_hint" formatted="false">プラグインを検索</string>
+    <string name="search_proposals" formatted="false">提案を検索</string>
+    <string name="search_regex_rules_hint" formatted="false">正規表現ルールを検索</string>
+    <string name="search_subscriptions_hint" formatted="false">サブスクリプションを検索</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">電話を信頼しないでください。常にカスタマーサービス番号を個別に確認してください。パスワード、確認コード、カード番号、個人情報を決して共有しないでください。</string>
+    <string name="select_action" formatted="false">アクションを選択</string>
+    <string name="select_action_when_blocking_calls" formatted="false">通話をブロックする場合のアクションを選択</string>
+    <string name="select_action_when_rule_matches" formatted="false">ルールが一致した場合のアクションを選択</string>
+    <string name="select_all" formatted="false">すべて選択</string>
+    <string name="select_country" formatted="false">国を選択</string>
+    <string name="select_export_format" formatted="false">エクスポート形式を選択</string>
+    <string name="select_label" formatted="false">ラベルを選択</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">ラベルを選択して、有効な電話番号を入力してください</string>
+    <string name="select_language" formatted="false">言語を選択</string>
+    <string name="select_multiple" formatted="false">複数選択</string>
+    <string name="select_sim_card" formatted="false">SIMカードを選択</string>
+    <string name="select_tags" formatted="false">タグを選択</string>
+    <string name="select_target_service" formatted="false">対象サービスを選択</string>
+    <string name="select_trusted_data_source" formatted="false">信頼できるデータソースを選択してください</string>
+    <string name="select_your_language" formatted="false">言語を選択</string>
+    <string name="selected_items" formatted="false">{count} 個のアイテムが選択されました</string>
+    <string name="selected_label" formatted="false">選択済み:</string>
+    <string name="sender" formatted="false">送信者</string>
+    <string name="sender_regex_optional" formatted="false">送信者Regex (オプション)</string>
+    <string name="separate_sims" formatted="false">個別SIMルール</string>
+    <string name="separate_sims_desc" formatted="false">SIMカードごとに個別のフィルタリングルールを有効にする</string>
+    <string name="server_address_label" formatted="false">サーバーアドレス</string>
+    <string name="service_type_contact" formatted="false">連絡先サブスクリプション</string>
+    <string name="service_type_label" formatted="false">サービスタイプ</string>
+    <string name="service_type_phone" formatted="false">電話サブスクリプション</string>
+    <string name="service_type_plugin" formatted="false">プラグインアップデート</string>
+    <string name="service_type_sms" formatted="false">SMSサブスクリプション</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">遅延時間を設定</string>
+    <string name="set_encryption_password" formatted="false">暗号化パスワードを設定</string>
+    <string name="settings" formatted="false">設定</string>
+    <string name="settings_backed_up_to" formatted="false">設定のバックアップ先: {path}</string>
+    <string name="settings_backup" formatted="false">設定のバックアップ </string>
+    <string name="settings_restored_successfully" formatted="false">設定が正常に復元されました。変更を有効にするには、アプリを再起動してください。</string>
+    <string name="settings_save_failed" formatted="false">設定の保存に失敗しました: {error}</string>
+    <string name="settings_saved" formatted="false">設定を保存しました</string>
+    <string name="settings_tab" formatted="false">設定</string>
+    <string name="settings_title" formatted="false">設定</string>
+    <string name="setup" formatted="false">セットアップ</string>
+    <string name="show_all_contacts" formatted="false">すべての連絡先を表示</string>
+    <string name="show_favorites" formatted="false">お気に入りを表示</string>
+    <string name="silence" formatted="false">サイレンス</string>
+    <string name="silence_action_description" formatted="false">通話はサイレントになりますが、通話履歴に表示されます。</string>
+    <string name="silence_and_no_answer" formatted="false">着信音を消音</string>
+    <string name="silence_no_answer" formatted="false">サイレンス、応答なし</string>
+    <string name="silent_call_voice_clone" formatted="false">サイレントコール音声クローン</string>
+    <string name="silent_rules" formatted="false">サイレントルール</string>
+    <string name="sim_card" formatted="false">SIMカード {simNumber}</string>
+    <string name="sim_card_color" formatted="false">SIMカードの色</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• SIMカード構成: 各SIMカードに独立したフィルタリングルールを設定します</string>
+    <string name="sim_card_filter_rules" formatted="false">SIMカードのフィルタリングルール</string>
+    <string name="sim_card_filter_rules_description" formatted="false">SIMカードスロットに基づいて異なるフィルタリングルールを設定します</string>
+    <string name="sim_card_font_size" formatted="false">SIMカードのフォントサイズ</string>
+    <string name="sim_card_position" formatted="false">SIMカードの位置</string>
+    <string name="sim_card_title" formatted="false">SIMカード</string>
+    <string name="sim_country" formatted="false">SIM国</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">SIMスロットルールを使用すると、各SIMスロットに対して独立したフィルタリングルールを設定できます。</string>
+    <string name="sim_rule_instructions_title" formatted="false">SIMスロットルール</string>
+    <string name="sim_rules_not_found" formatted="false">SIMルールが見つかりません</string>
+    <string name="sim_slot" formatted="false">SIMスロット</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">各SIMカードに対して独立したフィルタリングルールを設定します:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">SIMスロット {slotNumber} フィルタ設定</string>
+    <string name="sim_slot_management" formatted="false">SIMスロット管理</string>
+    <string name="sim_slot_position" formatted="false">SIMスロット位置 {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• SIMスロットルール: SIMごとに独立したフィルタリング戦略</string>
+    <string name="sim_slot_rule_list_title" formatted="false">SIMスロットルールリスト</string>
+    <string name="sim_slot_rule_management" formatted="false">SIMスロットルール</string>
+    <string name="sim_slot_rules" formatted="false">SIMスロットルール</string>
+    <string name="sim_slot_title" formatted="false">SIMスロット {slotNumber}</string>
+    <string name="sim_state" formatted="false">SIM状態</string>
+    <string name="skip" formatted="false">スキップ</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">スマートコールID</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">SMSフィルタリングは、迷惑メッセージを自動的にフィルタリングし、メッセージリストをクリーンに保つのに役立ちます。フィルタールールと通知方法を設定できます。</string>
+    <string name="sms_filter_disabled" formatted="false">SMSフィルタリング無効</string>
+    <string name="sms_filter_enabled" formatted="false">SMSフィルタリング有効</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">SMSフィルタールールが正常に追加されました</string>
+    <string name="sms_filter_rules" formatted="false">SMSフィルタールール</string>
+    <string name="sms_filter_settings" formatted="false">SMSフィルタ設定</string>
+    <string name="sms_management" formatted="false">SMS管理</string>
+    <string name="sms_permission" formatted="false">SMS許可</string>
+    <string name="sms_permission_description" formatted="false">迷惑メッセージをフィルタリングするために使用されます。</string>
+    <string name="sms_rule_added_successfully" formatted="false">SMSルールが正常に追加されました</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">SMSルールが正常に削除されました</string>
+    <string name="sms_rule_load_failed" formatted="false">SMSルールの読み込みに失敗しました: {error}</string>
+    <string name="sms_rule_management" formatted="false">SMSルール管理</string>
+    <string name="sms_rule_subscription" formatted="false">SMSルールサブスクリプション</string>
+    <string name="sms_subscription" formatted="false">SMSサブスクリプション</string>
+    <string name="sms_subscription_added_successfully" formatted="false">SMSサブスクリプションが正常に追加されました</string>
+    <string name="sms_subscription_rules_description" formatted="false">URL経由でSMSルールリストを購読し、正規表現のマッチングをサポートします。ブロックまたは許可のアクションを設定できます。</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">一部の権限要求が拒否されました</string>
+    <string name="sort_by" formatted="false">並べ替え</string>
+    <string name="sort_least_popular" formatted="false">不人気順に並べ替え</string>
+    <string name="sort_most_popular" formatted="false">人気順に並べ替え</string>
+    <string name="sort_newest" formatted="false">新しい順に並べ替え</string>
+    <string name="sort_oldest" formatted="false">古い順に並べ替え</string>
+    <string name="spam_likely" formatted="false">スパムの可能性あり</string>
+    <string name="start_color" formatted="false">開始色</string>
+    <string name="start_date" formatted="false">開始日</string>
+    <string name="start_using" formatted="false">始める</string>
+    <string name="stat_answered" formatted="false">回答済み</string>
+    <string name="stat_blocked" formatted="false">ブロック済み</string>
+    <string name="statistics" formatted="false">統計</string>
+    <string name="statistics_page_title" formatted="false">データ分析</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">STIRの色</string>
+    <string name="stir_failed" formatted="false">検証失敗</string>
+    <string name="stir_font_size" formatted="false">STIRのフォントサイズ</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">STIRの位置</string>
+    <string name="stir_unknown" formatted="false">不明な検証ステータス</string>
+    <string name="stir_verification" formatted="false">STIR/SHAKEN認証</string>
+    <string name="stir_verification_body" formatted="false">番号{phoneNumber}の{stirResultMessage}</string>
+    <string name="stir_verification_description" formatted="false">番号のSTIR/SHAKEN認証結果を表示します。</string>
+    <string name="stir_verification_title" formatted="false">STIR/SHAKEN検証</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">ストレージの許可</string>
+    <string name="storage_permission_description" formatted="false">設定とルールを保存するために使用します。</string>
+    <string name="submit" formatted="false">送信</string>
+    <string name="subscribe" formatted="false">購読する</string>
+    <string name="subscription_add_success" formatted="false">購読 &quot;{name}&quot; が正常に追加されました</string>
+    <string name="subscription_delete_confirm_content" formatted="false">この購読を削除してもよろしいですか？</string>
+    <string name="subscription_delete_confirm_title" formatted="false">購読の削除</string>
+    <string name="subscription_delete_failed" formatted="false">購読の削除に失敗しました: {error}</string>
+    <string name="subscription_delete_success" formatted="false">購読を削除しました</string>
+    <string name="subscription_deleted" formatted="false">購読を削除しました</string>
+    <string name="subscription_load_failed" formatted="false">購読の読み込みに失敗しました: {error}</string>
+    <string name="subscription_name" formatted="false">購読名</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">購読名とURLは空にできません</string>
+    <string name="subscription_name_hint" formatted="false">購読名を入力してください</string>
+    <string name="subscription_status_change_failed" formatted="false">購読ステータスの変更に失敗しました: {error}</string>
+    <string name="subscription_update_failed" formatted="false">購読の更新に失敗しました: {error}</string>
+    <string name="subscription_update_success" formatted="false">購読が正常に更新されました</string>
+    <string name="subscription_url" formatted="false">購読URL</string>
+    <string name="subscription_url_hint" formatted="false">購読URLを入力してください</string>
+    <string name="successfully_imported_rules" formatted="false">{count} 件のルールを正常にインポートしました</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">サポート</string>
+    <string name="support_count" formatted="false">支持 ({supportCount})</string>
+    <string name="support_sync" formatted="false">同期のサポート</string>
+    <string name="supported" formatted="false">支持</string>
+    <string name="survey" formatted="false">アンケート</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">デバイスの同期</string>
+    <string name="sync_failed" formatted="false">同期に失敗しました</string>
+    <string name="sync_failed_message" formatted="false">同期に失敗しました</string>
+    <string name="sync_folder_name_label" formatted="false">同期フォルダー名</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">今すぐ同期</string>
+    <string name="sync_now_button" formatted="false">今すぐ同期</string>
+    <string name="sync_status_title" formatted="false">同期ステータス</string>
+    <string name="sync_status_updated_message" formatted="false">同期ステータスが更新されました</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">同期に成功しました</string>
+    <string name="sync_with_cloud_storage" formatted="false">クラウドストレージと同期</string>
+    <string name="synced" formatted="false">同期済み</string>
+    <string name="synchronized" formatted="false">同期済み</string>
+    <string name="syncing" formatted="false">同期中...</string>
+    <string name="system_features" formatted="false">システム機能：</string>
+    <string name="system_settings_title" formatted="false">システム設定</string>
+    <string name="tab_all" formatted="false">すべて</string>
+    <string name="tab_answered" formatted="false">応答済み</string>
+    <string name="tab_blocked" formatted="false">ブロック済み</string>
+    <string name="tab_missed" formatted="false">不在着信</string>
+    <string name="tab_outgoing" formatted="false">発信</string>
+    <string name="tag_label" formatted="false">タグ：{tag}</string>
+    <string name="takeaway" formatted="false">持ち帰り</string>
+    <string name="telecommunication" formatted="false">電気通信</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">テレマーケティング</string>
+    <string name="temp_purchase_expired" formatted="false">一時的な購入特典が期限切れになりました</string>
+    <string name="temporary_vip" formatted="false">一時的なVIP</string>
+    <string name="test_button" formatted="false">テスト</string>
+    <string name="test_connection_button" formatted="false">接続をテスト</string>
+    <string name="test_plugin" formatted="false">プラグインをテスト</string>
+    <string name="text_colors_setting" formatted="false">テキストとラベルの色</string>
+    <string name="theme_dark" formatted="false">Dark</string>
+    <string name="theme_light" formatted="false">Light</string>
+    <string name="theme_settings_subtitle" formatted="false">お気に入りのテーマを選択してください</string>
+    <string name="theme_settings_title" formatted="false">テーマ設定</string>
+    <string name="theme_system" formatted="false">System</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">このアプリは、不要な電話を識別してブロックできる強力な発信者番号ツールです。</string>
+    <string name="this_week" formatted="false">今週</string>
+    <string name="time_interceptor" formatted="false">高頻度着信保護</string>
+    <string name="time_interceptor_description" formatted="false">短時間内の同一番号からの連続着信をブロック</string>
+    <string name="time_interceptor_explanation" formatted="false">• 時間インターセプター：短時間内での繰り返し通話を傍受/許可します</string>
+    <string name="time_interceptor_explanation_content" formatted="false">通話頻度傍受機能は、通話頻度を分析して、頻繁な迷惑電話を自動的に識別して傍受/許可します。</string>
+    <string name="time_interceptor_explanation_title" formatted="false">通話頻度傍受の説明</string>
+    <string name="time_interceptor_settings_title" formatted="false">通話頻度傍受設定</string>
+    <string name="time_window_description" formatted="false">繰り返し通話を許可する時間枠を設定します。このウィンドウ内の同じ番号からの通話は許可されます</string>
+    <string name="time_window_label" formatted="false">傍受時間枠（分）：{minutes}</string>
+    <string name="timeline_view" formatted="false">タイムラインビュー</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">今日</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">合計</string>
+    <string name="total_blocked" formatted="false">合計ブロック</string>
+    <string name="total_pending_proposals" formatted="false">保留中の提案の合計</string>
+    <string name="total_proposals" formatted="false">提案の合計</string>
+    <string name="total_votes" formatted="false">合計: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">デバイスまたはプラットフォーム間でデータを転送する</string>
+    <string name="travel_ticketing" formatted="false">旅行のチケット</string>
+    <string name="tutorial" formatted="false">チュートリアル</string>
+    <string name="type" formatted="false">タイプ</string>
+    <string name="unassigned_s_i_m_card" formatted="false">未割り当てのSIMカード</string>
+    <string name="unblock" formatted="false">ブロック解除</string>
+    <string name="unblock_number" formatted="false">番号ブロック解除</string>
+    <string name="unblock_number_confirmation" formatted="false">{phoneNumber}のブロックを解除してもよろしいですか？</string>
+    <string name="unblock_number_failed" formatted="false">番号のブロック解除に失敗しました</string>
+    <string name="unblock_number_success" formatted="false">番号のブロックを正常に解除しました</string>
+    <string name="unblocked" formatted="false">ブロック解除されました</string>
+    <string name="unknown" formatted="false">不明</string>
+    <string name="unknown_tag" formatted="false">タグ: 不明</string>
+    <string name="unregister_button" formatted="false">登録解除</string>
+    <string name="unregister_device_confirmation_message" formatted="false">{deviceName}の登録を解除してもよろしいですか？</string>
+    <string name="unregister_device_title" formatted="false">デバイスの登録解除</string>
+    <string name="unsupported_file_format" formatted="false">サポートされていないファイル形式</string>
+    <string name="update" formatted="false">アップデート</string>
+    <string name="update_all_now" formatted="false">すべて今すぐ更新</string>
+    <string name="update_contact_failed" formatted="false">連絡先の更新に失敗しました: {error}</string>
+    <string name="update_favorite_status" formatted="false">お気に入りステータスを更新</string>
+    <string name="update_interval" formatted="false">更新間隔</string>
+    <string name="update_now" formatted="false">今すぐ更新</string>
+    <string name="update_plugin" formatted="false">プラグインを更新</string>
+    <string name="update_plugin_failed" formatted="false">プラグインの更新に失敗しました: {error}</string>
+    <string name="update_rule_failed" formatted="false">ルールの更新に失敗しました: {error}</string>
+    <string name="update_subscription_failed" formatted="false">サブスクリプションの更新に失敗しました: {error}</string>
+    <string name="update_success" formatted="false">{service}が正常に更新されました（{count}ルール）</string>
+    <string name="upgrade_to_vip" formatted="false">VIPにアップグレード</string>
+    <string name="use_cases_point1" formatted="false">• 自動リダイヤルスパム通話を識別する</string>
+    <string name="use_cases_point2" formatted="false">• 短期間に複数回発信するマーケティング通話を阻止する</string>
+    <string name="use_cases_point3" formatted="false">• 電話爆弾と嫌がらせを防止する</string>
+    <string name="use_cases_title" formatted="false">ユースケース:</string>
+    <string name="use_global_settings" formatted="false">グローバル設定を使用</string>
+    <string name="use_local_notification" formatted="false">ローカル通知を使用する</string>
+    <string name="use_local_notification_description" formatted="false">着信に対してローカル通知を有効にする</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">パターンを定義するには、標準の正規表現構文を使用します。例：</string>
+    <string name="use_stir_notification" formatted="false">STIRからの通知を使用する</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">ユーザー名</string>
+    <string name="verification_failed_text" formatted="false">失敗</string>
+    <string name="verification_report" formatted="false">検証レポート</string>
+    <string name="verified_text" formatted="false">確認済み</string>
+    <string name="verify" formatted="false">確認</string>
+    <string name="version" formatted="false">バージョン: {version}</string>
+    <string name="very_high" formatted="false">非常に高い</string>
+    <string name="very_low" formatted="false">非常に低い</string>
+    <string name="view_details" formatted="false">詳細を表示</string>
+    <string name="vip3_days_with_ads" formatted="false">広告付き3日間VIP (同期のみ)</string>
+    <string name="vip5_days_no_ads" formatted="false">広告なし5日間フル機能VIP</string>
+    <string name="vip7_days_no_ads" formatted="false">広告なし7日間フル機能VIP</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">電話番号マーキングカウントでVIPメンバーシップを交換する</string>
+    <string name="vip_exchange_service" formatted="false">VIP交換サービス</string>
+    <string name="vip_exchange_title" formatted="false">マーク交換VIP</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">VIPユーザー</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">音声認識</string>
+    <string name="vote_agree" formatted="false">賛成</string>
+    <string name="vote_count" formatted="false">投票数</string>
+    <string name="vote_disagree" formatted="false">反対</string>
+    <string name="vote_submitted" formatted="false">投票が正常に送信されました</string>
+    <string name="voted" formatted="false">投票済み</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} 票（{supportPercentage}% 支持）</string>
+    <string name="voting_completed" formatted="false">投票が完了しました</string>
+    <string name="voting_completed_body" formatted="false">{phoneNumber} のコミュニティ投票が終了しました。結果: {result} ({supportPercentage}% 支持)。</string>
+    <string name="waiting_for_more_votes" formatted="false">より多くのコミュニティ投票を待機中</string>
+    <string name="watch_ad" formatted="false">広告を見る</string>
+    <string name="watch_ad_for_temp" formatted="false">一時的に広告を見る</string>
+    <string name="watch_ad_for_temp_description" formatted="false">いくつかのプレミアム機能を一時的にアンロックするために、短い広告をご覧ください</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">一時的なVIP特典を得るには、さらに{count}個の広告を視聴する必要があります</string>
+    <string name="web_d_a_v_config_title" formatted="false">WebDAV設定</string>
+    <string name="week" formatted="false">週</string>
+    <string name="welcome" formatted="false">ようこそ</string>
+    <string name="whitelist" formatted="false">ホワイトリスト</string>
+    <string name="width" formatted="false">幅</string>
+    <string name="wildcard_matching_description" formatted="false">「.」を使用して任意の文字に一致させます（例：「123.456」は123-456に一致します）</string>
+    <string name="wildcard_matching_title" formatted="false">ワイルドカードマッチング:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">柔軟なフィルタリングのためのワイルドカードサポート</string>
+    <string name="window_size_setting" formatted="false">ウィンドウサイズ</string>
+    <string name="year" formatted="false">年</string>
+    <string name="yesterday" formatted="false">昨日</string>
+</resources>

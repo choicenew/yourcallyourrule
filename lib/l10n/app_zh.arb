@@ -168,7 +168,7 @@
   "blockedCalls": "已阻止的呼叫",
   "blockedCallsTitle": "已阻止的呼叫",
   "blockedSpamCalls": "已阻止的垃圾呼叫",
-  "blockingTrend": "阻止趋势",
+  "blockingTrend": "拦截趋势曲线",
   "blockInternationalCalls": "匹配不以 + 或 00 开头的号码",
   "blockInternationalCallsTitle": "阻止国际呼叫",
   "blockMobileNumbers": "匹配不以 13-19 开头的号码",
@@ -2491,7 +2491,6 @@
   "aiMarketing": "AI 营销与推销",
   "falsePositiveClean": "误报号段清洗",
   "liveStream": "实时数据流",
-  "blockingTrend": "拦截趋势曲线",
   "ruleActionBreakdown": "规则动作分布",
   "dualSimDistribution": "双卡拦截分布对比",
   "topTriggeredRules": "热门触发规则排行榜",
@@ -2521,5 +2520,8 @@
   "primaryPermissionHelp": "主设备需要完整电话与短信处理权限。",
   "secondaryPermissionHelp": "从设备仅需要同步与通知相关权限。",
   "clusterOnboardingTitle": "设备集群与节点角色分配",
-  "clusterOnboardingDescription": "配置本设备在多设备集群中的角色分工，实现无缝协同同步。"
+  "clusterOnboardingDescription": "配置本设备在多设备集群中的角色分工，实现无缝协同同步。",
+  "backgroundOpacity": "背景不透明度",
+  "timesUnit": "次",
+  "participantCount": "%1$d 人已参与"
 }

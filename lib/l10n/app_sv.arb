@@ -2458,5 +2458,8 @@
     }
   },
   "initialSetupSettingsHint": "Tips: Du kan öppna den här inställningssidan igen i Inställningar.",
-  "initialSetupGoToSettings": "Gå till Inställningar"
+  "initialSetupGoToSettings": "Gå till Inställningar",
+  "backgroundOpacity": "Background Opacity",
+  "timesUnit": "times",
+  "participantCount": "%1$d Participants"
 }

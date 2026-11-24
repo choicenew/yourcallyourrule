@@ -2458,5 +2458,8 @@
   "avatar": "Avatar",
   "@avatar": {
     "description": "The avatar of the user."
-  }
+  },
+  "backgroundOpacity": "Background Opacity",
+  "timesUnit": "times",
+  "participantCount": "%1$d Participants"
 }

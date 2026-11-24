@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">İletişim Aboneliği Hakkında</string>
+    <string name="about_labels" formatted="false">Etiketler Hakkında</string>
+    <string name="about_phone_subscription_rules" formatted="false">Telefon Abonelik Kuralları Hakkında</string>
+    <string name="about_sms_filter" formatted="false">SMS Filtreleme Hakkında</string>
+    <string name="about_sms_subscription_rules" formatted="false">SMS Abonelik Kuralları Hakkında</string>
+    <string name="about_subtitle" formatted="false">Uygulama sürümü ve yasal bilgiler</string>
+    <string name="about_title" formatted="false">Hakkında</string>
+    <string name="access_target_url" formatted="false">Hedef URL\'ye Eriş</string>
+    <string name="action" formatted="false">Eylem</string>
+    <string name="action_all" formatted="false">Tümü</string>
+    <string name="action_allow" formatted="false">İzin Ver</string>
+    <string name="action_block" formatted="false">Engelle</string>
+    <string name="action_filter_title" formatted="false">Eylem Türüne Göre Filtrele</string>
+    <string name="action_filter_tooltip" formatted="false">Eylem Filtresi</string>
+    <string name="action_none" formatted="false">Eylem Yok</string>
+    <string name="action_silence" formatted="false">Sessize Al</string>
+    <string name="action_tag" formatted="false">Eylem: {actionType}</string>
+    <string name="action_type" formatted="false">Eylem Türü</string>
+    <string name="action_unknown" formatted="false">Bilinmiyor</string>
+    <string name="active_proposals" formatted="false">Aktif Teklifler</string>
+    <string name="add" formatted="false">Ekle</string>
+    <string name="add_allow_subscription" formatted="false">İzin Ver Aboneliği Ekle</string>
+    <string name="add_allowed_blocked_rule" formatted="false">İzin Ver/Engelle Kuralı Ekle</string>
+    <string name="add_block_subscription" formatted="false">Engelle Aboneliği Ekle</string>
+    <string name="add_contact_button" formatted="false">Kişi Ekle</string>
+    <string name="add_contact_failed" formatted="false">Kişi eklenemedi: {error}</string>
+    <string name="add_label" formatted="false">Etiket Ekle</string>
+    <string name="add_label_button" formatted="false">Etiket Ekle</string>
+    <string name="add_label_failed" formatted="false">Etiket eklenemedi: {error}</string>
+    <string name="add_name" formatted="false">Ad Ekle</string>
+    <string name="add_none_subscription" formatted="false">Yok Aboneliği Ekle</string>
+    <string name="add_phone_mark" formatted="false">Telefon İşareti Ekle</string>
+    <string name="add_phone_number_rule" formatted="false">Telefon Numarası Kuralı Ekle</string>
+    <string name="add_plugin" formatted="false">Eklenti Ekle</string>
+    <string name="add_plugin_failed" formatted="false">Eklenti eklenemedi</string>
+    <string name="add_plugin_failed_with_error" formatted="false">Eklenti eklenemedi: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">Yerel Dosyadan Eklenti Ekle</string>
+    <string name="add_plugin_from_url" formatted="false">URL\'den Eklenti Ekle</string>
+    <string name="add_regex_rule" formatted="false">Regex Kuralı Ekle</string>
+    <string name="add_rule" formatted="false">Kural Ekle</string>
+    <string name="add_rule_failed" formatted="false">Kural eklenemedi: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">Kural Ekle</string>
+    <string name="add_silence_subscription" formatted="false">Sessize Alma Aboneliği Ekle</string>
+    <string name="add_sms_filter_rule" formatted="false">SMS Filtre Kuralı Ekle</string>
+    <string name="add_sms_rule" formatted="false">SMS Kuralı Ekle</string>
+    <string name="add_sms_subscription" formatted="false">SMS Aboneliği Ekle</string>
+    <string name="add_subscription" formatted="false">Abonelik Ekle</string>
+    <string name="add_subscription_button" formatted="false">Abonelik Ekle</string>
+    <string name="add_subscription_failed" formatted="false">Abonelik eklenemedi: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">Abonelik Ekle</string>
+    <string name="add_to_blacklist" formatted="false">Engellenenler Listesine Ekle</string>
+    <string name="add_to_favorites" formatted="false">Favorilere Ekle</string>
+    <string name="add_to_rules" formatted="false">Kurallara Ekle</string>
+    <string name="add_to_whitelist" formatted="false">Beyaz Listeye Ekle</string>
+    <string name="added_to_favorites" formatted="false">Favorilere eklendi</string>
+    <string name="advanced_mode" formatted="false">Gelişmiş Mod</string>
+    <string name="agent" formatted="false">Aracı</string>
+    <string name="agree_votes" formatted="false">Katılıyor: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">Tümü</string>
+    <string name="all_call_logs_cleared" formatted="false">Tüm çağrı kayıtları temizlendi</string>
+    <string name="all_calls_tab" formatted="false">Tümü</string>
+    <string name="all_permissions_granted" formatted="false">Tüm izinler verildi</string>
+    <string name="all_services_status_subtitle" formatted="false">Her Bulut Hizmetinin Mevcut Durumu</string>
+    <string name="all_services_status_title" formatted="false">Mevcut Hizmet Durumu</string>
+    <string name="all_settings_completed" formatted="false">Tüm ayarlar tamamlandı.</string>
+    <string name="all_update_success" formatted="false">Tüm güncellemeler tamamlandı ({count} kural)</string>
+    <string name="allow" formatted="false">İzin Ver</string>
+    <string name="allow_action_description" formatted="false">Numara engellenenler listesinde olsa bile aramalar izin verilecektir.</string>
+    <string name="allow_all_allow_rules" formatted="false">Tüm İzin Kurallarını Etkinleştir</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">Yapılandırılmış tüm izin kurallarını uygulamak için ana anahtar</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">Tüm Engellenen Numaralara İzin Ver</string>
+    <string name="allow_all_block_rules" formatted="false">Tüm Engelleme Kurallarını Etkinleştir</string>
+    <string name="allow_all_block_rules_desc" formatted="false">Yapılandırılmış tüm engelleme kurallarını uygulamak için ana anahtar</string>
+    <string name="allow_allowed_numbers" formatted="false">Tüm Onaylanmış Numaralara İzin Ver</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">İzin verilenler listenizdeki numaralardan gelen tüm aramalara izin ver</string>
+    <string name="allow_block" formatted="false">İzin Ver/Engelle</string>
+    <string name="allow_blocked_numbers" formatted="false">Kara Liste Engellemesini Duraklat</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">Engellenenler listenizdeki numaralardan gelen aramalara geçici olarak izin ver</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">Aşılan Sayıların Dışındakilere İzin Ver</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">Sayı eşiğini aşmayan numaralara otomatik olarak izin ver</string>
+    <string name="allow_regex_allow_rules" formatted="false">Regex İzin Kurallarını Etkinleştir</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">İzin kuralları için düzenli ifade deseni eşleştirmesini etkinleştir</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">Regex tabanlı izin kurallarını etkinleştir</string>
+    <string name="allow_regex_block_rules" formatted="false">Regex Engelleme Kurallarını Etkinleştir</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">Engelleme kuralları için düzenli ifade deseni eşleştirmesini etkinleştir</string>
+    <string name="allow_regex_block_rules_description" formatted="false">Regex tabanlı engelleme kurallarını etkinleştir</string>
+    <string name="allow_rule" formatted="false">İzin Ver Kuralı</string>
+    <string name="allow_rules" formatted="false">İzin Ver Kuralları</string>
+    <string name="allowed_blocked_rule" formatted="false">İzin Ver/Engelle Kuralı</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">İzin Ver/Engelle Kuralını Düzenle</string>
+    <string name="allowed_blocked_rule_management" formatted="false">İzin Ver/Engelle Kuralı Yönetimi</string>
+    <string name="allowed_blocked_rules_info" formatted="false">İzin verilen/engellenen kurallar, en yüksek önceliğe sahip belirli telefon numaralarıyla çağrıları eşleştirmek için kullanılır.</string>
+    <string name="and_more_items" formatted="false">ve {count} öğe daha</string>
+    <string name="answer_then_hangup" formatted="false">Yanıtla sonra kapat</string>
+    <string name="answer_then_hangup_description" formatted="false">Önce aramayı yanıtlayın, ardından hemen kapatın.</string>
+    <string name="app_name" formatted="false">Senin Çağrın Senin Kuralın</string>
+    <string name="application_software" formatted="false">Uygulama Yazılımı</string>
+    <string name="apply" formatted="false">Uygula</string>
+    <string name="approved" formatted="false">ONAYLANDI</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">Yetkilendirme başarısız: Lütfen istemci kimliğini ve anahtarını kontrol edin</string>
+    <string name="authorization_failed_message" formatted="false">Yetkilendirme başarısız</string>
+    <string name="authorization_success_message" formatted="false">Yetkilendirme başarılı</string>
+    <string name="authorize_login_button" formatted="false">Girişi Yetkilendir</string>
+    <string name="auto_cancel_notification" formatted="false">Otomatik İptal Bildirimi</string>
+    <string name="auto_cancel_notification_description" formatted="false">İşaretlenirse, kullanıcı dokunduğunda bildirim otomatik olarak kapatılır.</string>
+    <string name="auto_sync_label" formatted="false">Otomatik Eşitleme</string>
+    <string name="auto_update" formatted="false">Otomatik Güncelleme</string>
+    <string name="auto_update_description" formatted="false">Abonelikler için otomatik güncelleme aralıkları ayarlayın veya manuel olarak güncelleyin</string>
+    <string name="auto_update_settings" formatted="false">Otomatik Güncelleme Ayarları</string>
+    <string name="auto_update_subtitle" formatted="false">Kuralların ve eklentilerin otomatik güncellemelerini yönetin</string>
+    <string name="auto_update_title" formatted="false">Otomatik Güncelleme</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">Otomotiv Sektörü</string>
+    <string name="avatar" formatted="false">Avatar</string>
+    <string name="avatar_border_color" formatted="false">Avatar Kenarlık Rengi</string>
+    <string name="avatar_border_size" formatted="false">Avatar Kenarlık Boyutu</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">Avatar ve Simge Boyutları</string>
+    <string name="avatar_position" formatted="false">Avatar Konumu</string>
+    <string name="avatar_size" formatted="false">Avatar Boyutu</string>
+    <string name="axis_position" formatted="false">{axis} Konumu</string>
+    <string name="background_gradient_setting" formatted="false">Arka Plan Gradyan Ayarı</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">Yedekle</string>
+    <string name="backup_and_restore" formatted="false">Yedekle ve Geri Yükle</string>
+    <string name="backup_and_restore_subtitle" formatted="false">Uygulama verilerini yedekle veya geri yükle</string>
+    <string name="backup_and_restore_title" formatted="false">Yedekle ve Geri Yükle</string>
+    <string name="backup_failed" formatted="false">Yedekleme başarısız</string>
+    <string name="backup_settings" formatted="false">Yedekleme Ayarları</string>
+    <string name="backup_to_cloud" formatted="false">Buluta Yedekle</string>
+    <string name="backup_to_cloud_failed" formatted="false">Buluta yedekleme başarısız: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">Buluta başarıyla yedeklendi</string>
+    <string name="bank" formatted="false">Banka</string>
+    <string name="basic_info" formatted="false">Temel Bilgiler</string>
+    <string name="basic_rule_filter" formatted="false">Temel Kural Filtresi</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">Kara listeyi/izin verilenleri ve düzenli ifadeleri kullanarak çağrıları filtreleyin</string>
+    <string name="basic_rule_filtering" formatted="false">Temel Kural Filtreleme</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• Temel Kural Filtreleme: Kara liste, izin verilenler listesi ve regex\'e göre kuralları filtreleme</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">Seçilen {count} kişiyi silmek istediğinizden emin misiniz?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">Seçilen {count} etiketi silmek istediğinizden emin misiniz?</string>
+    <string name="battery_optimization_permission" formatted="false">Pil Optimizasyonu</string>
+    <string name="battery_optimization_permission_description" formatted="false">Arayan kimliği gibi hizmetleri sağlamak için uygulamanın arka planda çalışmasına izin verin.</string>
+    <string name="black_white_list" formatted="false">Kara/İzin Listesi</string>
+    <string name="blacklist" formatted="false">Kara Liste</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">Kara Listeye Alma ve İzin Verilenlere Ekleme</string>
+    <string name="block" formatted="false">Engelle</string>
+    <string name="block_action_description" formatted="false">Aramalar engellenecek ve arama kaydında gösterilecektir.</string>
+    <string name="block_calls" formatted="false">Çağrıları Engelle</string>
+    <string name="block_international_calls" formatted="false">+ veya 00 ile başlamayan numaralarla eşleşir</string>
+    <string name="block_international_calls_title" formatted="false">Uluslararası Çağrıları Engelle</string>
+    <string name="block_mobile_numbers" formatted="false">13-19 ile başlamayan numaralarla eşleşir</string>
+    <string name="block_mobile_numbers_title" formatted="false">Mobil Numaraları Engelle</string>
+    <string name="block_number" formatted="false">Numarayı Engelle</string>
+    <string name="block_number_success" formatted="false">Numara engelleme başarılı</string>
+    <string name="block_premium_rate_numbers" formatted="false">118 veya 120-190 ile başlamayan numaralarla eşleşir</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">Premium Ücretli Numaraları Engelle</string>
+    <string name="block_rule" formatted="false">Engelleme Kuralı</string>
+    <string name="block_rules" formatted="false">Engelleme Kuralları</string>
+    <string name="block_specific_area_codes" formatted="false">0 + 2-3 haneli ile başlayan numaralarla eşleşir</string>
+    <string name="block_specific_area_codes_title" formatted="false">Belirli alan kodlarını engelle:</string>
+    <string name="block_type_analysis_title" formatted="false">Engelleme Türü Analizi</string>
+    <string name="blocked" formatted="false">Engellendi</string>
+    <string name="blocked_call_body" formatted="false">{phoneNumber} numarasından engellenen arama</string>
+    <string name="blocked_call_notifications" formatted="false">Engellenen Çağrı Bildirimleri</string>
+    <string name="blocked_call_notifications_description" formatted="false">Engellenen aramalar hakkında bilgi görüntüler.</string>
+    <string name="blocked_call_title" formatted="false">Engellenen Arama</string>
+    <string name="blocked_calls" formatted="false">Engellenen Çağrılar</string>
+    <string name="blocked_calls_title" formatted="false">Engellenen Çağrılar</string>
+    <string name="blocked_spam_calls" formatted="false">Engellenen Spam Çağrıları</string>
+    <string name="blocking_trend" formatted="false">Engelleme Eğilimi</string>
+    <string name="both" formatted="false">Her ikisi de</string>
+    <string name="bulk_delete" formatted="false">Toplu İletişim Sil</string>
+    <string name="bulk_delete_contacts" formatted="false">Toplu İletişim Sil</string>
+    <string name="bulk_delete_labels" formatted="false">Toplu Etiket Sil</string>
+    <string name="call" formatted="false">Çağrı</string>
+    <string name="call_blocking" formatted="false">Çağrı Engelleme</string>
+    <string name="call_details" formatted="false">Çağrı Detayları</string>
+    <string name="call_filter_rules" formatted="false">Çağrı Filtresi Kuralları</string>
+    <string name="call_filter_rules_description" formatted="false">Çağrı filtreleme için temel kurallar belirleyin</string>
+    <string name="call_filter_settings" formatted="false">Çağrı Filtresi Ayarları</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">Çağrı frekansı sınırlarını ve engelleme kurallarını ayarlayın</string>
+    <string name="call_frequency_interception_title" formatted="false">Çağrı Frekansı Engellemesi</string>
+    <string name="call_history" formatted="false">Çağrı Geçmişi</string>
+    <string name="call_history_info_desc" formatted="false">Gelen, giden ve cevapsız çağrıları içeren çağrı geçmişiniz burada gösterilir.</string>
+    <string name="call_history_info_title" formatted="false">Çağrı Geçmişi</string>
+    <string name="call_history_tab" formatted="false">Çağrı Geçmişi</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">Çağrı Tarama İzni</string>
+    <string name="call_screening_permission_description" formatted="false">İstenmeyen aramaları taramak ve engellemek için kullanılır.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">Çağrı tarama izni verilmedi, uygulama işlevselliğini etkileyebilir.</string>
+    <string name="call_statistics" formatted="false">Çağrı İstatistikleri</string>
+    <string name="call_time" formatted="false">Çağrı Saati</string>
+    <string name="call_type" formatted="false">Çağrı Türü</string>
+    <string name="call_type_answered" formatted="false">Cevaplandı</string>
+    <string name="call_type_blocked" formatted="false">Engellendi</string>
+    <string name="call_type_icon_color" formatted="false">Çağrı Tipi Simge Rengi</string>
+    <string name="call_type_missed" formatted="false">Cevapsız Çağrı</string>
+    <string name="call_type_outgoing" formatted="false">Giden</string>
+    <string name="call_type_position" formatted="false">Çağrı Tipi Konumu</string>
+    <string name="call_type_rejected" formatted="false">Reddedildi</string>
+    <string name="call_type_silenced" formatted="false">Sessize Alındı</string>
+    <string name="call_type_unknown" formatted="false">Bilinmeyen</string>
+    <string name="callback" formatted="false">Geri Çağır</string>
+    <string name="caller_id_app" formatted="false">Arayan Kimliği Uygulaması</string>
+    <string name="caller_id_customization_subtitle" formatted="false">Arayan Kimliği Düzenini Özelleştirme</string>
+    <string name="caller_id_customization_title" formatted="false">Arayan Kimliğini Özelleştir</string>
+    <string name="caller_id_display_mode" formatted="false">Arayan Kimliği Görüntüleme Modu</string>
+    <string name="caller_id_enhancement" formatted="false">Arayan Kimliği İyileştirmesi</string>
+    <string name="caller_id_marked_by_count" formatted="false">{count} Tarafından İşaretlendi</string>
+    <string name="caller_id_notification_title" formatted="false">Gelen Arama Bilgisi</string>
+    <string name="caller_id_preview" formatted="false">Arayan Kimliği Önizlemesi</string>
+    <string name="caller_id_settings_subtitle" formatted="false">Gelen Arama Bildirimi ve Görüntüleme Modunu Ayarlamak İçin</string>
+    <string name="caller_id_settings_title" formatted="false">Arayan Kimliği Ayarları</string>
+    <string name="calling_number_failed" formatted="false">Numara arama başarısız oldu</string>
+    <string name="cancel" formatted="false">İptal</string>
+    <string name="cancel_button" formatted="false">İptal</string>
+    <string name="cancel_local_notification" formatted="false">Yerel Bildirimleri Kapat</string>
+    <string name="cancel_local_notification_description" formatted="false">Yerel Bildirimleri Otomatik Kapat</string>
+    <string name="car_rental" formatted="false">Araba Kiralama</string>
+    <string name="carrier" formatted="false">Operatör</string>
+    <string name="carrier_color" formatted="false">Operatör Rengi</string>
+    <string name="carrier_font_size" formatted="false">Operatör Yazı Tipi Boyutu</string>
+    <string name="carrier_position" formatted="false">Operatör Konumu</string>
+    <string name="change_label" formatted="false">Etiketi Değiştir</string>
+    <string name="change_plugin_status_failed" formatted="false">Eklenti durumu değiştirilemedi: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">Abonelik durumu değiştirilemedi: {error}</string>
+    <string name="charity" formatted="false">Bağış</string>
+    <string name="chart_one_week_ago" formatted="false">1 hafta önce</string>
+    <string name="chart_three_days_ago" formatted="false">3 gün önce</string>
+    <string name="chart_today" formatted="false">Bugün</string>
+    <string name="check_file_format" formatted="false">Lütfen dosya biçimini veya izinleri kontrol edin</string>
+    <string name="check_permission_failed" formatted="false">İzinler kontrol edilemedi: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">Varsayılan engelleme eylemini seçin</string>
+    <string name="clear_all_call_logs" formatted="false">Tüm Çağrı Kayıtlarını Temizle</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">Tüm çağrı kayıtlarını temizlemeyi onayla</string>
+    <string name="clear_all_notifications" formatted="false">Tüm Bildirimleri Temizle</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">Tüm bildirimleri temizlemeyi onayla</string>
+    <string name="clear_button" formatted="false">Temizle</string>
+    <string name="clear_filter" formatted="false">Filtreyi Temizle</string>
+    <string name="clear_label_filter_button" formatted="false">Etiket Filtresini Temizle</string>
+    <string name="close_button" formatted="false">Kapat</string>
+    <string name="cloud_backup" formatted="false">Bulut Yedekleme</string>
+    <string name="cloud_sync" formatted="false">Bulut Senkronizasyonu</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">Bulut Senkronizasyonu ve Yedekleme</string>
+    <string name="cloud_sync_service" formatted="false">Bulut Senkronizasyon Hizmeti</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">WebDAV, OneDrive ve Google Drive\'ı yapılandırın</string>
+    <string name="cloud_sync_settings_title" formatted="false">Bulut Senkronizasyonu Ayarları</string>
+    <string name="cloud_sync_title" formatted="false">Bulut Senkronizasyonu</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">Borç Tahsilatı</string>
+    <string name="color_picker_title" formatted="false">Renk Seçin</string>
+    <string name="community_impact" formatted="false">Topluluk Etkisi</string>
+    <string name="community_participation" formatted="false">Topluluk Katılımı</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">Topluluk oyları</string>
+    <string name="community_voting_started" formatted="false">Topluluk Oylaması Başladı</string>
+    <string name="community_voting_started_body" formatted="false">{phoneNumber} numarası için yeni bir silme teklifi topluluk oylamasına açıldı.</string>
+    <string name="completed" formatted="false">TAMAMLANDI</string>
+    <string name="config_management" formatted="false">Yapılandırma Yönetimi</string>
+    <string name="config_saved" formatted="false">Yapılandırma Kaydedildi!</string>
+    <string name="config_updated" formatted="false">Yapılandırma güncellendi</string>
+    <string name="configuration_advice" formatted="false">Doğru yapılandırma ile iş ve kişisel SIM kartlar için farklı filtreleme stratejileri belirleyebilirsiniz.</string>
+    <string name="configure_backup_options" formatted="false">Yedekleme Seçeneklerini Yapılandır</string>
+    <string name="configure_cloud_sync_service" formatted="false">Bulut Senkronizasyon Hizmetini Yapılandır</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">Çoklu cihaz senkronizasyonunu etkinleştirmek için lütfen bir bulut senkronizasyon hizmeti yapılandırın.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">SIM Kart Filtre Kurallarını Yapılandırın</string>
+    <string name="confirm" formatted="false">Onayla</string>
+    <string name="confirm_button" formatted="false">Onayla</string>
+    <string name="confirm_delete" formatted="false">Silmeyi Onayla</string>
+    <string name="confirm_delete_label" formatted="false">&quot;{name}&quot; etiketini silmek istediğinizden emin misiniz</string>
+    <string name="confirm_delete_plugin" formatted="false">&quot;{name}&quot; eklentisini silmek istediğinizden emin misiniz?</string>
+    <string name="confirm_delete_plugins" formatted="false">{count} eklentiyi silmek istediğinizden emin misiniz?</string>
+    <string name="confirm_delete_rule_message" formatted="false">Bu kuralı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">Bu SMS filtre kuralını silmek istediğinizden emin misiniz?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">Bu SMS kuralını silmek istediğinizden emin misiniz?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">&quot;{name}&quot; silmek istediğinizden emin misiniz?</string>
+    <string name="confirm_password" formatted="false">Şifreyi Onayla</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">Bağlandı</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">Bağlantı başarısız: Lütfen sunucu adresini, kullanıcı adını ve şifreyi kontrol edin</string>
+    <string name="connection_failed_message" formatted="false">Bağlantı başarısız</string>
+    <string name="connection_status_label" formatted="false">Bağlantı Durumu</string>
+    <string name="connection_string" formatted="false">Bağlantı Dizesi (URI)</string>
+    <string name="connection_string_helper" formatted="false">Yalnızca \'Veritabanını Başlat\' için gereklidir</string>
+    <string name="connection_success_message" formatted="false">Bağlantı başarılı</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">Kişi başarıyla eklendi</string>
+    <string name="contact_deleted" formatted="false">Kişi silindi</string>
+    <string name="contact_name_label" formatted="false">Ad</string>
+    <string name="contact_not_found" formatted="false">Kişi bulunamadı</string>
+    <string name="contact_subscription_description" formatted="false">URL aracılığıyla kişi listelerine abone olun, kişi bilgilerini ve etiketlerini otomatik olarak güncelleyin. JSON formatındaki verileri destekler.</string>
+    <string name="contact_update_success" formatted="false">Kişi başarıyla güncellendi</string>
+    <string name="contact_us" formatted="false">Bize Ulaşın</string>
+    <string name="contacts" formatted="false">Kişiler</string>
+    <string name="contacts_deleted" formatted="false">{count} kişi silindi</string>
+    <string name="contacts_management" formatted="false">Kişiler Yönetimi</string>
+    <string name="contacts_permission" formatted="false">Kişi İzni</string>
+    <string name="contacts_permission_description" formatted="false">Arayan kişileri tanımlamak için kullanılır.</string>
+    <string name="contacts_tab" formatted="false">Kişiler</string>
+    <string name="container_width" formatted="false">Kapsayıcı Genişliği</string>
+    <string name="content" formatted="false">İçerik</string>
+    <string name="content_regex" formatted="false">İçerik Regex\'i</string>
+    <string name="count_color" formatted="false">Sayım Rengi</string>
+    <string name="count_font_size" formatted="false">Sayım Yazı Tipi Boyutu</string>
+    <string name="count_position" formatted="false">Sayım Konumu</string>
+    <string name="count_threshold_description" formatted="false">Filtreleme eylemlerini tetiklemek için gereken minimum sayım eşiğini ayarlayın</string>
+    <string name="count_threshold_label" formatted="false">Sayım Eşiği</string>
+    <string name="country" formatted="false">Ülke</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">örn., US, CN, GB</string>
+    <string name="country_code_label" formatted="false">Ülke Kodu (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">Ülke kodu zorunludur</string>
+    <string name="country_code_two_letters" formatted="false">Ülke Kodu (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">Lütfen dikkat: Veritabanı tüm belirli ülkeler veya bölgeler için veri içermeyebilir.</string>
+    <string name="country_name_color" formatted="false">Ülke Adı Rengi</string>
+    <string name="country_name_font_size" formatted="false">Ülke Adı Yazı Tipi Boyutu</string>
+    <string name="country_region_name_position" formatted="false">Ülke/Bölge Adı Konumu</string>
+    <string name="country_sync_settings_subtitle" formatted="false">Veri senkronizasyonu için ülkeleri seçin</string>
+    <string name="country_sync_settings_title" formatted="false">Ülke Bazlı Veritabanı Senkronizasyon Ayarları</string>
+    <string name="create_proposal" formatted="false">Teklif Oluştur</string>
+    <string name="create_proposal_title" formatted="false">Silme Teklifi Oluştur</string>
+    <string name="created_at" formatted="false">Oluşturulma Tarihi: {date}</string>
+    <string name="created_rules" formatted="false">Oluşturulan Kurallar</string>
+    <string name="critical" formatted="false">Kritik</string>
+    <string name="critical_issues" formatted="false">Kritik Sorunlar</string>
+    <string name="csv_format" formatted="false">CSV Formatı</string>
+    <string name="current_device_label" formatted="false">Mevcut Cihaz Etiketi</string>
+    <string name="current_device_title" formatted="false">Mevcut Cihaz</string>
+    <string name="current_language" formatted="false">Mevcut Dil</string>
+    <string name="current_mark_count" formatted="false">Mevcut İşaret Sayısı</string>
+    <string name="custom" formatted="false">Özel</string>
+    <string name="custom_action_description" formatted="false">Özel bir eylem gerçekleştir.</string>
+    <string name="customer_service" formatted="false">Müşteri Hizmetleri</string>
+    <string name="dashboard_tab" formatted="false">Kontrol Paneli</string>
+    <string name="data_analysis" formatted="false">Veri Analizi</string>
+    <string name="data_load_failure" formatted="false">Veri yükleme başarısız oldu: {error}</string>
+    <string name="data_loading_failed" formatted="false">Veri yüklenemedi: {error}</string>
+    <string name="data_migration" formatted="false">Veri Taşıma</string>
+    <string name="data_migration_description" formatted="false">Bu özellik, tüm verilerinizi cihazlar arasında aktarmanıza olanak tanır. Şu anda, verilerinizi manuel olarak taşımak için yedekleme ve geri yükleme özelliklerini kullanabilirsiniz.</string>
+    <string name="data_source_disclaimer" formatted="false">Numaralar internetten ve kullanıcı gönderimlerinden alınmıştır. Bir numaranın silindikten sonra diğer kullanıcılar veya kaynaklar tarafından yeniden gönderilmeyeceğini garanti edemeyiz. Lütfen bilgileri aktif olarak arayın ve doğrulayın.</string>
+    <string name="data_source_reminder" formatted="false">Veri Kaynağı Hatırlatıcısı</string>
+    <string name="database_sync_title" formatted="false">Veritabanı Senkronizasyonu</string>
+    <string name="days" formatted="false">{count, plural, one{1 gün} other{{count} gün}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 gün önce} other{{count} gün önce}}</string>
+    <string name="days_vip" formatted="false">{days} Gün VIP</string>
+    <string name="db_init_success" formatted="false">Veritabanı Başarıyla Başlatıldı!</string>
+    <string name="debt_collection" formatted="false">Borç Tahsilatı</string>
+    <string name="deep_link_confirm_button" formatted="false">İçe Aktarmayı Onayla</string>
+    <string name="deep_link_default_plugin_name" formatted="false">İçe Aktarılan Eklenti</string>
+    <string name="deep_link_default_sub_name" formatted="false">İçe Aktarılan Abonelik</string>
+    <string name="deep_link_detected_title" formatted="false">Derin Bağlantı Algılandı</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL boş olamaz</string>
+    <string name="deep_link_import_failed" formatted="false">İçe Aktarma Başarısız: {error}</string>
+    <string name="deep_link_import_success" formatted="false">Başarıyla İçe Aktarıldı</string>
+    <string name="deep_link_import_title" formatted="false">Yapılandırmayı İçe Aktar</string>
+    <string name="deep_link_name_label" formatted="false">Ad</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Eklenti indirilemedi: {error}</string>
+    <string name="deep_link_type_label" formatted="false">Tür</string>
+    <string name="deep_link_type_plugin" formatted="false">Eklenti</string>
+    <string name="deep_link_type_subscription" formatted="false">Abonelik</string>
+    <string name="deep_link_url_label" formatted="false">URL</string>
+    <string name="default_notifications" formatted="false">Varsayılan Bildirimler</string>
+    <string name="default_notifications_description" formatted="false">Uygulama için varsayılan bildirim kanalı.</string>
+    <string name="delete" formatted="false">Sil</string>
+    <string name="delete_button" formatted="false">Sil</string>
+    <string name="delete_contact" formatted="false">Kişiyi Sil</string>
+    <string name="delete_contact_confirm" formatted="false">{name} kişisini silmek istediğinizden emin misiniz?</string>
+    <string name="delete_failed" formatted="false">Silme başarısız oldu: {error}</string>
+    <string name="delete_label" formatted="false">Etiketi Sil</string>
+    <string name="delete_label_failed" formatted="false">Etiket silme başarısız oldu: {error}</string>
+    <string name="delete_plugin" formatted="false">Eklentiyi Sil</string>
+    <string name="delete_plugin_failed" formatted="false">Eklenti silme başarısız oldu: {error}</string>
+    <string name="delete_plugins" formatted="false">Eklentileri Sil</string>
+    <string name="delete_plugins_failed" formatted="false">Eklentiler silme başarısız oldu: {error}</string>
+    <string name="delete_rule" formatted="false">Kuralı Sil</string>
+    <string name="delete_rule_failed" formatted="false">Silme başarısız oldu: {error}</string>
+    <string name="delete_selected" formatted="false">Seçilenleri Sil</string>
+    <string name="delete_subscription" formatted="false">Aboneliği Sil</string>
+    <string name="delete_subscription_confirm" formatted="false">&quot;{name}&quot; aboneliğini silmek istediğinizden emin misiniz?</string>
+    <string name="delete_subscription_failed" formatted="false">Abonelik silme başarısız oldu: {error}</string>
+    <string name="delete_success" formatted="false">Silme başarılı</string>
+    <string name="deletion_proposal" formatted="false">Silme Teklifi</string>
+    <string name="deletion_proposal_created" formatted="false">Silme Teklifi Oluşturuldu</string>
+    <string name="deletion_proposal_created_body" formatted="false">{phoneNumber} numarası için silme teklifiniz topluluk incelemesine sunulmuştur.</string>
+    <string name="deletion_proposal_description" formatted="false">Topluluk kurallarını ihlal eden numaralar için silme teklifi oluşturun. Katılımınız platformun güvenli kalmasına yardımcı olur.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">Silme teklifi oylama sonuçları ve güncellemeleri hakkında bildirimler.</string>
+    <string name="deletion_proposals" formatted="false">Silme Teklifleri</string>
+    <string name="delivery" formatted="false">Teslimat</string>
+    <string name="description" formatted="false">Açıklama</string>
+    <string name="detailed_settings_title" formatted="false">Ayrıntılı Ayarlar</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">Cihaz Kimliği</string>
+    <string name="device_management_subtitle" formatted="false">Çoklu cihaz senkronizasyonunu yönetin</string>
+    <string name="device_management_title" formatted="false">Cihaz Yönetimi</string>
+    <string name="device_model_label" formatted="false">Cihaz Modeli</string>
+    <string name="device_name" formatted="false">Cihaz Adı</string>
+    <string name="device_name_label" formatted="false">Cihaz Adı</string>
+    <string name="device_renamed_successfully_message" formatted="false">Cihaz başarıyla yeniden adlandırıldı</string>
+    <string name="device_unregistered_successfully_message" formatted="false">Cihaz başarıyla kayıttan çıkarıldı</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">Cihazlar başarıyla senkronize edildi</string>
+    <string name="dialog_title" formatted="false">Regex Deseni Açıklaması</string>
+    <string name="different_from_local_counter" formatted="false">Bu özellik, uzun vadeli işaretleme sayımları yerine kısa sürede tekrarlanan arama kalıplarına odaklandığı için yerel sayaç filtresinden farklıdır.</string>
+    <string name="disable_global_plugins" formatted="false">Genel eklentileri devre dışı bırak</string>
+    <string name="disabled" formatted="false">Devre Dışı</string>
+    <string name="disabled_status" formatted="false">Devre Dışı</string>
+    <string name="disconnect_button" formatted="false">Bağlantıyı Kes</string>
+    <string name="disconnect_failed_message" formatted="false">Bağlantı kesme başarısız oldu</string>
+    <string name="disconnected_message" formatted="false">Bağlantı Kesildi</string>
+    <string name="disconnected_status" formatted="false">Bağlantı Kesildi</string>
+    <string name="done" formatted="false">Bitti</string>
+    <string name="dual_sim_advice" formatted="false">Bu özellik, çift SIM\'li telefonlar için iş ve kişisel SIM kartlar için farklı filtreleme stratejileri belirlemek üzere özellikle kullanışlıdır.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">E164 Numara</string>
+    <string name="earlier" formatted="false">Daha Önce</string>
+    <string name="earned_temp_vip" formatted="false">Geçici VIP kazanıldı</string>
+    <string name="ecommerce" formatted="false">E-ticaret</string>
+    <string name="edit" formatted="false">Düzenle</string>
+    <string name="edit_contact" formatted="false">Kişiyi Düzenle</string>
+    <string name="edit_label" formatted="false">Etiketi Düzenle</string>
+    <string name="edit_phone_rule" formatted="false">Telefon Kuralını Düzenle</string>
+    <string name="edit_rule" formatted="false">Kuralı Düzenle</string>
+    <string name="edit_script" formatted="false">Betiği Düzenle</string>
+    <string name="edit_script_for" formatted="false">{pluginName} için betiği düzenle</string>
+    <string name="edit_subscription" formatted="false">Aboneliği Düzenle</string>
+    <string name="education" formatted="false">Eğitim</string>
+    <string name="element_positions_setting" formatted="false">Öğe Konumları</string>
+    <string name="elements_settings_title" formatted="false">Öğe Ayarları</string>
+    <string name="email" formatted="false">E-posta</string>
+    <string name="enable_call_filter" formatted="false">Arama Filtresini Etkinleştir</string>
+    <string name="enable_call_filter_description" formatted="false">Etkinleştirildiğinde, gelen aramalar aşağıdaki kural listesine göre kontrol edilir. Arama filtreleme kuralları varsayılan olarak cihazlar arasında eşitlenmez.</string>
+    <string name="enable_encryption" formatted="false">Şifrelemeyi Etkinleştir</string>
+    <string name="enable_encryption_description" formatted="false">Yedekleme dosyalarını şifrele</string>
+    <string name="enable_filtering" formatted="false">Filtrelemeyi Etkinleştir</string>
+    <string name="enable_fraud_alert" formatted="false">Dolandırıcılık Uyarısını Etkinleştir</string>
+    <string name="enable_fraud_alert_description" formatted="false">Şüpheli dolandırıcılık aramaları için uyarı</string>
+    <string name="enable_global_plugins" formatted="false">Genel eklentileri etkinleştir</string>
+    <string name="enable_local_count_filter" formatted="false">Yerel İşaretleme Eşik Korumasını Etkinleştir</string>
+    <string name="enable_local_count_filter_description" formatted="false">Yerel bildirim sayısı eşiği aştığında gelen aramaları engelle</string>
+    <string name="enable_local_notification" formatted="false">Yerel Bildirim Kullan</string>
+    <string name="enable_local_notification_description" formatted="false">Etkinleştirildiğinde, filtrelenmiş mesajlar için bildirimler cihazda görüntülenecektir</string>
+    <string name="enable_location_summary" formatted="false">Konum</string>
+    <string name="enable_mute_rules" formatted="false">Engellenen Aramaları Sessize Al</string>
+    <string name="enable_mute_rules_desc" formatted="false">Engellenen aramaları reddetmek yerine zil sesini sessize al</string>
+    <string name="enable_none_action_rules" formatted="false">Yalnızca Kaydet ve İşaretle (Kesinti Yok)</string>
+    <string name="enable_none_action_rules_desc" formatted="false">Arama eşleşmelerini herhangi bir engelleme eylemi yapmadan kaydet ve işaretle</string>
+    <string name="enable_remote_number_filter" formatted="false">Bulut Sorgu Eşik Korumasını Etkinleştir</string>
+    <string name="enable_remote_number_filter_description" formatted="false">Bulut sorgu bildirim sayısı eşiği aştığında gelen aramaları engelle</string>
+    <string name="enable_rule" formatted="false">Kuralı Etkinleştir</string>
+    <string name="enable_security_message" formatted="false">Güvenlik Mesajını Etkinleştir</string>
+    <string name="enable_sms_filter" formatted="false">SMS Filtrelemeyi Etkinleştir</string>
+    <string name="enable_sms_filter_description" formatted="false">Etkinleştirildiğinde, mesajlar kurallara göre otomatik olarak filtrelenecektir</string>
+    <string name="enable_time_interception" formatted="false">Zaman Engellemeyi Etkinleştir</string>
+    <string name="enable_time_interception_description" formatted="false">Aynı numaradan kısa sürede yapılan tekrarlı aramaları engelle</string>
+    <string name="enable_time_interceptor" formatted="false">Zaman Engelleyiciyi Etkinleştir</string>
+    <string name="enable_vibration" formatted="false">Titreşimi Etkinleştir</string>
+    <string name="enable_vibration_description" formatted="false">Arama şüpheli dolandırıcılık olduğunda titre</string>
+    <string name="enabled" formatted="false">Etkin</string>
+    <string name="enabled_status" formatted="false">Etkin</string>
+    <string name="end_call_immediately" formatted="false">Hemen Engelle</string>
+    <string name="end_color" formatted="false">Bitiş Rengi</string>
+    <string name="end_date" formatted="false">Bitiş Tarihi</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">Gelişmiş Filtre Sistemi Talimatları</string>
+    <string name="enhanced_filter_settings" formatted="false">Gelişmiş Filtre Ayarları</string>
+    <string name="enhanced_filter_settings_title" formatted="false">Gelişmiş Filtre Ayarları</string>
+    <string name="enhanced_filter_system_description" formatted="false">Gelişmiş filtre sistemi, hem genel kuralları hem de SIM kart başına filtreleme yapılandırmalarını destekler.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">Lütfen hem telefon numarasını hem de regex desenini girin.</string>
+    <string name="enter_contact_name" formatted="false">Lütfen kişi adını girin</string>
+    <string name="enter_device_name" formatted="false">Cihaz Adını Girin</string>
+    <string name="enter_email_optional" formatted="false">Lütfen e-postayı girin (isteğe bağlı)</string>
+    <string name="enter_encryption_password_hint" formatted="false">Şifreleme şifresini girin</string>
+    <string name="enter_icon_code" formatted="false">Simge kodunu girin</string>
+    <string name="enter_name" formatted="false">Lütfen kişi adını girin</string>
+    <string name="enter_new_device_name_hint" formatted="false">Bu cihaza yeni bir ad girin</string>
+    <string name="enter_password_again" formatted="false">Şifreyi Tekrar Girin</string>
+    <string name="enter_phone_number" formatted="false">Telefon Numarasını Girin</string>
+    <string name="enter_phone_number_hint" formatted="false">Test etmek için telefon numarasını girin</string>
+    <string name="enter_phone_number_multiple" formatted="false">Lütfen telefon numarasını girin, birden fazla numara virgülle ayrılır</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">Aramayı başlatmak için telefon numarasını girin</string>
+    <string name="enter_phone_number_to_verify" formatted="false">Doğrulamak için telefon numarasını girin</string>
+    <string name="enter_plugin_description" formatted="false">Eklenti açıklamasını girin</string>
+    <string name="enter_plugin_name" formatted="false">Eklenti Adını Girin</string>
+    <string name="enter_plugin_url" formatted="false">Eklenti URL adresini girin</string>
+    <string name="enter_regex_hint" formatted="false">Regex desenini girin</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">Lütfen hem kural adı hem de regex deseni girin.</string>
+    <string name="enter_rule_name_hint" formatted="false">Kural adı girin</string>
+    <string name="enter_search_content" formatted="false">Lütfen arama içeriğini girin</string>
+    <string name="enter_subscription_name" formatted="false">Abonelik adı girin</string>
+    <string name="enter_subscription_url" formatted="false">Abonelik URL\'sini girin</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">Lütfen senkronizasyon klasörü adını girin (varsayılan: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">Lütfen geçerli bir ad ve URL girin</string>
+    <string name="enter_valid_url" formatted="false">Lütfen geçerli bir URL girin</string>
+    <string name="enter_version" formatted="false">Sürümü girin</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">Lütfen WebDAV parolasını girin</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">Lütfen WebDAV sunucu adresini girin</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">Lütfen WebDAV kullanıcı adını girin</string>
+    <string name="entertainment" formatted="false">Eğlence</string>
+    <string name="entity_export_failed" formatted="false">{entityTypeName} dışa aktarılamadı: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} başarıyla dışa aktarıldı</string>
+    <string name="entity_import_failed" formatted="false">{entityTypeName} içe aktarılamadı: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} başarıyla içe aktarıldı, toplam {count} kayıt içe aktarıldı</string>
+    <string name="entry_point_view_title" formatted="false">Giriş Noktası Görünümü</string>
+    <string name="error_loading_settings" formatted="false">Ayarlar yüklenirken hata oluştu</string>
+    <string name="error_message" formatted="false">Hata: {error}</string>
+    <string name="error_occurred_message" formatted="false">Bir hata oluştu: {error}</string>
+    <string name="error_prefix" formatted="false">Hata</string>
+    <string name="error_renaming_device_message" formatted="false">Cihaz yeniden adlandırılırken hata oluştu: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">Cihazların senkronizasyonunda hata oluştu: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">Cihaz kaydı kaldırılırken hata oluştu: {error}</string>
+    <string name="example_block400_prefix" formatted="false">Örn. 400 önek numaralarını engelle</string>
+    <string name="example_block_marketing_sms" formatted="false">Örn. Pazarlama SMS\'lerini engelle</string>
+    <string name="example_content_regex_hint" formatted="false">Örnek İçerik Regex</string>
+    <string name="example_coupon_promotion_discount" formatted="false">Örn. .*(kupon|promosyon|indirim).*</string>
+    <string name="example_family_friends" formatted="false">Örn. Aile, Arkadaşlar vb.</string>
+    <string name="example_phone_number" formatted="false">Örn. 10086, 12345 vb.</string>
+    <string name="example_regex400_prefix" formatted="false">400 öneki için örnek regex</string>
+    <string name="example_sender_regex_hint" formatted="false">Örnek</string>
+    <string name="exchange" formatted="false">Takas</string>
+    <string name="exchange_failed" formatted="false">Takas başarısız: {error}</string>
+    <string name="exchange_now" formatted="false">Şimdi Takas Et</string>
+    <string name="exchange_success" formatted="false">{description} ile başarıyla takas edildi, son kullanma tarihi: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">VIP Takas</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">Süre sonu zamanı: {time}</string>
+    <string name="export" formatted="false">Dışa Aktar</string>
+    <string name="export_all_application_settings" formatted="false">Tüm uygulama ayarlarını dışa aktar</string>
+    <string name="export_all_rule_configurations" formatted="false">Tüm kural yapılandırmalarını dışa aktar</string>
+    <string name="export_config" formatted="false">Yapılandırmayı Dışa Aktar</string>
+    <string name="export_contacts" formatted="false">Kişileri Dışa Aktar</string>
+    <string name="export_data" formatted="false">Verileri Dışa Aktar</string>
+    <string name="export_entity" formatted="false">{entityTypeName} Dışa Aktar</string>
+    <string name="export_failed" formatted="false">Dışa Aktarma Başarısız</string>
+    <string name="export_failure" formatted="false">Yapılandırma dışa aktarılamadı</string>
+    <string name="export_feature_coming_soon" formatted="false">Dışa aktarma özelliği yakında gelecek</string>
+    <string name="export_labels" formatted="false">Etiketleri Dışa Aktar</string>
+    <string name="export_labels_failed" formatted="false">Etiketler dışa aktarılamadı: {error}</string>
+    <string name="export_plugin_list" formatted="false">Eklenti Listesini Dışa Aktar</string>
+    <string name="export_plugin_list_failed" formatted="false">Eklenti listesi dışa aktarılamadı: {error}</string>
+    <string name="export_rules" formatted="false">Kuralları Dışa Aktar</string>
+    <string name="export_sms_rules" formatted="false">SMS Kurallarını Dışa Aktar</string>
+    <string name="export_statistics_data" formatted="false">İstatistik Verilerini Dışa Aktar</string>
+    <string name="export_successlly" formatted="false">Yapılandırma başarıyla dışa aktarıldı</string>
+    <string name="failed_to_add_rule" formatted="false">Kural eklenemedi: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">SMS aboneliği eklenemedi: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">Ayarlar yedeklenemedi: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">Yedekleme dosyası şifresi çözülemedi</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">SMS kuralı silinemedi: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">Kurallar dışa aktarılamadı: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">Arayan kimliği bilgileri alınamadı: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">Kurallar içe aktarılamadı: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Ayar şeması yüklenemedi: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">Ayarlar geri yüklenemedi</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">Ayarlar geri yüklenemedi: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">Kural durumu değiştirilemedi: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">Favori Kişiler</string>
+    <string name="feature" formatted="false">Özellik</string>
+    <string name="feature_add_rules" formatted="false">• Numaraya özel kurallar ekleme</string>
+    <string name="feature_center" formatted="false">Özellik Merkezi</string>
+    <string name="feature_enable_disable" formatted="false">• SIM başına farklı filtreleri etkinleştirme/devre dışı bırakma</string>
+    <string name="feature_list_title" formatted="false">Özellikler:</string>
+    <string name="feature_manage_rules" formatted="false">• SIM başına kural listelerini yönetme</string>
+    <string name="features" formatted="false">Özellikler</string>
+    <string name="fetching_caller_id_info" formatted="false">Arayan kimliği bilgileri alınıyor...</string>
+    <string name="field_is_required" formatted="false">Alan gereklidir</string>
+    <string name="file_saved_to" formatted="false">Dosya şuraya kaydedildi: {path}</string>
+    <string name="filter" formatted="false">Filtrele</string>
+    <string name="filter_and_sort_title" formatted="false">Filtrele ve Sırala</string>
+    <string name="filter_by" formatted="false">Filtrele</string>
+    <string name="filter_by_action" formatted="false">Eyleme Göre Filtrele</string>
+    <string name="filter_by_label" formatted="false">Etikete Göre Filtrele</string>
+    <string name="filter_control_panel_title" formatted="false">Filtre Kontrol Paneli</string>
+    <string name="filter_control_subtitle" formatted="false">Tüm filtrelerin açık/kapalı durumunu yönetin</string>
+    <string name="filter_control_title" formatted="false">Filtre Kontrolü</string>
+    <string name="filter_explanation" formatted="false">Filtre Açıklaması</string>
+    <string name="filter_management" formatted="false">Filtre Yönetimi</string>
+    <string name="filter_management_description" formatted="false">Arama Filtrelerini Ayarlayın</string>
+    <string name="filter_name" formatted="false">Filtre Adı</string>
+    <string name="filter_priority_note" formatted="false">Not: Filtreler arasında öncelik ilişkileri vardır, detaylar için yardım belgelerine bakınız.</string>
+    <string name="filter_s_m_s" formatted="false">SMS Filtrele</string>
+    <string name="filter_settings" formatted="false">Filtre Ayarları</string>
+    <string name="filter_settings_title" formatted="false">Filtre Ayarları</string>
+    <string name="filter_toggle_instructions" formatted="false">Bu SIM yuvası için filtreleri etkinleştirin veya devre dışı bırakın:</string>
+    <string name="filter_toggle_status" formatted="false">{status} filtre: {filterName}</string>
+    <string name="filter_type" formatted="false">Filtre Türü</string>
+    <string name="filter_verified_owner" formatted="false">Doğrulanmış Sahibi Filtrele</string>
+    <string name="filtered" formatted="false">Filtrelenmiş</string>
+    <string name="final_risk" formatted="false">Nihai Risk</string>
+    <string name="financial" formatted="false">Finansal</string>
+    <string name="flexible_combination_feature" formatted="false">• Esnek Kombinasyonlar: SIM yuvası başına filtreleri etkinleştir/devre dışı bırak</string>
+    <string name="font_sizes_setting" formatted="false">Yazı Tipi Boyutları</string>
+    <string name="found_rules" formatted="false">{count} kural bulundu</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">Dolandırıcılık Uyarısını Ayarlamak İçin</string>
+    <string name="fraud_aler_setting_title" formatted="false">Dolandırıcılık Uyarısı Ayarı</string>
+    <string name="fraud_alert" formatted="false">DOLANDIRICILIK UYARISI - Aramayı kapatın</string>
+    <string name="fraud_alert_title" formatted="false">Dolandırıcılık Uyarısı</string>
+    <string name="fraud_alerts" formatted="false">Dolandırıcılık Uyarıları</string>
+    <string name="fraud_alerts_description" formatted="false">Olası dolandırıcılık aramaları için uyarıları görüntüler.</string>
+    <string name="fraud_scam_likely" formatted="false">Dolandırıcılık Olasılığı Yüksek</string>
+    <string name="free" formatted="false">Ücretsiz</string>
+    <string name="function_settings_title" formatted="false">Fonksiyon Ayarları</string>
+    <string name="general_update_failure" formatted="false">Güncelleme başarısız: {error}</string>
+    <string name="get_free" formatted="false">Ücretsiz Al</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Tüm SIM kartlar için global filtreleri yapılandırın:</string>
+    <string name="global_filter_feature" formatted="false">• Global Filtreler: Tüm gelen aramalar için temel kurallar</string>
+    <string name="global_filter_settings" formatted="false">Global Filtre Ayarları</string>
+    <string name="global_settings" formatted="false">Global Ayarlar</string>
+    <string name="google_drive_auth_description" formatted="false">Sistemde yapılandırılmış Google Drive istemci kimliği ve anahtarı kullanarak yetkilendirin</string>
+    <string name="google_drive_config_title" formatted="false">Google Drive Yapılandırması</string>
+    <string name="government" formatted="false">Devlet</string>
+    <string name="grant_necessary_permissions" formatted="false">Gerekli İzinleri Verin</string>
+    <string name="grant_permissions" formatted="false">İzin Ver</string>
+    <string name="granted" formatted="false">Verildi</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">{days} günlük geçici satın alma ayrıcalıkları verildi. Son kullanma tarihi: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">Yönergeler</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">Zaten geçici ayrıcalıklara sahipsiniz, son kullanma tarihi: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">Zaten VIP ayrıcalıklarına sahipsiniz (reklamlar hariç)</string>
+    <string name="headhunter" formatted="false">Avcı</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Yükseklik</string>
+    <string name="high" formatted="false">Yüksek</string>
+    <string name="high_risk" formatted="false">Yüksek Risk</string>
+    <string name="home_tab" formatted="false">Ana Sayfa</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 saat önce} other{{count} saat önce}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 saat} =1{1 saat} other{{count} saat}}</string>
+    <string name="how_it_works_point1" formatted="false">• Sistem, belirlenen zaman penceresi içinde aynı numaradan gelen çağrıları otomatik olarak kabul edecektir.</string>
+    <string name="how_it_works_point2" formatted="false">• Daha kısa zaman pencereleri daha sıkı engelleme, daha uzun zaman pencereleri daha gevşek engelleme ile sonuçlanır.</string>
+    <string name="how_it_works_point3" formatted="false">• Sistem, tekrar eden bir çağrı olup olmadığını belirlemek için çağrı günlüklerini kontrol eder.</string>
+    <string name="how_it_works_title" formatted="false">Nasıl Çalışır:</string>
+    <string name="icon_code_optional" formatted="false">Simge Kodu (İsteğe Bağlı)</string>
+    <string name="icon_size" formatted="false">Simge Boyutu</string>
+    <string name="import" formatted="false">İçe Aktar</string>
+    <string name="import_config" formatted="false">Yapılandırmayı İçe Aktar</string>
+    <string name="import_contacts" formatted="false">Kişileri İçe Aktar</string>
+    <string name="import_entity" formatted="false">{entityTypeName} İçe Aktar</string>
+    <string name="import_export" formatted="false">İçe/Dışa Aktar</string>
+    <string name="import_export_contacts" formatted="false">Kişileri İçe/Dışa Aktar</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Kişileri İçe/Dışa Aktar</string>
+    <string name="import_export_description" formatted="false">{entityTypeName} verilerini içe veya dışa aktar</string>
+    <string name="import_export_rules" formatted="false">Kuralları İçe/Dışa Aktar</string>
+    <string name="import_export_title" formatted="false">İçe/Dışa Aktar</string>
+    <string name="import_failed" formatted="false">İçe aktarma başarısız: {error}</string>
+    <string name="import_failure" formatted="false">Yapılandırma içe aktarılamadı</string>
+    <string name="import_feature_coming_soon" formatted="false">İçe aktarma özelliği yakında geliyor</string>
+    <string name="import_labels" formatted="false">Etiketleri İçe Aktar</string>
+    <string name="import_labels_failed" formatted="false">Etiketleri içe aktarma başarısız: {error}</string>
+    <string name="import_plugin_list" formatted="false">Eklenti Listesini İçe Aktar</string>
+    <string name="import_plugin_list_failed" formatted="false">Eklenti listesini içe aktarma başarısız: {error}</string>
+    <string name="import_plugin_success" formatted="false">{count} eklenti başarıyla içe aktarıldı</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Kural Yapılandırmalarını Dosyadan İçe Aktar</string>
+    <string name="import_rules" formatted="false">Kuralları İçe Aktar</string>
+    <string name="import_success" formatted="false">İçe aktarma başarılı</string>
+    <string name="important" formatted="false">Önemli</string>
+    <string name="important_notice_title" formatted="false">Önemli Uyarı</string>
+    <string name="incoming_call_intercept_action" formatted="false">Gelen Çağrı Engelleme Eylemi</string>
+    <string name="incorrect_password" formatted="false">Yanlış şifre</string>
+    <string name="init_db_button" formatted="false">Veritabanını Başlat</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Özel ayna JSON yapılandırma URL\'sini girin</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Yapılandırmayı Yükle</string>
+    <string name="initial_setup_desc" formatted="false">Lütfen engellemek istediğiniz bölgesel kural kitaplıklarını seçin. Bu kurallar, bölgenizdeki yaygın satış ve dolandırıcılık aramalarını otomatik olarak engellemenize yardımcı olur.</string>
+    <string name="initial_setup_deselect_all" formatted="false">Seçimi Temizle</string>
+    <string name="initial_setup_detected_location" formatted="false">Algılanan Konum</string>
+    <string name="initial_setup_get_failed" formatted="false">Yapılandırma alınamadı</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Ayarlar\'a Git</string>
+    <string name="initial_setup_retry" formatted="false">Yeniden Dene</string>
+    <string name="initial_setup_save" formatted="false">Seçilenleri tek tıkla kur</string>
+    <string name="initial_setup_save_failed" formatted="false">Yapılandırma kaydedilemedi: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Yapılandırma başarıyla kaydedildi, kurallar yakında otomatik olarak alınacak</string>
+    <string name="initial_setup_saving" formatted="false">Kaydediliyor...</string>
+    <string name="initial_setup_search_hint" formatted="false">Kural kümesi veya ülke ara...</string>
+    <string name="initial_setup_select_all" formatted="false">Tümünü Seç</string>
+    <string name="initial_setup_selected_count" formatted="false">{count} Seçildi</string>
+    <string name="initial_setup_settings_hint" formatted="false">İpucu: Bu kurulum sayfasını Ayarlar\'dan istediğiniz zaman tekrar açabilirsiniz.</string>
+    <string name="initial_setup_skip" formatted="false">Atla</string>
+    <string name="initial_setup_source_cdn" formatted="false">Ayna CDN Hızlandırma Kaynağı</string>
+    <string name="initial_setup_source_custom" formatted="false">Özel Ayna Kaynağı</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub Resmi Kaynağı</string>
+    <string name="initial_setup_source_title" formatted="false">Kural Veritabanı Kaynağı</string>
+    <string name="initial_setup_title" formatted="false">Kural Kitaplığı Kurulumu</string>
+    <string name="initializing" formatted="false">Başlatılıyor</string>
+    <string name="installed" formatted="false">Yüklü</string>
+    <string name="insufficient_marks" formatted="false">Yetersiz İşaret</string>
+    <string name="insurance" formatted="false">Sigorta</string>
+    <string name="intercept_action" formatted="false">Engelleme Eylemi</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Engellenen çağrıların nasıl ele alınacağını ayarlayın</string>
+    <string name="interception_action_settings_title" formatted="false">Engelleme Eylemi Ayarları</string>
+    <string name="interception_time_interval" formatted="false">Engelleme Zaman Aralığı</string>
+    <string name="internet" formatted="false">İnternet</string>
+    <string name="interval_set_success" formatted="false">{service} güncelleme aralığı {days} güne ayarlandı</string>
+    <string name="invalid_content_regex" formatted="false">Geçersiz içerik regex</string>
+    <string name="invalid_exchange_rule" formatted="false">Geçersiz takas kuralı</string>
+    <string name="invalid_label" formatted="false">Geçersiz etiket</string>
+    <string name="invalid_regex_pattern" formatted="false">Geçersiz regex deseni</string>
+    <string name="invalid_sender_regex" formatted="false">Geçersiz gönderen regexi</string>
+    <string name="invalid_sim_data" formatted="false">Geçersiz SIM verisi</string>
+    <string name="ip_country" formatted="false">IP Ülkesi</string>
+    <string name="is_number_match" formatted="false">Numara Eşleşmesi</string>
+    <string name="is_roaming" formatted="false">Dolaşım</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">Daha Fazla Bilgi İçin Telegram Kanalı ve Grubuna Katılın</string>
+    <string name="json_format" formatted="false">JSON Biçimi</string>
+    <string name="just_now" formatted="false">Şimdi</string>
+    <string name="keep_all_versions" formatted="false">Tüm Sürümleri Sakla</string>
+    <string name="keep_all_versions_description" formatted="false">Her yedeğin tüm geçmiş sürümlerini saklayın</string>
+    <string name="label" formatted="false">Etiket</string>
+    <string name="label_action_description" formatted="false">Kolay tanımlama için aramaya bir etiket ekle.</string>
+    <string name="label_added_successfully" formatted="false">Etiket &quot;{name}&quot; başarıyla eklendi</string>
+    <string name="label_categories" formatted="false">Etiket Kategorileri</string>
+    <string name="label_deleted" formatted="false">Etiket silindi</string>
+    <string name="label_description" formatted="false">Etiketler, kişileri daha iyi yönetmenize yardımcı olur, aramaları ve mesajları kolayca tanımlamak için telefon numaralarına özel etiketler ekleyin.</string>
+    <string name="label_filter_tooltip" formatted="false">Etiket Filtresi</string>
+    <string name="label_icon_color" formatted="false">Etiket Simge Rengi</string>
+    <string name="label_management" formatted="false">Etiket Yönetimi</string>
+    <string name="label_not_found" formatted="false">Etiket bulunamadı</string>
+    <string name="label_tag" formatted="false">Etiket: {labelId}</string>
+    <string name="label_update_failed" formatted="false">Etiket güncellenemedi: {error}</string>
+    <string name="label_update_success" formatted="false">Etiket &quot;$labelText&quot; başarıyla güncellendi</string>
+    <string name="labels" formatted="false">Etiketler</string>
+    <string name="labels_color" formatted="false">Etiket Rengi</string>
+    <string name="labels_deleted" formatted="false">{count} etiket silindi</string>
+    <string name="labels_exported_successfully" formatted="false">Etiketler başarıyla dışa aktarıldı</string>
+    <string name="labels_font_size" formatted="false">Etiketler Yazı Tipi Boyutu</string>
+    <string name="labels_imported_successfully" formatted="false">{count} etiket başarıyla içe aktarıldı</string>
+    <string name="labels_position" formatted="false">Etiket Konumu</string>
+    <string name="language_settings" formatted="false">Dil Ayarları</string>
+    <string name="language_settings_subtitle" formatted="false">Uygulama görüntüleme dilini değiştirin</string>
+    <string name="language_settings_title" formatted="false">Dil Ayarları</string>
+    <string name="last_sync_label" formatted="false">Son Senkronizasyon</string>
+    <string name="last_updated" formatted="false">Son güncelleme: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Varsayılanı kullanmak için boş bırakın</string>
+    <string name="lifetime_membership" formatted="false">Ömür Boyu Üyelik</string>
+    <string name="lifetime_membership_description" formatted="false">Tek seferlik satın alma, tüm premium özellikleri ve gelecekteki güncellemeleri kalıcı olarak açın</string>
+    <string name="list_view" formatted="false">Liste Görünümü</string>
+    <string name="live_activities_settings_title" formatted="false">Canlı Etkinlikler Ayarları</string>
+    <string name="live_activities_test_end_activity" formatted="false">Etkinliği Sonlandır</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">Yeni Etkinlik Gönder</string>
+    <string name="live_activities_test_title" formatted="false">Canlı Etkinlikler Testi</string>
+    <string name="live_activities_test_update_activity" formatted="false">Etkinliği Güncelle</string>
+    <string name="live_activity_controls_title" formatted="false">Canlı Etkinlik Kontrolleri</string>
+    <string name="live_activity_mode" formatted="false">Canlı Etkinlik</string>
+    <string name="live_activity_mode_description" formatted="false">Arama bilgilerini kilit ekranında ve Dinamik Ada\'da (iOS) kalıcı bir bildirim olarak görüntüler.</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Canlı bildirimlerin görünümünü özelleştirin.</string>
+    <string name="live_notification_customization_title" formatted="false">Canlı Bildirim Özelleştirmesi</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">Kişiler yüklenemedi: {error}</string>
+    <string name="load_data_failed" formatted="false">Veri yüklenemedi</string>
+    <string name="load_label_failed" formatted="false">Etiketler yüklenemedi: {error}</string>
+    <string name="load_labels_failed" formatted="false">Etiketler yüklenemedi: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">İşaretli telefon numaraları yüklenemedi: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">İşaretli telefonlar yüklenemedi: {error}</string>
+    <string name="load_plugins_failed" formatted="false">Eklentiler yüklenemedi: {error}</string>
+    <string name="load_settings_failed" formatted="false">Ayarlar yüklenemedi: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">SMS kuralları yüklenemedi: {error}</string>
+    <string name="load_status_failed_message" formatted="false">Durum yüklenemedi</string>
+    <string name="load_subscriptions_failed" formatted="false">Abonelikler yüklenemedi: {error}</string>
+    <string name="loading" formatted="false">Yükleniyor...</string>
+    <string name="loading_ad" formatted="false">Reklam Yükleniyor...</string>
+    <string name="loading_tags" formatted="false">Etiketler yükleniyor...</string>
+    <string name="loan" formatted="false">Kredi</string>
+    <string name="local_count_filter" formatted="false">Yerel İşaretleme Eşik Koruması</string>
+    <string name="local_count_filter_description" formatted="false">Yerel bildirim eşiğini aşan aramaları otomatik olarak engelle</string>
+    <string name="local_count_filter_explanation_content" formatted="false">Yerel sayım filtresi, sık gelen spam aramaları otomatik olarak tanımlamak ve engellemek için arama geçmişi kayıtlarını analiz eder.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">Yerel Sayım Filtresi Açıklaması</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• Numaranın sayım değerine göre engellenip engellenmeyeceğine karar verin</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• Bir numaranın sayımı belirlenen eşiği aştığında, otomatik olarak engellemeyi seçebilirsiniz</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• Eşiği aşmayan numaralara seçici olarak izin verebilirsiniz</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• Tüm sorgu günlüklerinin kaydedilip kaydedilmeyeceğini seçebilirsiniz</string>
+    <string name="local_count_filter_settings" formatted="false">Yerel Sayım Filtresi Ayarları</string>
+    <string name="local_count_filter_use_cases" formatted="false">Bu filtre, otomatik aranan spam aramaları ve pazarlama aramalarını tanımlamak için özellikle uygundur.</string>
+    <string name="local_count_filtering" formatted="false">Yerel Sayım Filtrelemesi</string>
+    <string name="local_count_filtering_explanation" formatted="false">• Yerel Sayım Filtrelemesi: Yerel işaretleme sayımına dayalı filtreleme kuralları</string>
+    <string name="local_counter_filter" formatted="false">Yerel Sayaç Filtresi</string>
+    <string name="local_counter_filter_subtitle" formatted="false">Arama sıklığına göre spam aramaları otomatik olarak filtreleyin</string>
+    <string name="local_database_sync_subtitle" formatted="false">Verileri cihazlar arasında senkronize edin</string>
+    <string name="local_database_sync_title" formatted="false">Yerel Veritabanı Senkronizasyonu</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">Yerel Filtre Ayarları</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">Yerel bildirim devre dışı bırakıldı</string>
+    <string name="local_notification_enabled" formatted="false">Yerel bildirim etkinleştirildi</string>
+    <string name="local_services" formatted="false">Yerel Hizmetler</string>
+    <string name="location" formatted="false">Konum</string>
+    <string name="location_color" formatted="false">Konum Rengi</string>
+    <string name="location_font_size" formatted="false">Konum Yazı Tipi Boyutu</string>
+    <string name="location_icon_color" formatted="false">Konum Simge Rengi</string>
+    <string name="location_position" formatted="false">Konum Konumu</string>
+    <string name="log" formatted="false">Kaydet</string>
+    <string name="log_action_description" formatted="false">Başka bir işlem yapmadan arama bilgilerini kaydet.</string>
+    <string name="log_all_local_queries" formatted="false">Tüm Yerel Sorguları Kaydet</string>
+    <string name="log_all_local_queries_description" formatted="false">Tüm yerel numara sorguları için günlükleri kaydet</string>
+    <string name="log_all_remote_queries" formatted="false">Tüm Uzak Sorguları Kaydet</string>
+    <string name="log_all_remote_queries_description" formatted="false">Tüm uzak numara sorgulama işlemlerini kaydet</string>
+    <string name="low" formatted="false">Düşük</string>
+    <string name="low_risk" formatted="false">Düşük Risk</string>
+    <string name="manage" formatted="false">Kişileri Yönet</string>
+    <string name="manage_favorite_contacts" formatted="false">Favori Kişileri Yönet</string>
+    <string name="manage_filter_rules" formatted="false">Filtre Kurallarını Yönet</string>
+    <string name="manage_filter_rules_description" formatted="false">SMS filtre kurallarını ekle, düzenle veya sil</string>
+    <string name="manual_entry" formatted="false">Manuel Giriş Bilgisi</string>
+    <string name="mark_count" formatted="false">İşaret Sayısı</string>
+    <string name="mark_counts" formatted="false">İşaret Sayımları</string>
+    <string name="mark_exchange" formatted="false">İşaret Değişimi</string>
+    <string name="mark_more_numbers_for_more" formatted="false">Daha fazla işaret için daha fazla numara işaretle</string>
+    <string name="mark_phone" formatted="false">Telefon Numarasını İşaretle</string>
+    <string name="mark_phone_failed" formatted="false">Telefon numarası işaretlenemedi: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">Telefon İşaretleme Yönetimi</string>
+    <string name="mark_phone_success" formatted="false">Telefon numarası başarıyla işaretlendi</string>
+    <string name="marked_by_count" formatted="false">{count} kişi tarafından işaretlendi</string>
+    <string name="marked_phones_list" formatted="false">İşaretli Telefon Numaraları</string>
+    <string name="marks_insufficient" formatted="false">Takas için yetersiz işaret</string>
+    <string name="master_and_overrides" formatted="false">Ana Kontroller</string>
+    <string name="master_and_overrides_desc" formatted="false">Genel Kural Ayarları</string>
+    <string name="master_device_help" formatted="false">Yalnızca ana cihaz veritabanı yapısını başlatabilir.</string>
+    <string name="master_device_label" formatted="false">Ana Cihaz (Yönetici)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">Eşleşme başarısız oldu.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">belirli sayı formatıyla eşleşir</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">Özel karakterli numaraları eşleştir:</string>
+    <string name="match_specific_digit_patterns" formatted="false">XXX-XXXX-XXXX formatıyla eşleşir</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">Belirli basamak kalıplarını eşleştir:</string>
+    <string name="match_successful_message" formatted="false">Eşleşme başarılı!</string>
+    <string name="medical" formatted="false">Tıbbi</string>
+    <string name="medium" formatted="false">Orta</string>
+    <string name="medium_risk" formatted="false">Orta Risk</string>
+    <string name="membership_center" formatted="false">Üyelik Merkezi</string>
+    <string name="membership_privileges" formatted="false">Üyelik Ayrıcalıkları</string>
+    <string name="message_background_color" formatted="false">Mesaj Arka Plan Rengi</string>
+    <string name="message_color" formatted="false">Mesaj Rengi</string>
+    <string name="message_font_size" formatted="false">Mesaj Yazı Tipi Boyutu</string>
+    <string name="message_position" formatted="false">Mesaj Konumu</string>
+    <string name="migration_tool" formatted="false">Geçiş Aracı</string>
+    <string name="minutes" formatted="false">dakika</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 dakika önce} other{{count} dakika önce}}</string>
+    <string name="moderate" formatted="false">Orta</string>
+    <string name="month" formatted="false">Ay</string>
+    <string name="monthly" formatted="false">Aylık</string>
+    <string name="monthly_call_count" formatted="false">Aylık Aramalar</string>
+    <string name="monthly_membership" formatted="false">Aylık Üyelik</string>
+    <string name="monthly_membership_description" formatted="false">Tüm premium özelliklerin kilidini açın, aylık otomatik yenilenir</string>
+    <string name="monthly_total" formatted="false">Aylık Toplam</string>
+    <string name="more_options" formatted="false">Daha Fazla Seçenek</string>
+    <string name="mute" formatted="false">Sessize Al</string>
+    <string name="name" formatted="false">Ad</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">Ad ve telefon numarası boş bırakılamaz</string>
+    <string name="name_cannot_be_empty" formatted="false">İsim boş olamaz</string>
+    <string name="name_color" formatted="false">Ad Rengi</string>
+    <string name="name_font_size" formatted="false">Ad Yazı Boyutu</string>
+    <string name="name_position" formatted="false">Ad Konumu</string>
+    <string name="name_unknown" formatted="false">Ad: Bilinmiyor</string>
+    <string name="national_number" formatted="false">Ulusal Numara</string>
+    <string name="need_vip_access" formatted="false">Bu özelliği kullanmak için VIP erişimine ihtiyacınız var</string>
+    <string name="new_vote_received" formatted="false">Yeni Oy Alındı</string>
+    <string name="new_vote_received_body" formatted="false">Biri {phoneNumber} silinmesi teklifine {voteType} oy kullandı. Mevcut oylar: {totalVotes}.</string>
+    <string name="next_step" formatted="false">İleri</string>
+    <string name="no_action" formatted="false">Eylem Yok</string>
+    <string name="no_action_rules" formatted="false">Eylem Yok Kuralları</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">Aktif bulut senkronizasyon servisi yok</string>
+    <string name="no_activity" formatted="false">Etkinlik Yok</string>
+    <string name="no_ads" formatted="false">Reklamsız</string>
+    <string name="no_allowed_blocked_rules" formatted="false">İzin verilen/engellenen kuralı bulunamadı</string>
+    <string name="no_blocked_type_data" formatted="false">Engellenen tür verisi mevcut değil</string>
+    <string name="no_call_records" formatted="false">Arama kaydı yok</string>
+    <string name="no_contacts_yet" formatted="false">Henüz kişi yok</string>
+    <string name="no_data" formatted="false">Veri Yok</string>
+    <string name="no_devices_registered_message" formatted="false">Kayıtlı cihaz yok</string>
+    <string name="no_labels" formatted="false">Henüz etiket yok</string>
+    <string name="no_marked_phones" formatted="false">İşaretli telefon numarası yok</string>
+    <string name="no_matching_contacts_found" formatted="false">Eşleşen kişi bulunamadı</string>
+    <string name="no_matching_numbers_found" formatted="false">Eşleşen numara bulunamadı</string>
+    <string name="no_matching_rules" formatted="false">Eşleşen {ruleType} yok</string>
+    <string name="no_notifications" formatted="false">Bildirim yok</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">Telefon kuralı bulunamadı</string>
+    <string name="no_plugins" formatted="false">Henüz eklenti yok</string>
+    <string name="no_proposals_found" formatted="false">Teklif bulunamadı</string>
+    <string name="no_regex_rules" formatted="false">Regex kuralı bulunamadı</string>
+    <string name="no_rules" formatted="false">Henüz {ruleType} yok</string>
+    <string name="no_rules_prompt" formatted="false">Kural bulunamadı, lütfen kural ekleyin</string>
+    <string name="no_rules_to_export" formatted="false">Dışa aktarılacak kural yok</string>
+    <string name="no_sim_card_detected" formatted="false">SIM kart algılanmadı</string>
+    <string name="no_sim_cards_detected" formatted="false">SIM kart algılanmadı</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">Henüz SMS filtreleme kuralı yok</string>
+    <string name="no_sms_rules_yet" formatted="false">Henüz SMS kuralı yok</string>
+    <string name="no_subscriptions" formatted="false">Abonelik yok</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">Dosyada geçerli SMS kuralı bulunamadı</string>
+    <string name="none" formatted="false">Yok</string>
+    <string name="none_action_description" formatted="false">Arama için özel bir işlem yapılmayacaktır.</string>
+    <string name="none_service_type" formatted="false">Yok</string>
+    <string name="normal_user" formatted="false">Normal Kullanıcı</string>
+    <string name="not_granted" formatted="false">Verilmedi</string>
+    <string name="not_verified_text" formatted="false">Doğrulanmadı</string>
+    <string name="notification_frequency_hours" formatted="false">Bildirim Sıklığı (Saat)</string>
+    <string name="notification_frequency_title" formatted="false">Bildirim Sıklığı</string>
+    <string name="notification_mode" formatted="false">Bildirim Modu</string>
+    <string name="notification_mode_description" formatted="false">Arayan bilgilerini bildirim çubuğunda göster</string>
+    <string name="notification_permission" formatted="false">Bildirim İzni</string>
+    <string name="notification_permission_description" formatted="false">Gelen arama ve mesaj bildirimlerini görüntülemek için kullanılır.</string>
+    <string name="notification_settings" formatted="false">Bildirim Ayarları</string>
+    <string name="notification_settings_title" formatted="false">Bildirim Ayarları</string>
+    <string name="notification_instructions" formatted="false">Talimatlar:
+1. Bildirim oluşturmak veya güncellemek için &quot;GÖNDER&quot;e dokunun.
+2. Sonucu görmek için ana ekranınıza gidin veya bildirim çekmecesini aşağı kaydırın.
+3. Bildirimi kapatmak için &quot;SONLANDIR&quot;a dokunun.</string>
+    <string name="notifications" formatted="false">Bildirimler</string>
+    <string name="notify" formatted="false">Bildir</string>
+    <string name="notify_action_description" formatted="false">Bir arama alındığında bildirim gönder.</string>
+    <string name="number" formatted="false">Numara</string>
+    <string name="number_color" formatted="false">Numara Rengi</string>
+    <string name="number_font_size" formatted="false">Numara Yazı Boyutu</string>
+    <string name="number_format" formatted="false">Numara Biçimi</string>
+    <string name="number_invalid_format" formatted="false">Numara geçersiz biçimde</string>
+    <string name="number_position" formatted="false">Numara Konumu</string>
+    <string name="number_search" formatted="false">Numara Arama</string>
+    <string name="number_type_color" formatted="false">Numara Türü Rengi</string>
+    <string name="number_type_font_size" formatted="false">Numara Türü Yazı Boyutu</string>
+    <string name="number_type_position" formatted="false">Numara Türü Konumu</string>
+    <string name="ok_button" formatted="false">Tamam</string>
+    <string name="onboarding_complete_description" formatted="false">Arama güvenlik yöneticiniz hazır, güvenli bir arama deneyiminin keyfini çıkarmaya başlayın!</string>
+    <string name="onboarding_language_description" formatted="false">En iyi deneyim için tercih ettiğiniz dili seçin.</string>
+    <string name="onboarding_permissions_description" formatted="false">Tam hizmet sunmak için aşağıdaki izinlere ihtiyacımız var:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">İstenmeyen arama ve mesajları tek tıkla engelleme, engelleme kurallarını özelleştirme ve size sessiz bir ortam sunma.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">Bilinmeyen aramaları otomatik olarak tanımlama, şüpheli numaraları işaretleme ve arama güvenliğinizi koruma.</string>
+    <string name="onboarding_welcome_description" formatted="false">Kapsamlı arama tanımlama ve engelleme hizmetleri sunan arama yönetimi uzmanınız.</string>
+    <string name="one_drive_auth_description" formatted="false">Sistem tarafından yapılandırılmış OneDrive istemci kimliği ve anahtarı kullanarak yetkilendirin</string>
+    <string name="one_drive_config_title" formatted="false">OneDrive Yapılandırması</string>
+    <string name="online_caller_id_subscription" formatted="false">Çevrimiçi Arayan Kimliği Aboneliği</string>
+    <string name="open_app_settings" formatted="false">Uygulama ayarlarını aç</string>
+    <string name="open_app_settings_failed" formatted="false">Uygulama ayarları açılamadı: {error}</string>
+    <string name="open_in_web_view" formatted="false">WebView\'da Aç</string>
+    <string name="operation_failed" formatted="false">İşlem başarısız oldu: {error}</string>
+    <string name="operation_failure" formatted="false">İşlem başarısız oldu</string>
+    <string name="operation_success" formatted="false">İşlem başarılı oldu</string>
+    <string name="oppose" formatted="false">Karşı Çık</string>
+    <string name="oppose_count" formatted="false">Karşı Çık ({opposeCount})</string>
+    <string name="opposed" formatted="false">KARŞI ÇIKILDI</string>
+    <string name="other" formatted="false">Diğer</string>
+    <string name="our_other_apps" formatted="false">Diğer Uygulamalarımız</string>
+    <string name="overlay_mode" formatted="false">Kayan Pencere</string>
+    <string name="overlay_mode_description" formatted="false">Arayan bilgilerini kayan bir pencerede göster</string>
+    <string name="overlay_permission" formatted="false">Kayan Pencere İzni</string>
+    <string name="overlay_permission_description" formatted="false">Gelen çağrı kayan penceresini göstermek için kullanılır.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">Genel Bakış</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">Şifre</string>
+    <string name="password_cannot_be_empty" formatted="false">Şifre boş olamaz</string>
+    <string name="password_label" formatted="false">Şifre</string>
+    <string name="passwords_do_not_match" formatted="false">Şifreler eşleşmiyor</string>
+    <string name="pattern" formatted="false">Desen</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">BEKLEMEDE</string>
+    <string name="pending_proposals" formatted="false">Bekleyen Öneriler</string>
+    <string name="pending_proposals_body" formatted="false">Bekleyen {count, plural, =0 {öneriniz yok} one {1 öneri} other {{count} öneri}} var.</string>
+    <string name="pending_sync" formatted="false">Bekleyen Senkronizasyon</string>
+    <string name="period_month" formatted="false">Ay</string>
+    <string name="period_week" formatted="false">Hafta</string>
+    <string name="period_year" formatted="false">Yıl</string>
+    <string name="permission_denied" formatted="false">İzin isteği reddedildi</string>
+    <string name="permission_granted" formatted="false">İzin verildi</string>
+    <string name="permission_management" formatted="false">İzin Yönetimi</string>
+    <string name="permission_subtitle" formatted="false">Yer paylaşımı ve pil optimizasyonu izinlerini yönetin</string>
+    <string name="permission_title" formatted="false">Özel İzinler</string>
+    <string name="phone_calls_tab" formatted="false">Telefon</string>
+    <string name="phone_number" formatted="false">Telefon Numarası</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">Telefon numarası boş olamaz</string>
+    <string name="phone_number_hint" formatted="false">Telefon numarasını girin</string>
+    <string name="phone_number_label" formatted="false">Telefon Numarası</string>
+    <string name="phone_number_min_digits" formatted="false">Telefon numarası en az 7 haneli olmalıdır</string>
+    <string name="phone_number_required" formatted="false">Telefon numarası gerekli</string>
+    <string name="phone_number_type" formatted="false">Telefon Numarası Türü</string>
+    <string name="phone_number_type_fixed_line" formatted="false">Sabit hat</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">Sabit hat veya mobil</string>
+    <string name="phone_number_type_mobile" formatted="false">Mobil</string>
+    <string name="phone_number_type_pager" formatted="false">Çağrı cihazı</string>
+    <string name="phone_number_type_personal_number" formatted="false">Kişisel numara</string>
+    <string name="phone_number_type_premium_rate" formatted="false">Premium ücretli</string>
+    <string name="phone_number_type_shared_cost" formatted="false">Paylaşılan maliyet</string>
+    <string name="phone_number_type_toll_free" formatted="false">Ücretsiz</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">Bilinmeyen</string>
+    <string name="phone_number_type_voicemail" formatted="false">Sesli posta</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">Telefon İzni</string>
+    <string name="phone_permission_description" formatted="false">Gelen çağrıları tanımlamak ve engellemek için kullanılır.</string>
+    <string name="phone_rule" formatted="false">Telefon Kuralı</string>
+    <string name="phone_rule_management" formatted="false">Telefon Kuralı Yönetimi</string>
+    <string name="phone_rule_subscription" formatted="false">Telefon Kuralı Aboneliği</string>
+    <string name="phone_rules_info" formatted="false">Telefon kuralları, daha düşük önceliğe sahip belirli telefon numaralarıyla çağrıları eşleştirmek için kullanılır. Bazıları phoneRule aboneliklerinden gelir</string>
+    <string name="phone_subscription" formatted="false">Telefon Aboneliği</string>
+    <string name="phone_subscription_rules_description" formatted="false">Beyaz liste ve kara liste kurallarını otomatik olarak güncellemek için URL üzerinden telefon kuralı listelerine abone olun. JSON formatındaki kural dosyalarını destekler.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">Lütfen en az bir numara girin.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">Lütfen bir etiket seçin ve geçerli bir telefon numarası girin</string>
+    <string name="plugin_added_success" formatted="false">Eklenti &quot;{name}&quot; başarıyla eklendi</string>
+    <string name="plugin_deleted" formatted="false">Eklenti silindi</string>
+    <string name="plugin_description" formatted="false">Eklenti açıklaması</string>
+    <string name="plugin_i_d" formatted="false">Kimlik</string>
+    <string name="plugin_label" formatted="false">Eklenti Etiketi</string>
+    <string name="plugin_latest_version" formatted="false">Eklenti zaten en son sürümde</string>
+    <string name="plugin_list_export_success" formatted="false">Eklenti listesi başarıyla dışa aktarıldı</string>
+    <string name="plugin_management" formatted="false">Eklenti Yönetimi</string>
+    <string name="plugin_management_subtitle" formatted="false">Üçüncü taraf eklentileri yönetin ve yapılandırın</string>
+    <string name="plugin_name" formatted="false">Eklenti Adı</string>
+    <string name="plugin_rules_info" formatted="false">Güvenlik için lütfen yalnızca güvenilir kaynaklardan eklentileri kullanın. Kendi özel eklentilerinizi oluşturmak için şablonlarımızı kullanmaktan çekinmeyin!</string>
+    <string name="plugin_service" formatted="false">Eklenti Hizmeti</string>
+    <string name="plugin_test_page_title" formatted="false">Eklenti Testi</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">Eklenti başarıyla güncellendi</string>
+    <string name="plugin_url" formatted="false">Eklenti URL\'si</string>
+    <string name="plugin_version" formatted="false">Eklenti Sürümü</string>
+    <string name="plugins_deleted" formatted="false">{count} eklenti başarıyla silindi.</string>
+    <string name="political" formatted="false">Siyasi</string>
+    <string name="powerful_spam_blocking" formatted="false">Güçlü İstenmeyen Çağrı Engelleme</string>
+    <string name="previous_step" formatted="false">Geri</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">Uzak Eylem Ayarlarını Önceliklendir</string>
+    <string name="prioritize_remote_action_description" formatted="false">Uzak veritabanındaki eylem ayarlarını önceliklendir</string>
+    <string name="processed" formatted="false">İşlendi</string>
+    <string name="processing" formatted="false">İşleniyor...</string>
+    <string name="processing_operation" formatted="false">İşleniyor...</string>
+    <string name="proposal_approved" formatted="false">Teklif Onaylandı ✅</string>
+    <string name="proposal_approved_body" formatted="false">{phoneNumber} numarası için silme teklifi topluluk tarafından onaylandı (%{supportPercentage} destek, {totalVotes} oy).</string>
+    <string name="proposal_created" formatted="false">Teklif başarıyla oluşturuldu</string>
+    <string name="proposal_details" formatted="false">Öneri Detayları</string>
+    <string name="proposal_not_found" formatted="false">Öneri bulunamadı</string>
+    <string name="proposal_processed" formatted="false">Bu teklif işlendi</string>
+    <string name="proposal_rejected" formatted="false">Teklif Reddedildi ❌</string>
+    <string name="proposal_rejected_body" formatted="false">{phoneNumber} numarası için silme teklifi topluluk tarafından reddedildi (%{supportPercentage} destek, {totalVotes} oy).</string>
+    <string name="proposal_statistics" formatted="false">Teklif İstatistikleri</string>
+    <string name="provide_detailed_explanation" formatted="false">Ayrıntılı açıklama sağlayın (minimum 10 karakter)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">Satın Al</string>
+    <string name="purchase_subtitle" formatted="false">Hizmeti Satın Almak İçin</string>
+    <string name="purchase_title" formatted="false">Satın Al</string>
+    <string name="quarterly_membership" formatted="false">Üç Aylık Üyelik</string>
+    <string name="quarterly_membership_description" formatted="false">Tüm premium özellikleri açın, üç ayda bir otomatik yenilenir</string>
+    <string name="ready" formatted="false">Hazır!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">Sebep</string>
+    <string name="reason_inaccurate_info" formatted="false">Hatalı Bilgi</string>
+    <string name="reason_min_characters" formatted="false">Neden en az 10 karakter olmalıdır</string>
+    <string name="reason_not_in_service" formatted="false">Kullanımda Değil</string>
+    <string name="reason_other" formatted="false">Diğer</string>
+    <string name="reason_outdated" formatted="false">Eski Numara</string>
+    <string name="reason_privacy" formatted="false">Gizlilik Endişesi</string>
+    <string name="reason_required" formatted="false">Neden zorunludur</string>
+    <string name="reason_wrongly_identified" formatted="false">Yanlış Tanımlanmış</string>
+    <string name="recruiter" formatted="false">İşe Alımcı</string>
+    <string name="redeem_vip_with_marks" formatted="false">İşaretlerle VIP Kullan</string>
+    <string name="redirect" formatted="false">Yönlendir</string>
+    <string name="redirect_action_description" formatted="false">Aramayı belirli bir numaraya yönlendir.</string>
+    <string name="refresh" formatted="false">Yenile</string>
+    <string name="refresh_permission_status" formatted="false">İzin durumunu yenile</string>
+    <string name="refresh_proposals" formatted="false">Teklifleri Yenile</string>
+    <string name="refresh_tooltip" formatted="false">Yenile</string>
+    <string name="regex_error_message" formatted="false">Regex hatası: {error}</string>
+    <string name="regex_pattern" formatted="false">Regex Kalıbı</string>
+    <string name="regex_pattern_explanation" formatted="false">Regex Kalıbı Açıklaması</string>
+    <string name="regex_pattern_explanation_button" formatted="false">Regex Kalıbı Açıklaması</string>
+    <string name="regex_pattern_label" formatted="false">Regex Kalıbı</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">Telefon Numarası Eşleştirmesi için Regex Kalıpları</string>
+    <string name="regex_rule" formatted="false">Regex Kuralı</string>
+    <string name="regex_rule_add_failed" formatted="false">Regex kuralı eklenemedi: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">Regex kuralı başarıyla eklendi</string>
+    <string name="regex_rule_management" formatted="false">Regex Kuralı Yönetimi</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">Kural adı ve regex kalıbı boş olamaz</string>
+    <string name="regex_rules" formatted="false">Regex Kuralları</string>
+    <string name="regex_rules_info" formatted="false">Regex kuralları, çağrıları Regex Desenlerine göre filtrelemek için kullanılır.</string>
+    <string name="regex_tester_title" formatted="false">Regex Test Cihazı</string>
+    <string name="region" formatted="false">Bölge</string>
+    <string name="registered_devices_title" formatted="false">Kayıtlı Cihazlar</string>
+    <string name="reject_all_calls" formatted="false">Tüm Çağrıları Reddet</string>
+    <string name="reject_all_calls_description" formatted="false">Etkinleştirildiğinde, tüm çağrılar en yüksek öncelikle reddedilecektir</string>
+    <string name="reject_all_numbers" formatted="false">Tüm Gelen Aramaları Reddet</string>
+    <string name="reject_all_numbers_desc" formatted="false">Tüm gelen aramaları en yüksek öncelikle reddet</string>
+    <string name="reject_exceeded_numbers" formatted="false">Aşan Numaraları Reddet</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">Sayı eşiğini aşan numaraları otomatik olarak reddet</string>
+    <string name="rejected" formatted="false">REDDEDİLDİ</string>
+    <string name="remote_filter_settings" formatted="false">Uzak Filtre Ayarları</string>
+    <string name="remote_filter_settings_page_title" formatted="false">Uzak Numara Filtresi Ayarları</string>
+    <string name="remote_number_filter" formatted="false">Bulut Sorgu Eşik Koruması</string>
+    <string name="remote_number_filter_description" formatted="false">Bulut bildirim eşiğini aşan aramaları otomatik olarak engelle</string>
+    <string name="remote_number_filter_subtitle" formatted="false">Bulut veritabanı ve topluluk raporlarını kullanarak spam çağrılarını belirle</string>
+    <string name="remote_number_filtering" formatted="false">Uzak Numara Filtreleme</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• Uzak Numara Filtreleme: Uzak veritabanı bilgilerine dayalı filtreleme kuralları</string>
+    <string name="remove_ads" formatted="false">Reklamları Kaldır</string>
+    <string name="remove_ads_description" formatted="false">Daha akıcı bir deneyim için uygulamadaki tüm reklamları kalıcı olarak kaldırın</string>
+    <string name="remove_ads_title" formatted="false">Reklamları Kaldır</string>
+    <string name="remove_from_favorites" formatted="false">Favorilerden Kaldır</string>
+    <string name="removed_from_favorites" formatted="false">Favori kişilerden kaldırıldı</string>
+    <string name="rename_device_title" formatted="false">Cihazı Yeniden Adlandır</string>
+    <string name="reporting_guidelines" formatted="false">• Yalnızca gerçekten sorunlu numaraları bildirin
+• Doğru ve ayrıntılı nedenler belirtin
+• Ciddiyete göre uygun risk seviyesini seçin
+• Yanlış bildirimler hesap kısıtlamalarına yol açabilir</string>
+    <string name="request_all_permissions" formatted="false">Tüm İzinleri İste</string>
+    <string name="request_permission" formatted="false">İzin İste</string>
+    <string name="request_permission_failed" formatted="false">İzin isteme başarısız oldu: {error}</string>
+    <string name="required_field" formatted="false">Gerekli</string>
+    <string name="required_init_field" formatted="false">Başlatma için gerekli</string>
+    <string name="required_marks" formatted="false">{count} İşaret</string>
+    <string name="reset" formatted="false">Sıfırla</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">Geri Yükle</string>
+    <string name="restore_application_settings_from_backup" formatted="false">Uygulama Ayarlarını Yedekten Geri Yükle</string>
+    <string name="restore_from_cloud" formatted="false">Buluttan Geri Yükle</string>
+    <string name="restore_from_cloud_failed" formatted="false">Buluttan geri yükleme başarısız oldu: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">Buluttan başarıyla geri yüklendi</string>
+    <string name="restore_purchases" formatted="false">Satın Almaları Geri Yükle</string>
+    <string name="restore_settings" formatted="false">Ayarları Geri Yükle</string>
+    <string name="restore_settings_confirmation" formatted="false">Bu, mevcut tüm ayarlarınızın yerine geçecektir. Devam etmek istediğinizden emin misiniz?</string>
+    <string name="result" formatted="false">Sonuç</string>
+    <string name="retry" formatted="false">Tekrar Dene</string>
+    <string name="rewarded_ad_service" formatted="false">Ödüllü Reklam Hizmeti</string>
+    <string name="ridesharing" formatted="false">Araç Paylaşımı</string>
+    <string name="risk" formatted="false">Risk</string>
+    <string name="risk_level" formatted="false">Risk Seviyesi</string>
+    <string name="risk_level_critical" formatted="false">Kritik</string>
+    <string name="risk_level_high" formatted="false">Yüksek</string>
+    <string name="risk_level_label" formatted="false">Risk Seviyesi</string>
+    <string name="risk_level_low" formatted="false">Düşük</string>
+    <string name="risk_level_medium" formatted="false">Orta</string>
+    <string name="risk_level_very_low" formatted="false">Çok Düşük</string>
+    <string name="robocall" formatted="false">Robot Çağrı</string>
+    <string name="rule_action" formatted="false">Kural Eylemi</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">Kural başarıyla eklendi</string>
+    <string name="rule_added_success" formatted="false">Kural başarıyla eklendi</string>
+    <string name="rule_delete_confirm_content" formatted="false">Bu {ruleType} silmek istediğinizden emin misiniz?</string>
+    <string name="rule_delete_confirm_title" formatted="false">Kuralı Sil</string>
+    <string name="rule_delete_failed" formatted="false">Kural silinemedi: {error}</string>
+    <string name="rule_delete_success" formatted="false">Kural başarıyla silindi</string>
+    <string name="rule_deleted_successfully" formatted="false">Kural başarıyla silindi</string>
+    <string name="rule_disabled_successfully" formatted="false">Kural başarıyla devre dışı bırakıldı</string>
+    <string name="rule_enabled_successfully" formatted="false">Kural başarıyla etkinleştirildi</string>
+    <string name="rule_load_failed" formatted="false">Kurallar yüklenemedi: {error}</string>
+    <string name="rule_management" formatted="false">Kural Yönetimi</string>
+    <string name="rule_name" formatted="false">Kural Adı</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">Kural adı ve içerik regex\'i boş olamaz</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">Kural adı ve telefon numarası boş olamaz</string>
+    <string name="rule_name_hint" formatted="false">örn., Aile, Arkadaşlar, vb.</string>
+    <string name="rule_name_label" formatted="false">Kural Adı</string>
+    <string name="rule_name_required" formatted="false">Kural adı ve telefon numarası boş olamaz</string>
+    <string name="rule_not_exist" formatted="false">Kural mevcut değil veya silinmiş</string>
+    <string name="rule_not_found" formatted="false">Kural bulunamadı: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">Kural başarıyla kaydedildi!</string>
+    <string name="rule_status_changed" formatted="false">Kural başarıyla {status} oldu</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">İşlem başarısız oldu: {error}</string>
+    <string name="rule_toggle_success" formatted="false">Kural başarıyla {status} oldu</string>
+    <string name="rule_type" formatted="false">Kural Türü</string>
+    <string name="rule_update_failed" formatted="false">Kural güncellenemedi: {error}</string>
+    <string name="rule_update_success" formatted="false">Kural başarıyla güncellendi</string>
+    <string name="rule_verification" formatted="false">Kural Doğrulaması</string>
+    <string name="rules_exported_successfully" formatted="false">Kurallar başarıyla dışa aktarıldı</string>
+    <string name="rules_exported_to" formatted="false">Kurallar şuraya dışa aktarıldı: {path}</string>
+    <string name="rules_imported" formatted="false">Kurallar başarıyla içe aktarıldı</string>
+    <string name="rules_imported_successfully" formatted="false">{count} kural başarıyla içe aktarıldı</string>
+    <string name="save" formatted="false">Kaydet</string>
+    <string name="save_button" formatted="false">Kaydet</string>
+    <string name="save_button_text" formatted="false">Kaydet</string>
+    <string name="save_failed" formatted="false">Kaydetme başarısız oldu: {error}</string>
+    <string name="save_script" formatted="false">Betiği Kaydet</string>
+    <string name="save_settings" formatted="false">Ayarları Kaydet</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">Dolandırıcılık Olası</string>
+    <string name="script_saved" formatted="false">Betik kaydedildi</string>
+    <string name="scroll_speed" formatted="false">Kaydırma Hızı</string>
+    <string name="scrolling_security_message_settings" formatted="false">Kaydırma Güvenlik Mesajı Ayarları</string>
+    <string name="search" formatted="false">Ara</string>
+    <string name="search_by_name_or_phone_number" formatted="false">İsim veya Telefon Numarasına Göre Ara</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">Kişi aboneliklerini ara</string>
+    <string name="search_contacts" formatted="false">Kişileri Ara</string>
+    <string name="search_error" formatted="false">Arama hatası: {error}</string>
+    <string name="search_hint" formatted="false">Ara...</string>
+    <string name="search_labels_hint" formatted="false">Etiketleri ara</string>
+    <string name="search_marked_phones_hint" formatted="false">İşaretlenmiş telefonları ara</string>
+    <string name="search_phone_rules_hint" formatted="false">Telefon kurallarını ara</string>
+    <string name="search_plugins_hint" formatted="false">Eklentileri ara</string>
+    <string name="search_proposals" formatted="false">Teklif Ara</string>
+    <string name="search_regex_rules_hint" formatted="false">Regex kurallarını ara</string>
+    <string name="search_subscriptions_hint" formatted="false">Abonelikleri ara</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">Hiçbir telefon görüşmesine güvenmeyin. Müşteri hizmetleri numaralarını her zaman bağımsız olarak doğrulayın. Asla şifreleri, doğrulama kodlarını, kart numaralarını veya kişisel bilgileri paylaşmayın.</string>
+    <string name="select_action" formatted="false">Eylemi seçin</string>
+    <string name="select_action_when_blocking_calls" formatted="false">Çağrıları engellerken eylem seçin</string>
+    <string name="select_action_when_rule_matches" formatted="false">Kural eşleştiğinde eylem seçin</string>
+    <string name="select_all" formatted="false">Hepsini Seç</string>
+    <string name="select_country" formatted="false">Ülke Seç</string>
+    <string name="select_export_format" formatted="false">Dışa Aktarma Biçimini Seçin</string>
+    <string name="select_label" formatted="false">Etiket Seç</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">Lütfen bir etiket seçin ve geçerli bir telefon numarası girin</string>
+    <string name="select_language" formatted="false">Dil Seç</string>
+    <string name="select_multiple" formatted="false">Birden Fazla Seç</string>
+    <string name="select_sim_card" formatted="false">SIM Kart Seç</string>
+    <string name="select_tags" formatted="false">Etiketleri Seç</string>
+    <string name="select_target_service" formatted="false">Hedef hizmeti seçin</string>
+    <string name="select_trusted_data_source" formatted="false">Lütfen güvenilir veri kaynaklarını seçin</string>
+    <string name="select_your_language" formatted="false">Dilinizi Seçin</string>
+    <string name="selected_items" formatted="false">{count} öğe seçildi</string>
+    <string name="selected_label" formatted="false">Seçilen:</string>
+    <string name="sender" formatted="false">Gönderen</string>
+    <string name="sender_regex_optional" formatted="false">Gönderen Regex (Opsiyonel)</string>
+    <string name="separate_sims" formatted="false">Ayrı SIM\'ler</string>
+    <string name="separate_sims_desc" formatted="false">Her SIM kart için ayrı filtreleme kurallarını etkinleştir</string>
+    <string name="server_address_label" formatted="false">Sunucu Adresi</string>
+    <string name="service_type_contact" formatted="false">Kişi Aboneliği</string>
+    <string name="service_type_label" formatted="false">Hizmet Türü</string>
+    <string name="service_type_phone" formatted="false">Telefon Aboneliği</string>
+    <string name="service_type_plugin" formatted="false">Eklenti Güncellemesi</string>
+    <string name="service_type_sms" formatted="false">SMS Aboneliği</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">Gecikme Süresini Ayarla</string>
+    <string name="set_encryption_password" formatted="false">Şifreleme Parolası Belirle</string>
+    <string name="settings" formatted="false">Ayarlar</string>
+    <string name="settings_backed_up_to" formatted="false">Ayarlar şuraya yedeklendi: {path}</string>
+    <string name="settings_backup" formatted="false">Ayarlar Yedekleme</string>
+    <string name="settings_restored_successfully" formatted="false">Ayarlar başarıyla geri yüklendi. Değişikliklerin etkili olması için lütfen uygulamayı yeniden başlatın.</string>
+    <string name="settings_save_failed" formatted="false">Ayarlar kaydedilemedi: {error}</string>
+    <string name="settings_saved" formatted="false">Ayarlar kaydedildi</string>
+    <string name="settings_tab" formatted="false">Ayarlar</string>
+    <string name="settings_title" formatted="false">Ayarlar</string>
+    <string name="setup" formatted="false">Kurulum</string>
+    <string name="show_all_contacts" formatted="false">Tüm Kişileri Göster</string>
+    <string name="show_favorites" formatted="false">Favorileri Göster</string>
+    <string name="silence" formatted="false">Sessize Al</string>
+    <string name="silence_action_description" formatted="false">Aramalar sessize alınacak ancak arama kaydında gösterilecektir.</string>
+    <string name="silence_and_no_answer" formatted="false">Zil Sesini Sessize Al</string>
+    <string name="silence_no_answer" formatted="false">Sessize Al Cevaplama</string>
+    <string name="silent_call_voice_clone" formatted="false">Sessiz Çağrı Ses Klonu</string>
+    <string name="silent_rules" formatted="false">Sessiz Kurallar</string>
+    <string name="sim_card" formatted="false">SIM Kart {simNumber}</string>
+    <string name="sim_card_color" formatted="false">SIM Kart Rengi</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• SIM Kart Yapılandırması: Her SIM kart için bağımsız filtreleme kuralları ayarlayın</string>
+    <string name="sim_card_filter_rules" formatted="false">SIM Kart Filtre Kuralları</string>
+    <string name="sim_card_filter_rules_description" formatted="false">SIM kart yuvalarına göre farklı filtreleme kuralları ayarlayın</string>
+    <string name="sim_card_font_size" formatted="false">SIM Kart Yazı Tipi Boyutu</string>
+    <string name="sim_card_position" formatted="false">SIM Kart Konumu</string>
+    <string name="sim_card_title" formatted="false">SIM Kart</string>
+    <string name="sim_country" formatted="false">SIM Ülkesi</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">SIM yuvası kuralları, her bir SIM yuvası için bağımsız filtreleme kuralları yapılandırmanıza olanak tanır.</string>
+    <string name="sim_rule_instructions_title" formatted="false">SIM Yuvası Kuralları</string>
+    <string name="sim_rules_not_found" formatted="false">SIM Kuralları bulunamadı</string>
+    <string name="sim_slot" formatted="false">SIM Yuvası</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">Her bir SIM kart için bağımsız filtreleme kuralları yapılandırın:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">SIM Yuvası {slotNumber} Filtre Ayarları</string>
+    <string name="sim_slot_management" formatted="false">SIM Yuvası Yönetimi</string>
+    <string name="sim_slot_position" formatted="false">SIM Yuvası Konumu {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• SIM Yuvası Kuralları: SIM başına bağımsız filtreleme stratejileri</string>
+    <string name="sim_slot_rule_list_title" formatted="false">SIM Yuvası Kuralları Listesi</string>
+    <string name="sim_slot_rule_management" formatted="false">SIM Yuvası Kuralları</string>
+    <string name="sim_slot_rules" formatted="false">SIM Yuvası Kuralları</string>
+    <string name="sim_slot_title" formatted="false">SIM Yuvası {slotNumber}</string>
+    <string name="sim_state" formatted="false">SIM Durumu</string>
+    <string name="skip" formatted="false">Atla</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">Akıllı Arama Tanımlama</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">SMS filtreleme, spam mesajlarını otomatik olarak filtrelemenize ve mesaj listenizi temiz tutmanıza yardımcı olur. Filtre kurallarını ve bildirim yöntemlerini ayarlayabilirsiniz.</string>
+    <string name="sms_filter_disabled" formatted="false">SMS filtreleme devre dışı</string>
+    <string name="sms_filter_enabled" formatted="false">SMS filtreleme etkin</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">SMS filtre kuralı başarıyla eklendi</string>
+    <string name="sms_filter_rules" formatted="false">SMS Filtre Kuralları</string>
+    <string name="sms_filter_settings" formatted="false">SMS Filtre Ayarları</string>
+    <string name="sms_management" formatted="false">SMS Yönetimi</string>
+    <string name="sms_permission" formatted="false">SMS İzni</string>
+    <string name="sms_permission_description" formatted="false">Spam mesajlarını filtrelemek için kullanılır.</string>
+    <string name="sms_rule_added_successfully" formatted="false">SMS kuralı başarıyla eklendi</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">SMS kuralı başarıyla silindi</string>
+    <string name="sms_rule_load_failed" formatted="false">SMS kuralları yüklenemedi: {error}</string>
+    <string name="sms_rule_management" formatted="false">SMS Kural Yönetimi</string>
+    <string name="sms_rule_subscription" formatted="false">SMS Kuralı Aboneliği</string>
+    <string name="sms_subscription" formatted="false">SMS Aboneliği</string>
+    <string name="sms_subscription_added_successfully" formatted="false">SMS aboneliği başarıyla eklendi</string>
+    <string name="sms_subscription_rules_description" formatted="false">URL üzerinden SMS kural listelerine abone olun, normal ifade eşleştirmesini destekler. Engelleme veya izin verme eylemleri ayarlayabilirsiniz.</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">Bazı izin istekleri reddedildi</string>
+    <string name="sort_by" formatted="false">Sırala</string>
+    <string name="sort_least_popular" formatted="false">En Az Popülere Göre Sırala</string>
+    <string name="sort_most_popular" formatted="false">En Popülere Göre Sırala</string>
+    <string name="sort_newest" formatted="false">En Yeniye Göre Sırala</string>
+    <string name="sort_oldest" formatted="false">En Eskiye Göre Sırala</string>
+    <string name="spam_likely" formatted="false">Spam Olasılığı Yüksek</string>
+    <string name="start_color" formatted="false">Başlangıç Rengi</string>
+    <string name="start_date" formatted="false">Başlangıç Tarihi</string>
+    <string name="start_using" formatted="false">Başlayın</string>
+    <string name="stat_answered" formatted="false">Cevaplandı</string>
+    <string name="stat_blocked" formatted="false">Engellendi</string>
+    <string name="statistics" formatted="false">İstatistikler</string>
+    <string name="statistics_page_title" formatted="false">Veri Analizi</string>
+    <string name="status_connected" formatted="false">Bağlandı / Yapılandırıldı</string>
+    <string name="status_label" formatted="false">Durum</string>
+    <string name="status_not_configured" formatted="false">Yapılandırılmadı</string>
+    <string name="stir_color" formatted="false">STIR Rengi</string>
+    <string name="stir_failed" formatted="false">Doğrulama Başarısız</string>
+    <string name="stir_font_size" formatted="false">STIR Yazı Tipi Boyutu</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">STIR Konumu</string>
+    <string name="stir_unknown" formatted="false">Bilinmeyen Doğrulama Durumu</string>
+    <string name="stir_verification" formatted="false">STIR/SHAKEN Doğrulaması</string>
+    <string name="stir_verification_body" formatted="false">{phoneNumber} numarası için {stirResultMessage}</string>
+    <string name="stir_verification_description" formatted="false">Numaralar için STIR/SHAKEN doğrulama sonuçlarını görüntüler.</string>
+    <string name="stir_verification_title" formatted="false">STIR/SHAKEN Doğrulaması</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">Depolama İzni</string>
+    <string name="storage_permission_description" formatted="false">Ayarları ve kuralları kaydetmek için kullanılır.</string>
+    <string name="submit" formatted="false">Gönder</string>
+    <string name="subscribe" formatted="false">Abone Ol</string>
+    <string name="subscription_add_success" formatted="false">&quot;{name}&quot; aboneliği başarıyla eklendi</string>
+    <string name="subscription_delete_confirm_content" formatted="false">Bu aboneliği silmek istediğinizden emin misiniz?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">Aboneliği Sil</string>
+    <string name="subscription_delete_failed" formatted="false">Abonelik silinemedi: {error}</string>
+    <string name="subscription_delete_success" formatted="false">Abonelik silindi</string>
+    <string name="subscription_deleted" formatted="false">Abonelik silindi</string>
+    <string name="subscription_load_failed" formatted="false">Abonelikler yüklenemedi: {error}</string>
+    <string name="subscription_name" formatted="false">Abonelik Adı</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">Abonelik adı ve URL boş olamaz</string>
+    <string name="subscription_name_hint" formatted="false">Abonelik adı girin</string>
+    <string name="subscription_status_change_failed" formatted="false">Abonelik durumu değiştirilemedi: {error}</string>
+    <string name="subscription_update_failed" formatted="false">Abonelik güncellenemedi: {error}</string>
+    <string name="subscription_update_success" formatted="false">Abonelik başarıyla güncellendi</string>
+    <string name="subscription_url" formatted="false">Abonelik URL\'si</string>
+    <string name="subscription_url_hint" formatted="false">Abonelik URL\'si girin</string>
+    <string name="successfully_imported_rules" formatted="false">{count} kural başarıyla içe aktarıldı</string>
+    <string name="supabase_anon_key" formatted="false">Anon Anahtarı</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anonim genel anahtar</string>
+    <string name="supabase_project_url" formatted="false">Supabase Proje URL\'si</string>
+    <string name="support" formatted="false">Destek</string>
+    <string name="support_count" formatted="false">Destek ({supportCount})</string>
+    <string name="support_sync" formatted="false">Senkronizasyonu Destekle</string>
+    <string name="supported" formatted="false">DESTEKLENİYOR</string>
+    <string name="survey" formatted="false">Anket</string>
+    <string name="sync_call_history" formatted="false">Arama Geçmişini Senkronize Et</string>
+    <string name="sync_call_history_subtitle" formatted="false">Senkronizasyona özel arama kaydını dahil et</string>
+    <string name="sync_devices_button" formatted="false">Cihazları Senkronize Et</string>
+    <string name="sync_failed" formatted="false">Senkronizasyon başarısız oldu</string>
+    <string name="sync_failed_message" formatted="false">Senkronizasyon başarısız oldu</string>
+    <string name="sync_folder_name_label" formatted="false">Senkronizasyon Klasör Adı</string>
+    <string name="sync_interval_label" formatted="false">Otomatik Senkronizasyon Aralığı</string>
+    <string name="sync_interval_value" formatted="false">Her {hours} saatte bir</string>
+    <string name="sync_now" formatted="false">Şimdi Senkronize Et</string>
+    <string name="sync_now_button" formatted="false">Şimdi Senkronize Et</string>
+    <string name="sync_status_title" formatted="false">Senkronizasyon Durumu</string>
+    <string name="sync_status_updated_message" formatted="false">Senkronizasyon durumu güncellendi</string>
+    <string name="sync_success" formatted="false">Senkronizasyon Tamamlandı. Gönderilen: {pushed}, Alınan: {pulled}</string>
+    <string name="sync_success_message" formatted="false">Senkronizasyon başarılı</string>
+    <string name="sync_with_cloud_storage" formatted="false">Bulut Depolama ile Senkronize Et</string>
+    <string name="synced" formatted="false">Senkronize Edildi</string>
+    <string name="synchronized" formatted="false">Senkronize Edildi</string>
+    <string name="syncing" formatted="false">Senkronize ediliyor...</string>
+    <string name="system_features" formatted="false">Sistem Özellikleri:</string>
+    <string name="system_settings_title" formatted="false">Sistem Ayarları</string>
+    <string name="tab_all" formatted="false">Tümü</string>
+    <string name="tab_answered" formatted="false">Cevaplanan</string>
+    <string name="tab_blocked" formatted="false">Engellenen</string>
+    <string name="tab_missed" formatted="false">Cevapsız</string>
+    <string name="tab_outgoing" formatted="false">Giden</string>
+    <string name="tag_label" formatted="false">Etiket: {tag}</string>
+    <string name="takeaway" formatted="false">Çıkarım</string>
+    <string name="telecommunication" formatted="false">Telekomünikasyon</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">Telepazarlama</string>
+    <string name="temp_purchase_expired" formatted="false">Geçici satın alma ayrıcalığı sona erdi</string>
+    <string name="temporary_vip" formatted="false">Geçici VIP</string>
+    <string name="test_button" formatted="false">TEST</string>
+    <string name="test_connection_button" formatted="false">Bağlantıyı Test Et</string>
+    <string name="test_plugin" formatted="false">Eklentiyi Test Et</string>
+    <string name="text_colors_setting" formatted="false">Metin ve Etiket Renkleri</string>
+    <string name="theme_dark" formatted="false">Koyu</string>
+    <string name="theme_light" formatted="false">Açık</string>
+    <string name="theme_settings_subtitle" formatted="false">Favori temanızı seçin</string>
+    <string name="theme_settings_title" formatted="false">Tema Ayarları</string>
+    <string name="theme_system" formatted="false">Sistem Varsayılanı</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">Bu uygulama, istenmeyen aramaları tanımlamanıza ve engellemenize olanak tanıyan güçlü bir arayan kimliği aracıdır.</string>
+    <string name="this_week" formatted="false">Bu Hafta</string>
+    <string name="time_interceptor" formatted="false">Sık Arama Koruması</string>
+    <string name="time_interceptor_description" formatted="false">Aynı numaradan kısa sürede yapılan tekrarlı aramaları engelle</string>
+    <string name="time_interceptor_explanation" formatted="false">• Zaman Engelleyici: Kısa sürede tekrarlanan aramaları engelle/izin ver</string>
+    <string name="time_interceptor_explanation_content" formatted="false">Arama sıklığı engelleme özelliği, sık aranan spam aramaları otomatik olarak tanımlamak ve engellemek/izin vermek için arama sıklığını analiz eder.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">Arama Sıklığı Engelleme Açıklaması</string>
+    <string name="time_interceptor_settings_title" formatted="false">Arama Sıklığı Engelleme Ayarları</string>
+    <string name="time_window_description" formatted="false">Tekrarlanan aramalara izin vermek için zaman penceresi boyutunu ayarlayın. Bu pencere içindeki aynı numaradan gelen aramalara izin verilecektir</string>
+    <string name="time_window_label" formatted="false">Engelleme Zaman Penceresi (dakika): {minutes}</string>
+    <string name="timeline_view" formatted="false">Zaman Çizelgesi Görünümü</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">Bugün</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">Toplam</string>
+    <string name="total_blocked" formatted="false">Toplam Engellenen</string>
+    <string name="total_pending_proposals" formatted="false">Toplam Bekleyen Teklifler</string>
+    <string name="total_proposals" formatted="false">Toplam Teklifler</string>
+    <string name="total_votes" formatted="false">Toplam: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">Verileri cihazlar veya platformlar arasında aktar</string>
+    <string name="travel_ticketing" formatted="false">Seyahat Biletleme</string>
+    <string name="tutorial" formatted="false">Eğitim</string>
+    <string name="type" formatted="false">Tür</string>
+    <string name="unassigned_s_i_m_card" formatted="false">Atanmamış SIM Kart</string>
+    <string name="unblock" formatted="false">Engeli Kaldır</string>
+    <string name="unblock_number" formatted="false">Numaranın Engelini Kaldır</string>
+    <string name="unblock_number_confirmation" formatted="false">{phoneNumber} engelini kaldırmak istediğinizden emin misiniz?</string>
+    <string name="unblock_number_failed" formatted="false">Numaranın engeli kaldırılamadı</string>
+    <string name="unblock_number_success" formatted="false">Numaranın engeli başarıyla kaldırıldı</string>
+    <string name="unblocked" formatted="false">Engeli kaldırıldı</string>
+    <string name="unknown" formatted="false">Bilinmeyen</string>
+    <string name="unknown_tag" formatted="false">Etiket: Bilinmeyen</string>
+    <string name="unregister_button" formatted="false">Kaydı Sil</string>
+    <string name="unregister_device_confirmation_message" formatted="false">{deviceName} kaydını silmek istediğinizden emin misiniz?</string>
+    <string name="unregister_device_title" formatted="false">Cihaz Kaydını Sil</string>
+    <string name="unsupported_file_format" formatted="false">Desteklenmeyen dosya formatı</string>
+    <string name="update" formatted="false">Güncelle</string>
+    <string name="update_all_now" formatted="false">Hepsini Şimdi Güncelle</string>
+    <string name="update_contact_failed" formatted="false">Kişi güncellenemedi: {error}</string>
+    <string name="update_favorite_status" formatted="false">Favori Durumunu Güncelle</string>
+    <string name="update_interval" formatted="false">Güncelleme Aralığı</string>
+    <string name="update_now" formatted="false">Şimdi Güncelle</string>
+    <string name="update_plugin" formatted="false">Eklentiyi Güncelle</string>
+    <string name="update_plugin_failed" formatted="false">Eklenti güncellenemedi: {error}</string>
+    <string name="update_rule_failed" formatted="false">Kural güncellenemedi: {error}</string>
+    <string name="update_subscription_failed" formatted="false">Abonelik güncellenemedi: {error}</string>
+    <string name="update_success" formatted="false">{service} başarıyla güncellendi ({count} kural)</string>
+    <string name="upgrade_to_vip" formatted="false">VIP\'e Yükselt</string>
+    <string name="use_cases_point1" formatted="false">• Otomatik yeniden arama spam aramalarını belirle</string>
+    <string name="use_cases_point2" formatted="false">• Kısa sürede birden çok kez arayan pazarlama aramalarını engelle</string>
+    <string name="use_cases_point3" formatted="false">• Telefon bombardımanını ve tacizi önle</string>
+    <string name="use_cases_title" formatted="false">Kullanım Durumları:</string>
+    <string name="use_global_settings" formatted="false">Genel Ayarları Kullan</string>
+    <string name="use_local_notification" formatted="false">Yerel Bildirimleri Kullan</string>
+    <string name="use_local_notification_description" formatted="false">Gelen aramalar için yerel bildirimleri etkinleştir</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">Desenleri tanımlamak için standart regex sözdizimini kullanın. Örnekler:</string>
+    <string name="use_stir_notification" formatted="false">STIR Bildirimini Kullan</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">Kullanıcı Adı</string>
+    <string name="verification_failed_text" formatted="false">Başarısız</string>
+    <string name="verification_report" formatted="false">Doğrulama Raporu</string>
+    <string name="verified_text" formatted="false">Doğrulandı</string>
+    <string name="verify" formatted="false">Doğrula</string>
+    <string name="version" formatted="false">Sürüm: {version}</string>
+    <string name="very_high" formatted="false">Çok Yüksek</string>
+    <string name="very_low" formatted="false">Çok Düşük</string>
+    <string name="view_details" formatted="false">Detayları Görüntüle</string>
+    <string name="vip3_days_with_ads" formatted="false">Reklamlı 3 günlük VIP (yalnızca senkronizasyon)</string>
+    <string name="vip5_days_no_ads" formatted="false">5 günlük tam özellikli reklamsız VIP</string>
+    <string name="vip7_days_no_ads" formatted="false">7 günlük tam özellikli reklamsız VIP</string>
+    <string name="vip_access_subtitle" formatted="false">Ücretsiz deneyim için reklam izleyin veya VIP satın alın</string>
+    <string name="vip_exchange_description" formatted="false">Telefon numarası işaretleme sayılarıyla VIP üyeliğini değiştir</string>
+    <string name="vip_exchange_service" formatted="false">VIP Takas Hizmeti</string>
+    <string name="vip_exchange_title" formatted="false">İşaret Takası VIP</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">VIP Kullanıcı</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">Ses Tanıma</string>
+    <string name="vote_agree" formatted="false">Katılıyorum</string>
+    <string name="vote_count" formatted="false">Oy Sayısı</string>
+    <string name="vote_disagree" formatted="false">Katılmıyorum</string>
+    <string name="vote_submitted" formatted="false">Oy başarıyla gönderildi</string>
+    <string name="voted" formatted="false">Oy Verildi</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} oy (%{supportPercentage} destek)</string>
+    <string name="voting_completed" formatted="false">Oylama Tamamlandı</string>
+    <string name="voting_completed_body" formatted="false">{phoneNumber} için topluluk oylaması sona erdi. Sonuç: {result} (%{supportPercentage} destek).</string>
+    <string name="waiting_for_more_votes" formatted="false">Daha fazla topluluk oyu bekleniyor</string>
+    <string name="watch_ad" formatted="false">Reklam İzle</string>
+    <string name="watch_ad_for_temp" formatted="false">Geçici Ayrıcalıklar için Reklam İzle</string>
+    <string name="watch_ad_for_temp_description" formatted="false">Bazı premium özellikleri geçici olarak açmak için kısa bir reklam izleyin</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">Geçici VIP ayrıcalıklarını almak için {count} reklam daha izlemeniz gerekiyor</string>
+    <string name="web_d_a_v_config_title" formatted="false">WebDAV Yapılandırması</string>
+    <string name="week" formatted="false">Hafta</string>
+    <string name="welcome" formatted="false">Hoş Geldiniz</string>
+    <string name="whitelist" formatted="false">Beyaz Liste</string>
+    <string name="width" formatted="false">Genişlik</string>
+    <string name="wildcard_matching_description" formatted="false">Herhangi bir karakterle eşleştirmek için \'.\' kullanın (örneğin \'123.456\', 123-456 ile eşleşir)</string>
+    <string name="wildcard_matching_title" formatted="false">Joker karakter eşleştirme:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">Esnek Filtreleme için Joker Karakter Desteği</string>
+    <string name="window_size_setting" formatted="false">Pencere Boyutu</string>
+    <string name="year" formatted="false">Yıl</string>
+    <string name="yesterday" formatted="false">Dün</string>
+</resources>

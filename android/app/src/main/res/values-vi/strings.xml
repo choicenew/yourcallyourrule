@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">Giới thiệu Đăng ký Danh bạ</string>
+    <string name="about_labels" formatted="false">Giới thiệu Nhãn</string>
+    <string name="about_phone_subscription_rules" formatted="false">Giới thiệu Quy tắc Đăng ký Điện thoại</string>
+    <string name="about_sms_filter" formatted="false">Giới thiệu Lọc SMS</string>
+    <string name="about_sms_subscription_rules" formatted="false">Giới thiệu Quy tắc Đăng ký SMS</string>
+    <string name="about_subtitle" formatted="false">Phiên bản ứng dụng và thông tin pháp lý</string>
+    <string name="about_title" formatted="false">Giới thiệu</string>
+    <string name="access_target_url" formatted="false">Truy cập URL đích</string>
+    <string name="action" formatted="false">Hành động</string>
+    <string name="action_all" formatted="false">Tất cả</string>
+    <string name="action_allow" formatted="false">Cho phép</string>
+    <string name="action_block" formatted="false">Chặn</string>
+    <string name="action_filter_title" formatted="false">Lọc theo Loại Hành động</string>
+    <string name="action_filter_tooltip" formatted="false">Bộ lọc Hành động</string>
+    <string name="action_none" formatted="false">Không Hành động</string>
+    <string name="action_silence" formatted="false">Im lặng</string>
+    <string name="action_tag" formatted="false">Hành động: {actionType}</string>
+    <string name="action_type" formatted="false">Loại Hành động</string>
+    <string name="action_unknown" formatted="false">Không xác định</string>
+    <string name="active_proposals" formatted="false">Đề xuất đang hoạt động</string>
+    <string name="add" formatted="false">Thêm</string>
+    <string name="add_allow_subscription" formatted="false">Thêm Đăng ký Cho phép</string>
+    <string name="add_allowed_blocked_rule" formatted="false">Thêm Quy tắc Cho phép/Chặn</string>
+    <string name="add_block_subscription" formatted="false">Thêm Đăng ký Chặn</string>
+    <string name="add_contact_button" formatted="false">Thêm Danh bạ</string>
+    <string name="add_contact_failed" formatted="false">Thêm danh bạ thất bại: {error}</string>
+    <string name="add_label" formatted="false">Thêm Nhãn</string>
+    <string name="add_label_button" formatted="false">Thêm Nhãn</string>
+    <string name="add_label_failed" formatted="false">Thêm nhãn thất bại: {error}</string>
+    <string name="add_name" formatted="false">Thêm Tên</string>
+    <string name="add_none_subscription" formatted="false">Thêm Đăng ký Không hành động</string>
+    <string name="add_phone_mark" formatted="false">Thêm Nhãn điện thoại</string>
+    <string name="add_phone_number_rule" formatted="false">Thêm Quy tắc Số điện thoại</string>
+    <string name="add_plugin" formatted="false">Thêm Plugin</string>
+    <string name="add_plugin_failed" formatted="false">Thêm plugin thất bại</string>
+    <string name="add_plugin_failed_with_error" formatted="false">Thêm plugin thất bại: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">Thêm Plugin từ Tệp cục bộ</string>
+    <string name="add_plugin_from_url" formatted="false">Thêm Plugin từ URL</string>
+    <string name="add_regex_rule" formatted="false">Thêm Quy tắc Regex</string>
+    <string name="add_rule" formatted="false">Thêm Quy tắc</string>
+    <string name="add_rule_failed" formatted="false">Thêm quy tắc thất bại: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">Thêm Quy tắc</string>
+    <string name="add_silence_subscription" formatted="false">Thêm Đăng ký Im lặng</string>
+    <string name="add_sms_filter_rule" formatted="false">Thêm Quy tắc Lọc SMS</string>
+    <string name="add_sms_rule" formatted="false">Thêm Quy tắc SMS</string>
+    <string name="add_sms_subscription" formatted="false">Thêm Đăng ký SMS</string>
+    <string name="add_subscription" formatted="false">Thêm Đăng ký</string>
+    <string name="add_subscription_button" formatted="false">Thêm Đăng ký</string>
+    <string name="add_subscription_failed" formatted="false">Thêm đăng ký thất bại: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">Thêm Đăng ký</string>
+    <string name="add_to_blacklist" formatted="false">Thêm vào Danh sách chặn</string>
+    <string name="add_to_favorites" formatted="false">Thêm vào Mục Yêu thích</string>
+    <string name="add_to_rules" formatted="false">Thêm vào Quy tắc</string>
+    <string name="add_to_whitelist" formatted="false">Thêm vào Danh sách cho phép</string>
+    <string name="added_to_favorites" formatted="false">Đã thêm vào danh bạ yêu thích</string>
+    <string name="advanced_mode" formatted="false">Chế độ Nâng cao</string>
+    <string name="agent" formatted="false">Tác nhân</string>
+    <string name="agree_votes" formatted="false">Đồng ý: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">Tất cả</string>
+    <string name="all_call_logs_cleared" formatted="false">Tất cả nhật ký cuộc gọi đã được xóa</string>
+    <string name="all_calls_tab" formatted="false">Tất cả</string>
+    <string name="all_permissions_granted" formatted="false">Đã cấp tất cả quyền</string>
+    <string name="all_services_status_subtitle" formatted="false">Trạng thái hiện tại của từng Dịch vụ Đám mây</string>
+    <string name="all_services_status_title" formatted="false">Trạng thái Dịch vụ hiện tại</string>
+    <string name="all_settings_completed" formatted="false">Đã hoàn tất tất cả cài đặt.</string>
+    <string name="all_update_success" formatted="false">Đã hoàn thành tất cả cập nhật ({count} quy tắc)</string>
+    <string name="allow" formatted="false">Cho phép</string>
+    <string name="allow_action_description" formatted="false">Cuộc gọi sẽ được cho phép, ngay cả khi số đó có trong danh sách chặn.</string>
+    <string name="allow_all_allow_rules" formatted="false">Bật tất cả quy tắc cho phép</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">Công tắc chính để áp dụng tất cả các quy tắc cho phép đã cấu hình</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">Cho phép Tất cả Số điện thoại trong Danh sách chặn</string>
+    <string name="allow_all_block_rules" formatted="false">Bật tất cả quy tắc chặn</string>
+    <string name="allow_all_block_rules_desc" formatted="false">Công tắc chính để áp dụng tất cả các quy tắc chặn đã cấu hình</string>
+    <string name="allow_allowed_numbers" formatted="false">Cho phép tất cả số được phê duyệt</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">Cho phép tất cả cuộc gọi đến từ các số trong danh sách cho phép của bạn</string>
+    <string name="allow_block" formatted="false">Cho phép/Chặn</string>
+    <string name="allow_blocked_numbers" formatted="false">Tạm dừng chặn danh sách đen</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">Tạm thời cho phép cuộc gọi từ các số trong danh sách chặn của bạn</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">Cho phép Số không vượt quá giới hạn</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">Tự động cho phép các số không vượt quá ngưỡng số lượng</string>
+    <string name="allow_regex_allow_rules" formatted="false">Bật quy tắc cho phép bằng Regex</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">Bật đối sánh mẫu biểu thức chính quy cho các quy tắc cho phép</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">Bật quy tắc cho phép dựa trên regex</string>
+    <string name="allow_regex_block_rules" formatted="false">Bật quy tắc chặn bằng Regex</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">Bật đối sánh mẫu biểu thức chính quy cho các quy tắc chặn</string>
+    <string name="allow_regex_block_rules_description" formatted="false">Bật quy tắc chặn dựa trên regex</string>
+    <string name="allow_rule" formatted="false">Quy tắc Cho phép</string>
+    <string name="allow_rules" formatted="false">Quy tắc Cho phép</string>
+    <string name="allowed_blocked_rule" formatted="false">Quy tắc Cho phép/Chặn</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">Chỉnh sửa Quy tắc Cho phép/Chặn</string>
+    <string name="allowed_blocked_rule_management" formatted="false">Quản lý Quy tắc Cho phép/Chặn</string>
+    <string name="allowed_blocked_rules_info" formatted="false">Các quy tắc cho phép/chặn được sử dụng để khớp các cuộc gọi với các số điện thoại cụ thể, có ưu tiên cao nhất.</string>
+    <string name="and_more_items" formatted="false">và {count} mục khác</string>
+    <string name="answer_then_hangup" formatted="false">Trả lời rồi cúp máy</string>
+    <string name="answer_then_hangup_description" formatted="false">Trả lời cuộc gọi trước, sau đó cúp máy ngay lập tức.</string>
+    <string name="app_name" formatted="false">Your Call Your Rule</string>
+    <string name="application_software" formatted="false">Phần mềm ứng dụng</string>
+    <string name="apply" formatted="false">Áp dụng</string>
+    <string name="approved" formatted="false">ĐÃ PHÊ DUYỆT</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">Ủy quyền thất bại: Vui lòng kiểm tra ID khách hàng và khóa</string>
+    <string name="authorization_failed_message" formatted="false">Ủy quyền thất bại</string>
+    <string name="authorization_success_message" formatted="false">Ủy quyền thành công</string>
+    <string name="authorize_login_button" formatted="false">Ủy quyền Đăng nhập</string>
+    <string name="auto_cancel_notification" formatted="false">Tự động hủy thông báo</string>
+    <string name="auto_cancel_notification_description" formatted="false">Nếu được chọn, thông báo sẽ tự động bị loại bỏ khi người dùng nhấn vào.</string>
+    <string name="auto_sync_label" formatted="false">Tự động đồng bộ</string>
+    <string name="auto_update" formatted="false">Tự động cập nhật</string>
+    <string name="auto_update_description" formatted="false">Đặt khoảng thời gian tự động cập nhật cho các đăng ký hoặc cập nhật thủ công</string>
+    <string name="auto_update_settings" formatted="false">Cài đặt tự động cập nhật</string>
+    <string name="auto_update_subtitle" formatted="false">Quản lý cập nhật tự động cho quy tắc và plugin</string>
+    <string name="auto_update_title" formatted="false">Tự động cập nhật</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">Ngành công nghiệp ô tô</string>
+    <string name="avatar" formatted="false">Hình đại diện</string>
+    <string name="avatar_border_color" formatted="false">Màu viền ảnh đại diện</string>
+    <string name="avatar_border_size" formatted="false">Kích thước viền ảnh đại diện</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">Kích thước ảnh đại diện &amp; biểu tượng</string>
+    <string name="avatar_position" formatted="false">Vị trí ảnh đại diện</string>
+    <string name="avatar_size" formatted="false">Kích thước ảnh đại diện</string>
+    <string name="axis_position" formatted="false">Vị trí {axis}</string>
+    <string name="background_gradient_setting" formatted="false">Màu nền chuyển sắc</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">Sao lưu</string>
+    <string name="backup_and_restore" formatted="false">Sao lưu và khôi phục</string>
+    <string name="backup_and_restore_subtitle" formatted="false">Sao lưu hoặc khôi phục dữ liệu ứng dụng</string>
+    <string name="backup_and_restore_title" formatted="false">Sao lưu &amp; Khôi phục</string>
+    <string name="backup_failed" formatted="false">Sao lưu thất bại</string>
+    <string name="backup_settings" formatted="false">Cài đặt sao lưu</string>
+    <string name="backup_to_cloud" formatted="false">Sao lưu lên đám mây</string>
+    <string name="backup_to_cloud_failed" formatted="false">Không thể sao lưu lên đám mây: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">Sao lưu lên đám mây thành công</string>
+    <string name="bank" formatted="false">Ngân hàng</string>
+    <string name="basic_info" formatted="false">Thông tin cơ bản</string>
+    <string name="basic_rule_filter" formatted="false">Bộ lọc quy tắc cơ bản</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">Lọc cuộc gọi bằng danh sách đen/trắng và biểu thức chính quy</string>
+    <string name="basic_rule_filtering" formatted="false">Lọc quy tắc cơ bản</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• Lọc quy tắc cơ bản: Lọc quy tắc dựa trên danh sách đen, danh sách trắng và biểu thức chính quy</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">Bạn có chắc chắn muốn xóa {count} danh bạ đã chọn không?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">Bạn có chắc chắn muốn xóa {count} nhãn đã chọn không?</string>
+    <string name="battery_optimization_permission" formatted="false">Tối ưu hóa Pin</string>
+    <string name="battery_optimization_permission_description" formatted="false">Cho phép ứng dụng chạy nền để cung cấp các dịch vụ như nhận diện người gọi.</string>
+    <string name="black_white_list" formatted="false">Danh sách đen/trắng</string>
+    <string name="blacklist" formatted="false">Danh sách đen</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">Danh sách đen và Danh sách trắng</string>
+    <string name="block" formatted="false">Chặn</string>
+    <string name="block_action_description" formatted="false">Cuộc gọi sẽ bị chặn và hiển thị trong nhật ký cuộc gọi.</string>
+    <string name="block_calls" formatted="false">Chặn cuộc gọi</string>
+    <string name="block_international_calls" formatted="false">khớp với các số không bắt đầu bằng + hoặc 00</string>
+    <string name="block_international_calls_title" formatted="false">Chặn cuộc gọi quốc tế</string>
+    <string name="block_mobile_numbers" formatted="false">khớp với các số không bắt đầu bằng 13-19</string>
+    <string name="block_mobile_numbers_title" formatted="false">Chặn số điện thoại di động</string>
+    <string name="block_number" formatted="false">Chặn Số</string>
+    <string name="block_number_success" formatted="false">Chặn số thành công</string>
+    <string name="block_premium_rate_numbers" formatted="false">khớp với các số không bắt đầu bằng 118 hoặc 120-190</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">Chặn số dịch vụ giá cao</string>
+    <string name="block_rule" formatted="false">Quy tắc chặn</string>
+    <string name="block_rules" formatted="false">Quy tắc chặn</string>
+    <string name="block_specific_area_codes" formatted="false">khớp với các số bắt đầu bằng 0 + 2-3 chữ số</string>
+    <string name="block_specific_area_codes_title" formatted="false">Chặn mã vùng cụ thể:</string>
+    <string name="block_type_analysis_title" formatted="false">Phân tích loại chặn</string>
+    <string name="blocked" formatted="false">Đã chặn</string>
+    <string name="blocked_call_body" formatted="false">Cuộc gọi bị chặn từ {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">Thông báo cuộc gọi bị chặn</string>
+    <string name="blocked_call_notifications_description" formatted="false">Hiển thị thông tin về các cuộc gọi bị chặn.</string>
+    <string name="blocked_call_title" formatted="false">Cuộc gọi bị chặn</string>
+    <string name="blocked_calls" formatted="false">Cuộc gọi bị chặn</string>
+    <string name="blocked_calls_title" formatted="false">Cuộc gọi bị chặn</string>
+    <string name="blocked_spam_calls" formatted="false">Cuộc gọi rác bị chặn</string>
+    <string name="blocking_trend" formatted="false">Xu hướng chặn</string>
+    <string name="both" formatted="false">Cả hai</string>
+    <string name="bulk_delete" formatted="false">Xóa hàng loạt danh bạ</string>
+    <string name="bulk_delete_contacts" formatted="false">Xóa hàng loạt danh bạ</string>
+    <string name="bulk_delete_labels" formatted="false">Xóa hàng loạt nhãn</string>
+    <string name="call" formatted="false">Gọi</string>
+    <string name="call_blocking" formatted="false">Chặn cuộc gọi</string>
+    <string name="call_details" formatted="false">Chi tiết Cuộc gọi</string>
+    <string name="call_filter_rules" formatted="false">Quy tắc lọc cuộc gọi</string>
+    <string name="call_filter_rules_description" formatted="false">Đặt các quy tắc cơ bản để lọc cuộc gọi</string>
+    <string name="call_filter_settings" formatted="false">Cài đặt Bộ lọc cuộc gọi</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">Đặt giới hạn tần suất cuộc gọi và quy tắc chặn</string>
+    <string name="call_frequency_interception_title" formatted="false">Chặn theo tần suất cuộc gọi</string>
+    <string name="call_history" formatted="false">Lịch sử cuộc gọi</string>
+    <string name="call_history_info_desc" formatted="false">Tại đây hiển thị lịch sử cuộc gọi của bạn, bao gồm các cuộc gọi đến, đi và bị nhỡ.</string>
+    <string name="call_history_info_title" formatted="false">Lịch sử cuộc gọi</string>
+    <string name="call_history_tab" formatted="false">Lịch sử cuộc gọi</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">Quyền sàng lọc cuộc gọi</string>
+    <string name="call_screening_permission_description" formatted="false">Được sử dụng để sàng lọc và chặn các cuộc gọi rác.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">Quyền sàng lọc cuộc gọi chưa được cấp, có thể ảnh hưởng đến chức năng ứng dụng.</string>
+    <string name="call_statistics" formatted="false">Thống kê cuộc gọi</string>
+    <string name="call_time" formatted="false">Thời gian Cuộc gọi</string>
+    <string name="call_type" formatted="false">Loại Cuộc gọi</string>
+    <string name="call_type_answered" formatted="false">Đã trả lời</string>
+    <string name="call_type_blocked" formatted="false">Đã bị chặn</string>
+    <string name="call_type_icon_color" formatted="false">Màu biểu tượng loại cuộc gọi</string>
+    <string name="call_type_missed" formatted="false">Cuộc gọi nhỡ</string>
+    <string name="call_type_outgoing" formatted="false">Cuộc gọi đi</string>
+    <string name="call_type_position" formatted="false">Vị trí loại cuộc gọi</string>
+    <string name="call_type_rejected" formatted="false">Từ chối</string>
+    <string name="call_type_silenced" formatted="false">Im lặng</string>
+    <string name="call_type_unknown" formatted="false">Không xác định</string>
+    <string name="callback" formatted="false">Gọi lại</string>
+    <string name="caller_id_app" formatted="false">Ứng dụng hiển thị ID người gọi</string>
+    <string name="caller_id_customization_subtitle" formatted="false">Tùy chỉnh bố cục Caller ID</string>
+    <string name="caller_id_customization_title" formatted="false">Tùy chỉnh ID người gọi</string>
+    <string name="caller_id_display_mode" formatted="false">Chế độ hiển thị ID người gọi</string>
+    <string name="caller_id_enhancement" formatted="false">Cải tiến Caller ID</string>
+    <string name="caller_id_marked_by_count" formatted="false">Được đánh dấu bởi {count}</string>
+    <string name="caller_id_notification_title" formatted="false">Thông tin cuộc gọi đến</string>
+    <string name="caller_id_preview" formatted="false">Xem trước ID người gọi</string>
+    <string name="caller_id_settings_subtitle" formatted="false">Để thiết lập Thông báo cuộc gọi đến &amp; Chế độ hiển thị</string>
+    <string name="caller_id_settings_title" formatted="false">Cài đặt Caller ID</string>
+    <string name="calling_number_failed" formatted="false">Gọi số thất bại</string>
+    <string name="cancel" formatted="false">Hủy</string>
+    <string name="cancel_button" formatted="false">Hủy</string>
+    <string name="cancel_local_notification" formatted="false">Đóng Thông báo cục bộ</string>
+    <string name="cancel_local_notification_description" formatted="false">Tự động đóng Thông báo cục bộ</string>
+    <string name="car_rental" formatted="false">Thuê xe</string>
+    <string name="carrier" formatted="false">Nhà mạng</string>
+    <string name="carrier_color" formatted="false">Màu nhà mạng</string>
+    <string name="carrier_font_size" formatted="false">Cỡ chữ nhà mạng</string>
+    <string name="carrier_position" formatted="false">Vị trí nhà mạng</string>
+    <string name="change_label" formatted="false">Đổi nhãn</string>
+    <string name="change_plugin_status_failed" formatted="false">Thay đổi trạng thái plugin thất bại: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">Thay đổi trạng thái đăng ký thất bại: {error}</string>
+    <string name="charity" formatted="false">Từ thiện</string>
+    <string name="chart_one_week_ago" formatted="false">1 tuần trước</string>
+    <string name="chart_three_days_ago" formatted="false">3 ngày trước</string>
+    <string name="chart_today" formatted="false">Hôm nay</string>
+    <string name="check_file_format" formatted="false">Vui lòng kiểm tra định dạng tệp hoặc quyền</string>
+    <string name="check_permission_failed" formatted="false">Kiểm tra quyền thất bại: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">Chọn hành động chặn mặc định</string>
+    <string name="clear_all_call_logs" formatted="false">Xóa Tất cả Nhật ký Cuộc gọi</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">Xác nhận xóa tất cả nhật ký cuộc gọi</string>
+    <string name="clear_all_notifications" formatted="false">Xóa Tất cả Thông báo</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">Xác nhận xóa tất cả thông báo</string>
+    <string name="clear_button" formatted="false">Xóa</string>
+    <string name="clear_filter" formatted="false">Xóa bộ lọc</string>
+    <string name="clear_label_filter_button" formatted="false">Xóa bộ lọc nhãn</string>
+    <string name="close_button" formatted="false">Đóng</string>
+    <string name="cloud_backup" formatted="false">Sao lưu đám mây</string>
+    <string name="cloud_sync" formatted="false">Đồng bộ đám mây</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">Đồng bộ đám mây &amp; Sao lưu</string>
+    <string name="cloud_sync_service" formatted="false">Dịch vụ đồng bộ hóa đám mây</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">Cấu hình WebDAV, OneDrive và Google Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">Cài đặt Đồng bộ đám mây</string>
+    <string name="cloud_sync_title" formatted="false">Đồng bộ đám mây</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">Thu hồi nợ</string>
+    <string name="color_picker_title" formatted="false">Chọn màu</string>
+    <string name="community_impact" formatted="false">Tác động cộng đồng</string>
+    <string name="community_participation" formatted="false">Tham gia cộng đồng</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">Bình chọn cộng đồng</string>
+    <string name="community_voting_started" formatted="false">Bỏ phiếu cộng đồng đã bắt đầu</string>
+    <string name="community_voting_started_body" formatted="false">Một đề xuất xóa mới cho số {phoneNumber} hiện đã mở để cộng đồng bỏ phiếu.</string>
+    <string name="completed" formatted="false">HOÀN THÀNH</string>
+    <string name="config_management" formatted="false">Quản lý cấu hình</string>
+    <string name="config_saved" formatted="false">Đã lưu cấu hình!</string>
+    <string name="config_updated" formatted="false">Đã cập nhật cấu hình</string>
+    <string name="configuration_advice" formatted="false">Thông qua cấu hình phù hợp, bạn có thể đặt các chiến lược lọc khác nhau cho SIM công việc và SIM cá nhân.</string>
+    <string name="configure_backup_options" formatted="false">Cấu hình tùy chọn sao lưu</string>
+    <string name="configure_cloud_sync_service" formatted="false">Cấu hình Dịch vụ Đồng bộ đám mây</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">Vui lòng cấu hình dịch vụ đồng bộ đám mây để bật đồng bộ hóa đa thiết bị.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">Cấu hình Quy tắc lọc SIM</string>
+    <string name="confirm" formatted="false">Xác nhận</string>
+    <string name="confirm_button" formatted="false">Xác nhận</string>
+    <string name="confirm_delete" formatted="false">Xác nhận xóa</string>
+    <string name="confirm_delete_label" formatted="false">Bạn có chắc chắn muốn xóa nhãn &quot;{name}&quot; không</string>
+    <string name="confirm_delete_plugin" formatted="false">Bạn có chắc chắn muốn xóa plugin &quot;{name}&quot; không?</string>
+    <string name="confirm_delete_plugins" formatted="false">Bạn có chắc chắn muốn xóa {count} plugin không?</string>
+    <string name="confirm_delete_rule_message" formatted="false">Bạn có chắc chắn muốn xóa quy tắc này không? Hành động này không thể hoàn tác.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">Bạn có chắc chắn muốn xóa quy tắc lọc SMS này không?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">Bạn có chắc chắn muốn xóa quy tắc SMS này không?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">Bạn có chắc chắn muốn xóa {name} không?</string>
+    <string name="confirm_password" formatted="false">Xác nhận mật khẩu</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">Đã kết nối</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">Kết nối thất bại: Vui lòng kiểm tra địa chỉ máy chủ, tên người dùng và mật khẩu</string>
+    <string name="connection_failed_message" formatted="false">Kết nối thất bại</string>
+    <string name="connection_status_label" formatted="false">Trạng thái kết nối</string>
+    <string name="connection_string" formatted="false">Chuỗi kết nối (URI)</string>
+    <string name="connection_string_helper" formatted="false">Chỉ cần thiết khi \'Khởi tạo cơ sở dữ liệu\'</string>
+    <string name="connection_success_message" formatted="false">Kết nối thành công</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">Đã thêm liên hệ thành công</string>
+    <string name="contact_deleted" formatted="false">Đã xóa liên hệ</string>
+    <string name="contact_name_label" formatted="false">Tên</string>
+    <string name="contact_not_found" formatted="false">Không tìm thấy liên hệ</string>
+    <string name="contact_subscription_description" formatted="false">Đăng ký danh sách liên hệ qua URL, tự động cập nhật thông tin và nhãn liên hệ. Hỗ trợ dữ liệu định dạng JSON.</string>
+    <string name="contact_update_success" formatted="false">Đã cập nhật liên hệ thành công</string>
+    <string name="contact_us" formatted="false">Liên hệ với chúng tôi</string>
+    <string name="contacts" formatted="false">liên hệ</string>
+    <string name="contacts_deleted" formatted="false">Đã xóa {count} liên hệ</string>
+    <string name="contacts_management" formatted="false">Quản lý liên hệ</string>
+    <string name="contacts_permission" formatted="false">Quyền truy cập danh bạ</string>
+    <string name="contacts_permission_description" formatted="false">Được sử dụng để xác định cuộc gọi từ liên hệ.</string>
+    <string name="contacts_tab" formatted="false">Liên hệ</string>
+    <string name="container_width" formatted="false">Chiều rộng vùng chứa</string>
+    <string name="content" formatted="false">Nội dung</string>
+    <string name="content_regex" formatted="false">Regex Nội dung</string>
+    <string name="count_color" formatted="false">Màu số lượng</string>
+    <string name="count_font_size" formatted="false">Cỡ chữ số lượng</string>
+    <string name="count_position" formatted="false">Vị trí số lượng</string>
+    <string name="count_threshold_description" formatted="false">Đặt ngưỡng số lượng tối thiểu cần thiết để kích hoạt hành động lọc</string>
+    <string name="count_threshold_label" formatted="false">Ngưỡng số lượng</string>
+    <string name="country" formatted="false">Quốc gia</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">Ví dụ: US, CN, GB</string>
+    <string name="country_code_label" formatted="false">Mã quốc gia (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">Mã quốc gia là bắt buộc</string>
+    <string name="country_code_two_letters" formatted="false">Mã quốc gia (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">Xin lưu ý: Cơ sở dữ liệu có thể không bao gồm dữ liệu cho tất cả các quốc gia hoặc khu vực cụ thể.</string>
+    <string name="country_name_color" formatted="false">Màu tên quốc gia</string>
+    <string name="country_name_font_size" formatted="false">Cỡ chữ tên quốc gia</string>
+    <string name="country_region_name_position" formatted="false">Vị trí tên Quốc gia/Khu vực</string>
+    <string name="country_sync_settings_subtitle" formatted="false">Chọn quốc gia để đồng bộ hóa dữ liệu</string>
+    <string name="country_sync_settings_title" formatted="false">Cài đặt Đồng bộ hóa Cơ sở dữ liệu theo Quốc gia</string>
+    <string name="create_proposal" formatted="false">Tạo đề xuất</string>
+    <string name="create_proposal_title" formatted="false">Tạo đề xuất xóa</string>
+    <string name="created_at" formatted="false">Được tạo: {date}</string>
+    <string name="created_rules" formatted="false">Các quy tắc đã tạo</string>
+    <string name="critical" formatted="false">Nghiêm trọng</string>
+    <string name="critical_issues" formatted="false">Vấn đề nghiêm trọng</string>
+    <string name="csv_format" formatted="false">Định dạng CSV</string>
+    <string name="current_device_label" formatted="false">Nhãn thiết bị hiện tại</string>
+    <string name="current_device_title" formatted="false">Thiết bị hiện tại</string>
+    <string name="current_language" formatted="false">Ngôn ngữ hiện tại</string>
+    <string name="current_mark_count" formatted="false">Số Mark hiện tại</string>
+    <string name="custom" formatted="false">Tùy chỉnh</string>
+    <string name="custom_action_description" formatted="false">Thực hiện hành động tùy chỉnh.</string>
+    <string name="customer_service" formatted="false">Dịch vụ khách hàng</string>
+    <string name="dashboard_tab" formatted="false">Bảng điều khiển</string>
+    <string name="data_analysis" formatted="false">Phân tích dữ liệu</string>
+    <string name="data_load_failure" formatted="false">Tải dữ liệu thất bại: {error}</string>
+    <string name="data_loading_failed" formatted="false">Không thể tải dữ liệu: {error}</string>
+    <string name="data_migration" formatted="false">Di chuyển dữ liệu</string>
+    <string name="data_migration_description" formatted="false">Tính năng này cho phép bạn chuyển tất cả dữ liệu của mình giữa các thiết bị. Hiện tại, bạn có thể sử dụng tính năng sao lưu và khôi phục để di chuyển dữ liệu thủ công.</string>
+    <string name="data_source_disclaimer" formatted="false">Các số được lấy từ internet và do người dùng gửi. Chúng tôi không thể đảm bảo rằng một số, sau khi bị xóa, sẽ không được gửi lại bởi những người dùng hoặc nguồn khác. Vui lòng chủ động tìm kiếm và xác minh thông tin.</string>
+    <string name="data_source_reminder" formatted="false">Nhắc nhở nguồn dữ liệu</string>
+    <string name="database_sync_title" formatted="false">Đồng bộ hóa Cơ sở dữ liệu</string>
+    <string name="days" formatted="false">{count, plural, =1{1 ngày} other{{count} ngày}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 ngày trước} other{{count} ngày trước}}</string>
+    <string name="days_vip" formatted="false">{days} VIP</string>
+    <string name="db_init_success" formatted="false">Khởi tạo cơ sở dữ liệu thành công!</string>
+    <string name="debt_collection" formatted="false">Thu nợ</string>
+    <string name="deep_link_confirm_button" formatted="false">Xác nhận nhập</string>
+    <string name="deep_link_default_plugin_name" formatted="false">Plugin đã nhập</string>
+    <string name="deep_link_default_sub_name" formatted="false">Gói đăng ký đã nhập</string>
+    <string name="deep_link_detected_title" formatted="false">Đã phát hiện liên kết sâu</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL không được để trống</string>
+    <string name="deep_link_import_failed" formatted="false">Nhập thất bại: {error}</string>
+    <string name="deep_link_import_success" formatted="false">Nhập thành công</string>
+    <string name="deep_link_import_title" formatted="false">Nhập cấu hình</string>
+    <string name="deep_link_name_label" formatted="false">Tên</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Không thể tải xuống plugin: {error}</string>
+    <string name="deep_link_type_label" formatted="false">Loại</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Gói đăng ký</string>
+    <string name="deep_link_url_label" formatted="false">URL</string>
+    <string name="default_notifications" formatted="false">Thông báo mặc định</string>
+    <string name="default_notifications_description" formatted="false">Kênh thông báo mặc định cho ứng dụng.</string>
+    <string name="delete" formatted="false">Xóa</string>
+    <string name="delete_button" formatted="false">Xóa</string>
+    <string name="delete_contact" formatted="false">Xóa liên hệ</string>
+    <string name="delete_contact_confirm" formatted="false">Bạn có chắc chắn muốn xóa {name} không?</string>
+    <string name="delete_failed" formatted="false">Xóa thất bại: {error}</string>
+    <string name="delete_label" formatted="false">Xóa nhãn</string>
+    <string name="delete_label_failed" formatted="false">Không thể xóa nhãn: {error}</string>
+    <string name="delete_plugin" formatted="false">Xóa plugin</string>
+    <string name="delete_plugin_failed" formatted="false">Không thể xóa plugin: {error}</string>
+    <string name="delete_plugins" formatted="false">Xóa các plugin</string>
+    <string name="delete_plugins_failed" formatted="false">Không thể xóa các plugin: {error}</string>
+    <string name="delete_rule" formatted="false">Xóa quy tắc</string>
+    <string name="delete_rule_failed" formatted="false">Xóa thất bại: {error}</string>
+    <string name="delete_selected" formatted="false">Xóa đã chọn</string>
+    <string name="delete_subscription" formatted="false">Xóa đăng ký</string>
+    <string name="delete_subscription_confirm" formatted="false">Bạn có chắc chắn muốn xóa đăng ký &quot;{name}&quot; không?</string>
+    <string name="delete_subscription_failed" formatted="false">Không thể xóa đăng ký: {error}</string>
+    <string name="delete_success" formatted="false">Xóa thành công</string>
+    <string name="deletion_proposal" formatted="false">Đề xuất xóa</string>
+    <string name="deletion_proposal_created" formatted="false">Đã tạo đề xuất xóa</string>
+    <string name="deletion_proposal_created_body" formatted="false">Đề xuất xóa của bạn cho số {phoneNumber} đã được gửi để cộng đồng xem xét.</string>
+    <string name="deletion_proposal_description" formatted="false">Đề xuất các số điện thoại để xóa nếu vi phạm nguyên tắc cộng đồng. Sự tham gia của bạn giúp giữ cho nền tảng an toàn.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">Thông báo về kết quả bỏ phiếu đề xuất xóa và cập nhật.</string>
+    <string name="deletion_proposals" formatted="false">Các đề xuất xóa</string>
+    <string name="delivery" formatted="false">Phân phối</string>
+    <string name="description" formatted="false">Mô tả</string>
+    <string name="detailed_settings_title" formatted="false">Cài đặt chi tiết</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">ID thiết bị</string>
+    <string name="device_management_subtitle" formatted="false">Quản lý đồng bộ hóa đa thiết bị</string>
+    <string name="device_management_title" formatted="false">Quản lý thiết bị</string>
+    <string name="device_model_label" formatted="false">Mô hình thiết bị</string>
+    <string name="device_name" formatted="false">Tên thiết bị</string>
+    <string name="device_name_label" formatted="false">Tên Thiết Bị</string>
+    <string name="device_renamed_successfully_message" formatted="false">Đổi tên thiết bị thành công</string>
+    <string name="device_unregistered_successfully_message" formatted="false">Hủy đăng ký thiết bị thành công</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">Đồng bộ hóa thiết bị thành công</string>
+    <string name="dialog_title" formatted="false">Giải thích mẫu Regex</string>
+    <string name="different_from_local_counter" formatted="false">Tính năng này khác với bộ lọc bộ đếm cục bộ, vì nó tập trung vào các kiểu cuộc gọi lặp lại trong thời gian ngắn thay vì số lần đánh dấu dài hạn.</string>
+    <string name="disable_global_plugins" formatted="false">Tắt plugin toàn cầu</string>
+    <string name="disabled" formatted="false">Đã tắt</string>
+    <string name="disabled_status" formatted="false">Đã tắt</string>
+    <string name="disconnect_button" formatted="false">Ngắt kết nối</string>
+    <string name="disconnect_failed_message" formatted="false">Ngắt kết nối thất bại</string>
+    <string name="disconnected_message" formatted="false">Đã ngắt kết nối</string>
+    <string name="disconnected_status" formatted="false">Đã ngắt kết nối</string>
+    <string name="done" formatted="false">Xong</string>
+    <string name="dual_sim_advice" formatted="false">Tính năng này đặc biệt hữu ích cho điện thoại hai SIM để đặt các chiến lược lọc khác nhau cho thẻ SIM công việc và cá nhân.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">Số E164</string>
+    <string name="earlier" formatted="false">Trước đó</string>
+    <string name="earned_temp_vip" formatted="false">Đã nhận VIP tạm thời</string>
+    <string name="ecommerce" formatted="false">Thương mại điện tử</string>
+    <string name="edit" formatted="false">Chỉnh sửa</string>
+    <string name="edit_contact" formatted="false">Chỉnh sửa liên hệ</string>
+    <string name="edit_label" formatted="false">Chỉnh sửa nhãn</string>
+    <string name="edit_phone_rule" formatted="false">Chỉnh sửa quy tắc điện thoại</string>
+    <string name="edit_rule" formatted="false">Chỉnh sửa quy tắc</string>
+    <string name="edit_script" formatted="false">Chỉnh sửa Kịch bản</string>
+    <string name="edit_script_for" formatted="false">Chỉnh sửa kịch bản cho {pluginName}</string>
+    <string name="edit_subscription" formatted="false">Chỉnh sửa Đăng ký</string>
+    <string name="education" formatted="false">Giáo dục</string>
+    <string name="element_positions_setting" formatted="false">Vị trí phần tử</string>
+    <string name="elements_settings_title" formatted="false">Cài đặt thành phần</string>
+    <string name="email" formatted="false">Email</string>
+    <string name="enable_call_filter" formatted="false">Bật Bộ lọc cuộc gọi</string>
+    <string name="enable_call_filter_description" formatted="false">Khi được bật, các cuộc gọi đến sẽ được kiểm tra dựa trên danh sách quy tắc bên dưới. Các quy tắc lọc cuộc gọi không được đồng bộ hóa giữa các thiết bị theo mặc định.</string>
+    <string name="enable_encryption" formatted="false">Bật mã hóa</string>
+    <string name="enable_encryption_description" formatted="false">Mã hóa các tập tin sao lưu</string>
+    <string name="enable_filtering" formatted="false">Bật lọc</string>
+    <string name="enable_fraud_alert" formatted="false">Bật Cảnh báo Lừa đảo</string>
+    <string name="enable_fraud_alert_description" formatted="false">Cảnh báo cho các cuộc gọi lừa đảo bị nghi ngờ</string>
+    <string name="enable_global_plugins" formatted="false">Bật plugin toàn cầu</string>
+    <string name="enable_local_count_filter" formatted="false">Bật bảo vệ ngưỡng đánh dấu cục bộ</string>
+    <string name="enable_local_count_filter_description" formatted="false">Chặn cuộc gọi đến khi số lần báo cáo cục bộ vượt quá ngưỡng</string>
+    <string name="enable_local_notification" formatted="false">Sử dụng thông báo cục bộ</string>
+    <string name="enable_local_notification_description" formatted="false">Khi được bật, thông báo về tin nhắn đã lọc sẽ được hiển thị trên thiết bị</string>
+    <string name="enable_location_summary" formatted="false">Vị trí</string>
+    <string name="enable_mute_rules" formatted="false">Tắt tiếng cuộc gọi bị chặn</string>
+    <string name="enable_mute_rules_desc" formatted="false">Tắt tiếng chuông cuộc gọi bị chặn thay vì từ chối</string>
+    <string name="enable_none_action_rules" formatted="false">Chỉ ghi lại &amp; đánh dấu (Không chặn)</string>
+    <string name="enable_none_action_rules_desc" formatted="false">Ghi lại và đánh dấu cuộc gọi khớp mà không thực hiện hành động chặn nào</string>
+    <string name="enable_remote_number_filter" formatted="false">Bật bảo vệ ngưỡng truy vấn đám mây</string>
+    <string name="enable_remote_number_filter_description" formatted="false">Chặn cuộc gọi đến khi số lần báo cáo truy vấn đám mây vượt quá ngưỡng</string>
+    <string name="enable_rule" formatted="false">Bật Quy tắc</string>
+    <string name="enable_security_message" formatted="false">Bật Tin nhắn Bảo mật</string>
+    <string name="enable_sms_filter" formatted="false">Bật Lọc SMS</string>
+    <string name="enable_sms_filter_description" formatted="false">Khi được bật, tin nhắn sẽ được tự động lọc theo các quy tắc</string>
+    <string name="enable_time_interception" formatted="false">Bật Chặn theo thời gian</string>
+    <string name="enable_time_interception_description" formatted="false">Chặn các cuộc gọi lặp lại từ cùng một số trong thời gian ngắn</string>
+    <string name="enable_time_interceptor" formatted="false">Bật Bộ chặn theo thời gian</string>
+    <string name="enable_vibration" formatted="false">Bật Rung</string>
+    <string name="enable_vibration_description" formatted="false">Rung khi cuộc gọi bị nghi ngờ là cuộc gọi lừa đảo</string>
+    <string name="enabled" formatted="false">Đã bật</string>
+    <string name="enabled_status" formatted="false">Đã bật</string>
+    <string name="end_call_immediately" formatted="false">Chặn ngay lập tức</string>
+    <string name="end_color" formatted="false">Màu kết thúc</string>
+    <string name="end_date" formatted="false">Ngày kết thúc</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">Hệ thống lọc nâng cao</string>
+    <string name="enhanced_filter_settings" formatted="false">Cài đặt bộ lọc nâng cao</string>
+    <string name="enhanced_filter_settings_title" formatted="false">Cài đặt bộ lọc nâng cao</string>
+    <string name="enhanced_filter_system_description" formatted="false">Hệ thống lọc nâng cao hỗ trợ cả quy tắc toàn cầu và cấu hình lọc cho từng thẻ SIM.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">Vui lòng nhập cả số điện thoại và mẫu regex.</string>
+    <string name="enter_contact_name" formatted="false">Vui lòng nhập tên liên hệ</string>
+    <string name="enter_device_name" formatted="false">Nhập tên thiết bị</string>
+    <string name="enter_email_optional" formatted="false">Vui lòng nhập email (không bắt buộc)</string>
+    <string name="enter_encryption_password_hint" formatted="false">Nhập mật khẩu mã hóa</string>
+    <string name="enter_icon_code" formatted="false">Nhập mã biểu tượng</string>
+    <string name="enter_name" formatted="false">Nhập tên liên hệ</string>
+    <string name="enter_new_device_name_hint" formatted="false">Nhập tên mới cho thiết bị này</string>
+    <string name="enter_password_again" formatted="false">Nhập lại mật khẩu</string>
+    <string name="enter_phone_number" formatted="false">Nhập số điện thoại</string>
+    <string name="enter_phone_number_hint" formatted="false">Nhập số điện thoại để kiểm tra</string>
+    <string name="enter_phone_number_multiple" formatted="false">Vui lòng nhập số điện thoại, nhiều số cách nhau bằng dấu phẩy</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">Nhập số điện thoại để bắt đầu tìm kiếm</string>
+    <string name="enter_phone_number_to_verify" formatted="false">Nhập số điện thoại để xác minh</string>
+    <string name="enter_plugin_description" formatted="false">Nhập mô tả plugin</string>
+    <string name="enter_plugin_name" formatted="false">Nhập tên Plugin</string>
+    <string name="enter_plugin_url" formatted="false">Nhập địa chỉ URL plugin</string>
+    <string name="enter_regex_hint" formatted="false">Nhập mẫu regex</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">Vui lòng nhập cả tên quy tắc và mẫu regex.</string>
+    <string name="enter_rule_name_hint" formatted="false">Nhập tên quy tắc</string>
+    <string name="enter_search_content" formatted="false">Vui lòng nhập nội dung tìm kiếm</string>
+    <string name="enter_subscription_name" formatted="false">Nhập tên đăng ký</string>
+    <string name="enter_subscription_url" formatted="false">Nhập URL đăng ký</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">Vui lòng nhập tên thư mục đồng bộ (mặc định: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">Vui lòng nhập tên và URL hợp lệ</string>
+    <string name="enter_valid_url" formatted="false">Vui lòng nhập URL hợp lệ</string>
+    <string name="enter_version" formatted="false">Nhập Phiên bản</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">Vui lòng nhập mật khẩu WebDAV</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">Vui lòng nhập địa chỉ máy chủ WebDAV</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">Vui lòng nhập tên người dùng WebDAV</string>
+    <string name="entertainment" formatted="false">Giải trí</string>
+    <string name="entity_export_failed" formatted="false">Không thể xuất {entityTypeName}: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} được xuất thành công</string>
+    <string name="entity_import_failed" formatted="false">Không thể nhập {entityTypeName}: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} được nhập thành công, tổng cộng {count} bản ghi được nhập</string>
+    <string name="entry_point_view_title" formatted="false">Màn hình điểm vào</string>
+    <string name="error_loading_settings" formatted="false">Lỗi khi tải cài đặt</string>
+    <string name="error_message" formatted="false">Lỗi: {error}</string>
+    <string name="error_occurred_message" formatted="false">Đã xảy ra lỗi: {error}</string>
+    <string name="error_prefix" formatted="false">Lỗi</string>
+    <string name="error_renaming_device_message" formatted="false">Lỗi khi đổi tên thiết bị: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">Lỗi đồng bộ hóa thiết bị: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">Lỗi khi hủy đăng ký thiết bị: {error}</string>
+    <string name="example_block400_prefix" formatted="false">ví dụ: Chặn các số có tiền tố 400</string>
+    <string name="example_block_marketing_sms" formatted="false">ví dụ: Chặn tin nhắn SMS tiếp thị</string>
+    <string name="example_content_regex_hint" formatted="false">Ví dụ Regex Nội dung</string>
+    <string name="example_coupon_promotion_discount" formatted="false">ví dụ: .*(coupon|promotion|discount).*</string>
+    <string name="example_family_friends" formatted="false">ví dụ: Gia đình, Bạn bè, v.v.</string>
+    <string name="example_phone_number" formatted="false">ví dụ: 10086, 12345, v.v.</string>
+    <string name="example_regex400_prefix" formatted="false">Ví dụ regex cho tiền tố 400</string>
+    <string name="example_sender_regex_hint" formatted="false">Ví dụ</string>
+    <string name="exchange" formatted="false">Trao đổi</string>
+    <string name="exchange_failed" formatted="false">Đổi thất bại: {error}</string>
+    <string name="exchange_now" formatted="false">Đổi ngay</string>
+    <string name="exchange_success" formatted="false">Đổi thành công {description}, ngày hết hạn: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">Đổi VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">Thời gian hết hạn: {time}</string>
+    <string name="export" formatted="false">Xuất</string>
+    <string name="export_all_application_settings" formatted="false">Xuất tất cả cài đặt ứng dụng</string>
+    <string name="export_all_rule_configurations" formatted="false">Xuất Tất cả Cấu hình Quy tắc</string>
+    <string name="export_config" formatted="false">Xuất Cấu hình</string>
+    <string name="export_contacts" formatted="false">Xuất Danh bạ</string>
+    <string name="export_data" formatted="false">Xuất Dữ liệu</string>
+    <string name="export_entity" formatted="false">Xuất {entityTypeName}</string>
+    <string name="export_failed" formatted="false">Xuất thất bại</string>
+    <string name="export_failure" formatted="false">Không thể xuất cấu hình</string>
+    <string name="export_feature_coming_soon" formatted="false">Tính năng xuất sẽ sớm ra mắt</string>
+    <string name="export_labels" formatted="false">Xuất Nhãn</string>
+    <string name="export_labels_failed" formatted="false">Không thể xuất nhãn: {error}</string>
+    <string name="export_plugin_list" formatted="false">Xuất Danh sách Plugin</string>
+    <string name="export_plugin_list_failed" formatted="false">Không thể xuất danh sách plugin: {error}</string>
+    <string name="export_rules" formatted="false">Xuất Quy tắc</string>
+    <string name="export_sms_rules" formatted="false">Xuất Quy tắc SMS</string>
+    <string name="export_statistics_data" formatted="false">Xuất Dữ liệu Thống kê</string>
+    <string name="export_successlly" formatted="false">Đã xuất cấu hình thành công</string>
+    <string name="failed_to_add_rule" formatted="false">Không thể thêm quy tắc: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">Không thể thêm đăng ký SMS: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">Không thể sao lưu cài đặt: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">Không thể giải mã tệp sao lưu</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">Không thể xóa quy tắc SMS: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">Không thể xuất quy tắc: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">Không thể lấy thông tin ID người gọi: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">Không thể nhập quy tắc: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Không thể tải sơ đồ cài đặt: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">Không thể khôi phục cài đặt</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">Không thể khôi phục cài đặt: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">Không thể chuyển đổi trạng thái quy tắc: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">Liên hệ yêu thích</string>
+    <string name="feature" formatted="false">Tính năng</string>
+    <string name="feature_add_rules" formatted="false">• Thêm quy tắc cụ thể cho số điện thoại</string>
+    <string name="feature_center" formatted="false">Trung tâm Tính năng</string>
+    <string name="feature_enable_disable" formatted="false">• Bật/tắt các bộ lọc khác nhau cho từng SIM</string>
+    <string name="feature_list_title" formatted="false">Tính năng:</string>
+    <string name="feature_manage_rules" formatted="false">• Quản lý danh sách quy tắc cho từng SIM</string>
+    <string name="features" formatted="false">Tính năng</string>
+    <string name="fetching_caller_id_info" formatted="false">Đang tìm nạp thông tin ID người gọi...</string>
+    <string name="field_is_required" formatted="false">Trường này là bắt buộc</string>
+    <string name="file_saved_to" formatted="false">Tệp đã lưu tại: {path}</string>
+    <string name="filter" formatted="false">Bộ lọc</string>
+    <string name="filter_and_sort_title" formatted="false">Lọc và Sắp xếp</string>
+    <string name="filter_by" formatted="false">Lọc theo</string>
+    <string name="filter_by_action" formatted="false">Lọc theo Hành động</string>
+    <string name="filter_by_label" formatted="false">Lọc theo Nhãn</string>
+    <string name="filter_control_panel_title" formatted="false">Bảng điều khiển Bộ lọc</string>
+    <string name="filter_control_subtitle" formatted="false">Quản lý trạng thái bật/tắt của tất cả bộ lọc</string>
+    <string name="filter_control_title" formatted="false">Điều khiển bộ lọc</string>
+    <string name="filter_explanation" formatted="false">Giải thích bộ lọc</string>
+    <string name="filter_management" formatted="false">Quản lý bộ lọc</string>
+    <string name="filter_management_description" formatted="false">Đặt bộ lọc cuộc gọi</string>
+    <string name="filter_name" formatted="false">Tên bộ lọc</string>
+    <string name="filter_priority_note" formatted="false">Lưu ý: Có mối quan hệ ưu tiên giữa các bộ lọc, vui lòng tham khảo tài liệu trợ giúp để biết chi tiết</string>
+    <string name="filter_s_m_s" formatted="false">Lọc SMS</string>
+    <string name="filter_settings" formatted="false">Cài đặt bộ lọc</string>
+    <string name="filter_settings_title" formatted="false">Cài đặt bộ lọc</string>
+    <string name="filter_toggle_instructions" formatted="false">Bật hoặc tắt bộ lọc cho khe SIM này:</string>
+    <string name="filter_toggle_status" formatted="false">Bộ lọc {status}: {filterName}</string>
+    <string name="filter_type" formatted="false">Loại bộ lọc</string>
+    <string name="filter_verified_owner" formatted="false">Lọc Chủ sở hữu đã xác minh</string>
+    <string name="filtered" formatted="false">Đã lọc</string>
+    <string name="final_risk" formatted="false">Rủi ro Cuối cùng</string>
+    <string name="financial" formatted="false">Tài chính</string>
+    <string name="flexible_combination_feature" formatted="false">• Kết hợp linh hoạt: Bật/tắt bộ lọc cho từng khe SIM</string>
+    <string name="font_sizes_setting" formatted="false">Cỡ chữ</string>
+    <string name="found_rules" formatted="false">Tìm thấy {count} quy tắc</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">Để đặt cảnh báo lừa đảo</string>
+    <string name="fraud_aler_setting_title" formatted="false">Cài đặt Cảnh báo Lừa đảo</string>
+    <string name="fraud_alert" formatted="false">CẢNH BÁO LỪA ĐẢO - Dừng cuộc gọi</string>
+    <string name="fraud_alert_title" formatted="false">Cảnh báo Lừa đảo</string>
+    <string name="fraud_alerts" formatted="false">Cảnh báo lừa đảo</string>
+    <string name="fraud_alerts_description" formatted="false">Hiển thị cảnh báo cho các cuộc gọi có khả năng lừa đảo.</string>
+    <string name="fraud_scam_likely" formatted="false">Có thể là lừa đảo</string>
+    <string name="free" formatted="false">Miễn phí</string>
+    <string name="function_settings_title" formatted="false">Cài đặt chức năng</string>
+    <string name="general_update_failure" formatted="false">Cập nhật thất bại: {error}</string>
+    <string name="get_free" formatted="false">Nhận miễn phí</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Cấu hình bộ lọc toàn cầu cho tất cả các thẻ SIM:</string>
+    <string name="global_filter_feature" formatted="false">• Bộ lọc toàn cầu: Các quy tắc cơ bản cho tất cả các cuộc gọi đến</string>
+    <string name="global_filter_settings" formatted="false">Cài đặt bộ lọc toàn cầu</string>
+    <string name="global_settings" formatted="false">Cài đặt toàn cầu</string>
+    <string name="google_drive_auth_description" formatted="false">Ủy quyền bằng ID và khóa máy khách Google Drive được cấu hình hệ thống</string>
+    <string name="google_drive_config_title" formatted="false">Cấu hình Google Drive</string>
+    <string name="government" formatted="false">Chính phủ</string>
+    <string name="grant_necessary_permissions" formatted="false">Cấp các quyền cần thiết</string>
+    <string name="grant_permissions" formatted="false">Cấp quyền</string>
+    <string name="granted" formatted="false">Đã cấp</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">Bạn đã được cấp {days} ngày đặc quyền mua hàng tạm thời. Ngày hết hạn: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">Hướng dẫn</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">Bạn đã có đặc quyền tạm thời, ngày hết hạn: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">Bạn đã có đặc quyền VIP (ngoại trừ quảng cáo)</string>
+    <string name="headhunter" formatted="false">Tuyển dụng</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Chiều cao</string>
+    <string name="high" formatted="false">Cao</string>
+    <string name="high_risk" formatted="false">Rủi ro cao</string>
+    <string name="home_tab" formatted="false">Trang chủ</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 giờ trước} other{{count} giờ trước}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 giờ} =1{1 giờ} other{{count} giờ}}</string>
+    <string name="how_it_works_point1" formatted="false">• Hệ thống sẽ tự động cho phép các cuộc gọi từ cùng một số trong khoảng thời gian đã đặt</string>
+    <string name="how_it_works_point2" formatted="false">• Khoảng thời gian ngắn hơn dẫn đến chặn nghiêm ngặt hơn; khoảng thời gian dài hơn dẫn đến chặn lỏng hơn</string>
+    <string name="how_it_works_point3" formatted="false">• Hệ thống kiểm tra nhật ký cuộc gọi để xác định xem đó có phải là cuộc gọi lặp lại hay không</string>
+    <string name="how_it_works_title" formatted="false">Cách hoạt động:</string>
+    <string name="icon_code_optional" formatted="false">Mã biểu tượng (Tùy chọn)</string>
+    <string name="icon_size" formatted="false">Kích thước biểu tượng</string>
+    <string name="import" formatted="false">Nhập</string>
+    <string name="import_config" formatted="false">Nhập cấu hình</string>
+    <string name="import_contacts" formatted="false">Nhập danh bạ</string>
+    <string name="import_entity" formatted="false">Nhập {entityTypeName}</string>
+    <string name="import_export" formatted="false">Nhập/Xuất</string>
+    <string name="import_export_contacts" formatted="false">Nhập/Xuất danh bạ</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Nhập/Xuất danh bạ</string>
+    <string name="import_export_description" formatted="false">Nhập hoặc xuất dữ liệu {entityTypeName}</string>
+    <string name="import_export_rules" formatted="false">Nhập/Xuất quy tắc</string>
+    <string name="import_export_title" formatted="false">Nhập/Xuất</string>
+    <string name="import_failed" formatted="false">Nhập thất bại: {error}</string>
+    <string name="import_failure" formatted="false">Nhập cấu hình thất bại</string>
+    <string name="import_feature_coming_soon" formatted="false">Tính năng nhập sắp ra mắt</string>
+    <string name="import_labels" formatted="false">Nhập nhãn</string>
+    <string name="import_labels_failed" formatted="false">Nhập nhãn thất bại: {error}</string>
+    <string name="import_plugin_list" formatted="false">Nhập danh sách plugin</string>
+    <string name="import_plugin_list_failed" formatted="false">Nhập danh sách plugin thất bại: {error}</string>
+    <string name="import_plugin_success" formatted="false">Đã nhập thành công {count} plugin</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Nhập cấu hình quy tắc từ tệp</string>
+    <string name="import_rules" formatted="false">Nhập quy tắc</string>
+    <string name="import_success" formatted="false">Nhập thành công</string>
+    <string name="important" formatted="false">Quan trọng</string>
+    <string name="important_notice_title" formatted="false">Thông báo quan trọng</string>
+    <string name="incoming_call_intercept_action" formatted="false">Hành động chặn cuộc gọi đến</string>
+    <string name="incorrect_password" formatted="false">Mật khẩu không chính xác</string>
+    <string name="init_db_button" formatted="false">Khởi tạo cơ sở dữ liệu</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Nhập URL cấu hình JSON gương tự lưu trữ</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Tải cấu hình</string>
+    <string name="initial_setup_desc" formatted="false">Vui lòng chọn thư viện quy tắc theo khu vực bạn muốn chặn. Các quy tắc này có thể giúp bạn tự động chặn các cuộc gọi bán hàng và lừa đảo phổ biến trong khu vực của bạn.</string>
+    <string name="initial_setup_deselect_all" formatted="false">Bỏ chọn</string>
+    <string name="initial_setup_detected_location" formatted="false">Vị trí đã phát hiện</string>
+    <string name="initial_setup_get_failed" formatted="false">Không thể lấy cấu hình</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Đi đến Cài đặt</string>
+    <string name="initial_setup_retry" formatted="false">Thử lại</string>
+    <string name="initial_setup_save" formatted="false">Cài đặt nhanh mục đã chọn</string>
+    <string name="initial_setup_save_failed" formatted="false">Lưu cấu hình thất bại: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Đã lưu cấu hình thành công, các quy tắc sẽ sớm được tự động tải về</string>
+    <string name="initial_setup_saving" formatted="false">Đang lưu...</string>
+    <string name="initial_setup_search_hint" formatted="false">Tìm kiếm bộ quy tắc hoặc quốc gia...</string>
+    <string name="initial_setup_select_all" formatted="false">Chọn tất cả</string>
+    <string name="initial_setup_selected_count" formatted="false">Đã chọn {count}</string>
+    <string name="initial_setup_settings_hint" formatted="false">Mẹo: Bạn có thể mở lại trang cài đặt này bất kỳ lúc nào trong Cài đặt.</string>
+    <string name="initial_setup_skip" formatted="false">Bỏ qua</string>
+    <string name="initial_setup_source_cdn" formatted="false">Nguồn tăng tốc CDN gương</string>
+    <string name="initial_setup_source_custom" formatted="false">Nguồn gương tự lưu trữ</string>
+    <string name="initial_setup_source_github" formatted="false">Nguồn chính thức GitHub</string>
+    <string name="initial_setup_source_title" formatted="false">Nguồn cơ sở dữ liệu quy tắc</string>
+    <string name="initial_setup_title" formatted="false">Cài đặt Thư viện Quy tắc</string>
+    <string name="initializing" formatted="false">Đang khởi tạo</string>
+    <string name="installed" formatted="false">Đã cài đặt</string>
+    <string name="insufficient_marks" formatted="false">Không đủ điểm</string>
+    <string name="insurance" formatted="false">Bảo hiểm</string>
+    <string name="intercept_action" formatted="false">Hành động chặn</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Đặt cách xử lý các cuộc gọi bị chặn</string>
+    <string name="interception_action_settings_title" formatted="false">Cài đặt hành động chặn</string>
+    <string name="interception_time_interval" formatted="false">Khoảng thời gian chặn</string>
+    <string name="internet" formatted="false">Internet</string>
+    <string name="interval_set_success" formatted="false">Khoảng thời gian cập nhật {service} đã được đặt thành {days} ngày</string>
+    <string name="invalid_content_regex" formatted="false">Regex nội dung không hợp lệ</string>
+    <string name="invalid_exchange_rule" formatted="false">Quy tắc đổi không hợp lệ</string>
+    <string name="invalid_label" formatted="false">Nhãn không hợp lệ</string>
+    <string name="invalid_regex_pattern" formatted="false">Mẫu regex không hợp lệ</string>
+    <string name="invalid_sender_regex" formatted="false">Regex người gửi không hợp lệ</string>
+    <string name="invalid_sim_data" formatted="false">Dữ liệu SIM không hợp lệ</string>
+    <string name="ip_country" formatted="false">Quốc gia IP</string>
+    <string name="is_number_match" formatted="false">Khớp số</string>
+    <string name="is_roaming" formatted="false">Chuyển vùng</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">Tham gia Kênh và Nhóm Telegram để biết thêm thông tin</string>
+    <string name="json_format" formatted="false">Định dạng JSON</string>
+    <string name="just_now" formatted="false">Vừa xong</string>
+    <string name="keep_all_versions" formatted="false">Giữ tất cả phiên bản</string>
+    <string name="keep_all_versions_description" formatted="false">Giữ tất cả các phiên bản lịch sử của mỗi bản sao lưu</string>
+    <string name="label" formatted="false">Nhãn</string>
+    <string name="label_action_description" formatted="false">Thêm nhãn cho cuộc gọi để dễ nhận dạng.</string>
+    <string name="label_added_successfully" formatted="false">Nhãn &quot;{name}&quot; đã được thêm thành công</string>
+    <string name="label_categories" formatted="false">Danh mục nhãn</string>
+    <string name="label_deleted" formatted="false">Nhãn đã bị xóa</string>
+    <string name="label_description" formatted="false">Nhãn giúp bạn quản lý danh bạ tốt hơn, thêm nhãn tùy chỉnh vào số điện thoại để dễ dàng nhận dạng cuộc gọi và tin nhắn.</string>
+    <string name="label_filter_tooltip" formatted="false">Bộ lọc nhãn</string>
+    <string name="label_icon_color" formatted="false">Màu biểu tượng nhãn</string>
+    <string name="label_management" formatted="false">Quản lý nhãn</string>
+    <string name="label_not_found" formatted="false">Không tìm thấy nhãn</string>
+    <string name="label_tag" formatted="false">Nhãn: {labelId}</string>
+    <string name="label_update_failed" formatted="false">Cập nhật nhãn không thành công: {error}</string>
+    <string name="label_update_success" formatted="false">Nhãn &quot;$labelText&quot; đã cập nhật thành công</string>
+    <string name="labels" formatted="false">Nhãn</string>
+    <string name="labels_color" formatted="false">Màu nhãn</string>
+    <string name="labels_deleted" formatted="false">Đã xóa {count} nhãn</string>
+    <string name="labels_exported_successfully" formatted="false">Xuất nhãn thành công</string>
+    <string name="labels_font_size" formatted="false">Cỡ chữ nhãn</string>
+    <string name="labels_imported_successfully" formatted="false">Đã nhập thành công {count} nhãn</string>
+    <string name="labels_position" formatted="false">Vị trí nhãn</string>
+    <string name="language_settings" formatted="false">Cài đặt ngôn ngữ</string>
+    <string name="language_settings_subtitle" formatted="false">Thay đổi ngôn ngữ hiển thị của ứng dụng</string>
+    <string name="language_settings_title" formatted="false">Cài đặt ngôn ngữ</string>
+    <string name="last_sync_label" formatted="false">Lần đồng bộ cuối</string>
+    <string name="last_updated" formatted="false">Cập nhật lần cuối: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Để trống để sử dụng mặc định</string>
+    <string name="lifetime_membership" formatted="false">Thành viên trọn đời</string>
+    <string name="lifetime_membership_description" formatted="false">Mua một lần, mở khóa vĩnh viễn tất cả tính năng cao cấp và các bản cập nhật trong tương lai</string>
+    <string name="list_view" formatted="false">Chế độ xem Danh sách</string>
+    <string name="live_activities_settings_title" formatted="false">Cài đặt Hoạt động trực tiếp</string>
+    <string name="live_activities_test_end_activity" formatted="false">Kết thúc hoạt động</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">Gửi hoạt động mới</string>
+    <string name="live_activities_test_title" formatted="false">Kiểm tra Hoạt động trực tiếp</string>
+    <string name="live_activities_test_update_activity" formatted="false">Cập nhật hoạt động</string>
+    <string name="live_activity_controls_title" formatted="false">Điều khiển Hoạt động trực tiếp</string>
+    <string name="live_activity_mode" formatted="false">Hoạt động trực tiếp</string>
+    <string name="live_activity_mode_description" formatted="false">Hiển thị thông tin cuộc gọi dưới dạng thông báo cố định trên màn hình khóa và Đảo động (iOS).</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Tùy chỉnh giao diện của các thông báo trực tiếp.</string>
+    <string name="live_notification_customization_title" formatted="false">Tùy chỉnh thông báo trực tiếp</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">Không thể tải danh bạ: {error}</string>
+    <string name="load_data_failed" formatted="false">Không thể tải dữ liệu</string>
+    <string name="load_label_failed" formatted="false">Không thể tải nhãn: {error}</string>
+    <string name="load_labels_failed" formatted="false">Không thể tải nhãn: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">Không thể tải số điện thoại đã đánh dấu: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">Không thể tải số điện thoại đã đánh dấu: {error}</string>
+    <string name="load_plugins_failed" formatted="false">Không thể tải plugin: {error}</string>
+    <string name="load_settings_failed" formatted="false">Không thể tải cài đặt: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">Không thể tải quy tắc SMS: {error}</string>
+    <string name="load_status_failed_message" formatted="false">Không thể tải trạng thái</string>
+    <string name="load_subscriptions_failed" formatted="false">Không thể tải đăng ký: {error}</string>
+    <string name="loading" formatted="false">Đang tải...</string>
+    <string name="loading_ad" formatted="false">Đang tải Quảng cáo...</string>
+    <string name="loading_tags" formatted="false">Đang tải thẻ...</string>
+    <string name="loan" formatted="false">Khoản vay</string>
+    <string name="local_count_filter" formatted="false">Bảo vệ ngưỡng đánh dấu cục bộ</string>
+    <string name="local_count_filter_description" formatted="false">Tự động chặn cuộc gọi vượt quá ngưỡng báo cáo cục bộ</string>
+    <string name="local_count_filter_explanation_content" formatted="false">Bộ lọc đếm cục bộ phân tích lịch sử cuộc gọi để tự động nhận dạng và chặn các cuộc gọi rác thường xuyên.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">Giải thích về Bộ lọc đếm cục bộ</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• Xác định có chặn hay không dựa trên giá trị đếm của số điện thoại</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• Khi số lần đếm của một số vượt quá ngưỡng đã đặt, bạn có thể chọn tự động chặn</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• Bạn có thể chọn cho phép các số không vượt quá ngưỡng</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• Bạn có thể chọn có ghi lại tất cả nhật ký truy vấn hay không</string>
+    <string name="local_count_filter_settings" formatted="false">Cài đặt Bộ lọc đếm cục bộ</string>
+    <string name="local_count_filter_use_cases" formatted="false">Bộ lọc này đặc biệt phù hợp để xác định các cuộc gọi rác tự động quay số và cuộc gọi tiếp thị.</string>
+    <string name="local_count_filtering" formatted="false">Lọc đếm cục bộ</string>
+    <string name="local_count_filtering_explanation" formatted="false">• Lọc đếm cục bộ: Quy tắc lọc dựa trên số lần đánh dấu cục bộ</string>
+    <string name="local_counter_filter" formatted="false">Bộ lọc đếm cục bộ</string>
+    <string name="local_counter_filter_subtitle" formatted="false">Tự động lọc cuộc gọi rác dựa trên tần suất cuộc gọi</string>
+    <string name="local_database_sync_subtitle" formatted="false">Đồng bộ dữ liệu giữa các thiết bị</string>
+    <string name="local_database_sync_title" formatted="false">Đồng bộ cơ sở dữ liệu cục bộ</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">Cài đặt Bộ lọc cục bộ</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">Thông báo cục bộ đã tắt</string>
+    <string name="local_notification_enabled" formatted="false">Thông báo cục bộ đã bật</string>
+    <string name="local_services" formatted="false">Dịch vụ cục bộ</string>
+    <string name="location" formatted="false">Vị trí</string>
+    <string name="location_color" formatted="false">Màu vị trí</string>
+    <string name="location_font_size" formatted="false">Cỡ chữ vị trí</string>
+    <string name="location_icon_color" formatted="false">Màu biểu tượng vị trí</string>
+    <string name="location_position" formatted="false">Vị trí</string>
+    <string name="log" formatted="false">Ghi nhật ký</string>
+    <string name="log_action_description" formatted="false">Ghi lại thông tin cuộc gọi mà không thực hiện hành động nào khác.</string>
+    <string name="log_all_local_queries" formatted="false">Ghi lại tất cả truy vấn cục bộ</string>
+    <string name="log_all_local_queries_description" formatted="false">Ghi lại nhật ký cho tất cả các truy vấn số điện thoại cục bộ</string>
+    <string name="log_all_remote_queries" formatted="false">Ghi lại tất cả truy vấn từ xa</string>
+    <string name="log_all_remote_queries_description" formatted="false">Ghi lại tất cả các thao tác truy vấn số điện thoại từ xa</string>
+    <string name="low" formatted="false">Thấp</string>
+    <string name="low_risk" formatted="false">Rủi ro thấp</string>
+    <string name="manage" formatted="false">Quản lý danh bạ</string>
+    <string name="manage_favorite_contacts" formatted="false">Quản lý danh bạ yêu thích</string>
+    <string name="manage_filter_rules" formatted="false">Quản lý Quy tắc Lọc</string>
+    <string name="manage_filter_rules_description" formatted="false">Thêm, sửa đổi hoặc xóa các quy tắc lọc SMS</string>
+    <string name="manual_entry" formatted="false">Thông tin Nhập thủ công</string>
+    <string name="mark_count" formatted="false">Số lần đánh dấu</string>
+    <string name="mark_counts" formatted="false">Số lần đánh dấu</string>
+    <string name="mark_exchange" formatted="false">Đánh dấu Trao đổi</string>
+    <string name="mark_more_numbers_for_more" formatted="false">Gắn dấu nhiều số hơn để nhận thêm Mark</string>
+    <string name="mark_phone" formatted="false">Đánh dấu số điện thoại</string>
+    <string name="mark_phone_failed" formatted="false">Đánh dấu số điện thoại thất bại: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">Quản lý Đánh dấu Số điện thoại</string>
+    <string name="mark_phone_success" formatted="false">Đánh dấu số điện thoại thành công</string>
+    <string name="marked_by_count" formatted="false">Được đánh dấu bởi {count} người</string>
+    <string name="marked_phones_list" formatted="false">Số điện thoại đã đánh dấu</string>
+    <string name="marks_insufficient" formatted="false">Không đủ điểm để đổi</string>
+    <string name="master_and_overrides" formatted="false">Điều khiển Chính</string>
+    <string name="master_and_overrides_desc" formatted="false">Cài đặt Quy tắc Chung</string>
+    <string name="master_device_help" formatted="false">Chỉ thiết bị chính mới có thể khởi tạo cấu trúc cơ sở dữ liệu.</string>
+    <string name="master_device_label" formatted="false">Thiết bị chính (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">Khớp thất bại.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">khớp định dạng số cụ thể</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">Khớp các số có ký tự đặc biệt:</string>
+    <string name="match_specific_digit_patterns" formatted="false">khớp định dạng XXX-XXXX-XXXX</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">Khớp các mẫu chữ số cụ thể:</string>
+    <string name="match_successful_message" formatted="false">Khớp thành công!</string>
+    <string name="medical" formatted="false">Y tế</string>
+    <string name="medium" formatted="false">Trung bình</string>
+    <string name="medium_risk" formatted="false">Rủi ro trung bình</string>
+    <string name="membership_center" formatted="false">Trung tâm thành viên</string>
+    <string name="membership_privileges" formatted="false">Đặc quyền Thành viên</string>
+    <string name="message_background_color" formatted="false">Màu nền Tin nhắn</string>
+    <string name="message_color" formatted="false">Màu tin nhắn</string>
+    <string name="message_font_size" formatted="false">Cỡ chữ tin nhắn</string>
+    <string name="message_position" formatted="false">Vị trí tin nhắn</string>
+    <string name="migration_tool" formatted="false">Công cụ Di chuyển</string>
+    <string name="minutes" formatted="false">phút</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 phút trước} other{{count} phút trước}}</string>
+    <string name="moderate" formatted="false">Trung bình</string>
+    <string name="month" formatted="false">Tháng</string>
+    <string name="monthly" formatted="false">Hàng tháng</string>
+    <string name="monthly_call_count" formatted="false">Số cuộc gọi hàng tháng</string>
+    <string name="monthly_membership" formatted="false">Gói thành viên hàng tháng</string>
+    <string name="monthly_membership_description" formatted="false">Mở khóa tất cả các tính năng cao cấp, tự động gia hạn hàng tháng</string>
+    <string name="monthly_total" formatted="false">Tổng cộng Hàng tháng</string>
+    <string name="more_options" formatted="false">Tùy chọn Khác</string>
+    <string name="mute" formatted="false">Tắt tiếng</string>
+    <string name="name" formatted="false">Tên</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">Tên và số điện thoại không được để trống</string>
+    <string name="name_cannot_be_empty" formatted="false">Tên không được để trống</string>
+    <string name="name_color" formatted="false">Màu Tên</string>
+    <string name="name_font_size" formatted="false">Cỡ chữ Tên</string>
+    <string name="name_position" formatted="false">Vị trí Tên</string>
+    <string name="name_unknown" formatted="false">Tên: Không xác định</string>
+    <string name="national_number" formatted="false">Số Quốc gia</string>
+    <string name="need_vip_access" formatted="false">Bạn cần quyền truy cập VIP để sử dụng tính năng này</string>
+    <string name="new_vote_received" formatted="false">Đã nhận được phiếu bầu mới</string>
+    <string name="new_vote_received_body" formatted="false">Ai đó đã bầu {voteType} việc xóa số {phoneNumber}. Phiếu bầu hiện tại: {totalVotes}.</string>
+    <string name="next_step" formatted="false">Tiếp theo</string>
+    <string name="no_action" formatted="false">Không Hành động</string>
+    <string name="no_action_rules" formatted="false">Không có Quy tắc Hành động nào</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">Không có dịch vụ đồng bộ hóa đám mây hoạt động</string>
+    <string name="no_activity" formatted="false">Không có hoạt động</string>
+    <string name="no_ads" formatted="false">Không quảng cáo</string>
+    <string name="no_allowed_blocked_rules" formatted="false">Không tìm thấy quy tắc cho phép/chặn nào</string>
+    <string name="no_blocked_type_data" formatted="false">Không có dữ liệu loại bị chặn</string>
+    <string name="no_call_records" formatted="false">Không có bản ghi cuộc gọi</string>
+    <string name="no_contacts_yet" formatted="false">Chưa có danh bạ</string>
+    <string name="no_data" formatted="false">Không có Dữ liệu</string>
+    <string name="no_devices_registered_message" formatted="false">Không có thiết bị nào được đăng ký</string>
+    <string name="no_labels" formatted="false">Chưa có nhãn nào</string>
+    <string name="no_marked_phones" formatted="false">Không có số điện thoại được đánh dấu</string>
+    <string name="no_matching_contacts_found" formatted="false">Không tìm thấy danh bạ phù hợp</string>
+    <string name="no_matching_numbers_found" formatted="false">Không tìm thấy số phù hợp</string>
+    <string name="no_matching_rules" formatted="false">Không có {ruleType} phù hợp</string>
+    <string name="no_notifications" formatted="false">Không có thông báo nào</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">Không tìm thấy quy tắc điện thoại nào</string>
+    <string name="no_plugins" formatted="false">Chưa có plugin nào</string>
+    <string name="no_proposals_found" formatted="false">Không tìm thấy đề xuất nào</string>
+    <string name="no_regex_rules" formatted="false">Không tìm thấy quy tắc biểu thức chính quy nào</string>
+    <string name="no_rules" formatted="false">Chưa có {ruleType} nào</string>
+    <string name="no_rules_prompt" formatted="false">Không tìm thấy quy tắc nào, vui lòng thêm quy tắc</string>
+    <string name="no_rules_to_export" formatted="false">Không có quy tắc nào để xuất</string>
+    <string name="no_sim_card_detected" formatted="false">Không phát hiện thẻ SIM</string>
+    <string name="no_sim_cards_detected" formatted="false">Không phát hiện thẻ SIM</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">Chưa có quy tắc lọc tin nhắn SMS nào</string>
+    <string name="no_sms_rules_yet" formatted="false">Chưa có quy tắc tin nhắn SMS nào</string>
+    <string name="no_subscriptions" formatted="false">Không có đăng ký</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">Không tìm thấy quy tắc SMS hợp lệ trong tệp</string>
+    <string name="none" formatted="false">Không</string>
+    <string name="none_action_description" formatted="false">Không có hành động đặc biệt nào được thực hiện cho cuộc gọi.</string>
+    <string name="none_service_type" formatted="false">Không</string>
+    <string name="normal_user" formatted="false">Người dùng thông thường</string>
+    <string name="not_granted" formatted="false">Chưa được cấp</string>
+    <string name="not_verified_text" formatted="false">Chưa Xác minh</string>
+    <string name="notification_frequency_hours" formatted="false">Tần suất thông báo (Giờ)</string>
+    <string name="notification_frequency_title" formatted="false">Tần suất thông báo</string>
+    <string name="notification_mode" formatted="false">Chế độ Thông báo</string>
+    <string name="notification_mode_description" formatted="false">Hiển thị thông tin người gọi trên thanh thông báo</string>
+    <string name="notification_permission" formatted="false">Quyền Thông báo</string>
+    <string name="notification_permission_description" formatted="false">Được sử dụng để hiển thị thông báo cuộc gọi và tin nhắn đến.</string>
+    <string name="notification_settings" formatted="false">Cài đặt Thông báo</string>
+    <string name="notification_settings_title" formatted="false">Cài đặt Thông báo</string>
+    <string name="notification_instructions" formatted="false">Hướng dẫn:
+1. Nhấn &quot;GỬI&quot; để tạo hoặc cập nhật thông báo.
+2. Đi tới màn hình chính hoặc kéo xuống khay thông báo để xem kết quả.
+3. Nhấn &quot;KẾT THÚC&quot; để loại bỏ thông báo.</string>
+    <string name="notifications" formatted="false">Thông báo</string>
+    <string name="notify" formatted="false">Thông báo</string>
+    <string name="notify_action_description" formatted="false">Gửi thông báo khi có cuộc gọi đến.</string>
+    <string name="number" formatted="false">Số</string>
+    <string name="number_color" formatted="false">Màu Số</string>
+    <string name="number_font_size" formatted="false">Cỡ chữ Số</string>
+    <string name="number_format" formatted="false">Định dạng Số</string>
+    <string name="number_invalid_format" formatted="false">Định dạng số không hợp lệ</string>
+    <string name="number_position" formatted="false">Vị trí Số</string>
+    <string name="number_search" formatted="false">Tìm kiếm Số</string>
+    <string name="number_type_color" formatted="false">Màu Loại Số</string>
+    <string name="number_type_font_size" formatted="false">Cỡ chữ Loại Số</string>
+    <string name="number_type_position" formatted="false">Vị trí Loại Số</string>
+    <string name="ok_button" formatted="false">OK</string>
+    <string name="onboarding_complete_description" formatted="false">Trình quản lý bảo mật cuộc gọi của bạn đã sẵn sàng, hãy bắt đầu tận hưởng trải nghiệm cuộc gọi an toàn!</string>
+    <string name="onboarding_language_description" formatted="false">Chọn ngôn ngữ ưu tiên của bạn để có trải nghiệm tốt nhất.</string>
+    <string name="onboarding_permissions_description" formatted="false">Để cung cấp đầy đủ dịch vụ, chúng tôi cần các quyền sau:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">Chặn cuộc gọi và tin nhắn rác bằng một cú nhấp chuột, tùy chỉnh quy tắc chặn và mang lại cho bạn môi trường yên tĩnh.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">Tự động xác định các cuộc gọi không xác định, đánh dấu các số đáng ngờ và bảo vệ an toàn cuộc gọi của bạn.</string>
+    <string name="onboarding_welcome_description" formatted="false">Chuyên gia quản lý cuộc gọi của bạn, cung cấp dịch vụ nhận dạng và chặn cuộc gọi toàn diện.</string>
+    <string name="one_drive_auth_description" formatted="false">Cho phép sử dụng ID và khóa client OneDrive được cấu hình hệ thống</string>
+    <string name="one_drive_config_title" formatted="false">Cấu hình OneDrive</string>
+    <string name="online_caller_id_subscription" formatted="false">Đăng ký Nhận dạng người gọi trực tuyến</string>
+    <string name="open_app_settings" formatted="false">Mở cài đặt ứng dụng</string>
+    <string name="open_app_settings_failed" formatted="false">Không thể mở cài đặt ứng dụng: {error}</string>
+    <string name="open_in_web_view" formatted="false">Mở trong WebView</string>
+    <string name="operation_failed" formatted="false">Thao tác thất bại: {error}</string>
+    <string name="operation_failure" formatted="false">Thao tác thất bại</string>
+    <string name="operation_success" formatted="false">Thao tác thành công</string>
+    <string name="oppose" formatted="false">Phản đối</string>
+    <string name="oppose_count" formatted="false">Phản đối ({opposeCount})</string>
+    <string name="opposed" formatted="false">BỊ PHẢN ĐỐI</string>
+    <string name="other" formatted="false">Khác</string>
+    <string name="our_other_apps" formatted="false">Ứng dụng khác của chúng tôi</string>
+    <string name="overlay_mode" formatted="false">Cửa sổ nổi</string>
+    <string name="overlay_mode_description" formatted="false">Hiển thị thông tin người gọi trong cửa sổ nổi</string>
+    <string name="overlay_permission" formatted="false">Quyền cửa sổ nổi</string>
+    <string name="overlay_permission_description" formatted="false">Được sử dụng để hiển thị lớp phủ cuộc gọi đến.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">Tổng quan</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">Mật khẩu</string>
+    <string name="password_cannot_be_empty" formatted="false">Mật khẩu không được để trống</string>
+    <string name="password_label" formatted="false">Mật khẩu</string>
+    <string name="passwords_do_not_match" formatted="false">Mật khẩu không khớp</string>
+    <string name="pattern" formatted="false">Mẫu</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">ĐANG CHỜ</string>
+    <string name="pending_proposals" formatted="false">Đề xuất đang chờ xử lý</string>
+    <string name="pending_proposals_body" formatted="false">Bạn có {count, plural, =0 {không có đề xuất nào đang chờ xử lý} one {1 đề xuất đang chờ xử lý} other {{count} đề xuất đang chờ xử lý}}.</string>
+    <string name="pending_sync" formatted="false">Đang chờ đồng bộ</string>
+    <string name="period_month" formatted="false">Tháng</string>
+    <string name="period_week" formatted="false">Tuần</string>
+    <string name="period_year" formatted="false">Năm</string>
+    <string name="permission_denied" formatted="false">Yêu cầu quyền bị từ chối</string>
+    <string name="permission_granted" formatted="false">Quyền đã được cấp</string>
+    <string name="permission_management" formatted="false">Quản lý quyền</string>
+    <string name="permission_subtitle" formatted="false">Quản lý quyền phủ lớp và tối ưu hóa pin</string>
+    <string name="permission_title" formatted="false">Quyền Đặc biệt</string>
+    <string name="phone_calls_tab" formatted="false">Điện thoại</string>
+    <string name="phone_number" formatted="false">Số điện thoại</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">Số điện thoại không được để trống</string>
+    <string name="phone_number_hint" formatted="false">Nhập số điện thoại</string>
+    <string name="phone_number_label" formatted="false">Số điện thoại</string>
+    <string name="phone_number_min_digits" formatted="false">Số điện thoại phải có ít nhất 7 chữ số</string>
+    <string name="phone_number_required" formatted="false">Số điện thoại là bắt buộc</string>
+    <string name="phone_number_type" formatted="false">Loại số điện thoại</string>
+    <string name="phone_number_type_fixed_line" formatted="false">Đường dây cố định</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">Cố định hoặc di động</string>
+    <string name="phone_number_type_mobile" formatted="false">Di động</string>
+    <string name="phone_number_type_pager" formatted="false">Máy nhắn tin</string>
+    <string name="phone_number_type_personal_number" formatted="false">Số cá nhân</string>
+    <string name="phone_number_type_premium_rate" formatted="false">Cước phí cao</string>
+    <string name="phone_number_type_shared_cost" formatted="false">Chia sẻ chi phí</string>
+    <string name="phone_number_type_toll_free" formatted="false">Miễn phí</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">Không xác định</string>
+    <string name="phone_number_type_voicemail" formatted="false">Thư thoại</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">Quyền điện thoại</string>
+    <string name="phone_permission_description" formatted="false">Được sử dụng để nhận dạng và chặn các cuộc gọi đến.</string>
+    <string name="phone_rule" formatted="false">Quy tắc điện thoại</string>
+    <string name="phone_rule_management" formatted="false">Quản lý quy tắc điện thoại</string>
+    <string name="phone_rule_subscription" formatted="false">Đăng ký quy tắc điện thoại</string>
+    <string name="phone_rules_info" formatted="false">Các quy tắc điện thoại được sử dụng để khớp các cuộc gọi với các số điện thoại cụ thể, có ưu tiên thấp hơn. Một số đến từ các đăng ký phoneRule</string>
+    <string name="phone_subscription" formatted="false">Đăng ký điện thoại</string>
+    <string name="phone_subscription_rules_description" formatted="false">Đăng ký danh sách quy tắc điện thoại qua URL để tự động cập nhật quy tắc danh sách trắng và danh sách đen. Hỗ trợ tệp quy tắc định dạng JSON.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">Vui lòng nhập ít nhất một số.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">Vui lòng chọn nhãn và nhập số điện thoại hợp lệ</string>
+    <string name="plugin_added_success" formatted="false">Plugin &quot;{name}&quot; đã được thêm thành công</string>
+    <string name="plugin_deleted" formatted="false">Plugin đã bị xóa</string>
+    <string name="plugin_description" formatted="false">Mô tả plugin</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">Nhãn Plugin</string>
+    <string name="plugin_latest_version" formatted="false">Plugin đã là phiên bản mới nhất</string>
+    <string name="plugin_list_export_success" formatted="false">Danh sách plugin đã được xuất thành công</string>
+    <string name="plugin_management" formatted="false">Quản lý Plugin</string>
+    <string name="plugin_management_subtitle" formatted="false">Quản lý và cấu hình các plugin của bên thứ ba</string>
+    <string name="plugin_name" formatted="false">Tên Plugin</string>
+    <string name="plugin_rules_info" formatted="false">Để đảm bảo an toàn, vui lòng chỉ sử dụng plugin từ các nguồn đáng tin cậy. Hãy thoải mái sử dụng các mẫu của chúng tôi để tạo plugin tùy chỉnh của riêng bạn!</string>
+    <string name="plugin_service" formatted="false">Dịch vụ Plugin</string>
+    <string name="plugin_test_page_title" formatted="false">Kiểm tra Plugin</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">Plugin đã cập nhật thành công</string>
+    <string name="plugin_url" formatted="false">URL Plugin</string>
+    <string name="plugin_version" formatted="false">Phiên bản Plugin</string>
+    <string name="plugins_deleted" formatted="false">{count} plugin đã được xóa thành công.</string>
+    <string name="political" formatted="false">Chính trị</string>
+    <string name="powerful_spam_blocking" formatted="false">Chặn spam mạnh mẽ</string>
+    <string name="previous_step" formatted="false">Trước</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">Ưu tiên cài đặt hành động từ xa</string>
+    <string name="prioritize_remote_action_description" formatted="false">Ưu tiên cài đặt hành động từ cơ sở dữ liệu từ xa</string>
+    <string name="processed" formatted="false">Đã xử lý</string>
+    <string name="processing" formatted="false">Đang xử lý...</string>
+    <string name="processing_operation" formatted="false">Đang xử lý...</string>
+    <string name="proposal_approved" formatted="false">Đề xuất đã được phê duyệt ✅</string>
+    <string name="proposal_approved_body" formatted="false">Đề xuất xóa cho số {phoneNumber} đã được cộng đồng phê duyệt ({supportPercentage}% ủng hộ, {totalVotes} phiếu bầu).</string>
+    <string name="proposal_created" formatted="false">Đề xuất đã được tạo thành công</string>
+    <string name="proposal_details" formatted="false">Chi tiết đề xuất</string>
+    <string name="proposal_not_found" formatted="false">Không tìm thấy đề xuất</string>
+    <string name="proposal_processed" formatted="false">Đề xuất này đã được xử lý</string>
+    <string name="proposal_rejected" formatted="false">Đề xuất bị từ chối ❌</string>
+    <string name="proposal_rejected_body" formatted="false">Đề xuất xóa cho số {phoneNumber} đã bị cộng đồng từ chối ({supportPercentage}% ủng hộ, {totalVotes} phiếu bầu).</string>
+    <string name="proposal_statistics" formatted="false">Thống kê đề xuất</string>
+    <string name="provide_detailed_explanation" formatted="false">Cung cấp giải thích chi tiết (tối thiểu 10 ký tự)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">Mua</string>
+    <string name="purchase_subtitle" formatted="false">Để mua dịch vụ</string>
+    <string name="purchase_title" formatted="false">Mua hàng</string>
+    <string name="quarterly_membership" formatted="false">Gói thành viên hàng quý</string>
+    <string name="quarterly_membership_description" formatted="false">Mở khóa tất cả các tính năng cao cấp, tự động gia hạn hàng quý</string>
+    <string name="ready" formatted="false">Sẵn sàng!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">Lý do</string>
+    <string name="reason_inaccurate_info" formatted="false">Thông tin không chính xác</string>
+    <string name="reason_min_characters" formatted="false">Lý do phải có ít nhất 10 ký tự</string>
+    <string name="reason_not_in_service" formatted="false">Không còn sử dụng</string>
+    <string name="reason_other" formatted="false">Khác</string>
+    <string name="reason_outdated" formatted="false">Số điện thoại lỗi thời</string>
+    <string name="reason_privacy" formatted="false">Vấn đề riêng tư</string>
+    <string name="reason_required" formatted="false">Lý do là bắt buộc</string>
+    <string name="reason_wrongly_identified" formatted="false">Nhận dạng sai</string>
+    <string name="recruiter" formatted="false">Tuyển dụng</string>
+    <string name="redeem_vip_with_marks" formatted="false">Đổi VIP bằng Mark</string>
+    <string name="redirect" formatted="false">Chuyển hướng</string>
+    <string name="redirect_action_description" formatted="false">Chuyển hướng cuộc gọi đến một số được chỉ định.</string>
+    <string name="refresh" formatted="false">Làm mới</string>
+    <string name="refresh_permission_status" formatted="false">Làm mới trạng thái quyền</string>
+    <string name="refresh_proposals" formatted="false">Làm mới đề xuất</string>
+    <string name="refresh_tooltip" formatted="false">Làm mới</string>
+    <string name="regex_error_message" formatted="false">Lỗi Regex: {error}</string>
+    <string name="regex_pattern" formatted="false">Mẫu Regex</string>
+    <string name="regex_pattern_explanation" formatted="false">Giải thích Mẫu Regex</string>
+    <string name="regex_pattern_explanation_button" formatted="false">Giải thích Mẫu Regex</string>
+    <string name="regex_pattern_label" formatted="false">Mẫu Regex</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">Mẫu Regex để khớp Số Điện thoại</string>
+    <string name="regex_rule" formatted="false">Quy tắc Regex</string>
+    <string name="regex_rule_add_failed" formatted="false">Thêm quy tắc regex thất bại: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">Đã thêm quy tắc regex thành công</string>
+    <string name="regex_rule_management" formatted="false">Quản lý Quy tắc Regex</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">Tên quy tắc và mẫu regex không được để trống</string>
+    <string name="regex_rules" formatted="false">Các Quy tắc Regex</string>
+    <string name="regex_rules_info" formatted="false">Quy tắc Regex được sử dụng để lọc cuộc gọi dựa trên các Mẫu Regex.</string>
+    <string name="regex_tester_title" formatted="false">Bộ kiểm tra Regex</string>
+    <string name="region" formatted="false">Khu vực</string>
+    <string name="registered_devices_title" formatted="false">Các Thiết bị đã Đăng ký</string>
+    <string name="reject_all_calls" formatted="false">Từ chối Tất cả Cuộc gọi</string>
+    <string name="reject_all_calls_description" formatted="false">Khi được bật, tất cả cuộc gọi sẽ bị từ chối với ưu tiên cao nhất</string>
+    <string name="reject_all_numbers" formatted="false">Từ chối tất cả cuộc gọi đến</string>
+    <string name="reject_all_numbers_desc" formatted="false">Từ chối tất cả cuộc gọi đến với ưu tiên cao nhất</string>
+    <string name="reject_exceeded_numbers" formatted="false">Từ chối các Số vượt ngưỡng</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">Tự động từ chối các số vượt quá ngưỡng đếm</string>
+    <string name="rejected" formatted="false">BỊ TỪ CHỐI</string>
+    <string name="remote_filter_settings" formatted="false">Cài đặt Bộ lọc từ xa</string>
+    <string name="remote_filter_settings_page_title" formatted="false">Cài đặt Bộ lọc Số từ xa</string>
+    <string name="remote_number_filter" formatted="false">Bảo vệ ngưỡng truy vấn đám mây</string>
+    <string name="remote_number_filter_description" formatted="false">Tự động chặn cuộc gọi vượt quá ngưỡng báo cáo đám mây</string>
+    <string name="remote_number_filter_subtitle" formatted="false">Xác định cuộc gọi spam bằng cách sử dụng cơ sở dữ liệu đám mây và báo cáo cộng đồng</string>
+    <string name="remote_number_filtering" formatted="false">Lọc Số từ xa</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• Lọc Số từ xa: Các quy tắc lọc dựa trên thông tin cơ sở dữ liệu từ xa</string>
+    <string name="remove_ads" formatted="false">Xóa quảng cáo</string>
+    <string name="remove_ads_description" formatted="false">Xóa vĩnh viễn tất cả quảng cáo trong ứng dụng để có trải nghiệm mượt mà hơn</string>
+    <string name="remove_ads_title" formatted="false">Xóa Quảng cáo</string>
+    <string name="remove_from_favorites" formatted="false">Xóa khỏi Mục yêu thích</string>
+    <string name="removed_from_favorites" formatted="false">Đã xóa khỏi danh bạ yêu thích</string>
+    <string name="rename_device_title" formatted="false">Đổi tên Thiết bị</string>
+    <string name="reporting_guidelines" formatted="false">• Chỉ báo cáo các số thực sự có vấn đề
+• Cung cấp lý do chính xác và chi tiết
+• Chọn mức độ rủi ro phù hợp dựa trên mức độ nghiêm trọng
+• Báo cáo sai có thể dẫn đến hạn chế tài khoản</string>
+    <string name="request_all_permissions" formatted="false">Yêu cầu Tất cả Quyền</string>
+    <string name="request_permission" formatted="false">Yêu cầu Quyền</string>
+    <string name="request_permission_failed" formatted="false">Yêu cầu quyền thất bại: {error}</string>
+    <string name="required_field" formatted="false">Bắt buộc</string>
+    <string name="required_init_field" formatted="false">Bắt buộc khi khởi tạo</string>
+    <string name="required_marks" formatted="false">{count} Dấu hiệu</string>
+    <string name="reset" formatted="false">Đặt lại</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">Khôi phục</string>
+    <string name="restore_application_settings_from_backup" formatted="false">Khôi phục Cài đặt Ứng dụng từ Bản sao lưu</string>
+    <string name="restore_from_cloud" formatted="false">Khôi phục từ Đám mây</string>
+    <string name="restore_from_cloud_failed" formatted="false">Khôi phục từ đám mây thất bại: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">Khôi phục từ đám mây thành công</string>
+    <string name="restore_purchases" formatted="false">Khôi phục Giao dịch mua</string>
+    <string name="restore_settings" formatted="false">Khôi phục Cài đặt</string>
+    <string name="restore_settings_confirmation" formatted="false">Thao tác này sẽ thay thế tất cả cài đặt hiện tại của bạn. Bạn có chắc chắn muốn tiếp tục?</string>
+    <string name="result" formatted="false">Kết quả</string>
+    <string name="retry" formatted="false">Thử lại</string>
+    <string name="rewarded_ad_service" formatted="false">Dịch vụ Quảng cáo Thưởng</string>
+    <string name="ridesharing" formatted="false">Gọi xe chung</string>
+    <string name="risk" formatted="false">Rủi ro</string>
+    <string name="risk_level" formatted="false">Mức độ rủi ro</string>
+    <string name="risk_level_critical" formatted="false">Nghiêm trọng</string>
+    <string name="risk_level_high" formatted="false">Cao</string>
+    <string name="risk_level_label" formatted="false">Mức độ rủi ro</string>
+    <string name="risk_level_low" formatted="false">Thấp</string>
+    <string name="risk_level_medium" formatted="false">Trung bình</string>
+    <string name="risk_level_very_low" formatted="false">Rất thấp</string>
+    <string name="robocall" formatted="false">Cuộc gọi tự động</string>
+    <string name="rule_action" formatted="false">Hành động Quy tắc</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">Đã thêm quy tắc thành công</string>
+    <string name="rule_added_success" formatted="false">Đã thêm quy tắc thành công</string>
+    <string name="rule_delete_confirm_content" formatted="false">Bạn có chắc chắn muốn xóa {ruleType} này không?</string>
+    <string name="rule_delete_confirm_title" formatted="false">Xóa Quy tắc</string>
+    <string name="rule_delete_failed" formatted="false">Xóa quy tắc thất bại: {error}</string>
+    <string name="rule_delete_success" formatted="false">Đã xóa quy tắc thành công</string>
+    <string name="rule_deleted_successfully" formatted="false">Đã xóa quy tắc thành công</string>
+    <string name="rule_disabled_successfully" formatted="false">Đã tắt quy tắc thành công</string>
+    <string name="rule_enabled_successfully" formatted="false">Đã bật quy tắc thành công</string>
+    <string name="rule_load_failed" formatted="false">Tải quy tắc thất bại: {error}</string>
+    <string name="rule_management" formatted="false">Quản lý Quy tắc</string>
+    <string name="rule_name" formatted="false">Tên Quy tắc</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">Tên quy tắc và regex nội dung không được để trống</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">Tên quy tắc và số điện thoại không được để trống</string>
+    <string name="rule_name_hint" formatted="false">ví dụ: Gia đình, Bạn bè, v.v.</string>
+    <string name="rule_name_label" formatted="false">Tên Quy tắc</string>
+    <string name="rule_name_required" formatted="false">Tên quy tắc và số điện thoại không được để trống</string>
+    <string name="rule_not_exist" formatted="false">Quy tắc không tồn tại hoặc đã bị xóa</string>
+    <string name="rule_not_found" formatted="false">Không tìm thấy quy tắc: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">Lưu quy tắc thành công!</string>
+    <string name="rule_status_changed" formatted="false">Quy tắc {status} thành công</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">Thao tác thất bại: {error}</string>
+    <string name="rule_toggle_success" formatted="false">Quy tắc {status} thành công</string>
+    <string name="rule_type" formatted="false">Loại quy tắc</string>
+    <string name="rule_update_failed" formatted="false">Cập nhật quy tắc thất bại: {error}</string>
+    <string name="rule_update_success" formatted="false">Cập nhật quy tắc thành công</string>
+    <string name="rule_verification" formatted="false">Xác minh quy tắc</string>
+    <string name="rules_exported_successfully" formatted="false">Xuất quy tắc thành công</string>
+    <string name="rules_exported_to" formatted="false">Quy tắc được xuất tới: {path}</string>
+    <string name="rules_imported" formatted="false">Nhập quy tắc thành công</string>
+    <string name="rules_imported_successfully" formatted="false">Nhập thành công {count} quy tắc</string>
+    <string name="save" formatted="false">Lưu</string>
+    <string name="save_button" formatted="false">Lưu</string>
+    <string name="save_button_text" formatted="false">Lưu</string>
+    <string name="save_failed" formatted="false">Lưu thất bại: {error}</string>
+    <string name="save_script" formatted="false">Lưu Kịch bản</string>
+    <string name="save_settings" formatted="false">Lưu Cài đặt</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">Có khả năng lừa đảo</string>
+    <string name="script_saved" formatted="false">Kịch bản đã được lưu</string>
+    <string name="scroll_speed" formatted="false">Tốc độ cuộn</string>
+    <string name="scrolling_security_message_settings" formatted="false">Cài đặt Tin nhắn Bảo mật Cuộn</string>
+    <string name="search" formatted="false">Tìm kiếm</string>
+    <string name="search_by_name_or_phone_number" formatted="false">Tìm kiếm theo Tên hoặc Số điện thoại</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">Tìm kiếm đăng ký liên hệ</string>
+    <string name="search_contacts" formatted="false">Tìm kiếm danh bạ</string>
+    <string name="search_error" formatted="false">Lỗi tìm kiếm: {error}</string>
+    <string name="search_hint" formatted="false">Tìm kiếm...</string>
+    <string name="search_labels_hint" formatted="false">Tìm kiếm nhãn</string>
+    <string name="search_marked_phones_hint" formatted="false">Tìm kiếm số điện thoại đã đánh dấu</string>
+    <string name="search_phone_rules_hint" formatted="false">Tìm kiếm quy tắc điện thoại</string>
+    <string name="search_plugins_hint" formatted="false">Tìm kiếm plugin</string>
+    <string name="search_proposals" formatted="false">Tìm kiếm đề xuất</string>
+    <string name="search_regex_rules_hint" formatted="false">Tìm kiếm quy tắc regex</string>
+    <string name="search_subscriptions_hint" formatted="false">Tìm kiếm đăng ký</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">Không tin tưởng bất kỳ cuộc gọi điện thoại nào. Luôn xác minh số tổng đài chăm sóc khách hàng một cách độc lập. Không bao giờ chia sẻ mật khẩu, mã xác minh, số thẻ hoặc thông tin cá nhân.</string>
+    <string name="select_action" formatted="false">Chọn hành động</string>
+    <string name="select_action_when_blocking_calls" formatted="false">Chọn hành động khi chặn cuộc gọi</string>
+    <string name="select_action_when_rule_matches" formatted="false">Chọn hành động khi quy tắc khớp</string>
+    <string name="select_all" formatted="false">Chọn tất cả</string>
+    <string name="select_country" formatted="false">Chọn Quốc gia</string>
+    <string name="select_export_format" formatted="false">Chọn Định dạng xuất</string>
+    <string name="select_label" formatted="false">Chọn Nhãn</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">Vui lòng chọn nhãn và nhập số điện thoại hợp lệ</string>
+    <string name="select_language" formatted="false">Chọn Ngôn ngữ</string>
+    <string name="select_multiple" formatted="false">Chọn nhiều</string>
+    <string name="select_sim_card" formatted="false">Chọn SIM</string>
+    <string name="select_tags" formatted="false">Chọn Thẻ</string>
+    <string name="select_target_service" formatted="false">Chọn dịch vụ đích</string>
+    <string name="select_trusted_data_source" formatted="false">Vui lòng chọn nguồn dữ liệu đáng tin cậy</string>
+    <string name="select_your_language" formatted="false">Chọn Ngôn ngữ của bạn</string>
+    <string name="selected_items" formatted="false">Đã chọn {count} mục</string>
+    <string name="selected_label" formatted="false">Đã chọn:</string>
+    <string name="sender" formatted="false">Người gửi</string>
+    <string name="sender_regex_optional" formatted="false">Regex người gửi (Tùy chọn)</string>
+    <string name="separate_sims" formatted="false">SIM Riêng biệt</string>
+    <string name="separate_sims_desc" formatted="false">Bật quy tắc lọc riêng cho từng thẻ SIM</string>
+    <string name="server_address_label" formatted="false">Địa chỉ máy chủ</string>
+    <string name="service_type_contact" formatted="false">Đăng ký danh bạ</string>
+    <string name="service_type_label" formatted="false">Loại dịch vụ</string>
+    <string name="service_type_phone" formatted="false">Đăng ký điện thoại</string>
+    <string name="service_type_plugin" formatted="false">Cập nhật plugin</string>
+    <string name="service_type_sms" formatted="false">Đăng ký SMS</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">Đặt thời gian trễ</string>
+    <string name="set_encryption_password" formatted="false">Đặt mật khẩu mã hóa</string>
+    <string name="settings" formatted="false">Cài đặt</string>
+    <string name="settings_backed_up_to" formatted="false">Cài đặt đã sao lưu tới: {path}</string>
+    <string name="settings_backup" formatted="false">Sao lưu cài đặt </string>
+    <string name="settings_restored_successfully" formatted="false">Khôi phục cài đặt thành công. Vui lòng khởi động lại ứng dụng để các thay đổi có hiệu lực.</string>
+    <string name="settings_save_failed" formatted="false">Lưu cài đặt thất bại: {error}</string>
+    <string name="settings_saved" formatted="false">Cài đặt đã lưu</string>
+    <string name="settings_tab" formatted="false">Cài đặt</string>
+    <string name="settings_title" formatted="false">Cài đặt</string>
+    <string name="setup" formatted="false">Thiết lập</string>
+    <string name="show_all_contacts" formatted="false">Hiển thị Tất cả Liên hệ</string>
+    <string name="show_favorites" formatted="false">Hiển thị Mục yêu thích</string>
+    <string name="silence" formatted="false">Im lặng</string>
+    <string name="silence_action_description" formatted="false">Cuộc gọi sẽ bị im lặng nhưng vẫn hiển thị trong nhật ký cuộc gọi.</string>
+    <string name="silence_and_no_answer" formatted="false">Tắt tiếng chuông</string>
+    <string name="silence_no_answer" formatted="false">Im lặng Không trả lời</string>
+    <string name="silent_call_voice_clone" formatted="false">Bản sao giọng nói cuộc gọi im lặng</string>
+    <string name="silent_rules" formatted="false">Quy tắc im lặng</string>
+    <string name="sim_card" formatted="false">SIM {simNumber}</string>
+    <string name="sim_card_color" formatted="false">Màu thẻ SIM</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• Cấu hình thẻ SIM: Đặt quy tắc lọc độc lập cho từng thẻ SIM</string>
+    <string name="sim_card_filter_rules" formatted="false">Quy tắc lọc thẻ SIM</string>
+    <string name="sim_card_filter_rules_description" formatted="false">Đặt các quy tắc lọc khác nhau dựa trên khe cắm SIM</string>
+    <string name="sim_card_font_size" formatted="false">Cỡ chữ thẻ SIM</string>
+    <string name="sim_card_position" formatted="false">Vị trí thẻ SIM</string>
+    <string name="sim_card_title" formatted="false">Thẻ SIM</string>
+    <string name="sim_country" formatted="false">Quốc gia SIM</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">Quy tắc khe cắm SIM cho phép bạn định cấu hình quy tắc lọc độc lập cho từng khe cắm SIM.</string>
+    <string name="sim_rule_instructions_title" formatted="false">Quy tắc Khe cắm SIM</string>
+    <string name="sim_rules_not_found" formatted="false">Không tìm thấy quy tắc SIM</string>
+    <string name="sim_slot" formatted="false">Khe SIM</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">Cấu hình quy tắc lọc độc lập cho từng thẻ SIM:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">Cài đặt Lọc Khe cắm SIM {slotNumber}</string>
+    <string name="sim_slot_management" formatted="false">Quản lý Khe cắm SIM</string>
+    <string name="sim_slot_position" formatted="false">Vị trí Khe cắm SIM {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• Quy tắc Khe cắm SIM: Chiến lược lọc độc lập cho mỗi SIM</string>
+    <string name="sim_slot_rule_list_title" formatted="false">Danh sách Quy tắc Khe cắm SIM</string>
+    <string name="sim_slot_rule_management" formatted="false">Quy tắc Khe cắm SIM</string>
+    <string name="sim_slot_rules" formatted="false">Quy tắc khe SIM</string>
+    <string name="sim_slot_title" formatted="false">Khe cắm SIM {slotNumber}</string>
+    <string name="sim_state" formatted="false">Trạng thái SIM</string>
+    <string name="skip" formatted="false">Bỏ qua</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">Nhận dạng Cuộc gọi Thông minh</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">Lọc SMS giúp bạn tự động lọc các tin nhắn rác và giữ cho danh sách tin nhắn của bạn sạch sẽ. Bạn có thể đặt quy tắc lọc và phương thức thông báo.</string>
+    <string name="sms_filter_disabled" formatted="false">Đã tắt lọc SMS</string>
+    <string name="sms_filter_enabled" formatted="false">Đã bật lọc SMS</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">Đã thêm quy tắc lọc SMS thành công</string>
+    <string name="sms_filter_rules" formatted="false">Quy tắc Lọc SMS</string>
+    <string name="sms_filter_settings" formatted="false">Cài đặt Lọc SMS</string>
+    <string name="sms_management" formatted="false">Quản lý SMS</string>
+    <string name="sms_permission" formatted="false">Quyền SMS</string>
+    <string name="sms_permission_description" formatted="false">Dùng để lọc tin nhắn rác.</string>
+    <string name="sms_rule_added_successfully" formatted="false">Đã thêm quy tắc SMS thành công</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">Đã xóa quy tắc SMS thành công</string>
+    <string name="sms_rule_load_failed" formatted="false">Không thể tải quy tắc SMS: {error}</string>
+    <string name="sms_rule_management" formatted="false">Quản lý Quy tắc SMS</string>
+    <string name="sms_rule_subscription" formatted="false">Đăng ký Quy tắc SMS</string>
+    <string name="sms_subscription" formatted="false">Đăng ký SMS</string>
+    <string name="sms_subscription_added_successfully" formatted="false">Đã thêm đăng ký SMS thành công</string>
+    <string name="sms_subscription_rules_description" formatted="false">Đăng ký danh sách quy tắc SMS qua URL, hỗ trợ khớp biểu thức chính quy. Bạn có thể đặt hành động chặn hoặc cho phép.</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">Một số yêu cầu quyền bị từ chối</string>
+    <string name="sort_by" formatted="false">Sắp xếp theo</string>
+    <string name="sort_least_popular" formatted="false">Sắp xếp ít phổ biến nhất</string>
+    <string name="sort_most_popular" formatted="false">Sắp xếp phổ biến nhất</string>
+    <string name="sort_newest" formatted="false">Sắp xếp mới nhất</string>
+    <string name="sort_oldest" formatted="false">Sắp xếp cũ nhất</string>
+    <string name="spam_likely" formatted="false">Có thể là thư rác</string>
+    <string name="start_color" formatted="false">Màu Bắt đầu</string>
+    <string name="start_date" formatted="false">Ngày Bắt đầu</string>
+    <string name="start_using" formatted="false">Bắt đầu sử dụng</string>
+    <string name="stat_answered" formatted="false">Đã trả lời</string>
+    <string name="stat_blocked" formatted="false">Blocked</string>
+    <string name="statistics" formatted="false">Thống kê</string>
+    <string name="statistics_page_title" formatted="false">Phân tích Dữ liệu</string>
+    <string name="status_connected" formatted="false">Đã kết nối / Đã cấu hình</string>
+    <string name="status_label" formatted="false">Trạng thái</string>
+    <string name="status_not_configured" formatted="false">Chưa cấu hình</string>
+    <string name="stir_color" formatted="false">Màu STIR</string>
+    <string name="stir_failed" formatted="false">Xác minh thất bại</string>
+    <string name="stir_font_size" formatted="false">Cỡ chữ STIR</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">Vị trí STIR</string>
+    <string name="stir_unknown" formatted="false">Trạng thái xác minh không rõ</string>
+    <string name="stir_verification" formatted="false">Xác minh STIR/SHAKEN</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} cho số {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">Hiển thị kết quả xác minh STIR/SHAKEN cho các số điện thoại.</string>
+    <string name="stir_verification_title" formatted="false">Xác minh STIR/SHAKEN</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">Quyền truy cập Bộ nhớ</string>
+    <string name="storage_permission_description" formatted="false">Dùng để lưu cài đặt và quy tắc.</string>
+    <string name="submit" formatted="false">Gửi</string>
+    <string name="subscribe" formatted="false">Đăng ký</string>
+    <string name="subscription_add_success" formatted="false">Đã thêm đăng ký &quot;{name}&quot; thành công</string>
+    <string name="subscription_delete_confirm_content" formatted="false">Bạn có chắc chắn muốn xóa đăng ký này không?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">Xóa Đăng ký</string>
+    <string name="subscription_delete_failed" formatted="false">Không thể xóa đăng ký: {error}</string>
+    <string name="subscription_delete_success" formatted="false">Đã xóa đăng ký</string>
+    <string name="subscription_deleted" formatted="false">Đã xóa đăng ký</string>
+    <string name="subscription_load_failed" formatted="false">Không thể tải đăng ký: {error}</string>
+    <string name="subscription_name" formatted="false">Tên Đăng ký</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">Tên đăng ký và URL không được để trống</string>
+    <string name="subscription_name_hint" formatted="false">Nhập tên đăng ký</string>
+    <string name="subscription_status_change_failed" formatted="false">Không thể thay đổi trạng thái đăng ký: {error}</string>
+    <string name="subscription_update_failed" formatted="false">Không thể cập nhật đăng ký: {error}</string>
+    <string name="subscription_update_success" formatted="false">Đã cập nhật đăng ký thành công</string>
+    <string name="subscription_url" formatted="false">URL Đăng ký</string>
+    <string name="subscription_url_hint" formatted="false">Nhập URL đăng ký</string>
+    <string name="successfully_imported_rules" formatted="false">Đã nhập thành công {count} quy tắc</string>
+    <string name="supabase_anon_key" formatted="false">Khóa ẩn danh</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, khóa công khai ẩn danh</string>
+    <string name="supabase_project_url" formatted="false">URL dự án Supabase</string>
+    <string name="support" formatted="false">Hỗ trợ</string>
+    <string name="support_count" formatted="false">Ủng hộ ({supportCount})</string>
+    <string name="support_sync" formatted="false">Hỗ trợ Đồng bộ hóa</string>
+    <string name="supported" formatted="false">ĐƯỢC HỖ TRỢ</string>
+    <string name="survey" formatted="false">Khảo sát</string>
+    <string name="sync_call_history" formatted="false">Đồng bộ lịch sử cuộc gọi</string>
+    <string name="sync_call_history_subtitle" formatted="false">Bao gồm nhật ký cuộc gọi riêng tư trong đồng bộ</string>
+    <string name="sync_devices_button" formatted="false">Đồng bộ hóa Thiết bị</string>
+    <string name="sync_failed" formatted="false">Đồng bộ hóa thất bại</string>
+    <string name="sync_failed_message" formatted="false">Đồng bộ hóa thất bại</string>
+    <string name="sync_folder_name_label" formatted="false">Tên Thư mục Đồng bộ hóa</string>
+    <string name="sync_interval_label" formatted="false">Khoảng thời gian tự động đồng bộ</string>
+    <string name="sync_interval_value" formatted="false">Mỗi {hours} giờ</string>
+    <string name="sync_now" formatted="false">Đồng bộ hóa Ngay</string>
+    <string name="sync_now_button" formatted="false">Đồng bộ ngay</string>
+    <string name="sync_status_title" formatted="false">Trạng thái đồng bộ</string>
+    <string name="sync_status_updated_message" formatted="false">Trạng thái đồng bộ đã cập nhật</string>
+    <string name="sync_success" formatted="false">Đồng bộ hoàn tất. Đã gửi: {pushed}, Đã nhận: {pulled}</string>
+    <string name="sync_success_message" formatted="false">Đồng bộ thành công</string>
+    <string name="sync_with_cloud_storage" formatted="false">Đồng bộ với Kho lưu trữ đám mây</string>
+    <string name="synced" formatted="false">Đã đồng bộ</string>
+    <string name="synchronized" formatted="false">Đã đồng bộ hóa</string>
+    <string name="syncing" formatted="false">Đang đồng bộ hóa...</string>
+    <string name="system_features" formatted="false">Tính năng hệ thống:</string>
+    <string name="system_settings_title" formatted="false">Cài đặt hệ thống</string>
+    <string name="tab_all" formatted="false">Tất cả</string>
+    <string name="tab_answered" formatted="false">Đã trả lời</string>
+    <string name="tab_blocked" formatted="false">Đã chặn</string>
+    <string name="tab_missed" formatted="false">Bỏ lỡ</string>
+    <string name="tab_outgoing" formatted="false">Cuộc gọi đi</string>
+    <string name="tag_label" formatted="false">Thẻ: {tag}</string>
+    <string name="takeaway" formatted="false">Điểm rút gọn</string>
+    <string name="telecommunication" formatted="false">Viễn thông</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">Tiếp thị qua điện thoại</string>
+    <string name="temp_purchase_expired" formatted="false">Đặc quyền mua hàng tạm thời đã hết hạn</string>
+    <string name="temporary_vip" formatted="false">VIP tạm thời</string>
+    <string name="test_button" formatted="false">KIỂM TRA</string>
+    <string name="test_connection_button" formatted="false">Kiểm tra kết nối</string>
+    <string name="test_plugin" formatted="false">Kiểm tra Plugin</string>
+    <string name="text_colors_setting" formatted="false">Màu văn bản &amp; nhãn</string>
+    <string name="theme_dark" formatted="false">Tối</string>
+    <string name="theme_light" formatted="false">Sáng</string>
+    <string name="theme_settings_subtitle" formatted="false">Chọn chủ đề yêu thích của bạn</string>
+    <string name="theme_settings_title" formatted="false">Cài đặt Chủ đề</string>
+    <string name="theme_system" formatted="false">Mặc định hệ thống</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">Ứng dụng này là công cụ nhận dạng người gọi mạnh mẽ cho phép bạn xác định và chặn các cuộc gọi không mong muốn.</string>
+    <string name="this_week" formatted="false">Tuần này</string>
+    <string name="time_interceptor" formatted="false">Bảo vệ cuộc gọi liên tục</string>
+    <string name="time_interceptor_description" formatted="false">Chặn các cuộc gọi lặp lại từ cùng một số trong thời gian ngắn</string>
+    <string name="time_interceptor_explanation" formatted="false">• Bộ chặn theo tần suất thời gian: Chặn/cho phép các cuộc gọi lặp lại trong thời gian ngắn</string>
+    <string name="time_interceptor_explanation_content" formatted="false">Tính năng chặn theo tần suất cuộc gọi phân tích tần suất cuộc gọi để tự động xác định và chặn/cho phép các cuộc gọi rác thường xuyên.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">Giải thích tính năng chặn theo tần suất cuộc gọi</string>
+    <string name="time_interceptor_settings_title" formatted="false">Cài đặt chặn theo tần suất cuộc gọi</string>
+    <string name="time_window_description" formatted="false">Đặt kích thước cửa sổ thời gian để cho phép các cuộc gọi lặp lại. Các cuộc gọi từ cùng một số trong cửa sổ này sẽ được cho phép</string>
+    <string name="time_window_label" formatted="false">Cửa sổ thời gian chặn (phút): {minutes}</string>
+    <string name="timeline_view" formatted="false">Chế độ xem Dòng thời gian</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">Hôm nay</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">Tổng cộng</string>
+    <string name="total_blocked" formatted="false">Tổng số đã chặn</string>
+    <string name="total_pending_proposals" formatted="false">Tổng số đề xuất đang chờ</string>
+    <string name="total_proposals" formatted="false">Tổng số đề xuất</string>
+    <string name="total_votes" formatted="false">Tổng cộng: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">Chuyển dữ liệu giữa các thiết bị hoặc nền tảng</string>
+    <string name="travel_ticketing" formatted="false">Vé du lịch</string>
+    <string name="tutorial" formatted="false">Hướng dẫn</string>
+    <string name="type" formatted="false">Loại</string>
+    <string name="unassigned_s_i_m_card" formatted="false">Thẻ SIM chưa được gán</string>
+    <string name="unblock" formatted="false">Bỏ chặn</string>
+    <string name="unblock_number" formatted="false">Bỏ Chặn Số</string>
+    <string name="unblock_number_confirmation" formatted="false">Bạn có chắc chắn muốn bỏ chặn {phoneNumber}?</string>
+    <string name="unblock_number_failed" formatted="false">Bỏ chặn số thất bại</string>
+    <string name="unblock_number_success" formatted="false">Bỏ chặn số thành công</string>
+    <string name="unblocked" formatted="false">Đã bỏ chặn</string>
+    <string name="unknown" formatted="false">Không xác định</string>
+    <string name="unknown_tag" formatted="false">Thẻ: Không xác định</string>
+    <string name="unregister_button" formatted="false">Hủy đăng ký</string>
+    <string name="unregister_device_confirmation_message" formatted="false">Bạn có chắc chắn muốn hủy đăng ký {deviceName} không?</string>
+    <string name="unregister_device_title" formatted="false">Hủy đăng ký thiết bị</string>
+    <string name="unsupported_file_format" formatted="false">Định dạng tệp không được hỗ trợ</string>
+    <string name="update" formatted="false">Cập nhật</string>
+    <string name="update_all_now" formatted="false">Cập nhật tất cả ngay</string>
+    <string name="update_contact_failed" formatted="false">Không thể cập nhật danh bạ: {error}</string>
+    <string name="update_favorite_status" formatted="false">Cập nhật trạng thái yêu thích</string>
+    <string name="update_interval" formatted="false">Khoảng thời gian cập nhật</string>
+    <string name="update_now" formatted="false">Cập nhật ngay</string>
+    <string name="update_plugin" formatted="false">Cập nhật Plugin</string>
+    <string name="update_plugin_failed" formatted="false">Không thể cập nhật plugin: {error}</string>
+    <string name="update_rule_failed" formatted="false">Không thể cập nhật quy tắc: {error}</string>
+    <string name="update_subscription_failed" formatted="false">Không thể cập nhật đăng ký: {error}</string>
+    <string name="update_success" formatted="false">{service} đã cập nhật thành công ({count} quy tắc)</string>
+    <string name="upgrade_to_vip" formatted="false">Nâng cấp lên VIP</string>
+    <string name="use_cases_point1" formatted="false">• Xác định các cuộc gọi rác tự động gọi lại</string>
+    <string name="use_cases_point2" formatted="false">• Chặn các cuộc gọi tiếp thị gọi nhiều lần trong thời gian ngắn</string>
+    <string name="use_cases_point3" formatted="false">• Ngăn chặn quấy rối và gọi điện khủng bố</string>
+    <string name="use_cases_title" formatted="false">Các trường hợp sử dụng:</string>
+    <string name="use_global_settings" formatted="false">Sử dụng cài đặt toàn cục</string>
+    <string name="use_local_notification" formatted="false">Sử dụng Thông báo cục bộ</string>
+    <string name="use_local_notification_description" formatted="false">Bật thông báo cục bộ cho các cuộc gọi đến</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">Sử dụng cú pháp regex tiêu chuẩn để xác định các mẫu. Ví dụ:</string>
+    <string name="use_stir_notification" formatted="false">Sử dụng Thông báo từ STIR</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">Tên người dùng</string>
+    <string name="verification_failed_text" formatted="false">Thất bại</string>
+    <string name="verification_report" formatted="false">Báo cáo Xác minh</string>
+    <string name="verified_text" formatted="false">Đã xác minh</string>
+    <string name="verify" formatted="false">Xác minh</string>
+    <string name="version" formatted="false">Phiên bản: {version}</string>
+    <string name="very_high" formatted="false">Rất cao</string>
+    <string name="very_low" formatted="false">Rất thấp</string>
+    <string name="view_details" formatted="false">Xem Chi tiết</string>
+    <string name="vip3_days_with_ads" formatted="false">VIP 3 ngày có quảng cáo (chỉ đồng bộ)</string>
+    <string name="vip5_days_no_ads" formatted="false">VIP 5 ngày đầy đủ tính năng, không quảng cáo</string>
+    <string name="vip7_days_no_ads" formatted="false">VIP 7 ngày đầy đủ tính năng, không quảng cáo</string>
+    <string name="vip_access_subtitle" formatted="false">Xem quảng cáo miễn phí hoặc mua VIP</string>
+    <string name="vip_exchange_description" formatted="false">Đổi tư cách thành viên VIP bằng số lần đánh dấu số điện thoại</string>
+    <string name="vip_exchange_service" formatted="false">Dịch vụ Đổi VIP</string>
+    <string name="vip_exchange_title" formatted="false">Đánh dấu đổi VIP</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">Người dùng VIP</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">Nhận dạng giọng nói</string>
+    <string name="vote_agree" formatted="false">Đồng ý</string>
+    <string name="vote_count" formatted="false">Số phiếu bầu</string>
+    <string name="vote_disagree" formatted="false">Không đồng ý</string>
+    <string name="vote_submitted" formatted="false">Phiếu bầu đã được gửi thành công</string>
+    <string name="voted" formatted="false">Đã bầu</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} phiếu bầu ({supportPercentage}% ủng hộ)</string>
+    <string name="voting_completed" formatted="false">Bỏ phiếu đã hoàn thành</string>
+    <string name="voting_completed_body" formatted="false">Bỏ phiếu cộng đồng cho số {phoneNumber} đã kết thúc. Kết quả: {result} ({supportPercentage}% ủng hộ).</string>
+    <string name="waiting_for_more_votes" formatted="false">Đang chờ thêm phiếu bầu từ cộng đồng</string>
+    <string name="watch_ad" formatted="false">Xem quảng cáo</string>
+    <string name="watch_ad_for_temp" formatted="false">Xem quảng cáo để có đặc quyền tạm thời</string>
+    <string name="watch_ad_for_temp_description" formatted="false">Xem một quảng cáo ngắn để tạm thời mở khóa một số tính năng cao cấp</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">Bạn cần xem thêm {count} quảng cáo để nhận đặc quyền VIP tạm thời</string>
+    <string name="web_d_a_v_config_title" formatted="false">Cấu hình WebDAV</string>
+    <string name="week" formatted="false">Tuần</string>
+    <string name="welcome" formatted="false">Chào mừng</string>
+    <string name="whitelist" formatted="false">Danh sách trắng</string>
+    <string name="width" formatted="false">Chiều rộng</string>
+    <string name="wildcard_matching_description" formatted="false">Sử dụng \'.\' để khớp với bất kỳ ký tự nào (ví dụ: \'123.456\' khớp với 123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">Khớp ký tự đại diện:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">Hỗ trợ Ký tự đại diện cho Lọc linh hoạt</string>
+    <string name="window_size_setting" formatted="false">Kích thước cửa sổ</string>
+    <string name="year" formatted="false">Năm</string>
+    <string name="yesterday" formatted="false">Hôm qua</string>
+</resources>

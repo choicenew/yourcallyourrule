@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">Tentang Langganan Kontak</string>
+    <string name="about_labels" formatted="false">Tentang Label</string>
+    <string name="about_phone_subscription_rules" formatted="false">Tentang Aturan Langganan Telepon</string>
+    <string name="about_sms_filter" formatted="false">Tentang Pemfilteran SMS</string>
+    <string name="about_sms_subscription_rules" formatted="false">Tentang Aturan Langganan SMS</string>
+    <string name="about_subtitle" formatted="false">Informasi versi aplikasi dan hukum</string>
+    <string name="about_title" formatted="false">Tentang</string>
+    <string name="access_target_url" formatted="false">Akses URL Target</string>
+    <string name="action" formatted="false">Tindakan</string>
+    <string name="action_all" formatted="false">Semua</string>
+    <string name="action_allow" formatted="false">Izinkan</string>
+    <string name="action_block" formatted="false">Blokir</string>
+    <string name="action_filter_title" formatted="false">Filter berdasarkan Jenis Tindakan</string>
+    <string name="action_filter_tooltip" formatted="false">Filter Tindakan</string>
+    <string name="action_none" formatted="false">Tanpa Tindakan</string>
+    <string name="action_silence" formatted="false">Senyapkan</string>
+    <string name="action_tag" formatted="false">Tindakan: {actionType}</string>
+    <string name="action_type" formatted="false">Jenis Tindakan</string>
+    <string name="action_unknown" formatted="false">Tidak Diketahui</string>
+    <string name="active_proposals" formatted="false">Proposal Aktif</string>
+    <string name="add" formatted="false">Tambah</string>
+    <string name="add_allow_subscription" formatted="false">Tambah Langganan Izinkan</string>
+    <string name="add_allowed_blocked_rule" formatted="false">Tambah Aturan Izinkan/Blokir</string>
+    <string name="add_block_subscription" formatted="false">Tambah Langganan Blokir</string>
+    <string name="add_contact_button" formatted="false">Tambah Kontak</string>
+    <string name="add_contact_failed" formatted="false">Gagal menambahkan kontak: {error}</string>
+    <string name="add_label" formatted="false">Tambah Label</string>
+    <string name="add_label_button" formatted="false">Tambah Label</string>
+    <string name="add_label_failed" formatted="false">Gagal menambahkan label: {error}</string>
+    <string name="add_name" formatted="false">Tambah Nama</string>
+    <string name="add_none_subscription" formatted="false">Tambah Langganan Tanpa</string>
+    <string name="add_phone_mark" formatted="false">Tambah Tanda Telepon</string>
+    <string name="add_phone_number_rule" formatted="false">Tambah Aturan Nomor Telepon</string>
+    <string name="add_plugin" formatted="false">Tambah Plugin</string>
+    <string name="add_plugin_failed" formatted="false">Gagal menambahkan plugin</string>
+    <string name="add_plugin_failed_with_error" formatted="false">Gagal menambahkan plugin: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">Tambah Plugin dari File Lokal</string>
+    <string name="add_plugin_from_url" formatted="false">Tambah Plugin dari URL</string>
+    <string name="add_regex_rule" formatted="false">Tambah Aturan Regex</string>
+    <string name="add_rule" formatted="false">Tambah Aturan</string>
+    <string name="add_rule_failed" formatted="false">Gagal menambahkan aturan: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">Tambah Aturan</string>
+    <string name="add_silence_subscription" formatted="false">Tambah Langganan Senyap</string>
+    <string name="add_sms_filter_rule" formatted="false">Tambah Aturan Filter SMS</string>
+    <string name="add_sms_rule" formatted="false">Tambah Aturan SMS</string>
+    <string name="add_sms_subscription" formatted="false">Tambah Langganan SMS</string>
+    <string name="add_subscription" formatted="false">Tambah Langganan</string>
+    <string name="add_subscription_button" formatted="false">Tambah Langganan</string>
+    <string name="add_subscription_failed" formatted="false">Gagal menambahkan langganan: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">Tambah Langganan</string>
+    <string name="add_to_blacklist" formatted="false">Tambahkan ke Daftar Hitam</string>
+    <string name="add_to_favorites" formatted="false">Tambahkan ke Favorit</string>
+    <string name="add_to_rules" formatted="false">Tambahkan ke Aturan</string>
+    <string name="add_to_whitelist" formatted="false">Tambahkan ke Daftar Putih</string>
+    <string name="added_to_favorites" formatted="false">Ditambahkan ke favorit</string>
+    <string name="advanced_mode" formatted="false">Mode Lanjutan</string>
+    <string name="agent" formatted="false">Agen</string>
+    <string name="agree_votes" formatted="false">Setuju: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">Semua</string>
+    <string name="all_call_logs_cleared" formatted="false">Semua riwayat panggilan telah dihapus</string>
+    <string name="all_calls_tab" formatted="false">Semua</string>
+    <string name="all_permissions_granted" formatted="false">Semua izin diberikan</string>
+    <string name="all_services_status_subtitle" formatted="false">Status Saat Ini dari Setiap Layanan Cloud</string>
+    <string name="all_services_status_title" formatted="false">Status Layanan Saat Ini</string>
+    <string name="all_settings_completed" formatted="false">Semua pengaturan selesai.</string>
+    <string name="all_update_success" formatted="false">Semua pembaruan selesai ({count} aturan)</string>
+    <string name="allow" formatted="false">Izinkan</string>
+    <string name="allow_action_description" formatted="false">Panggilan akan diizinkan, bahkan jika nomor ada di daftar blokir.</string>
+    <string name="allow_all_allow_rules" formatted="false">Aktifkan Semua Aturan Izinkan</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">Sakelar utama untuk menerapkan semua aturan izinkan yang dikonfigurasi</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">Izinkan Semua Nomor yang Masuk Daftar Hitam</string>
+    <string name="allow_all_block_rules" formatted="false">Aktifkan Semua Aturan Blokir</string>
+    <string name="allow_all_block_rules_desc" formatted="false">Sakelar utama untuk menerapkan semua aturan blokir yang dikonfigurasi</string>
+    <string name="allow_allowed_numbers" formatted="false">Izinkan Semua Nomor yang Disetujui</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">Izinkan semua panggilan masuk dari nomor di daftar izinkan Anda</string>
+    <string name="allow_block" formatted="false">Izinkan/Blokir</string>
+    <string name="allow_blocked_numbers" formatted="false">Jeda Pemblokiran Daftar Hitam</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">Izinkan sementara panggilan dari nomor di daftar blokir Anda</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">Izinkan Nomor yang Tidak Melebihi Batas</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">Otomatis izinkan nomor yang tidak melebihi ambang batas jumlah</string>
+    <string name="allow_regex_allow_rules" formatted="false">Aktifkan Aturan Izinkan Regex</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">Aktifkan pencocokan pola ekspresi reguler untuk aturan izinkan</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">Aktifkan aturan berbasis regex untuk diizinkan</string>
+    <string name="allow_regex_block_rules" formatted="false">Aktifkan Aturan Blokir Regex</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">Aktifkan pencocokan pola ekspresi reguler untuk aturan blokir</string>
+    <string name="allow_regex_block_rules_description" formatted="false">Aktifkan aturan berbasis regex untuk diblokir</string>
+    <string name="allow_rule" formatted="false">Aturan Izinkan</string>
+    <string name="allow_rules" formatted="false">Aturan Izinkan</string>
+    <string name="allowed_blocked_rule" formatted="false">Aturan Izinkan/Blokir</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">Edit Aturan Izinkan/Blokir</string>
+    <string name="allowed_blocked_rule_management" formatted="false">Manajemen Aturan Izinkan/Blokir</string>
+    <string name="allowed_blocked_rules_info" formatted="false">Aturan yang diizinkan/diblokir digunakan untuk mencocokkan panggilan ke nomor telepon tertentu, yang memiliki prioritas tertinggi.</string>
+    <string name="and_more_items" formatted="false">dan {count} item lainnya</string>
+    <string name="answer_then_hangup" formatted="false">Jawab lalu tutup telepon</string>
+    <string name="answer_then_hangup_description" formatted="false">Jawab panggilan terlebih dahulu, lalu segera tutup.</string>
+    <string name="app_name" formatted="false">Your Call Your Rule</string>
+    <string name="application_software" formatted="false">Perangkat Lunak Aplikasi</string>
+    <string name="apply" formatted="false">Terapkan</string>
+    <string name="approved" formatted="false">DISETUJUI</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">Otorisasi gagal: Harap periksa ID klien dan kunci</string>
+    <string name="authorization_failed_message" formatted="false">Otorisasi gagal</string>
+    <string name="authorization_success_message" formatted="false">Otorisasi berhasil</string>
+    <string name="authorize_login_button" formatted="false">Otorisasi Login</string>
+    <string name="auto_cancel_notification" formatted="false">Batalkan Notifikasi Otomatis</string>
+    <string name="auto_cancel_notification_description" formatted="false">Jika dicentang, notifikasi akan otomatis ditutup saat pengguna mengetuknya.</string>
+    <string name="auto_sync_label" formatted="false">Sinkronisasi Otomatis</string>
+    <string name="auto_update" formatted="false">Pembaruan Otomatis</string>
+    <string name="auto_update_description" formatted="false">Atur interval pembaruan otomatis untuk langganan atau perbarui secara manual</string>
+    <string name="auto_update_settings" formatted="false">Pengaturan Pembaruan Otomatis</string>
+    <string name="auto_update_subtitle" formatted="false">Kelola pembaruan otomatis untuk aturan dan plugin</string>
+    <string name="auto_update_title" formatted="false">Pembaruan Otomatis</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">Industri Otomotif</string>
+    <string name="avatar" formatted="false">Avatar</string>
+    <string name="avatar_border_color" formatted="false">Warna Bingkai Avatar</string>
+    <string name="avatar_border_size" formatted="false">Ukuran Bingkai Avatar</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">Ukuran Avatar &amp; Ikon</string>
+    <string name="avatar_position" formatted="false">Posisi Avatar</string>
+    <string name="avatar_size" formatted="false">Ukuran Avatar</string>
+    <string name="axis_position" formatted="false">Posisi {axis}</string>
+    <string name="background_gradient_setting" formatted="false">Gradien Latar Belakang</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">Cadangan</string>
+    <string name="backup_and_restore" formatted="false">Cadangkan dan Pulihkan</string>
+    <string name="backup_and_restore_subtitle" formatted="false">Cadangkan atau pulihkan data aplikasi</string>
+    <string name="backup_and_restore_title" formatted="false">Cadangkan &amp; Pulihkan</string>
+    <string name="backup_failed" formatted="false">Cadangan gagal</string>
+    <string name="backup_settings" formatted="false">Pengaturan Cadangan</string>
+    <string name="backup_to_cloud" formatted="false">Cadangkan ke Cloud</string>
+    <string name="backup_to_cloud_failed" formatted="false">Gagal mencadangkan ke cloud: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">Berhasil dicadangkan ke cloud</string>
+    <string name="bank" formatted="false">Bank</string>
+    <string name="basic_info" formatted="false">Informasi Dasar</string>
+    <string name="basic_rule_filter" formatted="false">Filter Aturan Dasar</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">Filter panggilan menggunakan daftar hitam/putih dan ekspresi reguler</string>
+    <string name="basic_rule_filtering" formatted="false">Pemfilteran Aturan Dasar</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• Pemfilteran Aturan Dasar: Memfilter aturan berdasarkan daftar hitam, daftar putih, dan regex</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">Apakah Anda yakin ingin menghapus {count} kontak yang dipilih?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">Apakah Anda yakin ingin menghapus {count} label?</string>
+    <string name="battery_optimization_permission" formatted="false">Optimasi Baterai</string>
+    <string name="battery_optimization_permission_description" formatted="false">Izinkan aplikasi berjalan di latar belakang untuk menyediakan layanan seperti ID penelepon.</string>
+    <string name="black_white_list" formatted="false">Daftar Hitam/Putih</string>
+    <string name="blacklist" formatted="false">Daftar Hitam</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">Daftar Hitam dan Daftar Putih</string>
+    <string name="block" formatted="false">Blokir</string>
+    <string name="block_action_description" formatted="false">Panggilan akan diblokir dan ditampilkan di log panggilan.</string>
+    <string name="block_calls" formatted="false">Blokir Panggilan</string>
+    <string name="block_international_calls" formatted="false">cocok dengan nomor yang tidak diawali dengan + atau 00</string>
+    <string name="block_international_calls_title" formatted="false">Blokir Panggilan Internasional</string>
+    <string name="block_mobile_numbers" formatted="false">cocok dengan nomor yang tidak diawali dengan 13-19</string>
+    <string name="block_mobile_numbers_title" formatted="false">Blokir Nomor Ponsel</string>
+    <string name="block_number" formatted="false">Blokir Nomor</string>
+    <string name="block_number_success" formatted="false">Berhasil memblokir nomor</string>
+    <string name="block_premium_rate_numbers" formatted="false">cocok dengan nomor yang tidak diawali dengan 118 atau 120-190</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">Blokir Nomor Tarif Premium</string>
+    <string name="block_rule" formatted="false">Aturan Blokir</string>
+    <string name="block_rules" formatted="false">Aturan Blokir</string>
+    <string name="block_specific_area_codes" formatted="false">cocok dengan nomor yang diawali dengan 0 + 2-3 digit</string>
+    <string name="block_specific_area_codes_title" formatted="false">Blokir kode area tertentu:</string>
+    <string name="block_type_analysis_title" formatted="false">Analisis Tipe Blokir</string>
+    <string name="blocked" formatted="false">Diblokir</string>
+    <string name="blocked_call_body" formatted="false">Panggilan diblokir dari {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">Notifikasi Panggilan Diblokir</string>
+    <string name="blocked_call_notifications_description" formatted="false">Menampilkan informasi tentang panggilan yang diblokir.</string>
+    <string name="blocked_call_title" formatted="false">Panggilan Diblokir</string>
+    <string name="blocked_calls" formatted="false">Panggilan yang Diblokir</string>
+    <string name="blocked_calls_title" formatted="false">Panggilan yang Diblokir</string>
+    <string name="blocked_spam_calls" formatted="false">Panggilan Spam yang Diblokir</string>
+    <string name="blocking_trend" formatted="false">Tren Pemblokiran</string>
+    <string name="both" formatted="false">Keduanya</string>
+    <string name="bulk_delete" formatted="false">Hapus Kontak Massal</string>
+    <string name="bulk_delete_contacts" formatted="false">Hapus Kontak Massal</string>
+    <string name="bulk_delete_labels" formatted="false">Hapus Label Massal</string>
+    <string name="call" formatted="false">Panggilan</string>
+    <string name="call_blocking" formatted="false">Pemblokiran Panggilan</string>
+    <string name="call_details" formatted="false">Detail Panggilan</string>
+    <string name="call_filter_rules" formatted="false">Aturan Filter Panggilan</string>
+    <string name="call_filter_rules_description" formatted="false">Tetapkan aturan dasar untuk penyaringan panggilan</string>
+    <string name="call_filter_settings" formatted="false">Pengaturan Filter Panggilan</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">Tetapkan batas frekuensi panggilan dan aturan pemblokiran</string>
+    <string name="call_frequency_interception_title" formatted="false">Pencegatan Frekuensi Panggilan</string>
+    <string name="call_history" formatted="false">Riwayat Panggilan</string>
+    <string name="call_history_info_desc" formatted="false">Di sini menunjukkan riwayat panggilan Anda, termasuk panggilan masuk, keluar, dan tidak terjawab.</string>
+    <string name="call_history_info_title" formatted="false">Riwayat Panggilan</string>
+    <string name="call_history_tab" formatted="false">Riwayat Panggilan</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">Izin Penyaringan Panggilan</string>
+    <string name="call_screening_permission_description" formatted="false">Digunakan untuk menyaring dan memblokir panggilan spam.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">Izin penyaringan panggilan tidak diberikan, dapat memengaruhi fungsionalitas aplikasi.</string>
+    <string name="call_statistics" formatted="false">Statistik Panggilan</string>
+    <string name="call_time" formatted="false">Waktu Panggilan</string>
+    <string name="call_type" formatted="false">Jenis Panggilan</string>
+    <string name="call_type_answered" formatted="false">Terjawab</string>
+    <string name="call_type_blocked" formatted="false">Diblokir</string>
+    <string name="call_type_icon_color" formatted="false">Warna Ikon Jenis Panggilan</string>
+    <string name="call_type_missed" formatted="false">Panggilan Tak Terjawab</string>
+    <string name="call_type_outgoing" formatted="false">Keluar</string>
+    <string name="call_type_position" formatted="false">Posisi Jenis Panggilan</string>
+    <string name="call_type_rejected" formatted="false">Ditolak</string>
+    <string name="call_type_silenced" formatted="false">Dibungkam</string>
+    <string name="call_type_unknown" formatted="false">Tidak Diketahui</string>
+    <string name="callback" formatted="false">Panggil Balik</string>
+    <string name="caller_id_app" formatted="false">Aplikasi ID Penelepon</string>
+    <string name="caller_id_customization_subtitle" formatted="false">Sesuaikan Tata Letak ID Penelepon</string>
+    <string name="caller_id_customization_title" formatted="false">Sesuaikan ID Penelepon</string>
+    <string name="caller_id_display_mode" formatted="false">Mode Tampilan ID Penelepon</string>
+    <string name="caller_id_enhancement" formatted="false">Peningkatan ID Penelepon</string>
+    <string name="caller_id_marked_by_count" formatted="false">Ditandai oleh {count}</string>
+    <string name="caller_id_notification_title" formatted="false">Info Panggilan Masuk</string>
+    <string name="caller_id_preview" formatted="false">Pratinjau ID Penelepon</string>
+    <string name="caller_id_settings_subtitle" formatted="false">Untuk Mengatur Mode Notifikasi &amp; Tampilan Panggilan Masuk</string>
+    <string name="caller_id_settings_title" formatted="false">Pengaturan ID Penelepon</string>
+    <string name="calling_number_failed" formatted="false">Gagal memanggil nomor</string>
+    <string name="cancel" formatted="false">Batal</string>
+    <string name="cancel_button" formatted="false">Batal</string>
+    <string name="cancel_local_notification" formatted="false">Tutup Notifikasi Lokal</string>
+    <string name="cancel_local_notification_description" formatted="false">Tutup Notifikasi Lokal Secara Otomatis</string>
+    <string name="car_rental" formatted="false">Sewa Mobil</string>
+    <string name="carrier" formatted="false">Operator</string>
+    <string name="carrier_color" formatted="false">Warna Operator</string>
+    <string name="carrier_font_size" formatted="false">Ukuran Font Operator</string>
+    <string name="carrier_position" formatted="false">Posisi Operator</string>
+    <string name="change_label" formatted="false">Ubah Label</string>
+    <string name="change_plugin_status_failed" formatted="false">Gagal mengubah status plugin: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">Gagal mengubah status langganan: {error}</string>
+    <string name="charity" formatted="false">Donasi</string>
+    <string name="chart_one_week_ago" formatted="false">1 minggu yang lalu</string>
+    <string name="chart_three_days_ago" formatted="false">3 hari yang lalu</string>
+    <string name="chart_today" formatted="false">Hari Ini</string>
+    <string name="check_file_format" formatted="false">Harap periksa format atau izin file</string>
+    <string name="check_permission_failed" formatted="false">Gagal memeriksa izin: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">Pilih tindakan pencegatan default</string>
+    <string name="clear_all_call_logs" formatted="false">Hapus Semua Riwayat Panggilan</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">Konfirmasi untuk menghapus semua riwayat panggilan</string>
+    <string name="clear_all_notifications" formatted="false">Hapus Semua Notifikasi</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">Konfirmasi untuk menghapus semua notifikasi</string>
+    <string name="clear_button" formatted="false">Hapus</string>
+    <string name="clear_filter" formatted="false">Hapus Filter</string>
+    <string name="clear_label_filter_button" formatted="false">Hapus Filter Label</string>
+    <string name="close_button" formatted="false">Tutup</string>
+    <string name="cloud_backup" formatted="false">Cadangan Cloud</string>
+    <string name="cloud_sync" formatted="false">Sinkronisasi Cloud</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">Sinkronisasi &amp; Cadangan Cloud</string>
+    <string name="cloud_sync_service" formatted="false">Layanan Sinkronisasi Cloud</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">Konfigurasi WebDAV, OneDrive, dan Google Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">Pengaturan Sinkronisasi Cloud</string>
+    <string name="cloud_sync_title" formatted="false">Sinkronisasi Cloud</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">Penagihan Utang</string>
+    <string name="color_picker_title" formatted="false">Pilih Warna</string>
+    <string name="community_impact" formatted="false">Dampak Komunitas</string>
+    <string name="community_participation" formatted="false">Partisipasi Komunitas</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">Suara komunitas</string>
+    <string name="community_voting_started" formatted="false">Pemungutan Suara Komunitas Dimulai</string>
+    <string name="community_voting_started_body" formatted="false">Proposal penghapusan baru untuk {phoneNumber} kini dibuka untuk pemungutan suara komunitas.</string>
+    <string name="completed" formatted="false">SELESAI</string>
+    <string name="config_management" formatted="false">Manajemen Konfigurasi</string>
+    <string name="config_saved" formatted="false">Konfigurasi Disimpan!</string>
+    <string name="config_updated" formatted="false">Konfigurasi diperbarui</string>
+    <string name="configuration_advice" formatted="false">Melalui konfigurasi yang tepat, Anda dapat mengatur strategi pemfilteran yang berbeda untuk kartu SIM kerja dan pribadi.</string>
+    <string name="configure_backup_options" formatted="false">Konfigurasi Opsi Cadangan</string>
+    <string name="configure_cloud_sync_service" formatted="false">Konfigurasi Layanan Sinkronisasi Cloud</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">Harap konfigurasikan layanan sinkronisasi cloud untuk mengaktifkan sinkronisasi multi-perangkat.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">Konfigurasi Aturan Filter Kartu SIM</string>
+    <string name="confirm" formatted="false">Konfirmasi</string>
+    <string name="confirm_button" formatted="false">Konfirmasi</string>
+    <string name="confirm_delete" formatted="false">Konfirmasi Hapus</string>
+    <string name="confirm_delete_label" formatted="false">Apakah Anda yakin ingin menghapus label &quot;{name}&quot;</string>
+    <string name="confirm_delete_plugin" formatted="false">Apakah Anda yakin ingin menghapus plugin &quot;{name}&quot;?</string>
+    <string name="confirm_delete_plugins" formatted="false">Apakah Anda yakin ingin menghapus {count} plugin?</string>
+    <string name="confirm_delete_rule_message" formatted="false">Apakah Anda yakin ingin menghapus aturan ini? Tindakan ini tidak dapat dibatalkan.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">Apakah Anda yakin ingin menghapus aturan filter SMS ini?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">Apakah Anda yakin ingin menghapus aturan SMS ini?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">Apakah Anda yakin ingin menghapus {name}?</string>
+    <string name="confirm_password" formatted="false">Konfirmasi Kata Sandi</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">Terhubung</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">Koneksi gagal: Harap periksa alamat server, nama pengguna, dan kata sandi</string>
+    <string name="connection_failed_message" formatted="false">Koneksi gagal</string>
+    <string name="connection_status_label" formatted="false">Status Koneksi</string>
+    <string name="connection_string" formatted="false">String Koneksi (URI)</string>
+    <string name="connection_string_helper" formatted="false">Hanya diperlukan untuk \'Inisialisasi Database\'</string>
+    <string name="connection_success_message" formatted="false">Koneksi berhasil</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">Kontak berhasil ditambahkan</string>
+    <string name="contact_deleted" formatted="false">Kontak dihapus</string>
+    <string name="contact_name_label" formatted="false">Nama</string>
+    <string name="contact_not_found" formatted="false">Kontak tidak ditemukan</string>
+    <string name="contact_subscription_description" formatted="false">Berlangganan daftar kontak melalui URL, secara otomatis memperbarui informasi dan label kontak. Mendukung data format JSON.</string>
+    <string name="contact_update_success" formatted="false">Kontak berhasil diperbarui</string>
+    <string name="contact_us" formatted="false">Hubungi Kami</string>
+    <string name="contacts" formatted="false">Kontak</string>
+    <string name="contacts_deleted" formatted="false">Menghapus {count} kontak</string>
+    <string name="contacts_management" formatted="false">Manajemen Kontak</string>
+    <string name="contacts_permission" formatted="false">Izin Kontak</string>
+    <string name="contacts_permission_description" formatted="false">Digunakan untuk mengidentifikasi panggilan kontak.</string>
+    <string name="contacts_tab" formatted="false">Kontak</string>
+    <string name="container_width" formatted="false">Lebar Kontainer</string>
+    <string name="content" formatted="false">Konten</string>
+    <string name="content_regex" formatted="false">Regex Konten</string>
+    <string name="count_color" formatted="false">Warna Jumlah</string>
+    <string name="count_font_size" formatted="false">Ukuran Font Jumlah</string>
+    <string name="count_position" formatted="false">Posisi Jumlah</string>
+    <string name="count_threshold_description" formatted="false">Atur ambang batas jumlah minimum yang diperlukan untuk memicu tindakan pemfilteran</string>
+    <string name="count_threshold_label" formatted="false">Ambang Batas Jumlah</string>
+    <string name="country" formatted="false">Negara</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">misalnya, US, CN, GB</string>
+    <string name="country_code_label" formatted="false">Kode Negara (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">Kode negara wajib diisi</string>
+    <string name="country_code_two_letters" formatted="false">Kode Negara (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">Harap dicatat: Basis data mungkin tidak menyertakan data untuk semua negara atau wilayah tertentu.</string>
+    <string name="country_name_color" formatted="false">Warna Nama Negara</string>
+    <string name="country_name_font_size" formatted="false">Ukuran Font Nama Negara</string>
+    <string name="country_region_name_position" formatted="false">Posisi Nama Negara/Wilayah</string>
+    <string name="country_sync_settings_subtitle" formatted="false">Pilih negara untuk sinkronisasi data</string>
+    <string name="country_sync_settings_title" formatted="false">Pengaturan Sinkronisasi Database Berbasis Negara</string>
+    <string name="create_proposal" formatted="false">Buat Proposal</string>
+    <string name="create_proposal_title" formatted="false">Buat Proposal Penghapusan</string>
+    <string name="created_at" formatted="false">Dibuat: {date}</string>
+    <string name="created_rules" formatted="false">Aturan yang Dibuat</string>
+    <string name="critical" formatted="false">Kritis</string>
+    <string name="critical_issues" formatted="false">Masalah Kritis</string>
+    <string name="csv_format" formatted="false">Format CSV</string>
+    <string name="current_device_label" formatted="false">Label Perangkat Saat Ini</string>
+    <string name="current_device_title" formatted="false">Perangkat Saat Ini</string>
+    <string name="current_language" formatted="false">Bahasa Saat Ini</string>
+    <string name="current_mark_count" formatted="false">Jumlah Tanda Saat Ini</string>
+    <string name="custom" formatted="false">Kustom</string>
+    <string name="custom_action_description" formatted="false">Lakukan tindakan khusus.</string>
+    <string name="customer_service" formatted="false">Layanan Pelanggan</string>
+    <string name="dashboard_tab" formatted="false">Dasbor</string>
+    <string name="data_analysis" formatted="false">Analisis Data</string>
+    <string name="data_load_failure" formatted="false">Gagal memuat data: {error}</string>
+    <string name="data_loading_failed" formatted="false">Gagal memuat data: {error}</string>
+    <string name="data_migration" formatted="false">Migrasi Data</string>
+    <string name="data_migration_description" formatted="false">Fitur ini memungkinkan Anda mentransfer semua data Anda antar perangkat. Saat ini, Anda dapat menggunakan fitur cadangan dan pemulihan untuk memigrasikan data Anda secara manual.</string>
+    <string name="data_source_disclaimer" formatted="false">Nomor bersumber dari internet dan kiriman pengguna. Kami tidak dapat menjamin bahwa nomor yang telah dihapus tidak akan dikirim ulang oleh pengguna atau sumber lain. Mohon aktif mencari dan memverifikasi informasi.</string>
+    <string name="data_source_reminder" formatted="false">Pengingat Sumber Data</string>
+    <string name="database_sync_title" formatted="false">Sinkronisasi Database</string>
+    <string name="days" formatted="false">{count, plural, =1{1 hari} other{{count} hari}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 hari yang lalu} other{{count} hari yang lalu}}</string>
+    <string name="days_vip" formatted="false">{days} Hari VIP</string>
+    <string name="db_init_success" formatted="false">Database Berhasil Diinisialisasi!</string>
+    <string name="debt_collection" formatted="false">Penagihan Utang</string>
+    <string name="deep_link_confirm_button" formatted="false">Konfirmasi Impor</string>
+    <string name="deep_link_default_plugin_name" formatted="false">Plugin Diimpor</string>
+    <string name="deep_link_default_sub_name" formatted="false">Langganan Diimpor</string>
+    <string name="deep_link_detected_title" formatted="false">Tautan Dalam Terdeteksi</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL tidak boleh kosong</string>
+    <string name="deep_link_import_failed" formatted="false">Gagal Mengimpor: {error}</string>
+    <string name="deep_link_import_success" formatted="false">Berhasil Diimpor</string>
+    <string name="deep_link_import_title" formatted="false">Impor Konfigurasi</string>
+    <string name="deep_link_name_label" formatted="false">Nama</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Gagal mengunduh plugin: {error}</string>
+    <string name="deep_link_type_label" formatted="false">Tipe</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Langganan</string>
+    <string name="deep_link_url_label" formatted="false">URL</string>
+    <string name="default_notifications" formatted="false">Notifikasi Default</string>
+    <string name="default_notifications_description" formatted="false">Saluran notifikasi default untuk aplikasi.</string>
+    <string name="delete" formatted="false">Hapus</string>
+    <string name="delete_button" formatted="false">Hapus</string>
+    <string name="delete_contact" formatted="false">Hapus Kontak</string>
+    <string name="delete_contact_confirm" formatted="false">Anda yakin ingin menghapus {name}?</string>
+    <string name="delete_failed" formatted="false">Penghapusan gagal: {error}</string>
+    <string name="delete_label" formatted="false">Hapus Label</string>
+    <string name="delete_label_failed" formatted="false">Gagal menghapus label: {error}</string>
+    <string name="delete_plugin" formatted="false">Hapus Plugin</string>
+    <string name="delete_plugin_failed" formatted="false">Gagal menghapus plugin: {error}</string>
+    <string name="delete_plugins" formatted="false">Hapus Plugin-plugin</string>
+    <string name="delete_plugins_failed" formatted="false">Gagal menghapus plugin-plugin: {error}</string>
+    <string name="delete_rule" formatted="false">Hapus Aturan</string>
+    <string name="delete_rule_failed" formatted="false">Penghapusan gagal: {error}</string>
+    <string name="delete_selected" formatted="false">Hapus yang Dipilih</string>
+    <string name="delete_subscription" formatted="false">Hapus Langganan</string>
+    <string name="delete_subscription_confirm" formatted="false">Anda yakin ingin menghapus langganan &quot;{name}&quot;?</string>
+    <string name="delete_subscription_failed" formatted="false">Gagal menghapus langganan: {error}</string>
+    <string name="delete_success" formatted="false">Penghapusan berhasil</string>
+    <string name="deletion_proposal" formatted="false">Proposal Penghapusan</string>
+    <string name="deletion_proposal_created" formatted="false">Proposal Penghapusan Dibuat</string>
+    <string name="deletion_proposal_created_body" formatted="false">Proposal penghapusan Anda untuk {phoneNumber} telah diajukan untuk ditinjau oleh komunitas.</string>
+    <string name="deletion_proposal_description" formatted="false">Ajukan nomor untuk dihapus yang melanggar pedoman komunitas. Partisipasi Anda membantu menjaga keamanan platform.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">Notifikasi tentang hasil pemungutan suara proposal penghapusan dan pembaruan.</string>
+    <string name="deletion_proposals" formatted="false">Proposal Penghapusan</string>
+    <string name="delivery" formatted="false">Pengiriman</string>
+    <string name="description" formatted="false">Deskripsi</string>
+    <string name="detailed_settings_title" formatted="false">Pengaturan Rinci</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">ID Perangkat</string>
+    <string name="device_management_subtitle" formatted="false">Kelola sinkronisasi multi-perangkat</string>
+    <string name="device_management_title" formatted="false">Manajemen Perangkat</string>
+    <string name="device_model_label" formatted="false">Model Perangkat</string>
+    <string name="device_name" formatted="false">Nama Perangkat</string>
+    <string name="device_name_label" formatted="false">Nama Perangkat</string>
+    <string name="device_renamed_successfully_message" formatted="false">Perangkat berhasil diganti nama</string>
+    <string name="device_unregistered_successfully_message" formatted="false">Perangkat berhasil dibatalkan pendaftarannya</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">Perangkat berhasil disinkronkan</string>
+    <string name="dialog_title" formatted="false">Penjelasan Pola Regex</string>
+    <string name="different_from_local_counter" formatted="false">Fitur ini berbeda dari filter penghitung lokal, karena berfokus pada pola panggilan berulang dalam waktu singkat daripada jumlah penandaan jangka panjang.</string>
+    <string name="disable_global_plugins" formatted="false">Nonaktifkan plugin global</string>
+    <string name="disabled" formatted="false">Dinonaktifkan</string>
+    <string name="disabled_status" formatted="false">Dinonaktifkan</string>
+    <string name="disconnect_button" formatted="false">Putuskan Sambungan</string>
+    <string name="disconnect_failed_message" formatted="false">Gagal memutuskan sambungan</string>
+    <string name="disconnected_message" formatted="false">Terputus</string>
+    <string name="disconnected_status" formatted="false">Terputus</string>
+    <string name="done" formatted="false">Selesai</string>
+    <string name="dual_sim_advice" formatted="false">Fitur ini sangat berguna untuk ponsel dual-SIM untuk mengatur strategi pemfilteran yang berbeda untuk kartu SIM kerja dan pribadi.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">Nomor E164</string>
+    <string name="earlier" formatted="false">Lebih Awal</string>
+    <string name="earned_temp_vip" formatted="false">Memperoleh VIP sementara</string>
+    <string name="ecommerce" formatted="false">E-commerce</string>
+    <string name="edit" formatted="false">Edit</string>
+    <string name="edit_contact" formatted="false">Edit Kontak</string>
+    <string name="edit_label" formatted="false">Edit Label</string>
+    <string name="edit_phone_rule" formatted="false">Edit Aturan Telepon</string>
+    <string name="edit_rule" formatted="false">Edit Aturan</string>
+    <string name="edit_script" formatted="false">Edit Skrip</string>
+    <string name="edit_script_for" formatted="false">Edit skrip untuk {pluginName}</string>
+    <string name="edit_subscription" formatted="false">Edit Langganan</string>
+    <string name="education" formatted="false">Pendidikan</string>
+    <string name="element_positions_setting" formatted="false">Posisi Elemen</string>
+    <string name="elements_settings_title" formatted="false">Pengaturan Elemen</string>
+    <string name="email" formatted="false">Email</string>
+    <string name="enable_call_filter" formatted="false">Aktifkan Filter Panggilan</string>
+    <string name="enable_call_filter_description" formatted="false">Saat diaktifkan, panggilan masuk diperiksa terhadap daftar aturan di bawah ini. Aturan pemfilteran panggilan tidak disinkronkan antar perangkat secara default.</string>
+    <string name="enable_encryption" formatted="false">Aktifkan Enkripsi</string>
+    <string name="enable_encryption_description" formatted="false">Enkripsi file cadangan</string>
+    <string name="enable_filtering" formatted="false">Aktifkan Pemfilteran</string>
+    <string name="enable_fraud_alert" formatted="false">Aktifkan Peringatan Penipuan</string>
+    <string name="enable_fraud_alert_description" formatted="false">Peringatan untuk panggilan penipuan yang dicurigai</string>
+    <string name="enable_global_plugins" formatted="false">Aktifkan plugin global</string>
+    <string name="enable_local_count_filter" formatted="false">Aktifkan Perlindungan Ambang Batas Tanda Lokal</string>
+    <string name="enable_local_count_filter_description" formatted="false">Blokir panggilan masuk saat jumlah laporan lokal melebihi ambang batas</string>
+    <string name="enable_local_notification" formatted="false">Gunakan Notifikasi Lokal</string>
+    <string name="enable_local_notification_description" formatted="false">Saat diaktifkan, notifikasi untuk pesan yang difilter akan ditampilkan di perangkat</string>
+    <string name="enable_location_summary" formatted="false">Lokasi</string>
+    <string name="enable_mute_rules" formatted="false">Heningkan Panggilan Tersekat</string>
+    <string name="enable_mute_rules_desc" formatted="false">Heningkan nada dering untuk panggilan tersekat alih-alih menolaknya</string>
+    <string name="enable_none_action_rules" formatted="false">Hanya Catat &amp; Tandai (Tanpa Intersepsi)</string>
+    <string name="enable_none_action_rules_desc" formatted="false">Catat dan tandai panggilan yang cocok tanpa mengambil tindakan intersepsi apa pun</string>
+    <string name="enable_remote_number_filter" formatted="false">Aktifkan Perlindungan Ambang Batas Kueri Cloud</string>
+    <string name="enable_remote_number_filter_description" formatted="false">Blokir panggilan masuk saat jumlah laporan kueri cloud melebihi ambang batas</string>
+    <string name="enable_rule" formatted="false">Aktifkan Aturan</string>
+    <string name="enable_security_message" formatted="false">Aktifkan Pesan Keamanan</string>
+    <string name="enable_sms_filter" formatted="false">Aktifkan Pemfilteran SMS</string>
+    <string name="enable_sms_filter_description" formatted="false">Saat diaktifkan, pesan akan difilter secara otomatis sesuai dengan aturan</string>
+    <string name="enable_time_interception" formatted="false">Aktifkan Intersepsi Waktu</string>
+    <string name="enable_time_interception_description" formatted="false">Blokir panggilan berulang dari nomor yang sama dalam waktu singkat</string>
+    <string name="enable_time_interceptor" formatted="false">Aktifkan Interseptor Waktu</string>
+    <string name="enable_vibration" formatted="false">Aktifkan Getaran</string>
+    <string name="enable_vibration_description" formatted="false">Bergetar ketika panggilan dicurigai sebagai panggilan penipuan</string>
+    <string name="enabled" formatted="false">Diaktifkan</string>
+    <string name="enabled_status" formatted="false">Diaktifkan</string>
+    <string name="end_call_immediately" formatted="false">Blokir Segera</string>
+    <string name="end_color" formatted="false">Warna Akhir</string>
+    <string name="end_date" formatted="false">Tanggal Akhir</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">Judul Instruksi Filter yang Ditingkatkan</string>
+    <string name="enhanced_filter_settings" formatted="false">Pengaturan Filter yang Ditingkatkan</string>
+    <string name="enhanced_filter_settings_title" formatted="false">Pengaturan Filter yang Ditingkatkan</string>
+    <string name="enhanced_filter_system_description" formatted="false">Sistem filter yang ditingkatkan mendukung aturan global dan konfigurasi pemfilteran per kartu SIM.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">Harap masukkan nomor telepon dan pola regex.</string>
+    <string name="enter_contact_name" formatted="false">Masukkan nama kontak</string>
+    <string name="enter_device_name" formatted="false">Masukkan Nama Perangkat</string>
+    <string name="enter_email_optional" formatted="false">Masukkan email (opsional)</string>
+    <string name="enter_encryption_password_hint" formatted="false">Masukkan kata sandi enkripsi</string>
+    <string name="enter_icon_code" formatted="false">Masukkan kode ikon</string>
+    <string name="enter_name" formatted="false">Masukkan nama kontak</string>
+    <string name="enter_new_device_name_hint" formatted="false">Masukkan nama baru untuk perangkat ini</string>
+    <string name="enter_password_again" formatted="false">Masukkan Kata Sandi Lagi</string>
+    <string name="enter_phone_number" formatted="false">Masukkan nomor telepon</string>
+    <string name="enter_phone_number_hint" formatted="false">Masukkan nomor telepon untuk diuji</string>
+    <string name="enter_phone_number_multiple" formatted="false">Masukkan nomor telepon, beberapa nomor dipisahkan dengan koma</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">Masukkan nomor telepon untuk memulai pencarian</string>
+    <string name="enter_phone_number_to_verify" formatted="false">Masukkan nomor telepon untuk memverifikasi</string>
+    <string name="enter_plugin_description" formatted="false">Masukkan deskripsi plugin</string>
+    <string name="enter_plugin_name" formatted="false">Masukkan Nama Plugin</string>
+    <string name="enter_plugin_url" formatted="false">Masukkan alamat URL plugin</string>
+    <string name="enter_regex_hint" formatted="false">Masukkan pola regex</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">Harap masukkan nama aturan dan pola regex.</string>
+    <string name="enter_rule_name_hint" formatted="false">Masukkan nama aturan</string>
+    <string name="enter_search_content" formatted="false">Harap masukkan konten pencarian</string>
+    <string name="enter_subscription_name" formatted="false">Masukkan nama langganan</string>
+    <string name="enter_subscription_url" formatted="false">Masukkan URL langganan</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">Silakan masukkan nama folder sinkronisasi (default: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">Harap masukkan nama dan URL yang valid</string>
+    <string name="enter_valid_url" formatted="false">Harap masukkan URL yang valid</string>
+    <string name="enter_version" formatted="false">Masukkan Versi</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">Silakan masukkan kata sandi WebDAV</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">Silakan masukkan alamat server WebDAV</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">Silakan masukkan nama pengguna WebDAV</string>
+    <string name="entertainment" formatted="false">Hiburan</string>
+    <string name="entity_export_failed" formatted="false">Gagal mengekspor {entityTypeName}: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} berhasil diekspor</string>
+    <string name="entity_import_failed" formatted="false">Gagal mengimpor {entityTypeName}: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} berhasil diimpor, total {count} rekaman diimpor</string>
+    <string name="entry_point_view_title" formatted="false">Tampilan Titik Masuk</string>
+    <string name="error_loading_settings" formatted="false">Gagal memuat pengaturan</string>
+    <string name="error_message" formatted="false">Kesalahan: {error}</string>
+    <string name="error_occurred_message" formatted="false">Terjadi kesalahan: {error}</string>
+    <string name="error_prefix" formatted="false">Kesalahan</string>
+    <string name="error_renaming_device_message" formatted="false">Gagal mengganti nama perangkat: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">Gagal menyinkronkan perangkat: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">Gagal membatalkan pendaftaran perangkat: {error}</string>
+    <string name="example_block400_prefix" formatted="false">misalnya. Blokir nomor awalan 400</string>
+    <string name="example_block_marketing_sms" formatted="false">misalnya. Blokir SMS pemasaran</string>
+    <string name="example_content_regex_hint" formatted="false">Contoh Regex Konten</string>
+    <string name="example_coupon_promotion_discount" formatted="false">misalnya. .*(kupon|promosi|diskon).*</string>
+    <string name="example_family_friends" formatted="false">misalnya. Keluarga, Teman, dll.</string>
+    <string name="example_phone_number" formatted="false">misalnya. 10086, 12345, dll.</string>
+    <string name="example_regex400_prefix" formatted="false">Contoh regex untuk awalan 400</string>
+    <string name="example_sender_regex_hint" formatted="false">Contoh</string>
+    <string name="exchange" formatted="false">Tukar</string>
+    <string name="exchange_failed" formatted="false">Penukaran gagal: {error}</string>
+    <string name="exchange_now" formatted="false">Tukar Sekarang</string>
+    <string name="exchange_success" formatted="false">Berhasil ditukar untuk {description}, tanggal kedaluwarsa: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">Tukar VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">Waktu kedaluwarsa: {time}</string>
+    <string name="export" formatted="false">Ekspor</string>
+    <string name="export_all_application_settings" formatted="false">Ekspor semua pengaturan aplikasi</string>
+    <string name="export_all_rule_configurations" formatted="false">Ekspor Semua Konfigurasi Aturan</string>
+    <string name="export_config" formatted="false">Ekspor Konfigurasi</string>
+    <string name="export_contacts" formatted="false">Ekspor Kontak</string>
+    <string name="export_data" formatted="false">Ekspor Data</string>
+    <string name="export_entity" formatted="false">Ekspor {entityTypeName}</string>
+    <string name="export_failed" formatted="false">Ekspor gagal</string>
+    <string name="export_failure" formatted="false">Gagal mengekspor konfigurasi</string>
+    <string name="export_feature_coming_soon" formatted="false">Fitur ekspor segera hadir</string>
+    <string name="export_labels" formatted="false">Ekspor Label</string>
+    <string name="export_labels_failed" formatted="false">Gagal mengekspor label: {error}</string>
+    <string name="export_plugin_list" formatted="false">Ekspor Daftar Plugin</string>
+    <string name="export_plugin_list_failed" formatted="false">Gagal mengekspor daftar plugin: {error}</string>
+    <string name="export_rules" formatted="false">Ekspor Aturan</string>
+    <string name="export_sms_rules" formatted="false">Ekspor Aturan SMS</string>
+    <string name="export_statistics_data" formatted="false">Ekspor Data Statistik</string>
+    <string name="export_successlly" formatted="false">Konfigurasi berhasil diekspor</string>
+    <string name="failed_to_add_rule" formatted="false">Gagal menambahkan aturan: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">Gagal menambahkan langganan SMS: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">Gagal mencadangkan pengaturan: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">Gagal mendekripsi file cadangan</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">Gagal menghapus aturan SMS: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">Gagal mengekspor aturan: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">Gagal mendapatkan informasi ID penelepon: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">Gagal mengimpor aturan: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Gagal memuat skema pengaturan: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">Gagal memulihkan pengaturan</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">Gagal memulihkan pengaturan: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">Gagal mengubah status aturan: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">Kontak Favorit</string>
+    <string name="feature" formatted="false">Fitur</string>
+    <string name="feature_add_rules" formatted="false">• Tambahkan aturan khusus nomor telepon</string>
+    <string name="feature_center" formatted="false">Pusat Fitur</string>
+    <string name="feature_enable_disable" formatted="false">• Aktifkan/nonaktifkan filter berbeda per SIM</string>
+    <string name="feature_list_title" formatted="false">Fitur:</string>
+    <string name="feature_manage_rules" formatted="false">• Kelola daftar aturan per SIM</string>
+    <string name="features" formatted="false">Fitur</string>
+    <string name="fetching_caller_id_info" formatted="false">Mengambil informasi ID penelepon...</string>
+    <string name="field_is_required" formatted="false">Bidang ini wajib diisi</string>
+    <string name="file_saved_to" formatted="false">File disimpan ke: {path}</string>
+    <string name="filter" formatted="false">Filter</string>
+    <string name="filter_and_sort_title" formatted="false">Filter dan Urutkan</string>
+    <string name="filter_by" formatted="false">Filter Berdasarkan</string>
+    <string name="filter_by_action" formatted="false">Filter berdasarkan Tindakan</string>
+    <string name="filter_by_label" formatted="false">Filter berdasarkan Label</string>
+    <string name="filter_control_panel_title" formatted="false">Panel Kontrol Filter</string>
+    <string name="filter_control_subtitle" formatted="false">Kelola status aktif/nonaktif semua filter</string>
+    <string name="filter_control_title" formatted="false">Kontrol Filter</string>
+    <string name="filter_explanation" formatted="false">Penjelasan Filter</string>
+    <string name="filter_management" formatted="false">Manajemen Filter</string>
+    <string name="filter_management_description" formatted="false">Atur Filter Panggilan</string>
+    <string name="filter_name" formatted="false">Nama Filter</string>
+    <string name="filter_priority_note" formatted="false">Catatan: Ada hubungan prioritas antar filter, silakan merujuk ke dokumentasi bantuan untuk detailnya</string>
+    <string name="filter_s_m_s" formatted="false">Filter SMS</string>
+    <string name="filter_settings" formatted="false">Pengaturan Filter</string>
+    <string name="filter_settings_title" formatted="false">Pengaturan Filter</string>
+    <string name="filter_toggle_instructions" formatted="false">Aktifkan atau nonaktifkan filter untuk slot SIM ini:</string>
+    <string name="filter_toggle_status" formatted="false">Filter {status}: {filterName}</string>
+    <string name="filter_type" formatted="false">Jenis Filter</string>
+    <string name="filter_verified_owner" formatted="false">Filter Pemilik Terverifikasi</string>
+    <string name="filtered" formatted="false">Difilter</string>
+    <string name="final_risk" formatted="false">Risiko Akhir</string>
+    <string name="financial" formatted="false">Keuangan</string>
+    <string name="flexible_combination_feature" formatted="false">• Kombinasi Fleksibel: Aktifkan/nonaktifkan filter per slot SIM</string>
+    <string name="font_sizes_setting" formatted="false">Ukuran Font</string>
+    <string name="found_rules" formatted="false">Ditemukan {count} aturan</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">Untuk Mengatur Peringatan Penipuan</string>
+    <string name="fraud_aler_setting_title" formatted="false">Pengaturan Peringatan Penipuan</string>
+    <string name="fraud_alert" formatted="false">PERINGATAN PENIPUAN - Tutup telepon</string>
+    <string name="fraud_alert_title" formatted="false">Peringatan Penipuan</string>
+    <string name="fraud_alerts" formatted="false">Peringatan Penipuan</string>
+    <string name="fraud_alerts_description" formatted="false">Menampilkan peringatan untuk potensi panggilan penipuan.</string>
+    <string name="fraud_scam_likely" formatted="false">Kemungkinan Penipuan</string>
+    <string name="free" formatted="false">Gratis</string>
+    <string name="function_settings_title" formatted="false">Pengaturan Fungsi</string>
+    <string name="general_update_failure" formatted="false">Pembaruan gagal: {error}</string>
+    <string name="get_free" formatted="false">Dapatkan Gratis</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Konfigurasikan filter global untuk semua kartu SIM:</string>
+    <string name="global_filter_feature" formatted="false">• Filter Global: Aturan dasar untuk semua panggilan masuk</string>
+    <string name="global_filter_settings" formatted="false">Pengaturan Filter Global</string>
+    <string name="global_settings" formatted="false">Pengaturan Global</string>
+    <string name="google_drive_auth_description" formatted="false">Otorisasi menggunakan ID klien dan kunci Google Drive yang dikonfigurasi sistem</string>
+    <string name="google_drive_config_title" formatted="false">Konfigurasi Google Drive</string>
+    <string name="government" formatted="false">Pemerintah</string>
+    <string name="grant_necessary_permissions" formatted="false">Berikan Izin yang Diperlukan</string>
+    <string name="grant_permissions" formatted="false">Berikan Izin</string>
+    <string name="granted" formatted="false">Diberikan</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">Anda telah diberikan {days} hari hak istimewa pembelian sementara. Tanggal kedaluwarsa: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">Pedoman</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">Anda sudah memiliki hak istimewa sementara, tanggal kedaluwarsa: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">Anda sudah memiliki hak istimewa VIP (kecuali iklan)</string>
+    <string name="headhunter" formatted="false">Pencari Kerja</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Tinggi</string>
+    <string name="high" formatted="false">Tinggi</string>
+    <string name="high_risk" formatted="false">Risiko Tinggi</string>
+    <string name="home_tab" formatted="false">Beranda</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 jam yang lalu} other{{count} jam yang lalu}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 jam} =1{1 jam} other{{count} jam}}</string>
+    <string name="how_it_works_point1" formatted="false">• Sistem akan secara otomatis mengizinkan panggilan dari nomor yang sama dalam jendela waktu yang ditetapkan</string>
+    <string name="how_it_works_point2" formatted="false">• Jendela waktu yang lebih pendek menghasilkan intersepsi yang lebih ketat; jendela waktu yang lebih lama menghasilkan intersepsi yang lebih longgar</string>
+    <string name="how_it_works_point3" formatted="false">• Sistem memeriksa riwayat panggilan untuk menentukan apakah itu panggilan berulang</string>
+    <string name="how_it_works_title" formatted="false">Cara Kerja:</string>
+    <string name="icon_code_optional" formatted="false">Kode Ikon (Opsional)</string>
+    <string name="icon_size" formatted="false">Ukuran Ikon</string>
+    <string name="import" formatted="false">Impor</string>
+    <string name="import_config" formatted="false">Impor Konfigurasi</string>
+    <string name="import_contacts" formatted="false">Impor Kontak</string>
+    <string name="import_entity" formatted="false">Impor {entityTypeName}</string>
+    <string name="import_export" formatted="false">Impor/Ekspor</string>
+    <string name="import_export_contacts" formatted="false">Impor/Ekspor Kontak</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Impor/Ekspor Kontak</string>
+    <string name="import_export_description" formatted="false">Impor atau ekspor data {entityTypeName}</string>
+    <string name="import_export_rules" formatted="false">Impor/Ekspor Aturan</string>
+    <string name="import_export_title" formatted="false">Impor/Ekspor</string>
+    <string name="import_failed" formatted="false">Impor gagal: {error}</string>
+    <string name="import_failure" formatted="false">Gagal mengimpor konfigurasi</string>
+    <string name="import_feature_coming_soon" formatted="false">Fitur impor segera hadir</string>
+    <string name="import_labels" formatted="false">Impor Label</string>
+    <string name="import_labels_failed" formatted="false">Gagal mengimpor label: {error}</string>
+    <string name="import_plugin_list" formatted="false">Impor Daftar Plugin</string>
+    <string name="import_plugin_list_failed" formatted="false">Gagal mengimpor daftar plugin: {error}</string>
+    <string name="import_plugin_success" formatted="false">Berhasil mengimpor {count} plugin</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Impor Konfigurasi Aturan dari File</string>
+    <string name="import_rules" formatted="false">Impor Aturan</string>
+    <string name="import_success" formatted="false">Impor berhasil</string>
+    <string name="important" formatted="false">Penting</string>
+    <string name="important_notice_title" formatted="false">Pemberitahuan Penting</string>
+    <string name="incoming_call_intercept_action" formatted="false">Tindakan Intersepsi Panggilan Masuk</string>
+    <string name="incorrect_password" formatted="false">Kata sandi salah</string>
+    <string name="init_db_button" formatted="false">Inisialisasi Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Masukkan URL konfigurasi JSON cermin mandiri</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Muat Konfigurasi</string>
+    <string name="initial_setup_desc" formatted="false">Silakan pilih pustaka aturan regional yang ingin Anda blokir. Aturan ini dapat membantu Anda secara otomatis memblokir panggilan penjualan dan penipuan umum di wilayah Anda.</string>
+    <string name="initial_setup_deselect_all" formatted="false">Hapus Pilihan</string>
+    <string name="initial_setup_detected_location" formatted="false">Lokasi Terdeteksi</string>
+    <string name="initial_setup_get_failed" formatted="false">Gagal mendapatkan konfigurasi</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Buka Pengaturan</string>
+    <string name="initial_setup_retry" formatted="false">Coba Lagi</string>
+    <string name="initial_setup_save" formatted="false">Pengaturan terpilih sekali klik</string>
+    <string name="initial_setup_save_failed" formatted="false">Gagal menyimpan konfigurasi: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Konfigurasi berhasil disimpan, aturan akan segera diambil secara otomatis</string>
+    <string name="initial_setup_saving" formatted="false">Menyimpan...</string>
+    <string name="initial_setup_search_hint" formatted="false">Cari aturan atau negara...</string>
+    <string name="initial_setup_select_all" formatted="false">Pilih Semua</string>
+    <string name="initial_setup_selected_count" formatted="false">{count} Dipilih</string>
+    <string name="initial_setup_settings_hint" formatted="false">Petunjuk: Anda dapat membuka kembali halaman pengaturan ini kapan saja di Pengaturan.</string>
+    <string name="initial_setup_skip" formatted="false">Lewati</string>
+    <string name="initial_setup_source_cdn" formatted="false">Sumber Akselerasi CDN Cermin</string>
+    <string name="initial_setup_source_custom" formatted="false">Sumber Cermin Mandiri</string>
+    <string name="initial_setup_source_github" formatted="false">Sumber Resmi GitHub</string>
+    <string name="initial_setup_source_title" formatted="false">Sumber Database Aturan</string>
+    <string name="initial_setup_title" formatted="false">Pengaturan Pustaka Aturan</string>
+    <string name="initializing" formatted="false">Menginisialisasi</string>
+    <string name="installed" formatted="false">Terpasang</string>
+    <string name="insufficient_marks" formatted="false">Tanda tidak mencukupi</string>
+    <string name="insurance" formatted="false">Asuransi</string>
+    <string name="intercept_action" formatted="false">Tindakan Intersepsi</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Atur cara panggilan yang diblokir ditangani</string>
+    <string name="interception_action_settings_title" formatted="false">Pengaturan Tindakan Intersepsi</string>
+    <string name="interception_time_interval" formatted="false">Interval Waktu Intersepsi</string>
+    <string name="internet" formatted="false">Internet</string>
+    <string name="interval_set_success" formatted="false">Interval pembaruan {service} diatur ke {days} hari</string>
+    <string name="invalid_content_regex" formatted="false">Regex konten tidak valid</string>
+    <string name="invalid_exchange_rule" formatted="false">Aturan penukaran tidak valid</string>
+    <string name="invalid_label" formatted="false">Label tidak valid</string>
+    <string name="invalid_regex_pattern" formatted="false">Pola regex tidak valid</string>
+    <string name="invalid_sender_regex" formatted="false">Regex pengirim tidak valid</string>
+    <string name="invalid_sim_data" formatted="false">Data SIM tidak valid</string>
+    <string name="ip_country" formatted="false">Negara IP</string>
+    <string name="is_number_match" formatted="false">Cocok Nomor</string>
+    <string name="is_roaming" formatted="false">Roaming</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">Bergabunglah dengan Saluran dan Grup Telegram untuk Info Lebih Lanjut</string>
+    <string name="json_format" formatted="false">Format JSON</string>
+    <string name="just_now" formatted="false">Baru saja</string>
+    <string name="keep_all_versions" formatted="false">Simpan Semua Versi</string>
+    <string name="keep_all_versions_description" formatted="false">Simpan semua versi historis dari setiap cadangan</string>
+    <string name="label" formatted="false">Label</string>
+    <string name="label_action_description" formatted="false">Tambahkan label ke panggilan agar mudah diidentifikasi.</string>
+    <string name="label_added_successfully" formatted="false">Label &quot;{name}&quot; berhasil ditambahkan</string>
+    <string name="label_categories" formatted="false">Kategori Label</string>
+    <string name="label_deleted" formatted="false">Label dihapus</string>
+    <string name="label_description" formatted="false">Label membantu Anda mengelola kontak dengan lebih baik, menambahkan label khusus ke nomor telepon untuk identifikasi panggilan dan pesan yang mudah.</string>
+    <string name="label_filter_tooltip" formatted="false">Filter Label</string>
+    <string name="label_icon_color" formatted="false">Warna Ikon Label</string>
+    <string name="label_management" formatted="false">Manajemen Label</string>
+    <string name="label_not_found" formatted="false">Label tidak ditemukan</string>
+    <string name="label_tag" formatted="false">Label: {labelId}</string>
+    <string name="label_update_failed" formatted="false">Gagal memperbarui label: {error}</string>
+    <string name="label_update_success" formatted="false">Label &quot;$labelText&quot; berhasil diperbarui</string>
+    <string name="labels" formatted="false">Label</string>
+    <string name="labels_color" formatted="false">Warna Label</string>
+    <string name="labels_deleted" formatted="false">{count} label dihapus</string>
+    <string name="labels_exported_successfully" formatted="false">Label berhasil diekspor</string>
+    <string name="labels_font_size" formatted="false">Ukuran Font Label</string>
+    <string name="labels_imported_successfully" formatted="false">Berhasil mengimpor {count} label</string>
+    <string name="labels_position" formatted="false">Posisi Label</string>
+    <string name="language_settings" formatted="false">Pengaturan Bahasa</string>
+    <string name="language_settings_subtitle" formatted="false">Ubah bahasa tampilan aplikasi</string>
+    <string name="language_settings_title" formatted="false">Pengaturan Bahasa</string>
+    <string name="last_sync_label" formatted="false">Sinkronisasi Terakhir</string>
+    <string name="last_updated" formatted="false">Terakhir diperbarui: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Biarkan kosong untuk menggunakan nilai default</string>
+    <string name="lifetime_membership" formatted="false">Keanggotaan Seumur Hidup</string>
+    <string name="lifetime_membership_description" formatted="false">Pembelian satu kali, buka selamanya semua fitur premium dan pembaruan di masa mendatang</string>
+    <string name="list_view" formatted="false">Tampilan Daftar</string>
+    <string name="live_activities_settings_title" formatted="false">Pengaturan Aktivitas Langsung</string>
+    <string name="live_activities_test_end_activity" formatted="false">Akhiri Aktivitas</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">Kirim Aktivitas Baru</string>
+    <string name="live_activities_test_title" formatted="false">Uji Aktivitas Langsung</string>
+    <string name="live_activities_test_update_activity" formatted="false">Perbarui Aktivitas</string>
+    <string name="live_activity_controls_title" formatted="false">Kontrol Aktivitas Langsung</string>
+    <string name="live_activity_mode" formatted="false">Aktivitas Langsung</string>
+    <string name="live_activity_mode_description" formatted="false">Menampilkan informasi panggilan sebagai notifikasi persisten di layar kunci dan di Dynamic Island (iOS).</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Sesuaikan tampilan notifikasi langsung.</string>
+    <string name="live_notification_customization_title" formatted="false">Kustomisasi Notifikasi Langsung</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">Gagal memuat kontak: {error}</string>
+    <string name="load_data_failed" formatted="false">Gagal memuat data</string>
+    <string name="load_label_failed" formatted="false">Gagal memuat label: {error}</string>
+    <string name="load_labels_failed" formatted="false">Gagal memuat label: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">Gagal memuat nomor telepon yang ditandai: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">Gagal memuat telepon yang ditandai: {error}</string>
+    <string name="load_plugins_failed" formatted="false">Gagal memuat plugin: {error}</string>
+    <string name="load_settings_failed" formatted="false">Gagal memuat pengaturan: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">Gagal memuat aturan SMS: {error}</string>
+    <string name="load_status_failed_message" formatted="false">Gagal memuat status</string>
+    <string name="load_subscriptions_failed" formatted="false">Gagal memuat langganan: {error}</string>
+    <string name="loading" formatted="false">Memuat...</string>
+    <string name="loading_ad" formatted="false">Memuat Iklan...</string>
+    <string name="loading_tags" formatted="false">Memuat tag...</string>
+    <string name="loan" formatted="false">Pinjaman</string>
+    <string name="local_count_filter" formatted="false">Perlindungan Ambang Batas Tanda Lokal</string>
+    <string name="local_count_filter_description" formatted="false">Secara otomatis memblokir panggilan yang melebihi ambang batas laporan lokal</string>
+    <string name="local_count_filter_explanation_content" formatted="false">Filter jumlah lokal menganalisis catatan riwayat panggilan untuk secara otomatis mengidentifikasi dan memblokir panggilan spam yang sering terjadi.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">Penjelasan Filter Jumlah Lokal</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• Tentukan apakah akan memblokir berdasarkan nilai jumlah nomor</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• Ketika jumlah nomor melebihi ambang batas yang ditetapkan, Anda dapat memilih untuk memblokirnya secara otomatis</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• Anda dapat secara selektif mengizinkan nomor yang tidak melebihi ambang batas</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• Anda dapat memilih apakah akan mencatat semua log kueri</string>
+    <string name="local_count_filter_settings" formatted="false">Pengaturan Filter Jumlah Lokal</string>
+    <string name="local_count_filter_use_cases" formatted="false">Filter ini sangat cocok untuk mengidentifikasi panggilan spam yang didial otomatis dan panggilan pemasaran.</string>
+    <string name="local_count_filtering" formatted="false">Penyaringan Jumlah Lokal</string>
+    <string name="local_count_filtering_explanation" formatted="false">• Penyaringan Jumlah Lokal: Aturan penyaringan berdasarkan jumlah penandaan lokal</string>
+    <string name="local_counter_filter" formatted="false">Filter Penghitung Lokal</string>
+    <string name="local_counter_filter_subtitle" formatted="false">Secara otomatis memfilter panggilan spam berdasarkan frekuensi panggilan</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sinkronkan data antar perangkat</string>
+    <string name="local_database_sync_title" formatted="false">Sinkronisasi Database Lokal</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">Pengaturan Filter Lokal</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">Notifikasi lokal dinonaktifkan</string>
+    <string name="local_notification_enabled" formatted="false">Notifikasi lokal diaktifkan</string>
+    <string name="local_services" formatted="false">Layanan Lokal</string>
+    <string name="location" formatted="false">Lokasi</string>
+    <string name="location_color" formatted="false">Warna Lokasi</string>
+    <string name="location_font_size" formatted="false">Ukuran Font Lokasi</string>
+    <string name="location_icon_color" formatted="false">Warna Ikon Lokasi</string>
+    <string name="location_position" formatted="false">Posisi Lokasi</string>
+    <string name="log" formatted="false">Log</string>
+    <string name="log_action_description" formatted="false">Catat informasi panggilan tanpa mengambil tindakan lain.</string>
+    <string name="log_all_local_queries" formatted="false">Catat Semua Kueri Lokal</string>
+    <string name="log_all_local_queries_description" formatted="false">Catat log untuk semua kueri nomor lokal</string>
+    <string name="log_all_remote_queries" formatted="false">Catat Semua Kueri Jarak Jauh</string>
+    <string name="log_all_remote_queries_description" formatted="false">Catat semua operasi kueri nomor jarak jauh</string>
+    <string name="low" formatted="false">Rendah</string>
+    <string name="low_risk" formatted="false">Risiko Rendah</string>
+    <string name="manage" formatted="false">Kelola Kontak</string>
+    <string name="manage_favorite_contacts" formatted="false">Kelola Kontak Favorit</string>
+    <string name="manage_filter_rules" formatted="false">Kelola Aturan Filter</string>
+    <string name="manage_filter_rules_description" formatted="false">Tambahkan, edit, atau hapus aturan filter SMS</string>
+    <string name="manual_entry" formatted="false">Info Masukan Manual</string>
+    <string name="mark_count" formatted="false">Jumlah Tanda</string>
+    <string name="mark_counts" formatted="false">Jumlah Tanda</string>
+    <string name="mark_exchange" formatted="false">Pertukaran Tanda</string>
+    <string name="mark_more_numbers_for_more" formatted="false">Tandai lebih banyak nomor untuk mendapatkan lebih banyak tanda</string>
+    <string name="mark_phone" formatted="false">Tandai Nomor Telepon</string>
+    <string name="mark_phone_failed" formatted="false">Gagal menandai nomor telepon: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">Manajemen Penandaan Telepon</string>
+    <string name="mark_phone_success" formatted="false">Nomor telepon berhasil ditandai</string>
+    <string name="marked_by_count" formatted="false">Ditandai oleh {count}</string>
+    <string name="marked_phones_list" formatted="false">Daftar Nomor Telepon yang Ditandai</string>
+    <string name="marks_insufficient" formatted="false">Tanda tidak mencukupi untuk ditukar</string>
+    <string name="master_and_overrides" formatted="false">Kontrol Utama</string>
+    <string name="master_and_overrides_desc" formatted="false">Pengaturan Aturan Global</string>
+    <string name="master_device_help" formatted="false">Hanya perangkat utama yang dapat menginisialisasi struktur database.</string>
+    <string name="master_device_label" formatted="false">Perangkat Utama (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">Pencocokan gagal.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">mencocokkan format nomor tertentu</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">Cocokkan nomor dengan karakter khusus:</string>
+    <string name="match_specific_digit_patterns" formatted="false">mencocokkan format XXX-XXXX-XXXX</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">Cocokkan pola digit tertentu:</string>
+    <string name="match_successful_message" formatted="false">Pencocokan berhasil!</string>
+    <string name="medical" formatted="false">Medis</string>
+    <string name="medium" formatted="false">Media</string>
+    <string name="medium_risk" formatted="false">Risiko Sedang</string>
+    <string name="membership_center" formatted="false">Pusat Keanggotaan</string>
+    <string name="membership_privileges" formatted="false">Hak Keanggotaan</string>
+    <string name="message_background_color" formatted="false">Warna Latar Belakang Pesan</string>
+    <string name="message_color" formatted="false">Warna Pesan</string>
+    <string name="message_font_size" formatted="false">Ukuran Font Pesan</string>
+    <string name="message_position" formatted="false">Posisi Pesan</string>
+    <string name="migration_tool" formatted="false">Alat Migrasi</string>
+    <string name="minutes" formatted="false">menit</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 menit yang lalu} other{{count} menit yang lalu}}</string>
+    <string name="moderate" formatted="false">Sedang</string>
+    <string name="month" formatted="false">Bulan</string>
+    <string name="monthly" formatted="false">Bulanan</string>
+    <string name="monthly_call_count" formatted="false">Panggilan Bulanan</string>
+    <string name="monthly_membership" formatted="false">Keanggotaan Bulanan</string>
+    <string name="monthly_membership_description" formatted="false">Buka semua fitur premium, perpanjangan otomatis bulanan</string>
+    <string name="monthly_total" formatted="false">Total Bulanan</string>
+    <string name="more_options" formatted="false">Opsi Lainnya</string>
+    <string name="mute" formatted="false">Bisukan</string>
+    <string name="name" formatted="false">Nama</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">Nama dan nomor telepon tidak boleh kosong</string>
+    <string name="name_cannot_be_empty" formatted="false">Nama tidak boleh kosong</string>
+    <string name="name_color" formatted="false">Warna Nama</string>
+    <string name="name_font_size" formatted="false">Ukuran Font Nama</string>
+    <string name="name_position" formatted="false">Posisi Nama</string>
+    <string name="name_unknown" formatted="false">Nama: Tidak Diketahui</string>
+    <string name="national_number" formatted="false">Nomor Nasional</string>
+    <string name="need_vip_access" formatted="false">Anda memerlukan akses VIP untuk menggunakan fitur ini</string>
+    <string name="new_vote_received" formatted="false">Suara Baru Diterima</string>
+    <string name="new_vote_received_body" formatted="false">Seseorang memilih untuk {voteType} penghapusan {phoneNumber}. Suara saat ini: {totalVotes}.</string>
+    <string name="next_step" formatted="false">Selanjutnya</string>
+    <string name="no_action" formatted="false">Tidak Ada Tindakan</string>
+    <string name="no_action_rules" formatted="false">Aturan Tanpa Tindakan</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">Tidak ada layanan sinkronisasi cloud yang aktif</string>
+    <string name="no_activity" formatted="false">Tidak Ada Aktivitas</string>
+    <string name="no_ads" formatted="false">Tanpa Iklan</string>
+    <string name="no_allowed_blocked_rules" formatted="false">Tidak ada aturan yang diizinkan/diblokir yang ditemukan</string>
+    <string name="no_blocked_type_data" formatted="false">Tidak ada data jenis yang diblokir tersedia</string>
+    <string name="no_call_records" formatted="false">Tidak ada catatan panggilan</string>
+    <string name="no_contacts_yet" formatted="false">Belum ada kontak</string>
+    <string name="no_data" formatted="false">Tidak Ada Data</string>
+    <string name="no_devices_registered_message" formatted="false">Tidak ada perangkat yang terdaftar</string>
+    <string name="no_labels" formatted="false">Belum ada label</string>
+    <string name="no_marked_phones" formatted="false">Tidak ada nomor telepon yang ditandai</string>
+    <string name="no_matching_contacts_found" formatted="false">Tidak ada kontak yang cocok ditemukan</string>
+    <string name="no_matching_numbers_found" formatted="false">Tidak ada nomor yang cocok ditemukan</string>
+    <string name="no_matching_rules" formatted="false">Tidak ada {ruleType} yang cocok</string>
+    <string name="no_notifications" formatted="false">Tidak ada notifikasi</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">Tidak ada aturan telepon yang ditemukan</string>
+    <string name="no_plugins" formatted="false">Belum ada plugin</string>
+    <string name="no_proposals_found" formatted="false">Tidak ada proposal ditemukan</string>
+    <string name="no_regex_rules" formatted="false">Tidak ada aturan regex yang ditemukan</string>
+    <string name="no_rules" formatted="false">Belum ada {ruleType}</string>
+    <string name="no_rules_prompt" formatted="false">Tidak ada aturan yang ditemukan, silakan tambahkan aturan</string>
+    <string name="no_rules_to_export" formatted="false">Tidak ada aturan untuk diekspor</string>
+    <string name="no_sim_card_detected" formatted="false">Tidak ada kartu SIM terdeteksi</string>
+    <string name="no_sim_cards_detected" formatted="false">Tidak ada kartu SIM terdeteksi</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">Belum ada aturan filter SMS</string>
+    <string name="no_sms_rules_yet" formatted="false">Belum ada aturan SMS</string>
+    <string name="no_subscriptions" formatted="false">Tidak ada langganan</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">Tidak ada aturan SMS yang valid ditemukan dalam file</string>
+    <string name="none" formatted="false">Tidak Ada</string>
+    <string name="none_action_description" formatted="false">Tidak ada tindakan khusus yang akan diambil untuk panggilan tersebut.</string>
+    <string name="none_service_type" formatted="false">Tidak Ada</string>
+    <string name="normal_user" formatted="false">Pengguna Biasa</string>
+    <string name="not_granted" formatted="false">Tidak Diberikan</string>
+    <string name="not_verified_text" formatted="false">Belum Terverifikasi</string>
+    <string name="notification_frequency_hours" formatted="false">Frekuensi Notifikasi (Jam)</string>
+    <string name="notification_frequency_title" formatted="false">Frekuensi Notifikasi</string>
+    <string name="notification_mode" formatted="false">Mode Notifikasi</string>
+    <string name="notification_mode_description" formatted="false">Tampilkan informasi penelepon di bilah notifikasi</string>
+    <string name="notification_permission" formatted="false">Izin Notifikasi</string>
+    <string name="notification_permission_description" formatted="false">Digunakan untuk menampilkan notifikasi panggilan dan pesan masuk.</string>
+    <string name="notification_settings" formatted="false">Pengaturan Notifikasi</string>
+    <string name="notification_settings_title" formatted="false">Pengaturan Notifikasi</string>
+    <string name="notification_instructions" formatted="false">Instruksi:
+1. Ketuk &quot;KIRIM&quot; untuk membuat atau memperbarui notifikasi.
+2. Buka layar beranda Anda atau tarik ke bawah baki notifikasi untuk melihat hasilnya.
+3. Ketuk &quot;AKHIRI&quot; untuk menutup notifikasi.</string>
+    <string name="notifications" formatted="false">Notifikasi</string>
+    <string name="notify" formatted="false">Beri tahu</string>
+    <string name="notify_action_description" formatted="false">Kirim notifikasi saat panggilan diterima.</string>
+    <string name="number" formatted="false">Nomor</string>
+    <string name="number_color" formatted="false">Warna Nomor</string>
+    <string name="number_font_size" formatted="false">Ukuran Font Nomor</string>
+    <string name="number_format" formatted="false">Format Nomor</string>
+    <string name="number_invalid_format" formatted="false">Format nomor tidak valid</string>
+    <string name="number_position" formatted="false">Posisi Nomor</string>
+    <string name="number_search" formatted="false">Pencarian Nomor</string>
+    <string name="number_type_color" formatted="false">Warna Tipe Nomor</string>
+    <string name="number_type_font_size" formatted="false">Ukuran Font Tipe Nomor</string>
+    <string name="number_type_position" formatted="false">Posisi Tipe Nomor</string>
+    <string name="ok_button" formatted="false">OK</string>
+    <string name="onboarding_complete_description" formatted="false">Manajer keamanan panggilan Anda siap, mulailah menikmati pengalaman panggilan yang aman!</string>
+    <string name="onboarding_language_description" formatted="false">Pilih bahasa pilihan Anda untuk pengalaman terbaik.</string>
+    <string name="onboarding_permissions_description" formatted="false">Untuk memberikan layanan penuh, kami memerlukan izin berikut:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">Blokir panggilan dan pesan spam dalam satu klik, sesuaikan aturan pemblokiran, dan berikan Anda lingkungan yang tenang.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">Identifikasi panggilan tak dikenal secara otomatis, tandai nomor mencurigakan, dan lindungi keamanan panggilan Anda.</string>
+    <string name="onboarding_welcome_description" formatted="false">Pakar manajemen panggilan Anda, menyediakan layanan identifikasi dan pemblokiran panggilan yang komprehensif.</string>
+    <string name="one_drive_auth_description" formatted="false">Otorisasi menggunakan ID dan kunci klien OneDrive yang dikonfigurasi sistem</string>
+    <string name="one_drive_config_title" formatted="false">Konfigurasi OneDrive</string>
+    <string name="online_caller_id_subscription" formatted="false">Langganan ID Penelepon Online</string>
+    <string name="open_app_settings" formatted="false">Buka pengaturan aplikasi</string>
+    <string name="open_app_settings_failed" formatted="false">Gagal membuka pengaturan aplikasi: {error}</string>
+    <string name="open_in_web_view" formatted="false">Buka di WebView</string>
+    <string name="operation_failed" formatted="false">Operasi gagal: {error}</string>
+    <string name="operation_failure" formatted="false">Operasi gagal</string>
+    <string name="operation_success" formatted="false">Operasi berhasil</string>
+    <string name="oppose" formatted="false">Menentang</string>
+    <string name="oppose_count" formatted="false">Menentang ({opposeCount})</string>
+    <string name="opposed" formatted="false">DITENTANG</string>
+    <string name="other" formatted="false">Lainnya</string>
+    <string name="our_other_apps" formatted="false">Aplikasi Kami Lainnya</string>
+    <string name="overlay_mode" formatted="false">Jendela Mengambang</string>
+    <string name="overlay_mode_description" formatted="false">Tampilkan informasi penelepon dalam jendela mengambang</string>
+    <string name="overlay_permission" formatted="false">Izin Mengambang</string>
+    <string name="overlay_permission_description" formatted="false">Digunakan untuk menampilkan overlay panggilan masuk.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">Tinjauan</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">Kata Sandi</string>
+    <string name="password_cannot_be_empty" formatted="false">Kata sandi tidak boleh kosong</string>
+    <string name="password_label" formatted="false">Kata Sandi</string>
+    <string name="passwords_do_not_match" formatted="false">Kata sandi tidak cocok</string>
+    <string name="pattern" formatted="false">Pola</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">TERTUNDA</string>
+    <string name="pending_proposals" formatted="false">Proposal Tertunda</string>
+    <string name="pending_proposals_body" formatted="false">Anda memiliki {count, plural, =0 {tidak ada proposal tertunda} one {1 proposal tertunda} other {{count} proposal tertunda}}.</string>
+    <string name="pending_sync" formatted="false">Sinkronisasi Tertunda</string>
+    <string name="period_month" formatted="false">Bulan</string>
+    <string name="period_week" formatted="false">Minggu</string>
+    <string name="period_year" formatted="false">Tahun</string>
+    <string name="permission_denied" formatted="false">Permintaan izin ditolak</string>
+    <string name="permission_granted" formatted="false">Izin diberikan</string>
+    <string name="permission_management" formatted="false">Manajemen Izin</string>
+    <string name="permission_subtitle" formatted="false">Kelola izin overlay dan optimasi baterai</string>
+    <string name="permission_title" formatted="false">Izin Khusus</string>
+    <string name="phone_calls_tab" formatted="false">Telepon</string>
+    <string name="phone_number" formatted="false">Nomor Telepon</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">Nomor telepon tidak boleh kosong</string>
+    <string name="phone_number_hint" formatted="false">Masukkan nomor telepon</string>
+    <string name="phone_number_label" formatted="false">Nomor Telepon</string>
+    <string name="phone_number_min_digits" formatted="false">Nomor telepon harus minimal 7 digit</string>
+    <string name="phone_number_required" formatted="false">Nomor telepon wajib diisi</string>
+    <string name="phone_number_type" formatted="false">Tipe Nomor Telepon</string>
+    <string name="phone_number_type_fixed_line" formatted="false">Jalur tetap</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">Jalur tetap atau seluler</string>
+    <string name="phone_number_type_mobile" formatted="false">Seluler</string>
+    <string name="phone_number_type_pager" formatted="false">Pager</string>
+    <string name="phone_number_type_personal_number" formatted="false">Nomor pribadi</string>
+    <string name="phone_number_type_premium_rate" formatted="false">Tarif premium</string>
+    <string name="phone_number_type_shared_cost" formatted="false">Biaya bersama</string>
+    <string name="phone_number_type_toll_free" formatted="false">Bebas pulsa</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">Tidak dikenal</string>
+    <string name="phone_number_type_voicemail" formatted="false">Pesan suara</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">Izin Telepon</string>
+    <string name="phone_permission_description" formatted="false">Digunakan untuk mengidentifikasi dan memblokir panggilan masuk.</string>
+    <string name="phone_rule" formatted="false">Aturan Telepon</string>
+    <string name="phone_rule_management" formatted="false">Manajemen Aturan Telepon</string>
+    <string name="phone_rule_subscription" formatted="false">Langganan Aturan Telepon</string>
+    <string name="phone_rules_info" formatted="false">Aturan telepon digunakan untuk mencocokkan panggilan ke nomor telepon tertentu, yang memiliki prioritas lebih rendah. Beberapa berasal dari langganan phoneRule.</string>
+    <string name="phone_subscription" formatted="false">Langganan Telepon</string>
+    <string name="phone_subscription_rules_description" formatted="false">Berlangganan daftar aturan telepon melalui URL untuk memperbarui aturan daftar putih dan daftar hitam secara otomatis. Mendukung file aturan format JSON.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">Mohon masukkan setidaknya satu nomor.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">Silakan pilih label dan masukkan nomor telepon yang valid</string>
+    <string name="plugin_added_success" formatted="false">Plugin &quot;{name}&quot; berhasil ditambahkan</string>
+    <string name="plugin_deleted" formatted="false">Plugin dihapus</string>
+    <string name="plugin_description" formatted="false">Deskripsi plugin</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">Label Plugin</string>
+    <string name="plugin_latest_version" formatted="false">Plugin sudah versi terbaru</string>
+    <string name="plugin_list_export_success" formatted="false">Daftar plugin berhasil diekspor</string>
+    <string name="plugin_management" formatted="false">Manajemen Plugin</string>
+    <string name="plugin_management_subtitle" formatted="false">Kelola dan konfigurasikan plugin pihak ketiga</string>
+    <string name="plugin_name" formatted="false">Nama Plugin</string>
+    <string name="plugin_rules_info" formatted="false">Demi keamanan, harap gunakan plugin dari sumber tepercaya saja. Jangan ragu untuk menggunakan templat kami untuk membuat plugin kustom Anda sendiri!</string>
+    <string name="plugin_service" formatted="false">Layanan Plugin</string>
+    <string name="plugin_test_page_title" formatted="false">Uji Plugin</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">Plugin berhasil diperbarui</string>
+    <string name="plugin_url" formatted="false">URL Plugin</string>
+    <string name="plugin_version" formatted="false">Versi Plugin</string>
+    <string name="plugins_deleted" formatted="false">{count} plugin berhasil dihapus.</string>
+    <string name="political" formatted="false">Politik</string>
+    <string name="powerful_spam_blocking" formatted="false">Pemblokiran Spam yang Ampuh</string>
+    <string name="previous_step" formatted="false">Sebelumnya</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">Prioritaskan Pengaturan Tindakan Jarak Jauh</string>
+    <string name="prioritize_remote_action_description" formatted="false">Prioritaskan pengaturan tindakan dari database jarak jauh</string>
+    <string name="processed" formatted="false">Diproses</string>
+    <string name="processing" formatted="false">Memproses...</string>
+    <string name="processing_operation" formatted="false">Memproses...</string>
+    <string name="proposal_approved" formatted="false">Proposal Disetujui ✅</string>
+    <string name="proposal_approved_body" formatted="false">Proposal penghapusan untuk {phoneNumber} telah disetujui oleh komunitas ({supportPercentage}% dukungan, {totalVotes} suara).</string>
+    <string name="proposal_created" formatted="false">Proposal berhasil dibuat</string>
+    <string name="proposal_details" formatted="false">Detail Proposal</string>
+    <string name="proposal_not_found" formatted="false">Proposal tidak ditemukan</string>
+    <string name="proposal_processed" formatted="false">Proposal ini telah diproses</string>
+    <string name="proposal_rejected" formatted="false">Proposal Ditolak ❌</string>
+    <string name="proposal_rejected_body" formatted="false">Proposal penghapusan untuk {phoneNumber} telah ditolak oleh komunitas ({supportPercentage}% dukungan, {totalVotes} suara).</string>
+    <string name="proposal_statistics" formatted="false">Statistik Proposal</string>
+    <string name="provide_detailed_explanation" formatted="false">Berikan penjelasan terperinci (minimal 10 karakter)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">Beli</string>
+    <string name="purchase_subtitle" formatted="false">Untuk Membeli Layanan</string>
+    <string name="purchase_title" formatted="false">Pembelian</string>
+    <string name="quarterly_membership" formatted="false">Keanggotaan Triwulanan</string>
+    <string name="quarterly_membership_description" formatted="false">Buka semua fitur premium, perpanjangan otomatis triwulanan</string>
+    <string name="ready" formatted="false">Siap!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">Alasan</string>
+    <string name="reason_inaccurate_info" formatted="false">Informasi Tidak Akurat</string>
+    <string name="reason_min_characters" formatted="false">Alasan harus minimal 10 karakter</string>
+    <string name="reason_not_in_service" formatted="false">Tidak dalam Layanan</string>
+    <string name="reason_other" formatted="false">Lainnya</string>
+    <string name="reason_outdated" formatted="false">Nomor Kedaluwarsa</string>
+    <string name="reason_privacy" formatted="false">Masalah Privasi</string>
+    <string name="reason_required" formatted="false">Alasan wajib diisi</string>
+    <string name="reason_wrongly_identified" formatted="false">Salah Diidentifikasi</string>
+    <string name="recruiter" formatted="false">Perekrut</string>
+    <string name="redeem_vip_with_marks" formatted="false">Tukarkan VIP dengan Tanda</string>
+    <string name="redirect" formatted="false">Alihkan</string>
+    <string name="redirect_action_description" formatted="false">Alihkan panggilan ke nomor yang ditentukan.</string>
+    <string name="refresh" formatted="false">Segarkan</string>
+    <string name="refresh_permission_status" formatted="false">Segarkan status izin</string>
+    <string name="refresh_proposals" formatted="false">Segarkan Proposal</string>
+    <string name="refresh_tooltip" formatted="false">Segarkan</string>
+    <string name="regex_error_message" formatted="false">Kesalahan regex: {error}</string>
+    <string name="regex_pattern" formatted="false">Pola Regex</string>
+    <string name="regex_pattern_explanation" formatted="false">Penjelasan Pola Regex</string>
+    <string name="regex_pattern_explanation_button" formatted="false">Penjelasan Pola Regex</string>
+    <string name="regex_pattern_label" formatted="false">Pola Regex</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">Pola Regex untuk Pencocokan Nomor Telepon</string>
+    <string name="regex_rule" formatted="false">Aturan Regex</string>
+    <string name="regex_rule_add_failed" formatted="false">Gagal menambahkan aturan regex: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">Aturan regex berhasil ditambahkan</string>
+    <string name="regex_rule_management" formatted="false">Manajemen Aturan Regex</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">Nama aturan dan pola regex tidak boleh kosong</string>
+    <string name="regex_rules" formatted="false">Aturan Regex</string>
+    <string name="regex_rules_info" formatted="false">Aturan Regex digunakan untuk memfilter panggilan berdasarkan Pola Regex.</string>
+    <string name="regex_tester_title" formatted="false">Penguji Regex</string>
+    <string name="region" formatted="false">Wilayah</string>
+    <string name="registered_devices_title" formatted="false">Perangkat Terdaftar</string>
+    <string name="reject_all_calls" formatted="false">Tolak Semua Panggilan</string>
+    <string name="reject_all_calls_description" formatted="false">Saat diaktifkan, semua panggilan akan ditolak dengan prioritas tertinggi</string>
+    <string name="reject_all_numbers" formatted="false">Tolak Semua Panggilan Masuk</string>
+    <string name="reject_all_numbers_desc" formatted="false">Tolak semua panggilan masuk dengan prioritas tertinggi</string>
+    <string name="reject_exceeded_numbers" formatted="false">Tolak Nomor yang Melebihi Batas</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">Tolak nomor secara otomatis yang melebihi ambang batas jumlah</string>
+    <string name="rejected" formatted="false">DITOLAK</string>
+    <string name="remote_filter_settings" formatted="false">Pengaturan Filter Jarak Jauh</string>
+    <string name="remote_filter_settings_page_title" formatted="false">Pengaturan Filter Nomor Jarak Jauh</string>
+    <string name="remote_number_filter" formatted="false">Perlindungan Ambang Batas Kueri Cloud</string>
+    <string name="remote_number_filter_description" formatted="false">Secara otomatis memblokir panggilan yang melebihi ambang batas laporan cloud</string>
+    <string name="remote_number_filter_subtitle" formatted="false">Identifikasi panggilan spam menggunakan database cloud dan laporan komunitas</string>
+    <string name="remote_number_filtering" formatted="false">Penyaringan Nomor Jarak Jauh</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• Penyaringan Nomor Jarak Jauh: Aturan penyaringan berdasarkan informasi database jarak jauh</string>
+    <string name="remove_ads" formatted="false">Hapus Iklan</string>
+    <string name="remove_ads_description" formatted="false">Hapus semua iklan secara permanen di aplikasi untuk pengalaman yang lebih lancar</string>
+    <string name="remove_ads_title" formatted="false">Hapus Iklan</string>
+    <string name="remove_from_favorites" formatted="false">Hapus dari Favorit</string>
+    <string name="removed_from_favorites" formatted="false">Dihapus dari kontak favorit</string>
+    <string name="rename_device_title" formatted="false">Ubah Nama Perangkat</string>
+    <string name="reporting_guidelines" formatted="false">• Laporkan hanya nomor yang benar-benar bermasalah
+• Berikan alasan yang akurat dan terperinci
+• Pilih tingkat risiko yang sesuai berdasarkan tingkat keparahan
+• Laporan palsu dapat mengakibatkan pembatasan akun</string>
+    <string name="request_all_permissions" formatted="false">Minta Semua Izin</string>
+    <string name="request_permission" formatted="false">Minta Izin</string>
+    <string name="request_permission_failed" formatted="false">Gagal meminta izin: {error}</string>
+    <string name="required_field" formatted="false">Wajib</string>
+    <string name="required_init_field" formatted="false">Wajib untuk inisialisasi</string>
+    <string name="required_marks" formatted="false">{count} Tanda</string>
+    <string name="reset" formatted="false">Atur Ulang</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">Pulihkan</string>
+    <string name="restore_application_settings_from_backup" formatted="false">Pulihkan Pengaturan Aplikasi dari Cadangan</string>
+    <string name="restore_from_cloud" formatted="false">Pulihkan dari Cloud</string>
+    <string name="restore_from_cloud_failed" formatted="false">Gagal memulihkan dari cloud: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">Berhasil dipulihkan dari cloud</string>
+    <string name="restore_purchases" formatted="false">Pulihkan Pembelian</string>
+    <string name="restore_settings" formatted="false">Pulihkan Pengaturan</string>
+    <string name="restore_settings_confirmation" formatted="false">Ini akan mengganti semua pengaturan Anda saat ini. Apakah Anda yakin ingin melanjutkan?</string>
+    <string name="result" formatted="false">Hasil</string>
+    <string name="retry" formatted="false">Coba Lagi</string>
+    <string name="rewarded_ad_service" formatted="false">Layanan Iklan Berhadiah</string>
+    <string name="ridesharing" formatted="false">Berbagi Tumpangan</string>
+    <string name="risk" formatted="false">Risiko</string>
+    <string name="risk_level" formatted="false">Tingkat Risiko</string>
+    <string name="risk_level_critical" formatted="false">Kritis</string>
+    <string name="risk_level_high" formatted="false">Tinggi</string>
+    <string name="risk_level_label" formatted="false">Tingkat Risiko</string>
+    <string name="risk_level_low" formatted="false">Rendah</string>
+    <string name="risk_level_medium" formatted="false">Sedang</string>
+    <string name="risk_level_very_low" formatted="false">Sangat Rendah</string>
+    <string name="robocall" formatted="false">Robocall</string>
+    <string name="rule_action" formatted="false">Tindakan Aturan</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">Aturan berhasil ditambahkan</string>
+    <string name="rule_added_success" formatted="false">Aturan berhasil ditambahkan</string>
+    <string name="rule_delete_confirm_content" formatted="false">Apakah Anda yakin ingin menghapus {ruleType} ini?</string>
+    <string name="rule_delete_confirm_title" formatted="false">Hapus Aturan</string>
+    <string name="rule_delete_failed" formatted="false">Gagal menghapus aturan: {error}</string>
+    <string name="rule_delete_success" formatted="false">Aturan berhasil dihapus</string>
+    <string name="rule_deleted_successfully" formatted="false">Aturan berhasil dihapus</string>
+    <string name="rule_disabled_successfully" formatted="false">Aturan berhasil dinonaktifkan</string>
+    <string name="rule_enabled_successfully" formatted="false">Aturan berhasil diaktifkan</string>
+    <string name="rule_load_failed" formatted="false">Gagal memuat aturan: {error}</string>
+    <string name="rule_management" formatted="false">Manajemen Aturan</string>
+    <string name="rule_name" formatted="false">Nama Aturan</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">Nama aturan dan regex konten tidak boleh kosong</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">Nama aturan dan nomor telepon tidak boleh kosong</string>
+    <string name="rule_name_hint" formatted="false">misalnya, Keluarga, Teman, dll.</string>
+    <string name="rule_name_label" formatted="false">Nama Aturan</string>
+    <string name="rule_name_required" formatted="false">Nama aturan dan nomor telepon tidak boleh kosong</string>
+    <string name="rule_not_exist" formatted="false">Aturan tidak ada atau telah dihapus</string>
+    <string name="rule_not_found" formatted="false">Aturan tidak ditemukan: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">Aturan berhasil disimpan!</string>
+    <string name="rule_status_changed" formatted="false">Aturan {status} berhasil</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">Operasi gagal: {error}</string>
+    <string name="rule_toggle_success" formatted="false">Aturan {status} berhasil</string>
+    <string name="rule_type" formatted="false">Jenis Aturan</string>
+    <string name="rule_update_failed" formatted="false">Gagal memperbarui aturan: {error}</string>
+    <string name="rule_update_success" formatted="false">Aturan berhasil diperbarui</string>
+    <string name="rule_verification" formatted="false">Verifikasi Aturan</string>
+    <string name="rules_exported_successfully" formatted="false">Aturan berhasil diekspor</string>
+    <string name="rules_exported_to" formatted="false">Aturan diekspor ke: {path}</string>
+    <string name="rules_imported" formatted="false">Aturan berhasil diimpor</string>
+    <string name="rules_imported_successfully" formatted="false">{count} aturan berhasil diimpor</string>
+    <string name="save" formatted="false">Simpan</string>
+    <string name="save_button" formatted="false">Simpan</string>
+    <string name="save_button_text" formatted="false">Simpan</string>
+    <string name="save_failed" formatted="false">Gagal menyimpan: {error}</string>
+    <string name="save_script" formatted="false">Simpan Skrip</string>
+    <string name="save_settings" formatted="false">Simpan Pengaturan</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">Kemungkinan Penipuan</string>
+    <string name="script_saved" formatted="false">Skrip disimpan</string>
+    <string name="scroll_speed" formatted="false">Kecepatan Gulir</string>
+    <string name="scrolling_security_message_settings" formatted="false">Pengaturan Pesan Keamanan Bergulir</string>
+    <string name="search" formatted="false">Cari</string>
+    <string name="search_by_name_or_phone_number" formatted="false">Cari Berdasarkan Nama atau Nomor Telepon</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">Cari langganan kontak</string>
+    <string name="search_contacts" formatted="false">Cari Kontak</string>
+    <string name="search_error" formatted="false">Kesalahan pencarian: {error}</string>
+    <string name="search_hint" formatted="false">Cari...</string>
+    <string name="search_labels_hint" formatted="false">Cari label</string>
+    <string name="search_marked_phones_hint" formatted="false">Cari nomor yang ditandai</string>
+    <string name="search_phone_rules_hint" formatted="false">Cari aturan telepon</string>
+    <string name="search_plugins_hint" formatted="false">Cari plugin</string>
+    <string name="search_proposals" formatted="false">Cari Proposal</string>
+    <string name="search_regex_rules_hint" formatted="false">Cari aturan regex</string>
+    <string name="search_subscriptions_hint" formatted="false">Cari langganan</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">Jangan percayai panggilan telepon apa pun. Selalu verifikasi nomor layanan pelanggan secara mandiri. Jangan pernah membagikan kata sandi, kode verifikasi, nomor kartu, atau informasi pribadi.</string>
+    <string name="select_action" formatted="false">Pilih tindakan</string>
+    <string name="select_action_when_blocking_calls" formatted="false">Pilih tindakan saat memblokir panggilan</string>
+    <string name="select_action_when_rule_matches" formatted="false">Pilih tindakan saat aturan cocok</string>
+    <string name="select_all" formatted="false">Pilih Semua</string>
+    <string name="select_country" formatted="false">Pilih Negara</string>
+    <string name="select_export_format" formatted="false">Pilih Format Ekspor</string>
+    <string name="select_label" formatted="false">Pilih Label</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">Silakan pilih label dan masukkan nomor telepon yang valid</string>
+    <string name="select_language" formatted="false">Pilih Bahasa</string>
+    <string name="select_multiple" formatted="false">Pilih Banyak</string>
+    <string name="select_sim_card" formatted="false">Pilih Kartu SIM</string>
+    <string name="select_tags" formatted="false">Pilih Tag</string>
+    <string name="select_target_service" formatted="false">Pilih layanan target</string>
+    <string name="select_trusted_data_source" formatted="false">Silakan pilih sumber data tepercaya</string>
+    <string name="select_your_language" formatted="false">Pilih Bahasa Anda</string>
+    <string name="selected_items" formatted="false">{count} item terpilih</string>
+    <string name="selected_label" formatted="false">Terpilih:</string>
+    <string name="sender" formatted="false">Pengirim</string>
+    <string name="sender_regex_optional" formatted="false">Regex Pengirim (Opsional)</string>
+    <string name="separate_sims" formatted="false">SIM Terpisah</string>
+    <string name="separate_sims_desc" formatted="false">Aktifkan aturan pemfilteran terpisah untuk setiap kartu SIM</string>
+    <string name="server_address_label" formatted="false">Alamat Server</string>
+    <string name="service_type_contact" formatted="false">Langganan Kontak</string>
+    <string name="service_type_label" formatted="false">Jenis Layanan</string>
+    <string name="service_type_phone" formatted="false">Langganan Telepon</string>
+    <string name="service_type_plugin" formatted="false">Pembaruan Plugin</string>
+    <string name="service_type_sms" formatted="false">Langganan SMS</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">Atur Waktu Tunda</string>
+    <string name="set_encryption_password" formatted="false">Atur Kata Sandi Enkripsi</string>
+    <string name="settings" formatted="false">Pengaturan</string>
+    <string name="settings_backed_up_to" formatted="false">Pengaturan dicadangkan ke: {path}</string>
+    <string name="settings_backup" formatted="false">Cadangan Pengaturan </string>
+    <string name="settings_restored_successfully" formatted="false">Pengaturan berhasil dipulihkan. Harap mulai ulang aplikasi agar perubahan berlaku.</string>
+    <string name="settings_save_failed" formatted="false">Gagal menyimpan pengaturan: {error}</string>
+    <string name="settings_saved" formatted="false">Pengaturan disimpan</string>
+    <string name="settings_tab" formatted="false">Pengaturan</string>
+    <string name="settings_title" formatted="false">Pengaturan</string>
+    <string name="setup" formatted="false">Pengaturan Awal</string>
+    <string name="show_all_contacts" formatted="false">Tampilkan Semua Kontak</string>
+    <string name="show_favorites" formatted="false">Tampilkan Favorit</string>
+    <string name="silence" formatted="false">Diam</string>
+    <string name="silence_action_description" formatted="false">Panggilan akan dibisukan tetapi ditampilkan di log panggilan.</string>
+    <string name="silence_and_no_answer" formatted="false">Heningkan Nada Dering</string>
+    <string name="silence_no_answer" formatted="false">Diam Tanpa Jawaban</string>
+    <string name="silent_call_voice_clone" formatted="false">Klon Suara Panggilan Senyap</string>
+    <string name="silent_rules" formatted="false">Aturan Senyap</string>
+    <string name="sim_card" formatted="false">Kartu SIM {simNumber}</string>
+    <string name="sim_card_color" formatted="false">Warna Kartu SIM</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• Konfigurasi Kartu SIM: Atur aturan pemfilteran independen untuk setiap kartu SIM</string>
+    <string name="sim_card_filter_rules" formatted="false">Aturan Filter Kartu SIM</string>
+    <string name="sim_card_filter_rules_description" formatted="false">Atur aturan pemfilteran yang berbeda berdasarkan slot kartu SIM</string>
+    <string name="sim_card_font_size" formatted="false">Ukuran Font Kartu SIM</string>
+    <string name="sim_card_position" formatted="false">Posisi Kartu SIM</string>
+    <string name="sim_card_title" formatted="false">Kartu SIM</string>
+    <string name="sim_country" formatted="false">Negara SIM</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">Aturan slot SIM memungkinkan Anda mengonfigurasi aturan pemfilteran independen untuk setiap slot SIM.</string>
+    <string name="sim_rule_instructions_title" formatted="false">Aturan Slot SIM</string>
+    <string name="sim_rules_not_found" formatted="false">Aturan SIM tidak ditemukan</string>
+    <string name="sim_slot" formatted="false">Slot SIM</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">Konfigurasikan aturan pemfilteran independen untuk setiap kartu SIM:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">Pengaturan Filter Slot SIM {slotNumber}</string>
+    <string name="sim_slot_management" formatted="false">Manajemen Slot SIM</string>
+    <string name="sim_slot_position" formatted="false">Posisi Slot SIM {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• Aturan Slot SIM: Strategi pemfilteran independen per SIM</string>
+    <string name="sim_slot_rule_list_title" formatted="false">Daftar Aturan Slot SIM</string>
+    <string name="sim_slot_rule_management" formatted="false">Aturan Slot SIM</string>
+    <string name="sim_slot_rules" formatted="false">Aturan Slot SIM</string>
+    <string name="sim_slot_title" formatted="false">Slot SIM {slotNumber}</string>
+    <string name="sim_state" formatted="false">Status SIM</string>
+    <string name="skip" formatted="false">Lewati</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">Identifikasi Pemanggil Cerdas</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">Pemfilteran SMS membantu Anda secara otomatis memfilter pesan spam dan menjaga daftar pesan Anda tetap bersih. Anda dapat mengatur aturan filter dan metode notifikasi.</string>
+    <string name="sms_filter_disabled" formatted="false">Pemfilteran SMS dinonaktifkan</string>
+    <string name="sms_filter_enabled" formatted="false">Pemfilteran SMS diaktifkan</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">Aturan filter SMS berhasil ditambahkan</string>
+    <string name="sms_filter_rules" formatted="false">Aturan Filter SMS</string>
+    <string name="sms_filter_settings" formatted="false">Pengaturan Filter SMS</string>
+    <string name="sms_management" formatted="false">Manajemen SMS</string>
+    <string name="sms_permission" formatted="false">Izin SMS</string>
+    <string name="sms_permission_description" formatted="false">Digunakan untuk memfilter pesan spam.</string>
+    <string name="sms_rule_added_successfully" formatted="false">Aturan SMS berhasil ditambahkan</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">Aturan SMS berhasil dihapus</string>
+    <string name="sms_rule_load_failed" formatted="false">Gagal memuat aturan SMS: {error}</string>
+    <string name="sms_rule_management" formatted="false">Manajemen Aturan SMS</string>
+    <string name="sms_rule_subscription" formatted="false">Langganan Aturan SMS</string>
+    <string name="sms_subscription" formatted="false">Langganan SMS</string>
+    <string name="sms_subscription_added_successfully" formatted="false">Langganan SMS berhasil ditambahkan</string>
+    <string name="sms_subscription_rules_description" formatted="false">Berlangganan daftar aturan SMS melalui URL, mendukung pencocokan ekspresi reguler. Anda dapat mengatur tindakan blokir atau izinkan.</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">Beberapa permintaan izin ditolak</string>
+    <string name="sort_by" formatted="false">Urutkan Berdasarkan</string>
+    <string name="sort_least_popular" formatted="false">Urutkan Paling Tidak Populer</string>
+    <string name="sort_most_popular" formatted="false">Urutkan Paling Populer</string>
+    <string name="sort_newest" formatted="false">Urutkan Terbaru</string>
+    <string name="sort_oldest" formatted="false">Urutkan Terlama</string>
+    <string name="spam_likely" formatted="false">Kemungkinan Spam</string>
+    <string name="start_color" formatted="false">Warna Mulai</string>
+    <string name="start_date" formatted="false">Tanggal Mulai</string>
+    <string name="start_using" formatted="false">Mulai Menggunakan</string>
+    <string name="stat_answered" formatted="false">Dijawab</string>
+    <string name="stat_blocked" formatted="false">Diblokir</string>
+    <string name="statistics" formatted="false">Statistik</string>
+    <string name="statistics_page_title" formatted="false">Analisis Data</string>
+    <string name="status_connected" formatted="false">Tersambung / Dikonfigurasi</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Belum Dikonfigurasi</string>
+    <string name="stir_color" formatted="false">Warna STIR</string>
+    <string name="stir_failed" formatted="false">Verifikasi Gagal</string>
+    <string name="stir_font_size" formatted="false">Ukuran Font STIR</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">Posisi STIR</string>
+    <string name="stir_unknown" formatted="false">Status Verifikasi Tidak Diketahui</string>
+    <string name="stir_verification" formatted="false">Verifikasi STIR/SHAKEN</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} untuk nomor {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">Menampilkan hasil verifikasi STIR/SHAKEN untuk nomor.</string>
+    <string name="stir_verification_title" formatted="false">Verifikasi STIR/SHAKEN</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">Izin Penyimpanan</string>
+    <string name="storage_permission_description" formatted="false">Digunakan untuk menyimpan pengaturan dan aturan.</string>
+    <string name="submit" formatted="false">Kirim</string>
+    <string name="subscribe" formatted="false">Berlangganan</string>
+    <string name="subscription_add_success" formatted="false">Langganan &quot;{name}&quot; berhasil ditambahkan</string>
+    <string name="subscription_delete_confirm_content" formatted="false">Apakah Anda yakin ingin menghapus langganan ini?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">Hapus Langganan</string>
+    <string name="subscription_delete_failed" formatted="false">Gagal menghapus langganan: {error}</string>
+    <string name="subscription_delete_success" formatted="false">Langganan dihapus</string>
+    <string name="subscription_deleted" formatted="false">Langganan dihapus</string>
+    <string name="subscription_load_failed" formatted="false">Gagal memuat langganan: {error}</string>
+    <string name="subscription_name" formatted="false">Nama Langganan</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">Nama dan URL langganan tidak boleh kosong</string>
+    <string name="subscription_name_hint" formatted="false">Masukkan nama langganan</string>
+    <string name="subscription_status_change_failed" formatted="false">Gagal mengubah status langganan: {error}</string>
+    <string name="subscription_update_failed" formatted="false">Gagal memperbarui langganan: {error}</string>
+    <string name="subscription_update_success" formatted="false">Langganan berhasil diperbarui</string>
+    <string name="subscription_url" formatted="false">URL Langganan</string>
+    <string name="subscription_url_hint" formatted="false">Masukkan URL langganan</string>
+    <string name="successfully_imported_rules" formatted="false">Berhasil mengimpor {count} aturan</string>
+    <string name="supabase_anon_key" formatted="false">Kunci Anon</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, kunci publik anonim</string>
+    <string name="supabase_project_url" formatted="false">URL Proyek Supabase</string>
+    <string name="support" formatted="false">Dukungan</string>
+    <string name="support_count" formatted="false">Dukungan ({supportCount})</string>
+    <string name="support_sync" formatted="false">Dukung Sinkronisasi</string>
+    <string name="supported" formatted="false">DIDUKUNG</string>
+    <string name="survey" formatted="false">Survei</string>
+    <string name="sync_call_history" formatted="false">Sinkronkan Riwayat Panggilan</string>
+    <string name="sync_call_history_subtitle" formatted="false">Sertakan log panggilan pribadi dalam sinkronisasi</string>
+    <string name="sync_devices_button" formatted="false">Sinkronkan Perangkat</string>
+    <string name="sync_failed" formatted="false">Sinkronisasi gagal</string>
+    <string name="sync_failed_message" formatted="false">Sinkronisasi gagal</string>
+    <string name="sync_folder_name_label" formatted="false">Nama Folder Sinkronisasi</string>
+    <string name="sync_interval_label" formatted="false">Interval Sinkronisasi Otomatis</string>
+    <string name="sync_interval_value" formatted="false">Setiap {hours} jam</string>
+    <string name="sync_now" formatted="false">Sinkronkan Sekarang</string>
+    <string name="sync_now_button" formatted="false">Sinkronisasi Sekarang</string>
+    <string name="sync_status_title" formatted="false">Status Sinkronisasi</string>
+    <string name="sync_status_updated_message" formatted="false">Status sinkronisasi diperbarui</string>
+    <string name="sync_success" formatted="false">Sinkronisasi Selesai. Terkirim: {pushed}, Diterima: {pulled}</string>
+    <string name="sync_success_message" formatted="false">Sinkronisasi berhasil</string>
+    <string name="sync_with_cloud_storage" formatted="false">Sinkronisasi dengan Penyimpanan Cloud</string>
+    <string name="synced" formatted="false">Tersinkronisasi</string>
+    <string name="synchronized" formatted="false">Tersinkronisasi</string>
+    <string name="syncing" formatted="false">Menyinkronkan...</string>
+    <string name="system_features" formatted="false">Fitur Sistem:</string>
+    <string name="system_settings_title" formatted="false">Pengaturan Sistem</string>
+    <string name="tab_all" formatted="false">Semua</string>
+    <string name="tab_answered" formatted="false">Dijawab</string>
+    <string name="tab_blocked" formatted="false">Diblokir</string>
+    <string name="tab_missed" formatted="false">Tidak Terjawab</string>
+    <string name="tab_outgoing" formatted="false">Keluar</string>
+    <string name="tag_label" formatted="false">Tag: {tag}</string>
+    <string name="takeaway" formatted="false">Ringkasan</string>
+    <string name="telecommunication" formatted="false">Telekomunikasi</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">Telemarketing</string>
+    <string name="temp_purchase_expired" formatted="false">Hak istimewa pembelian sementara telah kedaluwarsa</string>
+    <string name="temporary_vip" formatted="false">VIP Sementara</string>
+    <string name="test_button" formatted="false">UJI</string>
+    <string name="test_connection_button" formatted="false">Uji Koneksi</string>
+    <string name="test_plugin" formatted="false">Uji Plugin</string>
+    <string name="text_colors_setting" formatted="false">Warna Teks &amp; Label</string>
+    <string name="theme_dark" formatted="false">Gelap</string>
+    <string name="theme_light" formatted="false">Terang</string>
+    <string name="theme_settings_subtitle" formatted="false">Pilih tema favorit Anda</string>
+    <string name="theme_settings_title" formatted="false">Pengaturan Tema</string>
+    <string name="theme_system" formatted="false">Default Sistem</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">Aplikasi ini adalah alat ID penelepon yang kuat yang memungkinkan Anda mengidentifikasi dan memblokir panggilan yang tidak diinginkan.</string>
+    <string name="this_week" formatted="false">Minggu Ini</string>
+    <string name="time_interceptor" formatted="false">Perlindungan Panggilan Sering</string>
+    <string name="time_interceptor_description" formatted="false">Blokir panggilan berulang dari nomor yang sama dalam waktu singkat</string>
+    <string name="time_interceptor_explanation" formatted="false">• Pencegat Waktu: Cegat/izinkan panggilan berulang dalam waktu singkat</string>
+    <string name="time_interceptor_explanation_content" formatted="false">Fitur pencegatan frekuensi panggilan menganalisis frekuensi panggilan untuk secara otomatis mengidentifikasi dan mencegat/mengizinkan panggilan spam yang sering.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">Penjelasan Pencegatan Frekuensi Panggilan</string>
+    <string name="time_interceptor_settings_title" formatted="false">Pengaturan Pencegatan Frekuensi Panggilan</string>
+    <string name="time_window_description" formatted="false">Atur ukuran jendela waktu untuk mengizinkan panggilan berulang. Panggilan dari nomor yang sama dalam jendela ini akan diizinkan</string>
+    <string name="time_window_label" formatted="false">Jendela Waktu Pencegatan (menit): {minutes}</string>
+    <string name="timeline_view" formatted="false">Tampilan Linimasa</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">Hari Ini</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">Total</string>
+    <string name="total_blocked" formatted="false">Total Diblokir</string>
+    <string name="total_pending_proposals" formatted="false">Total Proposal Tertunda</string>
+    <string name="total_proposals" formatted="false">Total Proposal</string>
+    <string name="total_votes" formatted="false">Total: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">Transfer data antar perangkat atau platform</string>
+    <string name="travel_ticketing" formatted="false">Tiket Perjalanan</string>
+    <string name="tutorial" formatted="false">Tutorial</string>
+    <string name="type" formatted="false">Tipe</string>
+    <string name="unassigned_s_i_m_card" formatted="false">Kartu SIM Tidak Ditugaskan</string>
+    <string name="unblock" formatted="false">Buka Blokir</string>
+    <string name="unblock_number" formatted="false">Buka Blokir Nomor</string>
+    <string name="unblock_number_confirmation" formatted="false">Apakah Anda yakin ingin membuka blokir {phoneNumber}?</string>
+    <string name="unblock_number_failed" formatted="false">Gagal membuka blokir nomor</string>
+    <string name="unblock_number_success" formatted="false">Nomor berhasil dibuka blokirnya</string>
+    <string name="unblocked" formatted="false">Dibatalkan pemblokirannya</string>
+    <string name="unknown" formatted="false">Tidak Diketahui</string>
+    <string name="unknown_tag" formatted="false">Tag: Tidak Diketahui</string>
+    <string name="unregister_button" formatted="false">Batalkan Pendaftaran</string>
+    <string name="unregister_device_confirmation_message" formatted="false">Apakah Anda yakin ingin membatalkan pendaftaran {deviceName}?</string>
+    <string name="unregister_device_title" formatted="false">Batalkan Pendaftaran Perangkat</string>
+    <string name="unsupported_file_format" formatted="false">Format file tidak didukung</string>
+    <string name="update" formatted="false">Perbarui</string>
+    <string name="update_all_now" formatted="false">Perbarui Semua Sekarang</string>
+    <string name="update_contact_failed" formatted="false">Gagal memperbarui kontak: {error}</string>
+    <string name="update_favorite_status" formatted="false">Perbarui Status Favorit</string>
+    <string name="update_interval" formatted="false">Interval Pembaruan</string>
+    <string name="update_now" formatted="false">Perbarui Sekarang</string>
+    <string name="update_plugin" formatted="false">Perbarui Plugin</string>
+    <string name="update_plugin_failed" formatted="false">Gagal memperbarui plugin: {error}</string>
+    <string name="update_rule_failed" formatted="false">Gagal memperbarui aturan: {error}</string>
+    <string name="update_subscription_failed" formatted="false">Gagal memperbarui langganan: {error}</string>
+    <string name="update_success" formatted="false">{service} berhasil diperbarui ({count} aturan)</string>
+    <string name="upgrade_to_vip" formatted="false">Tingkatkan ke VIP</string>
+    <string name="use_cases_point1" formatted="false">• Identifikasi panggilan spam dial-ulang otomatis</string>
+    <string name="use_cases_point2" formatted="false">• Cegat panggilan pemasaran yang menghubungi berkali-kali dalam waktu singkat</string>
+    <string name="use_cases_point3" formatted="false">• Cegah bom telepon dan pelecehan</string>
+    <string name="use_cases_title" formatted="false">Kasus Penggunaan:</string>
+    <string name="use_global_settings" formatted="false">Gunakan Pengaturan Global</string>
+    <string name="use_local_notification" formatted="false">Gunakan Notifikasi Lokal</string>
+    <string name="use_local_notification_description" formatted="false">Aktifkan notifikasi lokal untuk panggilan masuk</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">Gunakan sintaks regex standar untuk mendefinisikan pola. Contoh:</string>
+    <string name="use_stir_notification" formatted="false">Gunakan Notifikasi dari STIR</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">Nama Pengguna</string>
+    <string name="verification_failed_text" formatted="false">Gagal</string>
+    <string name="verification_report" formatted="false">Laporan Verifikasi</string>
+    <string name="verified_text" formatted="false">Terverifikasi</string>
+    <string name="verify" formatted="false">Verifikasi</string>
+    <string name="version" formatted="false">Versi: {version}</string>
+    <string name="very_high" formatted="false">Sangat Tinggi</string>
+    <string name="very_low" formatted="false">Sangat Rendah</string>
+    <string name="view_details" formatted="false">Lihat Detail</string>
+    <string name="vip3_days_with_ads" formatted="false">VIP 3 hari dengan iklan (sinkronisasi saja)</string>
+    <string name="vip5_days_no_ads" formatted="false">VIP 5 hari berfitur lengkap tanpa iklan</string>
+    <string name="vip7_days_no_ads" formatted="false">VIP 7 hari berfitur lengkap tanpa iklan</string>
+    <string name="vip_access_subtitle" formatted="false">Tonton iklan gratis atau beli VIP</string>
+    <string name="vip_exchange_description" formatted="false">Tukar keanggotaan VIP dengan jumlah penandaan nomor telepon</string>
+    <string name="vip_exchange_service" formatted="false">Layanan Penukaran VIP</string>
+    <string name="vip_exchange_title" formatted="false">Tukar VIP Penandaan</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">Pengguna VIP</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">Pengenalan Suara</string>
+    <string name="vote_agree" formatted="false">Setuju</string>
+    <string name="vote_count" formatted="false">Jumlah Suara</string>
+    <string name="vote_disagree" formatted="false">Tidak Setuju</string>
+    <string name="vote_submitted" formatted="false">Suara berhasil dikirim</string>
+    <string name="voted" formatted="false">Sudah memilih</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} suara ({supportPercentage}% dukungan)</string>
+    <string name="voting_completed" formatted="false">Pemungutan Suara Selesai</string>
+    <string name="voting_completed_body" formatted="false">Pemungutan suara komunitas untuk {phoneNumber} telah berakhir. Hasil: {result} ({supportPercentage}% dukungan).</string>
+    <string name="waiting_for_more_votes" formatted="false">Menunggu lebih banyak suara komunitas</string>
+    <string name="watch_ad" formatted="false">Tonton Iklan</string>
+    <string name="watch_ad_for_temp" formatted="false">Tonton Iklan untuk Hak Sementara</string>
+    <string name="watch_ad_for_temp_description" formatted="false">Tonton iklan singkat untuk sementara membuka beberapa fitur premium</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">Anda perlu menonton {count} iklan lagi untuk mendapatkan hak istimewa VIP sementara</string>
+    <string name="web_d_a_v_config_title" formatted="false">Konfigurasi WebDAV</string>
+    <string name="week" formatted="false">Minggu</string>
+    <string name="welcome" formatted="false">Selamat datang</string>
+    <string name="whitelist" formatted="false">Daftar Putih</string>
+    <string name="width" formatted="false">Lebar</string>
+    <string name="wildcard_matching_description" formatted="false">Gunakan \'.\' untuk mencocokkan karakter apa pun (misalnya, \'123.456\' cocok dengan 123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">Pencocokan wildcard:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">Dukungan Wildcard untuk Penyaringan Fleksibel</string>
+    <string name="window_size_setting" formatted="false">Ukuran Jendela</string>
+    <string name="year" formatted="false">Tahun</string>
+    <string name="yesterday" formatted="false">Kemarin</string>
+</resources>

@@ -2458,5 +2458,8 @@
   "testButton": "TEST",
   "pluginID": "ID",
   "pluginURL": "URL",
-  "isRoaming": "Roaming"
+  "isRoaming": "Roaming",
+  "backgroundOpacity": "Background Opacity",
+  "timesUnit": "times",
+  "participantCount": "%1$d Participants"
 }

@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">حول اشتراك جهة الاتصال</string>
+    <string name="about_labels" formatted="false">حول العلامات</string>
+    <string name="about_phone_subscription_rules" formatted="false">حول قواعد اشتراك الهاتف</string>
+    <string name="about_sms_filter" formatted="false">حول تصفية الرسائل القصيرة</string>
+    <string name="about_sms_subscription_rules" formatted="false">حول قواعد اشتراك الرسائل القصيرة</string>
+    <string name="about_subtitle" formatted="false">معلومات الإصدار القانوني للتطبيق</string>
+    <string name="about_title" formatted="false">حول</string>
+    <string name="access_target_url" formatted="false">الوصول إلى عنوان URL المستهدف</string>
+    <string name="action" formatted="false">الإجراء</string>
+    <string name="action_all" formatted="false">الكل</string>
+    <string name="action_allow" formatted="false">السماح</string>
+    <string name="action_block" formatted="false">الحظر</string>
+    <string name="action_filter_title" formatted="false">التصفية حسب نوع الإجراء</string>
+    <string name="action_filter_tooltip" formatted="false">مرشح الإجراء</string>
+    <string name="action_none" formatted="false">لا إجراء</string>
+    <string name="action_silence" formatted="false">كتم</string>
+    <string name="action_tag" formatted="false">الإجراء: {actionType}</string>
+    <string name="action_type" formatted="false">نوع الإجراء</string>
+    <string name="action_unknown" formatted="false">غير معروف</string>
+    <string name="active_proposals" formatted="false">الاقتراحات النشطة</string>
+    <string name="add" formatted="false">إضافة</string>
+    <string name="add_allow_subscription" formatted="false">إضافة اشتراك سماح</string>
+    <string name="add_allowed_blocked_rule" formatted="false">إضافة قاعدة السماح/الحظر</string>
+    <string name="add_block_subscription" formatted="false">إضافة اشتراك حظر</string>
+    <string name="add_contact_button" formatted="false">إضافة جهة اتصال</string>
+    <string name="add_contact_failed" formatted="false">فشل في إضافة جهة الاتصال: {error}</string>
+    <string name="add_label" formatted="false">إضافة علامة</string>
+    <string name="add_label_button" formatted="false">إضافة علامة</string>
+    <string name="add_label_failed" formatted="false">فشل في إضافة علامة: {error}</string>
+    <string name="add_name" formatted="false">إضافة اسم</string>
+    <string name="add_none_subscription" formatted="false">إضافة اشتراك لا شيء</string>
+    <string name="add_phone_mark" formatted="false">إضافة علامة هاتف</string>
+    <string name="add_phone_number_rule" formatted="false">إضافة قاعدة رقم هاتف</string>
+    <string name="add_plugin" formatted="false">إضافة مكون إضافي</string>
+    <string name="add_plugin_failed" formatted="false">فشل في إضافة المكون الإضافي</string>
+    <string name="add_plugin_failed_with_error" formatted="false">فشل في إضافة المكون الإضافي: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">إضافة مكون إضافي من ملف محلي</string>
+    <string name="add_plugin_from_url" formatted="false">إضافة مكون إضافي من عنوان URL</string>
+    <string name="add_regex_rule" formatted="false">إضافة قاعدة تعبير عادي</string>
+    <string name="add_rule" formatted="false">إضافة قاعدة</string>
+    <string name="add_rule_failed" formatted="false">فشل في إضافة قاعدة: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">إضافة قاعدة</string>
+    <string name="add_silence_subscription" formatted="false">إضافة اشتراك صامت</string>
+    <string name="add_sms_filter_rule" formatted="false">إضافة قاعدة تصفية رسائل قصيرة</string>
+    <string name="add_sms_rule" formatted="false">إضافة قاعدة رسائل قصيرة</string>
+    <string name="add_sms_subscription" formatted="false">إضافة اشتراك رسائل قصيرة</string>
+    <string name="add_subscription" formatted="false">إضافة اشتراك</string>
+    <string name="add_subscription_button" formatted="false">إضافة اشتراك</string>
+    <string name="add_subscription_failed" formatted="false">فشل في إضافة اشتراك: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">إضافة اشتراك</string>
+    <string name="add_to_blacklist" formatted="false">إضافة إلى القائمة السوداء</string>
+    <string name="add_to_favorites" formatted="false">إضافة إلى المفضلة</string>
+    <string name="add_to_rules" formatted="false">إضافة إلى القواعد</string>
+    <string name="add_to_whitelist" formatted="false">إضافة إلى القائمة البيضاء</string>
+    <string name="added_to_favorites" formatted="false">تمت الإضافة إلى المفضلة</string>
+    <string name="advanced_mode" formatted="false">الوضع المتقدم</string>
+    <string name="agent" formatted="false">وكيل</string>
+    <string name="agree_votes" formatted="false">موافق: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">الكل</string>
+    <string name="all_call_logs_cleared" formatted="false">تم مسح جميع سجلات المكالمات</string>
+    <string name="all_calls_tab" formatted="false">الكل</string>
+    <string name="all_permissions_granted" formatted="false">تم منح جميع الأذونات</string>
+    <string name="all_services_status_subtitle" formatted="false">الحالة الحالية لكل خدمة سحابية</string>
+    <string name="all_services_status_title" formatted="false">حالة الخدمة الحالية</string>
+    <string name="all_settings_completed" formatted="false">اكتملت جميع الإعدادات.</string>
+    <string name="all_update_success" formatted="false">اكتملت جميع التحديثات ({count} قواعد)</string>
+    <string name="allow" formatted="false">السماح</string>
+    <string name="allow_action_description" formatted="false">سيتم السماح بالمكالمات، حتى لو كان الرقم موجودًا في القائمة المحظورة.</string>
+    <string name="allow_all_allow_rules" formatted="false">تمكين جميع قواعد السماح</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">المفتاح الرئيسي لتطبيق جميع قواعد السماح المكوّنة</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">السماح لجميع الأرقام المحظورة</string>
+    <string name="allow_all_block_rules" formatted="false">تمكين جميع قواعد الحظر</string>
+    <string name="allow_all_block_rules_desc" formatted="false">المفتاح الرئيسي لتطبيق جميع قواعد الحظر المكوّنة</string>
+    <string name="allow_allowed_numbers" formatted="false">السماح لجميع الأرقام المعتمدة</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">السماح بجميع المكالمات الواردة من الأرقام الموجودة في قائمة السماح الخاصة بك</string>
+    <string name="allow_block" formatted="false">السماح/الحظر</string>
+    <string name="allow_blocked_numbers" formatted="false">تعليق حظر القائمة السوداء</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">السماح مؤقتًا بالمكالمات من الأرقام الموجودة في قائمة الحظر الخاصة بك</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">السماح للأرقام التي لم تتجاوز الحد</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">السماح تلقائيًا بالأرقام التي لا تتجاوز حد العد</string>
+    <string name="allow_regex_allow_rules" formatted="false">تمكين قواعد السماح بالتعبير العادي</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">تمكين مطابقة نمط التعبير العادي لقواعد السماح</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">تمكين قواعد السماح المستندة إلى التعبير العادي</string>
+    <string name="allow_regex_block_rules" formatted="false">تمكين قواعد الحظر بالتعبير العادي</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">تمكين مطابقة نمط التعبير العادي لقواعد الحظر</string>
+    <string name="allow_regex_block_rules_description" formatted="false">تمكين قواعد الحظر المستندة إلى التعبير العادي</string>
+    <string name="allow_rule" formatted="false">قاعدة السماح</string>
+    <string name="allow_rules" formatted="false">قواعد السماح</string>
+    <string name="allowed_blocked_rule" formatted="false">قاعدة السماح/الحظر</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">تعديل قاعدة السماح/الحظر</string>
+    <string name="allowed_blocked_rule_management" formatted="false">إدارة قواعد السماح/الحظر</string>
+    <string name="allowed_blocked_rules_info" formatted="false">تُستخدم القواعد المسموح بها/المحظورة لمطابقة المكالمات بأرقام هواتف محددة، والتي لها الأولوية القصوى.</string>
+    <string name="and_more_items" formatted="false">و {count} عناصر أخرى</string>
+    <string name="answer_then_hangup" formatted="false">الرد ثم إنهاء المكالمة</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">Your Call Your Rule</string>
+    <string name="application_software" formatted="false">برنامج التطبيق</string>
+    <string name="apply" formatted="false">تطبيق</string>
+    <string name="approved" formatted="false">موافق عليه</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">فشل التفويض: يرجى التحقق من معرف العميل والمفتاح</string>
+    <string name="authorization_failed_message" formatted="false">فشل التفويض</string>
+    <string name="authorization_success_message" formatted="false">نجح التفويض</string>
+    <string name="authorize_login_button" formatted="false">تفويض تسجيل الدخول</string>
+    <string name="auto_cancel_notification" formatted="false">إلغاء الإشعار تلقائيًا</string>
+    <string name="auto_cancel_notification_description" formatted="false">إذا تم تحديد هذا الخيار، فسيتم إغلاق الإشعار تلقائيًا عند النقر عليه من قبل المستخدم.</string>
+    <string name="auto_sync_label" formatted="false">المزامنة التلقائية</string>
+    <string name="auto_update" formatted="false">التحديث التلقائي</string>
+    <string name="auto_update_description" formatted="false">ضبط فترات التحديث التلقائي للاشتراكات أو التحديث يدويًا</string>
+    <string name="auto_update_settings" formatted="false">إعدادات التحديث التلقائي</string>
+    <string name="auto_update_subtitle" formatted="false">إدارة التحديثات التلقائية للقواعد والإضافات</string>
+    <string name="auto_update_title" formatted="false">التحديث التلقائي</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">صناعة السيارات</string>
+    <string name="avatar" formatted="false">صورة شخصية</string>
+    <string name="avatar_border_color" formatted="false">لون حدود الصورة الرمزية</string>
+    <string name="avatar_border_size" formatted="false">حجم حدود الصورة الرمزية</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">أحجام الصور الرمزية والأيقونات</string>
+    <string name="avatar_position" formatted="false">موضع الصورة الرمزية</string>
+    <string name="avatar_size" formatted="false">حجم الصورة الرمزية</string>
+    <string name="axis_position" formatted="false">موضع {axis}</string>
+    <string name="background_gradient_setting" formatted="false">تدرج الخلفية</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">نسخ احتياطي</string>
+    <string name="backup_and_restore" formatted="false">النسخ الاحتياطي والاستعادة</string>
+    <string name="backup_and_restore_subtitle" formatted="false">نسخ بيانات التطبيق احتياطيًا أو استعادتها</string>
+    <string name="backup_and_restore_title" formatted="false">النسخ الاحتياطي والاستعادة</string>
+    <string name="backup_failed" formatted="false">فشل النسخ الاحتياطي</string>
+    <string name="backup_settings" formatted="false">إعدادات النسخ الاحتياطي</string>
+    <string name="backup_to_cloud" formatted="false">النسخ الاحتياطي إلى السحابة</string>
+    <string name="backup_to_cloud_failed" formatted="false">فشل النسخ الاحتياطي إلى السحابة: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">تم النسخ الاحتياطي بنجاح إلى السحابة</string>
+    <string name="bank" formatted="false">بنك</string>
+    <string name="basic_info" formatted="false">المعلومات الأساسية</string>
+    <string name="basic_rule_filter" formatted="false">مرشح القاعدة الأساسي</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">تصفية المكالمات باستخدام القائمة السوداء/البيضاء والتعبيرات العادية</string>
+    <string name="basic_rule_filtering" formatted="false">تصفية القواعد الأساسية</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• تصفية القواعد الأساسية: تصفية القواعد بناءً على القائمة السوداء والقائمة البيضاء والتعبيرات العادية</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">هل أنت متأكد من رغبتك في حذف جهات الاتصال المحددة {count}؟</string>
+    <string name="batch_delete_labels_confirm" formatted="false">هل أنت متأكد من رغبتك في حذف التسميات {count}؟</string>
+    <string name="battery_optimization_permission" formatted="false">تحسين البطارية</string>
+    <string name="battery_optimization_permission_description" formatted="false">اسمح للتطبيق بالعمل في الخلفية لتوفير خدمات مثل هوية المتصل.</string>
+    <string name="black_white_list" formatted="false">القائمة السوداء/البيضاء</string>
+    <string name="blacklist" formatted="false">القائمة السوداء</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">القائمة السوداء والقائمة البيضاء</string>
+    <string name="block" formatted="false">حظر</string>
+    <string name="block_action_description" formatted="false">سيتم حظر المكالمات وعرضها في سجل المكالمات.</string>
+    <string name="block_calls" formatted="false">حظر المكالمات</string>
+    <string name="block_international_calls" formatted="false">يطابق الأرقام التي لا تبدأ بـ + أو 00</string>
+    <string name="block_international_calls_title" formatted="false">حظر المكالمات الدولية</string>
+    <string name="block_mobile_numbers" formatted="false">يطابق الأرقام التي لا تبدأ بـ 13-19</string>
+    <string name="block_mobile_numbers_title" formatted="false">حظر أرقام الهواتف المحمولة</string>
+    <string name="block_number" formatted="false">حظر الرقم</string>
+    <string name="block_number_success" formatted="false">تم حظر الرقم بنجاح</string>
+    <string name="block_premium_rate_numbers" formatted="false">يطابق الأرقام التي لا تبدأ بـ 118 أو 120-190</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">حظر أرقام التعريفة المميزة</string>
+    <string name="block_rule" formatted="false">قاعدة الحظر</string>
+    <string name="block_rules" formatted="false">قواعد الحظر</string>
+    <string name="block_specific_area_codes" formatted="false">يطابق الأرقام التي تبدأ بـ 0 + 2-3 أرقام</string>
+    <string name="block_specific_area_codes_title" formatted="false">حظر رموز المناطق المحددة:</string>
+    <string name="block_type_analysis_title" formatted="false">تحليل نوع الحظر</string>
+    <string name="blocked" formatted="false">محظور</string>
+    <string name="blocked_call_body" formatted="false">مكالمة محظورة من {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">إشعارات المكالمات المحظورة</string>
+    <string name="blocked_call_notifications_description" formatted="false">يعرض معلومات حول المكالمات المحظورة.</string>
+    <string name="blocked_call_title" formatted="false">مكالمة محظورة</string>
+    <string name="blocked_calls" formatted="false">المكالمات المحظورة</string>
+    <string name="blocked_calls_title" formatted="false">المكالمات المحظورة</string>
+    <string name="blocked_spam_calls" formatted="false">مكالمات البريد العشوائي المحظورة</string>
+    <string name="blocking_trend" formatted="false">اتجاه الحظر</string>
+    <string name="both" formatted="false">كلاهما</string>
+    <string name="bulk_delete" formatted="false">حذف دفعة واحدة لجهات الاتصال</string>
+    <string name="bulk_delete_contacts" formatted="false">حذف جهات الاتصال دفعة واحدة</string>
+    <string name="bulk_delete_labels" formatted="false">حذف التسميات دفعة واحدة</string>
+    <string name="call" formatted="false">مكالمة</string>
+    <string name="call_blocking" formatted="false">حظر المكالمات</string>
+    <string name="call_details" formatted="false">تفاصيل المكالمة</string>
+    <string name="call_filter_rules" formatted="false">قواعد تصفية المكالمات</string>
+    <string name="call_filter_rules_description" formatted="false">تعيين قواعد أساسية لتصفية المكالمات</string>
+    <string name="call_filter_settings" formatted="false">إعدادات تصفية المكالمات</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">تعيين حدود تكرار المكالمات وقواعد الحظر</string>
+    <string name="call_frequency_interception_title" formatted="false">اعتراض تكرار المكالمات</string>
+    <string name="call_history" formatted="false">سجل المكالمات</string>
+    <string name="call_history_info_desc" formatted="false">هنا يظهر سجل مكالماتك، بما في ذلك المكالمات الواردة والصادرة والمفقودة.</string>
+    <string name="call_history_info_title" formatted="false">سجل المكالمات</string>
+    <string name="call_history_tab" formatted="false">سجل المكالمات</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">إذن فحص المكالمات</string>
+    <string name="call_screening_permission_description" formatted="false">يُستخدم لفحص وحظر المكالمات غير المرغوب فيها.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">لم يتم منح إذن فحص المكالمات، قد يؤثر على وظائف التطبيق.</string>
+    <string name="call_statistics" formatted="false">إحصائيات المكالمات</string>
+    <string name="call_time" formatted="false">وقت المكالمة</string>
+    <string name="call_type" formatted="false">نوع المكالمة</string>
+    <string name="call_type_answered" formatted="false">تم الرد</string>
+    <string name="call_type_blocked" formatted="false">محظور</string>
+    <string name="call_type_icon_color" formatted="false">لون أيقونة نوع المكالمة</string>
+    <string name="call_type_missed" formatted="false">مكالمة فائتة</string>
+    <string name="call_type_outgoing" formatted="false">صادرة</string>
+    <string name="call_type_position" formatted="false">موضع نوع المكالمة</string>
+    <string name="call_type_rejected" formatted="false">مرفوض</string>
+    <string name="call_type_silenced" formatted="false">تم إسكاته</string>
+    <string name="call_type_unknown" formatted="false">غير معروف</string>
+    <string name="callback" formatted="false">إعادة الاتصال</string>
+    <string name="caller_id_app" formatted="false">تطبيق هوية المتصل</string>
+    <string name="caller_id_customization_subtitle" formatted="false">تخصيص تخطيط معرّف المتصل</string>
+    <string name="caller_id_customization_title" formatted="false">تخصيص هوية المتصل</string>
+    <string name="caller_id_display_mode" formatted="false">وضع عرض معرف المتصل</string>
+    <string name="caller_id_enhancement" formatted="false">تحسين معرّف المتصل</string>
+    <string name="caller_id_marked_by_count" formatted="false">مميز بواسطة {count}</string>
+    <string name="caller_id_notification_title" formatted="false">معلومات المكالمة الواردة</string>
+    <string name="caller_id_preview" formatted="false">معاينة معرف المتصل</string>
+    <string name="caller_id_settings_subtitle" formatted="false">لإعداد إشعار وعرض المكالمات الواردة</string>
+    <string name="caller_id_settings_title" formatted="false">إعدادات معرّف المتصل</string>
+    <string name="calling_number_failed" formatted="false">فشل الاتصال بالرقم</string>
+    <string name="cancel" formatted="false">إلغاء</string>
+    <string name="cancel_button" formatted="false">إلغاء</string>
+    <string name="cancel_local_notification" formatted="false">إغلاق الإشعارات المحلية</string>
+    <string name="cancel_local_notification_description" formatted="false">إغلاق الإشعارات المحلية تلقائيًا</string>
+    <string name="car_rental" formatted="false">تأجير سيارات</string>
+    <string name="carrier" formatted="false">مزود الخدمة</string>
+    <string name="carrier_color" formatted="false">لون مزود الخدمة</string>
+    <string name="carrier_font_size" formatted="false">حجم خط مزود الخدمة</string>
+    <string name="carrier_position" formatted="false">موضع مزود الخدمة</string>
+    <string name="change_label" formatted="false">تغيير التسمية</string>
+    <string name="change_plugin_status_failed" formatted="false">فشل تغيير حالة المكون الإضافي: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">فشل تغيير حالة الاشتراك: {error}</string>
+    <string name="charity" formatted="false">جمعيات خيرية</string>
+    <string name="chart_one_week_ago" formatted="false">قبل أسبوع واحد</string>
+    <string name="chart_three_days_ago" formatted="false">قبل 3 أيام</string>
+    <string name="chart_today" formatted="false">اليوم</string>
+    <string name="check_file_format" formatted="false">الرجاء التحقق من تنسيق الملف أو الأذونات</string>
+    <string name="check_permission_failed" formatted="false">فشل التحقق من الأذونات: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">اختر إجراء الاعتراض الافتراضي</string>
+    <string name="clear_all_call_logs" formatted="false">مسح جميع سجلات المكالمات</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">تأكيد مسح جميع سجلات المكالمات</string>
+    <string name="clear_all_notifications" formatted="false">مسح جميع الإشعارات</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">تأكيد مسح جميع الإشعارات</string>
+    <string name="clear_button" formatted="false">مسح</string>
+    <string name="clear_filter" formatted="false">مسح الفلتر</string>
+    <string name="clear_label_filter_button" formatted="false">مسح فلتر التسميات</string>
+    <string name="close_button" formatted="false">إغلاق</string>
+    <string name="cloud_backup" formatted="false">نسخ احتياطي سحابي</string>
+    <string name="cloud_sync" formatted="false">المزامنة السحابية</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">المزامنة والنسخ الاحتياطي السحابي</string>
+    <string name="cloud_sync_service" formatted="false">خدمة مزامنة السحابة</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">تكوين WebDAV و OneDrive و Google Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">إعدادات المزامنة السحابية</string>
+    <string name="cloud_sync_title" formatted="false">المزامنة السحابية</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">تحصيل الديون</string>
+    <string name="color_picker_title" formatted="false">اختر اللون</string>
+    <string name="community_impact" formatted="false">تأثير المجتمع</string>
+    <string name="community_participation" formatted="false">مشاركة المجتمع</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">أصوات المجتمع</string>
+    <string name="community_voting_started" formatted="false">بدأ تصويت المجتمع</string>
+    <string name="community_voting_started_body" formatted="false">اقتراح حذف جديد للرقم {phoneNumber} مفتوح الآن لتصويت المجتمع.</string>
+    <string name="completed" formatted="false">مكتمل</string>
+    <string name="config_management" formatted="false">إدارة التكوين</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">تم تحديث التكوين</string>
+    <string name="configuration_advice" formatted="false">من خلال التكوين المناسب، يمكنك تعيين استراتيجيات تصفية مختلفة لبطاقات SIM الخاصة بالعمل والشخصية.</string>
+    <string name="configure_backup_options" formatted="false">تكوين خيارات النسخ الاحتياطي</string>
+    <string name="configure_cloud_sync_service" formatted="false">تكوين خدمة المزامنة السحابية</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">الرجاء تكوين خدمة مزامنة سحابية لتمكين المزامنة بين الأجهزة المتعددة.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">تكوين قواعد فلتر بطاقة SIM</string>
+    <string name="confirm" formatted="false">تأكيد</string>
+    <string name="confirm_button" formatted="false">تأكيد</string>
+    <string name="confirm_delete" formatted="false">تأكيد الحذف</string>
+    <string name="confirm_delete_label" formatted="false">هل أنت متأكد أنك تريد حذف التسمية &quot;{name}&quot;؟</string>
+    <string name="confirm_delete_plugin" formatted="false">هل أنت متأكد أنك تريد حذف المكون الإضافي &quot;{name}&quot;؟</string>
+    <string name="confirm_delete_plugins" formatted="false">هل أنت متأكد أنك تريد حذف {count} مكونات إضافية؟</string>
+    <string name="confirm_delete_rule_message" formatted="false">هل أنت متأكد أنك تريد حذف هذه القاعدة؟ لا يمكن التراجع عن هذا الإجراء.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">هل أنت متأكد أنك تريد حذف قاعدة فلتر الرسائل القصيرة هذه؟</string>
+    <string name="confirm_delete_sms_rule" formatted="false">هل أنت متأكد أنك تريد حذف قاعدة الرسائل القصيرة هذه؟</string>
+    <string name="confirm_delete_subscriptions" formatted="false">هل أنت متأكد أنك تريد حذف {name}؟</string>
+    <string name="confirm_password" formatted="false">تأكيد كلمة المرور</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">متصل</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">فشل الاتصال: الرجاء التحقق من عنوان الخادم واسم المستخدم وكلمة المرور</string>
+    <string name="connection_failed_message" formatted="false">فشل الاتصال</string>
+    <string name="connection_status_label" formatted="false">حالة الاتصال</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">تم الاتصال بنجاح</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">تمت إضافة جهة الاتصال بنجاح</string>
+    <string name="contact_deleted" formatted="false">تم حذف جهة الاتصال</string>
+    <string name="contact_name_label" formatted="false">الاسم</string>
+    <string name="contact_not_found" formatted="false">لم يتم العثور على جهة الاتصال</string>
+    <string name="contact_subscription_description" formatted="false">الاشتراك في قوائم جهات الاتصال عبر رابط URL، وتحديث معلومات جهات الاتصال والملصقات تلقائيًا. يدعم بيانات بتنسيق JSON.</string>
+    <string name="contact_update_success" formatted="false">تم تحديث جهة الاتصال بنجاح</string>
+    <string name="contact_us" formatted="false">اتصل بنا</string>
+    <string name="contacts" formatted="false">جهات الاتصال</string>
+    <string name="contacts_deleted" formatted="false">تم حذف {count} جهات اتصال</string>
+    <string name="contacts_management" formatted="false">إدارة جهات الاتصال</string>
+    <string name="contacts_permission" formatted="false">إذن جهات الاتصال</string>
+    <string name="contacts_permission_description" formatted="false">يُستخدم لتحديد مكالمات جهات الاتصال.</string>
+    <string name="contacts_tab" formatted="false">جهات الاتصال</string>
+    <string name="container_width" formatted="false">عرض الحاوية</string>
+    <string name="content" formatted="false">المحتوى</string>
+    <string name="content_regex" formatted="false">تعبير عادي للمحتوى</string>
+    <string name="count_color" formatted="false">لون العد</string>
+    <string name="count_font_size" formatted="false">حجم خط العد</string>
+    <string name="count_position" formatted="false">موضع العد</string>
+    <string name="count_threshold_description" formatted="false">تعيين الحد الأدنى للعد المطلوب لتشغيل إجراءات التصفية</string>
+    <string name="count_threshold_label" formatted="false">حد العد</string>
+    <string name="country" formatted="false">الدولة</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">مثل: US، CN، GB</string>
+    <string name="country_code_label" formatted="false">رمز البلد (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">رمز البلد مطلوب</string>
+    <string name="country_code_two_letters" formatted="false">رمز البلد (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">يرجى ملاحظة: قد لا تتضمن قاعدة البيانات بيانات لجميع البلدان أو المناطق المحددة.</string>
+    <string name="country_name_color" formatted="false">لون اسم الدولة</string>
+    <string name="country_name_font_size" formatted="false">حجم خط اسم الدولة</string>
+    <string name="country_region_name_position" formatted="false">موضع اسم الدولة/المنطقة</string>
+    <string name="country_sync_settings_subtitle" formatted="false">حدد البلدان لمزامنة البيانات</string>
+    <string name="country_sync_settings_title" formatted="false">إعدادات مزامنة قاعدة البيانات حسب البلد</string>
+    <string name="create_proposal" formatted="false">إنشاء اقتراح</string>
+    <string name="create_proposal_title" formatted="false">إنشاء اقتراح حذف</string>
+    <string name="created_at" formatted="false">تم الإنشاء: {date}</string>
+    <string name="created_rules" formatted="false">القواعد التي تم إنشاؤها</string>
+    <string name="critical" formatted="false">حرج</string>
+    <string name="critical_issues" formatted="false">مشكلات حرجة</string>
+    <string name="csv_format" formatted="false">تنسيق CSV</string>
+    <string name="current_device_label" formatted="false">ملصق الجهاز الحالي</string>
+    <string name="current_device_title" formatted="false">الجهاز الحالي</string>
+    <string name="current_language" formatted="false">اللغة الحالية</string>
+    <string name="current_mark_count" formatted="false">عدد العلامات الحالي</string>
+    <string name="custom" formatted="false">مخصص</string>
+    <string name="custom_action_description" formatted="false">تنفيذ إجراء مخصص.</string>
+    <string name="customer_service" formatted="false">خدمة العملاء</string>
+    <string name="dashboard_tab" formatted="false">لوحة التحكم</string>
+    <string name="data_analysis" formatted="false">تحليل البيانات</string>
+    <string name="data_load_failure" formatted="false">فشل تحميل البيانات: {error}</string>
+    <string name="data_loading_failed" formatted="false">فشل تحميل البيانات: {error}</string>
+    <string name="data_migration" formatted="false">ترحيل البيانات</string>
+    <string name="data_migration_description" formatted="false">تسمح لك هذه الميزة بنقل جميع بياناتك بين الأجهزة. حاليًا، يمكنك استخدام ميزات النسخ الاحتياطي والاستعادة لترحيل بياناتك يدويًا.</string>
+    <string name="data_source_disclaimer" formatted="false">يتم الحصول على الأرقام من الإنترنت ومساهمات المستخدمين. لا يمكننا ضمان عدم إعادة تقديم رقم، بمجرد حذفه، من قبل مستخدمين أو مصادر أخرى. يرجى البحث والتحقق من المعلومات بنشاط.</string>
+    <string name="data_source_reminder" formatted="false">تذكير بمصدر البيانات</string>
+    <string name="database_sync_title" formatted="false">مزامنة قاعدة البيانات</string>
+    <string name="days" formatted="false">{count, plural, =1{يوم واحد} other{{count} أيام}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{قبل يوم واحد} other{قبل {count} أيام}}</string>
+    <string name="days_vip" formatted="false">{days} يوم VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">تحصيل الديون</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">الإشعارات الافتراضية</string>
+    <string name="default_notifications_description" formatted="false">قناة الإشعارات الافتراضية للتطبيق.</string>
+    <string name="delete" formatted="false">حذف</string>
+    <string name="delete_button" formatted="false">حذف</string>
+    <string name="delete_contact" formatted="false">حذف جهة الاتصال</string>
+    <string name="delete_contact_confirm" formatted="false">هل أنت متأكد من أنك تريد حذف {name}؟</string>
+    <string name="delete_failed" formatted="false">فشل الحذف: {error}</string>
+    <string name="delete_label" formatted="false">حذف الملصق</string>
+    <string name="delete_label_failed" formatted="false">فشل حذف الملصق: {error}</string>
+    <string name="delete_plugin" formatted="false">حذف المكون الإضافي</string>
+    <string name="delete_plugin_failed" formatted="false">فشل حذف المكون الإضافي: {error}</string>
+    <string name="delete_plugins" formatted="false">حذف المكونات الإضافية</string>
+    <string name="delete_plugins_failed" formatted="false">فشل حذف المكونات الإضافية: {error}</string>
+    <string name="delete_rule" formatted="false">حذف القاعدة</string>
+    <string name="delete_rule_failed" formatted="false">فشل الحذف: {error}</string>
+    <string name="delete_selected" formatted="false">حذف المحدد</string>
+    <string name="delete_subscription" formatted="false">حذف الاشتراك</string>
+    <string name="delete_subscription_confirm" formatted="false">هل أنت متأكد من أنك تريد حذف الاشتراك &quot;{name}&quot;؟</string>
+    <string name="delete_subscription_failed" formatted="false">فشل حذف الاشتراك: {error}</string>
+    <string name="delete_success" formatted="false">تم الحذف بنجاح</string>
+    <string name="deletion_proposal" formatted="false">اقتراح حذف</string>
+    <string name="deletion_proposal_created" formatted="false">تم إنشاء اقتراح الحذف</string>
+    <string name="deletion_proposal_created_body" formatted="false">تم تقديم اقتراح الحذف الخاص بك للرقم {phoneNumber} للمراجعة المجتمعية.</string>
+    <string name="deletion_proposal_description" formatted="false">اقترح أرقامًا للحذف تنتهك إرشادات المجتمع. مشاركتك تساعد في الحفاظ على أمان المنصة.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">إشعارات حول نتائج وتحديثات تصويت اقتراحات الحذف.</string>
+    <string name="deletion_proposals" formatted="false">اقتراحات حذف</string>
+    <string name="delivery" formatted="false">التسليم</string>
+    <string name="description" formatted="false">الوصف</string>
+    <string name="detailed_settings_title" formatted="false">الإعدادات المفصلة</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">معرف الجهاز</string>
+    <string name="device_management_subtitle" formatted="false">إدارة مزامنة الأجهزة المتعددة</string>
+    <string name="device_management_title" formatted="false">إدارة الأجهزة</string>
+    <string name="device_model_label" formatted="false">طراز الجهاز</string>
+    <string name="device_name" formatted="false">اسم الجهاز</string>
+    <string name="device_name_label" formatted="false">اسم الجهاز</string>
+    <string name="device_renamed_successfully_message" formatted="false">تمت إعادة تسمية الجهاز بنجاح</string>
+    <string name="device_unregistered_successfully_message" formatted="false">تم إلغاء تسجيل الجهاز بنجاح</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">تمت مزامنة الأجهزة بنجاح</string>
+    <string name="dialog_title" formatted="false">شرح نمط Regex</string>
+    <string name="different_from_local_counter" formatted="false">تختلف هذه الميزة عن مرشح العداد المحلي، حيث تركز على أنماط المكالمات المتكررة في وقت قصير بدلاً من عدد مرات وضع علامة على المدى الطويل.</string>
+    <string name="disable_global_plugins" formatted="false">تعطيل المكونات الإضافية العامة</string>
+    <string name="disabled" formatted="false">معطل</string>
+    <string name="disabled_status" formatted="false">معطل</string>
+    <string name="disconnect_button" formatted="false">قطع الاتصال</string>
+    <string name="disconnect_failed_message" formatted="false">فشل قطع الاتصال</string>
+    <string name="disconnected_message" formatted="false">تم قطع الاتصال</string>
+    <string name="disconnected_status" formatted="false">تم قطع الاتصال</string>
+    <string name="done" formatted="false">تم</string>
+    <string name="dual_sim_advice" formatted="false">هذه الميزة مفيدة بشكل خاص للهواتف ذات الشريحتين لتعيين استراتيجيات تصفية مختلفة لبطاقات SIM الخاصة بالعمل والشخصية.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">رقم E164</string>
+    <string name="earlier" formatted="false">سابقًا</string>
+    <string name="earned_temp_vip" formatted="false">تمت مكافأتك بـ VIP مؤقت</string>
+    <string name="ecommerce" formatted="false">التجارة الإلكترونية</string>
+    <string name="edit" formatted="false">تعديل</string>
+    <string name="edit_contact" formatted="false">تعديل جهة الاتصال</string>
+    <string name="edit_label" formatted="false">تعديل التسمية</string>
+    <string name="edit_phone_rule" formatted="false">تعديل قاعدة الهاتف</string>
+    <string name="edit_rule" formatted="false">تعديل القاعدة</string>
+    <string name="edit_script" formatted="false">تعديل البرنامج النصي</string>
+    <string name="edit_script_for" formatted="false">تعديل البرنامج النصي لـ {pluginName}</string>
+    <string name="edit_subscription" formatted="false">تعديل الاشتراك</string>
+    <string name="education" formatted="false">التعليم</string>
+    <string name="element_positions_setting" formatted="false">مواقع العناصر</string>
+    <string name="elements_settings_title" formatted="false">إعدادات العناصر</string>
+    <string name="email" formatted="false">البريد الإلكتروني</string>
+    <string name="enable_call_filter" formatted="false">تمكين مرشح المكالمات</string>
+    <string name="enable_call_filter_description" formatted="false">عند التمكين، يتم التحقق من المكالمات الواردة مقابل قائمة القواعد أدناه. لا تتم مزامنة قواعد تصفية المكالمات بين الأجهزة افتراضيًا.</string>
+    <string name="enable_encryption" formatted="false">تمكين التشفير</string>
+    <string name="enable_encryption_description" formatted="false">تشفير ملفات النسخ الاحتياطي</string>
+    <string name="enable_filtering" formatted="false">تمكين التصفية</string>
+    <string name="enable_fraud_alert" formatted="false">تمكين تنبيه الاحتيال</string>
+    <string name="enable_fraud_alert_description" formatted="false">تنبيه للمكالمات المشتبه بها كاحتيال</string>
+    <string name="enable_global_plugins" formatted="false">تمكين المكونات الإضافية العامة</string>
+    <string name="enable_local_count_filter" formatted="false">تمكين الحماية بحد العلامات المحلية</string>
+    <string name="enable_local_count_filter_description" formatted="false">حظر المكالمات الواردة عندما يتجاوز عدد البلاغات المحلية الحد المطلوب</string>
+    <string name="enable_local_notification" formatted="false">استخدام الإشعار المحلي</string>
+    <string name="enable_local_notification_description" formatted="false">عند التمكين، سيتم عرض إشعارات الرسائل المصفاة على الجهاز</string>
+    <string name="enable_location_summary" formatted="false">الموقع</string>
+    <string name="enable_mute_rules" formatted="false">كتم صوت المكالمات الاعتراضية</string>
+    <string name="enable_mute_rules_desc" formatted="false">كتم صوت رنين المكالمات الاعتراضية بدلاً من رفضها</string>
+    <string name="enable_none_action_rules" formatted="false">تسجيل وتعليم فقط (بدون اعتراض)</string>
+    <string name="enable_none_action_rules_desc" formatted="false">تسجيل وتعليم المكالمات المطابقة دون اتخاذ أي إجراء اعتراض</string>
+    <string name="enable_remote_number_filter" formatted="false">تمكين الحماية بحد استعلامات السحابة</string>
+    <string name="enable_remote_number_filter_description" formatted="false">حظر المكالمات الواردة عندما يتجاوز عدد بلاغات الاستعلام السحابي الحد المطلوب</string>
+    <string name="enable_rule" formatted="false">تمكين القاعدة</string>
+    <string name="enable_security_message" formatted="false">تمكين رسالة الأمان</string>
+    <string name="enable_sms_filter" formatted="false">تمكين تصفية الرسائل القصيرة</string>
+    <string name="enable_sms_filter_description" formatted="false">عند التمكين، سيتم تصفية الرسائل تلقائيًا وفقًا للقواعد</string>
+    <string name="enable_time_interception" formatted="false">تمكين اعتراض الوقت</string>
+    <string name="enable_time_interception_description" formatted="false">حظر المكالمات المتكررة من نفس الرقم خلال فترة زمنية قصيرة</string>
+    <string name="enable_time_interceptor" formatted="false">تمكين اعتراض الوقت</string>
+    <string name="enable_vibration" formatted="false">تمكين الاهتزاز</string>
+    <string name="enable_vibration_description" formatted="false">اهتزاز عند الاشتباه في مكالمة احتيالية</string>
+    <string name="enabled" formatted="false">ممكّن</string>
+    <string name="enabled_status" formatted="false">ممكّن</string>
+    <string name="end_call_immediately" formatted="false">حظر فوراً</string>
+    <string name="end_color" formatted="false">لون النهاية</string>
+    <string name="end_date" formatted="false">تاريخ الانتهاء</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">نظام التصفية المحسن</string>
+    <string name="enhanced_filter_settings" formatted="false">إعدادات التصفية المحسنة</string>
+    <string name="enhanced_filter_settings_title" formatted="false">إعدادات التصفية المحسنة</string>
+    <string name="enhanced_filter_system_description" formatted="false">يدعم نظام التصفية المحسن كلاً من القواعد العامة وتكوينات التصفية لكل بطاقة SIM.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">الرجاء إدخال كل من رقم الهاتف ونمط Regex.</string>
+    <string name="enter_contact_name" formatted="false">الرجاء إدخال اسم جهة الاتصال</string>
+    <string name="enter_device_name" formatted="false">إدخال اسم الجهاز</string>
+    <string name="enter_email_optional" formatted="false">الرجاء إدخال البريد الإلكتروني (اختياري)</string>
+    <string name="enter_encryption_password_hint" formatted="false">إدخال كلمة مرور التشفير</string>
+    <string name="enter_icon_code" formatted="false">إدخال رمز الأيقونة</string>
+    <string name="enter_name" formatted="false">إدخال اسم جهة الاتصال</string>
+    <string name="enter_new_device_name_hint" formatted="false">إدخال اسم جديد لهذا الجهاز</string>
+    <string name="enter_password_again" formatted="false">إدخال كلمة المرور مرة أخرى</string>
+    <string name="enter_phone_number" formatted="false">إدخال رقم الهاتف</string>
+    <string name="enter_phone_number_hint" formatted="false">إدخال رقم الهاتف للاختبار</string>
+    <string name="enter_phone_number_multiple" formatted="false">الرجاء إدخال رقم الهاتف، أرقام متعددة مفصولة بفواصل</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">إدخال رقم الهاتف لبدء البحث</string>
+    <string name="enter_phone_number_to_verify" formatted="false">إدخال رقم الهاتف للتحقق</string>
+    <string name="enter_plugin_description" formatted="false">أدخل وصف الإضافة</string>
+    <string name="enter_plugin_name" formatted="false">إدخال اسم المكون الإضافي</string>
+    <string name="enter_plugin_url" formatted="false">إدخال عنوان URL للمكون الإضافي</string>
+    <string name="enter_regex_hint" formatted="false">إدخال نمط Regex</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">الرجاء إدخال اسم القاعدة ونمط التعبير النمطي.</string>
+    <string name="enter_rule_name_hint" formatted="false">أدخل اسم القاعدة</string>
+    <string name="enter_search_content" formatted="false">الرجاء إدخال محتوى البحث</string>
+    <string name="enter_subscription_name" formatted="false">أدخل اسم الاشتراك</string>
+    <string name="enter_subscription_url" formatted="false">أدخل عنوان URL للاشتراك</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">الرجاء إدخال اسم مجلد المزامنة (الافتراضي: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">الرجاء إدخال اسم وعنوان URL صالحين</string>
+    <string name="enter_valid_url" formatted="false">الرجاء إدخال عنوان URL صالح</string>
+    <string name="enter_version" formatted="false">أدخل الإصدار</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">الرجاء إدخال كلمة مرور WebDAV</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">الرجاء إدخال عنوان خادم WebDAV</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">الرجاء إدخال اسم مستخدم WebDAV</string>
+    <string name="entertainment" formatted="false">ترفيه</string>
+    <string name="entity_export_failed" formatted="false">فشل تصدير {entityTypeName}: {error}</string>
+    <string name="entity_export_success" formatted="false">تم تصدير {entityTypeName} بنجاح</string>
+    <string name="entity_import_failed" formatted="false">فشل استيراد {entityTypeName}: {error}</string>
+    <string name="entity_import_success" formatted="false">تم استيراد {entityTypeName} بنجاح، تم استيراد {count} سجل إجمالاً</string>
+    <string name="entry_point_view_title" formatted="false">نقطة الدخول</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">خطأ: {error}</string>
+    <string name="error_occurred_message" formatted="false">حدث خطأ: {error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">خطأ في إعادة تسمية الجهاز: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">خطأ في مزامنة الأجهزة: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">خطأ في إلغاء تسجيل الجهاز: {error}</string>
+    <string name="example_block400_prefix" formatted="false">مثال: حظر أرقام بادئة 400</string>
+    <string name="example_block_marketing_sms" formatted="false">مثال: حظر رسائل SMS التسويقية</string>
+    <string name="example_content_regex_hint" formatted="false">مثال على التعبير النمطي للمحتوى</string>
+    <string name="example_coupon_promotion_discount" formatted="false">مثال: .*(coupon|promotion|discount).*</string>
+    <string name="example_family_friends" formatted="false">مثال: العائلة، الأصدقاء، إلخ.</string>
+    <string name="example_phone_number" formatted="false">مثال: 10086، 12345، إلخ.</string>
+    <string name="example_regex400_prefix" formatted="false">مثال على التعبير النمطي لبادئة 400</string>
+    <string name="example_sender_regex_hint" formatted="false">مثال</string>
+    <string name="exchange" formatted="false">تبادل</string>
+    <string name="exchange_failed" formatted="false">فشل الصرف: {error}</string>
+    <string name="exchange_now" formatted="false">تبادل الآن</string>
+    <string name="exchange_success" formatted="false">تم الصرف بنجاح لـ {description}، تاريخ الانتهاء: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">تبادل VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">وقت الانتهاء: {time}</string>
+    <string name="export" formatted="false">تصدير</string>
+    <string name="export_all_application_settings" formatted="false">تصدير جميع إعدادات التطبيق</string>
+    <string name="export_all_rule_configurations" formatted="false">تصدير جميع تكوينات القواعد</string>
+    <string name="export_config" formatted="false">تصدير التكوين</string>
+    <string name="export_contacts" formatted="false">تصدير جهات الاتصال</string>
+    <string name="export_data" formatted="false">تصدير البيانات</string>
+    <string name="export_entity" formatted="false">تصدير {entityTypeName}</string>
+    <string name="export_failed" formatted="false">فشل التصدير</string>
+    <string name="export_failure" formatted="false">فشل في تصدير التكوين</string>
+    <string name="export_feature_coming_soon" formatted="false">ميزة التصدير قادمة قريبًا</string>
+    <string name="export_labels" formatted="false">تصدير التسميات</string>
+    <string name="export_labels_failed" formatted="false">فشل في تصدير التسميات: {error}</string>
+    <string name="export_plugin_list" formatted="false">تصدير قائمة المكونات الإضافية</string>
+    <string name="export_plugin_list_failed" formatted="false">فشل في تصدير قائمة المكونات الإضافية: {error}</string>
+    <string name="export_rules" formatted="false">تصدير القواعد</string>
+    <string name="export_sms_rules" formatted="false">تصدير قواعد SMS</string>
+    <string name="export_statistics_data" formatted="false">تصدير بيانات الإحصائيات</string>
+    <string name="export_successlly" formatted="false">تم تصدير التكوين بنجاح</string>
+    <string name="failed_to_add_rule" formatted="false">فشل في إضافة قاعدة: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">فشل في إضافة اشتراك SMS: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">فشل في النسخ الاحتياطي للإعدادات: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">فشل في فك تشفير ملف النسخ الاحتياطي</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">فشل في حذف قاعدة SMS: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">فشل في تصدير القواعد: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">فشل في الحصول على معلومات هوية المتصل: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">فشل في استيراد القواعد: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">فشل في استعادة الإعدادات</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">فشل في استعادة الإعدادات: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">فشل في تبديل حالة القاعدة: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">جهات الاتصال المفضلة</string>
+    <string name="feature" formatted="false">ميزة</string>
+    <string name="feature_add_rules" formatted="false">• إضافة قواعد خاصة بأرقام الهواتف</string>
+    <string name="feature_center" formatted="false">مركز الميزات</string>
+    <string name="feature_enable_disable" formatted="false">• تمكين/تعطيل عوامل تصفية مختلفة لكل شريحة SIM</string>
+    <string name="feature_list_title" formatted="false">الميزات:</string>
+    <string name="feature_manage_rules" formatted="false">• إدارة قوائم القواعد لكل شريحة SIM</string>
+    <string name="features" formatted="false">ميزات</string>
+    <string name="fetching_caller_id_info" formatted="false">جاري جلب معلومات هوية المتصل...</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">تم حفظ الملف في: {path}</string>
+    <string name="filter" formatted="false">تصفية</string>
+    <string name="filter_and_sort_title" formatted="false">التصفية والفرز</string>
+    <string name="filter_by" formatted="false">التصفية حسب</string>
+    <string name="filter_by_action" formatted="false">التصفية حسب الإجراء</string>
+    <string name="filter_by_label" formatted="false">التصفية حسب التسمية</string>
+    <string name="filter_control_panel_title" formatted="false">لوحة تحكم التصفية</string>
+    <string name="filter_control_subtitle" formatted="false">إدارة حالة التشغيل/الإيقاف لجميع عوامل التصفية</string>
+    <string name="filter_control_title" formatted="false">التحكم في الفلاتر</string>
+    <string name="filter_explanation" formatted="false">شرح الفلتر</string>
+    <string name="filter_management" formatted="false">إدارة الفلاتر</string>
+    <string name="filter_management_description" formatted="false">تعيين مرشحات المكالمات</string>
+    <string name="filter_name" formatted="false">اسم الفلتر</string>
+    <string name="filter_priority_note" formatted="false">ملاحظة: توجد علاقات أولوية بين الفلاتر، يرجى الرجوع إلى وثائق المساعدة للحصول على التفاصيل</string>
+    <string name="filter_s_m_s" formatted="false">فلترة الرسائل القصيرة</string>
+    <string name="filter_settings" formatted="false">إعدادات الفلتر</string>
+    <string name="filter_settings_title" formatted="false">إعدادات الفلتر</string>
+    <string name="filter_toggle_instructions" formatted="false">تمكين أو تعطيل الفلاتر لفتحة SIM هذه:</string>
+    <string name="filter_toggle_status" formatted="false">فلتر {status}: {filterName}</string>
+    <string name="filter_type" formatted="false">نوع الفلتر</string>
+    <string name="filter_verified_owner" formatted="false">تصفية المالك الذي تم التحقق منه</string>
+    <string name="filtered" formatted="false">مفلتر</string>
+    <string name="final_risk" formatted="false">المخاطر النهائية</string>
+    <string name="financial" formatted="false">مالي</string>
+    <string name="flexible_combination_feature" formatted="false">• تركيبات مرنة: تمكين/تعطيل الفلاتر لكل فتحة SIM</string>
+    <string name="font_sizes_setting" formatted="false">أحجام الخطوط</string>
+    <string name="found_rules" formatted="false">تم العثور على {count} قاعدة</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">لتعيين تنبيه الاحتيال</string>
+    <string name="fraud_aler_setting_title" formatted="false">إعداد تنبيه الاحتيال</string>
+    <string name="fraud_alert" formatted="false">تنبيه احتيال - قم بإنهاء المكالمة</string>
+    <string name="fraud_alert_title" formatted="false">تنبيه الاحتيال</string>
+    <string name="fraud_alerts" formatted="false">تنبيهات الاحتيال</string>
+    <string name="fraud_alerts_description" formatted="false">يعرض تحذيرات للمكالمات الاحتيالية المحتملة.</string>
+    <string name="fraud_scam_likely" formatted="false">احتيال محتمل</string>
+    <string name="free" formatted="false">مجاني</string>
+    <string name="function_settings_title" formatted="false">إعدادات الوظائف</string>
+    <string name="general_update_failure" formatted="false">فشل التحديث: {error}</string>
+    <string name="get_free" formatted="false">احصل على مجاني</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">تكوين الفلاتر العامة لجميع بطاقات SIM:</string>
+    <string name="global_filter_feature" formatted="false">• فلاتر عامة: قواعد أساسية لجميع المكالمات الواردة</string>
+    <string name="global_filter_settings" formatted="false">إعدادات الفلتر العام</string>
+    <string name="global_settings" formatted="false">الإعدادات العامة</string>
+    <string name="google_drive_auth_description" formatted="false">مصادقة باستخدام معرّف عميل ومفتاح Google Drive المُكوّنين في النظام</string>
+    <string name="google_drive_config_title" formatted="false">تكوين Google Drive</string>
+    <string name="government" formatted="false">حكومي</string>
+    <string name="grant_necessary_permissions" formatted="false">منح الأذونات الضرورية</string>
+    <string name="grant_permissions" formatted="false">منح الأذونات</string>
+    <string name="granted" formatted="false">ممنوح</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">تم منحك {days} أيام من امتيازات الشراء المؤقت. تاريخ الانتهاء: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">إرشادات</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">لديك بالفعل امتيازات مؤقتة، تاريخ الانتهاء: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">لديك بالفعل امتيازات VIP (باستثناء الإعلانات)</string>
+    <string name="headhunter" formatted="false">صياد رؤوس</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">ارتفاع</string>
+    <string name="high" formatted="false">مرتفع</string>
+    <string name="high_risk" formatted="false">مخاطرة عالية</string>
+    <string name="home_tab" formatted="false">الصفحة الرئيسية</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{قبل ساعة واحدة} other{قبل {count} ساعات}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0 {0 ساعات} =1 {1 ساعة} other {{count} ساعات}}</string>
+    <string name="how_it_works_point1" formatted="false">• سيسمح النظام تلقائيًا بالمكالمات من نفس الرقم ضمن النافذة الزمنية المحددة</string>
+    <string name="how_it_works_point2" formatted="false">• النوافذ الزمنية الأقصر تؤدي إلى اعتراض أكثر صرامة؛ النوافذ الزمنية الأطول تؤدي إلى اعتراض أقل صرامة</string>
+    <string name="how_it_works_point3" formatted="false">• يفحص النظام سجلات المكالمات لتحديد ما إذا كانت مكالمة متكررة</string>
+    <string name="how_it_works_title" formatted="false">كيف تعمل:</string>
+    <string name="icon_code_optional" formatted="false">رمز الأيقونة (اختياري)</string>
+    <string name="icon_size" formatted="false">حجم الأيقونة</string>
+    <string name="import" formatted="false">استيراد</string>
+    <string name="import_config" formatted="false">استيراد التكوين</string>
+    <string name="import_contacts" formatted="false">استيراد جهات الاتصال</string>
+    <string name="import_entity" formatted="false">استيراد {entityTypeName}</string>
+    <string name="import_export" formatted="false">استيراد/تصدير</string>
+    <string name="import_export_contacts" formatted="false">استيراد/تصدير جهات الاتصال</string>
+    <string name="import_export_contacts_tooltip" formatted="false">استيراد/تصدير جهات الاتصال</string>
+    <string name="import_export_description" formatted="false">استيراد أو تصدير بيانات {entityTypeName}</string>
+    <string name="import_export_rules" formatted="false">استيراد/تصدير القواعد</string>
+    <string name="import_export_title" formatted="false">استيراد/تصدير</string>
+    <string name="import_failed" formatted="false">فشل الاستيراد: {error}</string>
+    <string name="import_failure" formatted="false">فشل استيراد التكوين</string>
+    <string name="import_feature_coming_soon" formatted="false">ميزة الاستيراد قادمة قريبًا</string>
+    <string name="import_labels" formatted="false">استيراد الملصقات</string>
+    <string name="import_labels_failed" formatted="false">فشل استيراد الملصقات: {error}</string>
+    <string name="import_plugin_list" formatted="false">استيراد قائمة الإضافات</string>
+    <string name="import_plugin_list_failed" formatted="false">فشل استيراد قائمة الإضافات: {error}</string>
+    <string name="import_plugin_success" formatted="false">تم استيراد {count} من الإضافات بنجاح</string>
+    <string name="import_rule_configurations_from_file" formatted="false">استيراد تكوينات القواعد من ملف</string>
+    <string name="import_rules" formatted="false">استيراد القواعد</string>
+    <string name="import_success" formatted="false">تم الاستيراد بنجاح</string>
+    <string name="important" formatted="false">هام</string>
+    <string name="important_notice_title" formatted="false">ملاحظة هامة</string>
+    <string name="incoming_call_intercept_action" formatted="false">إجراء اعتراض المكالمات الواردة</string>
+    <string name="incorrect_password" formatted="false">كلمة مرور غير صحيحة</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">يرجى تحديد مكتبات القواعد الإقليمية التي تريد حظرها. يمكن أن تساعدك هذه القواعد في حظر مكالمات المبيعات والاحتيال الشائعة تلقائيًا في منطقتك.</string>
+    <string name="initial_setup_deselect_all" formatted="false">إلغاء التحديد</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">فشل في الحصول على التكوين</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">إعادة المحاولة</string>
+    <string name="initial_setup_save" formatted="false">الإعداد بنقرة واحدة للمحدد</string>
+    <string name="initial_setup_save_failed" formatted="false">فشل حفظ التكوين: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ تم حفظ التكوين بنجاح، سيتم جلب القواعد تلقائيًا قريبًا</string>
+    <string name="initial_setup_saving" formatted="false">جارٍ الحفظ...</string>
+    <string name="initial_setup_search_hint" formatted="false">البحث عن مجموعة القواعد أو الدولة...</string>
+    <string name="initial_setup_select_all" formatted="false">تحديد الكل</string>
+    <string name="initial_setup_selected_count" formatted="false">تم تحديد {count}</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">تخطي</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">إعداد مكتبة القواعد</string>
+    <string name="initializing" formatted="false">جارٍ التهيئة</string>
+    <string name="installed" formatted="false">مثبت</string>
+    <string name="insufficient_marks" formatted="false">علامات غير كافية</string>
+    <string name="insurance" formatted="false">تأمين</string>
+    <string name="intercept_action" formatted="false">إجراء الاعتراض</string>
+    <string name="interception_action_settings_subtitle" formatted="false">اضبط كيفية التعامل مع المكالمات المحظورة</string>
+    <string name="interception_action_settings_title" formatted="false">إعدادات إجراء الاعتراض</string>
+    <string name="interception_time_interval" formatted="false">فاصل زمني للاعتراض</string>
+    <string name="internet" formatted="false">إنترنت</string>
+    <string name="interval_set_success" formatted="false">تم تعيين فترة تحديث {service} إلى {days} أيام</string>
+    <string name="invalid_content_regex" formatted="false">تعبير عادي غير صالح للمحتوى</string>
+    <string name="invalid_exchange_rule" formatted="false">قاعدة صرف غير صالحة</string>
+    <string name="invalid_label" formatted="false">تسمية غير صالحة</string>
+    <string name="invalid_regex_pattern" formatted="false">نمط تعبير نمطي غير صالح</string>
+    <string name="invalid_sender_regex" formatted="false">تعبير نمطي غير صالح للمرسل</string>
+    <string name="invalid_sim_data" formatted="false">بيانات SIM غير صالحة</string>
+    <string name="ip_country" formatted="false">بلد IP</string>
+    <string name="is_number_match" formatted="false">مطابقة الرقم</string>
+    <string name="is_roaming" formatted="false">التجوال</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">انضم إلى قناة ومجموعة تيليجرام لمزيد من المعلومات</string>
+    <string name="json_format" formatted="false">تنسيق JSON</string>
+    <string name="just_now" formatted="false">الآن</string>
+    <string name="keep_all_versions" formatted="false">الاحتفاظ بجميع الإصدارات</string>
+    <string name="keep_all_versions_description" formatted="false">الاحتفاظ بجميع الإصدارات التاريخية لكل نسخة احتياطية</string>
+    <string name="label" formatted="false">تسمية</string>
+    <string name="label_action_description" formatted="false">إضافة تسمية للمكالمة لسهولة التعرف عليها.</string>
+    <string name="label_added_successfully" formatted="false">تمت إضافة التسمية &quot;{name}&quot; بنجاح</string>
+    <string name="label_categories" formatted="false">فئات التسميات</string>
+    <string name="label_deleted" formatted="false">تم حذف التسمية</string>
+    <string name="label_description" formatted="false">تساعدك التسميات على إدارة جهات الاتصال بشكل أفضل، وإضافة تسميات مخصصة لأرقام الهواتف لتحديد المكالمات والرسائل بسهولة.</string>
+    <string name="label_filter_tooltip" formatted="false">مرشح التسمية</string>
+    <string name="label_icon_color" formatted="false">لون أيقونة التسمية</string>
+    <string name="label_management" formatted="false">إدارة التسميات</string>
+    <string name="label_not_found" formatted="false">لم يتم العثور على التسمية</string>
+    <string name="label_tag" formatted="false">تسمية: {labelId}</string>
+    <string name="label_update_failed" formatted="false">فشل تحديث التسمية: {error}</string>
+    <string name="label_update_success" formatted="false">تم تحديث التسمية &quot;$labelText&quot; بنجاح</string>
+    <string name="labels" formatted="false">تسميات</string>
+    <string name="labels_color" formatted="false">لون التسميات</string>
+    <string name="labels_deleted" formatted="false">تم حذف {count} تسمية</string>
+    <string name="labels_exported_successfully" formatted="false">تم تصدير التسميات بنجاح</string>
+    <string name="labels_font_size" formatted="false">حجم خط التسميات</string>
+    <string name="labels_imported_successfully" formatted="false">تم استيراد {count} تسمية بنجاح</string>
+    <string name="labels_position" formatted="false">موضع التسميات</string>
+    <string name="language_settings" formatted="false">إعدادات اللغة</string>
+    <string name="language_settings_subtitle" formatted="false">تغيير لغة عرض التطبيق</string>
+    <string name="language_settings_title" formatted="false">إعدادات اللغة</string>
+    <string name="last_sync_label" formatted="false">آخر مزامنة</string>
+    <string name="last_updated" formatted="false">آخر تحديث: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">عضوية مدى الحياة</string>
+    <string name="lifetime_membership_description" formatted="false">شراء لمرة واحدة، فتح جميع الميزات المتميزة والتحديثات المستقبلية بشكل دائم</string>
+    <string name="list_view" formatted="false">عرض القائمة</string>
+    <string name="live_activities_settings_title" formatted="false">إعدادات الأنشطة المباشرة</string>
+    <string name="live_activities_test_end_activity" formatted="false">إنهاء النشاط</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">إرسال نشاط جديد</string>
+    <string name="live_activities_test_title" formatted="false">اختبار الأنشطة المباشرة</string>
+    <string name="live_activities_test_update_activity" formatted="false">تحديث النشاط</string>
+    <string name="live_activity_controls_title" formatted="false">عناصر تحكم النشاط المباشر</string>
+    <string name="live_activity_mode" formatted="false">النشاط المباشر</string>
+    <string name="live_activity_mode_description" formatted="false">يعرض معلومات المكالمة كإشعار دائم على شاشة القفل وفي الجزيرة الديناميكية (iOS).</string>
+    <string name="live_notification_customization_subtitle" formatted="false">قم بتخصيص مظهر الإشعارات المباشرة.</string>
+    <string name="live_notification_customization_title" formatted="false">تخصيص الإشعارات المباشرة</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">فشل تحميل جهات الاتصال: {error}</string>
+    <string name="load_data_failed" formatted="false">فشل تحميل البيانات</string>
+    <string name="load_label_failed" formatted="false">فشل تحميل التسميات: {error}</string>
+    <string name="load_labels_failed" formatted="false">فشل تحميل التسميات: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">فشل تحميل أرقام الهواتف المميزة: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">فشل تحميل الهواتف المميزة: {error}</string>
+    <string name="load_plugins_failed" formatted="false">فشل تحميل المكونات الإضافية: {error}</string>
+    <string name="load_settings_failed" formatted="false">فشل تحميل الإعدادات: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">فشل تحميل قواعد الرسائل القصيرة: {error}</string>
+    <string name="load_status_failed_message" formatted="false">فشل تحميل الحالة</string>
+    <string name="load_subscriptions_failed" formatted="false">فشل تحميل الاشتراكات: {error}</string>
+    <string name="loading" formatted="false">جارٍ التحميل...</string>
+    <string name="loading_ad" formatted="false">جارٍ تحميل الإعلان...</string>
+    <string name="loading_tags" formatted="false">جارٍ تحميل العلامات...</string>
+    <string name="loan" formatted="false">قرض</string>
+    <string name="local_count_filter" formatted="false">الحماية بحد العلامات المحلية</string>
+    <string name="local_count_filter_description" formatted="false">حظر المكالمات التي تتجاوز حد البلاغات المحلية تلقائيًا</string>
+    <string name="local_count_filter_explanation_content" formatted="false">يقوم مرشح العدد المحلي بتحليل سجلات سجل المكالمات لتحديد وحظر المكالمات المزعجة المتكررة تلقائيًا.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">شرح مرشح العدد المحلي</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• تحديد ما إذا كان سيتم الحظر بناءً على قيمة عدد الرقم</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• عندما يتجاوز عدد الرقم الحد المحدد، يمكنك اختيار حظره تلقائيًا</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• يمكنك السماح بشكل انتقائي للأرقام التي لا تتجاوز الحد</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• يمكنك اختيار ما إذا كنت ستسجل جميع سجلات الاستعلام</string>
+    <string name="local_count_filter_settings" formatted="false">إعدادات مرشح العدد المحلي</string>
+    <string name="local_count_filter_use_cases" formatted="false">هذا المرشح مناسب بشكل خاص لتحديد المكالمات المزعجة التي تم طلبها تلقائيًا ومكالمات التسويق.</string>
+    <string name="local_count_filtering" formatted="false">تصفية العدد المحلي</string>
+    <string name="local_count_filtering_explanation" formatted="false">• تصفية العدد المحلي: قواعد التصفية بناءً على عدد العلامات المحلية</string>
+    <string name="local_counter_filter" formatted="false">مرشح العداد المحلي</string>
+    <string name="local_counter_filter_subtitle" formatted="false">تصفية المكالمات المزعجة تلقائيًا بناءً على تكرار المكالمات</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">إعدادات المرشح المحلي</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">تم تعطيل الإشعارات المحلية</string>
+    <string name="local_notification_enabled" formatted="false">تم تمكين الإشعارات المحلية</string>
+    <string name="local_services" formatted="false">خدمات محلية</string>
+    <string name="location" formatted="false">الموقع</string>
+    <string name="location_color" formatted="false">لون الموقع</string>
+    <string name="location_font_size" formatted="false">حجم خط الموقع</string>
+    <string name="location_icon_color" formatted="false">لون أيقونة الموقع</string>
+    <string name="location_position" formatted="false">موضع الموقع</string>
+    <string name="log" formatted="false">تسجيل</string>
+    <string name="log_action_description" formatted="false">تسجيل معلومات المكالمة دون اتخاذ أي إجراءات أخرى.</string>
+    <string name="log_all_local_queries" formatted="false">تسجيل جميع الاستعلامات المحلية</string>
+    <string name="log_all_local_queries_description" formatted="false">تسجيل جميع استعلامات الأرقام المحلية</string>
+    <string name="log_all_remote_queries" formatted="false">تسجيل جميع الاستعلامات عن بعد</string>
+    <string name="log_all_remote_queries_description" formatted="false">تسجيل جميع عمليات استعلام الأرقام عن بعد</string>
+    <string name="low" formatted="false">منخفض</string>
+    <string name="low_risk" formatted="false">مخاطرة منخفضة</string>
+    <string name="manage" formatted="false">إدارة جهات الاتصال</string>
+    <string name="manage_favorite_contacts" formatted="false">إدارة جهات الاتصال المفضلة</string>
+    <string name="manage_filter_rules" formatted="false">إدارة قواعد التصفية</string>
+    <string name="manage_filter_rules_description" formatted="false">إضافة، تحرير، أو حذف قواعد تصفية الرسائل القصيرة</string>
+    <string name="manual_entry" formatted="false">معلومات الإدخال اليدوي</string>
+    <string name="mark_count" formatted="false">عدد العلامات</string>
+    <string name="mark_counts" formatted="false">عدد العلامات</string>
+    <string name="mark_exchange" formatted="false">تبادل العلامات</string>
+    <string name="mark_more_numbers_for_more" formatted="false">ضع علامة على المزيد من الأرقام للحصول على المزيد من العلامات</string>
+    <string name="mark_phone" formatted="false">تمييز رقم الهاتف</string>
+    <string name="mark_phone_failed" formatted="false">فشل في وضع علامة على رقم الهاتف: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">إدارة علامات أرقام الهواتف</string>
+    <string name="mark_phone_success" formatted="false">تم وضع علامة على رقم الهاتف بنجاح</string>
+    <string name="marked_by_count" formatted="false">مميز بواسطة {count}</string>
+    <string name="marked_phones_list" formatted="false">قائمة أرقام الهواتف المميزة</string>
+    <string name="marks_insufficient" formatted="false">علامات غير كافية للصرف</string>
+    <string name="master_and_overrides" formatted="false">التحكم الرئيسي</string>
+    <string name="master_and_overrides_desc" formatted="false">إعدادات القواعد العامة</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">فشل المطابقة.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">يطابق تنسيق أرقام معين</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">مطابقة الأرقام بأحرف خاصة:</string>
+    <string name="match_specific_digit_patterns" formatted="false">يطابق تنسيق XXX-XXXX-XXXX</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">مطابقة أنماط الأرقام المحددة:</string>
+    <string name="match_successful_message" formatted="false">تمت المطابقة بنجاح!</string>
+    <string name="medical" formatted="false">طبي</string>
+    <string name="medium" formatted="false">متوسط</string>
+    <string name="medium_risk" formatted="false">مخاطرة متوسطة</string>
+    <string name="membership_center" formatted="false">مركز العضوية</string>
+    <string name="membership_privileges" formatted="false">امتيازات العضوية</string>
+    <string name="message_background_color" formatted="false">لون خلفية الرسالة</string>
+    <string name="message_color" formatted="false">لون الرسالة</string>
+    <string name="message_font_size" formatted="false">حجم خط الرسالة</string>
+    <string name="message_position" formatted="false">موضع الرسالة</string>
+    <string name="migration_tool" formatted="false">أداة الترحيل</string>
+    <string name="minutes" formatted="false">دقائق</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{قبل دقيقة واحدة} other{قبل {count} دقائق}}</string>
+    <string name="moderate" formatted="false">متوسط</string>
+    <string name="month" formatted="false">شهر</string>
+    <string name="monthly" formatted="false">شهري</string>
+    <string name="monthly_call_count" formatted="false">مكالمات شهرية</string>
+    <string name="monthly_membership" formatted="false">عضوية شهرية</string>
+    <string name="monthly_membership_description" formatted="false">افتح جميع الميزات المميزة، تجديد تلقائي شهري</string>
+    <string name="monthly_total" formatted="false">الإجمالي الشهري</string>
+    <string name="more_options" formatted="false">المزيد من الخيارات</string>
+    <string name="mute" formatted="false">كتم الصوت</string>
+    <string name="name" formatted="false">الاسم</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">لا يمكن أن يكون الاسم ورقم الهاتف فارغين</string>
+    <string name="name_cannot_be_empty" formatted="false">لا يمكن أن يكون الاسم فارغًا</string>
+    <string name="name_color" formatted="false">لون الاسم</string>
+    <string name="name_font_size" formatted="false">حجم خط الاسم</string>
+    <string name="name_position" formatted="false">موضع الاسم</string>
+    <string name="name_unknown" formatted="false">الاسم: غير معروف</string>
+    <string name="national_number" formatted="false">رقم وطني</string>
+    <string name="need_vip_access" formatted="false">تحتاج إلى وصول VIP لاستخدام هذه الميزة</string>
+    <string name="new_vote_received" formatted="false">تم استلام تصويت جديد</string>
+    <string name="new_vote_received_body" formatted="false">صوت شخص ما لـ {voteType} حذف الرقم {phoneNumber}. الأصوات الحالية: {totalVotes}.</string>
+    <string name="next_step" formatted="false">التالي</string>
+    <string name="no_action" formatted="false">لا إجراء</string>
+    <string name="no_action_rules" formatted="false">قواعد عدم اتخاذ إجراء</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">لا توجد خدمة مزامنة سحابية نشطة</string>
+    <string name="no_activity" formatted="false">لا يوجد نشاط</string>
+    <string name="no_ads" formatted="false">لا إعلانات</string>
+    <string name="no_allowed_blocked_rules" formatted="false">لم يتم العثور على قواعد مسموح بها/محظورة</string>
+    <string name="no_blocked_type_data" formatted="false">لا توجد بيانات نوع محظور متاحة</string>
+    <string name="no_call_records" formatted="false">لا توجد سجلات مكالمات</string>
+    <string name="no_contacts_yet" formatted="false">لا توجد جهات اتصال بعد</string>
+    <string name="no_data" formatted="false">لا توجد بيانات</string>
+    <string name="no_devices_registered_message" formatted="false">لم يتم تسجيل أي أجهزة</string>
+    <string name="no_labels" formatted="false">لا توجد علامات بعد</string>
+    <string name="no_marked_phones" formatted="false">لا توجد أرقام هواتف مميزة</string>
+    <string name="no_matching_contacts_found" formatted="false">لم يتم العثور على جهات اتصال مطابقة</string>
+    <string name="no_matching_numbers_found" formatted="false">لم يتم العثور على أرقام مطابقة</string>
+    <string name="no_matching_rules" formatted="false">لا توجد {ruleType} مطابقة</string>
+    <string name="no_notifications" formatted="false">لا توجد إشعارات</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">لم يتم العثور على قواعد هاتف</string>
+    <string name="no_plugins" formatted="false">لا توجد إضافات بعد</string>
+    <string name="no_proposals_found" formatted="false">لم يتم العثور على اقتراحات</string>
+    <string name="no_regex_rules" formatted="false">لم يتم العثور على قواعد تعبير عادي</string>
+    <string name="no_rules" formatted="false">لا توجد {ruleType} بعد</string>
+    <string name="no_rules_prompt" formatted="false">لم يتم العثور على قواعد، يرجى إضافة قواعد</string>
+    <string name="no_rules_to_export" formatted="false">لا توجد قواعد للتصدير</string>
+    <string name="no_sim_card_detected" formatted="false">لم يتم الكشف عن بطاقة SIM</string>
+    <string name="no_sim_cards_detected" formatted="false">لم يتم اكتشاف بطاقات SIM</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">لا توجد قواعد تصفية الرسائل القصيرة بعد</string>
+    <string name="no_sms_rules_yet" formatted="false">لا توجد قواعد رسائل قصيرة بعد</string>
+    <string name="no_subscriptions" formatted="false">لا توجد اشتراكات</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">لم يتم العثور على قواعد رسائل قصيرة صالحة في الملف</string>
+    <string name="none" formatted="false">لا شيء</string>
+    <string name="none_action_description" formatted="false">لن يتم اتخاذ أي إجراء خاص للمكالمة.</string>
+    <string name="none_service_type" formatted="false">لا شيء</string>
+    <string name="normal_user" formatted="false">مستخدم عادي</string>
+    <string name="not_granted" formatted="false">لم يتم منح</string>
+    <string name="not_verified_text" formatted="false">لم يتم التحقق</string>
+    <string name="notification_frequency_hours" formatted="false">تكرار الإشعارات (ساعات)</string>
+    <string name="notification_frequency_title" formatted="false">تكرار الإشعارات</string>
+    <string name="notification_mode" formatted="false">وضع الإشعارات</string>
+    <string name="notification_mode_description" formatted="false">عرض معلومات المتصل في شريط الإشعارات</string>
+    <string name="notification_permission" formatted="false">إذن الإشعارات</string>
+    <string name="notification_permission_description" formatted="false">تُستخدم لعرض إشعارات المكالمات والرسائل الواردة.</string>
+    <string name="notification_settings" formatted="false">إعدادات الإشعارات</string>
+    <string name="notification_settings_title" formatted="false">إعدادات الإشعارات</string>
+    <string name="notification_instructions" formatted="false">التعليمات:
+1. اضغط على &quot;إرسال&quot; لإنشاء أو تحديث إشعار.
+2. انتقل إلى الشاشة الرئيسية أو اسحب شريط الإشعارات لرؤية النتيجة.
+3. اضغط على &quot;إنهاء&quot; لإغلاق الإشعار.</string>
+    <string name="notifications" formatted="false">الإشعارات</string>
+    <string name="notify" formatted="false">إعلام</string>
+    <string name="notify_action_description" formatted="false">إرسال إشعار عند تلقي مكالمة.</string>
+    <string name="number" formatted="false">الرقم</string>
+    <string name="number_color" formatted="false">لون الرقم</string>
+    <string name="number_font_size" formatted="false">حجم خط الرقم</string>
+    <string name="number_format" formatted="false">تنسيق الرقم</string>
+    <string name="number_invalid_format" formatted="false">تنسيق الرقم غير صالح</string>
+    <string name="number_position" formatted="false">موضع الرقم</string>
+    <string name="number_search" formatted="false">البحث عن رقم</string>
+    <string name="number_type_color" formatted="false">لون نوع الرقم</string>
+    <string name="number_type_font_size" formatted="false">حجم خط نوع الرقم</string>
+    <string name="number_type_position" formatted="false">موضع نوع الرقم</string>
+    <string name="ok_button" formatted="false">موافق</string>
+    <string name="onboarding_complete_description" formatted="false">مدير أمان مكالماتك جاهز، ابدأ بالاستمتاع بتجربة مكالمات آمنة!</string>
+    <string name="onboarding_language_description" formatted="false">اختر لغتك المفضلة للحصول على أفضل تجربة.</string>
+    <string name="onboarding_permissions_description" formatted="false">لتوفير خدمة كاملة، نحتاج إلى الأذونات التالية:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">حظر مكالمات ورسائل البريد العشوائي بنقرة واحدة، وتخصيص قواعد الحظر، وتوفير بيئة هادئة لك.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">تحديد المكالمات المجهولة تلقائيًا، ووضع علامات على الأرقام المشبوهة، وحماية أمان مكالماتك.</string>
+    <string name="onboarding_welcome_description" formatted="false">خبير إدارة مكالماتك، يوفر خدمات شاملة لتحديد المكالمات وحظرها.</string>
+    <string name="one_drive_auth_description" formatted="false">مصادقة باستخدام معرف ومفتاح عميل OneDrive المهيأ في النظام</string>
+    <string name="one_drive_config_title" formatted="false">تكوين OneDrive</string>
+    <string name="online_caller_id_subscription" formatted="false">اشتراك معرف المتصل عبر الإنترنت</string>
+    <string name="open_app_settings" formatted="false">فتح إعدادات التطبيق</string>
+    <string name="open_app_settings_failed" formatted="false">فشل فتح إعدادات التطبيق: {error}</string>
+    <string name="open_in_web_view" formatted="false">فتح في WebView</string>
+    <string name="operation_failed" formatted="false">فشل العملية: {error}</string>
+    <string name="operation_failure" formatted="false">فشلت العملية</string>
+    <string name="operation_success" formatted="false">نجحت العملية</string>
+    <string name="oppose" formatted="false">عارض</string>
+    <string name="oppose_count" formatted="false">معارضة ({opposeCount})</string>
+    <string name="opposed" formatted="false">معارض</string>
+    <string name="other" formatted="false">أخرى</string>
+    <string name="our_other_apps" formatted="false">تطبيقاتنا الأخرى</string>
+    <string name="overlay_mode" formatted="false">نافذة عائمة</string>
+    <string name="overlay_mode_description" formatted="false">عرض معلومات المتصل في نافذة عائمة</string>
+    <string name="overlay_permission" formatted="false">إذن النافذة العائمة</string>
+    <string name="overlay_permission_description" formatted="false">يُستخدم لعرض تراكب المكالمات الواردة.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">نظرة عامة</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">كلمة المرور</string>
+    <string name="password_cannot_be_empty" formatted="false">لا يمكن أن تكون كلمة المرور فارغة</string>
+    <string name="password_label" formatted="false">كلمة المرور</string>
+    <string name="passwords_do_not_match" formatted="false">كلمتا المرور غير متطابقتين</string>
+    <string name="pattern" formatted="false">نمط</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">معلق</string>
+    <string name="pending_proposals" formatted="false">المقترحات المعلقة</string>
+    <string name="pending_proposals_body" formatted="false">لديك {count, plural, =0 {لا توجد مقترحات معلقة} one {1 مقترح معلق} other {{count} مقترحات معلقة}}.</string>
+    <string name="pending_sync" formatted="false">مزامنة معلقة</string>
+    <string name="period_month" formatted="false">شهر</string>
+    <string name="period_week" formatted="false">أسبوع</string>
+    <string name="period_year" formatted="false">سنة</string>
+    <string name="permission_denied" formatted="false">تم رفض طلب الإذن</string>
+    <string name="permission_granted" formatted="false">تم منح الإذن</string>
+    <string name="permission_management" formatted="false">إدارة الأذونات</string>
+    <string name="permission_subtitle" formatted="false">إدارة أذونات التراكب وتحسين البطارية</string>
+    <string name="permission_title" formatted="false">أذونات خاصة</string>
+    <string name="phone_calls_tab" formatted="false">الهاتف</string>
+    <string name="phone_number" formatted="false">رقم الهاتف</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">لا يمكن أن يكون رقم الهاتف فارغًا</string>
+    <string name="phone_number_hint" formatted="false">أدخل رقم الهاتف</string>
+    <string name="phone_number_label" formatted="false">رقم الهاتف</string>
+    <string name="phone_number_min_digits" formatted="false">يجب أن يتكون رقم الهاتف من 7 أرقام على الأقل</string>
+    <string name="phone_number_required" formatted="false">رقم الهاتف مطلوب</string>
+    <string name="phone_number_type" formatted="false">نوع رقم الهاتف</string>
+    <string name="phone_number_type_fixed_line" formatted="false">خط أرضي</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">خط أرضي أو جوال</string>
+    <string name="phone_number_type_mobile" formatted="false">جوال</string>
+    <string name="phone_number_type_pager" formatted="false">فاكس</string>
+    <string name="phone_number_type_personal_number" formatted="false">رقم شخصي</string>
+    <string name="phone_number_type_premium_rate" formatted="false">معدل مميز</string>
+    <string name="phone_number_type_shared_cost" formatted="false">تكلفة مشتركة</string>
+    <string name="phone_number_type_toll_free" formatted="false">مجاني</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">غير معروف</string>
+    <string name="phone_number_type_voicemail" formatted="false">بريد صوتي</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">إذن الهاتف</string>
+    <string name="phone_permission_description" formatted="false">يُستخدم لتحديد وحظر المكالمات الواردة.</string>
+    <string name="phone_rule" formatted="false">قاعدة الهاتف</string>
+    <string name="phone_rule_management" formatted="false">إدارة قواعد الهاتف</string>
+    <string name="phone_rule_subscription" formatted="false">اشتراك قاعدة الهاتف</string>
+    <string name="phone_rules_info" formatted="false">تُستخدم قواعد الهاتف لمطابقة المكالمات بأرقام هواتف محددة، والتي لها أولوية أقل. تأتي بعضها من اشتراكات phoneRule</string>
+    <string name="phone_subscription" formatted="false">اشتراك الهاتف</string>
+    <string name="phone_subscription_rules_description" formatted="false">اشترك في قوائم قواعد الهاتف عبر عنوان URL لتحديث قوائم الأرقام المسموح بها والمحظورة تلقائيًا. يدعم ملفات قواعد بتنسيق JSON.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">يرجى إدخال رقم واحد على الأقل.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">يرجى تحديد تسمية وإدخال رقم هاتف صالح</string>
+    <string name="plugin_added_success" formatted="false">تمت إضافة المكون الإضافي &quot;{name}&quot; بنجاح</string>
+    <string name="plugin_deleted" formatted="false">تم حذف المكون الإضافي</string>
+    <string name="plugin_description" formatted="false">وصف الإضافة</string>
+    <string name="plugin_i_d" formatted="false">المعرف</string>
+    <string name="plugin_label" formatted="false">ملصق الإضافة</string>
+    <string name="plugin_latest_version" formatted="false">المكون الإضافي هو بالفعل أحدث إصدار</string>
+    <string name="plugin_list_export_success" formatted="false">تم تصدير قائمة المكونات الإضافية بنجاح</string>
+    <string name="plugin_management" formatted="false">إدارة المكونات الإضافية</string>
+    <string name="plugin_management_subtitle" formatted="false">إدارة وتكوين المكونات الإضافية لجهات خارجية</string>
+    <string name="plugin_name" formatted="false">اسم المكون الإضافي</string>
+    <string name="plugin_rules_info" formatted="false">لأسباب أمنية، يرجى استخدام الإضافات من مصادر موثوقة فقط. لا تتردد في استخدام قوالبنا لإنشاء إضافات مخصصة خاصة بك!</string>
+    <string name="plugin_service" formatted="false">خدمة المكونات الإضافية</string>
+    <string name="plugin_test_page_title" formatted="false">اختبار المكون الإضافي</string>
+    <string name="plugin_u_r_l" formatted="false">عنوان URL</string>
+    <string name="plugin_update_success" formatted="false">تم تحديث المكون الإضافي بنجاح</string>
+    <string name="plugin_url" formatted="false">عنوان URL للمكون الإضافي</string>
+    <string name="plugin_version" formatted="false">إصدار المكون الإضافي</string>
+    <string name="plugins_deleted" formatted="false">تم حذف {count} مكون إضافي بنجاح.</string>
+    <string name="political" formatted="false">سياسي</string>
+    <string name="powerful_spam_blocking" formatted="false">حظر البريد العشوائي القوي</string>
+    <string name="previous_step" formatted="false">السابق</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">تحديد أولويات إعدادات الإجراء عن بُد بعد</string>
+    <string name="prioritize_remote_action_description" formatted="false">تحديد أولويات إعدادات الإجراء من قاعدة البيانات البعيدة</string>
+    <string name="processed" formatted="false">معالج</string>
+    <string name="processing" formatted="false">جارٍ المعالجة...</string>
+    <string name="processing_operation" formatted="false">جارٍ المعالجة...</string>
+    <string name="proposal_approved" formatted="false">تمت الموافقة على الاقتراح ✅</string>
+    <string name="proposal_approved_body" formatted="false">تمت الموافقة على اقتراح الحذف الخاص بالرقم {phoneNumber} من قبل المجتمع ({supportPercentage}% دعم، {totalVotes} أصوات).</string>
+    <string name="proposal_created" formatted="false">تم إنشاء الاقتراح بنجاح</string>
+    <string name="proposal_details" formatted="false">تفاصيل الاقتراح</string>
+    <string name="proposal_not_found" formatted="false">الاقتراح غير موجود</string>
+    <string name="proposal_processed" formatted="false">تمت معالجة هذا الاقتراح</string>
+    <string name="proposal_rejected" formatted="false">تم رفض الاقتراح ❌</string>
+    <string name="proposal_rejected_body" formatted="false">تم رفض اقتراح الحذف الخاص بالرقم {phoneNumber} من قبل المجتمع ({supportPercentage}% دعم، {totalVotes} أصوات).</string>
+    <string name="proposal_statistics" formatted="false">إحصائيات الاقتراح</string>
+    <string name="provide_detailed_explanation" formatted="false">قدم شرحًا مفصلاً (10 أحرف على الأقل)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">شراء</string>
+    <string name="purchase_subtitle" formatted="false">لشراء الخدمة</string>
+    <string name="purchase_title" formatted="false">شراء</string>
+    <string name="quarterly_membership" formatted="false">عضوية ربع سنوية</string>
+    <string name="quarterly_membership_description" formatted="false">افتح جميع الميزات المتميزة، تجديد تلقائي كل ثلاثة أشهر</string>
+    <string name="ready" formatted="false">جاهز!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">السبب</string>
+    <string name="reason_inaccurate_info" formatted="false">معلومات غير دقيقة</string>
+    <string name="reason_min_characters" formatted="false">يجب أن يكون السبب 10 أحرف على الأقل</string>
+    <string name="reason_not_in_service" formatted="false">غير متوفر في الخدمة</string>
+    <string name="reason_other" formatted="false">آخر</string>
+    <string name="reason_outdated" formatted="false">رقم قديم</string>
+    <string name="reason_privacy" formatted="false">مخاوف تتعلق بالخصوصية</string>
+    <string name="reason_required" formatted="false">السبب مطلوب</string>
+    <string name="reason_wrongly_identified" formatted="false">تم التعرف عليه بشكل خاطئ</string>
+    <string name="recruiter" formatted="false">مسؤول التوظيف</string>
+    <string name="redeem_vip_with_marks" formatted="false">استبدال VIP بالعلامات</string>
+    <string name="redirect" formatted="false">إعادة توجيه</string>
+    <string name="redirect_action_description" formatted="false">إعادة توجيه المكالمة إلى رقم محدد.</string>
+    <string name="refresh" formatted="false">تحديث</string>
+    <string name="refresh_permission_status" formatted="false">تحديث حالة الإذن</string>
+    <string name="refresh_proposals" formatted="false">تحديث الاقتراحات</string>
+    <string name="refresh_tooltip" formatted="false">تحديث</string>
+    <string name="regex_error_message" formatted="false">خطأ في التعبير العادي: {error}</string>
+    <string name="regex_pattern" formatted="false">نمط Regex</string>
+    <string name="regex_pattern_explanation" formatted="false">شرح نمط Regex</string>
+    <string name="regex_pattern_explanation_button" formatted="false">شرح نمط Regex</string>
+    <string name="regex_pattern_label" formatted="false">نمط Regex</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">أنماط Regex لمطابقة أرقام الهواتف</string>
+    <string name="regex_rule" formatted="false">قاعدة Regex</string>
+    <string name="regex_rule_add_failed" formatted="false">فشل في إضافة قاعدة regex: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">تمت إضافة قاعدة regex بنجاح</string>
+    <string name="regex_rule_management" formatted="false">إدارة قواعد Regex</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">لا يمكن أن يكون اسم القاعدة ونمط regex فارغين</string>
+    <string name="regex_rules" formatted="false">قواعد Regex</string>
+    <string name="regex_rules_info" formatted="false">تُستخدم قواعد Regex لتصفية المكالمات بناءً على أنماط Regex.</string>
+    <string name="regex_tester_title" formatted="false">مختبر Regex</string>
+    <string name="region" formatted="false">المنطقة</string>
+    <string name="registered_devices_title" formatted="false">الأجهزة المسجلة</string>
+    <string name="reject_all_calls" formatted="false">رفض جميع المكالمات</string>
+    <string name="reject_all_calls_description" formatted="false">عند التمكين، سيتم رفض جميع المكالمات بأعلى أولوية</string>
+    <string name="reject_all_numbers" formatted="false">رفض جميع المكالمات الواردة</string>
+    <string name="reject_all_numbers_desc" formatted="false">رفض جميع المكالمات الواردة بأعلى أولوية</string>
+    <string name="reject_exceeded_numbers" formatted="false">رفض الأرقام المتجاوزة</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">رفض الأرقام تلقائيًا التي تتجاوز الحد الأقصى للعدد</string>
+    <string name="rejected" formatted="false">مرفوض</string>
+    <string name="remote_filter_settings" formatted="false">إعدادات الفلتر عن بعد</string>
+    <string name="remote_filter_settings_page_title" formatted="false">إعدادات فلتر الأرقام عن بعد</string>
+    <string name="remote_number_filter" formatted="false">الحماية بحد استعلامات السحابة</string>
+    <string name="remote_number_filter_description" formatted="false">حظر المكالمات التي تتجاوز حد البلاغات السحابية تلقائيًا</string>
+    <string name="remote_number_filter_subtitle" formatted="false">تحديد المكالمات العشوائية باستخدام قاعدة بيانات سحابية وتقارير مجتمعية</string>
+    <string name="remote_number_filtering" formatted="false">فلترة الأرقام عن بعد</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• فلترة الأرقام عن بعد: قواعد فلترة بناءً على معلومات قاعدة البيانات الخارجية</string>
+    <string name="remove_ads" formatted="false">إزالة الإعلانات</string>
+    <string name="remove_ads_description" formatted="false">قم بإزالة جميع الإعلانات في التطبيق بشكل دائم لتجربة أكثر سلاسة</string>
+    <string name="remove_ads_title" formatted="false">إزالة الإعلانات</string>
+    <string name="remove_from_favorites" formatted="false">إزالة من المفضلة</string>
+    <string name="removed_from_favorites" formatted="false">تمت الإزالة من المفضلة</string>
+    <string name="rename_device_title" formatted="false">إعادة تسمية الجهاز</string>
+    <string name="reporting_guidelines" formatted="false">• قم بالإبلاغ عن الأرقام التي تمثل مشكلة حقيقية فقط
+• قدم أسبابًا دقيقة ومفصلة
+• اختر مستوى المخاطرة المناسب بناءً على الخطورة
+• قد يؤدي الإبلاغ الكاذب إلى تقييد الحساب</string>
+    <string name="request_all_permissions" formatted="false">طلب جميع الأذونات</string>
+    <string name="request_permission" formatted="false">طلب إذن</string>
+    <string name="request_permission_failed" formatted="false">فشل طلب الإذن: {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">{count} علامات</string>
+    <string name="reset" formatted="false">إعادة تعيين</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">استعادة</string>
+    <string name="restore_application_settings_from_backup" formatted="false">استعادة إعدادات التطبيق من النسخة الاحتياطية</string>
+    <string name="restore_from_cloud" formatted="false">استعادة من السحابة</string>
+    <string name="restore_from_cloud_failed" formatted="false">فشل الاستعادة من السحابة: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">تمت الاستعادة بنجاح من السحابة</string>
+    <string name="restore_purchases" formatted="false">استعادة المشتريات</string>
+    <string name="restore_settings" formatted="false">استعادة الإعدادات</string>
+    <string name="restore_settings_confirmation" formatted="false">سيؤدي هذا إلى استبدال جميع إعداداتك الحالية. هل أنت متأكد من رغبتك في المتابعة؟</string>
+    <string name="result" formatted="false">النتيجة</string>
+    <string name="retry" formatted="false">إعادة المحاولة</string>
+    <string name="rewarded_ad_service" formatted="false">خدمة الإعلانات المكافأة</string>
+    <string name="ridesharing" formatted="false">مشاركة الرحلات</string>
+    <string name="risk" formatted="false">خطر</string>
+    <string name="risk_level" formatted="false">مستوى المخاطرة</string>
+    <string name="risk_level_critical" formatted="false">حرج</string>
+    <string name="risk_level_high" formatted="false">مرتفع</string>
+    <string name="risk_level_label" formatted="false">مستوى المخاطرة</string>
+    <string name="risk_level_low" formatted="false">منخفض</string>
+    <string name="risk_level_medium" formatted="false">متوسط</string>
+    <string name="risk_level_very_low" formatted="false">منخفض جدًا</string>
+    <string name="robocall" formatted="false">مكالمة آلية</string>
+    <string name="rule_action" formatted="false">إجراء القاعدة</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">تمت إضافة القاعدة بنجاح</string>
+    <string name="rule_added_success" formatted="false">تمت إضافة القاعدة بنجاح</string>
+    <string name="rule_delete_confirm_content" formatted="false">هل أنت متأكد من رغبتك في حذف {ruleType} هذا؟</string>
+    <string name="rule_delete_confirm_title" formatted="false">حذف القاعدة</string>
+    <string name="rule_delete_failed" formatted="false">فشل في حذف القاعدة: {error}</string>
+    <string name="rule_delete_success" formatted="false">تم حذف القاعدة بنجاح</string>
+    <string name="rule_deleted_successfully" formatted="false">تم حذف القاعدة بنجاح</string>
+    <string name="rule_disabled_successfully" formatted="false">تم تعطيل القاعدة بنجاح</string>
+    <string name="rule_enabled_successfully" formatted="false">تم تمكين القاعدة بنجاح</string>
+    <string name="rule_load_failed" formatted="false">فشل في تحميل القواعد: {error}</string>
+    <string name="rule_management" formatted="false">إدارة القواعد</string>
+    <string name="rule_name" formatted="false">اسم القاعدة</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">لا يمكن أن يكون اسم القاعدة ومحتوى regex فارغين</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">لا يمكن أن يكون اسم القاعدة ورقم الهاتف فارغين</string>
+    <string name="rule_name_hint" formatted="false">مثال: عائلة، أصدقاء، إلخ.</string>
+    <string name="rule_name_label" formatted="false">اسم القاعدة</string>
+    <string name="rule_name_required" formatted="false">لا يمكن أن يكون اسم القاعدة ورقم الهاتف فارغين</string>
+    <string name="rule_not_exist" formatted="false">القاعدة غير موجودة أو تم حذفها</string>
+    <string name="rule_not_found" formatted="false">القاعدة غير موجودة: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">تم حفظ القاعدة بنجاح!</string>
+    <string name="rule_status_changed" formatted="false">تم تغيير حالة القاعدة إلى {status} بنجاح</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">فشلت العملية: {error}</string>
+    <string name="rule_toggle_success" formatted="false">تم تغيير حالة القاعدة إلى {status} بنجاح</string>
+    <string name="rule_type" formatted="false">Rule Type</string>
+    <string name="rule_update_failed" formatted="false">فشل تحديث القاعدة: {error}</string>
+    <string name="rule_update_success" formatted="false">تم تحديث القاعدة بنجاح</string>
+    <string name="rule_verification" formatted="false">التحقق من القاعدة</string>
+    <string name="rules_exported_successfully" formatted="false">تم تصدير القواعد بنجاح</string>
+    <string name="rules_exported_to" formatted="false">تم تصدير القواعد إلى: {path}</string>
+    <string name="rules_imported" formatted="false">تم استيراد القواعد بنجاح</string>
+    <string name="rules_imported_successfully" formatted="false">تم استيراد {count} قاعدة بنجاح</string>
+    <string name="save" formatted="false">حفظ</string>
+    <string name="save_button" formatted="false">حفظ</string>
+    <string name="save_button_text" formatted="false">حفظ</string>
+    <string name="save_failed" formatted="false">فشل الحفظ: {error}</string>
+    <string name="save_script" formatted="false">حفظ البرنامج النصي</string>
+    <string name="save_settings" formatted="false">حفظ الإعدادات</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">عمليات احتيال محتملة</string>
+    <string name="script_saved" formatted="false">تم حفظ البرنامج النصي</string>
+    <string name="scroll_speed" formatted="false">سرعة التمرير</string>
+    <string name="scrolling_security_message_settings" formatted="false">إعدادات رسائل الأمان المتحركة</string>
+    <string name="search" formatted="false">بحث</string>
+    <string name="search_by_name_or_phone_number" formatted="false">البحث بالاسم أو رقم الهاتف</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">البحث عن اشتراكات جهات الاتصال</string>
+    <string name="search_contacts" formatted="false">بحث عن جهات الاتصال</string>
+    <string name="search_error" formatted="false">خطأ في البحث: {error}</string>
+    <string name="search_hint" formatted="false">بحث...</string>
+    <string name="search_labels_hint" formatted="false">البحث عن العلامات</string>
+    <string name="search_marked_phones_hint" formatted="false">البحث عن الأرقام المميزة</string>
+    <string name="search_phone_rules_hint" formatted="false">البحث عن قواعد الهاتف</string>
+    <string name="search_plugins_hint" formatted="false">البحث عن الإضافات</string>
+    <string name="search_proposals" formatted="false">البحث عن اقتراحات</string>
+    <string name="search_regex_rules_hint" formatted="false">البحث عن قواعد Regex</string>
+    <string name="search_subscriptions_hint" formatted="false">البحث عن الاشتراكات</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">لا تثق بأي مكالمات هاتفية. تحقق دائمًا من أرقام خدمة العملاء بشكل مستقل. لا تشارك أبدًا كلمات المرور، رموز التحقق، أرقام البطاقات، أو المعلومات الشخصية.</string>
+    <string name="select_action" formatted="false">تحديد الإجراء</string>
+    <string name="select_action_when_blocking_calls" formatted="false">حدد الإجراء عند حظر المكالمات</string>
+    <string name="select_action_when_rule_matches" formatted="false">حدد الإجراء عند مطابقة القاعدة</string>
+    <string name="select_all" formatted="false">تحديد الكل</string>
+    <string name="select_country" formatted="false">تحديد الدولة</string>
+    <string name="select_export_format" formatted="false">تحديد تنسيق التصدير</string>
+    <string name="select_label" formatted="false">تحديد الملصق</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">الرجاء تحديد ملصق وإدخال رقم هاتف صالح</string>
+    <string name="select_language" formatted="false">تحديد اللغة</string>
+    <string name="select_multiple" formatted="false">تحديد متعدد</string>
+    <string name="select_sim_card" formatted="false">تحديد بطاقة SIM</string>
+    <string name="select_tags" formatted="false">تحديد الوسوم</string>
+    <string name="select_target_service" formatted="false">تحديد الخدمة المستهدفة</string>
+    <string name="select_trusted_data_source" formatted="false">الرجاء تحديد مصادر بيانات موثوقة</string>
+    <string name="select_your_language" formatted="false">حدد لغتك</string>
+    <string name="selected_items" formatted="false">تم تحديد {count} عنصر</string>
+    <string name="selected_label" formatted="false">محدد:</string>
+    <string name="sender" formatted="false">المرسل</string>
+    <string name="sender_regex_optional" formatted="false">تعبير نمطي للمرسل (اختياري)</string>
+    <string name="separate_sims" formatted="false">شرائح SIM منفصلة</string>
+    <string name="separate_sims_desc" formatted="false">تمكين قواعد تصفية منفصلة لكل بطاقة SIM</string>
+    <string name="server_address_label" formatted="false">عنوان الخادم</string>
+    <string name="service_type_contact" formatted="false">اشتراك جهة الاتصال</string>
+    <string name="service_type_label" formatted="false">نوع الخدمة</string>
+    <string name="service_type_phone" formatted="false">اشتراك الهاتف</string>
+    <string name="service_type_plugin" formatted="false">تحديث الإضافة</string>
+    <string name="service_type_sms" formatted="false">اشتراك الرسائل القصيرة</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">ضبط وقت التأخير</string>
+    <string name="set_encryption_password" formatted="false">تعيين كلمة مرور التشفير</string>
+    <string name="settings" formatted="false">الإعدادات</string>
+    <string name="settings_backed_up_to" formatted="false">تم النسخ الاحتياطي للإعدادات إلى: {path}</string>
+    <string name="settings_backup" formatted="false">نسخ احتياطي للإعدادات </string>
+    <string name="settings_restored_successfully" formatted="false">تم استعادة الإعدادات بنجاح. الرجاء إعادة تشغيل التطبيق لتطبيق التغييرات.</string>
+    <string name="settings_save_failed" formatted="false">فشل حفظ الإعدادات: {error}</string>
+    <string name="settings_saved" formatted="false">تم حفظ الإعدادات</string>
+    <string name="settings_tab" formatted="false">الإعدادات</string>
+    <string name="settings_title" formatted="false">الإعدادات</string>
+    <string name="setup" formatted="false">إعداد</string>
+    <string name="show_all_contacts" formatted="false">عرض كل جهات الاتصال</string>
+    <string name="show_favorites" formatted="false">عرض المفضلة</string>
+    <string name="silence" formatted="false">صمت</string>
+    <string name="silence_action_description" formatted="false">سيتم إسكات المكالمات ولكن سيتم عرضها في سجل المكالمات.</string>
+    <string name="silence_and_no_answer" formatted="false">كتم الرنين</string>
+    <string name="silence_no_answer" formatted="false">صمت وعدم الرد</string>
+    <string name="silent_call_voice_clone" formatted="false">استنساخ صوت مكالمة صامتة</string>
+    <string name="silent_rules" formatted="false">قواعد الصمت</string>
+    <string name="sim_card" formatted="false">بطاقة SIM {simNumber}</string>
+    <string name="sim_card_color" formatted="false">لون بطاقة SIM</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• إعدادات بطاقة SIM: قم بتعيين قواعد فلترة مستقلة لكل بطاقة SIM</string>
+    <string name="sim_card_filter_rules" formatted="false">قواعد فلترة بطاقة SIM</string>
+    <string name="sim_card_filter_rules_description" formatted="false">قم بتعيين قواعد فلترة مختلفة بناءً على فتحات بطاقة SIM</string>
+    <string name="sim_card_font_size" formatted="false">حجم خط بطاقة SIM</string>
+    <string name="sim_card_position" formatted="false">موضع بطاقة SIM</string>
+    <string name="sim_card_title" formatted="false">بطاقة SIM</string>
+    <string name="sim_country" formatted="false">بلد الشريحة</string>
+    <string name="sim_info" formatted="false">بطاقة SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">تسمح لك قواعد فتحة SIM بتكوين قواعد تصفية مستقلة لكل فتحة SIM.</string>
+    <string name="sim_rule_instructions_title" formatted="false">قواعد فتحة SIM</string>
+    <string name="sim_rules_not_found" formatted="false">قواعد SIM غير موجودة</string>
+    <string name="sim_slot" formatted="false">فتحة SIM</string>
+    <string name="sim_slot1" formatted="false">SIM 1،-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2،-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">قم بتكوين قواعد تصفية مستقلة لكل بطاقة SIM:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">إعدادات مرشح فتحة SIM {slotNumber}</string>
+    <string name="sim_slot_management" formatted="false">إدارة فتحات SIM</string>
+    <string name="sim_slot_position" formatted="false">موضع فتحة SIM {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• قواعد فتحة SIM: استراتيجيات تصفية مستقلة لكل SIM</string>
+    <string name="sim_slot_rule_list_title" formatted="false">قائمة قواعد فتحة SIM</string>
+    <string name="sim_slot_rule_management" formatted="false">قواعد فتحة SIM</string>
+    <string name="sim_slot_rules" formatted="false">قواعد فتحة SIM</string>
+    <string name="sim_slot_title" formatted="false">فتحة SIM {slotNumber}</string>
+    <string name="sim_state" formatted="false">حالة الشريحة</string>
+    <string name="skip" formatted="false">تخطي</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">تحديد هوية المتصل الذكية</string>
+    <string name="sms" formatted="false">رسالة نصية قصيرة</string>
+    <string name="sms_filter_description" formatted="false">يساعدك تصفية الرسائل القصيرة على تصفية رسائل البريد العشوائي تلقائيًا والحفاظ على نظافة قائمة الرسائل الخاصة بك. يمكنك تعيين قواعد التصفية وطرق الإشعارات.</string>
+    <string name="sms_filter_disabled" formatted="false">تم تعطيل تصفية الرسائل القصيرة</string>
+    <string name="sms_filter_enabled" formatted="false">تم تمكين تصفية الرسائل القصيرة</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">تمت إضافة قاعدة تصفية الرسائل القصيرة بنجاح</string>
+    <string name="sms_filter_rules" formatted="false">قواعد تصفية الرسائل القصيرة</string>
+    <string name="sms_filter_settings" formatted="false">إعدادات تصفية الرسائل القصيرة</string>
+    <string name="sms_management" formatted="false">إدارة الرسائل القصيرة</string>
+    <string name="sms_permission" formatted="false">إذن الرسائل القصيرة</string>
+    <string name="sms_permission_description" formatted="false">يستخدم لتصفية رسائل البريد العشوائي.</string>
+    <string name="sms_rule_added_successfully" formatted="false">تمت إضافة قاعدة الرسائل القصيرة بنجاح</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">تم حذف قاعدة الرسائل القصيرة بنجاح</string>
+    <string name="sms_rule_load_failed" formatted="false">فشل تحميل قواعد الرسائل القصيرة: {error}</string>
+    <string name="sms_rule_management" formatted="false">إدارة قواعد الرسائل القصيرة</string>
+    <string name="sms_rule_subscription" formatted="false">اشتراك قاعدة الرسائل القصيرة</string>
+    <string name="sms_subscription" formatted="false">اشتراك الرسائل القصيرة</string>
+    <string name="sms_subscription_added_successfully" formatted="false">تمت إضافة اشتراك الرسائل القصيرة بنجاح</string>
+    <string name="sms_subscription_rules_description" formatted="false">اشترك في قوائم قواعد الرسائل القصيرة عبر URL، مع دعم مطابقة التعبيرات العادية. يمكنك تعيين إجراءات الحظر أو السماح.</string>
+    <string name="sms_tab" formatted="false">رسالة نصية قصيرة</string>
+    <string name="some_permissions_denied" formatted="false">تم رفض بعض طلبات الإذن</string>
+    <string name="sort_by" formatted="false">الفرز حسب</string>
+    <string name="sort_least_popular" formatted="false">فرز الأقل شيوعًا</string>
+    <string name="sort_most_popular" formatted="false">فرز الأكثر شيوعًا</string>
+    <string name="sort_newest" formatted="false">فرز الأحدث</string>
+    <string name="sort_oldest" formatted="false">فرز الأقدم</string>
+    <string name="spam_likely" formatted="false">احتمالية بريد عشوائي</string>
+    <string name="start_color" formatted="false">لون البدء</string>
+    <string name="start_date" formatted="false">تاريخ البدء</string>
+    <string name="start_using" formatted="false">البدء</string>
+    <string name="stat_answered" formatted="false">تم الرد</string>
+    <string name="stat_blocked" formatted="false">تم الحظر</string>
+    <string name="statistics" formatted="false">إحصائيات</string>
+    <string name="statistics_page_title" formatted="false">تحليل البيانات</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">لون STIR</string>
+    <string name="stir_failed" formatted="false">فشل التحقق</string>
+    <string name="stir_font_size" formatted="false">حجم خط STIR</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">موضع STIR</string>
+    <string name="stir_unknown" formatted="false">حالة التحقق غير معروفة</string>
+    <string name="stir_verification" formatted="false">التحقق من STIR/SHAKEN</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} للرقم {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">يعرض نتائج التحقق من STIR/SHAKEN للأرقام.</string>
+    <string name="stir_verification_title" formatted="false">التحقق من STIR/SHAKEN</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">إذن التخزين</string>
+    <string name="storage_permission_description" formatted="false">يستخدم لحفظ الإعدادات والقواعد.</string>
+    <string name="submit" formatted="false">إرسال</string>
+    <string name="subscribe" formatted="false">اشترك</string>
+    <string name="subscription_add_success" formatted="false">تمت إضافة الاشتراك &quot;{name}&quot; بنجاح</string>
+    <string name="subscription_delete_confirm_content" formatted="false">هل أنت متأكد أنك تريد حذف هذا الاشتراك؟</string>
+    <string name="subscription_delete_confirm_title" formatted="false">حذف الاشتراك</string>
+    <string name="subscription_delete_failed" formatted="false">فشل حذف الاشتراك: {error}</string>
+    <string name="subscription_delete_success" formatted="false">تم حذف الاشتراك</string>
+    <string name="subscription_deleted" formatted="false">تم حذف الاشتراك</string>
+    <string name="subscription_load_failed" formatted="false">فشل تحميل الاشتراكات: {error}</string>
+    <string name="subscription_name" formatted="false">اسم الاشتراك</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">لا يمكن أن يكون اسم الاشتراك وعنوان URL فارغين</string>
+    <string name="subscription_name_hint" formatted="false">أدخل اسم الاشتراك</string>
+    <string name="subscription_status_change_failed" formatted="false">فشل تغيير حالة الاشتراك: {error}</string>
+    <string name="subscription_update_failed" formatted="false">فشل تحديث الاشتراك: {error}</string>
+    <string name="subscription_update_success" formatted="false">تم تحديث الاشتراك بنجاح</string>
+    <string name="subscription_url" formatted="false">عنوان URL للاشتراك</string>
+    <string name="subscription_url_hint" formatted="false">أدخل عنوان URL للاشتراك</string>
+    <string name="successfully_imported_rules" formatted="false">تم استيراد {count} قاعدة بنجاح</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">الدعم</string>
+    <string name="support_count" formatted="false">دعم ({supportCount})</string>
+    <string name="support_sync" formatted="false">دعم المزامنة</string>
+    <string name="supported" formatted="false">مدعوم</string>
+    <string name="survey" formatted="false">استبيان</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">مزامنة الأجهزة</string>
+    <string name="sync_failed" formatted="false">فشلت المزامنة</string>
+    <string name="sync_failed_message" formatted="false">فشلت المزامنة</string>
+    <string name="sync_folder_name_label" formatted="false">اسم مجلد المزامنة</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">مزامنة الآن</string>
+    <string name="sync_now_button" formatted="false">مزامنة الآن</string>
+    <string name="sync_status_title" formatted="false">حالة المزامنة</string>
+    <string name="sync_status_updated_message" formatted="false">تم تحديث حالة المزامنة</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">تمت المزامنة بنجاح</string>
+    <string name="sync_with_cloud_storage" formatted="false">المزامنة مع التخزين السحابي</string>
+    <string name="synced" formatted="false">تمت المزامنة</string>
+    <string name="synchronized" formatted="false">تمت المزامنة</string>
+    <string name="syncing" formatted="false">جاري المزامنة...</string>
+    <string name="system_features" formatted="false">ميزات النظام:</string>
+    <string name="system_settings_title" formatted="false">إعدادات النظام</string>
+    <string name="tab_all" formatted="false">الكل</string>
+    <string name="tab_answered" formatted="false">تم الرد عليها</string>
+    <string name="tab_blocked" formatted="false">محظورة</string>
+    <string name="tab_missed" formatted="false">لم يتم الرد عليها</string>
+    <string name="tab_outgoing" formatted="false">صادرة</string>
+    <string name="tag_label" formatted="false">علامة: {tag}</string>
+    <string name="takeaway" formatted="false">الوجبات الجاهزة</string>
+    <string name="telecommunication" formatted="false">الاتصالات</string>
+    <string name="telegram" formatted="false">تيليجرام</string>
+    <string name="telemarketing" formatted="false">التسويق عبر الهاتف</string>
+    <string name="temp_purchase_expired" formatted="false">انتهت صلاحية امتياز الشراء المؤقت</string>
+    <string name="temporary_vip" formatted="false">VIP مؤقت</string>
+    <string name="test_button" formatted="false">اختبار</string>
+    <string name="test_connection_button" formatted="false">اختبار الاتصال</string>
+    <string name="test_plugin" formatted="false">اختبار الإضافة</string>
+    <string name="text_colors_setting" formatted="false">ألوان النص والتسمية</string>
+    <string name="theme_dark" formatted="false">Dark</string>
+    <string name="theme_light" formatted="false">Light</string>
+    <string name="theme_settings_subtitle" formatted="false">اختر المظهر المفضل لديك</string>
+    <string name="theme_settings_title" formatted="false">إعدادات المظهر</string>
+    <string name="theme_system" formatted="false">System</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">هذا التطبيق هو أداة قوية لمعرف المتصل تتيح لك تحديد وحظر المكالمات غير المرغوب فيها.</string>
+    <string name="this_week" formatted="false">هذا الأسبوع</string>
+    <string name="time_interceptor" formatted="false">الحماية من المكالمات المتكررة</string>
+    <string name="time_interceptor_description" formatted="false">حظر المكالمات المتكررة من نفس الرقم خلال فترة زمنية قصيرة</string>
+    <string name="time_interceptor_explanation" formatted="false">• اعتراض الوقت: اعتراض/السماح بالمكالمات المتكررة في فترة زمنية قصيرة</string>
+    <string name="time_interceptor_explanation_content" formatted="false">تقوم ميزة اعتراض تكرار المكالمات بتحليل تكرار المكالمات لتحديد واعتراض/السماح تلقائيًا بمكالمات البريد العشوائي المتكررة.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">شرح اعتراض تكرار المكالمات</string>
+    <string name="time_interceptor_settings_title" formatted="false">إعدادات اعتراض تكرار المكالمات</string>
+    <string name="time_window_description" formatted="false">قم بتعيين حجم نافذة الوقت للسماح بالمكالمات المتكررة. سيتم السماح بالمكالمات من نفس الرقم ضمن هذه النافذة</string>
+    <string name="time_window_label" formatted="false">نافذة وقت الاعتراض (دقائق): {minutes}</string>
+    <string name="timeline_view" formatted="false">عرض المخطط الزمني</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">اليوم</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">الإجمالي</string>
+    <string name="total_blocked" formatted="false">إجمالي المحظور</string>
+    <string name="total_pending_proposals" formatted="false">إجمالي الاقتراحات المعلقة</string>
+    <string name="total_proposals" formatted="false">إجمالي الاقتراحات</string>
+    <string name="total_votes" formatted="false">الإجمالي: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">نقل البيانات بين الأجهزة أو المنصات</string>
+    <string name="travel_ticketing" formatted="false">تذاكر السفر</string>
+    <string name="tutorial" formatted="false">برنامج تعليمي</string>
+    <string name="type" formatted="false">النوع</string>
+    <string name="unassigned_s_i_m_card" formatted="false">بطاقة SIM غير معينة</string>
+    <string name="unblock" formatted="false">إلغاء الحظر</string>
+    <string name="unblock_number" formatted="false">إلغاء حظر الرقم</string>
+    <string name="unblock_number_confirmation" formatted="false">هل أنت متأكد أنك تريد إلغاء حظر {phoneNumber}؟</string>
+    <string name="unblock_number_failed" formatted="false">فشل إلغاء حظر الرقم</string>
+    <string name="unblock_number_success" formatted="false">تم إلغاء حظر الرقم بنجاح</string>
+    <string name="unblocked" formatted="false">تم إلغاء الحظر</string>
+    <string name="unknown" formatted="false">غير معروف</string>
+    <string name="unknown_tag" formatted="false">علامة: غير معروف</string>
+    <string name="unregister_button" formatted="false">إلغاء التسجيل</string>
+    <string name="unregister_device_confirmation_message" formatted="false">هل أنت متأكد أنك تريد إلغاء تسجيل {deviceName}؟</string>
+    <string name="unregister_device_title" formatted="false">إلغاء تسجيل الجهاز</string>
+    <string name="unsupported_file_format" formatted="false">تنسيق ملف غير مدعوم</string>
+    <string name="update" formatted="false">تحديث</string>
+    <string name="update_all_now" formatted="false">تحديث الكل الآن</string>
+    <string name="update_contact_failed" formatted="false">فشل تحديث جهة الاتصال: {error}</string>
+    <string name="update_favorite_status" formatted="false">تحديث حالة المفضلة</string>
+    <string name="update_interval" formatted="false">فاصل التحديث</string>
+    <string name="update_now" formatted="false">تحديث الآن</string>
+    <string name="update_plugin" formatted="false">تحديث المكون الإضافي</string>
+    <string name="update_plugin_failed" formatted="false">فشل تحديث المكون الإضافي: {error}</string>
+    <string name="update_rule_failed" formatted="false">فشل تحديث القاعدة: {error}</string>
+    <string name="update_subscription_failed" formatted="false">فشل تحديث الاشتراك: {error}</string>
+    <string name="update_success" formatted="false">تم تحديث {service} بنجاح ({count} قواعد)</string>
+    <string name="upgrade_to_vip" formatted="false">الترقية إلى VIP</string>
+    <string name="use_cases_point1" formatted="false">• تحديد مكالمات البريد العشوائي التي تعيد الاتصال تلقائيًا</string>
+    <string name="use_cases_point2" formatted="false">• اعتراض مكالمات التسويق التي تتصل عدة مرات في فترة قصيرة</string>
+    <string name="use_cases_point3" formatted="false">• منع التفجير الهاتفي والمضايقة</string>
+    <string name="use_cases_title" formatted="false">حالات الاستخدام:</string>
+    <string name="use_global_settings" formatted="false">استخدام الإعدادات العامة</string>
+    <string name="use_local_notification" formatted="false">استخدام الإشعارات المحلية</string>
+    <string name="use_local_notification_description" formatted="false">تمكين الإشعارات المحلية للمكالمات الواردة</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">استخدم صيغة regex القياسية لتحديد الأنماط. أمثلة:</string>
+    <string name="use_stir_notification" formatted="false">استخدام الإشعارات من STIR</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">اسم المستخدم</string>
+    <string name="verification_failed_text" formatted="false">فشل</string>
+    <string name="verification_report" formatted="false">تقرير التحقق</string>
+    <string name="verified_text" formatted="false">تم التحقق</string>
+    <string name="verify" formatted="false">تحقق</string>
+    <string name="version" formatted="false">الإصدار: {version}</string>
+    <string name="very_high" formatted="false">مرتفع جداً</string>
+    <string name="very_low" formatted="false">منخفض جداً</string>
+    <string name="view_details" formatted="false">عرض التفاصيل</string>
+    <string name="vip3_days_with_ads" formatted="false">3 أيام VIP مع إعلانات (مزامنة فقط)</string>
+    <string name="vip5_days_no_ads" formatted="false">5 أيام VIP كاملة الميزات خالية من الإعلانات</string>
+    <string name="vip7_days_no_ads" formatted="false">7 أيام VIP كاملة الميزات خالية من الإعلانات</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">تبادل عضوية VIP مع عدد علامات رقم الهاتف</string>
+    <string name="vip_exchange_service" formatted="false">خدمة صرف VIP</string>
+    <string name="vip_exchange_title" formatted="false">تبادل VIP العلامة</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">مستخدم VIP</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">التعرف على الصوت</string>
+    <string name="vote_agree" formatted="false">موافق</string>
+    <string name="vote_count" formatted="false">عدد الأصوات</string>
+    <string name="vote_disagree" formatted="false">غير موافق</string>
+    <string name="vote_submitted" formatted="false">تم تقديم التصويت بنجاح</string>
+    <string name="voted" formatted="false">تم التصويت</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} صوت ({supportPercentage}% دعم)</string>
+    <string name="voting_completed" formatted="false">اكتمل التصويت</string>
+    <string name="voting_completed_body" formatted="false">انتهى تصويت المجتمع للرقم {phoneNumber}. النتيجة: {result} ({supportPercentage}% دعم).</string>
+    <string name="waiting_for_more_votes" formatted="false">في انتظار المزيد من أصوات المجتمع</string>
+    <string name="watch_ad" formatted="false">مشاهدة الإعلان</string>
+    <string name="watch_ad_for_temp" formatted="false">مشاهدة الإعلان للمزايا المؤقتة</string>
+    <string name="watch_ad_for_temp_description" formatted="false">شاهد إعلانًا قصيرًا لفتح بعض الميزات المميزة مؤقتًا</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">تحتاج إلى مشاهدة {count} إعلانات أخرى للحصول على امتيازات VIP مؤقتة</string>
+    <string name="web_d_a_v_config_title" formatted="false">إعدادات WebDAV</string>
+    <string name="week" formatted="false">الأسبوع</string>
+    <string name="welcome" formatted="false">أهلاً وسهلاً</string>
+    <string name="whitelist" formatted="false">القائمة البيضاء</string>
+    <string name="width" formatted="false">العرض</string>
+    <string name="wildcard_matching_description" formatted="false">استخدم \'.\' لمطابقة أي حرف (على سبيل المثال، \'123.456\' تطابق 123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">مطابقة الأحرف البديلة:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">دعم الأحرف البديلة للتصفية المرنة</string>
+    <string name="window_size_setting" formatted="false">حجم النافذة</string>
+    <string name="year" formatted="false">سنة</string>
+    <string name="yesterday" formatted="false">أمس</string>
+</resources>

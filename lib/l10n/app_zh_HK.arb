@@ -2458,5 +2458,8 @@
         "type": "String"
       }
     }
-  }
+  },
+  "backgroundOpacity": "背景不透明度",
+  "timesUnit": "次",
+  "participantCount": "%1$d 人已参与"
 }

@@ -2458,5 +2458,8 @@
     }
   },
   "initialSetupSettingsHint": "Tip: You can re-open this setup page anytime in Settings.",
-  "initialSetupGoToSettings": "Go to Settings"
+  "initialSetupGoToSettings": "Go to Settings",
+  "backgroundOpacity": "Background Opacity",
+  "timesUnit": "times",
+  "participantCount": "%1$d Participants"
 }

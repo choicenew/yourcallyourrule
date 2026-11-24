@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">אודות מנוי אנשי קשר</string>
+    <string name="about_labels" formatted="false">אודות תוויות</string>
+    <string name="about_phone_subscription_rules" formatted="false">אודות כללי מנוי טלפון</string>
+    <string name="about_sms_filter" formatted="false">אודות סינון SMS</string>
+    <string name="about_sms_subscription_rules" formatted="false">אודות כללי מנוי SMS</string>
+    <string name="about_subtitle" formatted="false">גרסת אפליקציה ומידע משפטי</string>
+    <string name="about_title" formatted="false">אודות</string>
+    <string name="access_target_url" formatted="false">גישה לכתובת URL יעד</string>
+    <string name="action" formatted="false">פעולה</string>
+    <string name="action_all" formatted="false">הכל</string>
+    <string name="action_allow" formatted="false">אפשר</string>
+    <string name="action_block" formatted="false">חסום</string>
+    <string name="action_filter_title" formatted="false">סנן לפי סוג פעולה</string>
+    <string name="action_filter_tooltip" formatted="false">מסנן פעולה</string>
+    <string name="action_none" formatted="false">אין פעולה</string>
+    <string name="action_silence" formatted="false">השתק</string>
+    <string name="action_tag" formatted="false">פעולה: {actionType}</string>
+    <string name="action_type" formatted="false">סוג פעולה</string>
+    <string name="action_unknown" formatted="false">לא ידוע</string>
+    <string name="active_proposals" formatted="false">הצעות פעילות</string>
+    <string name="add" formatted="false">הוסף</string>
+    <string name="add_allow_subscription" formatted="false">הוסף מנוי אישור</string>
+    <string name="add_allowed_blocked_rule" formatted="false">הוסף כלל אישור/חסימה</string>
+    <string name="add_block_subscription" formatted="false">הוסף מנוי חסימה</string>
+    <string name="add_contact_button" formatted="false">הוסף איש קשר</string>
+    <string name="add_contact_failed" formatted="false">נכשל הוספת איש קשר: {error}</string>
+    <string name="add_label" formatted="false">הוסף תווית</string>
+    <string name="add_label_button" formatted="false">הוסף תווית</string>
+    <string name="add_label_failed" formatted="false">נכשל הוספת תווית: {error}</string>
+    <string name="add_name" formatted="false">הוסף שם</string>
+    <string name="add_none_subscription" formatted="false">הוסף מנוי ללא פעולה</string>
+    <string name="add_phone_mark" formatted="false">הוסף סימן טלפון</string>
+    <string name="add_phone_number_rule" formatted="false">הוסף כלל מספר טלפון</string>
+    <string name="add_plugin" formatted="false">הוסף תוסף</string>
+    <string name="add_plugin_failed" formatted="false">נכשל הוספת תוסף</string>
+    <string name="add_plugin_failed_with_error" formatted="false">נכשל הוספת תוסף: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">הוסף תוסף מקובץ מקומי</string>
+    <string name="add_plugin_from_url" formatted="false">הוסף תוסף מ-URL</string>
+    <string name="add_regex_rule" formatted="false">הוסף כלל Regex</string>
+    <string name="add_rule" formatted="false">הוסף כלל</string>
+    <string name="add_rule_failed" formatted="false">נכשל הוספת כלל: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">הוסף כלל</string>
+    <string name="add_silence_subscription" formatted="false">הוסף מנוי השתקה</string>
+    <string name="add_sms_filter_rule" formatted="false">הוסף כלל סינון SMS</string>
+    <string name="add_sms_rule" formatted="false">הוסף כלל SMS</string>
+    <string name="add_sms_subscription" formatted="false">הוסף מנוי SMS</string>
+    <string name="add_subscription" formatted="false">הוסף מנוי</string>
+    <string name="add_subscription_button" formatted="false">הוסף מנוי</string>
+    <string name="add_subscription_failed" formatted="false">נכשל הוספת מנוי: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">הוסף מנוי</string>
+    <string name="add_to_blacklist" formatted="false">הוסף לרשימה השחורה</string>
+    <string name="add_to_favorites" formatted="false">הוסף למועדפים</string>
+    <string name="add_to_rules" formatted="false">הוסף לכללים</string>
+    <string name="add_to_whitelist" formatted="false">הוסף לרשימה הלבנה</string>
+    <string name="added_to_favorites" formatted="false">נוסף למועדפים</string>
+    <string name="advanced_mode" formatted="false">מצב מתקדם</string>
+    <string name="agent" formatted="false">סוכן</string>
+    <string name="agree_votes" formatted="false">הסכמה: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">הכל</string>
+    <string name="all_call_logs_cleared" formatted="false">כל יומני השיחות נוקו</string>
+    <string name="all_calls_tab" formatted="false">הכל</string>
+    <string name="all_permissions_granted" formatted="false">כל ההרשאות הוענקו</string>
+    <string name="all_services_status_subtitle" formatted="false">סטטוס נוכחי של כל שירותי הענן</string>
+    <string name="all_services_status_title" formatted="false">סטטוס שירותים נוכחי</string>
+    <string name="all_settings_completed" formatted="false">כל ההגדרות הושלמו.</string>
+    <string name="all_update_success" formatted="false">כל העדכונים הושלמו ({count} כללים)</string>
+    <string name="allow" formatted="false">אפשר</string>
+    <string name="allow_action_description" formatted="false">שיחות יורשו, גם אם המספר נמצא ברשימת החסימה.</string>
+    <string name="allow_all_allow_rules" formatted="false">אפשר את כל כללי האישור</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">אפשר שיחות מכללי האישור</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">אפשר את כל המספרים החסומים</string>
+    <string name="allow_all_block_rules" formatted="false">אפשר את כל כללי החסימה</string>
+    <string name="allow_all_block_rules_desc" formatted="false">אפשר שיחות מכללי החסימה</string>
+    <string name="allow_allowed_numbers" formatted="false">אפשר מספרים מורשים</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">אפשר שיחות מרשימת האישור</string>
+    <string name="allow_block" formatted="false">אישור/חסימה</string>
+    <string name="allow_blocked_numbers" formatted="false">אפשר מספרים חסומים</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">אפשר שיחות מרשימת החסימה</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">אפשר מספרים שלא חרגו מהסף</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">אפשר באופן אוטומטי מספרים שלא חרגו מסף הכמות</string>
+    <string name="allow_regex_allow_rules" formatted="false">אפשר כללי Regex לאישור</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">אפשר התאמת תבנית Regex לכללי אישור</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">אפשר כללי אישור מבוססי Regex</string>
+    <string name="allow_regex_block_rules" formatted="false">אפשר כללי Regex לחסימה</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">אפשר התאמת תבנית Regex לכללי חסימה</string>
+    <string name="allow_regex_block_rules_description" formatted="false">אפשר כללי חסימה מבוססי Regex</string>
+    <string name="allow_rule" formatted="false">כלל אישור</string>
+    <string name="allow_rules" formatted="false">כללי אישור</string>
+    <string name="allowed_blocked_rule" formatted="false">כלל אישור/חסימה</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">ערוך כלל אישור/חסימה</string>
+    <string name="allowed_blocked_rule_management" formatted="false">ניהול כללי אישור/חסימה</string>
+    <string name="allowed_blocked_rules_info" formatted="false">כללים מותרים/חסומים משמשים להתאמת שיחות למספרי טלפון ספציפיים, בעלי עדיפות הגבוהה ביותר.</string>
+    <string name="and_more_items" formatted="false">ועוד {count} פריטים</string>
+    <string name="answer_then_hangup" formatted="false">ענה ואז נתק</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">Your Call Your Rule</string>
+    <string name="application_software" formatted="false">תוכנת יישום</string>
+    <string name="apply" formatted="false">החל</string>
+    <string name="approved" formatted="false">אושר</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">אימות נכשל: אנא בדוק את מזהה הלקוח והמפתח</string>
+    <string name="authorization_failed_message" formatted="false">אימות נכשל</string>
+    <string name="authorization_success_message" formatted="false">אימות הצליח</string>
+    <string name="authorize_login_button" formatted="false">אשר כניסה</string>
+    <string name="auto_cancel_notification" formatted="false">ביטול אוטומטי של התראה</string>
+    <string name="auto_cancel_notification_description" formatted="false">אם מסומן, ההתראה תבוטל אוטומטית כאשר המשתמש לוחץ עליה.</string>
+    <string name="auto_sync_label" formatted="false">סנכרון אוטומטי</string>
+    <string name="auto_update" formatted="false">עדכון אוטומטי</string>
+    <string name="auto_update_description" formatted="false">הגדר מרווחי עדכון אוטומטיים למנויים או עדכן ידנית</string>
+    <string name="auto_update_settings" formatted="false">הגדרות עדכון אוטומטי</string>
+    <string name="auto_update_subtitle" formatted="false">נהל עדכונים אוטומטיים עבור כללים ותוספים</string>
+    <string name="auto_update_title" formatted="false">עדכון אוטומטי</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">תעשיית הרכב</string>
+    <string name="avatar" formatted="false">תמונת פרופיל</string>
+    <string name="avatar_border_color" formatted="false">צבע גבול התמונה האישית</string>
+    <string name="avatar_border_size" formatted="false">גודל גבול התמונה האישית</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">גודל תמונות אישיות וסמלים</string>
+    <string name="avatar_position" formatted="false">מיקום תמונה אישית</string>
+    <string name="avatar_size" formatted="false">גודל תמונה אישית</string>
+    <string name="axis_position" formatted="false">מיקום {axis}</string>
+    <string name="background_gradient_setting" formatted="false">מעבר צבע רקע</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">גיבוי</string>
+    <string name="backup_and_restore" formatted="false">גיבוי ושחזור</string>
+    <string name="backup_and_restore_subtitle" formatted="false">גבה או שחזר נתוני יישום</string>
+    <string name="backup_and_restore_title" formatted="false">גיבוי ושחזור</string>
+    <string name="backup_failed" formatted="false">גיבוי נכשל</string>
+    <string name="backup_settings" formatted="false">הגדרות גיבוי</string>
+    <string name="backup_to_cloud" formatted="false">גיבוי לענן</string>
+    <string name="backup_to_cloud_failed" formatted="false">כשל בגיבוי לענן: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">הועלה בהצלחה לענן</string>
+    <string name="bank" formatted="false">בנק</string>
+    <string name="basic_info" formatted="false">מידע בסיסי</string>
+    <string name="basic_rule_filter" formatted="false">מסנן כללים בסיסי</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">סנן שיחות באמצעות רשימה שחורה/לבנה וביטויים רגולריים</string>
+    <string name="basic_rule_filtering" formatted="false">סינון כללים בסיסי</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• סינון כללים בסיסי: סינון כללים על בסיס רשימה שחורה, רשימה לבנה וביטויים רגולריים</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">האם אתה בטוח שברצונך למחוק {count} אנשי קשר נבחרים?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">האם אתה בטוח שברצונך למחוק {count} תוויות?</string>
+    <string name="battery_optimization_permission" formatted="false">אופטימיזציה של סוללה</string>
+    <string name="battery_optimization_permission_description" formatted="false">אפשר לאפליקציה לפעול ברקע כדי לספק שירותים כמו זיהוי מתקשר.</string>
+    <string name="black_white_list" formatted="false">רשימה שחורה/לבנה</string>
+    <string name="blacklist" formatted="false">רשימה שחורה</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">רישום שחור ולבן</string>
+    <string name="block" formatted="false">חסום</string>
+    <string name="block_action_description" formatted="false">שיחות ייחסמו ויוצגו ביומן השיחות.</string>
+    <string name="block_calls" formatted="false">חסום שיחות</string>
+    <string name="block_international_calls" formatted="false">מתאים למספרים שאינם מתחילים ב- + או 00</string>
+    <string name="block_international_calls_title" formatted="false">חסום שיחות בינלאומיות</string>
+    <string name="block_mobile_numbers" formatted="false">מתאים למספרים שאינם מתחילים ב- 13-19</string>
+    <string name="block_mobile_numbers_title" formatted="false">חסום מספרי סלולר</string>
+    <string name="block_number" formatted="false">חסום מספר</string>
+    <string name="block_number_success" formatted="false">חסימת מספר הצליחה</string>
+    <string name="block_premium_rate_numbers" formatted="false">מתאים למספרים שאינם מתחילים ב- 118 או 120-190</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">חסום מספרי פרימיום</string>
+    <string name="block_rule" formatted="false">כלל חסימה</string>
+    <string name="block_rules" formatted="false">כללי חסימה</string>
+    <string name="block_specific_area_codes" formatted="false">מתאים למספרים שמתחילים ב- 0 + 2-3 ספרות</string>
+    <string name="block_specific_area_codes_title" formatted="false">חסום קידומות אזור ספציפיות:</string>
+    <string name="block_type_analysis_title" formatted="false">ניתוח סוגי חסימות</string>
+    <string name="blocked" formatted="false">חסום</string>
+    <string name="blocked_call_body" formatted="false">שיחה חסומה מ- {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">התראות שיחות חסומות</string>
+    <string name="blocked_call_notifications_description" formatted="false">מציג מידע על שיחות חסומות.</string>
+    <string name="blocked_call_title" formatted="false">שיחה חסומה</string>
+    <string name="blocked_calls" formatted="false">שיחות חסומות</string>
+    <string name="blocked_calls_title" formatted="false">שיחות חסומות</string>
+    <string name="blocked_spam_calls" formatted="false">שיחות ספאם חסומות</string>
+    <string name="blocking_trend" formatted="false">מגמת חסימה</string>
+    <string name="both" formatted="false">שניהם</string>
+    <string name="bulk_delete" formatted="false">מחיקת אנשי קשר באצווה</string>
+    <string name="bulk_delete_contacts" formatted="false">מחיקת אנשי קשר באצווה</string>
+    <string name="bulk_delete_labels" formatted="false">מחיקת תוויות באצווה</string>
+    <string name="call" formatted="false">שיחה</string>
+    <string name="call_blocking" formatted="false">חסימת שיחות</string>
+    <string name="call_details" formatted="false">פרטי שיחה</string>
+    <string name="call_filter_rules" formatted="false">כללי סינון שיחות</string>
+    <string name="call_filter_rules_description" formatted="false">הגדר כללים בסיסיים לסינון שיחות</string>
+    <string name="call_filter_settings" formatted="false">הגדרות סינון שיחות</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">הגדר מגבלות תדירות שיחות וכללי חסימה</string>
+    <string name="call_frequency_interception_title" formatted="false">יירוט תדירות שיחות</string>
+    <string name="call_history" formatted="false">היסטוריית שיחות</string>
+    <string name="call_history_info_desc" formatted="false">כאן מוצגת היסטוריית השיחות שלך, כולל שיחות נכנסות, יוצאות ולא נענו.</string>
+    <string name="call_history_info_title" formatted="false">היסטוריית שיחות</string>
+    <string name="call_history_tab" formatted="false">היסטוריית שיחות</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">הרשאת סינון שיחות</string>
+    <string name="call_screening_permission_description" formatted="false">משמש לסינון וחסימת שיחות ספאם.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">הרשאת סינון שיחות לא הוענקה, עשויה להשפיע על פונקציונליות האפליקציה.</string>
+    <string name="call_statistics" formatted="false">סטטיסטיקות שיחות</string>
+    <string name="call_time" formatted="false">זמן שיחה</string>
+    <string name="call_type" formatted="false">סוג שיחה</string>
+    <string name="call_type_answered" formatted="false">נענו</string>
+    <string name="call_type_blocked" formatted="false">נחסמו</string>
+    <string name="call_type_icon_color" formatted="false">צבע אייקון סוג שיחה</string>
+    <string name="call_type_missed" formatted="false">שיחה שלא נענתה</string>
+    <string name="call_type_outgoing" formatted="false">יוצאת</string>
+    <string name="call_type_position" formatted="false">מיקום סוג שיחה</string>
+    <string name="call_type_rejected" formatted="false">נדחה</string>
+    <string name="call_type_silenced" formatted="false">הושתק</string>
+    <string name="call_type_unknown" formatted="false">לא ידוע</string>
+    <string name="callback" formatted="false">התקשר בחזרה</string>
+    <string name="caller_id_app" formatted="false">אפליקציית מזהה מתקשר</string>
+    <string name="caller_id_customization_subtitle" formatted="false">התאמה אישית של פריסת מזהה מתקשר</string>
+    <string name="caller_id_customization_title" formatted="false">התאם אישית את מזהה המתקשר</string>
+    <string name="caller_id_display_mode" formatted="false">מצב תצוגת מזהה המתקשר</string>
+    <string name="caller_id_enhancement" formatted="false">שיפור מזהה מתקשר</string>
+    <string name="caller_id_marked_by_count" formatted="false">סומן על ידי {count}</string>
+    <string name="caller_id_notification_title" formatted="false">מידע על שיחה נכנסת</string>
+    <string name="caller_id_preview" formatted="false">תצוגה מקדימה של מזהה המתקשר</string>
+    <string name="caller_id_settings_subtitle" formatted="false">להגדרת התראה ותצוגה של שיחה נכנסת</string>
+    <string name="caller_id_settings_title" formatted="false">הגדרות מזהה מתקשר</string>
+    <string name="calling_number_failed" formatted="false">שיחת מספר נכשלה</string>
+    <string name="cancel" formatted="false">בטל</string>
+    <string name="cancel_button" formatted="false">ביטול</string>
+    <string name="cancel_local_notification" formatted="false">סגור התראות מקומיות</string>
+    <string name="cancel_local_notification_description" formatted="false">סגור התראות מקומיות באופן אוטומטי</string>
+    <string name="car_rental" formatted="false">השכרת רכב</string>
+    <string name="carrier" formatted="false">ספק</string>
+    <string name="carrier_color" formatted="false">צבע ספק</string>
+    <string name="carrier_font_size" formatted="false">גודל גופן ספק</string>
+    <string name="carrier_position" formatted="false">מיקום ספק</string>
+    <string name="change_label" formatted="false">שנה תווית</string>
+    <string name="change_plugin_status_failed" formatted="false">נכשל בשינוי סטטוס תוסף: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">נכשל בשינוי סטטוס מנוי: {error}</string>
+    <string name="charity" formatted="false">צדקה</string>
+    <string name="chart_one_week_ago" formatted="false">לפני שבוע אחד</string>
+    <string name="chart_three_days_ago" formatted="false">לפני 3 ימים</string>
+    <string name="chart_today" formatted="false">היום</string>
+    <string name="check_file_format" formatted="false">אנא בדוק את פורמט הקובץ או הרשאות</string>
+    <string name="check_permission_failed" formatted="false">נכשל בבדיקת הרשאות: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">בחר את פעולת היירוט המוגדרת כברירת מחדל</string>
+    <string name="clear_all_call_logs" formatted="false">נקה את כל יומני השיחות</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">אשר לנקות את כל יומני השיחות</string>
+    <string name="clear_all_notifications" formatted="false">נקה את כל ההתראות</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">אשר לנקות את כל ההתראות</string>
+    <string name="clear_button" formatted="false">נקה</string>
+    <string name="clear_filter" formatted="false">נקה מסנן</string>
+    <string name="clear_label_filter_button" formatted="false">נקה מסנן תווית</string>
+    <string name="close_button" formatted="false">סגור</string>
+    <string name="cloud_backup" formatted="false">גיבוי בענן</string>
+    <string name="cloud_sync" formatted="false">סנכרון ענן</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">סנכרון וגיבוי בענן</string>
+    <string name="cloud_sync_service" formatted="false">שירות סנכרון ענן</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">הגדר WebDAV, OneDrive ו-Google Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">הגדרות סנכרון ענן</string>
+    <string name="cloud_sync_title" formatted="false">סנכרון ענן</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">גביית חובות</string>
+    <string name="color_picker_title" formatted="false">בחר צבע</string>
+    <string name="community_impact" formatted="false">השפעה קהילתית</string>
+    <string name="community_participation" formatted="false">השתתפות קהילתית</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">הצבעות קהילה</string>
+    <string name="community_voting_started" formatted="false">הצבעת הקהילה החלה</string>
+    <string name="community_voting_started_body" formatted="false">הצעת מחיקה חדשה למספר {phoneNumber} פתוחה כעת להצבעת הקהילה.</string>
+    <string name="completed" formatted="false">הושלם</string>
+    <string name="config_management" formatted="false">ניהול תצורה</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">תצורה עודכנה</string>
+    <string name="configuration_advice" formatted="false">באמצעות תצורה נכונה, ניתן להגדיר אסטרטגיות סינון שונות עבור SIM עבודה ואישי.</string>
+    <string name="configure_backup_options" formatted="false">הגדר אפשרויות גיבוי</string>
+    <string name="configure_cloud_sync_service" formatted="false">הגדר שירות סנכרון ענן</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">אנא הגדר שירות סנכרון ענן כדי לאפשר סנכרון בין מספר מכשירים.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">הגדר כללי סינון כרטיס SIM</string>
+    <string name="confirm" formatted="false">אישור</string>
+    <string name="confirm_button" formatted="false">אישור</string>
+    <string name="confirm_delete" formatted="false">אישור מחיקה</string>
+    <string name="confirm_delete_label" formatted="false">האם אתה בטוח שברצונך למחוק את התווית &quot;{name}&quot;</string>
+    <string name="confirm_delete_plugin" formatted="false">האם אתה בטוח שברצונך למחוק את התוסף &quot;{name}&quot;?</string>
+    <string name="confirm_delete_plugins" formatted="false">האם אתה בטוח שברצונך למחוק {count} תוספים?</string>
+    <string name="confirm_delete_rule_message" formatted="false">האם אתה בטוח שברצונך למחוק כלל זה? לא ניתן לבטל פעולה זו.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">האם אתה בטוח שברצונך למחוק כלל מסנן SMS זה?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">האם אתה בטוח שברצונך למחוק כלל SMS זה?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">האם אתה בטוח שברצונך למחוק {name}?</string>
+    <string name="confirm_password" formatted="false">אישור סיסמה</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">מחובר</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">החיבור נכשל: אנא בדוק את כתובת השרת, שם המשתמש והסיסמה</string>
+    <string name="connection_failed_message" formatted="false">החיבור נכשל</string>
+    <string name="connection_status_label" formatted="false">סטטוס חיבור</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">החיבור הצליח</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">איש קשר נוסף בהצלחה</string>
+    <string name="contact_deleted" formatted="false">איש קשר נמחק</string>
+    <string name="contact_name_label" formatted="false">שם</string>
+    <string name="contact_not_found" formatted="false">איש קשר לא נמצא</string>
+    <string name="contact_subscription_description" formatted="false">הירשם לרשימות אנשי קשר באמצעות URL, עדכן אוטומטית פרטי אנשי קשר ותוויות. תומך בנתוני פורמט JSON.</string>
+    <string name="contact_update_success" formatted="false">איש קשר עודכן בהצלחה</string>
+    <string name="contact_us" formatted="false">צור קשר</string>
+    <string name="contacts" formatted="false">אנשי קשר</string>
+    <string name="contacts_deleted" formatted="false">נמחקו {count} אנשי קשר</string>
+    <string name="contacts_management" formatted="false">ניהול אנשי קשר</string>
+    <string name="contacts_permission" formatted="false">הרשאת אנשי קשר</string>
+    <string name="contacts_permission_description" formatted="false">משמש לזיהוי שיחות מאנשי קשר.</string>
+    <string name="contacts_tab" formatted="false">אנשי קשר</string>
+    <string name="container_width" formatted="false">רוחב מכלול</string>
+    <string name="content" formatted="false">תוכן</string>
+    <string name="content_regex" formatted="false">ביטוי רגולרי לתוכן</string>
+    <string name="count_color" formatted="false">צבע ספירה</string>
+    <string name="count_font_size" formatted="false">גודל גופן ספירה</string>
+    <string name="count_position" formatted="false">מיקום ספירה</string>
+    <string name="count_threshold_description" formatted="false">הגדר את סף הספירה המינימלי הנדרש להפעלת פעולות סינון</string>
+    <string name="count_threshold_label" formatted="false">סף ספירה</string>
+    <string name="country" formatted="false">מדינה</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">לדוגמה, US, CN, GB</string>
+    <string name="country_code_label" formatted="false">קידומת מדינה (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">קידומת מדינה נדרשת</string>
+    <string name="country_code_two_letters" formatted="false">קידומת מדינה (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">שימו לב: מסד הנתונים עשוי שלא לכלול נתונים עבור כל המדינות או האזורים הספציפיים.</string>
+    <string name="country_name_color" formatted="false">צבע שם מדינה</string>
+    <string name="country_name_font_size" formatted="false">גודל גופן שם מדינה</string>
+    <string name="country_region_name_position" formatted="false">מיקום שם מדינה/אזור</string>
+    <string name="country_sync_settings_subtitle" formatted="false">בחר מדינות לסנכרון נתונים</string>
+    <string name="country_sync_settings_title" formatted="false">הגדרות סנכרון מסד נתונים מבוסס מדינה</string>
+    <string name="create_proposal" formatted="false">צור הצעת מחיקה</string>
+    <string name="create_proposal_title" formatted="false">צור הצעת מחיקה</string>
+    <string name="created_at" formatted="false">נוצר: {date}</string>
+    <string name="created_rules" formatted="false">כללים שנוצרו</string>
+    <string name="critical" formatted="false">קריטי</string>
+    <string name="critical_issues" formatted="false">בעיות קריטיות</string>
+    <string name="csv_format" formatted="false">פורמט CSV</string>
+    <string name="current_device_label" formatted="false">תווית התקן נוכחי</string>
+    <string name="current_device_title" formatted="false">התקן נוכחי</string>
+    <string name="current_language" formatted="false">שפה נוכחית</string>
+    <string name="current_mark_count" formatted="false">כמות סימנים נוכחית</string>
+    <string name="custom" formatted="false">מותאם אישית</string>
+    <string name="custom_action_description" formatted="false">בצע פעולה מותאמת אישית.</string>
+    <string name="customer_service" formatted="false">שירות לקוחות</string>
+    <string name="dashboard_tab" formatted="false">לוח מחוונים</string>
+    <string name="data_analysis" formatted="false">ניתוח נתונים</string>
+    <string name="data_load_failure" formatted="false">טעינת נתונים נכשלה: {error}</string>
+    <string name="data_loading_failed" formatted="false">טעינת נתונים נכשלה: {error}</string>
+    <string name="data_migration" formatted="false">העברת נתונים</string>
+    <string name="data_migration_description" formatted="false">תכונה זו מאפשרת לך להעביר את כל הנתונים שלך בין מכשירים. כרגע, תוכל להשתמש בתכונות הגיבוי והשחזור כדי להעביר את הנתונים שלך באופן ידני.</string>
+    <string name="data_source_disclaimer" formatted="false">מספרים נלקחים מהאינטרנט ומדיווחים של משתמשים. איננו יכולים להבטיח שמספר, לאחר שנמחק, לא יוגש מחדש על ידי משתמשים או מקורות אחרים. אנא חפש ואמת מידע באופן פעיל.</string>
+    <string name="data_source_reminder" formatted="false">תזכורת מקור נתונים</string>
+    <string name="database_sync_title" formatted="false">סנכרון מסד נתונים</string>
+    <string name="days" formatted="false">{count, plural, =1{יום אחד} other{{count} ימים}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{לפני יום אחד} other{לפני {count} ימים}}</string>
+    <string name="days_vip" formatted="false">{days} ימי VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">גביית חובות</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">התראות ברירת מחדל</string>
+    <string name="default_notifications_description" formatted="false">ערוץ ההתראות ברירת המחדל לאפליקציה.</string>
+    <string name="delete" formatted="false">מחק</string>
+    <string name="delete_button" formatted="false">מחק</string>
+    <string name="delete_contact" formatted="false">מחק איש קשר</string>
+    <string name="delete_contact_confirm" formatted="false">האם אתה בטוח שברצונך למחוק את {name}?</string>
+    <string name="delete_failed" formatted="false">מחיקה נכשלה: {error}</string>
+    <string name="delete_label" formatted="false">מחק תווית</string>
+    <string name="delete_label_failed" formatted="false">מחיקת תווית נכשלה: {error}</string>
+    <string name="delete_plugin" formatted="false">מחק תוסף</string>
+    <string name="delete_plugin_failed" formatted="false">מחיקת תוסף נכשלה: {error}</string>
+    <string name="delete_plugins" formatted="false">מחק תוספים</string>
+    <string name="delete_plugins_failed" formatted="false">מחיקת תוספים נכשלה: {error}</string>
+    <string name="delete_rule" formatted="false">מחק כלל</string>
+    <string name="delete_rule_failed" formatted="false">מחיקה נכשלה: {error}</string>
+    <string name="delete_selected" formatted="false">מחק נבחרים</string>
+    <string name="delete_subscription" formatted="false">מחק מנוי</string>
+    <string name="delete_subscription_confirm" formatted="false">האם אתה בטוח שברצונך למחוק את המנוי &quot;{name}&quot;?</string>
+    <string name="delete_subscription_failed" formatted="false">מחיקת מנוי נכשלה: {error}</string>
+    <string name="delete_success" formatted="false">המחיקה הצליחה</string>
+    <string name="deletion_proposal" formatted="false">הצעת מחיקה</string>
+    <string name="deletion_proposal_created" formatted="false">הצעת מחיקה נוצרה</string>
+    <string name="deletion_proposal_created_body" formatted="false">הצעת המחיקה שלך למספר {phoneNumber} הוגשה לבדיקת הקהילה.</string>
+    <string name="deletion_proposal_description" formatted="false">הצע למספרים למחיקה המפרים את כללי הקהילה. השתתפותך עוזרת לשמור על הפלטפורמה בטוחה.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">התראות על תוצאות ועדכונים של הצבעות להצעות מחיקה.</string>
+    <string name="deletion_proposals" formatted="false">הצעות מחיקה</string>
+    <string name="delivery" formatted="false">משלוח</string>
+    <string name="description" formatted="false">תיאור</string>
+    <string name="detailed_settings_title" formatted="false">הגדרות מפורטות</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">מזהה התקן</string>
+    <string name="device_management_subtitle" formatted="false">נהל סנכרון בין מספר התקנים</string>
+    <string name="device_management_title" formatted="false">ניהול התקנים</string>
+    <string name="device_model_label" formatted="false">דגם התקן</string>
+    <string name="device_name" formatted="false">שם התקן</string>
+    <string name="device_name_label" formatted="false">שם מכשיר</string>
+    <string name="device_renamed_successfully_message" formatted="false">המכשיר שונה בהצלחה</string>
+    <string name="device_unregistered_successfully_message" formatted="false">המכשיר נרשם בהצלחה</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">מכשירים סונכרנו בהצלחה</string>
+    <string name="dialog_title" formatted="false">הסבר דפוס Regex</string>
+    <string name="different_from_local_counter" formatted="false">תכונה זו שונה ממסנן המונה המקומי, שכן היא מתמקדת בדפוסי שיחות חוזרים בפרק זמן קצר במקום בספירת סימונים לטווח ארוך.</string>
+    <string name="disable_global_plugins" formatted="false">בטל פלאגינים גלובליים</string>
+    <string name="disabled" formatted="false">מושבת</string>
+    <string name="disabled_status" formatted="false">מושבת</string>
+    <string name="disconnect_button" formatted="false">נתק</string>
+    <string name="disconnect_failed_message" formatted="false">ניתוק נכשל</string>
+    <string name="disconnected_message" formatted="false">מנותק</string>
+    <string name="disconnected_status" formatted="false">מנותק</string>
+    <string name="done" formatted="false">סיום</string>
+    <string name="dual_sim_advice" formatted="false">תכונה זו שימושית במיוחד עבור טלפונים עם שני SIM כדי להגדיר אסטרטגיות סינון שונות עבור כרטיסי SIM עבודה ואישיים.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">מספר E164</string>
+    <string name="earlier" formatted="false">מוקדם יותר</string>
+    <string name="earned_temp_vip" formatted="false">זכית ב-VIP זמני</string>
+    <string name="ecommerce" formatted="false">מסחר אלקטרוני</string>
+    <string name="edit" formatted="false">ערוך</string>
+    <string name="edit_contact" formatted="false">ערוך איש קשר</string>
+    <string name="edit_label" formatted="false">ערוך תווית</string>
+    <string name="edit_phone_rule" formatted="false">ערוך כלל טלפון</string>
+    <string name="edit_rule" formatted="false">ערוך כלל</string>
+    <string name="edit_script" formatted="false">ערוך סקריפט</string>
+    <string name="edit_script_for" formatted="false">ערוך סקריפט עבור {pluginName}</string>
+    <string name="edit_subscription" formatted="false">ערוך מנוי</string>
+    <string name="education" formatted="false">חינוך</string>
+    <string name="element_positions_setting" formatted="false">מיקומי אלמנטים</string>
+    <string name="elements_settings_title" formatted="false">הגדרות אלמנטים</string>
+    <string name="email" formatted="false">דוא&quot;ל</string>
+    <string name="enable_call_filter" formatted="false">אפשר סינון שיחות</string>
+    <string name="enable_call_filter_description" formatted="false">כאשר מופעל, שיחות נכנסות נבדקות מול רשימת הכללים למטה. כללי סינון שיחות אינם מסונכרנים בין מכשירים כברירת מחדל.</string>
+    <string name="enable_encryption" formatted="false">אפשר הצפנה</string>
+    <string name="enable_encryption_description" formatted="false">הצפן קבצי גיבוי</string>
+    <string name="enable_filtering" formatted="false">אפשר סינון</string>
+    <string name="enable_fraud_alert" formatted="false">הפעל התראת הונאה</string>
+    <string name="enable_fraud_alert_description" formatted="false">התראות לשיחות חשודות כהונאה</string>
+    <string name="enable_global_plugins" formatted="false">אפשר פלאגינים גלובליים</string>
+    <string name="enable_local_count_filter" formatted="false">אפשר מסנן מונה מקומי</string>
+    <string name="enable_local_count_filter_description" formatted="false">סנן אוטומטית שיחות ספאם על פי ספירת סימוני שיחות</string>
+    <string name="enable_local_notification" formatted="false">השתמש בהתראות מקומיות</string>
+    <string name="enable_local_notification_description" formatted="false">כאשר מופעל, התראות להודעות מסוננות יוצגו במכשיר</string>
+    <string name="enable_location_summary" formatted="false">מיקום</string>
+    <string name="enable_mute_rules" formatted="false">אפשר כללי השתקה</string>
+    <string name="enable_mute_rules_desc" formatted="false">החל תצורת כללי חסימת השתקה</string>
+    <string name="enable_none_action_rules" formatted="false">אפשר כללים ללא פעולה</string>
+    <string name="enable_none_action_rules_desc" formatted="false">אפשר הגדרות כללים ללא פעולות חסימה</string>
+    <string name="enable_remote_number_filter" formatted="false">אפשר מסנן מספרים מרוחקים</string>
+    <string name="enable_remote_number_filter_description" formatted="false">השתמש במסד נתונים מרוחק לסינון מספרים</string>
+    <string name="enable_rule" formatted="false">אפשר כלל</string>
+    <string name="enable_security_message" formatted="false">הפעל הודעת אבטחה</string>
+    <string name="enable_sms_filter" formatted="false">אפשר סינון SMS</string>
+    <string name="enable_sms_filter_description" formatted="false">כאשר מופעל, הודעות יסוננו אוטומטית לפי הכללים</string>
+    <string name="enable_time_interception" formatted="false">אפשר חסימת זמן</string>
+    <string name="enable_time_interception_description" formatted="false">חסום שיחות חוזרות בפרק זמן קצר</string>
+    <string name="enable_time_interceptor" formatted="false">אפשר חוסם זמן</string>
+    <string name="enable_vibration" formatted="false">הפעל רטט</string>
+    <string name="enable_vibration_description" formatted="false">רעד כאשר שיחות חשודות כהונאה</string>
+    <string name="enabled" formatted="false">מופעל</string>
+    <string name="enabled_status" formatted="false">מופעל</string>
+    <string name="end_call_immediately" formatted="false">סיים שיחה באופן מיידי</string>
+    <string name="end_color" formatted="false">צבע סיום</string>
+    <string name="end_date" formatted="false">תאריך סיום</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">מערכת סינון משופרת</string>
+    <string name="enhanced_filter_settings" formatted="false">הגדרות סינון משופרות</string>
+    <string name="enhanced_filter_settings_title" formatted="false">הגדרות סינון משופרות</string>
+    <string name="enhanced_filter_system_description" formatted="false">מערכת הסינון המשופרת תומכת בכללים גלובליים ובהגדרות סינון לכל כרטיס SIM.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">אנא הכנס גם מספר טלפון וגם דפוס Regex.</string>
+    <string name="enter_contact_name" formatted="false">אנא הכנס שם איש קשר</string>
+    <string name="enter_device_name" formatted="false">הכנס שם מכשיר</string>
+    <string name="enter_email_optional" formatted="false">אנא הכנס דוא&quot;ל (אופציונלי)</string>
+    <string name="enter_encryption_password_hint" formatted="false">הכנס סיסמת הצפנה</string>
+    <string name="enter_icon_code" formatted="false">הכנס קוד אייקון</string>
+    <string name="enter_name" formatted="false">הכנס שם איש קשר</string>
+    <string name="enter_new_device_name_hint" formatted="false">הכנס שם חדש למכשיר זה</string>
+    <string name="enter_password_again" formatted="false">הכנס סיסמה שוב</string>
+    <string name="enter_phone_number" formatted="false">הכנס מספר טלפון</string>
+    <string name="enter_phone_number_hint" formatted="false">הכנס מספר טלפון לבדיקה</string>
+    <string name="enter_phone_number_multiple" formatted="false">אנא הכנס מספר טלפון, מספרים מרובים מופרדים בפסיקים</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">הכנס מספר טלפון להתחלת חיפוש</string>
+    <string name="enter_phone_number_to_verify" formatted="false">הכנס מספר טלפון לאימות</string>
+    <string name="enter_plugin_description" formatted="false">הכנס תיאור פלאגין</string>
+    <string name="enter_plugin_name" formatted="false">הכנס שם פלאגין</string>
+    <string name="enter_plugin_url" formatted="false">הכנס כתובת URL של פלאגין</string>
+    <string name="enter_regex_hint" formatted="false">הכנס דפוס Regex</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">נא להזין שם כלל ותבנית Regex.</string>
+    <string name="enter_rule_name_hint" formatted="false">הזן שם כלל</string>
+    <string name="enter_search_content" formatted="false">נא להזין תוכן לחיפוש</string>
+    <string name="enter_subscription_name" formatted="false">הזן שם מנוי</string>
+    <string name="enter_subscription_url" formatted="false">הזן כתובת URL למנוי</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">נא להזין שם תיקיית סינכרון (ברירת מחדל: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">נא להזין שם וכתובת URL תקינים</string>
+    <string name="enter_valid_url" formatted="false">נא להזין כתובת URL תקינה</string>
+    <string name="enter_version" formatted="false">הזן גרסה</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">נא להזין סיסמת WebDAV</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">נא להזין כתובת שרת WebDAV</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">נא להזין שם משתמש WebDAV</string>
+    <string name="entertainment" formatted="false">בידור</string>
+    <string name="entity_export_failed" formatted="false">נכשל ייצוא {entityTypeName}: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} ייוצא בהצלחה</string>
+    <string name="entity_import_failed" formatted="false">נכשל ייבוא {entityTypeName}: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} יובא בהצלחה, סך הכל {count} רשומות יובאו</string>
+    <string name="entry_point_view_title" formatted="false">תצוגת נקודת כניסה</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">שגיאה: {error}</string>
+    <string name="error_occurred_message" formatted="false">אירעה שגיאה: {error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">שגיאה בשינוי שם מכשיר: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">שגיאה בסנכרון מכשירים: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">שגיאה בהסרת רישום מכשיר: {error}</string>
+    <string name="example_block400_prefix" formatted="false">לדוגמה, חסימת מספרים מתחילים ב-400</string>
+    <string name="example_block_marketing_sms" formatted="false">לדוגמה, חסימת SMS שיווקיים</string>
+    <string name="example_content_regex_hint" formatted="false">דוגמה ל-Regex של תוכן</string>
+    <string name="example_coupon_promotion_discount" formatted="false">לדוגמה, .*(coupon|promotion|discount).*</string>
+    <string name="example_family_friends" formatted="false">לדוגמה, משפחה, חברים וכו\'.</string>
+    <string name="example_phone_number" formatted="false">לדוגמה, 10086, 12345, וכו\'.</string>
+    <string name="example_regex400_prefix" formatted="false">דוגמה ל-Regex עבור קידומת 400</string>
+    <string name="example_sender_regex_hint" formatted="false">דוגמה</string>
+    <string name="exchange" formatted="false">החלפה</string>
+    <string name="exchange_failed" formatted="false">החלפה נכשלה: {error}</string>
+    <string name="exchange_now" formatted="false">החלף עכשיו</string>
+    <string name="exchange_success" formatted="false">הוחלף בהצלחה עבור {description}, תאריך תפוגה: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">החלף VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">זמן תפוגה: {time}</string>
+    <string name="export" formatted="false">ייצוא</string>
+    <string name="export_all_application_settings" formatted="false">ייצא את כל הגדרות האפליקציה</string>
+    <string name="export_all_rule_configurations" formatted="false">ייצא את כל תצורות הכללים</string>
+    <string name="export_config" formatted="false">ייצוא תצורה</string>
+    <string name="export_contacts" formatted="false">ייצוא אנשי קשר</string>
+    <string name="export_data" formatted="false">ייצוא נתונים</string>
+    <string name="export_entity" formatted="false">ייצוא {entityTypeName}</string>
+    <string name="export_failed" formatted="false">הייצוא נכשל</string>
+    <string name="export_failure" formatted="false">נכשל בייצוא תצורה</string>
+    <string name="export_feature_coming_soon" formatted="false">תכונת הייצוא תגיע בקרוב</string>
+    <string name="export_labels" formatted="false">ייצוא תוויות</string>
+    <string name="export_labels_failed" formatted="false">נכשל בייצוא תוויות: {error}</string>
+    <string name="export_plugin_list" formatted="false">ייצוא רשימת פלאגינים</string>
+    <string name="export_plugin_list_failed" formatted="false">נכשל בייצוא רשימת פלאגינים: {error}</string>
+    <string name="export_rules" formatted="false">ייצוא כללים</string>
+    <string name="export_sms_rules" formatted="false">ייצוא כללי SMS</string>
+    <string name="export_statistics_data" formatted="false">ייצוא נתוני סטטיסטיקה</string>
+    <string name="export_successlly" formatted="false">התצורה יצאה בהצלחה</string>
+    <string name="failed_to_add_rule" formatted="false">נכשל בהוספת כלל: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">נכשל בהוספת מנוי SMS: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">נכשל בגיבוי הגדרות: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">נכשל בפיצוח קובץ גיבוי</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">נכשל במחיקת כלל SMS: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">נכשל בייצוא כללים: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">נכשל בקבלת מידע על מזהה מתקשר: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">נכשל בייבוא כללים: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">נכשל בשחזור הגדרות</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">נכשל בשחזור הגדרות: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">נכשל בהחלפת סטטוס כלל: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">אנשי קשר מועדפים</string>
+    <string name="feature" formatted="false">תכונה</string>
+    <string name="feature_add_rules" formatted="false">• הוספת כללים ספציפיים למספר טלפון</string>
+    <string name="feature_center" formatted="false">מרכז תכונות</string>
+    <string name="feature_enable_disable" formatted="false">• הפעלה/כיבוי של מסננים שונים לכל SIM</string>
+    <string name="feature_list_title" formatted="false">תכונות:</string>
+    <string name="feature_manage_rules" formatted="false">• ניהול רשימות כללים לכל SIM</string>
+    <string name="features" formatted="false">תכונות</string>
+    <string name="fetching_caller_id_info" formatted="false">מביא מידע על מזהה מתקשר...</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">הקובץ נשמר ב: {path}</string>
+    <string name="filter" formatted="false">סנן</string>
+    <string name="filter_and_sort_title" formatted="false">סנן ומיון</string>
+    <string name="filter_by" formatted="false">סנן לפי</string>
+    <string name="filter_by_action" formatted="false">סנן לפי פעולה</string>
+    <string name="filter_by_label" formatted="false">סנן לפי תווית</string>
+    <string name="filter_control_panel_title" formatted="false">פאנל בקרת סינון</string>
+    <string name="filter_control_subtitle" formatted="false">נהל את סטטוס ההפעלה/כיבוי של כל המסננים</string>
+    <string name="filter_control_title" formatted="false">בקרת סינון</string>
+    <string name="filter_explanation" formatted="false">הסבר סינון</string>
+    <string name="filter_management" formatted="false">ניהול סינון</string>
+    <string name="filter_management_description" formatted="false">הגדר מסנני שיחות</string>
+    <string name="filter_name" formatted="false">שם סינון</string>
+    <string name="filter_priority_note" formatted="false">הערה: קיימים יחסי עדיפות בין מסננים, אנא עיין בתיעוד העזרה לקבלת פרטים</string>
+    <string name="filter_s_m_s" formatted="false">סינון SMS</string>
+    <string name="filter_settings" formatted="false">הגדרות סינון</string>
+    <string name="filter_settings_title" formatted="false">הגדרות סינון</string>
+    <string name="filter_toggle_instructions" formatted="false">הפעל או השבת מסננים עבור חריץ SIM זה:</string>
+    <string name="filter_toggle_status" formatted="false">סנן {status}: {filterName}</string>
+    <string name="filter_type" formatted="false">סוג סינון</string>
+    <string name="filter_verified_owner" formatted="false">סנן בעלים מאומתים</string>
+    <string name="filtered" formatted="false">מסונן</string>
+    <string name="final_risk" formatted="false">סיכון סופי</string>
+    <string name="financial" formatted="false">פיננסי</string>
+    <string name="flexible_combination_feature" formatted="false">• שילובים גמישים: הפעל/השבת מסננים לפי חריץ SIM</string>
+    <string name="font_sizes_setting" formatted="false">גדלי גופן</string>
+    <string name="found_rules" formatted="false">נמצאו {count} כללים</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">להגדרת התראת הונאה</string>
+    <string name="fraud_aler_setting_title" formatted="false">הגדרת התראת הונאה</string>
+    <string name="fraud_alert" formatted="false">התראת הונאה - נתק את השיחה</string>
+    <string name="fraud_alert_title" formatted="false">התראת הונאה</string>
+    <string name="fraud_alerts" formatted="false">התראות הונאה</string>
+    <string name="fraud_alerts_description" formatted="false">מציג אזהרות עבור שיחות פוטנציאליות של הונאה.</string>
+    <string name="fraud_scam_likely" formatted="false">חשד להונאה/תרמית</string>
+    <string name="free" formatted="false">חינם</string>
+    <string name="function_settings_title" formatted="false">הגדרות פונקציה</string>
+    <string name="general_update_failure" formatted="false">עדכון נכשל: {error}</string>
+    <string name="get_free" formatted="false">קבל חינם</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">הגדר מסננים גלובליים עבור כל כרטיסי ה-SIM:</string>
+    <string name="global_filter_feature" formatted="false">• מסננים גלובליים: כללים בסיסיים לכל השיחות הנכנסות</string>
+    <string name="global_filter_settings" formatted="false">הגדרות מסנן גלובלי</string>
+    <string name="global_settings" formatted="false">הגדרות גלובליות</string>
+    <string name="google_drive_auth_description" formatted="false">אשר באמצעות מזהה הלקוח ומפתח Google Drive שהוגדרו במערכת</string>
+    <string name="google_drive_config_title" formatted="false">תצורת Google Drive</string>
+    <string name="government" formatted="false">ממשלה</string>
+    <string name="grant_necessary_permissions" formatted="false">הענק הרשאות נחוצות</string>
+    <string name="grant_permissions" formatted="false">הענק הרשאות</string>
+    <string name="granted" formatted="false">הוענק</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">הוענקו לך {days} ימי הרשאות רכישה זמניות. תאריך תפוגה: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">הנחיות</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">כבר יש לך הרשאות זמניות, תאריך תפוגה: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">כבר יש לך הרשאות VIP (למעט מודעות)</string>
+    <string name="headhunter" formatted="false">Headhunter</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">גובה</string>
+    <string name="high" formatted="false">גבוה</string>
+    <string name="high_risk" formatted="false">סיכון גבוה</string>
+    <string name="home_tab" formatted="false">בית</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{לפני שעה אחת} other{לפני {count} שעות}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 שעות} =1{שעה אחת} other{{count} שעות}}</string>
+    <string name="how_it_works_point1" formatted="false">• המערכת תאפשר אוטומטית שיחות מאותו מספר בתוך חלון הזמן שנקבע</string>
+    <string name="how_it_works_point2" formatted="false">• חלונות זמן קצרים יותר מובילים ליירוט קפדני יותר; חלונות זמן ארוכים יותר מובילים ליירוט פחות קפדני</string>
+    <string name="how_it_works_point3" formatted="false">• המערכת בודקת את יומני השיחות כדי לקבוע אם זו שיחה חוזרת</string>
+    <string name="how_it_works_title" formatted="false">איך זה עובד:</string>
+    <string name="icon_code_optional" formatted="false">קוד אייקון (אופציונלי)</string>
+    <string name="icon_size" formatted="false">גודל אייקון</string>
+    <string name="import" formatted="false">יבוא</string>
+    <string name="import_config" formatted="false">ייבוא תצורה</string>
+    <string name="import_contacts" formatted="false">ייבוא אנשי קשר</string>
+    <string name="import_entity" formatted="false">ייבוא {entityTypeName}</string>
+    <string name="import_export" formatted="false">ייבוא/ייצוא</string>
+    <string name="import_export_contacts" formatted="false">ייבוא/ייצוא אנשי קשר</string>
+    <string name="import_export_contacts_tooltip" formatted="false">ייבוא/ייצוא אנשי קשר</string>
+    <string name="import_export_description" formatted="false">ייבוא או ייצוא של נתוני {entityTypeName}</string>
+    <string name="import_export_rules" formatted="false">ייבוא/ייצוא כללים</string>
+    <string name="import_export_title" formatted="false">ייבוא/ייצוא</string>
+    <string name="import_failed" formatted="false">ייבוא נכשל: {error}</string>
+    <string name="import_failure" formatted="false">כשל בייבוא תצורה</string>
+    <string name="import_feature_coming_soon" formatted="false">תכונת ייבוא בקרוב</string>
+    <string name="import_labels" formatted="false">ייבוא תוויות</string>
+    <string name="import_labels_failed" formatted="false">כשל בייבוא תוויות: {error}</string>
+    <string name="import_plugin_list" formatted="false">ייבוא רשימת פלאגינים</string>
+    <string name="import_plugin_list_failed" formatted="false">כשל בייבוא רשימת פלאגינים: {error}</string>
+    <string name="import_plugin_success" formatted="false">יובאו בהצלחה {count} פלאגינים</string>
+    <string name="import_rule_configurations_from_file" formatted="false">ייבוא תצורות כללים מקובץ</string>
+    <string name="import_rules" formatted="false">ייבוא כללים</string>
+    <string name="import_success" formatted="false">הייבוא הצליח</string>
+    <string name="important" formatted="false">חשוב</string>
+    <string name="important_notice_title" formatted="false">הודעה חשובה</string>
+    <string name="incoming_call_intercept_action" formatted="false">פעולת יירוט שיחה נכנסת</string>
+    <string name="incorrect_password" formatted="false">סיסמה שגויה</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.</string>
+    <string name="initial_setup_deselect_all" formatted="false">נקה בחירה</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">Failed to get configuration</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">Retry</string>
+    <string name="initial_setup_save" formatted="false">One-click setup selected</string>
+    <string name="initial_setup_save_failed" formatted="false">Failed to save configuration: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Configuration saved successfully, rules will be fetched automatically soon</string>
+    <string name="initial_setup_saving" formatted="false">Saving...</string>
+    <string name="initial_setup_search_hint" formatted="false">חפש ערכת כללים או מדינה...</string>
+    <string name="initial_setup_select_all" formatted="false">בחר הכל</string>
+    <string name="initial_setup_selected_count" formatted="false">{count} נבחרו</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">Skip</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">Rule Library Setup</string>
+    <string name="initializing" formatted="false">מאחל</string>
+    <string name="installed" formatted="false">מותקן</string>
+    <string name="insufficient_marks" formatted="false">סימנים לא מספיקים</string>
+    <string name="insurance" formatted="false">ביטוח</string>
+    <string name="intercept_action" formatted="false">פעולת יירוט</string>
+    <string name="interception_action_settings_subtitle" formatted="false">הגדר כיצד שיחות חסומות מטופלות</string>
+    <string name="interception_action_settings_title" formatted="false">הגדרות פעולת יירוט</string>
+    <string name="interception_time_interval" formatted="false">מרווח זמן ליירוט</string>
+    <string name="internet" formatted="false">אינטרנט</string>
+    <string name="interval_set_success" formatted="false">מרווח עדכון {service} הוגדר ל-{days} ימים</string>
+    <string name="invalid_content_regex" formatted="false">ביטוי רגולרי של תוכן לא תקין</string>
+    <string name="invalid_exchange_rule" formatted="false">כלל החלפה לא תקין</string>
+    <string name="invalid_label" formatted="false">תווית לא תקינה</string>
+    <string name="invalid_regex_pattern" formatted="false">תבנית ביטוי רגולרי לא תקינה</string>
+    <string name="invalid_sender_regex" formatted="false">ביטוי רגולרי של שולח לא תקין</string>
+    <string name="invalid_sim_data" formatted="false">נתוני SIM לא חוקיים</string>
+    <string name="ip_country" formatted="false">מדינת IP</string>
+    <string name="is_number_match" formatted="false">התאמת מספר</string>
+    <string name="is_roaming" formatted="false">בנדידה</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">הצטרף לערוץ ול קבוצת הטלגרם למידע נוסף</string>
+    <string name="json_format" formatted="false">פורמט JSON</string>
+    <string name="just_now" formatted="false">הרגע</string>
+    <string name="keep_all_versions" formatted="false">שמור את כל הגרסאות</string>
+    <string name="keep_all_versions_description" formatted="false">שמור את כל הגרסאות ההיסטוריות של כל גיבוי</string>
+    <string name="label" formatted="false">תווית</string>
+    <string name="label_action_description" formatted="false">הוסף תווית לשיחה לצורך זיהוי קל.</string>
+    <string name="label_added_successfully" formatted="false">התווית &quot;{name}&quot; הוספה בהצלחה</string>
+    <string name="label_categories" formatted="false">קטגוריות תווית</string>
+    <string name="label_deleted" formatted="false">התווית נמחקה</string>
+    <string name="label_description" formatted="false">תוויות עוזרות לך לנהל אנשי קשר טוב יותר, הוסף תוויות מותאמות אישית למספרי טלפון לצורך זיהוי קל של שיחות והודעות.</string>
+    <string name="label_filter_tooltip" formatted="false">סינון תווית</string>
+    <string name="label_icon_color" formatted="false">צבע אייקון התווית</string>
+    <string name="label_management" formatted="false">ניהול תווית</string>
+    <string name="label_not_found" formatted="false">התווית לא נמצאה</string>
+    <string name="label_tag" formatted="false">תווית: {labelId}</string>
+    <string name="label_update_failed" formatted="false">עדכון תווית נכשל: {error}</string>
+    <string name="label_update_success" formatted="false">התווית &quot;$labelText&quot; עודכנה בהצלחה</string>
+    <string name="labels" formatted="false">תוויות</string>
+    <string name="labels_color" formatted="false">צבע תוויות</string>
+    <string name="labels_deleted" formatted="false">{count} תוויות נמחקו</string>
+    <string name="labels_exported_successfully" formatted="false">התוויות יוצאו בהצלחה</string>
+    <string name="labels_font_size" formatted="false">גודל גופן תוויות</string>
+    <string name="labels_imported_successfully" formatted="false">הייבוא של {count} תוויות הושלם בהצלחה</string>
+    <string name="labels_position" formatted="false">מיקום תוויות</string>
+    <string name="language_settings" formatted="false">הגדרות שפה</string>
+    <string name="language_settings_subtitle" formatted="false">שנה את שפת התצוגה של האפליקציה</string>
+    <string name="language_settings_title" formatted="false">הגדרות שפה</string>
+    <string name="last_sync_label" formatted="false">סנכרון אחרון</string>
+    <string name="last_updated" formatted="false">עודכן לאחרונה: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">חברות לכל החיים</string>
+    <string name="lifetime_membership_description" formatted="false">רכישה חד פעמית, פתח לצמיתות את כל התכונות הפרימיום ועדכונים עתידיים</string>
+    <string name="list_view" formatted="false">תצוגת רשימה</string>
+    <string name="live_activities_settings_title" formatted="false">הגדרות פעילויות חיות</string>
+    <string name="live_activities_test_end_activity" formatted="false">סיים פעילות</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">שלח פעילות חדשה</string>
+    <string name="live_activities_test_title" formatted="false">מבחן פעילויות חיות</string>
+    <string name="live_activities_test_update_activity" formatted="false">עדכן פעילות</string>
+    <string name="live_activity_controls_title" formatted="false">בקרות פעילות חיה</string>
+    <string name="live_activity_mode" formatted="false">פעילות חיה</string>
+    <string name="live_activity_mode_description" formatted="false">מציג מידע על שיחות כהתראה מתמשכת על מסך הנעילה וב-Dynamic Island (iOS).</string>
+    <string name="live_notification_customization_subtitle" formatted="false">התאם אישית את מראה ההתראות החיות.</string>
+    <string name="live_notification_customization_title" formatted="false">התאמה אישית של התראות חיות</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">טעינת אנשי קשר נכשלה: {error}</string>
+    <string name="load_data_failed" formatted="false">טעינת נתונים נכשלה</string>
+    <string name="load_label_failed" formatted="false">טעינת תוויות נכשלה: {error}</string>
+    <string name="load_labels_failed" formatted="false">טעינת תוויות נכשלה: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">טעינת מספרים מסומנים נכשלה: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">טעינת טלפונים מסומנים נכשלה: {error}</string>
+    <string name="load_plugins_failed" formatted="false">טעינת פלאגינים נכשלה: {error}</string>
+    <string name="load_settings_failed" formatted="false">טעינת הגדרות נכשלה: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">טעינת כללי SMS נכשלה: {error}</string>
+    <string name="load_status_failed_message" formatted="false">טעינת מצב נכשלה</string>
+    <string name="load_subscriptions_failed" formatted="false">טעינת מינויים נכשלה: {error}</string>
+    <string name="loading" formatted="false">טוען...</string>
+    <string name="loading_ad" formatted="false">טוען מודעה...</string>
+    <string name="loading_tags" formatted="false">טוען תגיות...</string>
+    <string name="loan" formatted="false">הלוואה</string>
+    <string name="local_count_filter" formatted="false">סינון ספירת מקומית</string>
+    <string name="local_count_filter_description" formatted="false">יירוט שיחות תכופות על בסיס ספירת מספרים מקומיים</string>
+    <string name="local_count_filter_explanation_content" formatted="false">סינון ספירת המספרים המקומי מנתח רשומות היסטוריית שיחות כדי לזהות ולחסום אוטומטית שיחות ספאם תכופות.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">הסבר לסינון ספירת מקומית</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• קבע אם לחסום על בסיס ערך הספירה של המספר</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• כאשר ספירת מספר חורגת מהסף שנקבע, ניתן לבחור לחסום אותו אוטומטית</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• ניתן לאפשר באופן סלקטיבי מספרים שאינם חורגים מהסף</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• ניתן לבחור אם לרשום את כל יומני השאילתות</string>
+    <string name="local_count_filter_settings" formatted="false">הגדרות סינון ספירת מקומית</string>
+    <string name="local_count_filter_use_cases" formatted="false">מסנן זה מתאים במיוחד לזיהוי שיחות ספאם אוטומטיות ושיחות שיווקיות.</string>
+    <string name="local_count_filtering" formatted="false">סינון ספירת מקומית</string>
+    <string name="local_count_filtering_explanation" formatted="false">• סינון ספירת מקומית: כללי סינון המבוססים על ספירת סימון מקומי</string>
+    <string name="local_counter_filter" formatted="false">סינון מונה מקומי</string>
+    <string name="local_counter_filter_subtitle" formatted="false">סנן אוטומטית שיחות ספאם על פי תדירות שיחות</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">הגדרות סינון מקומי</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">התראה מקומית מושבתת</string>
+    <string name="local_notification_enabled" formatted="false">התראה מקומית מופעלת</string>
+    <string name="local_services" formatted="false">שירותים מקומיים</string>
+    <string name="location" formatted="false">מיקום</string>
+    <string name="location_color" formatted="false">צבע מיקום</string>
+    <string name="location_font_size" formatted="false">גודל גופן מיקום</string>
+    <string name="location_icon_color" formatted="false">צבע אייקון מיקום</string>
+    <string name="location_position" formatted="false">מיקום מיקום</string>
+    <string name="log" formatted="false">יומן</string>
+    <string name="log_action_description" formatted="false">רשום את פרטי השיחה מבלי לבצע פעולה אחרת.</string>
+    <string name="log_all_local_queries" formatted="false">רשום את כל השאילתות המקומיות</string>
+    <string name="log_all_local_queries_description" formatted="false">רשום יומנים לכל השאילתות של מספרים מקומיים</string>
+    <string name="log_all_remote_queries" formatted="false">רשום את כל השאילתות מרחוק</string>
+    <string name="log_all_remote_queries_description" formatted="false">רשום את כל פעולות השאילתה של מספרים מרחוק</string>
+    <string name="low" formatted="false">נמוך</string>
+    <string name="low_risk" formatted="false">סיכון נמוך</string>
+    <string name="manage" formatted="false">נהל אנשי קשר</string>
+    <string name="manage_favorite_contacts" formatted="false">נהל אנשי קשר מועדפים</string>
+    <string name="manage_filter_rules" formatted="false">נהל כללי סינון</string>
+    <string name="manage_filter_rules_description" formatted="false">הוסף, ערוך או מחק כללי סינון SMS</string>
+    <string name="manual_entry" formatted="false">מידע על כניסה ידנית</string>
+    <string name="mark_count" formatted="false">ספירת סימון</string>
+    <string name="mark_counts" formatted="false">ספירות סימון</string>
+    <string name="mark_exchange" formatted="false">החלפת סימון</string>
+    <string name="mark_more_numbers_for_more" formatted="false">סמן עוד מספרים לעוד סימנים</string>
+    <string name="mark_phone" formatted="false">סמן מספר טלפון</string>
+    <string name="mark_phone_failed" formatted="false">נכשל סימון מספר טלפון: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">ניהול סימון טלפונים</string>
+    <string name="mark_phone_success" formatted="false">מספר הטלפון סומן בהצלחה</string>
+    <string name="marked_by_count" formatted="false">סומן על ידי {count}</string>
+    <string name="marked_phones_list" formatted="false">Marked Phone Numbers</string>
+    <string name="marks_insufficient" formatted="false">סימנים לא מספיקים להחלפה</string>
+    <string name="master_and_overrides" formatted="false">Master Controls</string>
+    <string name="master_and_overrides_desc" formatted="false">Global Rule Settings</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">התאמה נכשלה.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">מתאים לפורמט מספר ספציפי</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">התאם מספרים עם תווים מיוחדים:</string>
+    <string name="match_specific_digit_patterns" formatted="false">מתאים לפורמט XXX-XXXX-XXXX</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">התאם תבניות ספרות ספציפיות:</string>
+    <string name="match_successful_message" formatted="false">התאמה הצליחה!</string>
+    <string name="medical" formatted="false">רפואי</string>
+    <string name="medium" formatted="false">בינוני</string>
+    <string name="medium_risk" formatted="false">סיכון בינוני</string>
+    <string name="membership_center" formatted="false">מרכז חברות</string>
+    <string name="membership_privileges" formatted="false">זכויות חברות</string>
+    <string name="message_background_color" formatted="false">צבע רקע הודעה</string>
+    <string name="message_color" formatted="false">צבע הודעה</string>
+    <string name="message_font_size" formatted="false">גודל גופן הודעה</string>
+    <string name="message_position" formatted="false">מיקום הודעה</string>
+    <string name="migration_tool" formatted="false">כלי הגירה</string>
+    <string name="minutes" formatted="false">דקות</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{לפני דקה אחת} other{לפני {count} דקות}}</string>
+    <string name="moderate" formatted="false">בינוני</string>
+    <string name="month" formatted="false">חודש</string>
+    <string name="monthly" formatted="false">חודשי</string>
+    <string name="monthly_call_count" formatted="false">שיחות חודשיות</string>
+    <string name="monthly_membership" formatted="false">חברות חודשית</string>
+    <string name="monthly_membership_description" formatted="false">פתח את כל התכונות הפרימיום, חידוש אוטומטי חודשי</string>
+    <string name="monthly_total" formatted="false">סך הכל חודשי</string>
+    <string name="more_options" formatted="false">עוד אפשרויות</string>
+    <string name="mute" formatted="false">השתק</string>
+    <string name="name" formatted="false">שם</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">שם ומספר טלפון אינם יכולים להיות ריקים</string>
+    <string name="name_cannot_be_empty" formatted="false">שם לא יכול להיות ריק</string>
+    <string name="name_color" formatted="false">צבע שם</string>
+    <string name="name_font_size" formatted="false">גודל גופן שם</string>
+    <string name="name_position" formatted="false">מיקום שם</string>
+    <string name="name_unknown" formatted="false">שם: לא ידוע</string>
+    <string name="national_number" formatted="false">מספר לאומי</string>
+    <string name="need_vip_access" formatted="false">אתה זקוק לגישת VIP כדי להשתמש בתכונה זו</string>
+    <string name="new_vote_received" formatted="false">התקבלה הצבעה חדשה</string>
+    <string name="new_vote_received_body" formatted="false">מישהו הצביע ל{voteType} את מחיקת המספר {phoneNumber}. הצבעות נוכחיות: {totalVotes}.</string>
+    <string name="next_step" formatted="false">הבא</string>
+    <string name="no_action" formatted="false">אין פעולה</string>
+    <string name="no_action_rules" formatted="false">אין כללי פעולה</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">אין שירות סנכרון ענן פעיל</string>
+    <string name="no_activity" formatted="false">אין פעילות</string>
+    <string name="no_ads" formatted="false">אין פרסומות</string>
+    <string name="no_allowed_blocked_rules" formatted="false">לא נמצאו כללים מותרים/חסומים</string>
+    <string name="no_blocked_type_data" formatted="false">אין נתוני סוג חסימה זמינים</string>
+    <string name="no_call_records" formatted="false">אין רישומי שיחות</string>
+    <string name="no_contacts_yet" formatted="false">עדיין אין אנשי קשר</string>
+    <string name="no_data" formatted="false">אין נתונים</string>
+    <string name="no_devices_registered_message" formatted="false">אין מכשירים רשומים</string>
+    <string name="no_labels" formatted="false">עדיין אין תוויות</string>
+    <string name="no_marked_phones" formatted="false">אין מספרי טלפון מסומנים</string>
+    <string name="no_matching_contacts_found" formatted="false">לא נמצאו אנשי קשר תואמים</string>
+    <string name="no_matching_numbers_found" formatted="false">לא נמצאו מספרים תואמים</string>
+    <string name="no_matching_rules" formatted="false">אין {ruleType} תואמים</string>
+    <string name="no_notifications" formatted="false">אין התראות</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">לא נמצאו כללי טלפון</string>
+    <string name="no_plugins" formatted="false">עדיין אין פלאגינים</string>
+    <string name="no_proposals_found" formatted="false">לא נמצאו הצעות</string>
+    <string name="no_regex_rules" formatted="false">לא נמצאו כללי Regex</string>
+    <string name="no_rules" formatted="false">עדיין אין {ruleType}</string>
+    <string name="no_rules_prompt" formatted="false">לא נמצאו כללים, אנא הוסף כללים</string>
+    <string name="no_rules_to_export" formatted="false">אין כללים לייצוא</string>
+    <string name="no_sim_card_detected" formatted="false">לא זוהה כרטיס SIM</string>
+    <string name="no_sim_cards_detected" formatted="false">לא זוהו כרטיסי SIM</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">עדיין אין כללי סינון SMS</string>
+    <string name="no_sms_rules_yet" formatted="false">עדיין אין כללי SMS</string>
+    <string name="no_subscriptions" formatted="false">אין מנויים</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">לא נמצאו כללי SMS תקינים בקובץ</string>
+    <string name="none" formatted="false">אין</string>
+    <string name="none_action_description" formatted="false">לא תתבצע פעולה מיוחדת עבור השיחה.</string>
+    <string name="none_service_type" formatted="false">אין</string>
+    <string name="normal_user" formatted="false">משתמש רגיל</string>
+    <string name="not_granted" formatted="false">לא הוענק</string>
+    <string name="not_verified_text" formatted="false">לא מאומת</string>
+    <string name="notification_frequency_hours" formatted="false">תדירות התראות (שעות)</string>
+    <string name="notification_frequency_title" formatted="false">תדירות התראות</string>
+    <string name="notification_mode" formatted="false">מצב התראה</string>
+    <string name="notification_mode_description" formatted="false">הצג מידע על המתקשר בשורת ההתראות</string>
+    <string name="notification_permission" formatted="false">הרשאת התראה</string>
+    <string name="notification_permission_description" formatted="false">משמש להצגת התראות על שיחות והודעות נכנסות.</string>
+    <string name="notification_settings" formatted="false">הגדרות התראות</string>
+    <string name="notification_settings_title" formatted="false">הגדרות התראות</string>
+    <string name="notification_instructions" formatted="false">הוראות:
+1. לחץ על &quot;שלח&quot; ליצירה או עדכון של התראה.
+2. עבור למסך הבית שלך או משוך מטה את מגירת ההתראות כדי לראות את התוצאה.
+3. לחץ על &quot;סיים&quot; כדי לבטל את ההתראה.</string>
+    <string name="notifications" formatted="false">התראות</string>
+    <string name="notify" formatted="false">הודע</string>
+    <string name="notify_action_description" formatted="false">שלח התראה בעת קבלת שיחה.</string>
+    <string name="number" formatted="false">מספר</string>
+    <string name="number_color" formatted="false">צבע מספר</string>
+    <string name="number_font_size" formatted="false">גודל גופן מספר</string>
+    <string name="number_format" formatted="false">פורמט מספר</string>
+    <string name="number_invalid_format" formatted="false">פורמט מספר לא תקין</string>
+    <string name="number_position" formatted="false">מיקום מספר</string>
+    <string name="number_search" formatted="false">חיפוש מספר</string>
+    <string name="number_type_color" formatted="false">צבע סוג מספר</string>
+    <string name="number_type_font_size" formatted="false">גודל גופן סוג מספר</string>
+    <string name="number_type_position" formatted="false">מיקום סוג מספר</string>
+    <string name="ok_button" formatted="false">אישור</string>
+    <string name="onboarding_complete_description" formatted="false">מנהל אבטחת השיחות שלך מוכן, התחל ליהנות מחוויית שיחה בטוחה!</string>
+    <string name="onboarding_language_description" formatted="false">בחר את השפה המועדפת עליך לחוויה הטובה ביותר.</string>
+    <string name="onboarding_permissions_description" formatted="false">כדי לספק שירות מלא, אנו זקוקים להרשאות הבאות:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">חסימה בלחיצה אחת של שיחות וודעות זבל, התאם אישית כללי חסימה, ותן לך סביבה שקטה.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">זהה אוטומטית שיחות לא ידועות, סמן מספרים חשודים, והגן על בטיחות השיחות שלך.</string>
+    <string name="onboarding_welcome_description" formatted="false">מומחה ניהול השיחות שלך, המספק זיהוי שיחות וחסימה מקיפים.</string>
+    <string name="one_drive_auth_description" formatted="false">אשר באמצעות מזהה לקוח OneDrive ואישור המוגדרים במערכת</string>
+    <string name="one_drive_config_title" formatted="false">תצורת OneDrive</string>
+    <string name="online_caller_id_subscription" formatted="false">מנוי לזיהוי מתקשר אונליין</string>
+    <string name="open_app_settings" formatted="false">פתח הגדרות אפליקציה</string>
+    <string name="open_app_settings_failed" formatted="false">כשל בפתיחת הגדרות האפליקציה: {error}</string>
+    <string name="open_in_web_view" formatted="false">פתח ב-WebView</string>
+    <string name="operation_failed" formatted="false">הפעולה נכשלה: {error}</string>
+    <string name="operation_failure" formatted="false">הפעולה נכשלה</string>
+    <string name="operation_success" formatted="false">הפעולה הצליחה</string>
+    <string name="oppose" formatted="false">התנגד</string>
+    <string name="oppose_count" formatted="false">התנגדות ({opposeCount})</string>
+    <string name="opposed" formatted="false">התנגד</string>
+    <string name="other" formatted="false">אחר</string>
+    <string name="our_other_apps" formatted="false">אפליקציות נוספות שלנו</string>
+    <string name="overlay_mode" formatted="false">חלון צף</string>
+    <string name="overlay_mode_description" formatted="false">הצג מידע מתקשר בחלון צף</string>
+    <string name="overlay_permission" formatted="false">הרשאת חלון צף</string>
+    <string name="overlay_permission_description" formatted="false">משמש להצגת שכבת-על של שיחות נכנסות.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">סקירה כללית</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">סיסמה</string>
+    <string name="password_cannot_be_empty" formatted="false">סיסמה אינה יכולה להיות ריקה</string>
+    <string name="password_label" formatted="false">סיסמה</string>
+    <string name="passwords_do_not_match" formatted="false">סיסמאות אינן תואמות</string>
+    <string name="pattern" formatted="false">תבנית</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">ממתין</string>
+    <string name="pending_proposals" formatted="false">הצעות ממתינות</string>
+    <string name="pending_proposals_body" formatted="false">יש לך {count, plural, =0 {אין הצעות ממתינות} one {הצעה ממתינה אחת} other {{count} הצעות ממתינות}}.</string>
+    <string name="pending_sync" formatted="false">סנכרון ממתין</string>
+    <string name="period_month" formatted="false">חודש</string>
+    <string name="period_week" formatted="false">שבוע</string>
+    <string name="period_year" formatted="false">שנה</string>
+    <string name="permission_denied" formatted="false">בקשת הרשאה נדחתה</string>
+    <string name="permission_granted" formatted="false">הרשאה ניתנה</string>
+    <string name="permission_management" formatted="false">ניהול הרשאות</string>
+    <string name="permission_subtitle" formatted="false">נהל הרשאות שכבת-על ואופטימיזציה של סוללה</string>
+    <string name="permission_title" formatted="false">הרשאות מיוחדות</string>
+    <string name="phone_calls_tab" formatted="false">טלפון</string>
+    <string name="phone_number" formatted="false">מספר טלפון</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">מספר טלפון אינו יכול להיות ריק</string>
+    <string name="phone_number_hint" formatted="false">הזן מספר טלפון</string>
+    <string name="phone_number_label" formatted="false">מספר טלפון</string>
+    <string name="phone_number_min_digits" formatted="false">מספר הטלפון חייב להיות לפחות 7 ספרות</string>
+    <string name="phone_number_required" formatted="false">מספר טלפון נדרש</string>
+    <string name="phone_number_type" formatted="false">סוג מספר טלפון</string>
+    <string name="phone_number_type_fixed_line" formatted="false">קו קבוע</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">קו קבוע או נייד</string>
+    <string name="phone_number_type_mobile" formatted="false">נייד</string>
+    <string name="phone_number_type_pager" formatted="false">בייג\'ר</string>
+    <string name="phone_number_type_personal_number" formatted="false">מספר אישי</string>
+    <string name="phone_number_type_premium_rate" formatted="false">שיעור פרמיום</string>
+    <string name="phone_number_type_shared_cost" formatted="false">עלות משותפת</string>
+    <string name="phone_number_type_toll_free" formatted="false">ללא תשלום</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">לא ידוע</string>
+    <string name="phone_number_type_voicemail" formatted="false">דואר קולי</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">הרשאת טלפון</string>
+    <string name="phone_permission_description" formatted="false">משמש לזיהוי וחסימת שיחות נכנסות.</string>
+    <string name="phone_rule" formatted="false">כלל טלפון</string>
+    <string name="phone_rule_management" formatted="false">ניהול כללי טלפון</string>
+    <string name="phone_rule_subscription" formatted="false">מנוי כללי טלפון</string>
+    <string name="phone_rules_info" formatted="false">כללי טלפון משמשים להתאמת שיחות למספרי טלפון ספציפיים, בעלי עדיפות נמוכה יותר. חלקם מגיעים ממנויי phoneRule.</string>
+    <string name="phone_subscription" formatted="false">מנוי טלפון</string>
+    <string name="phone_subscription_rules_description" formatted="false">הירשם לרשימות כללי טלפון באמצעות URL כדי לעדכן אוטומטית כללי רשימה לבנה ושחורה. תומך בקובצי כללים בפורמט JSON.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">אנא הכנס לפחות מספר אחד.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">אנא בחר תווית והזן מספר טלפון תקין</string>
+    <string name="plugin_added_success" formatted="false">התוסף &quot;{name}&quot; הוסף בהצלחה</string>
+    <string name="plugin_deleted" formatted="false">התוסף נמחק</string>
+    <string name="plugin_description" formatted="false">תיאור פלאגין</string>
+    <string name="plugin_i_d" formatted="false">מזהה</string>
+    <string name="plugin_label" formatted="false">תווית פלאגין</string>
+    <string name="plugin_latest_version" formatted="false">התוסף כבר בגרסה האחרונה</string>
+    <string name="plugin_list_export_success" formatted="false">רשימת התוספים יצואנה בהצלחה</string>
+    <string name="plugin_management" formatted="false">ניהול תוספים</string>
+    <string name="plugin_management_subtitle" formatted="false">נהל והגדר תוספים של צד שלישי</string>
+    <string name="plugin_name" formatted="false">שם תוסף</string>
+    <string name="plugin_rules_info" formatted="false">למען אבטחה, השתמש רק בפלאגינים ממקורות מהימנים. אל תהסס להשתמש בתבניות שלנו ליצירת פלאגינים מותאמים אישית משלך!</string>
+    <string name="plugin_service" formatted="false">שירות תוספים</string>
+    <string name="plugin_test_page_title" formatted="false">בדיקת תוסף</string>
+    <string name="plugin_u_r_l" formatted="false">כתובת URL</string>
+    <string name="plugin_update_success" formatted="false">התוסף עודכן בהצלחה</string>
+    <string name="plugin_url" formatted="false">כתובת URL של תוסף</string>
+    <string name="plugin_version" formatted="false">גרסת תוסף</string>
+    <string name="plugins_deleted" formatted="false">{count} תוספים נמחקו בהצלחה.</string>
+    <string name="political" formatted="false">פוליטי</string>
+    <string name="powerful_spam_blocking" formatted="false">חסימת ספאם עוצמתית</string>
+    <string name="previous_step" formatted="false">קודם</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">העדפת הגדרות פעולה מרוחקות</string>
+    <string name="prioritize_remote_action_description" formatted="false">העדפת הגדרות פעולה מבסיס הנתונים המרוחק</string>
+    <string name="processed" formatted="false">עובד</string>
+    <string name="processing" formatted="false">מעבד...</string>
+    <string name="processing_operation" formatted="false">מעבד...</string>
+    <string name="proposal_approved" formatted="false">הצעה אושרה ✅</string>
+    <string name="proposal_approved_body" formatted="false">הצעת המחיקה למספר {phoneNumber} אושרה על ידי הקהילה ({supportPercentage}% תמיכה, {totalVotes} הצבעות).</string>
+    <string name="proposal_created" formatted="false">הצעת מחיקה נוצרה בהצלחה</string>
+    <string name="proposal_details" formatted="false">פרטי הצעה</string>
+    <string name="proposal_not_found" formatted="false">הצעה לא נמצאה</string>
+    <string name="proposal_processed" formatted="false">הצעה זו עובדה</string>
+    <string name="proposal_rejected" formatted="false">הצעה נדחתה ❌</string>
+    <string name="proposal_rejected_body" formatted="false">הצעת המחיקה למספר {phoneNumber} נדחתה על ידי הקהילה ({supportPercentage}% תמיכה, {totalVotes} הצבעות).</string>
+    <string name="proposal_statistics" formatted="false">סטטיסטיקות הצעה</string>
+    <string name="provide_detailed_explanation" formatted="false">ספק הסבר מפורט (מינימום 10 תווים)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">רכישה</string>
+    <string name="purchase_subtitle" formatted="false">לרכישת השירות</string>
+    <string name="purchase_title" formatted="false">רכישה</string>
+    <string name="quarterly_membership" formatted="false">חברות רבעונית</string>
+    <string name="quarterly_membership_description" formatted="false">פתח את כל התכונות הפרימיום, חידוש אוטומטי כל רבעון</string>
+    <string name="ready" formatted="false">מוכן!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">סיבה</string>
+    <string name="reason_inaccurate_info" formatted="false">מידע שגוי</string>
+    <string name="reason_min_characters" formatted="false">הסיבה חייבת להיות לפחות 10 תווים</string>
+    <string name="reason_not_in_service" formatted="false">לא בשירות</string>
+    <string name="reason_other" formatted="false">אחר</string>
+    <string name="reason_outdated" formatted="false">מספר מיושן</string>
+    <string name="reason_privacy" formatted="false">חשש לפרטיות</string>
+    <string name="reason_required" formatted="false">סיבה נדרשת</string>
+    <string name="reason_wrongly_identified" formatted="false">זוהה בטעות</string>
+    <string name="recruiter" formatted="false">מגייס</string>
+    <string name="redeem_vip_with_marks" formatted="false">מימוש VIP עם סימנים</string>
+    <string name="redirect" formatted="false">הפנה</string>
+    <string name="redirect_action_description" formatted="false">הפנה את השיחה למספר שצוין.</string>
+    <string name="refresh" formatted="false">רענן</string>
+    <string name="refresh_permission_status" formatted="false">רענן סטטוס הרשאה</string>
+    <string name="refresh_proposals" formatted="false">רענן הצעות</string>
+    <string name="refresh_tooltip" formatted="false">רענן</string>
+    <string name="regex_error_message" formatted="false">שגיאת Regex: {error}</string>
+    <string name="regex_pattern" formatted="false">דפוס ביטוי רגולרי</string>
+    <string name="regex_pattern_explanation" formatted="false">הסבר לדפוס ביטוי רגולרי</string>
+    <string name="regex_pattern_explanation_button" formatted="false">הסבר לדפוס ביטוי רגולרי</string>
+    <string name="regex_pattern_label" formatted="false">דפוס ביטוי רגולרי</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">דפוסי ביטוי רגולרי להתאמת מספרי טלפון</string>
+    <string name="regex_rule" formatted="false">כלל ביטוי רגולרי</string>
+    <string name="regex_rule_add_failed" formatted="false">הוספת כלל ביטוי רגולרי נכשלה: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">כלל ביטוי רגולרי נוסף בהצלחה</string>
+    <string name="regex_rule_management" formatted="false">ניהול כללי ביטוי רגולרי</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">שם הכלל ודפוס הביטוי הרגולרי לא יכולים להיות ריקים</string>
+    <string name="regex_rules" formatted="false">כללי ביטוי רגולרי</string>
+    <string name="regex_rules_info" formatted="false">כללי Regex משמשים לסינון שיחות על סמך תבניות Regex.</string>
+    <string name="regex_tester_title" formatted="false">בוחן ביטויים רגולריים</string>
+    <string name="region" formatted="false">אזור</string>
+    <string name="registered_devices_title" formatted="false">מכשירים רשומים</string>
+    <string name="reject_all_calls" formatted="false">דחה את כל השיחות</string>
+    <string name="reject_all_calls_description" formatted="false">כאשר מופעל, כל השיחות יידחו בעדיפות הגבוהה ביותר</string>
+    <string name="reject_all_numbers" formatted="false">דחה את כל המספרים</string>
+    <string name="reject_all_numbers_desc" formatted="false">דחה את כל השיחות הנכנסות כאשר מופעל</string>
+    <string name="reject_exceeded_numbers" formatted="false">דחה מספרים חורגים</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">דחה אוטומטית מספרים החורגים מסף הספירה</string>
+    <string name="rejected" formatted="false">נדחה</string>
+    <string name="remote_filter_settings" formatted="false">הגדרות מסנן מרחוק</string>
+    <string name="remote_filter_settings_page_title" formatted="false">הגדרות מסנן מספרים מרחוק</string>
+    <string name="remote_number_filter" formatted="false">מסנן מספרים מרחוק</string>
+    <string name="remote_number_filter_description" formatted="false">יירט שיחות מטרידות על בסיס מידע ממסד נתונים מרחוק</string>
+    <string name="remote_number_filter_subtitle" formatted="false">זהה שיחות ספאם באמצעות מסד נתונים בענן ודיווחים קהילתיים</string>
+    <string name="remote_number_filtering" formatted="false">סינון מספרים מרחוק</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• סינון מספרים מרחוק: כללי סינון המבוססים על מידע ממסד נתונים מרחוק</string>
+    <string name="remove_ads" formatted="false">הסרת פרסומות</string>
+    <string name="remove_ads_description" formatted="false">הסר לצמיתות את כל הפרסומות באפליקציה לחוויה חלקה יותר</string>
+    <string name="remove_ads_title" formatted="false">הסר פרסומות</string>
+    <string name="remove_from_favorites" formatted="false">הסר מרשימת המועדפים</string>
+    <string name="removed_from_favorites" formatted="false">הוסר מרשימת המועדפים</string>
+    <string name="rename_device_title" formatted="false">שנה שם למכשיר</string>
+    <string name="reporting_guidelines" formatted="false">• דווח רק על מספרים שהם באמת בעייתיים
+• ספק סיבות מדויקות ומפורטות
+• בחר רמת סיכון מתאימה בהתאם לחומרה
+• דיווחים שקריים עלולים לגרום להגבלות על החשבון</string>
+    <string name="request_all_permissions" formatted="false">בקש את כל ההרשאות</string>
+    <string name="request_permission" formatted="false">בקש הרשאה</string>
+    <string name="request_permission_failed" formatted="false">בקשת הרשאה נכשלה: {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">{count} סימנים</string>
+    <string name="reset" formatted="false">אפס</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">שחזר</string>
+    <string name="restore_application_settings_from_backup" formatted="false">שחזר הגדרות אפליקציה מגיבוי</string>
+    <string name="restore_from_cloud" formatted="false">שחזר מהענן</string>
+    <string name="restore_from_cloud_failed" formatted="false">שחזור מהענן נכשל: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">שוחזר בהצלחה מהענן</string>
+    <string name="restore_purchases" formatted="false">שחזר רכישות</string>
+    <string name="restore_settings" formatted="false">שחזר הגדרות</string>
+    <string name="restore_settings_confirmation" formatted="false">פעולה זו תחליף את כל ההגדרות הנוכחיות שלך. האם אתה בטוח שברצונך להמשיך?</string>
+    <string name="result" formatted="false">תוצאה</string>
+    <string name="retry" formatted="false">נסה שוב</string>
+    <string name="rewarded_ad_service" formatted="false">שירות מודעות מתגמלות</string>
+    <string name="ridesharing" formatted="false">שיתוף נסיעות</string>
+    <string name="risk" formatted="false">סיכון</string>
+    <string name="risk_level" formatted="false">רמת סיכון</string>
+    <string name="risk_level_critical" formatted="false">קריטי</string>
+    <string name="risk_level_high" formatted="false">גבוה</string>
+    <string name="risk_level_label" formatted="false">רמת סיכון</string>
+    <string name="risk_level_low" formatted="false">נמוך</string>
+    <string name="risk_level_medium" formatted="false">בינוני</string>
+    <string name="risk_level_very_low" formatted="false">נמוך מאוד</string>
+    <string name="robocall" formatted="false">שיחת רובו</string>
+    <string name="rule_action" formatted="false">פעולת כלל</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">כלל נוסף בהצלחה</string>
+    <string name="rule_added_success" formatted="false">כלל נוסף בהצלחה</string>
+    <string name="rule_delete_confirm_content" formatted="false">האם אתה בטוח שברצונך למחוק את ה-{ruleType} הזה?</string>
+    <string name="rule_delete_confirm_title" formatted="false">מחק כלל</string>
+    <string name="rule_delete_failed" formatted="false">מחיקת כלל נכשלה: {error}</string>
+    <string name="rule_delete_success" formatted="false">כלל נמחק בהצלחה</string>
+    <string name="rule_deleted_successfully" formatted="false">כלל נמחק בהצלחה</string>
+    <string name="rule_disabled_successfully" formatted="false">כלל הושבת בהצלחה</string>
+    <string name="rule_enabled_successfully" formatted="false">כלל הופעל בהצלחה</string>
+    <string name="rule_load_failed" formatted="false">טעינת כללים נכשלה: {error}</string>
+    <string name="rule_management" formatted="false">ניהול כללים</string>
+    <string name="rule_name" formatted="false">שם הכלל</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">שם הכלל וביטוי התוכן הרגולרי לא יכולים להיות ריקים</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">שם הכלל ומספר הטלפון לא יכולים להיות ריקים</string>
+    <string name="rule_name_hint" formatted="false">למשל, משפחה, חברים, וכו\'.</string>
+    <string name="rule_name_label" formatted="false">שם הכלל</string>
+    <string name="rule_name_required" formatted="false">שם הכלל ומספר הטלפון לא יכולים להיות ריקים</string>
+    <string name="rule_not_exist" formatted="false">הכלל אינו קיים או נמחק</string>
+    <string name="rule_not_found" formatted="false">הכלל לא נמצא: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">הכלל נשמר בהצלחה!</string>
+    <string name="rule_status_changed" formatted="false">הכלל {status} בהצלחה</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">הפעולה נכשלה: {error}</string>
+    <string name="rule_toggle_success" formatted="false">הכלל {status} בהצלחה</string>
+    <string name="rule_type" formatted="false">Rule Type</string>
+    <string name="rule_update_failed" formatted="false">נכשל עדכון הכלל: {error}</string>
+    <string name="rule_update_success" formatted="false">הכלל עודכן בהצלחה</string>
+    <string name="rule_verification" formatted="false">אימות כללים</string>
+    <string name="rules_exported_successfully" formatted="false">כללים יצאו בהצלחה</string>
+    <string name="rules_exported_to" formatted="false">כללים יצאו ל: {path}</string>
+    <string name="rules_imported" formatted="false">כללים יובאו בהצלחה</string>
+    <string name="rules_imported_successfully" formatted="false">{count} כללים יובאו בהצלחה</string>
+    <string name="save" formatted="false">שמור</string>
+    <string name="save_button" formatted="false">שמור</string>
+    <string name="save_button_text" formatted="false">שמור</string>
+    <string name="save_failed" formatted="false">שמירה נכשלה: {error}</string>
+    <string name="save_script" formatted="false">שמור סקריפט</string>
+    <string name="save_settings" formatted="false">שמור הגדרות</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">סביר להניח שמדובר בהונאות</string>
+    <string name="script_saved" formatted="false">סקריפט נשמר</string>
+    <string name="scroll_speed" formatted="false">מהירות גלילה</string>
+    <string name="scrolling_security_message_settings" formatted="false">הגדרות הודעות אבטחה מתגלגלות</string>
+    <string name="search" formatted="false">חיפוש</string>
+    <string name="search_by_name_or_phone_number" formatted="false">חפש לפי שם או מספר טלפון</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">חפש מנויי קשר</string>
+    <string name="search_contacts" formatted="false">חפש אנשי קשר</string>
+    <string name="search_error" formatted="false">שגיאת חיפוש: {error}</string>
+    <string name="search_hint" formatted="false">חפש...</string>
+    <string name="search_labels_hint" formatted="false">חפש תוויות</string>
+    <string name="search_marked_phones_hint" formatted="false">חפש טלפונים מסומנים</string>
+    <string name="search_phone_rules_hint" formatted="false">חפש כללי טלפון</string>
+    <string name="search_plugins_hint" formatted="false">חפש פלאגינים</string>
+    <string name="search_proposals" formatted="false">חפש הצעות</string>
+    <string name="search_regex_rules_hint" formatted="false">חפש כללי Regex</string>
+    <string name="search_subscriptions_hint" formatted="false">חפש מנויים</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">אל תסמוך על שיחות טלפון כלשהן. תמיד אמת מספרי שירות לקוחות באופן עצמאי. לעולם אל תשתף סיסמאות, קודי אימות, מספרי כרטיסים או מידע אישי.</string>
+    <string name="select_action" formatted="false">בחר פעולה</string>
+    <string name="select_action_when_blocking_calls" formatted="false">בחר פעולה בעת חסימת שיחות</string>
+    <string name="select_action_when_rule_matches" formatted="false">בחר פעולה כאשר הכלל תואם</string>
+    <string name="select_all" formatted="false">בחר הכל</string>
+    <string name="select_country" formatted="false">בחר מדינה</string>
+    <string name="select_export_format" formatted="false">בחר פורמט ייצוא</string>
+    <string name="select_label" formatted="false">בחר תווית</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">אנא בחר תווית והזן מספר טלפון חוקי</string>
+    <string name="select_language" formatted="false">בחר שפה</string>
+    <string name="select_multiple" formatted="false">בחר מרובה</string>
+    <string name="select_sim_card" formatted="false">בחר כרטיס SIM</string>
+    <string name="select_tags" formatted="false">בחר תגיות</string>
+    <string name="select_target_service" formatted="false">בחר את שירות היעד</string>
+    <string name="select_trusted_data_source" formatted="false">אנא בחר מקורות נתונים מהימנים</string>
+    <string name="select_your_language" formatted="false">בחר את השפה שלך</string>
+    <string name="selected_items" formatted="false">{count} פריטים נבחרו</string>
+    <string name="selected_label" formatted="false">נבחר:</string>
+    <string name="sender" formatted="false">שולח</string>
+    <string name="sender_regex_optional" formatted="false">ביטוי רגולרי של שולח (אופציונלי)</string>
+    <string name="separate_sims" formatted="false">Separate SIMs</string>
+    <string name="separate_sims_desc" formatted="false">Enable separate filtering rules for each SIM card</string>
+    <string name="server_address_label" formatted="false">כתובת שרת</string>
+    <string name="service_type_contact" formatted="false">מנוי איש קשר</string>
+    <string name="service_type_label" formatted="false">סוג שירות</string>
+    <string name="service_type_phone" formatted="false">מנוי טלפון</string>
+    <string name="service_type_plugin" formatted="false">עדכון תוסף</string>
+    <string name="service_type_sms" formatted="false">מנוי SMS</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">הגדר זמן השהייה</string>
+    <string name="set_encryption_password" formatted="false">הגדר סיסמת הצפנה</string>
+    <string name="settings" formatted="false">הגדרות</string>
+    <string name="settings_backed_up_to" formatted="false">הגדרות גובו ל: {path}</string>
+    <string name="settings_backup" formatted="false">גיבוי הגדרות </string>
+    <string name="settings_restored_successfully" formatted="false">הגדרות שוחזרו בהצלחה. אנא הפעל מחדש את האפליקציה כדי שהשינויים ייכנסו לתוקף.</string>
+    <string name="settings_save_failed" formatted="false">נכשל שמירת הגדרות: {error}</string>
+    <string name="settings_saved" formatted="false">הגדרות נשמרו</string>
+    <string name="settings_tab" formatted="false">הגדרות</string>
+    <string name="settings_title" formatted="false">הגדרות</string>
+    <string name="setup" formatted="false">הגדרה</string>
+    <string name="show_all_contacts" formatted="false">הצג את כל אנשי הקשר</string>
+    <string name="show_favorites" formatted="false">הצג מועדפים</string>
+    <string name="silence" formatted="false">השתק</string>
+    <string name="silence_action_description" formatted="false">שיחות יושקטו אך יוצגו ביומן השיחות.</string>
+    <string name="silence_and_no_answer" formatted="false">השתק וללא מענה</string>
+    <string name="silence_no_answer" formatted="false">השתק ללא מענה</string>
+    <string name="silent_call_voice_clone" formatted="false">שכפול קול שיחה מושתקת</string>
+    <string name="silent_rules" formatted="false">כללים מושתקים</string>
+    <string name="sim_card" formatted="false">כרטיס SIM {simNumber}</string>
+    <string name="sim_card_color" formatted="false">צבע כרטיס SIM</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• הגדרת כרטיס SIM: הגדר כללי סינון עצמאיים לכל כרטיס SIM</string>
+    <string name="sim_card_filter_rules" formatted="false">כללי סינון כרטיס SIM</string>
+    <string name="sim_card_filter_rules_description" formatted="false">הגדר כללי סינון שונים בהתבסס על חריצי כרטיס SIM</string>
+    <string name="sim_card_font_size" formatted="false">גודל גופן כרטיס SIM</string>
+    <string name="sim_card_position" formatted="false">מיקום כרטיס SIM</string>
+    <string name="sim_card_title" formatted="false">כרטיס SIM</string>
+    <string name="sim_country" formatted="false">מדינת SIM</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">כללי כרטיס ה-SIM מאפשרים לך להגדיר כללי סינון עצמאיים עבור כל חריץ SIM.</string>
+    <string name="sim_rule_instructions_title" formatted="false">כללי חריץ SIM</string>
+    <string name="sim_rules_not_found" formatted="false">כללי SIM לא נמצאו</string>
+    <string name="sim_slot" formatted="false">חריץ SIM</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">הגדר כללי סינון עצמאיים עבור כל כרטיס SIM:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">הגדרות מסנן חריץ SIM {slotNumber}</string>
+    <string name="sim_slot_management" formatted="false">ניהול חריץ SIM</string>
+    <string name="sim_slot_position" formatted="false">מיקום חריץ SIM {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• כללי חריץ SIM: אסטרטגיות סינון עצמאיות לכל SIM</string>
+    <string name="sim_slot_rule_list_title" formatted="false">רשימת כללי חריץ SIM</string>
+    <string name="sim_slot_rule_management" formatted="false">כללי חריץ SIM</string>
+    <string name="sim_slot_rules" formatted="false">כללים של חריץ SIM</string>
+    <string name="sim_slot_title" formatted="false">חריץ SIM {slotNumber}</string>
+    <string name="sim_state" formatted="false">מצב SIM</string>
+    <string name="skip" formatted="false">דלג</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">זיהוי מתקשר חכם</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">סינון SMS עוזר לך לסנן הודעות ספאם באופן אוטומטי ולשמור על רשימת ההודעות שלך נקייה. ניתן להגדיר כללי סינון ושיטות הודעה.</string>
+    <string name="sms_filter_disabled" formatted="false">סינון SMS מושבת</string>
+    <string name="sms_filter_enabled" formatted="false">סינון SMS מופעל</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">כלל סינון SMS נוסף בהצלחה</string>
+    <string name="sms_filter_rules" formatted="false">כללי סינון SMS</string>
+    <string name="sms_filter_settings" formatted="false">הגדרות סינון SMS</string>
+    <string name="sms_management" formatted="false">ניהול SMS</string>
+    <string name="sms_permission" formatted="false">הרשאת SMS</string>
+    <string name="sms_permission_description" formatted="false">משמש לסינון הודעות ספאם.</string>
+    <string name="sms_rule_added_successfully" formatted="false">כלל SMS נוסף בהצלחה</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">כלל SMS נמחק בהצלחה</string>
+    <string name="sms_rule_load_failed" formatted="false">טעינת כללי SMS נכשלה: {error}</string>
+    <string name="sms_rule_management" formatted="false">ניהול כללי SMS</string>
+    <string name="sms_rule_subscription" formatted="false">מנוי כללי SMS</string>
+    <string name="sms_subscription" formatted="false">מנוי SMS</string>
+    <string name="sms_subscription_added_successfully" formatted="false">מנוי SMS נוסף בהצלחה</string>
+    <string name="sms_subscription_rules_description" formatted="false">הירשם לרשימות כללי SMS באמצעות URL, תומך בהתאמת ביטוי רגולרי. ניתן להגדיר פעולות חסימה או הרשאה.</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">חלק מבקשות ההרשאה נדחו</string>
+    <string name="sort_by" formatted="false">מיון לפי</string>
+    <string name="sort_least_popular" formatted="false">מיון הכי פחות פופולרי</string>
+    <string name="sort_most_popular" formatted="false">מיון הפופולרי ביותר</string>
+    <string name="sort_newest" formatted="false">מיון מהחדש ביותר</string>
+    <string name="sort_oldest" formatted="false">מיון מהישן ביותר</string>
+    <string name="spam_likely" formatted="false">ספאם סביר</string>
+    <string name="start_color" formatted="false">צבע התחלה</string>
+    <string name="start_date" formatted="false">תאריך התחלה</string>
+    <string name="start_using" formatted="false">התחל להשתמש</string>
+    <string name="stat_answered" formatted="false">נענה</string>
+    <string name="stat_blocked" formatted="false">נחסם</string>
+    <string name="statistics" formatted="false">סטטיסטיקה</string>
+    <string name="statistics_page_title" formatted="false">ניתוח נתונים</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">צבע STIR</string>
+    <string name="stir_failed" formatted="false">אימות נכשל</string>
+    <string name="stir_font_size" formatted="false">גודל גופן STIR</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">מיקום STIR</string>
+    <string name="stir_unknown" formatted="false">סטטוס אימות לא ידוע</string>
+    <string name="stir_verification" formatted="false">אימות STIR/SHAKEN</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} עבור מספר {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">מציג תוצאות אימות STIR/SHAKEN עבור מספרים.</string>
+    <string name="stir_verification_title" formatted="false">אימות STIR/SHAKEN</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">הרשאת אחסון</string>
+    <string name="storage_permission_description" formatted="false">משמש לשמירת הגדרות וכללים.</string>
+    <string name="submit" formatted="false">שלח</string>
+    <string name="subscribe" formatted="false">הירשם כמנוי</string>
+    <string name="subscription_add_success" formatted="false">המנוי &quot;{name}&quot; נוסף בהצלחה</string>
+    <string name="subscription_delete_confirm_content" formatted="false">האם אתה בטוח שברצונך למחוק מנוי זה?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">מחיקת מנוי</string>
+    <string name="subscription_delete_failed" formatted="false">מחיקת המנוי נכשלה: {error}</string>
+    <string name="subscription_delete_success" formatted="false">המנוי נמחק</string>
+    <string name="subscription_deleted" formatted="false">המנוי נמחק</string>
+    <string name="subscription_load_failed" formatted="false">טעינת מנויים נכשלה: {error}</string>
+    <string name="subscription_name" formatted="false">שם המנוי</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">שם המנוי וכתובת ה-URL אינם יכולים להיות ריקים</string>
+    <string name="subscription_name_hint" formatted="false">הזן שם מנוי</string>
+    <string name="subscription_status_change_failed" formatted="false">שינוי סטטוס המנוי נכשל: {error}</string>
+    <string name="subscription_update_failed" formatted="false">עדכון המנוי נכשל: {error}</string>
+    <string name="subscription_update_success" formatted="false">המנוי עודכן בהצלחה</string>
+    <string name="subscription_url" formatted="false">כתובת URL של מנוי</string>
+    <string name="subscription_url_hint" formatted="false">הזן כתובת URL של מנוי</string>
+    <string name="successfully_imported_rules" formatted="false">{count} כללים יובאו בהצלחה</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">תמיכה</string>
+    <string name="support_count" formatted="false">תמיכה ({supportCount})</string>
+    <string name="support_sync" formatted="false">תמיכה בסנכרון</string>
+    <string name="supported" formatted="false">נתמך</string>
+    <string name="survey" formatted="false">סקר</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">סנכרן מכשירים</string>
+    <string name="sync_failed" formatted="false">הסנכרון נכשל</string>
+    <string name="sync_failed_message" formatted="false">הסנכרון נכשל</string>
+    <string name="sync_folder_name_label" formatted="false">שם תיקיית סנכרון</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">סנכרן עכשיו</string>
+    <string name="sync_now_button" formatted="false">סנכרן עכשיו</string>
+    <string name="sync_status_title" formatted="false">סטטוס סינכרון</string>
+    <string name="sync_status_updated_message" formatted="false">סטטוס הסינכרון עודכן</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">סינכרון הושלם בהצלחה</string>
+    <string name="sync_with_cloud_storage" formatted="false">סנכרן עם אחסון ענן</string>
+    <string name="synced" formatted="false">מסונכרן</string>
+    <string name="synchronized" formatted="false">מסונכרן</string>
+    <string name="syncing" formatted="false">מסנכרן...</string>
+    <string name="system_features" formatted="false">תכונות מערכת:</string>
+    <string name="system_settings_title" formatted="false">הגדרות מערכת</string>
+    <string name="tab_all" formatted="false">הכל</string>
+    <string name="tab_answered" formatted="false">נענו</string>
+    <string name="tab_blocked" formatted="false">נחסמו</string>
+    <string name="tab_missed" formatted="false">הוחמצו</string>
+    <string name="tab_outgoing" formatted="false">יוצאים</string>
+    <string name="tag_label" formatted="false">תגית: {tag}</string>
+    <string name="takeaway" formatted="false">טייק אווי</string>
+    <string name="telecommunication" formatted="false">תקשורת</string>
+    <string name="telegram" formatted="false">טלגרם</string>
+    <string name="telemarketing" formatted="false">שיווק טלפוני</string>
+    <string name="temp_purchase_expired" formatted="false">זכות הרכישה הזמנית פגה תוקף</string>
+    <string name="temporary_vip" formatted="false">VIP זמני</string>
+    <string name="test_button" formatted="false">בדיקה</string>
+    <string name="test_connection_button" formatted="false">בדוק חיבור</string>
+    <string name="test_plugin" formatted="false">בדוק פלאגין</string>
+    <string name="text_colors_setting" formatted="false">צבעי טקסט ותוויות</string>
+    <string name="theme_dark" formatted="false">כהה</string>
+    <string name="theme_light" formatted="false">בהיר</string>
+    <string name="theme_settings_subtitle" formatted="false">בחר את ערכת הנושא המועדפת עליך</string>
+    <string name="theme_settings_title" formatted="false">הגדרות ערכת נושא</string>
+    <string name="theme_system" formatted="false">ברירת מחדל של המערכת</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">אפליקציה זו היא כלי מזהה שיחות עוצמתי המאפשר לך לזהות ולחסום שיחות לא רצויות.</string>
+    <string name="this_week" formatted="false">השבוע</string>
+    <string name="time_interceptor" formatted="false">חוטם זמן</string>
+    <string name="time_interceptor_description" formatted="false">יירט/אפשר שיחות פוטנציאליות באופן אוטומטי בהתבסס על תדירות שיחות</string>
+    <string name="time_interceptor_explanation" formatted="false">• חוטם זמן: יירוט/אפשר שיחות חוזרות בפרק זמן קצר</string>
+    <string name="time_interceptor_explanation_content" formatted="false">תכונת יירוט תדירות השיחות מנתחת את תדירות השיחות כדי לזהות באופן אוטומטי וליירט/לאפשר שיחות זבל תכופות.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">הסבר יירוט תדירות שיחות</string>
+    <string name="time_interceptor_settings_title" formatted="false">הגדרות יירוט תדירות שיחות</string>
+    <string name="time_window_description" formatted="false">קבע את גודל חלון הזמן להתרת שיחות חוזרות. שיחות מאותו מספר בתוך חלון זה יותרו</string>
+    <string name="time_window_label" formatted="false">חלון זמן יירוט (דקות): {minutes}</string>
+    <string name="timeline_view" formatted="false">תצוגת ציר זמן</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">היום</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">סה&quot;כ</string>
+    <string name="total_blocked" formatted="false">סה&quot;כ נחסמו</string>
+    <string name="total_pending_proposals" formatted="false">סה&quot;כ הצעות ממתינות</string>
+    <string name="total_proposals" formatted="false">סה&quot;כ הצעות</string>
+    <string name="total_votes" formatted="false">סה&quot;כ: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">העבר נתונים בין מכשירים או פלטפורמות</string>
+    <string name="travel_ticketing" formatted="false">כרטיסי נסיעה</string>
+    <string name="tutorial" formatted="false">מדריך</string>
+    <string name="type" formatted="false">סוג</string>
+    <string name="unassigned_s_i_m_card" formatted="false">כרטיס SIM לא משויך</string>
+    <string name="unblock" formatted="false">בטל חסימה</string>
+    <string name="unblock_number" formatted="false">בטל חסימה של מספר</string>
+    <string name="unblock_number_confirmation" formatted="false">האם אתה בטוח שברצונך לבטל חסימה של {phoneNumber}?</string>
+    <string name="unblock_number_failed" formatted="false">ביטול חסימת מספר נכשל</string>
+    <string name="unblock_number_success" formatted="false">המספר בוטל חסימה בהצלחה</string>
+    <string name="unblocked" formatted="false">בוטל חסימה</string>
+    <string name="unknown" formatted="false">לא ידוע</string>
+    <string name="unknown_tag" formatted="false">תגית: לא ידוע</string>
+    <string name="unregister_button" formatted="false">בטל רישום</string>
+    <string name="unregister_device_confirmation_message" formatted="false">האם אתה בטוח שברצונך לבטל רישום של {deviceName}?</string>
+    <string name="unregister_device_title" formatted="false">בטל רישום מכשיר</string>
+    <string name="unsupported_file_format" formatted="false">פורמט קובץ לא נתמך</string>
+    <string name="update" formatted="false">עדכון</string>
+    <string name="update_all_now" formatted="false">עדכן הכל עכשיו</string>
+    <string name="update_contact_failed" formatted="false">שגיאה בעדכון איש קשר: {error}</string>
+    <string name="update_favorite_status" formatted="false">עדכן סטטוס מועדף</string>
+    <string name="update_interval" formatted="false">מרווח עדכון</string>
+    <string name="update_now" formatted="false">עדכן עכשיו</string>
+    <string name="update_plugin" formatted="false">עדכן תוסף</string>
+    <string name="update_plugin_failed" formatted="false">שגיאה בעדכון תוסף: {error}</string>
+    <string name="update_rule_failed" formatted="false">שגיאה בעדכון כלל: {error}</string>
+    <string name="update_subscription_failed" formatted="false">שגיאה בעדכון מנוי: {error}</string>
+    <string name="update_success" formatted="false">{service} עודכן בהצלחה ({count} כללים)</string>
+    <string name="upgrade_to_vip" formatted="false">שדרג ל-VIP</string>
+    <string name="use_cases_point1" formatted="false">• זיהוי שיחות זבל של חייגן אוטומטי</string>
+    <string name="use_cases_point2" formatted="false">• יירוט שיחות שיווק שמתקשרות מספר פעמים בפרק זמן קצר</string>
+    <string name="use_cases_point3" formatted="false">• מניעת הטלת טלפונים והטרדות</string>
+    <string name="use_cases_title" formatted="false">מקרים לשימוש:</string>
+    <string name="use_global_settings" formatted="false">השתמש בהגדרות גלובליות</string>
+    <string name="use_local_notification" formatted="false">השתמש בהתראות מקומיות</string>
+    <string name="use_local_notification_description" formatted="false">הפעל התראות מקומיות לשיחות נכנסות</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">השתמש בתחביר Regex סטנדרטי להגדרת תבניות. דוגמאות:</string>
+    <string name="use_stir_notification" formatted="false">השתמש בהתראה מ-STIR</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">שם משתמש</string>
+    <string name="verification_failed_text" formatted="false">נכשל</string>
+    <string name="verification_report" formatted="false">דוח אימות</string>
+    <string name="verified_text" formatted="false">מאומת</string>
+    <string name="verify" formatted="false">אמת</string>
+    <string name="version" formatted="false">גרסה: {version}</string>
+    <string name="very_high" formatted="false">גבוה מאוד</string>
+    <string name="very_low" formatted="false">נמוך מאוד</string>
+    <string name="view_details" formatted="false">הצג פרטים</string>
+    <string name="vip3_days_with_ads" formatted="false">VIP של 3 ימים עם מודעות (סנכרון בלבד)</string>
+    <string name="vip5_days_no_ads" formatted="false">VIP של 5 ימים ללא מודעות ועם כל התכונות</string>
+    <string name="vip7_days_no_ads" formatted="false">VIP של 7 ימים ללא מודעות ועם כל התכונות</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">החלף חברות VIP בספירת סימוני טלפון</string>
+    <string name="vip_exchange_service" formatted="false">שירות החלפת VIP</string>
+    <string name="vip_exchange_title" formatted="false">החלפת VIP סימונים</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">משתמש VIP</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">זיהוי קולי</string>
+    <string name="vote_agree" formatted="false">הסכמה</string>
+    <string name="vote_count" formatted="false">מספר הצבעות</string>
+    <string name="vote_disagree" formatted="false">אי-הסכמה</string>
+    <string name="vote_submitted" formatted="false">הצבעה הוגשה בהצלחה</string>
+    <string name="voted" formatted="false">הצבעתי</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} הצבעות ({supportPercentage}% תמיכה)</string>
+    <string name="voting_completed" formatted="false">ההצבעה הסתיימה</string>
+    <string name="voting_completed_body" formatted="false">הצבעת הקהילה עבור {phoneNumber} הסתיימה. תוצאה: {result} ({supportPercentage}% תמיכה).</string>
+    <string name="waiting_for_more_votes" formatted="false">ממתין ליותר הצבעות קהילה</string>
+    <string name="watch_ad" formatted="false">צפה בפרסומת</string>
+    <string name="watch_ad_for_temp" formatted="false">צפה בפרסומת להרשאות זמניות</string>
+    <string name="watch_ad_for_temp_description" formatted="false">צפה בפרסומת קצרה כדי לפתוח באופן זמני חלק מהתכונות הפרימיום</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">עליך לצפות בעוד {count} מודעות כדי לקבל הרשאות VIP זמניות</string>
+    <string name="web_d_a_v_config_title" formatted="false">תצורת WebDAV</string>
+    <string name="week" formatted="false">שבוע</string>
+    <string name="welcome" formatted="false">ברוכים הבאים</string>
+    <string name="whitelist" formatted="false">רשימה לבנה</string>
+    <string name="width" formatted="false">רוחב</string>
+    <string name="wildcard_matching_description" formatted="false">השתמשו ב-\'.\' כדי להתאים לכל תו (לדוגמה, \'123.456\' יתאים ל-123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">התאמת תווים כלליים:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">תמיכה בתווים כלליים לסינון גמיש</string>
+    <string name="window_size_setting" formatted="false">גודל חלון</string>
+    <string name="year" formatted="false">שנה</string>
+    <string name="yesterday" formatted="false">אתמול</string>
+</resources>

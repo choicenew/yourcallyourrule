@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">رابطہ سبسکرپشن کے بارے میں</string>
+    <string name="about_labels" formatted="false">لیبل کے بارے میں</string>
+    <string name="about_phone_subscription_rules" formatted="false">فون سبسکرپشن کے اصولوں کے بارے میں</string>
+    <string name="about_sms_filter" formatted="false">ایس ایم ایس فلٹرنگ کے بارے میں</string>
+    <string name="about_sms_subscription_rules" formatted="false">ایس ایم ایس سبسکرپشن کے اصولوں کے بارے میں</string>
+    <string name="about_subtitle" formatted="false">ایپلیکیشن ورژن اور قانونی معلومات</string>
+    <string name="about_title" formatted="false">کے بارے میں</string>
+    <string name="access_target_url" formatted="false">ٹارگٹ یو آر ایل تک رسائی حاصل کریں</string>
+    <string name="action" formatted="false">عمل</string>
+    <string name="action_all" formatted="false">تمام</string>
+    <string name="action_allow" formatted="false">اجازت</string>
+    <string name="action_block" formatted="false">بلاک</string>
+    <string name="action_filter_title" formatted="false">عمل کی قسم کے لحاظ سے فلٹر</string>
+    <string name="action_filter_tooltip" formatted="false">عمل فلٹر</string>
+    <string name="action_none" formatted="false">کوئی عمل نہیں</string>
+    <string name="action_silence" formatted="false">خاموش</string>
+    <string name="action_tag" formatted="false">عمل: {actionType}</string>
+    <string name="action_type" formatted="false">عمل کی قسم</string>
+    <string name="action_unknown" formatted="false">نامعلوم</string>
+    <string name="active_proposals" formatted="false">فعال تجاویز</string>
+    <string name="add" formatted="false">شامل کریں</string>
+    <string name="add_allow_subscription" formatted="false">اجازت سبسکرپشن شامل کریں</string>
+    <string name="add_allowed_blocked_rule" formatted="false">اجازت/بلاک رول شامل کریں</string>
+    <string name="add_block_subscription" formatted="false">بلاک سبسکرپشن شامل کریں</string>
+    <string name="add_contact_button" formatted="false">رابطہ شامل کریں</string>
+    <string name="add_contact_failed" formatted="false">رابطہ شامل کرنے میں ناکام: {error}</string>
+    <string name="add_label" formatted="false">لیبل شامل کریں</string>
+    <string name="add_label_button" formatted="false">لیبل شامل کریں</string>
+    <string name="add_label_failed" formatted="false">لیبل شامل کرنے میں ناکام: {error}</string>
+    <string name="add_name" formatted="false">نام شامل کریں</string>
+    <string name="add_none_subscription" formatted="false">کوئی سبسکرپشن شامل نہیں</string>
+    <string name="add_phone_mark" formatted="false">فون مارک شامل کریں</string>
+    <string name="add_phone_number_rule" formatted="false">فون نمبر رول شامل کریں</string>
+    <string name="add_plugin" formatted="false">پلگ ان شامل کریں</string>
+    <string name="add_plugin_failed" formatted="false">پلگ ان شامل کرنے میں ناکام</string>
+    <string name="add_plugin_failed_with_error" formatted="false">پلگ ان شامل کرنے میں ناکام: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">لوکل فائل سے پلگ ان شامل کریں</string>
+    <string name="add_plugin_from_url" formatted="false">یو آر ایل سے پلگ ان شامل کریں</string>
+    <string name="add_regex_rule" formatted="false">ریجیکس رول شامل کریں</string>
+    <string name="add_rule" formatted="false">رول شامل کریں</string>
+    <string name="add_rule_failed" formatted="false">رول شامل کرنے میں ناکام: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">رول شامل کریں</string>
+    <string name="add_silence_subscription" formatted="false">خاموش سبسکرپشن شامل کریں</string>
+    <string name="add_sms_filter_rule" formatted="false">ایس ایم ایس فلٹر رول شامل کریں</string>
+    <string name="add_sms_rule" formatted="false">ایس ایم ایس رول شامل کریں</string>
+    <string name="add_sms_subscription" formatted="false">ایس ایم ایس سبسکرپشن شامل کریں</string>
+    <string name="add_subscription" formatted="false">سبسکرپشن شامل کریں</string>
+    <string name="add_subscription_button" formatted="false">سبسکرپشن شامل کریں</string>
+    <string name="add_subscription_failed" formatted="false">سبسکرپشن شامل کرنے میں ناکام: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">سبسکرپشن شامل کریں</string>
+    <string name="add_to_blacklist" formatted="false">بلیک لسٹ میں شامل کریں</string>
+    <string name="add_to_favorites" formatted="false">پسندیدہ میں شامل کریں</string>
+    <string name="add_to_rules" formatted="false">قواعد میں شامل کریں</string>
+    <string name="add_to_whitelist" formatted="false">وائٹ لسٹ میں شامل کریں</string>
+    <string name="added_to_favorites" formatted="false">پسندیدہ رابطوں میں شامل کیا گیا</string>
+    <string name="advanced_mode" formatted="false">ایڈوانسڈ موڈ</string>
+    <string name="agent" formatted="false">ایجنٹ</string>
+    <string name="agree_votes" formatted="false">متفق: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">تمام</string>
+    <string name="all_call_logs_cleared" formatted="false">تمام کال لاگز صاف کر دیے گئے</string>
+    <string name="all_calls_tab" formatted="false">تمام</string>
+    <string name="all_permissions_granted" formatted="false">تمام اجازتیں مل گئیں</string>
+    <string name="all_services_status_subtitle" formatted="false">ہر کلاؤڈ سروس کی موجودہ حیثیت</string>
+    <string name="all_services_status_title" formatted="false">موجودہ سروس کی حیثیت</string>
+    <string name="all_settings_completed" formatted="false">تمام ترتیبات مکمل ہو گئیں۔</string>
+    <string name="all_update_success" formatted="false">تمام اپ ڈیٹس مکمل ہو گئے ({count} اصول)</string>
+    <string name="allow" formatted="false">اجازت</string>
+    <string name="allow_action_description" formatted="false">کالز کی اجازت دی جائے گی، چاہے نمبر بلاک لسٹ میں ہو۔</string>
+    <string name="allow_all_allow_rules" formatted="false">تمام اجازت والے قواعد کی اجازت دیں</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">اجازت والے قواعد سے کالوں کی اجازت دیں</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">تمام بلیک لسٹڈ نمبروں کی اجازت دیں</string>
+    <string name="allow_all_block_rules" formatted="false">تمام بلاک قواعد کی اجازت دیں</string>
+    <string name="allow_all_block_rules_desc" formatted="false">بلاک قواعد سے کالوں کی اجازت دیں</string>
+    <string name="allow_allowed_numbers" formatted="false">اجازت والے نمبروں کی اجازت دیں</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">اجازت نامہ سے کالوں کی اجازت دیں</string>
+    <string name="allow_block" formatted="false">اجازت دیں/بلاک کریں</string>
+    <string name="allow_blocked_numbers" formatted="false">بلاک شدہ نمبروں کی اجازت دیں</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">بلاک لسٹ سے کالوں کی اجازت دیں</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">غیر تجاوز شدہ نمبروں کی اجازت دیں</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">تعداد کی حد سے تجاوز نہ کرنے والے نمبروں کو خود بخود اجازت دیں</string>
+    <string name="allow_regex_allow_rules" formatted="false">ریجیکس اجازت والے قواعد کی اجازت دیں</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">اجازت والے قواعد کے لئے ریجیکس پیٹرن میچنگ کو فعال کریں</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">ریجیکس پر مبنی اجازت والے قواعد کو فعال کریں</string>
+    <string name="allow_regex_block_rules" formatted="false">ریجیکس بلاک قواعد کی اجازت دیں</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">بلاک قواعد کے لئے ریجیکس پیٹرن میچنگ کو فعال کریں</string>
+    <string name="allow_regex_block_rules_description" formatted="false">ریجیکس پر مبنی بلاک قواعد کو فعال کریں</string>
+    <string name="allow_rule" formatted="false">اجازت کا قاعدہ</string>
+    <string name="allow_rules" formatted="false">اجازت کے قواعد</string>
+    <string name="allowed_blocked_rule" formatted="false">اجازت/بلاک رول</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">اجازت/بلاک رول میں ترمیم کریں</string>
+    <string name="allowed_blocked_rule_management" formatted="false">اجازت/بلاک رول مینجمنٹ</string>
+    <string name="allowed_blocked_rules_info" formatted="false">اجازت یافتہ/مسدود کردہ قواعد کا استعمال مخصوص فون نمبرز پر کالز کو میچ کرنے کے لیے کیا جاتا ہے، جن کی ترجیح سب سے زیادہ ہوتی ہے۔</string>
+    <string name="and_more_items" formatted="false">اور {count} مزید آئٹمز</string>
+    <string name="answer_then_hangup" formatted="false">جواب دیں پھر منقطع کریں</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">آپ کی کال آپ کا اصول</string>
+    <string name="application_software" formatted="false">ایپلیکیشن سافٹ ویئر</string>
+    <string name="apply" formatted="false">درخواست دیں</string>
+    <string name="approved" formatted="false">منظور شدہ</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">اجازت دینے میں ناکامی: براہ کرم کلائنٹ ID اور کلید چیک کریں</string>
+    <string name="authorization_failed_message" formatted="false">اجازت دینے میں ناکامی</string>
+    <string name="authorization_success_message" formatted="false">اجازت کامیاب</string>
+    <string name="authorize_login_button" formatted="false">لاگ ان کی اجازت دیں</string>
+    <string name="auto_cancel_notification" formatted="false">خودکار منسوخی نوٹیفکیشن</string>
+    <string name="auto_cancel_notification_description" formatted="false">اگر چیک کیا گیا تو، جب صارف اس پر ٹیپ کرے گا تو نوٹیفکیشن خود بخود برخاست ہو جائے گا۔</string>
+    <string name="auto_sync_label" formatted="false">خودکار مطابقت پذیری</string>
+    <string name="auto_update" formatted="false">خودکار اپ ڈیٹ</string>
+    <string name="auto_update_description" formatted="false">سبسکرپشن کے لیے خودکار اپ ڈیٹ وقفے مقرر کریں یا دستی طور پر اپ ڈیٹ کریں</string>
+    <string name="auto_update_settings" formatted="false">خودکار اپ ڈیٹ ترتیبات</string>
+    <string name="auto_update_subtitle" formatted="false">اصولوں اور پلگ ان کے لیے خودکار اپ ڈیٹس کا نظم کریں</string>
+    <string name="auto_update_title" formatted="false">خودکار اپ ڈیٹ</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">آٹوموٹو انڈسٹری</string>
+    <string name="avatar" formatted="false">اوتار</string>
+    <string name="avatar_border_color" formatted="false">اوتار بارڈر رنگ</string>
+    <string name="avatar_border_size" formatted="false">اوتار بارڈر سائز</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">اوتار اور آئیکن سائز</string>
+    <string name="avatar_position" formatted="false">اوتار پوزیشن</string>
+    <string name="avatar_size" formatted="false">اوتار سائز</string>
+    <string name="axis_position" formatted="false">{axis} پوزیشن</string>
+    <string name="background_gradient_setting" formatted="false">پس منظر گریڈینٹ</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">بیک اپ</string>
+    <string name="backup_and_restore" formatted="false">بیک اپ اور بحال کریں</string>
+    <string name="backup_and_restore_subtitle" formatted="false">ایپلیکیشن ڈیٹا کا بیک اپ یا بحال کریں</string>
+    <string name="backup_and_restore_title" formatted="false">بیک اپ اور بحال کریں</string>
+    <string name="backup_failed" formatted="false">بیک اپ میں ناکامی</string>
+    <string name="backup_settings" formatted="false">بیک اپ ترتیبات</string>
+    <string name="backup_to_cloud" formatted="false">کلاؤڈ پر بیک اپ</string>
+    <string name="backup_to_cloud_failed" formatted="false">کلاؤڈ پر بیک اپ میں ناکامی: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">کامیابی سے کلاؤڈ پر بیک اپ ہوگیا</string>
+    <string name="bank" formatted="false">بینک</string>
+    <string name="basic_info" formatted="false">بنیادی معلومات</string>
+    <string name="basic_rule_filter" formatted="false">بنیادی اصول فلٹر</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">بلیک لسٹ/وائٹ لسٹ اور باقاعدہ اظہار کا استعمال کرتے ہوئے کالوں کو فلٹر کریں</string>
+    <string name="basic_rule_filtering" formatted="false">بنیادی اصول فلٹرنگ</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• بنیادی اصول فلٹرنگ: بلیک لسٹ، وائٹ لسٹ اور regex کی بنیاد پر اصولوں کو فلٹر کرنا</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">کیا آپ واقعی منتخب کردہ {count} روابط کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="batch_delete_labels_confirm" formatted="false">کیا آپ واقعی {count} لیبلز کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="battery_optimization_permission" formatted="false">بیٹری آپٹیمائزیشن</string>
+    <string name="battery_optimization_permission_description" formatted="false">کالر آئی ڈی جیسی خدمات فراہم کرنے کے لیے ایپ کو پس منظر میں چلانے کی اجازت دیں۔</string>
+    <string name="black_white_list" formatted="false">سیاہ/سفید فہرست</string>
+    <string name="blacklist" formatted="false">بلیک لسٹ</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">بلیک لسٹنگ اور وائٹ لسٹنگ</string>
+    <string name="block" formatted="false">بلاک کریں</string>
+    <string name="block_action_description" formatted="false">کالز بلاک کر دی جائیں گی اور کال لاگ میں دکھائی دیں گی۔</string>
+    <string name="block_calls" formatted="false">کالیں مسدود کریں</string>
+    <string name="block_international_calls" formatted="false">ان نمبروں سے میل کھاتا ہے جو + یا 00 سے شروع نہیں ہوتے ہیں</string>
+    <string name="block_international_calls_title" formatted="false">بین الاقوامی کالیں مسدود کریں</string>
+    <string name="block_mobile_numbers" formatted="false">ان نمبروں سے میل کھاتا ہے جو 13-19 سے شروع نہیں ہوتے ہیں</string>
+    <string name="block_mobile_numbers_title" formatted="false">موبائل نمبر مسدود کریں</string>
+    <string name="block_number" formatted="false">نمبر مسدود کریں</string>
+    <string name="block_number_success" formatted="false">نمبر کامیابی سے مسدود کر دیا گیا</string>
+    <string name="block_premium_rate_numbers" formatted="false">ان نمبروں سے میل کھاتا ہے جو 118 یا 120-190 سے شروع نہیں ہوتے ہیں</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">پریمیم ریٹ نمبر مسدود کریں</string>
+    <string name="block_rule" formatted="false">بلاک اصول</string>
+    <string name="block_rules" formatted="false">بلاک اصول</string>
+    <string name="block_specific_area_codes" formatted="false">ان نمبروں سے میل کھاتا ہے جو 0 + 2-3 ہندسوں سے شروع ہوتے ہیں</string>
+    <string name="block_specific_area_codes_title" formatted="false">مخصوص ایریا کوڈ مسدود کریں:</string>
+    <string name="block_type_analysis_title" formatted="false">بلاک قسم کا تجزیہ</string>
+    <string name="blocked" formatted="false">مسدود</string>
+    <string name="blocked_call_body" formatted="false">{phoneNumber} سے بلاک شدہ کال</string>
+    <string name="blocked_call_notifications" formatted="false">بلاک شدہ کال اطلاعات</string>
+    <string name="blocked_call_notifications_description" formatted="false">بلاک شدہ کالز کے بارے میں معلومات دکھاتا ہے۔</string>
+    <string name="blocked_call_title" formatted="false">بلاک شدہ کال</string>
+    <string name="blocked_calls" formatted="false">مسدود کالز</string>
+    <string name="blocked_calls_title" formatted="false">مسدود کالز</string>
+    <string name="blocked_spam_calls" formatted="false">مسدود اسپام کالز</string>
+    <string name="blocking_trend" formatted="false">مسدود کرنے کا رجحان</string>
+    <string name="both" formatted="false">دونوں</string>
+    <string name="bulk_delete" formatted="false">بیچ میں رابطہ حذف کریں</string>
+    <string name="bulk_delete_contacts" formatted="false">بیچ میں رابطہ حذف کریں</string>
+    <string name="bulk_delete_labels" formatted="false">بیچ میں لیبلز حذف کریں</string>
+    <string name="call" formatted="false">کال کریں</string>
+    <string name="call_blocking" formatted="false">کال مسدود کرنا</string>
+    <string name="call_details" formatted="false">کال کی تفصیلات</string>
+    <string name="call_filter_rules" formatted="false">کال فلٹر کے قواعد</string>
+    <string name="call_filter_rules_description" formatted="false">کال فلٹرنگ کے لیے بنیادی قواعد مرتب کریں</string>
+    <string name="call_filter_settings" formatted="false">کال فلٹر کی ترتیبات</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">کال فریکوئنسی کی حدود اور بلاک کرنے کے قواعد مرتب کریں</string>
+    <string name="call_frequency_interception_title" formatted="false">کال فریکوئنسی مداخلت</string>
+    <string name="call_history" formatted="false">کال کی تاریخ</string>
+    <string name="call_history_info_desc" formatted="false">یہاں آپ کی کال کی تاریخ دکھائی گئی ہے، بشمول موصول ہونے والی، بھیجی جانے والی اور مسڈ کالیں۔</string>
+    <string name="call_history_info_title" formatted="false">کال کی تاریخ</string>
+    <string name="call_history_tab" formatted="false">کال کی تاریخ</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">کال اسکریننگ کی اجازت</string>
+    <string name="call_screening_permission_description" formatted="false">سپیم کالوں کو اسکرین اور بلاک کرنے کے لیے استعمال کیا جاتا ہے۔</string>
+    <string name="call_screening_permission_not_granted" formatted="false">کال اسکریننگ کی اجازت نہیں دی گئی، ایپ کی فعالیت متاثر ہو سکتی ہے۔</string>
+    <string name="call_statistics" formatted="false">کال کے اعدادوشمار</string>
+    <string name="call_time" formatted="false">کال کا وقت</string>
+    <string name="call_type" formatted="false">کال کی قسم</string>
+    <string name="call_type_answered" formatted="false">جواب دیا</string>
+    <string name="call_type_blocked" formatted="false">بلاک کی گئی</string>
+    <string name="call_type_icon_color" formatted="false">کال کی قسم کے آئیکن کا رنگ</string>
+    <string name="call_type_missed" formatted="false">مسڈ کال</string>
+    <string name="call_type_outgoing" formatted="false">بھیجی جانے والی</string>
+    <string name="call_type_position" formatted="false">کال کی قسم کی پوزیشن</string>
+    <string name="call_type_rejected" formatted="false">رد شدہ</string>
+    <string name="call_type_silenced" formatted="false">خاموش کردہ</string>
+    <string name="call_type_unknown" formatted="false">نامعلوم</string>
+    <string name="callback" formatted="false">کال بیک</string>
+    <string name="caller_id_app" formatted="false">کالر ID ایپ</string>
+    <string name="caller_id_customization_subtitle" formatted="false">کالر آئی ڈی لے آؤٹ کو حسب ضرورت بنائیں</string>
+    <string name="caller_id_customization_title" formatted="false">کالر ID کو حسب ضرورت بنائیں</string>
+    <string name="caller_id_display_mode" formatted="false">کالر آئی ڈی ڈسپلے موڈ</string>
+    <string name="caller_id_enhancement" formatted="false">کالر آئی ڈی بڑھانا</string>
+    <string name="caller_id_marked_by_count" formatted="false">{count} نے نشان زد کیا</string>
+    <string name="caller_id_notification_title" formatted="false">آنے والی کال کی معلومات</string>
+    <string name="caller_id_preview" formatted="false">کالر آئی ڈی کا پیش منظر</string>
+    <string name="caller_id_settings_subtitle" formatted="false">آنے والی کال کی اطلاع اور ڈسپلے موڈ سیٹ کرنے کے لیے</string>
+    <string name="caller_id_settings_title" formatted="false">کالر آئی ڈی سیٹنگز</string>
+    <string name="calling_number_failed" formatted="false">کال کرنے میں ناکامی</string>
+    <string name="cancel" formatted="false">منسوخ کریں</string>
+    <string name="cancel_button" formatted="false">منسوخ کریں</string>
+    <string name="cancel_local_notification" formatted="false">مقامی اطلاعات بند کریں</string>
+    <string name="cancel_local_notification_description" formatted="false">مقامی اطلاعات خود بخود بند کریں</string>
+    <string name="car_rental" formatted="false">کار کرایہ پر</string>
+    <string name="carrier" formatted="false">کیریئر</string>
+    <string name="carrier_color" formatted="false">کیریئر کا رنگ</string>
+    <string name="carrier_font_size" formatted="false">کیریئر فونٹ سائز</string>
+    <string name="carrier_position" formatted="false">کیریئر کی پوزیشن</string>
+    <string name="change_label" formatted="false">لیبل تبدیل کریں</string>
+    <string name="change_plugin_status_failed" formatted="false">پلگ ان کی حیثیت تبدیل کرنے میں ناکام: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">سبسکرپشن کی حیثیت تبدیل کرنے میں ناکام: {error}</string>
+    <string name="charity" formatted="false">چیریٹی</string>
+    <string name="chart_one_week_ago" formatted="false">1 ہفتہ پہلے</string>
+    <string name="chart_three_days_ago" formatted="false">3 دن پہلے</string>
+    <string name="chart_today" formatted="false">آج</string>
+    <string name="check_file_format" formatted="false">براہ کرم فائل کی شکل یا اجازتیں چیک کریں</string>
+    <string name="check_permission_failed" formatted="false">اجازتیں چیک کرنے میں ناکام: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">ڈیفالٹ مداخلت عمل کا انتخاب کریں</string>
+    <string name="clear_all_call_logs" formatted="false">تمام کال لاگز صاف کریں</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">تمام کال لاگز صاف کرنے کی تصدیق کریں</string>
+    <string name="clear_all_notifications" formatted="false">تمام اطلاعات صاف کریں</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">تمام اطلاعات صاف کرنے کی تصدیق کریں</string>
+    <string name="clear_button" formatted="false">صاف کریں</string>
+    <string name="clear_filter" formatted="false">فلٹر صاف کریں</string>
+    <string name="clear_label_filter_button" formatted="false">لیبل فلٹر صاف کریں</string>
+    <string name="close_button" formatted="false">بند کریں</string>
+    <string name="cloud_backup" formatted="false">کلاؤڈ بیک اپ</string>
+    <string name="cloud_sync" formatted="false">کلاؤڈ سنک</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">کلاؤڈ سنک اور بیک اپ</string>
+    <string name="cloud_sync_service" formatted="false">کلاؤڈ سنک سروس</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">ویب ڈی اے وی، ون ڈرائیو اور گوگل ڈرائیو کو ترتیب دیں</string>
+    <string name="cloud_sync_settings_title" formatted="false">کلاؤڈ سنک کی ترتیبات</string>
+    <string name="cloud_sync_title" formatted="false">کلاؤڈ سنک</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">قرض کی وصولی</string>
+    <string name="color_picker_title" formatted="false">رنگ منتخب کریں</string>
+    <string name="community_impact" formatted="false">کمیونٹی کا اثر</string>
+    <string name="community_participation" formatted="false">کمیونٹی کی شرکت</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">کمیونٹی کے ووٹ</string>
+    <string name="community_voting_started" formatted="false">کمیونٹی ووٹنگ شروع ہو گئی</string>
+    <string name="community_voting_started_body" formatted="false">{phoneNumber} کے لیے ایک نئی حذف کرنے کی تجویز اب کمیونٹی ووٹنگ کے لیے کھلی ہے۔</string>
+    <string name="completed" formatted="false">مکمل</string>
+    <string name="config_management" formatted="false">ترتیب کا انتظام</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">ترتیب اپ ڈیٹ ہو گئی</string>
+    <string name="configuration_advice" formatted="false">مناسب ترتیب کے ذریعے، آپ کام اور ذاتی سم کارڈ کے لیے مختلف فلٹرنگ حکمت عملی مرتب کر سکتے ہیں۔</string>
+    <string name="configure_backup_options" formatted="false">بیک اپ کے اختیارات کو ترتیب دیں</string>
+    <string name="configure_cloud_sync_service" formatted="false">کلاؤڈ سنک سروس ترتیب دیں</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">ملٹی ڈیوائس سنکرونائزیشن کو فعال کرنے کے لیے براہ کرم کلاؤڈ سنک سروس ترتیب دیں۔</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">سم کارڈ فلٹر کے قواعد ترتیب دیں</string>
+    <string name="confirm" formatted="false">تصدیق کریں</string>
+    <string name="confirm_button" formatted="false">تصدیق کریں</string>
+    <string name="confirm_delete" formatted="false">حذف کرنے کی تصدیق کریں</string>
+    <string name="confirm_delete_label" formatted="false">کیا آپ واقعی لیبل &quot;{name}&quot; کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="confirm_delete_plugin" formatted="false">کیا آپ واقعی پلگ ان &quot;{name}&quot; کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="confirm_delete_plugins" formatted="false">کیا آپ واقعی {count} پلگ ان حذف کرنا چاہتے ہیں؟</string>
+    <string name="confirm_delete_rule_message" formatted="false">کیا آپ واقعی اس قاعدہ کو حذف کرنا چاہتے ہیں؟ یہ عمل واپس نہیں کیا جا سکتا۔</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">کیا آپ واقعی اس ایس ایم ایس فلٹر قاعدہ کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="confirm_delete_sms_rule" formatted="false">کیا آپ واقعی اس ایس ایم ایس قاعدہ کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="confirm_delete_subscriptions" formatted="false">کیا آپ واقعی {name} حذف کرنا چاہتے ہیں؟</string>
+    <string name="confirm_password" formatted="false">پاس ورڈ کی تصدیق کریں</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">منسلک</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">کنکشن ناکام: براہ کرم سرور ایڈریس، صارف نام اور پاس ورڈ چیک کریں</string>
+    <string name="connection_failed_message" formatted="false">کنکشن ناکام</string>
+    <string name="connection_status_label" formatted="false">کنکشن کی حیثیت</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">کنکشن کامیاب</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">رابطہ کامیابی سے شامل ہو گیا</string>
+    <string name="contact_deleted" formatted="false">رابطہ حذف ہو گیا</string>
+    <string name="contact_name_label" formatted="false">نام</string>
+    <string name="contact_not_found" formatted="false">رابطہ نہیں ملا</string>
+    <string name="contact_subscription_description" formatted="false">URL کے ذریعے رابطہ لسٹوں کو سبسکرائب کریں، خود بخود رابطہ معلومات اور لیبل اپ ڈیٹ کریں۔ JSON فارمیٹ ڈیٹا کو سپورٹ کرتا ہے۔</string>
+    <string name="contact_update_success" formatted="false">رابطہ کامیابی سے اپ ڈیٹ ہو گیا</string>
+    <string name="contact_us" formatted="false">ہم سے رابطہ کریں</string>
+    <string name="contacts" formatted="false">روابط</string>
+    <string name="contacts_deleted" formatted="false">{count} روابط حذف ہو گئے</string>
+    <string name="contacts_management" formatted="false">روابط مینجمنٹ</string>
+    <string name="contacts_permission" formatted="false">روابط کی اجازت</string>
+    <string name="contacts_permission_description" formatted="false">رابطہ کالوں کی شناخت کے لیے استعمال کیا جاتا ہے۔</string>
+    <string name="contacts_tab" formatted="false">روابط</string>
+    <string name="container_width" formatted="false">کنٹینر چوڑائی</string>
+    <string name="content" formatted="false">مواد</string>
+    <string name="content_regex" formatted="false">مواد Regex</string>
+    <string name="count_color" formatted="false">تعداد رنگ</string>
+    <string name="count_font_size" formatted="false">تعداد فونٹ سائز</string>
+    <string name="count_position" formatted="false">تعداد پوزیشن</string>
+    <string name="count_threshold_description" formatted="false">فلٹرنگ ایکشن شروع کرنے کے لیے کم سے کم تعداد حد مقرر کریں۔</string>
+    <string name="count_threshold_label" formatted="false">تعداد حد</string>
+    <string name="country" formatted="false">ملک</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">مثال کے طور پر، US, CN, GB</string>
+    <string name="country_code_label" formatted="false">ملکی کوڈ (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">ملکی کوڈ درکار ہے</string>
+    <string name="country_code_two_letters" formatted="false">ملکی کوڈ (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">براہ کرم نوٹ کریں: ڈیٹا بیس میں تمام مخصوص ممالک یا علاقوں کا ڈیٹا شامل نہیں ہو سکتا ہے۔</string>
+    <string name="country_name_color" formatted="false">ملک کا نام رنگ</string>
+    <string name="country_name_font_size" formatted="false">ملک کا نام فونٹ سائز</string>
+    <string name="country_region_name_position" formatted="false">ملک/علاقہ نام پوزیشن</string>
+    <string name="country_sync_settings_subtitle" formatted="false">ڈیٹا کی ہم آہنگی کے لیے ممالک منتخب کریں</string>
+    <string name="country_sync_settings_title" formatted="false">ملک کی بنیاد پر ڈیٹا بیس کی ہم آہنگی کی ترتیبات</string>
+    <string name="create_proposal" formatted="false">تجویز بنائیں</string>
+    <string name="create_proposal_title" formatted="false">حذف کرنے کی تجویز بنائیں</string>
+    <string name="created_at" formatted="false">بنایا گیا: {date}</string>
+    <string name="created_rules" formatted="false">تخلیق کردہ اصول</string>
+    <string name="critical" formatted="false">نازک</string>
+    <string name="critical_issues" formatted="false">اہم مسائل</string>
+    <string name="csv_format" formatted="false">CSV فارمیٹ</string>
+    <string name="current_device_label" formatted="false">موجودہ آلہ لیبل</string>
+    <string name="current_device_title" formatted="false">موجودہ آلہ</string>
+    <string name="current_language" formatted="false">موجودہ زبان</string>
+    <string name="current_mark_count" formatted="false">موجودہ مارک شمار</string>
+    <string name="custom" formatted="false">اپنی مرضی کے مطابق</string>
+    <string name="custom_action_description" formatted="false">اپنی مرضی کے مطابق کارروائی کریں۔</string>
+    <string name="customer_service" formatted="false">کسٹمر سروس</string>
+    <string name="dashboard_tab" formatted="false">ڈیش بورڈ</string>
+    <string name="data_analysis" formatted="false">ڈیٹا تجزیہ</string>
+    <string name="data_load_failure" formatted="false">ڈیٹا لوڈ کرنے میں ناکامی: {error}</string>
+    <string name="data_loading_failed" formatted="false">ڈیٹا لوڈ کرنے میں ناکام: {error}</string>
+    <string name="data_migration" formatted="false">ڈیٹا منتقلی</string>
+    <string name="data_migration_description" formatted="false">یہ فیچر آپ کو اپنے تمام ڈیٹا کو آلات کے مابین منتقل کرنے کی اجازت دیتا ہے۔ فی الحال ، آپ اپنے ڈیٹا کو دستی طور پر منتقل کرنے کے لئے بیک اپ اور بحال خصوصیات کا استعمال کرسکتے ہیں۔</string>
+    <string name="data_source_disclaimer" formatted="false">نمبرز انٹرنیٹ اور صارف کی طرف سے جمع کرائے گئے ہیں۔ ہم اس بات کی ضمانت نہیں دے سکتے کہ ایک نمبر، ایک بار حذف ہونے کے بعد، دوسرے صارفین یا ذرائع سے دوبارہ جمع نہیں کرایا جائے گا۔ براہ کرم فعال طور پر معلومات تلاش کریں اور تصدیق کریں۔</string>
+    <string name="data_source_reminder" formatted="false">ڈیٹا ماخذ یاد دہانی</string>
+    <string name="database_sync_title" formatted="false">ڈیٹا بیس کی ہم آہنگی</string>
+    <string name="days" formatted="false">{count, plural, =1{1 دن} other{{count} دن}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 دن پہلے} other{{count} دن پہلے}}</string>
+    <string name="days_vip" formatted="false">{days} دن VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">قرض کی وصولی</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">ڈیفالٹ اطلاعات</string>
+    <string name="default_notifications_description" formatted="false">ایپ کے لیے ڈیفالٹ نوٹیفکیشن چینل۔</string>
+    <string name="delete" formatted="false">حذف کریں</string>
+    <string name="delete_button" formatted="false">حذف کریں</string>
+    <string name="delete_contact" formatted="false">رابطہ حذف کریں</string>
+    <string name="delete_contact_confirm" formatted="false">کیا آپ واقعی {name} کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="delete_failed" formatted="false">حذف کرنے میں ناکامی: {error}</string>
+    <string name="delete_label" formatted="false">لیبل حذف کریں</string>
+    <string name="delete_label_failed" formatted="false">لیبل حذف کرنے میں ناکام: {error}</string>
+    <string name="delete_plugin" formatted="false">پلگ ان حذف کریں</string>
+    <string name="delete_plugin_failed" formatted="false">پلگ ان حذف کرنے میں ناکام: {error}</string>
+    <string name="delete_plugins" formatted="false">پلگ انز حذف کریں</string>
+    <string name="delete_plugins_failed" formatted="false">پلگ انز حذف کرنے میں ناکام: {error}</string>
+    <string name="delete_rule" formatted="false">اصول حذف کریں</string>
+    <string name="delete_rule_failed" formatted="false">حذف کرنے میں ناکامی: {error}</string>
+    <string name="delete_selected" formatted="false">منتخب حذف کریں</string>
+    <string name="delete_subscription" formatted="false">سبسکرپشن حذف کریں</string>
+    <string name="delete_subscription_confirm" formatted="false">کیا آپ واقعی سبسکرپشن &quot;{name}&quot; حذف کرنا چاہتے ہیں؟</string>
+    <string name="delete_subscription_failed" formatted="false">سبسکرپشن حذف کرنے میں ناکام: {error}</string>
+    <string name="delete_success" formatted="false">حذف کامیاب</string>
+    <string name="deletion_proposal" formatted="false">حذف کرنے کی تجویز</string>
+    <string name="deletion_proposal_created" formatted="false">حذف کرنے کی تجویز بنائی گئی</string>
+    <string name="deletion_proposal_created_body" formatted="false">{phoneNumber} کے لیے آپ کی حذف کرنے کی تجویز کمیونٹی کے جائزے کے لیے جمع کرا دی گئی ہے۔</string>
+    <string name="deletion_proposal_description" formatted="false">ایسے نمبرز کو حذف کرنے کی تجویز دیں جو کمیونٹی رہنما اصولوں کی خلاف ورزی کرتے ہیں۔ آپ کی شرکت پلیٹ فارم کو محفوظ رکھنے میں مدد کرتی ہے۔</string>
+    <string name="deletion_proposal_notification_description" formatted="false">حذف کرنے کی تجویز کے ووٹنگ نتائج اور اپ ڈیٹس کے بارے میں اطلاعات۔</string>
+    <string name="deletion_proposals" formatted="false">حذف کرنے کی تجاویز</string>
+    <string name="delivery" formatted="false">ترسیل</string>
+    <string name="description" formatted="false">تفصیل</string>
+    <string name="detailed_settings_title" formatted="false">تفصیلی ترتیبات</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">آلہ ID</string>
+    <string name="device_management_subtitle" formatted="false">ملٹی ڈیوائس سنکرونائزیشن کا نظم کریں</string>
+    <string name="device_management_title" formatted="false">آلہ مینجمنٹ</string>
+    <string name="device_model_label" formatted="false">آلہ ماڈل</string>
+    <string name="device_name" formatted="false">آلہ کا نام</string>
+    <string name="device_name_label" formatted="false">ڈیوائس کا نام</string>
+    <string name="device_renamed_successfully_message" formatted="false">ڈیوائس کا نام کامیابی سے تبدیل کر دیا گیا</string>
+    <string name="device_unregistered_successfully_message" formatted="false">ڈیوائس کامیابی سے غیر رجسٹرڈ ہو گئی</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">ڈیوائسز کامیابی سے مطابقت پذیر ہو گئیں</string>
+    <string name="dialog_title" formatted="false">Regex پیٹرن کی وضاحت</string>
+    <string name="different_from_local_counter" formatted="false">یہ فیچر لوکل کاؤنٹر فلٹر سے مختلف ہے، کیونکہ یہ طویل مدتی مارکنگ گنتی کے بجائے مختصر وقت میں بار بار کال کے نمونوں پر توجہ مرکوز کرتا ہے۔</string>
+    <string name="disable_global_plugins" formatted="false">عالمی پلگ انز کو غیر فعال کریں</string>
+    <string name="disabled" formatted="false">غیر فعال</string>
+    <string name="disabled_status" formatted="false">غیر فعال</string>
+    <string name="disconnect_button" formatted="false">منقطع کریں</string>
+    <string name="disconnect_failed_message" formatted="false">منقطع کرنے میں ناکامی</string>
+    <string name="disconnected_message" formatted="false">منقطع ہو گیا</string>
+    <string name="disconnected_status" formatted="false">منقطع ہو گیا</string>
+    <string name="done" formatted="false">ہو گیا</string>
+    <string name="dual_sim_advice" formatted="false">یہ فیچر خاص طور پر ڈوئل سم فونز کے لیے کام اور ذاتی سم کارڈز کے لیے مختلف فلٹرنگ حکمت عملیوں کو ترتیب دینے کے لیے مفید ہے۔</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">E164 نمبر</string>
+    <string name="earlier" formatted="false">پہلے</string>
+    <string name="earned_temp_vip" formatted="false">عارضی VIP حاصل کر لیا گیا</string>
+    <string name="ecommerce" formatted="false">ای کامرس</string>
+    <string name="edit" formatted="false">ترمیم</string>
+    <string name="edit_contact" formatted="false">رابطہ میں ترمیم کریں</string>
+    <string name="edit_label" formatted="false">لیبل میں ترمیم کریں</string>
+    <string name="edit_phone_rule" formatted="false">فون رول میں ترمیم کریں</string>
+    <string name="edit_rule" formatted="false">رول میں ترمیم کریں</string>
+    <string name="edit_script" formatted="false">اسکرپٹ میں ترمیم کریں</string>
+    <string name="edit_script_for" formatted="false">{pluginName} کے لیے اسکرپٹ میں ترمیم کریں</string>
+    <string name="edit_subscription" formatted="false">سبسکرپشن میں ترمیم کریں</string>
+    <string name="education" formatted="false">تعلیم</string>
+    <string name="element_positions_setting" formatted="false">عناصر کی پوزیشنیں</string>
+    <string name="elements_settings_title" formatted="false">Elements کی ترتیبات</string>
+    <string name="email" formatted="false">ای میل</string>
+    <string name="enable_call_filter" formatted="false">کال فلٹر کو فعال کریں</string>
+    <string name="enable_call_filter_description" formatted="false">فعال ہونے پر، آنے والی کالوں کو نیچے دی گئی رول لسٹ کے خلاف چیک کیا جاتا ہے۔ کال فلٹرنگ رولز ڈیفالٹ طور پر ڈیوائسز کے درمیان مطابقت پذیر نہیں ہوتے ہیں۔</string>
+    <string name="enable_encryption" formatted="false">انکرپشن کو فعال کریں</string>
+    <string name="enable_encryption_description" formatted="false">بیک اپ فائلوں کو انکرپٹ کریں</string>
+    <string name="enable_filtering" formatted="false">فلٹرنگ فعال کریں</string>
+    <string name="enable_fraud_alert" formatted="false">فراڈ الرٹ فعال کریں</string>
+    <string name="enable_fraud_alert_description" formatted="false">مشتبہ اسکیم کالز کے لیے الرٹ</string>
+    <string name="enable_global_plugins" formatted="false">عالمی پلگ انز کو فعال کریں</string>
+    <string name="enable_local_count_filter" formatted="false">لوکل کاؤنٹ فلٹر کو فعال کریں</string>
+    <string name="enable_local_count_filter_description" formatted="false">کال مارکنگ گنتی کی بنیاد پر خود بخود سپیم کالوں کو فلٹر کریں</string>
+    <string name="enable_local_notification" formatted="false">لوکل نوٹیفکیشن استعمال کریں</string>
+    <string name="enable_local_notification_description" formatted="false">فعال ہونے پر، فلٹر شدہ پیغامات کے لیے اطلاعات ڈیوائس پر ظاہر ہوں گی</string>
+    <string name="enable_location_summary" formatted="false">مقام</string>
+    <string name="enable_mute_rules" formatted="false">خاموش رولز کو فعال کریں</string>
+    <string name="enable_mute_rules_desc" formatted="false">خاموش مداخلت کے رولز کی ترتیب کا اطلاق کریں</string>
+    <string name="enable_none_action_rules" formatted="false">کوئی ایکشن رولز کو فعال کریں</string>
+    <string name="enable_none_action_rules_desc" formatted="false">بغیر مداخلت کے ایکشنز کے رول کنفیگریشنز کی اجازت دیں</string>
+    <string name="enable_remote_number_filter" formatted="false">ریموٹ نمبر فلٹر کو فعال کریں</string>
+    <string name="enable_remote_number_filter_description" formatted="false">نمبروں کو فلٹر کرنے کے لیے ریموٹ ڈیٹا بیس استعمال کریں</string>
+    <string name="enable_rule" formatted="false">رول کو فعال کریں</string>
+    <string name="enable_security_message" formatted="false">سیکیورٹی میسج فعال کریں</string>
+    <string name="enable_sms_filter" formatted="false">ایس ایم ایس فلٹرنگ کو فعال کریں</string>
+    <string name="enable_sms_filter_description" formatted="false">فعال ہونے پر، پیغامات خود بخود رولز کے مطابق فلٹر ہو جائیں گے</string>
+    <string name="enable_time_interception" formatted="false">وقت کی مداخلت کو فعال کریں</string>
+    <string name="enable_time_interception_description" formatted="false">مختصر وقت میں بار بار آنے والی کالوں کو روکیں</string>
+    <string name="enable_time_interceptor" formatted="false">ٹائم انٹرسیپٹر کو فعال کریں</string>
+    <string name="enable_vibration" formatted="false">وائبریشن فعال کریں</string>
+    <string name="enable_vibration_description" formatted="false">جب کال مشتبہ اسکیم کال ہو تو وائبریٹ کریں</string>
+    <string name="enabled" formatted="false">فعال</string>
+    <string name="enabled_status" formatted="false">فعال</string>
+    <string name="end_call_immediately" formatted="false">فوری طور پر کال ختم کریں</string>
+    <string name="end_color" formatted="false">آخری رنگ</string>
+    <string name="end_date" formatted="false">آخری تاریخ</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">بہتر فلٹر سسٹم</string>
+    <string name="enhanced_filter_settings" formatted="false">بہتر فلٹر ترتیبات</string>
+    <string name="enhanced_filter_settings_title" formatted="false">بہتر فلٹر ترتیبات</string>
+    <string name="enhanced_filter_system_description" formatted="false">بہتر فلٹر سسٹم عالمی رولز اور فی سم کارڈ فلٹرنگ کنفیگریشنز دونوں کی حمایت کرتا ہے۔</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">براہ کرم فون نمبر اور Regex پیٹرن دونوں درج کریں۔</string>
+    <string name="enter_contact_name" formatted="false">براہ کرم رابطہ کا نام درج کریں</string>
+    <string name="enter_device_name" formatted="false">ڈیوائس کا نام درج کریں</string>
+    <string name="enter_email_optional" formatted="false">ای میل درج کریں (اختیاری)</string>
+    <string name="enter_encryption_password_hint" formatted="false">انکرپشن پاس ورڈ درج کریں</string>
+    <string name="enter_icon_code" formatted="false">آئیکن کوڈ درج کریں</string>
+    <string name="enter_name" formatted="false">رابطہ کا نام درج کریں</string>
+    <string name="enter_new_device_name_hint" formatted="false">اس ڈیوائس کے لیے ایک نیا نام درج کریں</string>
+    <string name="enter_password_again" formatted="false">دوبارہ پاس ورڈ درج کریں</string>
+    <string name="enter_phone_number" formatted="false">فون نمبر درج کریں</string>
+    <string name="enter_phone_number_hint" formatted="false">ٹیسٹ کرنے کے لیے فون نمبر درج کریں</string>
+    <string name="enter_phone_number_multiple" formatted="false">براہ کرم فون نمبر درج کریں، متعدد نمبرز کوما سے جدا کریں</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">تلاش شروع کرنے کے لیے فون نمبر درج کریں</string>
+    <string name="enter_phone_number_to_verify" formatted="false">تصدیق کرنے کے لیے فون نمبر درج کریں</string>
+    <string name="enter_plugin_description" formatted="false">پلگ ان کی تفصیل درج کریں</string>
+    <string name="enter_plugin_name" formatted="false">پلگ ان کا نام درج کریں</string>
+    <string name="enter_plugin_url" formatted="false">پلگ ان URL ایڈریس درج کریں</string>
+    <string name="enter_regex_hint" formatted="false">Regex پیٹرن درج کریں</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">براہ کرم اصول کا نام اور ریجیکس پیٹرن دونوں درج کریں۔</string>
+    <string name="enter_rule_name_hint" formatted="false">اصول کا نام درج کریں</string>
+    <string name="enter_search_content" formatted="false">براہ کرم تلاش کا مواد درج کریں</string>
+    <string name="enter_subscription_name" formatted="false">سبسکرپشن کا نام درج کریں</string>
+    <string name="enter_subscription_url" formatted="false">سبسکرپشن کا URL درج کریں</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">براہ کرم مطابقت پذیری فولڈر کا نام درج کریں (پہلے سے طے شدہ: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">براہ کرم درست نام اور URL درج کریں</string>
+    <string name="enter_valid_url" formatted="false">براہ کرم ایک درست URL درج کریں</string>
+    <string name="enter_version" formatted="false">ورژن درج کریں</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">براہ کرم WebDAV پاس ورڈ درج کریں</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">براہ کرم WebDAV سرور ایڈریس درج کریں</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">براہ کرم WebDAV صارف نام درج کریں</string>
+    <string name="entertainment" formatted="false">تفریح</string>
+    <string name="entity_export_failed" formatted="false">{entityTypeName} برآمد کرنے میں ناکام: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} کامیابی سے برآمد ہو گیا</string>
+    <string name="entity_import_failed" formatted="false">{entityTypeName} درآمد کرنے میں ناکام: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} کامیابی سے درآمد ہو گیا، کل {count} ریکارڈز درآمد کیے گئے</string>
+    <string name="entry_point_view_title" formatted="false">داخلہ نقطہ منظر</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">خرابی: {error}</string>
+    <string name="error_occurred_message" formatted="false">ایک خرابی پیش آئی: {error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">آلہ کا نام تبدیل کرنے میں خرابی: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">آلات کی مطابقت پذیری میں خرابی: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">آلہ کو غیر رجسٹر کرنے میں خرابی: {error}</string>
+    <string name="example_block400_prefix" formatted="false">مثال کے طور پر 400 پریفکس نمبرز کو بلاک کریں</string>
+    <string name="example_block_marketing_sms" formatted="false">مثال کے طور پر مارکیٹنگ SMS کو بلاک کریں</string>
+    <string name="example_content_regex_hint" formatted="false">مواد کے ریجیکس کی مثال</string>
+    <string name="example_coupon_promotion_discount" formatted="false">مثال کے طور پر .*(coupon|promotion|discount).*</string>
+    <string name="example_family_friends" formatted="false">مثال کے طور پر فیملی، دوست وغیرہ۔</string>
+    <string name="example_phone_number" formatted="false">مثال کے طور پر 10086, 12345 وغیرہ۔</string>
+    <string name="example_regex400_prefix" formatted="false">400 پریفکس کے لیے ریجیکس کی مثال</string>
+    <string name="example_sender_regex_hint" formatted="false">مثال</string>
+    <string name="exchange" formatted="false">تبادلہ</string>
+    <string name="exchange_failed" formatted="false">تبادلہ ناکام: {error}</string>
+    <string name="exchange_now" formatted="false">ابھی تبادلہ کریں</string>
+    <string name="exchange_success" formatted="false">{description} کے لیے کامیابی سے تبادلہ کیا گیا، میعاد ختم ہونے کی تاریخ: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">VIP تبادلہ</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">میعاد ختم ہونے کا وقت: {time}</string>
+    <string name="export" formatted="false">ایکسپورٹ کریں</string>
+    <string name="export_all_application_settings" formatted="false">ایپلیکیشن کی تمام ترتیبات ایکسپورٹ کریں</string>
+    <string name="export_all_rule_configurations" formatted="false">تمام اصول کنفیگریشنز ایکسپورٹ کریں</string>
+    <string name="export_config" formatted="false">کنفیگریشن ایکسپورٹ کریں</string>
+    <string name="export_contacts" formatted="false">رابطے ایکسپورٹ کریں</string>
+    <string name="export_data" formatted="false">ڈیٹا ایکسپورٹ کریں</string>
+    <string name="export_entity" formatted="false">{entityTypeName} برآمد کریں</string>
+    <string name="export_failed" formatted="false">ایکسپورٹ ناکام رہا</string>
+    <string name="export_failure" formatted="false">کنفیگریشن ایکسپورٹ کرنے میں ناکامی</string>
+    <string name="export_feature_coming_soon" formatted="false">ایکسپورٹ کی خصوصیت جلد آرہی ہے</string>
+    <string name="export_labels" formatted="false">لیبل ایکسپورٹ کریں</string>
+    <string name="export_labels_failed" formatted="false">لیبل ایکسپورٹ کرنے میں ناکامی: {error}</string>
+    <string name="export_plugin_list" formatted="false">پلاگ ان کی فہرست ایکسپورٹ کریں</string>
+    <string name="export_plugin_list_failed" formatted="false">پلاگ ان کی فہرست ایکسپورٹ کرنے میں ناکامی: {error}</string>
+    <string name="export_rules" formatted="false">اصول ایکسپورٹ کریں</string>
+    <string name="export_sms_rules" formatted="false">SMS اصول ایکسپورٹ کریں</string>
+    <string name="export_statistics_data" formatted="false">شماریاتی ڈیٹا ایکسپورٹ کریں</string>
+    <string name="export_successlly" formatted="false">کنفیگریشن کامیابی سے ایکسپورٹ ہو گئی</string>
+    <string name="failed_to_add_rule" formatted="false">اصول شامل کرنے میں ناکامی: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">SMS سبسکرپشن شامل کرنے میں ناکامی: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">ترتیبات کا بیک اپ لینے میں ناکامی: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">بیک اپ فائل کو ڈکرپٹ کرنے میں ناکامی</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">SMS اصول حذف کرنے میں ناکامی: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">اصول ایکسپورٹ کرنے میں ناکامی: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">کالر ID کی معلومات حاصل کرنے میں ناکامی: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">اصول درآمد کرنے میں ناکامی: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">ترتیبات بحال کرنے میں ناکامی</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">ترتیبات بحال کرنے میں ناکامی: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">اصول کی حیثیت تبدیل کرنے میں ناکامی: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">پسندیدہ رابطے</string>
+    <string name="feature" formatted="false">خصوصیت</string>
+    <string name="feature_add_rules" formatted="false">• فون نمبر کے مخصوص اصول شامل کریں</string>
+    <string name="feature_center" formatted="false">فیچر سینٹر</string>
+    <string name="feature_enable_disable" formatted="false">• ہر SIM کے لیے مختلف فلٹرز کو فعال/غیر فعال کریں</string>
+    <string name="feature_list_title" formatted="false">خصوصیات:</string>
+    <string name="feature_manage_rules" formatted="false">• ہر SIM کے لیے اصول کی فہرستوں کا انتظام کریں</string>
+    <string name="features" formatted="false">خصوصیات</string>
+    <string name="fetching_caller_id_info" formatted="false">کالر ID کی معلومات حاصل کی جا رہی ہیں...</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">فائل یہاں محفوظ کی گئی: {path}</string>
+    <string name="filter" formatted="false">فلٹر</string>
+    <string name="filter_and_sort_title" formatted="false">فلٹر اور ترتیب دیں</string>
+    <string name="filter_by" formatted="false">فلٹر کریں</string>
+    <string name="filter_by_action" formatted="false">کارروائی کے لحاظ سے فلٹر کریں</string>
+    <string name="filter_by_label" formatted="false">لیبل کے لحاظ سے فلٹر کریں</string>
+    <string name="filter_control_panel_title" formatted="false">فلٹر کنٹرول پینل</string>
+    <string name="filter_control_subtitle" formatted="false">تمام فلٹرز کی آن/آف حیثیت کا انتظام کریں</string>
+    <string name="filter_control_title" formatted="false">فلٹر کنٹرول</string>
+    <string name="filter_explanation" formatted="false">فلٹر کی وضاحت</string>
+    <string name="filter_management" formatted="false">فلٹر کا انتظام</string>
+    <string name="filter_management_description" formatted="false">کال فلٹر سیٹ کریں</string>
+    <string name="filter_name" formatted="false">فلٹر کا نام</string>
+    <string name="filter_priority_note" formatted="false">نوٹ: فلٹرز کے درمیان ترجیحی تعلقات موجود ہیں، تفصیلات کے لیے مدد کی دستاویزات سے رجوع کریں</string>
+    <string name="filter_s_m_s" formatted="false">ایس ایم ایس فلٹر کریں</string>
+    <string name="filter_settings" formatted="false">فلٹر کی ترتیبات</string>
+    <string name="filter_settings_title" formatted="false">فلٹر کی ترتیبات</string>
+    <string name="filter_toggle_instructions" formatted="false">اس سم سلاٹ کے لیے فلٹرز کو فعال یا غیر فعال کریں:</string>
+    <string name="filter_toggle_status" formatted="false">{status} فلٹر: {filterName}</string>
+    <string name="filter_type" formatted="false">فلٹر کی قسم</string>
+    <string name="filter_verified_owner" formatted="false">تصدیق شدہ مالک کے ذریعے فلٹر کریں</string>
+    <string name="filtered" formatted="false">فلٹر شدہ</string>
+    <string name="final_risk" formatted="false">حتمی خطرہ</string>
+    <string name="financial" formatted="false">مالیاتی</string>
+    <string name="flexible_combination_feature" formatted="false">• لچکدار امتزاج: فی سم سلاٹ فلٹرز کو فعال/غیر فعال کریں</string>
+    <string name="font_sizes_setting" formatted="false">فونٹ کے سائز</string>
+    <string name="found_rules" formatted="false">{count} قواعد پائے گئے</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">فراڈ الرٹ سیٹ کرنے کے لیے</string>
+    <string name="fraud_aler_setting_title" formatted="false">فراڈ الرٹ سیٹنگ</string>
+    <string name="fraud_alert" formatted="false">دھوکہ دہی کا انتباہ - کال کاٹ دیں</string>
+    <string name="fraud_alert_title" formatted="false">فراڈ الرٹ</string>
+    <string name="fraud_alerts" formatted="false">فراڈ الرٹس</string>
+    <string name="fraud_alerts_description" formatted="false">ممکنہ فراڈ کالز کے لیے انتباہات دکھاتا ہے۔</string>
+    <string name="fraud_scam_likely" formatted="false">دھوکہ دہی کا شبہ ہے</string>
+    <string name="free" formatted="false">مفت</string>
+    <string name="function_settings_title" formatted="false">فنکشن کی ترتیبات</string>
+    <string name="general_update_failure" formatted="false">اپ ڈیٹ ناکام ہو گئی: {error}</string>
+    <string name="get_free" formatted="false">مفت حاصل کریں</string>
+    <string name="github" formatted="false">گٹ ہب</string>
+    <string name="global_filter_description" formatted="false">تمام سم کارڈز کے لیے عالمی فلٹرز ترتیب دیں:</string>
+    <string name="global_filter_feature" formatted="false">• عالمی فلٹرز: تمام آنے والی کالز کے لیے بنیادی اصول</string>
+    <string name="global_filter_settings" formatted="false">عالمی فلٹر کی ترتیبات</string>
+    <string name="global_settings" formatted="false">عالمی ترتیبات</string>
+    <string name="google_drive_auth_description" formatted="false">سسٹم کنفیگر شدہ گوگل ڈرائیو کلائنٹ آئی ڈی اور کلید کا استعمال کرتے ہوئے اجازت دیں</string>
+    <string name="google_drive_config_title" formatted="false">گوگل ڈرائیو کنفیگریشن</string>
+    <string name="government" formatted="false">حکومتی</string>
+    <string name="grant_necessary_permissions" formatted="false">ضروری اجازتیں دیں</string>
+    <string name="grant_permissions" formatted="false">اجازتیں دیں</string>
+    <string name="granted" formatted="false">اجازت دے دی گئی</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">آپ کو {days} دن کی عارضی خریداری کی مراعات دی گئی ہیں۔ میعاد ختم ہونے کی تاریخ: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">ہدایات</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">آپ کے پاس پہلے ہی عارضی مراعات ہیں، میعاد ختم ہونے کی تاریخ: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">آپ کے پاس پہلے ہی VIP مراعات ہیں (اشتہارات کے علاوہ)</string>
+    <string name="headhunter" formatted="false">ہیڈ ہنٹر</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">اونچائی</string>
+    <string name="high" formatted="false">زیادہ</string>
+    <string name="high_risk" formatted="false">زیادہ خطرہ</string>
+    <string name="home_tab" formatted="false">ہوم</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 گھنٹہ پہلے} other{{count} گھنٹے پہلے}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 گھنٹے} =1{1 گھنٹہ} other{{count} گھنٹے}}</string>
+    <string name="how_it_works_point1" formatted="false">• سسٹم خودکار طور پر مقررہ وقت کی حد کے اندر ایک ہی نمبر سے آنے والی کالز کی اجازت دے گا</string>
+    <string name="how_it_works_point2" formatted="false">• چھوٹی ٹائم ونڈوز سخت رکاوٹ کا باعث بنتی ہیں؛ لمبی ٹائم ونڈوز ڈھیلی رکاوٹ کا باعث بنتی ہیں</string>
+    <string name="how_it_works_point3" formatted="false">• سسٹم کال لاگز کی جانچ کرتا ہے تاکہ یہ تعین کیا جا سکے کہ آیا یہ کوئی دہرائی جانے والی کال ہے</string>
+    <string name="how_it_works_title" formatted="false">یہ کیسے کام کرتا ہے:</string>
+    <string name="icon_code_optional" formatted="false">آئیکن کوڈ (اختیاری)</string>
+    <string name="icon_size" formatted="false">آئیکن کا سائز</string>
+    <string name="import" formatted="false">درآمد کریں</string>
+    <string name="import_config" formatted="false">کنفیگریشن درآمد کریں</string>
+    <string name="import_contacts" formatted="false">رابطے درآمد کریں</string>
+    <string name="import_entity" formatted="false">{entityTypeName} درآمد کریں</string>
+    <string name="import_export" formatted="false">درآمد/برآمد</string>
+    <string name="import_export_contacts" formatted="false">رابطے درآمد/برآمد کریں</string>
+    <string name="import_export_contacts_tooltip" formatted="false">رابطے درآمد/برآمد کریں</string>
+    <string name="import_export_description" formatted="false">{entityTypeName} ڈیٹا درآمد یا برآمد کریں</string>
+    <string name="import_export_rules" formatted="false">قواعد درآمد/برآمد کریں</string>
+    <string name="import_export_title" formatted="false">درآمد/برآمد</string>
+    <string name="import_failed" formatted="false">درآمد ناکام ہو گئی: {error}</string>
+    <string name="import_failure" formatted="false">کنفیگریشن درآمد کرنے میں ناکامی ہوئی</string>
+    <string name="import_feature_coming_soon" formatted="false">درآمد کی خصوصیت جلد آرہی ہے</string>
+    <string name="import_labels" formatted="false">لیبل درآمد کریں</string>
+    <string name="import_labels_failed" formatted="false">لیبل درآمد کرنے میں ناکامی ہوئی: {error}</string>
+    <string name="import_plugin_list" formatted="false">پلگ ان کی فہرست درآمد کریں</string>
+    <string name="import_plugin_list_failed" formatted="false">پلگ ان کی فہرست درآمد کرنے میں ناکامی ہوئی: {error}</string>
+    <string name="import_plugin_success" formatted="false">{count} پلگ ان کامیابی سے درآمد ہو گئے</string>
+    <string name="import_rule_configurations_from_file" formatted="false">فائل سے قواعد کی کنفیگریشنز درآمد کریں</string>
+    <string name="import_rules" formatted="false">قواعد درآمد کریں</string>
+    <string name="import_success" formatted="false">درآمد کامیاب</string>
+    <string name="important" formatted="false">اہم</string>
+    <string name="important_notice_title" formatted="false">اہم اطلاع</string>
+    <string name="incoming_call_intercept_action" formatted="false">آنے والی کال کو روکنے کا عمل</string>
+    <string name="incorrect_password" formatted="false">غلط پاس ورڈ</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">Please select the regional rule libraries you want to block. These rules can help you automatically block common sales and scam calls in your region.</string>
+    <string name="initial_setup_deselect_all" formatted="false">انتخاب ختم کریں</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">Failed to get configuration</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">Retry</string>
+    <string name="initial_setup_save" formatted="false">One-click setup selected</string>
+    <string name="initial_setup_save_failed" formatted="false">Failed to save configuration: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Configuration saved successfully, rules will be fetched automatically soon</string>
+    <string name="initial_setup_saving" formatted="false">Saving...</string>
+    <string name="initial_setup_search_hint" formatted="false">قوانین یا ملک تلاش کریں...</string>
+    <string name="initial_setup_select_all" formatted="false">سبھی منتخب کریں</string>
+    <string name="initial_setup_selected_count" formatted="false">{count} منتخب کردہ</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">Skip</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">Rule Library Setup</string>
+    <string name="initializing" formatted="false">شروع ہو رہا ہے</string>
+    <string name="installed" formatted="false">انسٹال شدہ</string>
+    <string name="insufficient_marks" formatted="false">ناکافی نشانات</string>
+    <string name="insurance" formatted="false">انشورنس</string>
+    <string name="intercept_action" formatted="false">روکنے کا عمل</string>
+    <string name="interception_action_settings_subtitle" formatted="false">مقرر کریں کہ بلاک شدہ کالز کو کیسے ہینڈل کیا جائے گا</string>
+    <string name="interception_action_settings_title" formatted="false">روکنے کے عمل کی ترتیبات</string>
+    <string name="interception_time_interval" formatted="false">روکنے کا وقت کا وقفہ</string>
+    <string name="internet" formatted="false">انٹرنیٹ</string>
+    <string name="interval_set_success" formatted="false">{service} اپ ڈیٹ وقفہ {days} دنوں پر سیٹ کر دیا گیا</string>
+    <string name="invalid_content_regex" formatted="false">غلط مواد کا ریجیکس</string>
+    <string name="invalid_exchange_rule" formatted="false">غلط تبادلے کا اصول</string>
+    <string name="invalid_label" formatted="false">غلط لیبل</string>
+    <string name="invalid_regex_pattern" formatted="false">غلط ریجیکس پیٹرن</string>
+    <string name="invalid_sender_regex" formatted="false">غلط سینڈر ریجیکس</string>
+    <string name="invalid_sim_data" formatted="false">غلط SIM ڈیٹا</string>
+    <string name="ip_country" formatted="false">آئی پی ملک</string>
+    <string name="is_number_match" formatted="false">نمبر میچ</string>
+    <string name="is_roaming" formatted="false">رومنگ</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">مزید معلومات کے لیے ٹیلی گرام چینل اور گروپ میں شامل ہوں</string>
+    <string name="json_format" formatted="false">JSON فارمیٹ</string>
+    <string name="just_now" formatted="false">ابھی</string>
+    <string name="keep_all_versions" formatted="false">تمام ورژنز رکھیں</string>
+    <string name="keep_all_versions_description" formatted="false">ہر بیک اپ کے تمام تاریخی ورژنز محفوظ رکھیں</string>
+    <string name="label" formatted="false">لیبل</string>
+    <string name="label_action_description" formatted="false">آسان شناخت کے لیے کال میں ایک لیبل شامل کریں۔</string>
+    <string name="label_added_successfully" formatted="false">لیبل &quot;{name}&quot; کامیابی سے شامل کر دیا گیا</string>
+    <string name="label_categories" formatted="false">لیبل کیٹیگریز</string>
+    <string name="label_deleted" formatted="false">لیبل حذف کر دیا گیا</string>
+    <string name="label_description" formatted="false">لیبل آپ کو رابطوں کو بہتر طریقے سے منظم کرنے میں مدد کرتے ہیں، کالز اور پیغامات کی آسانی سے شناخت کے لیے فون نمبرز پر کسٹم لیبلز شامل کریں۔</string>
+    <string name="label_filter_tooltip" formatted="false">لیبل فلٹر</string>
+    <string name="label_icon_color" formatted="false">لیبل آئیکن کا رنگ</string>
+    <string name="label_management" formatted="false">لیبل کا انتظام</string>
+    <string name="label_not_found" formatted="false">لیبل نہیں ملا</string>
+    <string name="label_tag" formatted="false">لیبل: {labelId}</string>
+    <string name="label_update_failed" formatted="false">لیبل اپ ڈیٹ کرنے میں ناکامی: {error}</string>
+    <string name="label_update_success" formatted="false">لیبل &quot;$labelText&quot; کامیابی سے اپ ڈیٹ ہو گیا</string>
+    <string name="labels" formatted="false">لیبلز</string>
+    <string name="labels_color" formatted="false">لیبلز کا رنگ</string>
+    <string name="labels_deleted" formatted="false">{count} لیبلز حذف کر دیے گئے</string>
+    <string name="labels_exported_successfully" formatted="false">لیبلز کامیابی سے برآمد ہو گئے</string>
+    <string name="labels_font_size" formatted="false">لیبلز کا فونٹ سائز</string>
+    <string name="labels_imported_successfully" formatted="false">کامیابی سے {count} لیبلز درآمد ہو گئے</string>
+    <string name="labels_position" formatted="false">لیبلز کی پوزیشن</string>
+    <string name="language_settings" formatted="false">زبان کی ترتیبات</string>
+    <string name="language_settings_subtitle" formatted="false">ایپلی کیشن کی ڈسپلے زبان تبدیل کریں</string>
+    <string name="language_settings_title" formatted="false">زبان کی ترتیبات</string>
+    <string name="last_sync_label" formatted="false">آخری ہم آہنگی</string>
+    <string name="last_updated" formatted="false">آخری اپ ڈیٹ: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">لائف ٹائم ممبرشپ</string>
+    <string name="lifetime_membership_description" formatted="false">ایک بار کی خریداری، تمام پریمیم خصوصیات اور مستقبل کی اپ ڈیٹس کو مستقل طور پر غیر مقفل کریں</string>
+    <string name="list_view" formatted="false">فہرست منظر</string>
+    <string name="live_activities_settings_title" formatted="false">Live Activities کی ترتیبات</string>
+    <string name="live_activities_test_end_activity" formatted="false">ایکٹیویٹی ختم کریں</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">نئی ایکٹیویٹی بھیجیں</string>
+    <string name="live_activities_test_title" formatted="false">Live Activities ٹیسٹ</string>
+    <string name="live_activities_test_update_activity" formatted="false">ایکٹیویٹی اپ ڈیٹ کریں</string>
+    <string name="live_activity_controls_title" formatted="false">Live Activity کنٹرولز</string>
+    <string name="live_activity_mode" formatted="false">Live Activity</string>
+    <string name="live_activity_mode_description" formatted="false">کال کی معلومات کو لاک اسکرین پر اور ڈائنامک آئی لینڈ (iOS) میں ایک مستقل اطلاع کے طور پر دکھاتا ہے۔</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Live نوٹیفکیشنز کی ظاہری شکل کو حسب ضرورت بنائیں۔</string>
+    <string name="live_notification_customization_title" formatted="false">Live نوٹیفکیشن حسب ضرورت</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">رابطے لوڈ کرنے میں ناکامی: {error}</string>
+    <string name="load_data_failed" formatted="false">ڈیٹا لوڈ کرنے میں ناکامی</string>
+    <string name="load_label_failed" formatted="false">لیبلز لوڈ کرنے میں ناکامی: {error}</string>
+    <string name="load_labels_failed" formatted="false">لیبلز لوڈ کرنے میں ناکامی: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">نشان زد فون نمبرز لوڈ کرنے میں ناکامی: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">نشان زد فونز لوڈ کرنے میں ناکامی: {error}</string>
+    <string name="load_plugins_failed" formatted="false">پلاگ انز لوڈ کرنے میں ناکامی: {error}</string>
+    <string name="load_settings_failed" formatted="false">ترتیبات لوڈ کرنے میں ناکامی: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">ایس ایم ایس قواعد لوڈ کرنے میں ناکامی: {error}</string>
+    <string name="load_status_failed_message" formatted="false">سٹیٹس لوڈ کرنے میں ناکامی</string>
+    <string name="load_subscriptions_failed" formatted="false">سبسکرپشنز لوڈ کرنے میں ناکامی: {error}</string>
+    <string name="loading" formatted="false">لوڈ ہو رہا ہے...</string>
+    <string name="loading_ad" formatted="false">اشتہار لوڈ ہو رہا ہے...</string>
+    <string name="loading_tags" formatted="false">ٹیگز لوڈ ہو رہے ہیں...</string>
+    <string name="loan" formatted="false">قرض</string>
+    <string name="local_count_filter" formatted="false">مقامی شمار فلٹر</string>
+    <string name="local_count_filter_description" formatted="false">مقامی نمبروں کی تعداد کی بنیاد پر بار بار آنے والی کالز کو روکیں</string>
+    <string name="local_count_filter_explanation_content" formatted="false">مقامی شمار فلٹر کال ہسٹری ریکارڈز کا تجزیہ کرتا ہے تاکہ بار بار آنے والی اسپام کالز کو خود بخود شناخت کر کے بلاک کیا جا سکے</string>
+    <string name="local_count_filter_explanation_title" formatted="false">مقامی شمار فلٹر کی وضاحت</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• نمبر کی شمار کی قیمت کی بنیاد پر بلاک کرنا ہے یا نہیں، اس کا تعین کریں</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• جب کسی نمبر کی شمار کی تعداد مقررہ حد سے تجاوز کر جائے، تو آپ اسے خود بخود بلاک کرنے کا انتخاب کر سکتے ہیں</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• آپ ان نمبروں کو منتخب طور پر اجازت دے سکتے ہیں جو حد سے تجاوز نہیں کرتے</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• آپ یہ منتخب کر سکتے ہیں کہ تمام استفسار لاگز کو ریکارڈ کرنا ہے یا نہیں</string>
+    <string name="local_count_filter_settings" formatted="false">مقامی شمار فلٹر کی ترتیبات</string>
+    <string name="local_count_filter_use_cases" formatted="false">یہ فلٹر خاص طور پر خودکار ڈائل کردہ اسپام کالز اور مارکیٹنگ کالز کی شناخت کے لیے موزوں ہے</string>
+    <string name="local_count_filtering" formatted="false">مقامی شمار فلٹرنگ</string>
+    <string name="local_count_filtering_explanation" formatted="false">• مقامی شمار فلٹرنگ: مقامی مارکنگ کی تعداد کی بنیاد پر فلٹرنگ کے قواعد</string>
+    <string name="local_counter_filter" formatted="false">مقامی کاؤنٹر فلٹر</string>
+    <string name="local_counter_filter_subtitle" formatted="false">کال کی فریکوئنسی کی بنیاد پر اسپام کالز کو خود بخود فلٹر کریں</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">مقامی فلٹر کی ترتیبات</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">مقامی اطلاع غیر فعال کر دی گئی</string>
+    <string name="local_notification_enabled" formatted="false">مقامی اطلاع فعال کر دی گئی</string>
+    <string name="local_services" formatted="false">مقامی خدمات</string>
+    <string name="location" formatted="false">مقام</string>
+    <string name="location_color" formatted="false">مقام کا رنگ</string>
+    <string name="location_font_size" formatted="false">مقام کا فونٹ سائز</string>
+    <string name="location_icon_color" formatted="false">مقام آئیکن کا رنگ</string>
+    <string name="location_position" formatted="false">مقام کی پوزیشن</string>
+    <string name="log" formatted="false">لاگ</string>
+    <string name="log_action_description" formatted="false">کسی اور کارروائی کے بغیر کال کی معلومات کو لاگ کریں۔</string>
+    <string name="log_all_local_queries" formatted="false">تمام مقامی استفسارات کو لاگ کریں</string>
+    <string name="log_all_local_queries_description" formatted="false">تمام مقامی نمبر استفسارات کے لاگز ریکارڈ کریں</string>
+    <string name="log_all_remote_queries" formatted="false">تمام ریموٹ استفسارات کو لاگ کریں</string>
+    <string name="log_all_remote_queries_description" formatted="false">تمام ریموٹ نمبر استفسار آپریشنز کو ریکارڈ کریں</string>
+    <string name="low" formatted="false">کم</string>
+    <string name="low_risk" formatted="false">کم خطرہ</string>
+    <string name="manage" formatted="false">رابطوں کا انتظام کریں</string>
+    <string name="manage_favorite_contacts" formatted="false">پسندیدہ رابطوں کا انتظام کریں</string>
+    <string name="manage_filter_rules" formatted="false">فلٹر قواعد کا انتظام کریں</string>
+    <string name="manage_filter_rules_description" formatted="false">ایس ایم ایس فلٹر قواعد شامل کریں، ترمیم کریں، یا حذف کریں</string>
+    <string name="manual_entry" formatted="false">دستی اندراج کی معلومات</string>
+    <string name="mark_count" formatted="false">مارک کی تعداد</string>
+    <string name="mark_counts" formatted="false">مارک کی تعداد</string>
+    <string name="mark_exchange" formatted="false">ایکسچینج کو نشان زد کریں</string>
+    <string name="mark_more_numbers_for_more" formatted="false">مزید مارکس کے لیے مزید نمبرز مارک کریں</string>
+    <string name="mark_phone" formatted="false">فون نمبر کو نشان زد کریں</string>
+    <string name="mark_phone_failed" formatted="false">فون نمبر مارک کرنے میں ناکامی: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">فون مارک مینجمنٹ</string>
+    <string name="mark_phone_success" formatted="false">فون نمبر کامیابی سے مارک ہو گیا</string>
+    <string name="marked_by_count" formatted="false">{count} کی طرف سے نشان زد</string>
+    <string name="marked_phones_list" formatted="false">نشان زد فون نمبرز</string>
+    <string name="marks_insufficient" formatted="false">تبادلے کے لیے ناکافی مارکس</string>
+    <string name="master_and_overrides" formatted="false">Master Controls</string>
+    <string name="master_and_overrides_desc" formatted="false">Global Rule Settings</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">میچ ناکام ہو گیا۔</string>
+    <string name="match_numbers_with_special_characters" formatted="false">خاص نمبر فارمیٹ سے مماثل</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">خاص حروف والے نمبروں سے مماثل کریں:</string>
+    <string name="match_specific_digit_patterns" formatted="false">XXX-XXXX-XXXX فارمیٹ سے مماثل ہے</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">مخصوص ہندسوں کے پیٹرن سے مماثل کریں:</string>
+    <string name="match_successful_message" formatted="false">میچ کامیاب!</string>
+    <string name="medical" formatted="false">میڈیکل</string>
+    <string name="medium" formatted="false">درمیانہ</string>
+    <string name="medium_risk" formatted="false">درمیانہ خطرہ</string>
+    <string name="membership_center" formatted="false">ممبرشپ سینٹر</string>
+    <string name="membership_privileges" formatted="false">ممبرشپ کے مراعات</string>
+    <string name="message_background_color" formatted="false">پیغام کے پس منظر کا رنگ</string>
+    <string name="message_color" formatted="false">میسج کا رنگ</string>
+    <string name="message_font_size" formatted="false">میسج فونٹ سائز</string>
+    <string name="message_position" formatted="false">میسج کی پوزیشن</string>
+    <string name="migration_tool" formatted="false">مائگریشن ٹول</string>
+    <string name="minutes" formatted="false">منٹ</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 منٹ پہلے} other{{count} منٹ پہلے}}</string>
+    <string name="moderate" formatted="false">معتدل</string>
+    <string name="month" formatted="false">مہینہ</string>
+    <string name="monthly" formatted="false">ماہانہ</string>
+    <string name="monthly_call_count" formatted="false">ماہانہ کالز</string>
+    <string name="monthly_membership" formatted="false">ماہانہ ممبرشپ</string>
+    <string name="monthly_membership_description" formatted="false">تمام پریمیم خصوصیات کو غیر مقفل کریں، ماہانہ خودکار تجدید</string>
+    <string name="monthly_total" formatted="false">ماہانہ کل</string>
+    <string name="more_options" formatted="false">مزید اختیارات</string>
+    <string name="mute" formatted="false">خاموش کریں</string>
+    <string name="name" formatted="false">نام</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">نام اور فون نمبر خالی نہیں ہو سکتے</string>
+    <string name="name_cannot_be_empty" formatted="false">نام خالی نہیں ہو سکتا</string>
+    <string name="name_color" formatted="false">نام کا رنگ</string>
+    <string name="name_font_size" formatted="false">نام فونٹ سائز</string>
+    <string name="name_position" formatted="false">نام کی پوزیشن</string>
+    <string name="name_unknown" formatted="false">نام: نامعلوم</string>
+    <string name="national_number" formatted="false">قومی نمبر</string>
+    <string name="need_vip_access" formatted="false">اس خصوصیت کو استعمال کرنے کے لیے آپ کو VIP رسائی کی ضرورت ہے۔</string>
+    <string name="new_vote_received" formatted="false">نیا ووٹ موصول ہوا</string>
+    <string name="new_vote_received_body" formatted="false">کسی نے {phoneNumber} کو حذف کرنے کی {voteType} کے لیے ووٹ دیا ہے۔ موجودہ ووٹ: {totalVotes}۔</string>
+    <string name="next_step" formatted="false">اگلا</string>
+    <string name="no_action" formatted="false">کوئی کارروائی نہیں</string>
+    <string name="no_action_rules" formatted="false">کوئی کارروائی کے قوانین نہیں</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">کوئی فعال کلاؤڈ سنک سروس نہیں</string>
+    <string name="no_activity" formatted="false">کوئی سرگرمی نہیں</string>
+    <string name="no_ads" formatted="false">کوئی اشتہار نہیں</string>
+    <string name="no_allowed_blocked_rules" formatted="false">کوئی اجازت یافتہ/بلاک شدہ قواعد نہیں ملے</string>
+    <string name="no_blocked_type_data" formatted="false">بلاک شدہ قسم کا ڈیٹا دستیاب نہیں</string>
+    <string name="no_call_records" formatted="false">کوئی کال ریکارڈز نہیں</string>
+    <string name="no_contacts_yet" formatted="false">ابھی تک کوئی رابطہ نہیں</string>
+    <string name="no_data" formatted="false">کوئی ڈیٹا نہیں</string>
+    <string name="no_devices_registered_message" formatted="false">کوئی ڈیوائس رجسٹرڈ نہیں ہے</string>
+    <string name="no_labels" formatted="false">ابھی تک کوئی لیبل نہیں</string>
+    <string name="no_marked_phones" formatted="false">کوئی مارک شدہ فون نمبر نہیں</string>
+    <string name="no_matching_contacts_found" formatted="false">کوئی مماثل رابطے نہیں ملے</string>
+    <string name="no_matching_numbers_found" formatted="false">کوئی مماثل نمبرز نہیں ملے</string>
+    <string name="no_matching_rules" formatted="false">کوئی مماثل {ruleType} نہیں</string>
+    <string name="no_notifications" formatted="false">کوئی اطلاعات نہیں</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">کوئی فون قواعد نہیں ملے</string>
+    <string name="no_plugins" formatted="false">ابھی تک کوئی پلگ ان نہیں</string>
+    <string name="no_proposals_found" formatted="false">کوئی تجاویز نہیں ملیں</string>
+    <string name="no_regex_rules" formatted="false">کوئی ریجیکس قواعد نہیں ملے</string>
+    <string name="no_rules" formatted="false">ابھی تک کوئی {ruleType} نہیں</string>
+    <string name="no_rules_prompt" formatted="false">کوئی اصول نہیں ملا، براہ کرم اصول شامل کریں</string>
+    <string name="no_rules_to_export" formatted="false">برآمد کرنے کے لیے کوئی اصول نہیں</string>
+    <string name="no_sim_card_detected" formatted="false">کوئی SIM کارڈ نہیں ملا</string>
+    <string name="no_sim_cards_detected" formatted="false">کوئی سم کارڈز نہیں ملے</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">ابھی تک کوئی SMS فلٹر اصول نہیں</string>
+    <string name="no_sms_rules_yet" formatted="false">ابھی تک کوئی SMS اصول نہیں</string>
+    <string name="no_subscriptions" formatted="false">کوئی سبسکرپشن نہیں</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">فائل میں کوئی درست SMS اصول نہیں ملے</string>
+    <string name="none" formatted="false">کوئی نہیں</string>
+    <string name="none_action_description" formatted="false">کال کے لیے کوئی خاص کارروائی نہیں کی جائے گی۔</string>
+    <string name="none_service_type" formatted="false">کوئی نہیں</string>
+    <string name="normal_user" formatted="false">عام صارف</string>
+    <string name="not_granted" formatted="false">اجازت نہیں دی گئی</string>
+    <string name="not_verified_text" formatted="false">تصدیق شدہ نہیں</string>
+    <string name="notification_frequency_hours" formatted="false">اطلاع کی فریکوئنسی (گھنٹے)</string>
+    <string name="notification_frequency_title" formatted="false">اطلاع کی فریکوئنسی</string>
+    <string name="notification_mode" formatted="false">نوٹیفکیشن موڈ</string>
+    <string name="notification_mode_description" formatted="false">نوٹیفکیشن بار میں کال کرنے والے کی معلومات دکھائیں</string>
+    <string name="notification_permission" formatted="false">نوٹیفکیشن کی اجازت</string>
+    <string name="notification_permission_description" formatted="false">آنے والی کال اور پیغام کی اطلاعات دکھانے کے لیے استعمال کیا جاتا ہے۔</string>
+    <string name="notification_settings" formatted="false">اطلاعات کی ترتیبات</string>
+    <string name="notification_settings_title" formatted="false">اطلاع کی سیٹنگز</string>
+    <string name="notification_instructions" formatted="false">ہدایات:
+1. نوٹیفکیشن بنانے یا اپ ڈیٹ کرنے کے لیے &quot;SEND&quot; پر ٹیپ کریں۔
+2. نتیجہ دیکھنے کے لیے اپنی ہوم اسکرین پر جائیں یا نوٹیفکیشن ٹرے نیچے کھینچیں۔
+3. نوٹیفکیشن کو برخاست کرنے کے لیے &quot;END&quot; پر ٹیپ کریں۔</string>
+    <string name="notifications" formatted="false">اطلاعات</string>
+    <string name="notify" formatted="false">اطلاع دیں</string>
+    <string name="notify_action_description" formatted="false">کال موصول ہونے پر ایک اطلاع بھیجیں۔</string>
+    <string name="number" formatted="false">نمبر</string>
+    <string name="number_color" formatted="false">نمبر کا رنگ</string>
+    <string name="number_font_size" formatted="false">نمبر فونٹ سائز</string>
+    <string name="number_format" formatted="false">نمبر فارمیٹ</string>
+    <string name="number_invalid_format" formatted="false">نمبر کا فارمیٹ غلط ہے</string>
+    <string name="number_position" formatted="false">نمبر کی پوزیشن</string>
+    <string name="number_search" formatted="false">نمبر تلاش</string>
+    <string name="number_type_color" formatted="false">نمبر کی قسم کا رنگ</string>
+    <string name="number_type_font_size" formatted="false">نمبر کی قسم کا فونٹ سائز</string>
+    <string name="number_type_position" formatted="false">نمبر کی قسم کی پوزیشن</string>
+    <string name="ok_button" formatted="false">ٹھیک ہے</string>
+    <string name="onboarding_complete_description" formatted="false">آپ کا کال سیکیورٹی مینیجر تیار ہے، محفوظ کال کے تجربے سے لطف اندوز ہونا شروع کریں!</string>
+    <string name="onboarding_language_description" formatted="false">بہترین تجربے کے لیے اپنی پسندیدہ زبان منتخب کریں۔</string>
+    <string name="onboarding_permissions_description" formatted="false">مکمل سروس فراہم کرنے کے لیے، ہمیں درج ذیل اجازتوں کی ضرورت ہے:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">سپیم کالز اور پیغامات کو ایک کلک سے بلاک کرنا، بلاکنگ کے اصولوں کو اپنی مرضی کے مطابق بنانا، اور آپ کو ایک پرسکون ماحول فراہم کرنا۔</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">نامعلوم کالز کو خود بخود پہچانیں، مشتبہ نمبرز کو مارک کریں، اور اپنی کال کی حفاظت کریں۔</string>
+    <string name="onboarding_welcome_description" formatted="false">آپ کا کال مینجمنٹ ماہر، جو جامع کال شناخت اور بلاکنگ خدمات فراہم کرتا ہے۔</string>
+    <string name="one_drive_auth_description" formatted="false">سسٹم کی تشکیل شدہ OneDrive کلائنٹ ID اور کلید کا استعمال کرتے ہوئے اجازت دیں</string>
+    <string name="one_drive_config_title" formatted="false">OneDrive کنفیگریشن</string>
+    <string name="online_caller_id_subscription" formatted="false">آن لائن کالر آئی ڈی سبسکرپشن</string>
+    <string name="open_app_settings" formatted="false">ایپ کی ترتیبات کھولیں</string>
+    <string name="open_app_settings_failed" formatted="false">ایپ کی ترتیبات کھولنے میں ناکامی: {error}</string>
+    <string name="open_in_web_view" formatted="false">ویب ویو میں کھولیں</string>
+    <string name="operation_failed" formatted="false">آپریشن ناکام ہو گیا: {error}</string>
+    <string name="operation_failure" formatted="false">آپریشن ناکام ہو گیا</string>
+    <string name="operation_success" formatted="false">آپریشن کامیاب ہو گیا</string>
+    <string name="oppose" formatted="false">مخالفت کریں</string>
+    <string name="oppose_count" formatted="false">مخالفت ({opposeCount})</string>
+    <string name="opposed" formatted="false">مخالفت شدہ</string>
+    <string name="other" formatted="false">دیگر</string>
+    <string name="our_other_apps" formatted="false">ہماری دیگر ایپس</string>
+    <string name="overlay_mode" formatted="false">تیرتی ہوئی ونڈو</string>
+    <string name="overlay_mode_description" formatted="false">کالر کی معلومات ایک تیرتی ہوئی ونڈو میں دکھائیں</string>
+    <string name="overlay_permission" formatted="false">اوورلے کی اجازت</string>
+    <string name="overlay_permission_description" formatted="false">آنے والی کال کا اوورلے دکھانے کے لیے استعمال کیا جاتا ہے۔</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">جائزہ</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">پاس ورڈ</string>
+    <string name="password_cannot_be_empty" formatted="false">پاس ورڈ خالی نہیں ہو سکتا</string>
+    <string name="password_label" formatted="false">پاس ورڈ</string>
+    <string name="passwords_do_not_match" formatted="false">پاس ورڈز آپس میں نہیں ملتے</string>
+    <string name="pattern" formatted="false">پیٹرن</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">زیر التواء</string>
+    <string name="pending_proposals" formatted="false">زیر التواء تجاویز</string>
+    <string name="pending_proposals_body" formatted="false">آپ کے پاس {count, plural, =0 {کوئی زیر التواء تجویز نہیں ہے} one {1 زیر التواء تجویز ہے} other {{count} زیر التواء تجاویز ہیں}}۔</string>
+    <string name="pending_sync" formatted="false">زیر التواء مطابقت پذیری</string>
+    <string name="period_month" formatted="false">مہینہ</string>
+    <string name="period_week" formatted="false">ہفتہ</string>
+    <string name="period_year" formatted="false">سال</string>
+    <string name="permission_denied" formatted="false">اجازت کی درخواست مسترد کر دی گئی</string>
+    <string name="permission_granted" formatted="false">اجازت دے دی گئی</string>
+    <string name="permission_management" formatted="false">اجازت کا انتظام</string>
+    <string name="permission_subtitle" formatted="false">اوورلے اور بیٹری آپٹیمائزیشن کی اجازتوں کا انتظام کریں</string>
+    <string name="permission_title" formatted="false">خصوصی اجازتیں</string>
+    <string name="phone_calls_tab" formatted="false">فون</string>
+    <string name="phone_number" formatted="false">فون نمبر</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">فون نمبر خالی نہیں ہو سکتا</string>
+    <string name="phone_number_hint" formatted="false">فون نمبر درج کریں</string>
+    <string name="phone_number_label" formatted="false">فون نمبر</string>
+    <string name="phone_number_min_digits" formatted="false">فون نمبر کم از کم 7 ہندسوں کا ہونا چاہیے</string>
+    <string name="phone_number_required" formatted="false">فون نمبر ضروری ہے</string>
+    <string name="phone_number_type" formatted="false">فون نمبر کی قسم</string>
+    <string name="phone_number_type_fixed_line" formatted="false">فکسڈ لائن</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">فکسڈ لائن یا موبائل</string>
+    <string name="phone_number_type_mobile" formatted="false">موبائل</string>
+    <string name="phone_number_type_pager" formatted="false">پیجر</string>
+    <string name="phone_number_type_personal_number" formatted="false">ذاتی نمبر</string>
+    <string name="phone_number_type_premium_rate" formatted="false">پریمیم ریٹ</string>
+    <string name="phone_number_type_shared_cost" formatted="false">مشترکہ لاگت</string>
+    <string name="phone_number_type_toll_free" formatted="false">ٹول فری</string>
+    <string name="phone_number_type_uan" formatted="false">یو اے این</string>
+    <string name="phone_number_type_unknown" formatted="false">نامعلوم</string>
+    <string name="phone_number_type_voicemail" formatted="false">وائس میل</string>
+    <string name="phone_number_type_voip" formatted="false">وی او آئی پی</string>
+    <string name="phone_permission" formatted="false">فون کی اجازت</string>
+    <string name="phone_permission_description" formatted="false">آنے والی کالز کی شناخت اور انہیں بلاک کرنے کے لیے استعمال کیا جاتا ہے۔</string>
+    <string name="phone_rule" formatted="false">فون اصول</string>
+    <string name="phone_rule_management" formatted="false">فون اصول کا انتظام</string>
+    <string name="phone_rule_subscription" formatted="false">فون اصول کی سبسکرپشن</string>
+    <string name="phone_rules_info" formatted="false">فون کے قواعد مخصوص فون نمبرز پر کالز کو میچ کرنے کے لیے استعمال ہوتے ہیں، جن کی ترجیح کم ہوتی ہے۔ کچھ فون رول سبسکرپشنز سے آتے ہیں۔</string>
+    <string name="phone_subscription" formatted="false">فون سبسکرپشن</string>
+    <string name="phone_subscription_rules_description" formatted="false">URL کے ذریعے فون اصول کی فہرستوں کو سبسکرائب کریں تاکہ وائٹ لسٹ اور بلیک لسٹ کے اصولوں کو خود بخود اپ ڈیٹ کیا جا سکے۔ JSON فارمیٹ کی اصول فائلوں کو سپورٹ کرتا ہے۔</string>
+    <string name="please_enter_at_least_one_number" formatted="false">براہ کرم کم از کم ایک نمبر درج کریں۔</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">براہ کرم ایک لیبل منتخب کریں اور ایک درست فون نمبر درج کریں</string>
+    <string name="plugin_added_success" formatted="false">پلگ ان &quot;{name}&quot; کامیابی سے شامل ہو گیا</string>
+    <string name="plugin_deleted" formatted="false">پلگ ان حذف کر دیا گیا</string>
+    <string name="plugin_description" formatted="false">پلگ ان کی تفصیل</string>
+    <string name="plugin_i_d" formatted="false">آئی ڈی</string>
+    <string name="plugin_label" formatted="false">پلگ ان لیبل</string>
+    <string name="plugin_latest_version" formatted="false">پلگ ان پہلے ہی تازہ ترین ورژن ہے</string>
+    <string name="plugin_list_export_success" formatted="false">پلگ ان کی فہرست کامیابی سے ایکسپورٹ ہو گئی</string>
+    <string name="plugin_management" formatted="false">پلگ ان کا انتظام</string>
+    <string name="plugin_management_subtitle" formatted="false">فریق ثالث کے پلگ انز کا انتظام اور کنفیگر کریں</string>
+    <string name="plugin_name" formatted="false">پلگ ان کا نام</string>
+    <string name="plugin_rules_info" formatted="false">سیکیورٹی کے لیے، براہ کرم صرف قابل اعتماد ذرائع سے پلگ انز استعمال کریں۔ اپنے حسب ضرورت پلگ انز بنانے کے لیے بلا جھجھک ہمارے سانچوں کا استعمال کریں!</string>
+    <string name="plugin_service" formatted="false">پلگ ان سروس</string>
+    <string name="plugin_test_page_title" formatted="false">پلگ ان ٹیسٹ</string>
+    <string name="plugin_u_r_l" formatted="false">یو آر ایل</string>
+    <string name="plugin_update_success" formatted="false">پلگ ان کامیابی سے اپ ڈیٹ ہو گیا</string>
+    <string name="plugin_url" formatted="false">پلگ ان یو آر ایل</string>
+    <string name="plugin_version" formatted="false">پلگ ان ورژن</string>
+    <string name="plugins_deleted" formatted="false">{count} پلگ ان کامیابی سے حذف کر دیے گئے۔</string>
+    <string name="political" formatted="false">سیاسی</string>
+    <string name="powerful_spam_blocking" formatted="false">طاقتور سپیم بلاکنگ</string>
+    <string name="previous_step" formatted="false">پچھلا</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">ریموٹ ایکشن سیٹنگز کو ترجیح دیں</string>
+    <string name="prioritize_remote_action_description" formatted="false">ریموٹ ڈیٹا بیس سے ایکشن سیٹنگز کو ترجیح دیں</string>
+    <string name="processed" formatted="false">عمل میں لایا گیا</string>
+    <string name="processing" formatted="false">پروسیسنگ ہو رہی ہے...</string>
+    <string name="processing_operation" formatted="false">پروسیسنگ ہو رہی ہے...</string>
+    <string name="proposal_approved" formatted="false">تجویز منظور شدہ ✅</string>
+    <string name="proposal_approved_body" formatted="false">{phoneNumber} کے لیے حذف کرنے کی تجویز کمیونٹی نے منظور کر لی ہے ({supportPercentage}% حمایت، {totalVotes} ووٹ)۔</string>
+    <string name="proposal_created" formatted="false">تجویز کامیابی سے بنائی گئی</string>
+    <string name="proposal_details" formatted="false">تجویز کی تفصیلات</string>
+    <string name="proposal_not_found" formatted="false">تجویز نہیں ملی</string>
+    <string name="proposal_processed" formatted="false">اس تجویز پر کارروائی ہو چکی ہے</string>
+    <string name="proposal_rejected" formatted="false">تجویز مسترد شدہ ❌</string>
+    <string name="proposal_rejected_body" formatted="false">{phoneNumber} کے لیے حذف کرنے کی تجویز کمیونٹی نے مسترد کر دی ہے ({supportPercentage}% حمایت، {totalVotes} ووٹ)۔</string>
+    <string name="proposal_statistics" formatted="false">تجویز کے اعداد و شمار</string>
+    <string name="provide_detailed_explanation" formatted="false">تفصیلی وضاحت فراہم کریں (کم از کم 10 حروف)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">خریدیں</string>
+    <string name="purchase_subtitle" formatted="false">خدمت خریدنے کے لیے</string>
+    <string name="purchase_title" formatted="false">خریداری</string>
+    <string name="quarterly_membership" formatted="false">سہ ماہی رکنیت</string>
+    <string name="quarterly_membership_description" formatted="false">تمام پریمیم خصوصیات کو غیر مقفل کریں، سہ ماہی خودکار تجدید</string>
+    <string name="ready" formatted="false">تیار ہے!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">وجہ</string>
+    <string name="reason_inaccurate_info" formatted="false">غلط معلومات</string>
+    <string name="reason_min_characters" formatted="false">وجہ کم از کم 10 حروف پر مشتمل ہونی چاہیے</string>
+    <string name="reason_not_in_service" formatted="false">سروس میں نہیں</string>
+    <string name="reason_other" formatted="false">دیگر</string>
+    <string name="reason_outdated" formatted="false">پرانا نمبر</string>
+    <string name="reason_privacy" formatted="false">رازداری کا مسئلہ</string>
+    <string name="reason_required" formatted="false">وجہ درکار ہے</string>
+    <string name="reason_wrongly_identified" formatted="false">غلط شناخت شدہ</string>
+    <string name="recruiter" formatted="false">بھرتی کرنے والا</string>
+    <string name="redeem_vip_with_marks" formatted="false">مارکس کے ساتھ VIP کو چھڑائیں</string>
+    <string name="redirect" formatted="false">ری ڈائریکٹ</string>
+    <string name="redirect_action_description" formatted="false">کال کو ایک مخصوص نمبر پر ری ڈائریکٹ کریں۔</string>
+    <string name="refresh" formatted="false">ریفریش کریں</string>
+    <string name="refresh_permission_status" formatted="false">اجازت کی حیثیت کو ریفریش کریں</string>
+    <string name="refresh_proposals" formatted="false">تجاویز ریفریش کریں</string>
+    <string name="refresh_tooltip" formatted="false">ریفریش کریں</string>
+    <string name="regex_error_message" formatted="false">ریجیکس کی خرابی: {error}</string>
+    <string name="regex_pattern" formatted="false">ریجیکس پیٹرن</string>
+    <string name="regex_pattern_explanation" formatted="false">ریجیکس پیٹرن کی وضاحت</string>
+    <string name="regex_pattern_explanation_button" formatted="false">ریجیکس پیٹرن کی وضاحت</string>
+    <string name="regex_pattern_label" formatted="false">ریجیکس پیٹرن</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">فون نمبر کی مطابقت کے لیے ریجیکس پیٹرن</string>
+    <string name="regex_rule" formatted="false">ریجیکس اصول</string>
+    <string name="regex_rule_add_failed" formatted="false">ریجیکس اصول شامل کرنے میں ناکامی: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">ریجیکس اصول کامیابی سے شامل کر دیا گیا</string>
+    <string name="regex_rule_management" formatted="false">ریجیکس اصول کا انتظام</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">اصول کا نام اور ریجیکس پیٹرن خالی نہیں ہو سکتے</string>
+    <string name="regex_rules" formatted="false">ریجیکس اصول</string>
+    <string name="regex_rules_info" formatted="false">ریجیکس قواعد کا استعمال ریجیکس پیٹرن کی بنیاد پر کالز کو فلٹر کرنے کے لیے کیا جاتا ہے۔</string>
+    <string name="regex_tester_title" formatted="false">ریجیکس ٹیسٹر</string>
+    <string name="region" formatted="false">علاقہ</string>
+    <string name="registered_devices_title" formatted="false">رجسٹرڈ آلات</string>
+    <string name="reject_all_calls" formatted="false">تمام کالز مسترد کریں</string>
+    <string name="reject_all_calls_description" formatted="false">جب فعال ہو تو، تمام کالز کو اعلیٰ ترین ترجیح کے ساتھ مسترد کر دیا جائے گا</string>
+    <string name="reject_all_numbers" formatted="false">تمام نمبرز مسترد کریں</string>
+    <string name="reject_all_numbers_desc" formatted="false">فعال ہونے پر تمام آنے والی کالز کو مسترد کریں</string>
+    <string name="reject_exceeded_numbers" formatted="false">تجاوز شدہ نمبرز مسترد کریں</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">گنتی کی حد سے تجاوز کرنے والے نمبروں کو خودکار طور پر مسترد کریں</string>
+    <string name="rejected" formatted="false">مسترد شدہ</string>
+    <string name="remote_filter_settings" formatted="false">ریموٹ فلٹر کی ترتیبات</string>
+    <string name="remote_filter_settings_page_title" formatted="false">ریموٹ نمبر فلٹر کی ترتیبات کا صفحہ</string>
+    <string name="remote_number_filter" formatted="false">ریموٹ نمبر فلٹر</string>
+    <string name="remote_number_filter_description" formatted="false">ریموٹ ڈیٹا بیس کی معلومات کی بنیاد پر ہراساں کرنے والی کالز کو روکیں</string>
+    <string name="remote_number_filter_subtitle" formatted="false">کلاؤڈ ڈیٹا بیس اور کمیونٹی رپورٹس کا استعمال کرتے ہوئے سپیم کالز کی شناخت کریں</string>
+    <string name="remote_number_filtering" formatted="false">ریموٹ نمبر فلٹرنگ</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• ریموٹ نمبر فلٹرنگ: ریموٹ ڈیٹا بیس کی معلومات کی بنیاد پر فلٹرنگ کے اصول</string>
+    <string name="remove_ads" formatted="false">اشتہارات ہٹائیں</string>
+    <string name="remove_ads_description" formatted="false">بہتر تجربے کے لیے ایپ میں تمام اشتہارات کو مستقل طور پر ہٹا دیں</string>
+    <string name="remove_ads_title" formatted="false">اشتہارات ہٹائیں</string>
+    <string name="remove_from_favorites" formatted="false">پسندیدہ سے ہٹائیں</string>
+    <string name="removed_from_favorites" formatted="false">پسندیدہ رابطوں سے ہٹا دیا گیا</string>
+    <string name="rename_device_title" formatted="false">آلہ کا نام بدلیں</string>
+    <string name="reporting_guidelines" formatted="false">• صرف ایسے نمبرز کی اطلاع دیں جو واقعی میں مسئلہ پیدا کرتے ہوں
+• درست اور تفصیلی وجوہات فراہم کریں
+• شدت کی بنیاد پر مناسب رسک لیول کا انتخاب کریں
+• جھوٹی رپورٹیں اکاؤنٹ کی پابندیوں کا باعث بن سکتی ہیں</string>
+    <string name="request_all_permissions" formatted="false">تمام اجازتیں طلب کریں</string>
+    <string name="request_permission" formatted="false">اجازت طلب کریں</string>
+    <string name="request_permission_failed" formatted="false">اجازت طلب کرنے میں ناکامی: {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">{count} نشانات</string>
+    <string name="reset" formatted="false">ری سیٹ کریں</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">بحال کریں</string>
+    <string name="restore_application_settings_from_backup" formatted="false">بیک اپ سے ایپلیکیشن کی ترتیبات بحال کریں</string>
+    <string name="restore_from_cloud" formatted="false">کلاؤڈ سے بحال کریں</string>
+    <string name="restore_from_cloud_failed" formatted="false">کلاؤڈ سے بحال کرنے میں ناکامی: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">کلاؤڈ سے کامیابی سے بحال کیا گیا</string>
+    <string name="restore_purchases" formatted="false">خریداریوں کو بحال کریں</string>
+    <string name="restore_settings" formatted="false">ترتیبات بحال کریں</string>
+    <string name="restore_settings_confirmation" formatted="false">یہ آپ کی تمام موجودہ ترتیبات کو بدل دے گا۔ کیا آپ واقعی جاری رکھنا چاہتے ہیں؟</string>
+    <string name="result" formatted="false">نتیجہ</string>
+    <string name="retry" formatted="false">دوبارہ کوشش کریں</string>
+    <string name="rewarded_ad_service" formatted="false">انعام یافتہ اشتہار سروس</string>
+    <string name="ridesharing" formatted="false">رائڈ شیئرنگ</string>
+    <string name="risk" formatted="false">خطرہ</string>
+    <string name="risk_level" formatted="false">خطرے کی سطح</string>
+    <string name="risk_level_critical" formatted="false">نازک</string>
+    <string name="risk_level_high" formatted="false">زیادہ</string>
+    <string name="risk_level_label" formatted="false">رسک لیول</string>
+    <string name="risk_level_low" formatted="false">کم</string>
+    <string name="risk_level_medium" formatted="false">درمیانہ</string>
+    <string name="risk_level_very_low" formatted="false">بہت کم</string>
+    <string name="robocall" formatted="false">روبوکال</string>
+    <string name="rule_action" formatted="false">اصول کا عمل</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">اصول کامیابی سے شامل کر دیا گیا</string>
+    <string name="rule_added_success" formatted="false">اصول کامیابی سے شامل کر دیا گیا</string>
+    <string name="rule_delete_confirm_content" formatted="false">کیا آپ واقعی اس {ruleType} کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="rule_delete_confirm_title" formatted="false">اصول حذف کریں</string>
+    <string name="rule_delete_failed" formatted="false">اصول حذف کرنے میں ناکامی: {error}</string>
+    <string name="rule_delete_success" formatted="false">اصول کامیابی سے حذف کر دیا گیا</string>
+    <string name="rule_deleted_successfully" formatted="false">اصول کامیابی سے حذف کر دیا گیا</string>
+    <string name="rule_disabled_successfully" formatted="false">اصول کامیابی سے غیر فعال کر دیا گیا</string>
+    <string name="rule_enabled_successfully" formatted="false">اصول کامیابی سے فعال کر دیا گیا</string>
+    <string name="rule_load_failed" formatted="false">اصول لوڈ کرنے میں ناکامی: {error}</string>
+    <string name="rule_management" formatted="false">اصول کا انتظام</string>
+    <string name="rule_name" formatted="false">اصول کا نام</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">اصول کا نام اور مواد ریجیکس خالی نہیں ہو سکتے</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">اصول کا نام اور فون نمبر خالی نہیں ہو سکتے</string>
+    <string name="rule_name_hint" formatted="false">مثلاً، فیملی، دوست وغیرہ۔</string>
+    <string name="rule_name_label" formatted="false">اصول کا نام</string>
+    <string name="rule_name_required" formatted="false">اصول کا نام اور فون نمبر خالی نہیں ہو سکتے</string>
+    <string name="rule_not_exist" formatted="false">قاعدہ موجود نہیں ہے یا اسے حذف کر دیا گیا ہے</string>
+    <string name="rule_not_found" formatted="false">قاعدہ نہیں ملا: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">قاعدہ کامیابی سے محفوظ ہو گیا!</string>
+    <string name="rule_status_changed" formatted="false">قاعدہ کامیابی سے {status}</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">آپریشن ناکام ہو گیا: {error}</string>
+    <string name="rule_toggle_success" formatted="false">قاعدہ کامیابی سے {status}</string>
+    <string name="rule_type" formatted="false">Rule Type</string>
+    <string name="rule_update_failed" formatted="false">قاعدہ اپ ڈیٹ کرنے میں ناکامی: {error}</string>
+    <string name="rule_update_success" formatted="false">قاعدہ کامیابی سے اپ ڈیٹ ہو گیا</string>
+    <string name="rule_verification" formatted="false">قاعدہ کی تصدیق</string>
+    <string name="rules_exported_successfully" formatted="false">قواعد کامیابی سے ایکسپورٹ ہو گئے</string>
+    <string name="rules_exported_to" formatted="false">قواعد یہاں ایکسپورٹ ہو گئے: {path}</string>
+    <string name="rules_imported" formatted="false">قواعد کامیابی سے امپورٹ ہو گئے</string>
+    <string name="rules_imported_successfully" formatted="false">{count} قواعد کامیابی سے امپورٹ ہو گئے</string>
+    <string name="save" formatted="false">محفوظ کریں</string>
+    <string name="save_button" formatted="false">محفوظ کریں</string>
+    <string name="save_button_text" formatted="false">محفوظ کریں</string>
+    <string name="save_failed" formatted="false">محفوظ کرنا ناکام ہو گیا: {error}</string>
+    <string name="save_script" formatted="false">اسکرپٹ محفوظ کریں</string>
+    <string name="save_settings" formatted="false">ترتیبات محفوظ کریں</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">فراڈ کا امکان</string>
+    <string name="script_saved" formatted="false">اسکرپٹ محفوظ کر دیا گیا</string>
+    <string name="scroll_speed" formatted="false">سکرول کی رفتار</string>
+    <string name="scrolling_security_message_settings" formatted="false">سکرولنگ سیکیورٹی میسج سیٹنگز</string>
+    <string name="search" formatted="false">تلاش کریں</string>
+    <string name="search_by_name_or_phone_number" formatted="false">نام یا فون نمبر کے ذریعے تلاش کریں</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">رابطہ سبسکرپشنز تلاش کریں</string>
+    <string name="search_contacts" formatted="false">رابطے تلاش کریں</string>
+    <string name="search_error" formatted="false">تلاش میں خرابی: {error}</string>
+    <string name="search_hint" formatted="false">تلاش کریں...</string>
+    <string name="search_labels_hint" formatted="false">لیبلز تلاش کریں</string>
+    <string name="search_marked_phones_hint" formatted="false">نشان زد فونز تلاش کریں</string>
+    <string name="search_phone_rules_hint" formatted="false">فون کے قواعد تلاش کریں</string>
+    <string name="search_plugins_hint" formatted="false">پلگ انز تلاش کریں</string>
+    <string name="search_proposals" formatted="false">تجاویز تلاش کریں</string>
+    <string name="search_regex_rules_hint" formatted="false">ریجیکس قواعد تلاش کریں</string>
+    <string name="search_subscriptions_hint" formatted="false">سبسکرپشنز تلاش کریں</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">کسی بھی فون کال پر بھروسہ نہ کریں۔ کسٹمر سروس نمبرز کی ہمیشہ آزادانہ طور پر تصدیق کریں۔ پاس ورڈ، تصدیقی کوڈ، کارڈ نمبرز، یا ذاتی معلومات کبھی بھی شیئر نہ کریں۔</string>
+    <string name="select_action" formatted="false">کارروائی منتخب کریں</string>
+    <string name="select_action_when_blocking_calls" formatted="false">کالز بلاک کرتے وقت عمل منتخب کریں</string>
+    <string name="select_action_when_rule_matches" formatted="false">وہ عمل منتخب کریں جو قاعدہ کے ملنے پر انجام دیا جائے</string>
+    <string name="select_all" formatted="false">سب کو منتخب کریں</string>
+    <string name="select_country" formatted="false">ملک منتخب کریں</string>
+    <string name="select_export_format" formatted="false">ایکسپورٹ فارمیٹ منتخب کریں</string>
+    <string name="select_label" formatted="false">لیبل منتخب کریں</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">براہ کرم ایک لیبل منتخب کریں اور ایک درست فون نمبر درج کریں</string>
+    <string name="select_language" formatted="false">زبان منتخب کریں</string>
+    <string name="select_multiple" formatted="false">متعدد منتخب کریں</string>
+    <string name="select_sim_card" formatted="false">سم کارڈ منتخب کریں</string>
+    <string name="select_tags" formatted="false">ٹیگز منتخب کریں</string>
+    <string name="select_target_service" formatted="false">ہدف سروس منتخب کریں</string>
+    <string name="select_trusted_data_source" formatted="false">براہ کرم قابل بھروسہ ڈیٹا ذرائع منتخب کریں</string>
+    <string name="select_your_language" formatted="false">اپنی زبان منتخب کریں</string>
+    <string name="selected_items" formatted="false">{count} اشیاء منتخب کی گئیں</string>
+    <string name="selected_label" formatted="false">منتخب کردہ:</string>
+    <string name="sender" formatted="false">بھیجنے والا</string>
+    <string name="sender_regex_optional" formatted="false">بھیجنے والے کا ریجیکس (اختیاری)</string>
+    <string name="separate_sims" formatted="false">Separate SIMs</string>
+    <string name="separate_sims_desc" formatted="false">Enable separate filtering rules for each SIM card</string>
+    <string name="server_address_label" formatted="false">سرور ایڈریس</string>
+    <string name="service_type_contact" formatted="false">رابطہ سبسکرپشن</string>
+    <string name="service_type_label" formatted="false">سروس کی قسم</string>
+    <string name="service_type_phone" formatted="false">فون سبسکرپشن</string>
+    <string name="service_type_plugin" formatted="false">پلگ ان اپ ڈیٹ</string>
+    <string name="service_type_sms" formatted="false">ایس ایم ایس سبسکرپشن</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">تاخیر کا وقت مقرر کریں</string>
+    <string name="set_encryption_password" formatted="false">انکرپشن پاس ورڈ سیٹ کریں</string>
+    <string name="settings" formatted="false">ترتیبات</string>
+    <string name="settings_backed_up_to" formatted="false">ترتیبات کا بیک اپ یہاں ہو گیا: {path}</string>
+    <string name="settings_backup" formatted="false">سیٹنگز بیک اپ</string>
+    <string name="settings_restored_successfully" formatted="false">ترتیبات کامیابی سے بحال ہو گئیں۔ تبدیلیوں کے اثر انداز ہونے کے لیے براہ کرم ایپ کو دوبارہ شروع کریں۔</string>
+    <string name="settings_save_failed" formatted="false">ترتیبات محفوظ کرنے میں ناکامی: {error}</string>
+    <string name="settings_saved" formatted="false">ترتیبات محفوظ ہو گئیں</string>
+    <string name="settings_tab" formatted="false">ترتیبات</string>
+    <string name="settings_title" formatted="false">ترتیبات</string>
+    <string name="setup" formatted="false">سیٹ اپ</string>
+    <string name="show_all_contacts" formatted="false">تمام رابطے دکھائیں</string>
+    <string name="show_favorites" formatted="false">پسندیدہ دکھائیں</string>
+    <string name="silence" formatted="false">خاموش کریں</string>
+    <string name="silence_action_description" formatted="false">کالز خاموش کر دی جائیں گی لیکن کال لاگ میں دکھائی دیں گی۔</string>
+    <string name="silence_and_no_answer" formatted="false">خاموش کریں اور جواب نہ دیں</string>
+    <string name="silence_no_answer" formatted="false">خاموش کریں جواب نہ دیں</string>
+    <string name="silent_call_voice_clone" formatted="false">سائلنٹ کال وائس کلون</string>
+    <string name="silent_rules" formatted="false">خاموش قواعد</string>
+    <string name="sim_card" formatted="false">سم کارڈ {simNumber}</string>
+    <string name="sim_card_color" formatted="false">سم کارڈ کا رنگ</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• سم کارڈ کنفیگریشن: ہر سم کارڈ کے لیے آزادانہ فلٹرنگ قواعد سیٹ کریں</string>
+    <string name="sim_card_filter_rules" formatted="false">سم کارڈ فلٹر قواعد</string>
+    <string name="sim_card_filter_rules_description" formatted="false">سم کارڈ سلاٹس کی بنیاد پر مختلف فلٹرنگ قواعد سیٹ کریں</string>
+    <string name="sim_card_font_size" formatted="false">سم کارڈ فونٹ سائز</string>
+    <string name="sim_card_position" formatted="false">سم کارڈ کی پوزیشن</string>
+    <string name="sim_card_title" formatted="false">SIM کارڈ</string>
+    <string name="sim_country" formatted="false">سم ملک</string>
+    <string name="sim_info" formatted="false">سم {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">سم سلاٹ کے قواعد آپ کو ہر سم سلاٹ کے لیے آزاد فلٹرنگ قواعد ترتیب دینے کی اجازت دیتے ہیں۔</string>
+    <string name="sim_rule_instructions_title" formatted="false">سم سلاٹ کے قواعد</string>
+    <string name="sim_rules_not_found" formatted="false">SIM قواعد نہیں ملے</string>
+    <string name="sim_slot" formatted="false">SIM سلاٹ</string>
+    <string name="sim_slot1" formatted="false">سم 1،-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">سم 2،-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">ہر سم کارڈ کے لیے آزاد فلٹرنگ قواعد ترتیب دیں:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">سم سلاٹ {slotNumber} فلٹر کی ترتیبات</string>
+    <string name="sim_slot_management" formatted="false">سم سلاٹ کا انتظام</string>
+    <string name="sim_slot_position" formatted="false">سم سلاٹ پوزیشن {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• سم سلاٹ کے قواعد: ہر سم کے لیے آزاد فلٹرنگ حکمت عملی</string>
+    <string name="sim_slot_rule_list_title" formatted="false">سم سلاٹ کے قواعد کی فہرست</string>
+    <string name="sim_slot_rule_management" formatted="false">سم سلاٹ کے قواعد</string>
+    <string name="sim_slot_rules" formatted="false">SIM سلاٹ قواعد</string>
+    <string name="sim_slot_title" formatted="false">سم سلاٹ {slotNumber}</string>
+    <string name="sim_state" formatted="false">سم کی حالت</string>
+    <string name="skip" formatted="false">چھوڑ دیں</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">سمارٹ کالر کی شناخت</string>
+    <string name="sms" formatted="false">ایس ایم ایس</string>
+    <string name="sms_filter_description" formatted="false">ایس ایم ایس فلٹرنگ آپ کو خودکار طور پر اسپام پیغامات کو فلٹر کرنے اور اپنی پیغام کی فہرست کو صاف رکھنے میں مدد کرتی ہے۔ آپ فلٹر قواعد اور اطلاع کے طریقے سیٹ کر سکتے ہیں۔</string>
+    <string name="sms_filter_disabled" formatted="false">ایس ایم ایس فلٹرنگ غیر فعال کر دی گئی</string>
+    <string name="sms_filter_enabled" formatted="false">ایس ایم ایس فلٹرنگ فعال کر دی گئی</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">ایس ایم ایس فلٹر کا قاعدہ کامیابی سے شامل کر دیا گیا</string>
+    <string name="sms_filter_rules" formatted="false">ایس ایم ایس فلٹر کے قواعد</string>
+    <string name="sms_filter_settings" formatted="false">ایس ایم ایس فلٹر کی ترتیبات</string>
+    <string name="sms_management" formatted="false">ایس ایم ایس کا انتظام</string>
+    <string name="sms_permission" formatted="false">ایس ایم ایس کی اجازت</string>
+    <string name="sms_permission_description" formatted="false">اسپام پیغامات کو فلٹر کرنے کے لیے استعمال ہوتا ہے۔</string>
+    <string name="sms_rule_added_successfully" formatted="false">ایس ایم ایس کا قاعدہ کامیابی سے شامل کر دیا گیا</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">ایس ایم ایس کا قاعدہ کامیابی سے حذف کر دیا گیا</string>
+    <string name="sms_rule_load_failed" formatted="false">ایس ایم ایس قواعد لوڈ کرنے میں ناکامی: {error}</string>
+    <string name="sms_rule_management" formatted="false">ایس ایم ایس قواعد کا انتظام</string>
+    <string name="sms_rule_subscription" formatted="false">ایس ایم ایس قواعد کی سبسکرپشن</string>
+    <string name="sms_subscription" formatted="false">ایس ایم ایس سبسکرپشن</string>
+    <string name="sms_subscription_added_successfully" formatted="false">ایس ایم ایس سبسکرپشن کامیابی سے شامل کر دی گئی</string>
+    <string name="sms_subscription_rules_description" formatted="false">یو آر ایل کے ذریعے ایس ایم ایس قواعد کی فہرستوں کو سبسکرائب کریں، جو ریگولر ایکسپریشن میچنگ کو سپورٹ کرتا ہے۔ آپ بلاک یا اجازت دینے کے اعمال سیٹ کر سکتے ہیں۔</string>
+    <string name="sms_tab" formatted="false">ایس ایم ایس</string>
+    <string name="some_permissions_denied" formatted="false">کچھ اجازت کی درخواستیں مسترد کر دی گئیں</string>
+    <string name="sort_by" formatted="false">ترتیب دیں</string>
+    <string name="sort_least_popular" formatted="false">سب سے کم مقبول کی ترتیب</string>
+    <string name="sort_most_popular" formatted="false">سب سے زیادہ مقبول کی ترتیب</string>
+    <string name="sort_newest" formatted="false">سب سے نئے کی ترتیب</string>
+    <string name="sort_oldest" formatted="false">سب سے پرانے کی ترتیب</string>
+    <string name="spam_likely" formatted="false">اسپام کا امکان ہے</string>
+    <string name="start_color" formatted="false">شروع کا رنگ</string>
+    <string name="start_date" formatted="false">شروع کی تاریخ</string>
+    <string name="start_using" formatted="false">شروع کریں</string>
+    <string name="stat_answered" formatted="false">جواب دیا گیا</string>
+    <string name="stat_blocked" formatted="false">بلاک کر دیا گیا</string>
+    <string name="statistics" formatted="false">شماریات</string>
+    <string name="statistics_page_title" formatted="false">ڈیٹا کا تجزیہ</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">STIR رنگ</string>
+    <string name="stir_failed" formatted="false">تصدیق ناکام</string>
+    <string name="stir_font_size" formatted="false">STIR فونٹ سائز</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">STIR پوزیشن</string>
+    <string name="stir_unknown" formatted="false">نامعلوم تصدیقی حیثیت</string>
+    <string name="stir_verification" formatted="false">STIR/SHAKEN توثیق</string>
+    <string name="stir_verification_body" formatted="false">نمبر {phoneNumber} کے لیے {stirResultMessage}</string>
+    <string name="stir_verification_description" formatted="false">نمبرز کے لیے STIR/SHAKEN توثیق کے نتائج دکھاتا ہے۔</string>
+    <string name="stir_verification_title" formatted="false">STIR/SHAKEN تصدیق</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">اسٹوریج کی اجازت</string>
+    <string name="storage_permission_description" formatted="false">ترتیبات اور قواعد کو محفوظ کرنے کے لیے استعمال ہوتا ہے۔</string>
+    <string name="submit" formatted="false">جمع کرائیں</string>
+    <string name="subscribe" formatted="false">سبسکرائب کریں</string>
+    <string name="subscription_add_success" formatted="false">سبسکرپشن &quot;{name}&quot; کامیابی سے شامل کر دی گئی</string>
+    <string name="subscription_delete_confirm_content" formatted="false">کیا آپ واقعی اس سبسکرپشن کو حذف کرنا چاہتے ہیں؟</string>
+    <string name="subscription_delete_confirm_title" formatted="false">سبسکرپشن حذف کریں</string>
+    <string name="subscription_delete_failed" formatted="false">سبسکرپشن حذف کرنے میں ناکامی: {error}</string>
+    <string name="subscription_delete_success" formatted="false">سبسکرپشن حذف کر دی گئی</string>
+    <string name="subscription_deleted" formatted="false">سبسکرپشن حذف کر دی گئی</string>
+    <string name="subscription_load_failed" formatted="false">سبسکرپشنز لوڈ کرنے میں ناکامی: {error}</string>
+    <string name="subscription_name" formatted="false">سبسکرپشن کا نام</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">سبسکرپشن کا نام اور یو آر ایل خالی نہیں ہو سکتے</string>
+    <string name="subscription_name_hint" formatted="false">سبسکرپشن کا نام درج کریں</string>
+    <string name="subscription_status_change_failed" formatted="false">سبسکرپشن کی حیثیت تبدیل کرنے میں ناکامی: {error}</string>
+    <string name="subscription_update_failed" formatted="false">سبسکرپشن اپ ڈیٹ کرنے میں ناکامی: {error}</string>
+    <string name="subscription_update_success" formatted="false">سبسکرپشن کامیابی سے اپ ڈیٹ ہو گئی</string>
+    <string name="subscription_url" formatted="false">سبسکرپشن کا یو آر ایل</string>
+    <string name="subscription_url_hint" formatted="false">سبسکرپشن کا یو آر ایل درج کریں</string>
+    <string name="successfully_imported_rules" formatted="false">{count} قواعد کامیابی سے امپورٹ کر دیے گئے</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">سپورٹ</string>
+    <string name="support_count" formatted="false">حمایت ({supportCount})</string>
+    <string name="support_sync" formatted="false">سپورٹ مطابقت پذیری</string>
+    <string name="supported" formatted="false">حمایت یافتہ</string>
+    <string name="survey" formatted="false">سروے</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">آلات مطابقت پذیر کریں</string>
+    <string name="sync_failed" formatted="false">مطابقت پذیری ناکام</string>
+    <string name="sync_failed_message" formatted="false">مطابقت پذیری ناکام</string>
+    <string name="sync_folder_name_label" formatted="false">مطابقت پذیری فولڈر کا نام</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">ابھی مطابقت پذیر کریں</string>
+    <string name="sync_now_button" formatted="false">ابھی مطابقت پذیری کریں</string>
+    <string name="sync_status_title" formatted="false">مطابقت پذیری کی صورتحال</string>
+    <string name="sync_status_updated_message" formatted="false">مطابقت پذیری کی صورتحال اپ ڈیٹ ہو گئی</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">مطابقت پذیری کامیاب</string>
+    <string name="sync_with_cloud_storage" formatted="false">کلاؤڈ سٹوریج کے ساتھ مطابقت پذیری کریں</string>
+    <string name="synced" formatted="false">مطابقت پذیر</string>
+    <string name="synchronized" formatted="false">مطابقت پذیر</string>
+    <string name="syncing" formatted="false">مطابقت پذیری ہو رہی ہے...</string>
+    <string name="system_features" formatted="false">سسٹم کی خصوصیات:</string>
+    <string name="system_settings_title" formatted="false">سسٹم کی ترتیبات</string>
+    <string name="tab_all" formatted="false">تمام</string>
+    <string name="tab_answered" formatted="false">جواب دیا گیا</string>
+    <string name="tab_blocked" formatted="false">بلاک شدہ</string>
+    <string name="tab_missed" formatted="false">چھوڑی ہوئی</string>
+    <string name="tab_outgoing" formatted="false">آؤٹ گوئنگ</string>
+    <string name="tag_label" formatted="false">ٹیگ: {tag}</string>
+    <string name="takeaway" formatted="false">خلاصہ</string>
+    <string name="telecommunication" formatted="false">ٹیلی کمیونیکیشن</string>
+    <string name="telegram" formatted="false">ٹیلی گرام</string>
+    <string name="telemarketing" formatted="false">ٹیلی مارکیٹنگ</string>
+    <string name="temp_purchase_expired" formatted="false">عارضی خریداری کی مراعات ختم ہو چکی ہیں</string>
+    <string name="temporary_vip" formatted="false">عارضی VIP</string>
+    <string name="test_button" formatted="false">ٹیسٹ</string>
+    <string name="test_connection_button" formatted="false">کنکشن کی جانچ کریں</string>
+    <string name="test_plugin" formatted="false">پلگ ان کی جانچ کریں</string>
+    <string name="text_colors_setting" formatted="false">ٹیکسٹ اور لیبل کے رنگ</string>
+    <string name="theme_dark" formatted="false">تاریک</string>
+    <string name="theme_light" formatted="false">ہلکا</string>
+    <string name="theme_settings_subtitle" formatted="false">اپنا پسندیدہ تھیم منتخب کریں</string>
+    <string name="theme_settings_title" formatted="false">تھیم کی ترتیبات</string>
+    <string name="theme_system" formatted="false">System</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">یہ ایپ ایک طاقتور کالر آئی ڈی ٹول ہے جو آپ کو ناپسندیدہ کالز کی شناخت اور بلاک کرنے کی سہولت دیتا ہے۔</string>
+    <string name="this_week" formatted="false">اس ہفتے</string>
+    <string name="time_interceptor" formatted="false">ٹائم انٹرسیپٹر</string>
+    <string name="time_interceptor_description" formatted="false">کال کی فریکوئنسی کی بنیاد پر ممکنہ کالز کو خود بخود روکیں/اجازت دیں</string>
+    <string name="time_interceptor_explanation" formatted="false">• ٹائم انٹرسیپٹر: مختصر وقت کے اندر دہرائی جانے والی کالز کو روکیں/اجازت دیں</string>
+    <string name="time_interceptor_explanation_content" formatted="false">کال فریکوئنسی انٹرسیپشن کی خصوصیت کال کی فریکوئنسی کا تجزیہ کرتی ہے تاکہ بار بار آنے والی اسپام کالز کو خود بخود شناخت کر کے روکا/اجازت دی جا سکے۔</string>
+    <string name="time_interceptor_explanation_title" formatted="false">کال فریکوئنسی انٹرسیپشن کی وضاحت</string>
+    <string name="time_interceptor_settings_title" formatted="false">کال فریکوئنسی انٹرسیپشن کی ترتیبات</string>
+    <string name="time_window_description" formatted="false">دہرائی جانے والی کالز کی اجازت دینے کے لیے ٹائم ونڈو کا سائز سیٹ کریں۔ اس ونڈو کے اندر ایک ہی نمبر سے آنے والی کالز کی اجازت دی جائے گی</string>
+    <string name="time_window_label" formatted="false">روک تھام کا ٹائم ونڈو (منٹ): {minutes}</string>
+    <string name="timeline_view" formatted="false">ٹائم لائن منظر</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">آج</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">کل</string>
+    <string name="total_blocked" formatted="false">کل بلاک شدہ</string>
+    <string name="total_pending_proposals" formatted="false">کل زیر التواء تجاویز</string>
+    <string name="total_proposals" formatted="false">کل تجاویز</string>
+    <string name="total_votes" formatted="false">کل: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">آلات یا پلیٹ فارمز کے درمیان ڈیٹا منتقل کریں</string>
+    <string name="travel_ticketing" formatted="false">ٹریول ٹکٹنگ</string>
+    <string name="tutorial" formatted="false">ٹیوٹوریل</string>
+    <string name="type" formatted="false">قسم</string>
+    <string name="unassigned_s_i_m_card" formatted="false">غیر مختص شدہ سم کارڈ</string>
+    <string name="unblock" formatted="false">غیر مسدود کریں</string>
+    <string name="unblock_number" formatted="false">نمبر غیر مسدود کریں</string>
+    <string name="unblock_number_confirmation" formatted="false">کیا آپ واقعی {phoneNumber} کو غیر مسدود کرنا چاہتے ہیں؟</string>
+    <string name="unblock_number_failed" formatted="false">نمبر غیر مسدود کرنے میں ناکامی</string>
+    <string name="unblock_number_success" formatted="false">نمبر کامیابی سے غیر مسدود کر دیا گیا</string>
+    <string name="unblocked" formatted="false">غیر مسدود</string>
+    <string name="unknown" formatted="false">نامعلوم</string>
+    <string name="unknown_tag" formatted="false">ٹیگ: نامعلوم</string>
+    <string name="unregister_button" formatted="false">اندراج ختم کریں</string>
+    <string name="unregister_device_confirmation_message" formatted="false">کیا آپ واقعی {deviceName} کا اندراج ختم کرنا چاہتے ہیں؟</string>
+    <string name="unregister_device_title" formatted="false">آلہ کا اندراج ختم کریں</string>
+    <string name="unsupported_file_format" formatted="false">غیر تعاون یافتہ فائل فارمیٹ</string>
+    <string name="update" formatted="false">اپ ڈیٹ کریں</string>
+    <string name="update_all_now" formatted="false">ابھی سب کو اپ ڈیٹ کریں</string>
+    <string name="update_contact_failed" formatted="false">رابطہ اپ ڈیٹ کرنے میں ناکامی: {error}</string>
+    <string name="update_favorite_status" formatted="false">پسندیدہ کی حیثیت اپ ڈیٹ کریں</string>
+    <string name="update_interval" formatted="false">اپ ڈیٹ کا وقفہ</string>
+    <string name="update_now" formatted="false">ابھی اپ ڈیٹ کریں</string>
+    <string name="update_plugin" formatted="false">پلگ ان اپ ڈیٹ کریں</string>
+    <string name="update_plugin_failed" formatted="false">پلگ ان اپ ڈیٹ کرنے میں ناکامی: {error}</string>
+    <string name="update_rule_failed" formatted="false">رول اپ ڈیٹ کرنے میں ناکامی: {error}</string>
+    <string name="update_subscription_failed" formatted="false">سبسکرپشن اپ ڈیٹ کرنے میں ناکامی: {error}</string>
+    <string name="update_success" formatted="false">{service} کامیابی سے اپ ڈیٹ ہو گیا ({count} قواعد)</string>
+    <string name="upgrade_to_vip" formatted="false">VIP میں اپ گریڈ کریں</string>
+    <string name="use_cases_point1" formatted="false">• خودکار ری ڈائل اسپام کالز کی شناخت کریں</string>
+    <string name="use_cases_point2" formatted="false">• مارکیٹنگ کالز کو روکیں جو مختصر وقت میں کئی بار کال کرتی ہیں</string>
+    <string name="use_cases_point3" formatted="false">• فون بمباری اور ہراسانی کو روکیں</string>
+    <string name="use_cases_title" formatted="false">استعمال کے طریقے:</string>
+    <string name="use_global_settings" formatted="false">گلوبل ترتیبات استعمال کریں</string>
+    <string name="use_local_notification" formatted="false">مقامی اطلاعات استعمال کریں</string>
+    <string name="use_local_notification_description" formatted="false">آنے والی کالز کے لیے مقامی اطلاعات فعال کریں</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">پیٹرن کی وضاحت کے لیے معیاری ریجیکس سینٹیکس استعمال کریں۔ مثالیں:</string>
+    <string name="use_stir_notification" formatted="false">STIR سے اطلاع استعمال کریں</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">صارف نام</string>
+    <string name="verification_failed_text" formatted="false">ناکام</string>
+    <string name="verification_report" formatted="false">تصدیقی رپورٹ</string>
+    <string name="verified_text" formatted="false">توثیق شدہ</string>
+    <string name="verify" formatted="false">توثیق کریں</string>
+    <string name="version" formatted="false">ورژن: {version}</string>
+    <string name="very_high" formatted="false">بہت زیادہ</string>
+    <string name="very_low" formatted="false">بہت کم</string>
+    <string name="view_details" formatted="false">تفصیلات دیکھیں</string>
+    <string name="vip3_days_with_ads" formatted="false">3 دن کا VIP اشتہارات کے ساتھ (صرف ہم آہنگی)</string>
+    <string name="vip5_days_no_ads" formatted="false">5 دن کا مکمل خصوصیات والا اشتہار سے پاک VIP</string>
+    <string name="vip7_days_no_ads" formatted="false">7 دن کا مکمل خصوصیات والا اشتہار سے پاک VIP</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">فون نمبر مارکنگ شمار کے ساتھ VIP رکنیت کا تبادلہ کریں</string>
+    <string name="vip_exchange_service" formatted="false">VIP ایکسچینج سروس</string>
+    <string name="vip_exchange_title" formatted="false">مارک ایکسچینج VIP</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">VIP صارف</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">آواز کی شناخت</string>
+    <string name="vote_agree" formatted="false">متفق ہوں</string>
+    <string name="vote_count" formatted="false">ووٹوں کی تعداد</string>
+    <string name="vote_disagree" formatted="false">متفق نہیں ہوں</string>
+    <string name="vote_submitted" formatted="false">ووٹ کامیابی سے جمع کرایا گیا</string>
+    <string name="voted" formatted="false">ووٹ دیا گیا</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} ووٹ ({supportPercentage}% حمایت)</string>
+    <string name="voting_completed" formatted="false">ووٹنگ مکمل ہو گئی</string>
+    <string name="voting_completed_body" formatted="false">{phoneNumber} کے لیے کمیونٹی ووٹنگ ختم ہو گئی ہے۔ نتیجہ: {result} ({supportPercentage}% حمایت)۔</string>
+    <string name="waiting_for_more_votes" formatted="false">مزید کمیونٹی ووٹوں کا انتظار ہے</string>
+    <string name="watch_ad" formatted="false">اشتہار دیکھیں</string>
+    <string name="watch_ad_for_temp" formatted="false">عارضی مراعات کے لیے اشتہار دیکھیں</string>
+    <string name="watch_ad_for_temp_description" formatted="false">کچھ پریمیم خصوصیات کو عارضی طور پر غیر مقفل کرنے کے لیے ایک مختصر اشتہار دیکھیں</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">عارضی VIP مراعات حاصل کرنے کے لیے آپ کو مزید {count} اشتہارات دیکھنے کی ضرورت ہے۔</string>
+    <string name="web_d_a_v_config_title" formatted="false">WebDAV کنفیگریشن</string>
+    <string name="week" formatted="false">ہفتہ</string>
+    <string name="welcome" formatted="false">خوش آمدید</string>
+    <string name="whitelist" formatted="false">سفید فہرست</string>
+    <string name="width" formatted="false">چوڑائی</string>
+    <string name="wildcard_matching_description" formatted="false">کسی بھی کردار سے ملانے کے لیے \'.\' استعمال کریں (مثال کے طور پر \'123.456\' کا مطلب 123-456 ہے)</string>
+    <string name="wildcard_matching_title" formatted="false">وائلڈ کارڈ میچنگ:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">لچکدار فلٹرنگ کے لیے وائلڈ کارڈ سپورٹ</string>
+    <string name="window_size_setting" formatted="false">ونڈو سائز</string>
+    <string name="year" formatted="false">سال</string>
+    <string name="yesterday" formatted="false">کل</string>
+</resources>

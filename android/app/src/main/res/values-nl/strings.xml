@@ -1,0 +1,1510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
+<resources>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">Over Contact Abonnement</string>
+    <string name="about_labels" formatted="false">Over Labels</string>
+    <string name="about_phone_subscription_rules" formatted="false">Over Telefoon Abonnementregels</string>
+    <string name="about_sms_filter" formatted="false">Over SMS-filtering</string>
+    <string name="about_sms_subscription_rules" formatted="false">Over SMS-abonnementregels</string>
+    <string name="about_subtitle" formatted="false">Applicatieversie en juridische informatie</string>
+    <string name="about_title" formatted="false">Over</string>
+    <string name="access_target_url" formatted="false">Toegang tot Doel-URL</string>
+    <string name="action" formatted="false">Actie</string>
+    <string name="action_all" formatted="false">Alles</string>
+    <string name="action_allow" formatted="false">Toestaan</string>
+    <string name="action_block" formatted="false">Blokkeren</string>
+    <string name="action_filter_title" formatted="false">Filter op Actietype</string>
+    <string name="action_filter_tooltip" formatted="false">Actie Filter</string>
+    <string name="action_none" formatted="false">Geen Actie</string>
+    <string name="action_silence" formatted="false">Stil</string>
+    <string name="action_tag" formatted="false">Actie: {actionType}</string>
+    <string name="action_type" formatted="false">Actietype</string>
+    <string name="action_unknown" formatted="false">Onbekend</string>
+    <string name="active_proposals" formatted="false">Actieve voorstellen</string>
+    <string name="add" formatted="false">Toevoegen</string>
+    <string name="add_allow_subscription" formatted="false">Toestaan Abonnement Toevoegen</string>
+    <string name="add_allowed_blocked_rule" formatted="false">Toestaan/Blokkeren Regel Toevoegen</string>
+    <string name="add_block_subscription" formatted="false">Blokkeren Abonnement Toevoegen</string>
+    <string name="add_contact_button" formatted="false">Contact Toevoegen</string>
+    <string name="add_contact_failed" formatted="false">Contact toevoegen mislukt: {error}</string>
+    <string name="add_label" formatted="false">Label Toevoegen</string>
+    <string name="add_label_button" formatted="false">Label Toevoegen</string>
+    <string name="add_label_failed" formatted="false">Label toevoegen mislukt: {error}</string>
+    <string name="add_name" formatted="false">Naam Toevoegen</string>
+    <string name="add_none_subscription" formatted="false">Geen Abonnement Toevoegen</string>
+    <string name="add_phone_mark" formatted="false">Telefoonmarkering Toevoegen</string>
+    <string name="add_phone_number_rule" formatted="false">Telefoonnummerregel Toevoegen</string>
+    <string name="add_plugin" formatted="false">Plugin Toevoegen</string>
+    <string name="add_plugin_failed" formatted="false">Plugin toevoegen mislukt</string>
+    <string name="add_plugin_failed_with_error" formatted="false">Plugin toevoegen mislukt: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">Plugin Toevoegen vanuit Lokaal Bestand</string>
+    <string name="add_plugin_from_url" formatted="false">Plugin Toevoegen vanuit URL</string>
+    <string name="add_regex_rule" formatted="false">Regex Regel Toevoegen</string>
+    <string name="add_rule" formatted="false">Regel Toevoegen</string>
+    <string name="add_rule_failed" formatted="false">Regel toevoegen mislukt: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">Regel Toevoegen</string>
+    <string name="add_silence_subscription" formatted="false">Stil Abonnement Toevoegen</string>
+    <string name="add_sms_filter_rule" formatted="false">SMS Filterregel Toevoegen</string>
+    <string name="add_sms_rule" formatted="false">SMS Regel Toevoegen</string>
+    <string name="add_sms_subscription" formatted="false">SMS Abonnement Toevoegen</string>
+    <string name="add_subscription" formatted="false">Abonnement Toevoegen</string>
+    <string name="add_subscription_button" formatted="false">Abonnement Toevoegen</string>
+    <string name="add_subscription_failed" formatted="false">Abonnement toevoegen mislukt: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">Abonnement Toevoegen</string>
+    <string name="add_to_blacklist" formatted="false">Toevoegen aan Zwarte Lijst</string>
+    <string name="add_to_favorites" formatted="false">Toevoegen aan Favorieten</string>
+    <string name="add_to_rules" formatted="false">Toevoegen aan Regels</string>
+    <string name="add_to_whitelist" formatted="false">Toevoegen aan Witte Lijst</string>
+    <string name="added_to_favorites" formatted="false">Toegevoegd aan favorieten</string>
+    <string name="advanced_mode" formatted="false">Geavanceerde Modus</string>
+    <string name="agent" formatted="false">Agent</string>
+    <string name="agree_votes" formatted="false">Eens: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">Alle</string>
+    <string name="all_call_logs_cleared" formatted="false">Alle oproeplogboeken gewist</string>
+    <string name="all_calls_tab" formatted="false">Alle</string>
+    <string name="all_permissions_granted" formatted="false">Alle machtigingen verleend</string>
+    <string name="all_services_status_subtitle" formatted="false">Huidige Status van Elke Cloud Service</string>
+    <string name="all_services_status_title" formatted="false">Huidige Service Status</string>
+    <string name="all_settings_completed" formatted="false">Alle instellingen voltooid.</string>
+    <string name="all_update_success" formatted="false">Alle updates voltooid ({count} regels)</string>
+    <string name="allow" formatted="false">Toestaan</string>
+    <string name="allow_action_description" formatted="false">Oproepen worden toegestaan, zelfs als het nummer op de blokkeerlijst staat.</string>
+    <string name="allow_all_allow_rules" formatted="false">Alle Toestaan Regels Inschakelen</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">Hoofdschakelaar om alle geconfigureerde toestaan-regels toe te passen</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">Alle Geblokkeerde Nummers Toestaan</string>
+    <string name="allow_all_block_rules" formatted="false">Alle Blokkeren Regels Inschakelen</string>
+    <string name="allow_all_block_rules_desc" formatted="false">Hoofdschakelaar om alle geconfigureerde blokkeer-regels toe te passen</string>
+    <string name="allow_allowed_numbers" formatted="false">Alle Goedgekeurde Nummers Toestaan</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">Sta alle inkomende oproepen toe van nummers op uw toestaanlijst</string>
+    <string name="allow_block" formatted="false">Toestaan/Blokkeren</string>
+    <string name="allow_blocked_numbers" formatted="false">Blokkeerlijst Omzeilen</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">Tijdelijk oproepen toestaan van nummers op uw blokkeerlijst</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">Niet-overschreden Nummers Toestaan</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">Sta nummers automatisch toe die de drempelwaarde niet overschrijden</string>
+    <string name="allow_regex_allow_rules" formatted="false">Regex Toestaan Regels Inschakelen</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">Schakel regex patroonherkenning in voor toestaan regels</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">Schakel regex-gebaseerde toestaan regels in</string>
+    <string name="allow_regex_block_rules" formatted="false">Regex Blokkeren Regels Inschakelen</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">Schakel regex patroonherkenning in voor blokkeren regels</string>
+    <string name="allow_regex_block_rules_description" formatted="false">Schakel regex-gebaseerde blokkeren regels in</string>
+    <string name="allow_rule" formatted="false">Toestaan Regel</string>
+    <string name="allow_rules" formatted="false">Toestaan Regels</string>
+    <string name="allowed_blocked_rule" formatted="false">Toestaan/Blokkeren Regel</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">Bewerken Toestaan/Blokkeren Regel</string>
+    <string name="allowed_blocked_rule_management" formatted="false">Beheer Toestaan/Blokkeren Regels</string>
+    <string name="allowed_blocked_rules_info" formatted="false">Toegestane/geblokkeerde regels worden gebruikt om oproepen te matchen met specifieke telefoonnummers, die de hoogste prioriteit hebben.</string>
+    <string name="and_more_items" formatted="false">en nog {count} items</string>
+    <string name="answer_then_hangup" formatted="false">Antwoorden en ophangen</string>
+    <string name="answer_then_hangup_description" formatted="false">Beantwoord de oproep eerst en hang daarna direct op.</string>
+    <string name="app_name" formatted="false">Your Call Your Rule</string>
+    <string name="application_software" formatted="false">Toepassingssoftware</string>
+    <string name="apply" formatted="false">Toepassen</string>
+    <string name="approved" formatted="false">GOEDGEKEURD</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">Autorisatie mislukt: Controleer client-ID en sleutel</string>
+    <string name="authorization_failed_message" formatted="false">Autorisatie mislukt</string>
+    <string name="authorization_success_message" formatted="false">Autorisatie succesvol</string>
+    <string name="authorize_login_button" formatted="false">Autoriseer login</string>
+    <string name="auto_cancel_notification" formatted="false">Automatisch Annuleren Melding</string>
+    <string name="auto_cancel_notification_description" formatted="false">Indien aangevinkt, wordt de melding automatisch gesloten wanneer de gebruiker erop tikt.</string>
+    <string name="auto_sync_label" formatted="false">Automatische synchronisatie</string>
+    <string name="auto_update" formatted="false">Automatische update</string>
+    <string name="auto_update_description" formatted="false">Stel automatische update-intervallen in voor abonnementen of werk handmatig bij</string>
+    <string name="auto_update_settings" formatted="false">Automatische update-instellingen</string>
+    <string name="auto_update_subtitle" formatted="false">Beheer automatische updates voor regels en plugins</string>
+    <string name="auto_update_title" formatted="false">Automatische update</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">Automotive industrie</string>
+    <string name="avatar" formatted="false">Avatar</string>
+    <string name="avatar_border_color" formatted="false">Avatar randkleur</string>
+    <string name="avatar_border_size" formatted="false">Avatar randgrootte</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">Avatar- &amp; Icoongroottes</string>
+    <string name="avatar_position" formatted="false">Avatar positie</string>
+    <string name="avatar_size" formatted="false">Avatar grootte</string>
+    <string name="axis_position" formatted="false">{axis} positie</string>
+    <string name="background_gradient_setting" formatted="false">Achtergrondverloop</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">Back-up</string>
+    <string name="backup_and_restore" formatted="false">Back-up en herstel</string>
+    <string name="backup_and_restore_subtitle" formatted="false">Back-up of herstel applicatiegegevens</string>
+    <string name="backup_and_restore_title" formatted="false">Back-up &amp; Herstel</string>
+    <string name="backup_failed" formatted="false">Back-up mislukt</string>
+    <string name="backup_settings" formatted="false">Back-upinstellingen</string>
+    <string name="backup_to_cloud" formatted="false">Back-up naar Cloud</string>
+    <string name="backup_to_cloud_failed" formatted="false">Back-up naar cloud mislukt: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">Succesvol geback-upt naar de cloud</string>
+    <string name="bank" formatted="false">Bank</string>
+    <string name="basic_info" formatted="false">Basisgegevens</string>
+    <string name="basic_rule_filter" formatted="false">Basisregel filter</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">Filter oproepen met zwarte/witte lijsten en reguliere expressies</string>
+    <string name="basic_rule_filtering" formatted="false">Basisregel filtering</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• Basisregel filtering: Regels filteren op basis van zwarte lijst, witte lijst en regex</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">Weet u zeker dat u {count} geselecteerde contacten wilt verwijderen?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">Weet u zeker dat u {count} labels wilt verwijderen?</string>
+    <string name="battery_optimization_permission" formatted="false">Batterijoptimalisatie</string>
+    <string name="battery_optimization_permission_description" formatted="false">Sta de app toe om op de achtergrond te draaien om services zoals nummerherkenning te bieden.</string>
+    <string name="black_white_list" formatted="false">Zwarte/Witte Lijst</string>
+    <string name="blacklist" formatted="false">Zwarte lijst</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">Zwarte en witte lijsten</string>
+    <string name="block" formatted="false">Blokkeren</string>
+    <string name="block_action_description" formatted="false">Oproepen worden geblokkeerd en weergegeven in het oproepenlogboek.</string>
+    <string name="block_calls" formatted="false">Oproepen blokkeren</string>
+    <string name="block_international_calls" formatted="false">komt overeen met nummers die niet beginnen met + of 00</string>
+    <string name="block_international_calls_title" formatted="false">Internationale oproepen blokkeren</string>
+    <string name="block_mobile_numbers" formatted="false">komt overeen met nummers die niet beginnen met 13-19</string>
+    <string name="block_mobile_numbers_title" formatted="false">Mobiele nummers blokkeren</string>
+    <string name="block_number" formatted="false">Nummer Blokkeren</string>
+    <string name="block_number_success" formatted="false">Nummer succesvol geblokkeerd</string>
+    <string name="block_premium_rate_numbers" formatted="false">komt overeen met nummers die niet beginnen met 118 of 120-190</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">Premium tariefnummers blokkeren</string>
+    <string name="block_rule" formatted="false">Blokkeerregel</string>
+    <string name="block_rules" formatted="false">Blokkeerregels</string>
+    <string name="block_specific_area_codes" formatted="false">komt overeen met nummers die beginnen met 0 + 2-3 cijfers</string>
+    <string name="block_specific_area_codes_title" formatted="false">Specifieke netnummers blokkeren:</string>
+    <string name="block_type_analysis_title" formatted="false">Blokkeringstype analyse</string>
+    <string name="blocked" formatted="false">Geblokkeerd</string>
+    <string name="blocked_call_body" formatted="false">Geblokkeerde oproep van {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">Geblokkeerde oproepmeldingen</string>
+    <string name="blocked_call_notifications_description" formatted="false">Toont informatie over geblokkeerde oproepen.</string>
+    <string name="blocked_call_title" formatted="false">Geblokkeerde Oproep</string>
+    <string name="blocked_calls" formatted="false">Geblokkeerde oproepen</string>
+    <string name="blocked_calls_title" formatted="false">Geblokkeerde oproepen</string>
+    <string name="blocked_spam_calls" formatted="false">Geblokkeerde spamoproepen</string>
+    <string name="blocking_trend" formatted="false">Blokkeringstrend</string>
+    <string name="both" formatted="false">Beide</string>
+    <string name="bulk_delete" formatted="false">Batch contacten verwijderen</string>
+    <string name="bulk_delete_contacts" formatted="false">Batch contacten verwijderen</string>
+    <string name="bulk_delete_labels" formatted="false">Batch labels verwijderen</string>
+    <string name="call" formatted="false">Oproep</string>
+    <string name="call_blocking" formatted="false">Oproep blokkering</string>
+    <string name="call_details" formatted="false">Oproepdetails</string>
+    <string name="call_filter_rules" formatted="false">Oproepfilterregels</string>
+    <string name="call_filter_rules_description" formatted="false">Stel basisregels in voor het filteren van oproepen</string>
+    <string name="call_filter_settings" formatted="false">Oproepfilterinstellingen</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">Stel limieten voor oproepfrequentie en blokkeringsregels in</string>
+    <string name="call_frequency_interception_title" formatted="false">Oproepfrequentie-onderschepping</string>
+    <string name="call_history" formatted="false">Oproepgeschiedenis</string>
+    <string name="call_history_info_desc" formatted="false">Hier wordt uw oproepgeschiedenis weergegeven, inclusief inkomende, uitgaande en gemiste oproepen.</string>
+    <string name="call_history_info_title" formatted="false">Oproepgeschiedenis</string>
+    <string name="call_history_tab" formatted="false">Oproepgeschiedenis</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">Toestemming oproepfiltering</string>
+    <string name="call_screening_permission_description" formatted="false">Gebruikt om spamoproepen te filteren en te blokkeren.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">Toestemming oproepfiltering niet verleend, kan functionaliteit van de app beïnvloeden.</string>
+    <string name="call_statistics" formatted="false">Oproepstatistieken</string>
+    <string name="call_time" formatted="false">Oproeptijd</string>
+    <string name="call_type" formatted="false">Oproeptype</string>
+    <string name="call_type_answered" formatted="false">Beantwoord</string>
+    <string name="call_type_blocked" formatted="false">Geblokkeerd</string>
+    <string name="call_type_icon_color" formatted="false">Kleur icoon oproeptype</string>
+    <string name="call_type_missed" formatted="false">Gemiste oproep</string>
+    <string name="call_type_outgoing" formatted="false">Uitgaande</string>
+    <string name="call_type_position" formatted="false">Positie oproeptype</string>
+    <string name="call_type_rejected" formatted="false">Geweigerd</string>
+    <string name="call_type_silenced" formatted="false">Stilgezet</string>
+    <string name="call_type_unknown" formatted="false">Onbekend</string>
+    <string name="callback" formatted="false">Terugbellen</string>
+    <string name="caller_id_app" formatted="false">Oproep-ID App</string>
+    <string name="caller_id_customization_subtitle" formatted="false">Aanpassen Telefoonnummer Weergave Lay-out</string>
+    <string name="caller_id_customization_title" formatted="false">Oproep-ID aanpassen</string>
+    <string name="caller_id_display_mode" formatted="false">Weergavemodus nummerherkenning</string>
+    <string name="caller_id_enhancement" formatted="false">Telefoonnummer Weergave Verbetering</string>
+    <string name="caller_id_marked_by_count" formatted="false">Gemarkeerd door {count}</string>
+    <string name="caller_id_notification_title" formatted="false">Info Inkomende Oproep</string>
+    <string name="caller_id_preview" formatted="false">Voorbeeld nummerherkenning</string>
+    <string name="caller_id_settings_subtitle" formatted="false">Instellen Melding &amp; Weergavemodus Inkomende Oproep</string>
+    <string name="caller_id_settings_title" formatted="false">Telefoonnummer Weergave Instellingen</string>
+    <string name="calling_number_failed" formatted="false">Oproepen van nummer mislukt</string>
+    <string name="cancel" formatted="false">Annuleren</string>
+    <string name="cancel_button" formatted="false">Annuleren</string>
+    <string name="cancel_local_notification" formatted="false">Lokale Notificaties Sluiten</string>
+    <string name="cancel_local_notification_description" formatted="false">Lokale Notificaties Automatisch Sluiten</string>
+    <string name="car_rental" formatted="false">Autoverhuur</string>
+    <string name="carrier" formatted="false">Provider</string>
+    <string name="carrier_color" formatted="false">Kleur provider</string>
+    <string name="carrier_font_size" formatted="false">Lettergrootte provider</string>
+    <string name="carrier_position" formatted="false">Positie provider</string>
+    <string name="change_label" formatted="false">Label wijzigen</string>
+    <string name="change_plugin_status_failed" formatted="false">Wijzigen pluginstatus mislukt: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">Wijzigen abonnementsstatus mislukt: {error}</string>
+    <string name="charity" formatted="false">Liefdadigheid</string>
+    <string name="chart_one_week_ago" formatted="false">1 week geleden</string>
+    <string name="chart_three_days_ago" formatted="false">3 dagen geleden</string>
+    <string name="chart_today" formatted="false">Vandaag</string>
+    <string name="check_file_format" formatted="false">Controleer bestandsformaat of -machtigingen</string>
+    <string name="check_permission_failed" formatted="false">Machtigingen controleren mislukt: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">Kies de standaard onderscheppingsactie</string>
+    <string name="clear_all_call_logs" formatted="false">Alle Oproeplogboeken Wissen</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">Bevestig om alle oproeplogboeken te wissen</string>
+    <string name="clear_all_notifications" formatted="false">Alle Meldingen Wissen</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">Bevestig om alle meldingen te wissen</string>
+    <string name="clear_button" formatted="false">Wissen</string>
+    <string name="clear_filter" formatted="false">Filter wissen</string>
+    <string name="clear_label_filter_button" formatted="false">Labelfilter wissen</string>
+    <string name="close_button" formatted="false">Sluiten</string>
+    <string name="cloud_backup" formatted="false">Cloud Back-up</string>
+    <string name="cloud_sync" formatted="false">Cloudsynchronisatie</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">Cloud synchronisatie &amp; back-up</string>
+    <string name="cloud_sync_service" formatted="false">Cloud Synchronisatie Service</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">WebDAV, OneDrive en Google Drive configureren</string>
+    <string name="cloud_sync_settings_title" formatted="false">Cloudsynchronisatie-instellingen</string>
+    <string name="cloud_sync_title" formatted="false">Cloudsynchronisatie</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">Incasso</string>
+    <string name="color_picker_title" formatted="false">Kleur kiezen</string>
+    <string name="community_impact" formatted="false">Community Impact</string>
+    <string name="community_participation" formatted="false">Community deelname</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">Community stemmen</string>
+    <string name="community_voting_started" formatted="false">Community stemmen gestart</string>
+    <string name="community_voting_started_body" formatted="false">Een nieuw verwijderingsvoorstel voor {phoneNumber} is nu open voor community stemmen.</string>
+    <string name="completed" formatted="false">VOLTOOID</string>
+    <string name="config_management" formatted="false">Configuratiebeheer</string>
+    <string name="config_saved" formatted="false">Configuratie opgeslagen!</string>
+    <string name="config_updated" formatted="false">Configuratie bijgewerkt</string>
+    <string name="configuration_advice" formatted="false">Door de juiste configuratie kunt u verschillende filterstrategieën instellen voor werk- en persoonlijke simkaarten.</string>
+    <string name="configure_backup_options" formatted="false">Back-upopties configureren</string>
+    <string name="configure_cloud_sync_service" formatted="false">Cloudsynchronisatieservice configureren</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">Configureer een cloudsynchronisatieservice om synchronisatie tussen meerdere apparaten mogelijk te maken.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">SIM-kaartfilterregels configureren</string>
+    <string name="confirm" formatted="false">Bevestigen</string>
+    <string name="confirm_button" formatted="false">Bevestigen</string>
+    <string name="confirm_delete" formatted="false">Bevestig Verwijderen</string>
+    <string name="confirm_delete_label" formatted="false">Weet u zeker dat u label &quot;{name}&quot; wilt verwijderen</string>
+    <string name="confirm_delete_plugin" formatted="false">Weet u zeker dat u plugin &quot;{name}&quot; wilt verwijderen?</string>
+    <string name="confirm_delete_plugins" formatted="false">Weet u zeker dat u {count} plugins wilt verwijderen?</string>
+    <string name="confirm_delete_rule_message" formatted="false">Weet u zeker dat u deze regel wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">Weet u zeker dat u deze sms-filterregel wilt verwijderen?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">Weet u zeker dat u deze sms-regel wilt verwijderen?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">Weet u zeker dat u {name} wilt verwijderen?</string>
+    <string name="confirm_password" formatted="false">Wachtwoord bevestigen</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">Verbonden</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">Verbinding mislukt: Controleer serveradres, gebruikersnaam en wachtwoord</string>
+    <string name="connection_failed_message" formatted="false">Verbinding mislukt</string>
+    <string name="connection_status_label" formatted="false">Verbindingsstatus</string>
+    <string name="connection_string" formatted="false">Verbindingsreeks (URI)</string>
+    <string name="connection_string_helper" formatted="false">Alleen nodig voor \'Database initialiseren\'</string>
+    <string name="connection_success_message" formatted="false">Verbinding succesvol</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">Contact succesvol toegevoegd</string>
+    <string name="contact_deleted" formatted="false">Contact verwijderd</string>
+    <string name="contact_name_label" formatted="false">Naam</string>
+    <string name="contact_not_found" formatted="false">Contact niet gevonden</string>
+    <string name="contact_subscription_description" formatted="false">Abonneren op contactlijsten via URL, contactinformatie en labels automatisch bijwerken. Ondersteunt JSON-formaatgegevens.</string>
+    <string name="contact_update_success" formatted="false">Contact succesvol bijgewerkt</string>
+    <string name="contact_us" formatted="false">Neem contact met ons op</string>
+    <string name="contacts" formatted="false">Contacten</string>
+    <string name="contacts_deleted" formatted="false">{count} contacten verwijderd</string>
+    <string name="contacts_management" formatted="false">Contactbeheer</string>
+    <string name="contacts_permission" formatted="false">Contacten Machtiging</string>
+    <string name="contacts_permission_description" formatted="false">Gebruikt om contactoproepen te identificeren.</string>
+    <string name="contacts_tab" formatted="false">Contacten</string>
+    <string name="container_width" formatted="false">Container Breedte</string>
+    <string name="content" formatted="false">Inhoud</string>
+    <string name="content_regex" formatted="false">Inhoud Regex</string>
+    <string name="count_color" formatted="false">Aantal Kleur</string>
+    <string name="count_font_size" formatted="false">Aantal Lettergrootte</string>
+    <string name="count_position" formatted="false">Aantal Positie</string>
+    <string name="count_threshold_description" formatted="false">Stel de minimale drempelwaarde in die nodig is om filteracties te activeren</string>
+    <string name="count_threshold_label" formatted="false">Aantal Drempelwaarde</string>
+    <string name="country" formatted="false">Land</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">bijv. NL, BE, DE</string>
+    <string name="country_code_label" formatted="false">Landcode (ISO 3166-1 alpha-2) *</string>
+    <string name="country_code_required" formatted="false">Landcode is verplicht</string>
+    <string name="country_code_two_letters" formatted="false">Landcode (ISO 3166-1 alpha-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">Let op: De database bevat mogelijk geen gegevens voor alle specifieke landen of regio\'s.</string>
+    <string name="country_name_color" formatted="false">Landnaam Kleur</string>
+    <string name="country_name_font_size" formatted="false">Landnaam Lettergrootte</string>
+    <string name="country_region_name_position" formatted="false">Land/Regio Naam Positie</string>
+    <string name="country_sync_settings_subtitle" formatted="false">Selecteer landen voor datasynchronisatie</string>
+    <string name="country_sync_settings_title" formatted="false">Landspecifieke Database Synchronisatie-instellingen</string>
+    <string name="create_proposal" formatted="false">Voorstel maken</string>
+    <string name="create_proposal_title" formatted="false">Verwijderingsvoorstel maken</string>
+    <string name="created_at" formatted="false">Gemaakt: {date}</string>
+    <string name="created_rules" formatted="false">Aan gemaakte Regels</string>
+    <string name="critical" formatted="false">Kritiek</string>
+    <string name="critical_issues" formatted="false">Kritieke problemen</string>
+    <string name="csv_format" formatted="false">CSV Formaat</string>
+    <string name="current_device_label" formatted="false">Huidig Apparaat Label</string>
+    <string name="current_device_title" formatted="false">Huidig Apparaat</string>
+    <string name="current_language" formatted="false">Huidige Taal</string>
+    <string name="current_mark_count" formatted="false">Huidig Aantal Punten</string>
+    <string name="custom" formatted="false">Aangepast</string>
+    <string name="custom_action_description" formatted="false">Voer een aangepaste actie uit.</string>
+    <string name="customer_service" formatted="false">Klantenservice</string>
+    <string name="dashboard_tab" formatted="false">Dashboard</string>
+    <string name="data_analysis" formatted="false">Gegevensanalyse</string>
+    <string name="data_load_failure" formatted="false">Gegevens laden mislukt: {error}</string>
+    <string name="data_loading_failed" formatted="false">Gegevens laden mislukt: {error}</string>
+    <string name="data_migration" formatted="false">Gegevensmigratie</string>
+    <string name="data_migration_description" formatted="false">Met deze functie kunt u al uw gegevens tussen apparaten overzetten. Momenteel kunt u de back-up- en herstel functies gebruiken om uw gegevens handmatig te migreren.</string>
+    <string name="data_source_disclaimer" formatted="false">Nummers zijn afkomstig van internet en door gebruikers ingediende gegevens. We kunnen niet garanderen dat een nummer, eenmaal verwijderd, niet opnieuw wordt ingediend door andere gebruikers of bronnen. Zoek en verifieer informatie actief.</string>
+    <string name="data_source_reminder" formatted="false">Gegevensbron Herinnering</string>
+    <string name="database_sync_title" formatted="false">Database Synchronisatie</string>
+    <string name="days" formatted="false">{count, plural, =1{1 dag} other{{count} dagen}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{1 dag geleden} other{{count} dagen geleden}}</string>
+    <string name="days_vip" formatted="false">{days} Dagen VIP</string>
+    <string name="db_init_success" formatted="false">Database succesvol geïnitialiseerd!</string>
+    <string name="debt_collection" formatted="false">Incasso</string>
+    <string name="deep_link_confirm_button" formatted="false">Import bevestigen</string>
+    <string name="deep_link_default_plugin_name" formatted="false">Geïmporteerde plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">Geïmporteerd abonnement</string>
+    <string name="deep_link_detected_title" formatted="false">Deep link gedetecteerd</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL mag niet leeg zijn</string>
+    <string name="deep_link_import_failed" formatted="false">Import mislukt: {error}</string>
+    <string name="deep_link_import_success" formatted="false">Succesvol geïmporteerd</string>
+    <string name="deep_link_import_title" formatted="false">Configuratie importeren</string>
+    <string name="deep_link_name_label" formatted="false">Naam</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Downloaden van plugin mislukt: {error}</string>
+    <string name="deep_link_type_label" formatted="false">Type</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Abonnement</string>
+    <string name="deep_link_url_label" formatted="false">URL</string>
+    <string name="default_notifications" formatted="false">Standaardmeldingen</string>
+    <string name="default_notifications_description" formatted="false">Standaard meldingskanaal voor de app.</string>
+    <string name="delete" formatted="false">Verwijderen</string>
+    <string name="delete_button" formatted="false">Verwijderen</string>
+    <string name="delete_contact" formatted="false">Contact Verwijderen</string>
+    <string name="delete_contact_confirm" formatted="false">Weet u zeker dat u {name} wilt verwijderen?</string>
+    <string name="delete_failed" formatted="false">Verwijderen mislukt: {error}</string>
+    <string name="delete_label" formatted="false">Label Verwijderen</string>
+    <string name="delete_label_failed" formatted="false">Label verwijderen mislukt: {error}</string>
+    <string name="delete_plugin" formatted="false">Plugin Verwijderen</string>
+    <string name="delete_plugin_failed" formatted="false">Plugin verwijderen mislukt: {error}</string>
+    <string name="delete_plugins" formatted="false">Plugins Verwijderen</string>
+    <string name="delete_plugins_failed" formatted="false">Plugins verwijderen mislukt: {error}</string>
+    <string name="delete_rule" formatted="false">Regel Verwijderen</string>
+    <string name="delete_rule_failed" formatted="false">Verwijderen mislukt: {error}</string>
+    <string name="delete_selected" formatted="false">Geselecteerde Verwijderen</string>
+    <string name="delete_subscription" formatted="false">Abonnement Verwijderen</string>
+    <string name="delete_subscription_confirm" formatted="false">Weet u zeker dat u abonnement &quot;{name}&quot; wilt verwijderen?</string>
+    <string name="delete_subscription_failed" formatted="false">Abonnement verwijderen mislukt: {error}</string>
+    <string name="delete_success" formatted="false">Verwijderen succesvol</string>
+    <string name="deletion_proposal" formatted="false">Verwijderingsvoorstel</string>
+    <string name="deletion_proposal_created" formatted="false">Verwijderingsvoorstel aangemaakt</string>
+    <string name="deletion_proposal_created_body" formatted="false">Uw verwijderingsvoorstel voor {phoneNumber} is ingediend voor community review.</string>
+    <string name="deletion_proposal_description" formatted="false">Stel nummers voor ter verwijdering die communityrichtlijnen schenden. Uw deelname helpt het platform veilig te houden.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">Meldingen over de resultaten en updates van de stemmingen voor verwijderingsvoorstellen.</string>
+    <string name="deletion_proposals" formatted="false">Verwijderingsvoorstellen</string>
+    <string name="delivery" formatted="false">Levering</string>
+    <string name="description" formatted="false">Beschrijving</string>
+    <string name="detailed_settings_title" formatted="false">Gedetailleerde Instellingen</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">Apparaat ID</string>
+    <string name="device_management_subtitle" formatted="false">Beheer synchronisatie van meerdere apparaten</string>
+    <string name="device_management_title" formatted="false">Apparaatbeheer</string>
+    <string name="device_model_label" formatted="false">Apparaat Model</string>
+    <string name="device_name" formatted="false">Apparaatnaam</string>
+    <string name="device_name_label" formatted="false">Apparaatnaam</string>
+    <string name="device_renamed_successfully_message" formatted="false">Apparaat succesvol hernoemd</string>
+    <string name="device_unregistered_successfully_message" formatted="false">Apparaat succesvol gederegistreerd</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">Apparaten succesvol gesynchroniseerd</string>
+    <string name="dialog_title" formatted="false">Uitleg Regex Patronen</string>
+    <string name="different_from_local_counter" formatted="false">Deze functie verschilt van het lokale tellerfilter, omdat deze zich richt op herhaalde oproeppatronen in korte tijd, in plaats van langdurige markeertellingen.</string>
+    <string name="disable_global_plugins" formatted="false">Globale plugins uitschakelen</string>
+    <string name="disabled" formatted="false">Uitgeschakeld</string>
+    <string name="disabled_status" formatted="false">Uitgeschakeld</string>
+    <string name="disconnect_button" formatted="false">Verbinding verbreken</string>
+    <string name="disconnect_failed_message" formatted="false">Verbinding verbreken mislukt</string>
+    <string name="disconnected_message" formatted="false">Verbinding verbroken</string>
+    <string name="disconnected_status" formatted="false">Verbinding verbroken</string>
+    <string name="done" formatted="false">Gereed</string>
+    <string name="dual_sim_advice" formatted="false">Deze functie is met name handig voor dual-SIM telefoons om verschillende filterstrategieën in te stellen voor werk- en privé-SIM-kaarten.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">E164 Nummer</string>
+    <string name="earlier" formatted="false">Eerder</string>
+    <string name="earned_temp_vip" formatted="false">Verdiende tijdelijke VIP</string>
+    <string name="ecommerce" formatted="false">E-commerce</string>
+    <string name="edit" formatted="false">Bewerken</string>
+    <string name="edit_contact" formatted="false">Contact bewerken</string>
+    <string name="edit_label" formatted="false">Label bewerken</string>
+    <string name="edit_phone_rule" formatted="false">Telefoonregel bewerken</string>
+    <string name="edit_rule" formatted="false">Regel bewerken</string>
+    <string name="edit_script" formatted="false">Script Bewerken</string>
+    <string name="edit_script_for" formatted="false">Script bewerken voor {pluginName}</string>
+    <string name="edit_subscription" formatted="false">Abonnement bewerken</string>
+    <string name="education" formatted="false">Onderwijs</string>
+    <string name="element_positions_setting" formatted="false">Elementposities</string>
+    <string name="elements_settings_title" formatted="false">Elementen Instellingen</string>
+    <string name="email" formatted="false">E-mail</string>
+    <string name="enable_call_filter" formatted="false">Oproepfilter inschakelen</string>
+    <string name="enable_call_filter_description" formatted="false">Wanneer ingeschakeld, worden inkomende oproepen gecontroleerd aan de hand van de onderstaande regellijst. Oproepfilterregels worden standaard niet gesynchroniseerd tussen apparaten.</string>
+    <string name="enable_encryption" formatted="false">Encryptie inschakelen</string>
+    <string name="enable_encryption_description" formatted="false">Back-upbestanden versleutelen</string>
+    <string name="enable_filtering" formatted="false">Filteren Inschakelen</string>
+    <string name="enable_fraud_alert" formatted="false">Fraude Alert Inschakelen</string>
+    <string name="enable_fraud_alert_description" formatted="false">Alert voor vermoedelijke scam oproepen</string>
+    <string name="enable_global_plugins" formatted="false">Globale plugins inschakelen</string>
+    <string name="enable_local_count_filter" formatted="false">Bescherming Lokale Markeringsdrempel Inschakelen</string>
+    <string name="enable_local_count_filter_description" formatted="false">Blokkeer inkomende oproepen wanneer het aantal lokale meldingen de drempel overschrijdt</string>
+    <string name="enable_local_notification" formatted="false">Lokale melding gebruiken</string>
+    <string name="enable_local_notification_description" formatted="false">Wanneer ingeschakeld, worden meldingen voor gefilterde berichten op het apparaat weergegeven</string>
+    <string name="enable_location_summary" formatted="false">Locatie</string>
+    <string name="enable_mute_rules" formatted="false">Onderschept Oproepen Dempen</string>
+    <string name="enable_mute_rules_desc" formatted="false">Demp de beltoon voor onderschept oproepen in plaats van te weigeren</string>
+    <string name="enable_none_action_rules" formatted="false">Alleen Loggen &amp; Markeren (Geen Onderschepping)</string>
+    <string name="enable_none_action_rules_desc" formatted="false">Oproepmatches loggen en markeren zonder onderscheppingsactie uit te voeren</string>
+    <string name="enable_remote_number_filter" formatted="false">Bescherming Cloud Query Drempel Inschakelen</string>
+    <string name="enable_remote_number_filter_description" formatted="false">Blokkeer inkomende oproepen wanneer het aantal cloud query meldingen de drempel overschrijdt</string>
+    <string name="enable_rule" formatted="false">Regel inschakelen</string>
+    <string name="enable_security_message" formatted="false">Beveiligingsbericht Inschakelen</string>
+    <string name="enable_sms_filter" formatted="false">Sms-filtering inschakelen</string>
+    <string name="enable_sms_filter_description" formatted="false">Wanneer ingeschakeld, worden berichten automatisch gefilterd volgens de regels</string>
+    <string name="enable_time_interception" formatted="false">Tijdonderschepping inschakelen</string>
+    <string name="enable_time_interception_description" formatted="false">Blokkeer herhaalde oproepen van hetzelfde nummer binnen korte tijd</string>
+    <string name="enable_time_interceptor" formatted="false">Tijdonderschepper inschakelen</string>
+    <string name="enable_vibration" formatted="false">Trillen Inschakelen</string>
+    <string name="enable_vibration_description" formatted="false">Trillen wanneer een oproep wordt vermoed als scam oproep</string>
+    <string name="enabled" formatted="false">Ingeschakeld</string>
+    <string name="enabled_status" formatted="false">Ingeschakeld</string>
+    <string name="end_call_immediately" formatted="false">Onmiddellijk Blokkeren</string>
+    <string name="end_color" formatted="false">Eindkleur</string>
+    <string name="end_date" formatted="false">Einddatum</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">Verbeterd filtersysteem</string>
+    <string name="enhanced_filter_settings" formatted="false">Instellingen voor verbeterd filter</string>
+    <string name="enhanced_filter_settings_title" formatted="false">Instellingen voor verbeterd filter</string>
+    <string name="enhanced_filter_system_description" formatted="false">Het verbeterde filtersysteem ondersteunt zowel globale regels als filterconfiguraties per SIM-kaart.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">Voer zowel een telefoonnummer als een regex-patroon in.</string>
+    <string name="enter_contact_name" formatted="false">Voer de contactnaam in</string>
+    <string name="enter_device_name" formatted="false">Apparaatnaam invoeren</string>
+    <string name="enter_email_optional" formatted="false">Voer e-mailadres in (optioneel)</string>
+    <string name="enter_encryption_password_hint" formatted="false">Voer versleutelingswachtwoord in</string>
+    <string name="enter_icon_code" formatted="false">Voer icooncode in</string>
+    <string name="enter_name" formatted="false">Voer contactnaam in</string>
+    <string name="enter_new_device_name_hint" formatted="false">Voer een nieuwe naam in voor dit apparaat</string>
+    <string name="enter_password_again" formatted="false">Voer wachtwoord opnieuw in</string>
+    <string name="enter_phone_number" formatted="false">Voer telefoonnummer in</string>
+    <string name="enter_phone_number_hint" formatted="false">Voer telefoonnummer in om te testen</string>
+    <string name="enter_phone_number_multiple" formatted="false">Voer telefoonnummer in, meerdere nummers gescheiden door komma\'s</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">Voer telefoonnummer in om de zoekopdracht te starten</string>
+    <string name="enter_phone_number_to_verify" formatted="false">Voer telefoonnummer in om te verifiëren</string>
+    <string name="enter_plugin_description" formatted="false">Voer beschrijving plug-in in</string>
+    <string name="enter_plugin_name" formatted="false">Voer plug-in naam in</string>
+    <string name="enter_plugin_url" formatted="false">Voer plug-in URL-adres in</string>
+    <string name="enter_regex_hint" formatted="false">Voer regex-patroon in</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">Voer zowel regelnaam als regex-patroon in.</string>
+    <string name="enter_rule_name_hint" formatted="false">Voer regelnaam in</string>
+    <string name="enter_search_content" formatted="false">Voer zoekinhoud in</string>
+    <string name="enter_subscription_name" formatted="false">Voer abonnementsnaam in</string>
+    <string name="enter_subscription_url" formatted="false">Voer abonnements-URL in</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">Voer mapnaam voor synchronisatie in (standaard: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">Voer geldige naam en URL in</string>
+    <string name="enter_valid_url" formatted="false">Voer geldige URL in</string>
+    <string name="enter_version" formatted="false">Voer versie in</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">Voer WebDAV-wachtwoord in</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">Voer WebDAV-serveradres in</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">Voer WebDAV-gebruikersnaam in</string>
+    <string name="entertainment" formatted="false">Entertainment</string>
+    <string name="entity_export_failed" formatted="false">{entityTypeName} exporteren mislukt: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} succesvol geëxporteerd</string>
+    <string name="entity_import_failed" formatted="false">{entityTypeName} importeren mislukt: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} succesvol geïmporteerd, totaal {count} records geïmporteerd</string>
+    <string name="entry_point_view_title" formatted="false">Entry Point View</string>
+    <string name="error_loading_settings" formatted="false">Fout bij laden van instellingen</string>
+    <string name="error_message" formatted="false">Fout: {error}</string>
+    <string name="error_occurred_message" formatted="false">Er is een fout opgetreden: {error}</string>
+    <string name="error_prefix" formatted="false">Fout</string>
+    <string name="error_renaming_device_message" formatted="false">Fout bij het hernoemen van apparaat: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">Fout bij het synchroniseren van apparaten: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">Fout bij het de-registreren van apparaat: {error}</string>
+    <string name="example_block400_prefix" formatted="false">bv. Blokkeer 400-prefixnummers</string>
+    <string name="example_block_marketing_sms" formatted="false">bv. Blokkeer marketing-sms\'en</string>
+    <string name="example_content_regex_hint" formatted="false">Voorbeeld Content Regex</string>
+    <string name="example_coupon_promotion_discount" formatted="false">bv. .*(coupon|promotie|korting).*</string>
+    <string name="example_family_friends" formatted="false">bv. Familie, Vrienden, etc.</string>
+    <string name="example_phone_number" formatted="false">bv. 10086, 12345, etc.</string>
+    <string name="example_regex400_prefix" formatted="false">Voorbeeld regex voor 400-prefix</string>
+    <string name="example_sender_regex_hint" formatted="false">Voorbeeld</string>
+    <string name="exchange" formatted="false">Uitwisselen</string>
+    <string name="exchange_failed" formatted="false">Wisselen mislukt: {error}</string>
+    <string name="exchange_now" formatted="false">Nu uitwisselen</string>
+    <string name="exchange_success" formatted="false">Succesvol gewisseld voor {description}, vervaldatum: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">VIP uitwisselen</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">Vervaltijd: {time}</string>
+    <string name="export" formatted="false">Exporteren</string>
+    <string name="export_all_application_settings" formatted="false">Alle app-instellingen exporteren</string>
+    <string name="export_all_rule_configurations" formatted="false">Alle regelconfiguraties exporteren</string>
+    <string name="export_config" formatted="false">Configuratie exporteren</string>
+    <string name="export_contacts" formatted="false">Contacten exporteren</string>
+    <string name="export_data" formatted="false">Gegevens exporteren</string>
+    <string name="export_entity" formatted="false">Exporteer {entityTypeName}</string>
+    <string name="export_failed" formatted="false">Exporteren mislukt</string>
+    <string name="export_failure" formatted="false">Configuratie niet kunnen exporteren</string>
+    <string name="export_feature_coming_soon" formatted="false">Exportfunctie binnenkort beschikbaar</string>
+    <string name="export_labels" formatted="false">Labels exporteren</string>
+    <string name="export_labels_failed" formatted="false">Labels niet kunnen exporteren: {error}</string>
+    <string name="export_plugin_list" formatted="false">Pluginlijst exporteren</string>
+    <string name="export_plugin_list_failed" formatted="false">Pluginlijst niet kunnen exporteren: {error}</string>
+    <string name="export_rules" formatted="false">Regels exporteren</string>
+    <string name="export_sms_rules" formatted="false">SMS-regels exporteren</string>
+    <string name="export_statistics_data" formatted="false">Statistieken exporteren</string>
+    <string name="export_successlly" formatted="false">Configuratie succesvol geëxporteerd</string>
+    <string name="failed_to_add_rule" formatted="false">Regel niet kunnen toevoegen: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">SMS-abonnement niet kunnen toevoegen: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">Instellingen niet kunnen back-uppen: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">Back-upbestand niet kunnen ontsleutelen</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">SMS-regel niet kunnen verwijderen: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">Regels niet kunnen exporteren: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">Info over beller-ID niet kunnen ophalen: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">Regels niet kunnen importeren: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Laden van instellingenschema mislukt: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">Instellingen niet kunnen herstellen</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">Instellingen niet kunnen herstellen: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">Regelstatus niet kunnen wisselen: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">Favoriete contacten</string>
+    <string name="feature" formatted="false">Functie</string>
+    <string name="feature_add_rules" formatted="false">• Specifieke regels toevoegen per telefoonnummer</string>
+    <string name="feature_center" formatted="false">Functiecentrum</string>
+    <string name="feature_enable_disable" formatted="false">• Verschillende filters in-/uitschakelen per SIM</string>
+    <string name="feature_list_title" formatted="false">Functies:</string>
+    <string name="feature_manage_rules" formatted="false">• Regel lijsten beheren per SIM</string>
+    <string name="features" formatted="false">Functies</string>
+    <string name="fetching_caller_id_info" formatted="false">Beller-ID-informatie ophalen...</string>
+    <string name="field_is_required" formatted="false">Veld is verplicht</string>
+    <string name="file_saved_to" formatted="false">Bestand opgeslagen naar: {path}</string>
+    <string name="filter" formatted="false">Filter</string>
+    <string name="filter_and_sort_title" formatted="false">Filteren en Sorteren</string>
+    <string name="filter_by" formatted="false">Filteren Op</string>
+    <string name="filter_by_action" formatted="false">Filteren op Actie</string>
+    <string name="filter_by_label" formatted="false">Filteren op label</string>
+    <string name="filter_control_panel_title" formatted="false">Filter bedieningspaneel</string>
+    <string name="filter_control_subtitle" formatted="false">Status van alle filters in-/uitschakelen beheren</string>
+    <string name="filter_control_title" formatted="false">Filter Controle</string>
+    <string name="filter_explanation" formatted="false">Filter Uitleg</string>
+    <string name="filter_management" formatted="false">Filter Beheer</string>
+    <string name="filter_management_description" formatted="false">Bel Filters Instellen</string>
+    <string name="filter_name" formatted="false">Filter Naam</string>
+    <string name="filter_priority_note" formatted="false">Opmerking: Er zijn prioriteitsrelaties tussen filters, raadpleeg de helpdocumentatie voor details</string>
+    <string name="filter_s_m_s" formatted="false">Filter SMS</string>
+    <string name="filter_settings" formatted="false">Filter Instellingen</string>
+    <string name="filter_settings_title" formatted="false">Filter Instellingen</string>
+    <string name="filter_toggle_instructions" formatted="false">Schakel filters in of uit voor deze SIM-slot:</string>
+    <string name="filter_toggle_status" formatted="false">Filter {status}: {filterName}</string>
+    <string name="filter_type" formatted="false">Filter Type</string>
+    <string name="filter_verified_owner" formatted="false">Filter Geverifieerde Eigenaar</string>
+    <string name="filtered" formatted="false">Gefilterd</string>
+    <string name="final_risk" formatted="false">Eindrisico</string>
+    <string name="financial" formatted="false">Financieel</string>
+    <string name="flexible_combination_feature" formatted="false">• Flexibele Combinaties: Filters in-/uitschakelen per SIM-slot</string>
+    <string name="font_sizes_setting" formatted="false">Lettergroottes</string>
+    <string name="found_rules" formatted="false">{count} regels gevonden</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">Fraude Alert Instellen</string>
+    <string name="fraud_aler_setting_title" formatted="false">Fraude Alert Instelling</string>
+    <string name="fraud_alert" formatted="false">FRAUDE ALERT - Hang de oproep op</string>
+    <string name="fraud_alert_title" formatted="false">Fraude Alert</string>
+    <string name="fraud_alerts" formatted="false">Fraude waarschuwingen</string>
+    <string name="fraud_alerts_description" formatted="false">Toont waarschuwingen voor potentieel frauduleuze oproepen.</string>
+    <string name="fraud_scam_likely" formatted="false">Fraude Scam Waarschijnlijk</string>
+    <string name="free" formatted="false">Gratis</string>
+    <string name="function_settings_title" formatted="false">Functie Instellingen</string>
+    <string name="general_update_failure" formatted="false">Update mislukt: {error}</string>
+    <string name="get_free" formatted="false">Gratis Verkrijgen</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Configureer globale filters voor alle SIM-kaarten:</string>
+    <string name="global_filter_feature" formatted="false">• Globale Filters: Basisregels voor alle inkomende oproepen</string>
+    <string name="global_filter_settings" formatted="false">Globale Filter Instellingen</string>
+    <string name="global_settings" formatted="false">Globale Instellingen</string>
+    <string name="google_drive_auth_description" formatted="false">Autoriseer met behulp van de systeemgeconfigureerde Google Drive client ID en sleutel</string>
+    <string name="google_drive_config_title" formatted="false">Google Drive Configuratie</string>
+    <string name="government" formatted="false">Overheid</string>
+    <string name="grant_necessary_permissions" formatted="false">Verleen Noodzakelijke Rechten</string>
+    <string name="grant_permissions" formatted="false">Verleen Rechten</string>
+    <string name="granted" formatted="false">Verleend</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">U heeft {days} dagen tijdelijke aankoop privileges ontvangen. Vervaldatum: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">Richtlijnen</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">U heeft al tijdelijke privileges, vervaldatum: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">U heeft al VIP-privileges (behalve advertenties)</string>
+    <string name="headhunter" formatted="false">Headhunter</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Hoogte</string>
+    <string name="high" formatted="false">Hoog</string>
+    <string name="high_risk" formatted="false">Hoog risico</string>
+    <string name="home_tab" formatted="false">Start</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{1 uur geleden} other{{count} uur geleden}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 uur} =1{1 uur} other{{count} uur}}</string>
+    <string name="how_it_works_point1" formatted="false">• Het systeem zal automatisch oproepen van hetzelfde nummer binnen het ingestelde tijmvenster toestaan</string>
+    <string name="how_it_works_point2" formatted="false">• Kortere tijmvensters resulteren in strengere onderschepping; langere tijmvensters resulteren in lossere onderschepping</string>
+    <string name="how_it_works_point3" formatted="false">• Het systeem controleert oproepgeschiedenissen om te bepalen of het een herhaalde oproep is</string>
+    <string name="how_it_works_title" formatted="false">Hoe Het Werkt:</string>
+    <string name="icon_code_optional" formatted="false">Icoon Code (Optioneel)</string>
+    <string name="icon_size" formatted="false">Icoon Grootte</string>
+    <string name="import" formatted="false">Importeren</string>
+    <string name="import_config" formatted="false">Configuratie Importeren</string>
+    <string name="import_contacts" formatted="false">Contacten Importeren</string>
+    <string name="import_entity" formatted="false">Importeer {entityTypeName}</string>
+    <string name="import_export" formatted="false">Importeren/Exporteren</string>
+    <string name="import_export_contacts" formatted="false">Contacten Importeren/Exporteren</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Contacten Importeren/Exporteren</string>
+    <string name="import_export_description" formatted="false">Importeer of exporteer {entityTypeName} gegevens</string>
+    <string name="import_export_rules" formatted="false">Regels Importeren/Exporteren</string>
+    <string name="import_export_title" formatted="false">Importeren/Exporteren</string>
+    <string name="import_failed" formatted="false">Importeren mislukt: {error}</string>
+    <string name="import_failure" formatted="false">Kon de configuratie niet importeren</string>
+    <string name="import_feature_coming_soon" formatted="false">Importfunctie komt binnenkort</string>
+    <string name="import_labels" formatted="false">Labels Importeren</string>
+    <string name="import_labels_failed" formatted="false">Kon labels niet importeren: {error}</string>
+    <string name="import_plugin_list" formatted="false">Plugin Lijst Importeren</string>
+    <string name="import_plugin_list_failed" formatted="false">Kon plugin lijst niet importeren: {error}</string>
+    <string name="import_plugin_success" formatted="false">Succesvol {count} plugins geïmporteerd</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Regelconfiguraties Importeren vanuit Bestand</string>
+    <string name="import_rules" formatted="false">Regels Importeren</string>
+    <string name="import_success" formatted="false">Import succesvol</string>
+    <string name="important" formatted="false">Belangrijk</string>
+    <string name="important_notice_title" formatted="false">Belangrijke Mededeling</string>
+    <string name="incoming_call_intercept_action" formatted="false">Onderscheppingsactie Inkomende Oproep</string>
+    <string name="incorrect_password" formatted="false">Onjuist wachtwoord</string>
+    <string name="init_db_button" formatted="false">Database initialiseren</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Voer zelfgehoste spiegel JSON-configuratie-URL in</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Configuratie laden</string>
+    <string name="initial_setup_desc" formatted="false">Selecteer de regionale regelbibliotheken die u wilt blokkeren. Deze regels helpen u om veel voorkomende verkoop- en oplichtingsgesprekken in uw regio automatisch te blokkeren.</string>
+    <string name="initial_setup_deselect_all" formatted="false">Selectie wissen</string>
+    <string name="initial_setup_detected_location" formatted="false">Gedetecteerde locatie</string>
+    <string name="initial_setup_get_failed" formatted="false">Ophalen van configuratie mislukt</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Ga naar Instellingen</string>
+    <string name="initial_setup_retry" formatted="false">Opnieuw proberen</string>
+    <string name="initial_setup_save" formatted="false">Geselecteerde met één klik instellen</string>
+    <string name="initial_setup_save_failed" formatted="false">Opslaan van configuratie mislukt: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Configuratie succesvol opgeslagen, regels worden binnenkort automatisch opgehaald</string>
+    <string name="initial_setup_saving" formatted="false">Opslaan...</string>
+    <string name="initial_setup_search_hint" formatted="false">Zoek regelset of land...</string>
+    <string name="initial_setup_select_all" formatted="false">Alles selecteren</string>
+    <string name="initial_setup_selected_count" formatted="false">{count} geselecteerd</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: U kunt deze instellingspagina op elk moment opnieuw openen via Instellingen.</string>
+    <string name="initial_setup_skip" formatted="false">Overslaan</string>
+    <string name="initial_setup_source_cdn" formatted="false">Spiegel-CDN-versnellingsbron</string>
+    <string name="initial_setup_source_custom" formatted="false">Zelfgehoste spiegelbron</string>
+    <string name="initial_setup_source_github" formatted="false">Officiële GitHub-bron</string>
+    <string name="initial_setup_source_title" formatted="false">Bron van regeldatabase</string>
+    <string name="initial_setup_title" formatted="false">Regelbibliotheek instellen</string>
+    <string name="initializing" formatted="false">Initialiseren</string>
+    <string name="installed" formatted="false">Geïnstalleerd</string>
+    <string name="insufficient_marks" formatted="false">Onvoldoende Punten</string>
+    <string name="insurance" formatted="false">Verzekering</string>
+    <string name="intercept_action" formatted="false">Onderscheppingsactie</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Stel in hoe geblokkeerde oproepen worden afgehandeld</string>
+    <string name="interception_action_settings_title" formatted="false">Onderscheppingsactie Instellingen</string>
+    <string name="interception_time_interval" formatted="false">Onderschepping Tijdsinterval</string>
+    <string name="internet" formatted="false">Internet</string>
+    <string name="interval_set_success" formatted="false">{service} update-interval ingesteld op {days} dagen</string>
+    <string name="invalid_content_regex" formatted="false">Ongeldige content regex</string>
+    <string name="invalid_exchange_rule" formatted="false">Ongeldige wisselregel</string>
+    <string name="invalid_label" formatted="false">Ongeldabel label</string>
+    <string name="invalid_regex_pattern" formatted="false">Ongeldabel regex patroon</string>
+    <string name="invalid_sender_regex" formatted="false">Ongeldabel afzender regex</string>
+    <string name="invalid_sim_data" formatted="false">Ongeldige SIM-gegevens</string>
+    <string name="ip_country" formatted="false">IP Land</string>
+    <string name="is_number_match" formatted="false">Nummer Match</string>
+    <string name="is_roaming" formatted="false">Roaming</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">Word lid van het Telegram Kanaal en Groep voor meer informatie</string>
+    <string name="json_format" formatted="false">JSON Formaat</string>
+    <string name="just_now" formatted="false">Zojuist</string>
+    <string name="keep_all_versions" formatted="false">Behoud alle versies</string>
+    <string name="keep_all_versions_description" formatted="false">Behoud alle historische versies van elke back-up</string>
+    <string name="label" formatted="false">Label</string>
+    <string name="label_action_description" formatted="false">Voeg een label toe aan de oproep voor gemakkelijke identificatie.</string>
+    <string name="label_added_successfully" formatted="false">Label &quot;{name}&quot; succesvol toegevoegd</string>
+    <string name="label_categories" formatted="false">Label Categorieën</string>
+    <string name="label_deleted" formatted="false">Label verwijderd</string>
+    <string name="label_description" formatted="false">Labels helpen u contacten beter te beheren, aangepaste labels toe te voegen aan telefoonnummers voor eenvoudige identificatie van oproepen en berichten.</string>
+    <string name="label_filter_tooltip" formatted="false">Label Filter</string>
+    <string name="label_icon_color" formatted="false">Label Icoon Kleur</string>
+    <string name="label_management" formatted="false">Label Beheer</string>
+    <string name="label_not_found" formatted="false">Label niet gevonden</string>
+    <string name="label_tag" formatted="false">Label: {labelId}</string>
+    <string name="label_update_failed" formatted="false">Kon label niet bijwerken: {error}</string>
+    <string name="label_update_success" formatted="false">Label &quot;$labelText&quot; succesvol bijgewerkt</string>
+    <string name="labels" formatted="false">Labels</string>
+    <string name="labels_color" formatted="false">Labels Kleur</string>
+    <string name="labels_deleted" formatted="false">{count} labels verwijderd</string>
+    <string name="labels_exported_successfully" formatted="false">Labels succesvol geëxporteerd</string>
+    <string name="labels_font_size" formatted="false">Labels Lettergrootte</string>
+    <string name="labels_imported_successfully" formatted="false">Succesvol {count} labels geïmporteerd</string>
+    <string name="labels_position" formatted="false">Labels Positie</string>
+    <string name="language_settings" formatted="false">Taalinstellingen</string>
+    <string name="language_settings_subtitle" formatted="false">Wijzig de weergavetaal van de applicatie</string>
+    <string name="language_settings_title" formatted="false">Taalinstellingen</string>
+    <string name="last_sync_label" formatted="false">Laatste Synchronisatie</string>
+    <string name="last_updated" formatted="false">Laatst bijgewerkt: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Laat leeg om standaardwaarde te gebruiken</string>
+    <string name="lifetime_membership" formatted="false">Levenslang Lidmaatschap</string>
+    <string name="lifetime_membership_description" formatted="false">Eenmalige aankoop, ontgrendel permanent alle premium functies en toekomstige updates</string>
+    <string name="list_view" formatted="false">Lijstweergave</string>
+    <string name="live_activities_settings_title" formatted="false">Live Activiteiten Instellingen</string>
+    <string name="live_activities_test_end_activity" formatted="false">Activiteit Beëindigen</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">Nieuwe Activiteit Verzenden</string>
+    <string name="live_activities_test_title" formatted="false">Live Activiteiten Test</string>
+    <string name="live_activities_test_update_activity" formatted="false">Activiteit Bijwerken</string>
+    <string name="live_activity_controls_title" formatted="false">Live Activiteit Bedieningselementen</string>
+    <string name="live_activity_mode" formatted="false">Live Activiteit</string>
+    <string name="live_activity_mode_description" formatted="false">Toont oproepinformatie als een persistente melding op het vergrendelingsscherm en in de Dynamic Island (iOS).</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Pas het uiterlijk van live meldingen aan.</string>
+    <string name="live_notification_customization_title" formatted="false">Live Melding Aanpassing</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">Kon contacten niet laden: {error}</string>
+    <string name="load_data_failed" formatted="false">Kon gegevens niet laden</string>
+    <string name="load_label_failed" formatted="false">Kon labels niet laden: {error}</string>
+    <string name="load_labels_failed" formatted="false">Kon labels niet laden: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">Kon gemarkeerde telefoonnummers niet laden: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">Kon gemarkeerde telefoons niet laden: {error}</string>
+    <string name="load_plugins_failed" formatted="false">Kon plugins niet laden: {error}</string>
+    <string name="load_settings_failed" formatted="false">Kon instellingen niet laden: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">Kon SMS regels niet laden: {error}</string>
+    <string name="load_status_failed_message" formatted="false">Status laden mislukt</string>
+    <string name="load_subscriptions_failed" formatted="false">Kon abonnementen niet laden: {error}</string>
+    <string name="loading" formatted="false">Laden...</string>
+    <string name="loading_ad" formatted="false">Advertentie laden...</string>
+    <string name="loading_tags" formatted="false">Tags laden...</string>
+    <string name="loan" formatted="false">Lening</string>
+    <string name="local_count_filter" formatted="false">Bescherming Lokale Markeringsdrempel</string>
+    <string name="local_count_filter_description" formatted="false">Blokkeer automatisch oproepen die de lokale meldingsdrempel overschrijden</string>
+    <string name="local_count_filter_explanation_content" formatted="false">Het lokale aantal filter analyseert oproepgeschiedenisrecords om frequente spamoproepen automatisch te identificeren en te blokkeren.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">Lokale Aantal Filter Uitleg</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• Bepaal of er geblokkeerd moet worden op basis van de aantalwaarde van het nummer</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• Wanneer het aantal van een nummer de ingestelde drempel overschrijdt, kunt u ervoor kiezen om het automatisch te blokkeren</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• U kunt selectief nummers toestaan die de drempel niet overschrijden</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• U kunt kiezen of u alle query logs wilt vastleggen</string>
+    <string name="local_count_filter_settings" formatted="false">Lokale Aantal Filter Instellingen</string>
+    <string name="local_count_filter_use_cases" formatted="false">Dit filter is bijzonder geschikt voor het identificeren van automatisch gebelde spamoproepen en marketingoproepen.</string>
+    <string name="local_count_filtering" formatted="false">Lokale Aantal Filtering</string>
+    <string name="local_count_filtering_explanation" formatted="false">• Lokale Aantal Filtering: Filterregels op basis van lokale markeertelling</string>
+    <string name="local_counter_filter" formatted="false">Lokale Teller Filter</string>
+    <string name="local_counter_filter_subtitle" formatted="false">Automatisch spamoproepen filteren op basis van oproepfrequentie</string>
+    <string name="local_database_sync_subtitle" formatted="false">Gegevens synchroniseren tussen apparaten</string>
+    <string name="local_database_sync_title" formatted="false">Lokale databasesynchronisatie</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">Lokale Filter Instellingen</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">Lokale melding uitgeschakeld</string>
+    <string name="local_notification_enabled" formatted="false">Lokale melding ingeschakeld</string>
+    <string name="local_services" formatted="false">Lokale Diensten</string>
+    <string name="location" formatted="false">Locatie</string>
+    <string name="location_color" formatted="false">Locatie Kleur</string>
+    <string name="location_font_size" formatted="false">Locatie Lettergrootte</string>
+    <string name="location_icon_color" formatted="false">Locatie Icoon Kleur</string>
+    <string name="location_position" formatted="false">Locatie Positie</string>
+    <string name="log" formatted="false">Logboek</string>
+    <string name="log_action_description" formatted="false">Log de oproepinformatie zonder verdere actie.</string>
+    <string name="log_all_local_queries" formatted="false">Log alle lokale query\'s</string>
+    <string name="log_all_local_queries_description" formatted="false">Leg logs vast voor alle lokale nummerquery\'s</string>
+    <string name="log_all_remote_queries" formatted="false">Log alle externe query\'s</string>
+    <string name="log_all_remote_queries_description" formatted="false">Leg alle externe nummerquery-operaties vast</string>
+    <string name="low" formatted="false">Laag</string>
+    <string name="low_risk" formatted="false">Laag risico</string>
+    <string name="manage" formatted="false">Beheer Contacten</string>
+    <string name="manage_favorite_contacts" formatted="false">Favoriete Contacten Beheren</string>
+    <string name="manage_filter_rules" formatted="false">Filterregels Beheren</string>
+    <string name="manage_filter_rules_description" formatted="false">Voeg SMS filterregels toe, bewerk ze of verwijder ze</string>
+    <string name="manual_entry" formatted="false">Handmatige Invoer Info</string>
+    <string name="mark_count" formatted="false">Markeer Aantal</string>
+    <string name="mark_counts" formatted="false">Markeer Aantallen</string>
+    <string name="mark_exchange" formatted="false">Markeer Wissel</string>
+    <string name="mark_more_numbers_for_more" formatted="false">Markeer meer nummers voor meer punten</string>
+    <string name="mark_phone" formatted="false">Markeer Telefoonnummer</string>
+    <string name="mark_phone_failed" formatted="false">Telefoonnummer markeren mislukt: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">Telefoonnummerbeheer markeren</string>
+    <string name="mark_phone_success" formatted="false">Telefoonnummer succesvol gemarkeerd</string>
+    <string name="marked_by_count" formatted="false">Gemarkeerd door {count}</string>
+    <string name="marked_phones_list" formatted="false">Gemarkeerde Telefoonnummers</string>
+    <string name="marks_insufficient" formatted="false">Onvoldoende punten om te wisselen</string>
+    <string name="master_and_overrides" formatted="false">Hoofdbediening</string>
+    <string name="master_and_overrides_desc" formatted="false">Globale regelinstellingen</string>
+    <string name="master_device_help" formatted="false">Alleen het hoofdapparaat kan de databasestructuur initialiseren.</string>
+    <string name="master_device_label" formatted="false">Hoofdapparaat (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">Geen overeenkomst.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">komt overeen met specifiek nummerformaat</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">Nummers matchen met speciale tekens:</string>
+    <string name="match_specific_digit_patterns" formatted="false">komt overeen met XXX-XXXX-XXXX formaat</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">Specifieke cijferpatronen matchen:</string>
+    <string name="match_successful_message" formatted="false">Overeenkomst succesvol!</string>
+    <string name="medical" formatted="false">Medisch</string>
+    <string name="medium" formatted="false">Medium</string>
+    <string name="medium_risk" formatted="false">Gemiddeld risico</string>
+    <string name="membership_center" formatted="false">Lidmaatschaps Centrum</string>
+    <string name="membership_privileges" formatted="false">Lidmaatschapsvoordelen</string>
+    <string name="message_background_color" formatted="false">Achtergrondkleur Bericht</string>
+    <string name="message_color" formatted="false">Bericht Kleur</string>
+    <string name="message_font_size" formatted="false">Bericht Lettergrootte</string>
+    <string name="message_position" formatted="false">Bericht Positie</string>
+    <string name="migration_tool" formatted="false">Migratietool</string>
+    <string name="minutes" formatted="false">minuten</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{1 minuut geleden} other{{count} minuten geleden}}</string>
+    <string name="moderate" formatted="false">Gemiddeld</string>
+    <string name="month" formatted="false">Maand</string>
+    <string name="monthly" formatted="false">Maandelijks</string>
+    <string name="monthly_call_count" formatted="false">Maandelijkse oproepen</string>
+    <string name="monthly_membership" formatted="false">Maandelijks lidmaatschap</string>
+    <string name="monthly_membership_description" formatted="false">Ontgrendel alle premium functies, automatisch maandelijks verlengd</string>
+    <string name="monthly_total" formatted="false">Maandelijks totaal</string>
+    <string name="more_options" formatted="false">Meer opties</string>
+    <string name="mute" formatted="false">Dempen</string>
+    <string name="name" formatted="false">Naam</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">Naam en telefoonnummer mogen niet leeg zijn</string>
+    <string name="name_cannot_be_empty" formatted="false">Naam mag niet leeg zijn</string>
+    <string name="name_color" formatted="false">Naamkleur</string>
+    <string name="name_font_size" formatted="false">Naam lettergrootte</string>
+    <string name="name_position" formatted="false">Naampositie</string>
+    <string name="name_unknown" formatted="false">Naam: Onbekend</string>
+    <string name="national_number" formatted="false">Nationaal Nummer</string>
+    <string name="need_vip_access" formatted="false">Je hebt VIP toegang nodig om deze functie te gebruiken</string>
+    <string name="new_vote_received" formatted="false">Nieuwe stem ontvangen</string>
+    <string name="new_vote_received_body" formatted="false">Iemand heeft gestemd om de verwijdering van {phoneNumber} te {voteType}. Huidige stemmen: {totalVotes}.</string>
+    <string name="next_step" formatted="false">Volgende</string>
+    <string name="no_action" formatted="false">Geen actie</string>
+    <string name="no_action_rules" formatted="false">Geen actieregels</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">Geen actieve cloud synchronisatieservice</string>
+    <string name="no_activity" formatted="false">Geen activiteit</string>
+    <string name="no_ads" formatted="false">Geen Advertenties</string>
+    <string name="no_allowed_blocked_rules" formatted="false">Geen toegestane/geblokkeerde regels gevonden</string>
+    <string name="no_blocked_type_data" formatted="false">Geen geblokkeerde type gegevens beschikbaar</string>
+    <string name="no_call_records" formatted="false">Geen oproepgegevens</string>
+    <string name="no_contacts_yet" formatted="false">Nog geen contacten</string>
+    <string name="no_data" formatted="false">Geen gegevens</string>
+    <string name="no_devices_registered_message" formatted="false">Geen apparaten geregistreerd</string>
+    <string name="no_labels" formatted="false">Nog geen labels</string>
+    <string name="no_marked_phones" formatted="false">Geen gemarkeerde telefoonnummers</string>
+    <string name="no_matching_contacts_found" formatted="false">Geen overeenkomende contacten gevonden</string>
+    <string name="no_matching_numbers_found" formatted="false">Geen overeenkomende nummers gevonden</string>
+    <string name="no_matching_rules" formatted="false">Geen overeenkomende {ruleType}</string>
+    <string name="no_notifications" formatted="false">Geen meldingen</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">Geen telefoonregels gevonden</string>
+    <string name="no_plugins" formatted="false">Nog geen plugins</string>
+    <string name="no_proposals_found" formatted="false">Geen voorstellen gevonden</string>
+    <string name="no_regex_rules" formatted="false">Geen regexregels gevonden</string>
+    <string name="no_rules" formatted="false">Geen {ruleType} nog</string>
+    <string name="no_rules_prompt" formatted="false">Geen regels gevonden, voeg regels toe</string>
+    <string name="no_rules_to_export" formatted="false">Geen regels om te exporteren</string>
+    <string name="no_sim_card_detected" formatted="false">Geen SIM-kaart gedetecteerd</string>
+    <string name="no_sim_cards_detected" formatted="false">Geen SIM-kaarten gedetecteerd</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">Nog geen SMS filterregels</string>
+    <string name="no_sms_rules_yet" formatted="false">Nog geen SMS-regels</string>
+    <string name="no_subscriptions" formatted="false">Geen abonnementen</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">Geen geldige SMS-regels gevonden in bestand</string>
+    <string name="none" formatted="false">Geen</string>
+    <string name="none_action_description" formatted="false">Er wordt geen speciale actie ondernomen voor de oproep.</string>
+    <string name="none_service_type" formatted="false">Geen</string>
+    <string name="normal_user" formatted="false">Normale Gebruiker</string>
+    <string name="not_granted" formatted="false">Niet verleend</string>
+    <string name="not_verified_text" formatted="false">Niet geverifieerd</string>
+    <string name="notification_frequency_hours" formatted="false">Meldingsfrequentie (Uren)</string>
+    <string name="notification_frequency_title" formatted="false">Meldingsfrequentie</string>
+    <string name="notification_mode" formatted="false">Meldingsmodus</string>
+    <string name="notification_mode_description" formatted="false">Toon bellerinformatie in de meldingsbalk</string>
+    <string name="notification_permission" formatted="false">Meldingspermissie</string>
+    <string name="notification_permission_description" formatted="false">Gebruikt om meldingen van inkomende oproepen en berichten weer te geven.</string>
+    <string name="notification_settings" formatted="false">Meldingsinstellingen</string>
+    <string name="notification_settings_title" formatted="false">Notificatie Instellingen</string>
+    <string name="notification_instructions" formatted="false">Instructies:
+1. Tik op &quot;VERSTUUR&quot; om een melding te maken of bij te werken.
+2. Ga naar uw startscherm of trek de meldingslade naar beneden om het resultaat te zien.
+3. Tik op &quot;BEËINDIG&quot; om de melding te sluiten.</string>
+    <string name="notifications" formatted="false">Meldingen</string>
+    <string name="notify" formatted="false">Notificeren</string>
+    <string name="notify_action_description" formatted="false">Stuur een notificatie wanneer een oproep wordt ontvangen.</string>
+    <string name="number" formatted="false">Nummer</string>
+    <string name="number_color" formatted="false">Nummerkleur</string>
+    <string name="number_font_size" formatted="false">Nummer lettergrootte</string>
+    <string name="number_format" formatted="false">Nummer Formaat</string>
+    <string name="number_invalid_format" formatted="false">Nummer ongeldig formaat</string>
+    <string name="number_position" formatted="false">Nummerpositie</string>
+    <string name="number_search" formatted="false">Nummer zoeken</string>
+    <string name="number_type_color" formatted="false">Nummertype kleur</string>
+    <string name="number_type_font_size" formatted="false">Nummertype lettergrootte</string>
+    <string name="number_type_position" formatted="false">Nummertype positie</string>
+    <string name="ok_button" formatted="false">OK</string>
+    <string name="onboarding_complete_description" formatted="false">Uw oproepbeveiligingsmanager is klaar, geniet van een veilige oproepervaring!</string>
+    <string name="onboarding_language_description" formatted="false">Kies uw voorkeurstaal voor de beste ervaring.</string>
+    <string name="onboarding_permissions_description" formatted="false">Om volledige service te bieden, hebben we de volgende machtigingen nodig:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">Blokkeer spamoproepen en -berichten met één klik, pas blokkeringsregels aan en geef u een rustige omgeving.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">Identificeer automatisch onbekende oproepen, markeer verdachte nummers en bescherm uw oproepveiligheid.</string>
+    <string name="onboarding_welcome_description" formatted="false">Uw oproepbeheer-expert, die uitgebreide oproepidentificatie- en blokkeringsdiensten biedt.</string>
+    <string name="one_drive_auth_description" formatted="false">Autoriseer met behulp van de door het systeem geconfigureerde OneDrive client-ID en sleutel</string>
+    <string name="one_drive_config_title" formatted="false">OneDrive configuratie</string>
+    <string name="online_caller_id_subscription" formatted="false">Online Caller ID Abonnement</string>
+    <string name="open_app_settings" formatted="false">App-instellingen openen</string>
+    <string name="open_app_settings_failed" formatted="false">Kon app-instellingen niet openen: {error}</string>
+    <string name="open_in_web_view" formatted="false">Openen in WebView</string>
+    <string name="operation_failed" formatted="false">Bewerking mislukt: {error}</string>
+    <string name="operation_failure" formatted="false">Bewerking mislukt</string>
+    <string name="operation_success" formatted="false">Bewerking geslaagd</string>
+    <string name="oppose" formatted="false">Tegenstemmen</string>
+    <string name="oppose_count" formatted="false">Tegenstand ({opposeCount})</string>
+    <string name="opposed" formatted="false">AFGEWEZEN</string>
+    <string name="other" formatted="false">Andere</string>
+    <string name="our_other_apps" formatted="false">Onze andere apps</string>
+    <string name="overlay_mode" formatted="false">Zwevend venster</string>
+    <string name="overlay_mode_description" formatted="false">Toon oproepinformatie in een zwevend venster</string>
+    <string name="overlay_permission" formatted="false">Overlay-toestemming</string>
+    <string name="overlay_permission_description" formatted="false">Gebruikt om de overlay van inkomende oproepen weer te geven.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">Overzicht</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">Wachtwoord</string>
+    <string name="password_cannot_be_empty" formatted="false">Wachtwoord mag niet leeg zijn</string>
+    <string name="password_label" formatted="false">Wachtwoord</string>
+    <string name="passwords_do_not_match" formatted="false">Wachtwoorden komen niet overeen</string>
+    <string name="pattern" formatted="false">Patroon</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">IN AFWACHTING</string>
+    <string name="pending_proposals" formatted="false">In afwachting van voorstellen</string>
+    <string name="pending_proposals_body" formatted="false">U heeft {count, plural, =0 {geen openstaande voorstellen} one {1 openstaand voorstel} other {{count} openstaande voorstellen}}.</string>
+    <string name="pending_sync" formatted="false">Wacht op synchronisatie</string>
+    <string name="period_month" formatted="false">Maand</string>
+    <string name="period_week" formatted="false">Week</string>
+    <string name="period_year" formatted="false">Jaar</string>
+    <string name="permission_denied" formatted="false">Toestemmingsverzoek geweigerd</string>
+    <string name="permission_granted" formatted="false">Toestemming verleend</string>
+    <string name="permission_management" formatted="false">Toestemmingsbeheer</string>
+    <string name="permission_subtitle" formatted="false">Beheer overlay- en batterijoptimalisatiemachtigingen</string>
+    <string name="permission_title" formatted="false">Speciale Machtigingen</string>
+    <string name="phone_calls_tab" formatted="false">Telefoon</string>
+    <string name="phone_number" formatted="false">Telefoonnummer</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">Telefoonnummer mag niet leeg zijn</string>
+    <string name="phone_number_hint" formatted="false">Voer telefoonnummer in</string>
+    <string name="phone_number_label" formatted="false">Telefoonnummer</string>
+    <string name="phone_number_min_digits" formatted="false">Telefoonnummer moet minimaal 7 cijfers bevatten</string>
+    <string name="phone_number_required" formatted="false">Telefoonnummer is vereist</string>
+    <string name="phone_number_type" formatted="false">Telefoonnummer Type</string>
+    <string name="phone_number_type_fixed_line" formatted="false">Vaste lijn</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">Vaste lijn of mobiel</string>
+    <string name="phone_number_type_mobile" formatted="false">Mobiel</string>
+    <string name="phone_number_type_pager" formatted="false">Pager</string>
+    <string name="phone_number_type_personal_number" formatted="false">Persoonlijk nummer</string>
+    <string name="phone_number_type_premium_rate" formatted="false">Premiumtarief</string>
+    <string name="phone_number_type_shared_cost" formatted="false">Gedeelde kosten</string>
+    <string name="phone_number_type_toll_free" formatted="false">Gratis</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">Onbekend</string>
+    <string name="phone_number_type_voicemail" formatted="false">Voicemail</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">Telefoon toestemming</string>
+    <string name="phone_permission_description" formatted="false">Gebruikt om inkomende oproepen te identificeren en te blokkeren.</string>
+    <string name="phone_rule" formatted="false">Telefoonregel</string>
+    <string name="phone_rule_management" formatted="false">Beheer van telefoonregels</string>
+    <string name="phone_rule_subscription" formatted="false">Abonnement op telefoonregels</string>
+    <string name="phone_rules_info" formatted="false">Telefoonregels worden gebruikt om oproepen te matchen met specifieke telefoonnummers, die een lagere prioriteit hebben. Sommige komen van de telefoonregelabonnementen.</string>
+    <string name="phone_subscription" formatted="false">Telefoonabonnement</string>
+    <string name="phone_subscription_rules_description" formatted="false">Abonneren op telefoonregel-lijsten via URL om wit- en zwartlijstregels automatisch bij te werken. Ondersteunt regelbestanden in JSON-formaat.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">Voer alstublieft ten minste één nummer in.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">Selecteer een label en voer een geldig telefoonnummer in</string>
+    <string name="plugin_added_success" formatted="false">Plugin &quot;{name}&quot; succesvol toegevoegd</string>
+    <string name="plugin_deleted" formatted="false">Plugin verwijderd</string>
+    <string name="plugin_description" formatted="false">Beschrijving plug-in</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">Label Plug-in</string>
+    <string name="plugin_latest_version" formatted="false">Plugin is al de nieuwste versie</string>
+    <string name="plugin_list_export_success" formatted="false">Pluginlijst succesvol geëxporteerd</string>
+    <string name="plugin_management" formatted="false">Pluginbeheer</string>
+    <string name="plugin_management_subtitle" formatted="false">Beheer en configureer plug-ins van derden</string>
+    <string name="plugin_name" formatted="false">Pluginnaam</string>
+    <string name="plugin_rules_info" formatted="false">Gebruik uit veiligheidsoverwegingen alleen plug-ins van vertrouwde bronnen. Gebruik gerust onze sjablonen om uw eigen aangepaste plug-ins te maken!</string>
+    <string name="plugin_service" formatted="false">Plugin Service</string>
+    <string name="plugin_test_page_title" formatted="false">Plugin Test</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">Plugin succesvol bijgewerkt</string>
+    <string name="plugin_url" formatted="false">Plugin URL</string>
+    <string name="plugin_version" formatted="false">Pluginversie</string>
+    <string name="plugins_deleted" formatted="false">{count} plugins succesvol verwijderd.</string>
+    <string name="political" formatted="false">Politiek</string>
+    <string name="powerful_spam_blocking" formatted="false">Krachtige spamblokkering</string>
+    <string name="previous_step" formatted="false">Vorige</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">Prioriteer actie-instellingen van externe database</string>
+    <string name="prioritize_remote_action_description" formatted="false">Prioriteer actie-instellingen van de externe database</string>
+    <string name="processed" formatted="false">Verwerkt</string>
+    <string name="processing" formatted="false">Bezig met verwerken...</string>
+    <string name="processing_operation" formatted="false">Bezig met verwerken...</string>
+    <string name="proposal_approved" formatted="false">Voorstel Goedgekeurd ✅</string>
+    <string name="proposal_approved_body" formatted="false">Het verwijderingsvoorstel voor {phoneNumber} is goedgekeurd door de community ({supportPercentage}% ondersteuning, {totalVotes} stemmen).</string>
+    <string name="proposal_created" formatted="false">Voorstel succesvol aangemaakt</string>
+    <string name="proposal_details" formatted="false">Voorstel Details</string>
+    <string name="proposal_not_found" formatted="false">Voorstel niet gevonden</string>
+    <string name="proposal_processed" formatted="false">Dit voorstel is verwerkt</string>
+    <string name="proposal_rejected" formatted="false">Voorstel Afgekeurd ❌</string>
+    <string name="proposal_rejected_body" formatted="false">Het verwijderingsvoorstel voor {phoneNumber} is afgewezen door de community ({supportPercentage}% ondersteuning, {totalVotes} stemmen).</string>
+    <string name="proposal_statistics" formatted="false">Voorstelstatistieken</string>
+    <string name="provide_detailed_explanation" formatted="false">Geef een gedetailleerde uitleg (minimaal 10 tekens)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">Aankoop</string>
+    <string name="purchase_subtitle" formatted="false">De Service Aanschaffen</string>
+    <string name="purchase_title" formatted="false">Aankoop</string>
+    <string name="quarterly_membership" formatted="false">Kwartierlijks lidmaatschap</string>
+    <string name="quarterly_membership_description" formatted="false">Ontgrendel alle premiumfuncties, automatisch verlengd per kwartaal</string>
+    <string name="ready" formatted="false">Klaar!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">Reden</string>
+    <string name="reason_inaccurate_info" formatted="false">Onnauwkeurige informatie</string>
+    <string name="reason_min_characters" formatted="false">Reden moet minimaal 10 tekens bevatten</string>
+    <string name="reason_not_in_service" formatted="false">Niet in gebruik</string>
+    <string name="reason_other" formatted="false">Overig</string>
+    <string name="reason_outdated" formatted="false">Verouderd nummer</string>
+    <string name="reason_privacy" formatted="false">Privacyzorg</string>
+    <string name="reason_required" formatted="false">Reden is verplicht</string>
+    <string name="reason_wrongly_identified" formatted="false">Verkeerd geïdentificeerd</string>
+    <string name="recruiter" formatted="false">Recruiter</string>
+    <string name="redeem_vip_with_marks" formatted="false">VIP Inwisselen met Punten</string>
+    <string name="redirect" formatted="false">Omleiden</string>
+    <string name="redirect_action_description" formatted="false">Leid de oproep om naar een gespecificeerd nummer.</string>
+    <string name="refresh" formatted="false">Vernieuwen</string>
+    <string name="refresh_permission_status" formatted="false">Vernieuw toestemmingsstatus</string>
+    <string name="refresh_proposals" formatted="false">Voorstellen vernieuwen</string>
+    <string name="refresh_tooltip" formatted="false">Vernieuwen</string>
+    <string name="regex_error_message" formatted="false">Regex-fout: {error}</string>
+    <string name="regex_pattern" formatted="false">Regex Patroon</string>
+    <string name="regex_pattern_explanation" formatted="false">Uitleg Regex Patroon</string>
+    <string name="regex_pattern_explanation_button" formatted="false">Uitleg Regex Patroon</string>
+    <string name="regex_pattern_label" formatted="false">Regex Patroon</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">Regex Patronen voor Telefoonnummer Matching</string>
+    <string name="regex_rule" formatted="false">Regex Regel</string>
+    <string name="regex_rule_add_failed" formatted="false">Kon regex-regel niet toevoegen: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">Regex-regel succesvol toegevoegd</string>
+    <string name="regex_rule_management" formatted="false">Regex Regelbeheer</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">Regelnaam en regex-patroon mogen niet leeg zijn</string>
+    <string name="regex_rules" formatted="false">Regex Regels</string>
+    <string name="regex_rules_info" formatted="false">Regex-regels worden gebruikt om oproepen te filteren op basis van de Regex-patronen.</string>
+    <string name="regex_tester_title" formatted="false">Regex Tester</string>
+    <string name="region" formatted="false">Regio</string>
+    <string name="registered_devices_title" formatted="false">Geregistreerde Apparaten</string>
+    <string name="reject_all_calls" formatted="false">Alle Oproepen Weigeren</string>
+    <string name="reject_all_calls_description" formatted="false">Wanneer ingeschakeld, worden alle oproepen met de hoogste prioriteit geweigerd</string>
+    <string name="reject_all_numbers" formatted="false">Alle Inkomende Oproepen Weigeren</string>
+    <string name="reject_all_numbers_desc" formatted="false">Weiger alle inkomende oproepen met de hoogste prioriteit</string>
+    <string name="reject_exceeded_numbers" formatted="false">Overschreden Nummers Weigeren</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">Weiger automatisch nummers die de drempel overschrijden</string>
+    <string name="rejected" formatted="false">AFGEKEURD</string>
+    <string name="remote_filter_settings" formatted="false">Instellingen voor Externe Filter</string>
+    <string name="remote_filter_settings_page_title" formatted="false">Instellingen voor Externe Nummerfilter</string>
+    <string name="remote_number_filter" formatted="false">Bescherming Cloud Query Drempel</string>
+    <string name="remote_number_filter_description" formatted="false">Blokkeer automatisch oproepen die de cloud meldingsdrempel overschrijden</string>
+    <string name="remote_number_filter_subtitle" formatted="false">Identificeer spamoproepen met behulp van een clouddatabase en community-rapporten</string>
+    <string name="remote_number_filtering" formatted="false">Extern Nummerfilteren</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• Extern Nummerfilteren: Filterregels gebaseerd op externe database-informatie</string>
+    <string name="remove_ads" formatted="false">Advertenties Verwijderen</string>
+    <string name="remove_ads_description" formatted="false">Verwijder permanent alle advertenties in de app voor een soepelere ervaring</string>
+    <string name="remove_ads_title" formatted="false">Advertenties Verwijderen</string>
+    <string name="remove_from_favorites" formatted="false">Verwijderen uit Favorieten</string>
+    <string name="removed_from_favorites" formatted="false">Verwijderd uit favorieten</string>
+    <string name="rename_device_title" formatted="false">Apparaat Hernoemen</string>
+    <string name="reporting_guidelines" formatted="false">• Rapporteer alleen nummers die echt problematisch zijn
+• Geef nauwkeurige en gedetailleerde redenen
+• Kies het juiste risiconiveau op basis van de ernst
+• Valse meldingen kunnen leiden tot accountbeperkingen</string>
+    <string name="request_all_permissions" formatted="false">Alle Machtigingen Aanvragen</string>
+    <string name="request_permission" formatted="false">Machtiging Aanvragen</string>
+    <string name="request_permission_failed" formatted="false">Kon machtiging niet aanvragen: {error}</string>
+    <string name="required_field" formatted="false">Verplicht</string>
+    <string name="required_init_field" formatted="false">Verplicht voor initialisatie</string>
+    <string name="required_marks" formatted="false">{count} Markeringen</string>
+    <string name="reset" formatted="false">Herstellen</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">Herstellen</string>
+    <string name="restore_application_settings_from_backup" formatted="false">Applicatie-instellingen Herstellen van Back-up</string>
+    <string name="restore_from_cloud" formatted="false">Herstellen van Cloud</string>
+    <string name="restore_from_cloud_failed" formatted="false">Herstellen van cloud mislukt: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">Succesvol hersteld van cloud</string>
+    <string name="restore_purchases" formatted="false">Aankopen Herstellen</string>
+    <string name="restore_settings" formatted="false">Instellingen Herstellen</string>
+    <string name="restore_settings_confirmation" formatted="false">Dit vervangt al uw huidige instellingen. Weet u zeker dat u wilt doorgaan?</string>
+    <string name="result" formatted="false">Resultaat</string>
+    <string name="retry" formatted="false">Opnieuw Proberen</string>
+    <string name="rewarded_ad_service" formatted="false">Beloonde Advertenties Service</string>
+    <string name="ridesharing" formatted="false">Ridesharing</string>
+    <string name="risk" formatted="false">Risico</string>
+    <string name="risk_level" formatted="false">Risiconiveau</string>
+    <string name="risk_level_critical" formatted="false">Kritiek</string>
+    <string name="risk_level_high" formatted="false">Hoog</string>
+    <string name="risk_level_label" formatted="false">Risiconiveau</string>
+    <string name="risk_level_low" formatted="false">Laag</string>
+    <string name="risk_level_medium" formatted="false">Medium</string>
+    <string name="risk_level_very_low" formatted="false">Zeer Laag</string>
+    <string name="robocall" formatted="false">Robocall</string>
+    <string name="rule_action" formatted="false">Regel Actie</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">Regel succesvol toegevoegd</string>
+    <string name="rule_added_success" formatted="false">Regel succesvol toegevoegd</string>
+    <string name="rule_delete_confirm_content" formatted="false">Weet u zeker dat u deze {ruleType} wilt verwijderen?</string>
+    <string name="rule_delete_confirm_title" formatted="false">Regel Verwijderen</string>
+    <string name="rule_delete_failed" formatted="false">Kon regel niet verwijderen: {error}</string>
+    <string name="rule_delete_success" formatted="false">Regel succesvol verwijderd</string>
+    <string name="rule_deleted_successfully" formatted="false">Regel succesvol verwijderd</string>
+    <string name="rule_disabled_successfully" formatted="false">Regel succesvol uitgeschakeld</string>
+    <string name="rule_enabled_successfully" formatted="false">Regel succesvol ingeschakeld</string>
+    <string name="rule_load_failed" formatted="false">Kon regels niet laden: {error}</string>
+    <string name="rule_management" formatted="false">Regelbeheer</string>
+    <string name="rule_name" formatted="false">Regelnaam</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">Regelnaam en inhoud regex mogen niet leeg zijn</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">Regelnaam en telefoonnummer mogen niet leeg zijn</string>
+    <string name="rule_name_hint" formatted="false">bijv. Familie, Vrienden, etc.</string>
+    <string name="rule_name_label" formatted="false">Regelnaam</string>
+    <string name="rule_name_required" formatted="false">Regelnaam en telefoonnummer mogen niet leeg zijn</string>
+    <string name="rule_not_exist" formatted="false">Regel bestaat niet of is verwijderd</string>
+    <string name="rule_not_found" formatted="false">Regel niet gevonden: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">Regel succesvol opgeslagen!</string>
+    <string name="rule_status_changed" formatted="false">Regel {status} succesvol</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">Bewerking mislukt: {error}</string>
+    <string name="rule_toggle_success" formatted="false">Regel {status} succesvol</string>
+    <string name="rule_type" formatted="false">Regeltype</string>
+    <string name="rule_update_failed" formatted="false">Regel bijwerken mislukt: {error}</string>
+    <string name="rule_update_success" formatted="false">Regel succesvol bijgewerkt</string>
+    <string name="rule_verification" formatted="false">Regel Verificatie</string>
+    <string name="rules_exported_successfully" formatted="false">Regels succesvol geëxporteerd</string>
+    <string name="rules_exported_to" formatted="false">Regels geëxporteerd naar: {path}</string>
+    <string name="rules_imported" formatted="false">Regels succesvol geïmporteerd</string>
+    <string name="rules_imported_successfully" formatted="false">{count} regels succesvol geïmporteerd</string>
+    <string name="save" formatted="false">Opslaan</string>
+    <string name="save_button" formatted="false">Opslaan</string>
+    <string name="save_button_text" formatted="false">Opslaan</string>
+    <string name="save_failed" formatted="false">Opslaan mislukt: {error}</string>
+    <string name="save_script" formatted="false">Script Opslaan</string>
+    <string name="save_settings" formatted="false">Instellingen opslaan</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">Waarschijnlijk scams</string>
+    <string name="script_saved" formatted="false">Script opgeslagen</string>
+    <string name="scroll_speed" formatted="false">Scroll Snelheid</string>
+    <string name="scrolling_security_message_settings" formatted="false">Scrollende Beveiligingsbericht Instellingen</string>
+    <string name="search" formatted="false">Zoeken</string>
+    <string name="search_by_name_or_phone_number" formatted="false">Zoeken op naam of telefoonnummer</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">Zoek contactabonnementen</string>
+    <string name="search_contacts" formatted="false">Contacten zoeken</string>
+    <string name="search_error" formatted="false">Zoekfout: {error}</string>
+    <string name="search_hint" formatted="false">Zoeken...</string>
+    <string name="search_labels_hint" formatted="false">Zoek labels</string>
+    <string name="search_marked_phones_hint" formatted="false">Zoek gemarkeerde telefoons</string>
+    <string name="search_phone_rules_hint" formatted="false">Zoek telefoonregels</string>
+    <string name="search_plugins_hint" formatted="false">Zoek plug-ins</string>
+    <string name="search_proposals" formatted="false">Voorstellen zoeken</string>
+    <string name="search_regex_rules_hint" formatted="false">Zoek regex-regels</string>
+    <string name="search_subscriptions_hint" formatted="false">Zoek abonnementen</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">Vertrouw geen telefoongesprekken. Verifieer altijd klantenservicenummers onafhankelijk. Deel nooit wachtwoorden, verificatiecodes, kaartnummers of persoonlijke informatie.</string>
+    <string name="select_action" formatted="false">Selecteer de actie</string>
+    <string name="select_action_when_blocking_calls" formatted="false">Selecteer actie bij het blokkeren van oproepen</string>
+    <string name="select_action_when_rule_matches" formatted="false">Selecteer actie wanneer de regel overeenkomt</string>
+    <string name="select_all" formatted="false">Alles selecteren</string>
+    <string name="select_country" formatted="false">Land selecteren</string>
+    <string name="select_export_format" formatted="false">Selecteer Exportformaat</string>
+    <string name="select_label" formatted="false">Label selecteren</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">Selecteer een label en voer een geldig telefoonnummer in</string>
+    <string name="select_language" formatted="false">Taal selecteren</string>
+    <string name="select_multiple" formatted="false">Meerdere selecteren</string>
+    <string name="select_sim_card" formatted="false">SIM-kaart selecteren</string>
+    <string name="select_tags" formatted="false">Tags selecteren</string>
+    <string name="select_target_service" formatted="false">Selecteer de doel-service</string>
+    <string name="select_trusted_data_source" formatted="false">Selecteer vertrouwde gegevensbronnen</string>
+    <string name="select_your_language" formatted="false">Selecteer uw taal</string>
+    <string name="selected_items" formatted="false">{count} items geselecteerd</string>
+    <string name="selected_label" formatted="false">Geselecteerd:</string>
+    <string name="sender" formatted="false">Afzender</string>
+    <string name="sender_regex_optional" formatted="false">Afzender Regex (Optioneel)</string>
+    <string name="separate_sims" formatted="false">Afzonderlijke SIM-kaarten</string>
+    <string name="separate_sims_desc" formatted="false">Schakel aparte filterregels in voor elke SIM-kaart</string>
+    <string name="server_address_label" formatted="false">Serveradres</string>
+    <string name="service_type_contact" formatted="false">Contact Abonnement</string>
+    <string name="service_type_label" formatted="false">Servicetype</string>
+    <string name="service_type_phone" formatted="false">Telefoonabonnement</string>
+    <string name="service_type_plugin" formatted="false">Plugin Update</string>
+    <string name="service_type_sms" formatted="false">SMS Abonnement</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">Vertraging instellen</string>
+    <string name="set_encryption_password" formatted="false">Encryptiewachtwoord instellen</string>
+    <string name="settings" formatted="false">Instellingen</string>
+    <string name="settings_backed_up_to" formatted="false">Instellingen geback-upt naar: {path}</string>
+    <string name="settings_backup" formatted="false">Back-up Instellingen </string>
+    <string name="settings_restored_successfully" formatted="false">Instellingen succesvol hersteld. Start de app opnieuw op om de wijzigingen van kracht te laten worden.</string>
+    <string name="settings_save_failed" formatted="false">Instellingen opslaan mislukt: {error}</string>
+    <string name="settings_saved" formatted="false">Instellingen opgeslagen</string>
+    <string name="settings_tab" formatted="false">Instellingen</string>
+    <string name="settings_title" formatted="false">Instellingen</string>
+    <string name="setup" formatted="false">Installatie</string>
+    <string name="show_all_contacts" formatted="false">Alle Contacten Tonen</string>
+    <string name="show_favorites" formatted="false">Favorieten Tonen</string>
+    <string name="silence" formatted="false">Stilte</string>
+    <string name="silence_action_description" formatted="false">Oproepen worden stilgezet maar weergegeven in het oproepenlogboek.</string>
+    <string name="silence_and_no_answer" formatted="false">Beltoon Dempen</string>
+    <string name="silence_no_answer" formatted="false">Stilte geen antwoord</string>
+    <string name="silent_call_voice_clone" formatted="false">Stille Oproep Stemklonen</string>
+    <string name="silent_rules" formatted="false">Stille regels</string>
+    <string name="sim_card" formatted="false">SIM-kaart {simNumber}</string>
+    <string name="sim_card_color" formatted="false">SIM-kaart Kleur</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• SIM-kaart configuratie: Stel onafhankelijke filterregels in voor elke SIM-kaart</string>
+    <string name="sim_card_filter_rules" formatted="false">SIM-kaart filterregels</string>
+    <string name="sim_card_filter_rules_description" formatted="false">Stel verschillende filterregels in op basis van SIM-kaart slots</string>
+    <string name="sim_card_font_size" formatted="false">SIM-kaart Lettergrootte</string>
+    <string name="sim_card_position" formatted="false">SIM-kaart Positie</string>
+    <string name="sim_card_title" formatted="false">SIM-kaart</string>
+    <string name="sim_country" formatted="false">SIM Land</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">SIM-slotregels stellen u in staat om onafhankelijke filterregels te configureren voor elke SIM-sleuf.</string>
+    <string name="sim_rule_instructions_title" formatted="false">SIM-sleufregels</string>
+    <string name="sim_rules_not_found" formatted="false">SIM-regels niet gevonden</string>
+    <string name="sim_slot" formatted="false">SIM-slot</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">Configureer onafhankelijke filterregels voor elke simkaart:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">SIM-sleuf {slotNumber} Filterinstellingen</string>
+    <string name="sim_slot_management" formatted="false">SIM-sleufbeheer</string>
+    <string name="sim_slot_position" formatted="false">SIM-sleufpositie {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• SIM-sleufregels: Onafhankelijke filterstrategieën per SIM</string>
+    <string name="sim_slot_rule_list_title" formatted="false">Lijst met SIM-sleufregels</string>
+    <string name="sim_slot_rule_management" formatted="false">SIM-sleufregels</string>
+    <string name="sim_slot_rules" formatted="false">SIM-slot Regels</string>
+    <string name="sim_slot_title" formatted="false">SIM-sleuf {slotNumber}</string>
+    <string name="sim_state" formatted="false">SIM-status</string>
+    <string name="skip" formatted="false">Overslaan</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">Slimme oproepidentificatie</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">SMS-filtering helpt u automatisch spamberichten te filteren en uw berichtlijst schoon te houden. U kunt filterregels en meldingsmethoden instellen.</string>
+    <string name="sms_filter_disabled" formatted="false">SMS-filtering uitgeschakeld</string>
+    <string name="sms_filter_enabled" formatted="false">SMS-filtering ingeschakeld</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">SMS-filterregel succesvol toegevoegd</string>
+    <string name="sms_filter_rules" formatted="false">SMS-filterregels</string>
+    <string name="sms_filter_settings" formatted="false">SMS-filterinstellingen</string>
+    <string name="sms_management" formatted="false">SMS-beheer</string>
+    <string name="sms_permission" formatted="false">SMS-toestemming</string>
+    <string name="sms_permission_description" formatted="false">Gebruikt om spamberichten te filteren.</string>
+    <string name="sms_rule_added_successfully" formatted="false">SMS-regel succesvol toegevoegd</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">SMS-regel succesvol verwijderd</string>
+    <string name="sms_rule_load_failed" formatted="false">SMS-regels konden niet worden geladen: {error}</string>
+    <string name="sms_rule_management" formatted="false">SMS-regelbeheer</string>
+    <string name="sms_rule_subscription" formatted="false">SMS-regelsabonnement</string>
+    <string name="sms_subscription" formatted="false">SMS-abonnement</string>
+    <string name="sms_subscription_added_successfully" formatted="false">SMS-abonnement succesvol toegevoegd</string>
+    <string name="sms_subscription_rules_description" formatted="false">Abonneer u op SMS-regellijsten via URL, ondersteuning voor reguliere expressie-matching. U kunt blokkeer- of toestaande acties instellen.</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">Sommige toestemmingsverzoeken geweigerd</string>
+    <string name="sort_by" formatted="false">Sorteren Op</string>
+    <string name="sort_least_popular" formatted="false">Sorteren Minst Populair</string>
+    <string name="sort_most_popular" formatted="false">Sorteren Meest Populair</string>
+    <string name="sort_newest" formatted="false">Sorteren Nieuwste</string>
+    <string name="sort_oldest" formatted="false">Sorteren Oudste</string>
+    <string name="spam_likely" formatted="false">Waarschijnlijk spam</string>
+    <string name="start_color" formatted="false">Beginkleur</string>
+    <string name="start_date" formatted="false">Begindatum</string>
+    <string name="start_using" formatted="false">Beginnen met gebruiken</string>
+    <string name="stat_answered" formatted="false">Beantwoord</string>
+    <string name="stat_blocked" formatted="false">Geblokkeerd</string>
+    <string name="statistics" formatted="false">Statistieken</string>
+    <string name="statistics_page_title" formatted="false">Gegevensanalyse</string>
+    <string name="status_connected" formatted="false">Verbonden / Geconfigureerd</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Niet geconfigureerd</string>
+    <string name="stir_color" formatted="false">STIR-kleur</string>
+    <string name="stir_failed" formatted="false">Verificatie Mislukt</string>
+    <string name="stir_font_size" formatted="false">STIR-lettergrootte</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">STIR-positie</string>
+    <string name="stir_unknown" formatted="false">Onbekende Verificatiestatus</string>
+    <string name="stir_verification" formatted="false">STIR/SHAKEN Verificatie</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} voor nummer {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">Toont STIR/SHAKEN verificatieresultaten voor nummers.</string>
+    <string name="stir_verification_title" formatted="false">STIR/SHAKEN Verificatie</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">Opslagpermissie</string>
+    <string name="storage_permission_description" formatted="false">Gebruikt om instellingen en regels op te slaan.</string>
+    <string name="submit" formatted="false">Verzenden</string>
+    <string name="subscribe" formatted="false">Abonneren</string>
+    <string name="subscription_add_success" formatted="false">Abonnement &quot;{name}&quot; succesvol toegevoegd</string>
+    <string name="subscription_delete_confirm_content" formatted="false">Weet u zeker dat u dit abonnement wilt verwijderen?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">Abonnement verwijderen</string>
+    <string name="subscription_delete_failed" formatted="false">Abonnement kon niet worden verwijderd: {error}</string>
+    <string name="subscription_delete_success" formatted="false">Abonnement verwijderd</string>
+    <string name="subscription_deleted" formatted="false">Abonnement verwijderd</string>
+    <string name="subscription_load_failed" formatted="false">Abonnementen konden niet worden geladen: {error}</string>
+    <string name="subscription_name" formatted="false">Abonnementsnaam</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">Abonnementsnaam en URL mogen niet leeg zijn</string>
+    <string name="subscription_name_hint" formatted="false">Voer abonnementsnaam in</string>
+    <string name="subscription_status_change_failed" formatted="false">Status van abonnement kon niet worden gewijzigd: {error}</string>
+    <string name="subscription_update_failed" formatted="false">Abonnement kon niet worden bijgewerkt: {error}</string>
+    <string name="subscription_update_success" formatted="false">Abonnement succesvol bijgewerkt</string>
+    <string name="subscription_url" formatted="false">Abonnements-URL</string>
+    <string name="subscription_url_hint" formatted="false">Voer abonnements-URL in</string>
+    <string name="successfully_imported_rules" formatted="false">Succesvol {count} regels geïmporteerd</string>
+    <string name="supabase_anon_key" formatted="false">Anonieme sleutel</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anonieme openbare sleutel</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project-URL</string>
+    <string name="support" formatted="false">Ondersteuning</string>
+    <string name="support_count" formatted="false">Ondersteuning ({supportCount})</string>
+    <string name="support_sync" formatted="false">Ondersteuning voor synchronisatie</string>
+    <string name="supported" formatted="false">ONDERSTEUND</string>
+    <string name="survey" formatted="false">Enquête</string>
+    <string name="sync_call_history" formatted="false">Oproepgeschiedenis synchroniseren</string>
+    <string name="sync_call_history_subtitle" formatted="false">Prive-oproepjournalen opnemen in synchronisatie</string>
+    <string name="sync_devices_button" formatted="false">Apparaten synchroniseren</string>
+    <string name="sync_failed" formatted="false">Synchronisatie mislukt</string>
+    <string name="sync_failed_message" formatted="false">Synchronisatie mislukt</string>
+    <string name="sync_folder_name_label" formatted="false">Naam synchronisatiemap</string>
+    <string name="sync_interval_label" formatted="false">Automatische synchronisatie-interval</string>
+    <string name="sync_interval_value" formatted="false">Om de {hours} uur</string>
+    <string name="sync_now" formatted="false">Nu synchroniseren</string>
+    <string name="sync_now_button" formatted="false">Nu synchroniseren</string>
+    <string name="sync_status_title" formatted="false">Synchronisatiestatus</string>
+    <string name="sync_status_updated_message" formatted="false">Synchronisatiestatus bijgewerkt</string>
+    <string name="sync_success" formatted="false">Synchronisatie voltooid. Verzonden: {pushed}, Ontvangen: {pulled}</string>
+    <string name="sync_success_message" formatted="false">Synchronisatie succesvol</string>
+    <string name="sync_with_cloud_storage" formatted="false">Synchroniseren met Cloudopslag</string>
+    <string name="synced" formatted="false">Gesynchroniseerd</string>
+    <string name="synchronized" formatted="false">Gesynchroniseerd</string>
+    <string name="syncing" formatted="false">Synchroniseren...</string>
+    <string name="system_features" formatted="false">Systeembeloningen:</string>
+    <string name="system_settings_title" formatted="false">Systeeminstellingen</string>
+    <string name="tab_all" formatted="false">Alles</string>
+    <string name="tab_answered" formatted="false">Beantwoord</string>
+    <string name="tab_blocked" formatted="false">Geblokkeerd</string>
+    <string name="tab_missed" formatted="false">Gemist</string>
+    <string name="tab_outgoing" formatted="false">Uitgaand</string>
+    <string name="tag_label" formatted="false">Tag: {tag}</string>
+    <string name="takeaway" formatted="false">Afhalen</string>
+    <string name="telecommunication" formatted="false">Telecommunicatie</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">Telemarketing</string>
+    <string name="temp_purchase_expired" formatted="false">Tijdelijke aankoop privilege is verlopen</string>
+    <string name="temporary_vip" formatted="false">Tijdelijke VIP</string>
+    <string name="test_button" formatted="false">TEST</string>
+    <string name="test_connection_button" formatted="false">Verbinding testen</string>
+    <string name="test_plugin" formatted="false">Plugin Testen</string>
+    <string name="text_colors_setting" formatted="false">Tekst- en labelkleuren</string>
+    <string name="theme_dark" formatted="false">Donker</string>
+    <string name="theme_light" formatted="false">Licht</string>
+    <string name="theme_settings_subtitle" formatted="false">Kies uw favoriete thema</string>
+    <string name="theme_settings_title" formatted="false">Thema-instellingen</string>
+    <string name="theme_system" formatted="false">Systeemstandaard</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">Deze app is een krachtige tool voor nummerherkenning waarmee u ongewenste oproepen kunt identificeren en blokkeren.</string>
+    <string name="this_week" formatted="false">Deze week</string>
+    <string name="time_interceptor" formatted="false">Bescherming Frequente Oproepen</string>
+    <string name="time_interceptor_description" formatted="false">Blokkeer herhaalde oproepen van hetzelfde nummer binnen korte tijd</string>
+    <string name="time_interceptor_explanation" formatted="false">• Tijd Onderschepper: Herhaalde oproepen binnen korte tijd onderscheppen/toestaan</string>
+    <string name="time_interceptor_explanation_content" formatted="false">De functie voor het onderscheppen van oproepfrequentie analyseert de oproepfrequentie om frequente spamoproepen automatisch te identificeren en te onderscheppen/toestaan.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">Uitleg Onderscheppen Oproepfrequentie</string>
+    <string name="time_interceptor_settings_title" formatted="false">Instellingen Onderscheppen Oproepfrequentie</string>
+    <string name="time_window_description" formatted="false">Stel de tijdsvenstergrootte in voor het toestaan van herhaalde oproepen. Oproepen van hetzelfde nummer binnen dit venster worden toegestaan</string>
+    <string name="time_window_label" formatted="false">Onderscheppingstijdsvenster (minuten): {minutes}</string>
+    <string name="timeline_view" formatted="false">Tijdlijnweergave</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">Vandaag</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">Totaal</string>
+    <string name="total_blocked" formatted="false">Totaal Geblokkeerd</string>
+    <string name="total_pending_proposals" formatted="false">Totaal openstaande voorstellen</string>
+    <string name="total_proposals" formatted="false">Totaal voorstellen</string>
+    <string name="total_votes" formatted="false">Totaal: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">Gegevens overdragen tussen apparaten of platforms</string>
+    <string name="travel_ticketing" formatted="false">Reisticketverkoop</string>
+    <string name="tutorial" formatted="false">Tutorial</string>
+    <string name="type" formatted="false">Type</string>
+    <string name="unassigned_s_i_m_card" formatted="false">Niet-toegewezen SIM-kaart</string>
+    <string name="unblock" formatted="false">Deblokkeren</string>
+    <string name="unblock_number" formatted="false">Nummer Deblokkeren</string>
+    <string name="unblock_number_confirmation" formatted="false">Weet u zeker dat u {phoneNumber} wilt deblokkeren?</string>
+    <string name="unblock_number_failed" formatted="false">Nummer deblokkeren mislukt</string>
+    <string name="unblock_number_success" formatted="false">Nummer succesvol gedeblokkeerd</string>
+    <string name="unblocked" formatted="false">Gedeblokkeerd</string>
+    <string name="unknown" formatted="false">Onbekend</string>
+    <string name="unknown_tag" formatted="false">Tag: Onbekend</string>
+    <string name="unregister_button" formatted="false">Afmelden</string>
+    <string name="unregister_device_confirmation_message" formatted="false">Weet u zeker dat u {deviceName} wilt afmelden?</string>
+    <string name="unregister_device_title" formatted="false">Apparaat Afmelden</string>
+    <string name="unsupported_file_format" formatted="false">Niet-ondersteund bestandsformaat</string>
+    <string name="update" formatted="false">Bijwerken</string>
+    <string name="update_all_now" formatted="false">Alles nu bijwerken</string>
+    <string name="update_contact_failed" formatted="false">Contact bijwerken mislukt: {error}</string>
+    <string name="update_favorite_status" formatted="false">Favoriete status bijwerken</string>
+    <string name="update_interval" formatted="false">Update Interval</string>
+    <string name="update_now" formatted="false">Nu bijwerken</string>
+    <string name="update_plugin" formatted="false">Plugin bijwerken</string>
+    <string name="update_plugin_failed" formatted="false">Plugin bijwerken mislukt: {error}</string>
+    <string name="update_rule_failed" formatted="false">Regel bijwerken mislukt: {error}</string>
+    <string name="update_subscription_failed" formatted="false">Abonnement bijwerken mislukt: {error}</string>
+    <string name="update_success" formatted="false">{service} succesvol bijgewerkt ({count} regels)</string>
+    <string name="upgrade_to_vip" formatted="false">Upgrade naar VIP</string>
+    <string name="use_cases_point1" formatted="false">• Identificeer automatisch opnieuw kiezen spamoproepen</string>
+    <string name="use_cases_point2" formatted="false">• Onderschep marketingoproepen die meerdere keren in korte tijd bellen</string>
+    <string name="use_cases_point3" formatted="false">• Voorkom telefoonbombardementen en intimidatie</string>
+    <string name="use_cases_title" formatted="false">Gebruiksscenario\'s:</string>
+    <string name="use_global_settings" formatted="false">Gebruik Globale Instellingen</string>
+    <string name="use_local_notification" formatted="false">Lokale Notificaties Gebruiken</string>
+    <string name="use_local_notification_description" formatted="false">Lokale notificaties inschakelen voor inkomende oproepen</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">Gebruik standaard regex-syntaxis om patronen te definiëren. Voorbeelden:</string>
+    <string name="use_stir_notification" formatted="false">Notificatie van STIR Gebruiken</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">Gebruikersnaam</string>
+    <string name="verification_failed_text" formatted="false">Mislukt</string>
+    <string name="verification_report" formatted="false">Verificatierapport</string>
+    <string name="verified_text" formatted="false">Geverifieerd</string>
+    <string name="verify" formatted="false">Verifiëren</string>
+    <string name="version" formatted="false">Versie: {version}</string>
+    <string name="very_high" formatted="false">Zeer hoog</string>
+    <string name="very_low" formatted="false">Zeer laag</string>
+    <string name="view_details" formatted="false">Details Bekijken</string>
+    <string name="vip3_days_with_ads" formatted="false">3 dagen VIP met advertenties (alleen synchronisatie)</string>
+    <string name="vip5_days_no_ads" formatted="false">5 dagen volledig uitgeruste advertentievrije VIP</string>
+    <string name="vip7_days_no_ads" formatted="false">7 dagen volledig uitgeruste advertentievrije VIP</string>
+    <string name="vip_access_subtitle" formatted="false">Bekijk gratis advertenties of koop VIP</string>
+    <string name="vip_exchange_description" formatted="false">Ruil VIP-lidmaatschap met aantal telefoonnummer markeringen</string>
+    <string name="vip_exchange_service" formatted="false">VIP Wissel Service</string>
+    <string name="vip_exchange_title" formatted="false">Markeer Wissel VIP</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">VIP Gebruiker</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">Spraakherkenning</string>
+    <string name="vote_agree" formatted="false">Eens</string>
+    <string name="vote_count" formatted="false">Aantal stemmen</string>
+    <string name="vote_disagree" formatted="false">Oneens</string>
+    <string name="vote_submitted" formatted="false">Stem succesvol ingediend</string>
+    <string name="voted" formatted="false">Gestemd</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} stemmen ({supportPercentage}% ondersteuning)</string>
+    <string name="voting_completed" formatted="false">Stemmen voltooid</string>
+    <string name="voting_completed_body" formatted="false">Community stemmen voor {phoneNumber} is beëindigd. Resultaat: {result} ({supportPercentage}% ondersteuning).</string>
+    <string name="waiting_for_more_votes" formatted="false">Wachten op meer community stemmen</string>
+    <string name="watch_ad" formatted="false">Bekijk advertentie</string>
+    <string name="watch_ad_for_temp" formatted="false">Bekijk advertentie voor tijdelijke privileges</string>
+    <string name="watch_ad_for_temp_description" formatted="false">Bekijk een korte advertentie om tijdelijk enkele premium functies te ontgrendelen</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">U moet nog {count} advertenties bekijken om tijdelijke VIP-privileges te krijgen</string>
+    <string name="web_d_a_v_config_title" formatted="false">WebDAV Configuratie</string>
+    <string name="week" formatted="false">Week</string>
+    <string name="welcome" formatted="false">Welkom</string>
+    <string name="whitelist" formatted="false">Whitelist</string>
+    <string name="width" formatted="false">Breedte</string>
+    <string name="wildcard_matching_description" formatted="false">Gebruik \'.\' om elk willekeurig teken te matchen (bv. \'123.456\' matcht 123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">Wildcard matching:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">Wildcard Ondersteuning voor Flexibele Filtering</string>
+    <string name="window_size_setting" formatted="false">Venstergrootte</string>
+    <string name="year" formatted="false">Jaar</string>
+    <string name="yesterday" formatted="false">Gisteren</string>
+</resources>

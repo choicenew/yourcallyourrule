@@ -2458,5 +2458,8 @@
   "separateSims": "Separate SIMs",
   "separateSimsDesc": "Enable separate filtering rules for each SIM card",
   "masterAndOverrides": "Master Controls",
-  "masterAndOverridesDesc": "Global Rule Settings"
+  "masterAndOverridesDesc": "Global Rule Settings",
+  "backgroundOpacity": "Background Opacity",
+  "timesUnit": "times",
+  "participantCount": "%1$d Participants"
 }

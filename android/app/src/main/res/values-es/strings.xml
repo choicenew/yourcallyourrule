@@ -1,49 +1,1510 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Generated automatically by tools/sync_l10n.dart from Single Source of Truth (.arb) - DO NOT EDIT MANUALLY -->
 <resources>
-    <string name="app_name">Your Call Your Rule</string>
-    <string name="default_notification_channel_id">default_channel</string>
-    <string name="appAuthRedirectScheme">yourcallyourrule</string>
-
-    <!-- Widget Titles & Descriptions -->
-    <string name="widget_rules_sync_title">Reglas y Sincronización</string>
-    <string name="widget_rules_sync_description">Muestra estadísticas de reglas y última sincronización en la nube.</string>
-    <string name="widget_dashboard_overview_title">Resumen de Protección</string>
-    <string name="widget_dashboard_overview_description">Muestra llamadas bloqueadas hoy, distribución SIM y horas pico.</string>
-    <string name="widget_community_judge_title">Gobernanza de la Comunidad</string>
-    <string name="widget_community_judge_description">Muestra propuestas populares, estadísticas de riesgo y consenso de votos.</string>
-
-    <!-- Widget Labels -->
-    <string name="widget_sync_now">Sincronizar</string>
-    <string name="widget_view_logs">Ver Registro</string>
-    <string name="widget_vote_now">Votar Ahora</string>
-    <string name="widget_last_sync">Última sinc.</string>
-    <string name="widget_total_rules">Reglas totales</string>
-    <string name="widget_blocked_today">Bloqueadas hoy</string>
-    <string name="widget_passed_today">Permitidas hoy</string>
-    <string name="widget_protection_status">Protección</string>
-    <string name="widget_status_active">Activo</string>
-    <string name="widget_peak_hours">Horas pico</string>
-    <string name="widget_sim_distribution">Distribución SIM</string>
-    <string name="widget_risk_high">Alto</string>
-    <string name="widget_risk_medium">Medio</string>
-    <string name="widget_risk_low">Bajo</string>
-    <string name="widget_consensus">Consenso</string>
-    <string name="widget_service_label">Servicio</string>
-    <string name="widget_times_unit">veces</string>
-    <string name="widget_participants">%1$d Participantes</string>
-    <string name="widget_smart_mode">Modo Inteligente</string>
-    <string name="widget_risk_bento">Riesgo Bento</string>
-
-    <!-- Widget Configuration Screen -->
-    <string name="widget_config_title">Preferencias del Widget</string>
-    <string name="widget_config_opacity">Opacidad de Fondo</string>
-    <string name="widget_config_font_scale">Escala de Fuente</string>
-    <string name="widget_config_theme">Modo de Tema</string>
-    <string name="widget_config_theme_system">Seguir Sistema</string>
-    <string name="widget_config_theme_light">Modo Claro</string>
-    <string name="widget_config_theme_dark">Modo Oscuro</string>
-    <string name="widget_config_save">Guardar Ajustes</string>
-    <string name="widget_config_show_breakdown">Mostrar Desglose</string>
-    <string name="widget_config_show_sim">Mostrar Distribución SIM</string>
-    <string name="widget_config_show_risk">Mostrar Riesgo Bento</string>
+    <string name="default_notification_channel_id" formatted="false">default_channel</string>
+    <string name="appAuthRedirectScheme" formatted="false">yourcallyourrule</string>
+    <string name="about_contact_subscription" formatted="false">Acerca de la suscripción de contacto</string>
+    <string name="about_labels" formatted="false">Acerca de las etiquetas</string>
+    <string name="about_phone_subscription_rules" formatted="false">Acerca de las reglas de suscripción telefónica</string>
+    <string name="about_sms_filter" formatted="false">Acerca del filtrado de SMS</string>
+    <string name="about_sms_subscription_rules" formatted="false">Acerca de las reglas de suscripción de SMS</string>
+    <string name="about_subtitle" formatted="false">Versión de la aplicación e información legal</string>
+    <string name="about_title" formatted="false">Acerca de</string>
+    <string name="access_target_url" formatted="false">Acceder a la URL de destino</string>
+    <string name="action" formatted="false">Acción</string>
+    <string name="action_all" formatted="false">Todos</string>
+    <string name="action_allow" formatted="false">Permitir</string>
+    <string name="action_block" formatted="false">Bloquear</string>
+    <string name="action_filter_title" formatted="false">Filtrar por tipo de acción</string>
+    <string name="action_filter_tooltip" formatted="false">Filtro de acción</string>
+    <string name="action_none" formatted="false">Sin acción</string>
+    <string name="action_silence" formatted="false">Silenciar</string>
+    <string name="action_tag" formatted="false">Acción: {actionType}</string>
+    <string name="action_type" formatted="false">Tipo de acción</string>
+    <string name="action_unknown" formatted="false">Desconocido</string>
+    <string name="active_proposals" formatted="false">Propuestas activas</string>
+    <string name="add" formatted="false">Añadir</string>
+    <string name="add_allow_subscription" formatted="false">Añadir suscripción de Permitir</string>
+    <string name="add_allowed_blocked_rule" formatted="false">Añadir regla de Permitir/Bloquear</string>
+    <string name="add_block_subscription" formatted="false">Añadir suscripción de Bloquear</string>
+    <string name="add_contact_button" formatted="false">Añadir contacto</string>
+    <string name="add_contact_failed" formatted="false">Error al añadir contacto: {error}</string>
+    <string name="add_label" formatted="false">Añadir etiqueta</string>
+    <string name="add_label_button" formatted="false">Añadir etiqueta</string>
+    <string name="add_label_failed" formatted="false">Error al añadir etiqueta: {error}</string>
+    <string name="add_name" formatted="false">Añadir nombre</string>
+    <string name="add_none_subscription" formatted="false">Añadir suscripción de Ninguno</string>
+    <string name="add_phone_mark" formatted="false">Añadir marca de teléfono</string>
+    <string name="add_phone_number_rule" formatted="false">Añadir regla de número de teléfono</string>
+    <string name="add_plugin" formatted="false">Añadir plugin</string>
+    <string name="add_plugin_failed" formatted="false">Error al añadir plugin</string>
+    <string name="add_plugin_failed_with_error" formatted="false">Error al añadir plugin: {error}</string>
+    <string name="add_plugin_from_local_file" formatted="false">Añadir plugin desde archivo local</string>
+    <string name="add_plugin_from_url" formatted="false">Añadir plugin desde URL</string>
+    <string name="add_regex_rule" formatted="false">Añadir regla de expresión regular</string>
+    <string name="add_rule" formatted="false">Añadir regla</string>
+    <string name="add_rule_failed" formatted="false">Error al añadir la regla: {error}</string>
+    <string name="add_rule_tooltip" formatted="false">Añadir regla</string>
+    <string name="add_silence_subscription" formatted="false">Añadir suscripción de silencio</string>
+    <string name="add_sms_filter_rule" formatted="false">Añadir regla de filtro SMS</string>
+    <string name="add_sms_rule" formatted="false">Añadir regla SMS</string>
+    <string name="add_sms_subscription" formatted="false">Añadir suscripción SMS</string>
+    <string name="add_subscription" formatted="false">Añadir suscripción</string>
+    <string name="add_subscription_button" formatted="false">Añadir suscripción</string>
+    <string name="add_subscription_failed" formatted="false">Error al añadir la suscripción: {error}</string>
+    <string name="add_subscription_tooltip" formatted="false">Añadir suscripción</string>
+    <string name="add_to_blacklist" formatted="false">Añadir a la lista negra</string>
+    <string name="add_to_favorites" formatted="false">Añadir a favoritos</string>
+    <string name="add_to_rules" formatted="false">Añadir a reglas</string>
+    <string name="add_to_whitelist" formatted="false">Añadir a la lista blanca</string>
+    <string name="added_to_favorites" formatted="false">Añadido a contactos favoritos</string>
+    <string name="advanced_mode" formatted="false">Modo avanzado</string>
+    <string name="agent" formatted="false">Agente</string>
+    <string name="agree_votes" formatted="false">A favor: {count}</string>
+    <string name="ai_marketing" formatted="false">AI Marketing</string>
+    <string name="ai_robocall" formatted="false">AI Robocall</string>
+    <string name="all" formatted="false">Todo</string>
+    <string name="all_call_logs_cleared" formatted="false">Todos los registros de llamadas borrados</string>
+    <string name="all_calls_tab" formatted="false">Todos</string>
+    <string name="all_permissions_granted" formatted="false">Todos los permisos concedidos</string>
+    <string name="all_services_status_subtitle" formatted="false">Estado actual de cada servicio en la nube</string>
+    <string name="all_services_status_title" formatted="false">Estado actual del servicio</string>
+    <string name="all_settings_completed" formatted="false">Todos los ajustes completados.</string>
+    <string name="all_update_success" formatted="false">Todas las actualizaciones completadas ({count} reglas)</string>
+    <string name="allow" formatted="false">Permitir</string>
+    <string name="allow_action_description" formatted="false">Se permitirán las llamadas, incluso si el número está en la lista de bloqueo.</string>
+    <string name="allow_all_allow_rules" formatted="false">Habilitar todas las reglas de permiso</string>
+    <string name="allow_all_allow_rules_desc" formatted="false">Interruptor principal para aplicar todas las reglas de permiso configuradas</string>
+    <string name="allow_all_blacklisted_numbers" formatted="false">Permitir todos los números en la lista negra</string>
+    <string name="allow_all_block_rules" formatted="false">Habilitar todas las reglas de bloqueo</string>
+    <string name="allow_all_block_rules_desc" formatted="false">Interruptor principal para aplicar todas las reglas de bloqueo configuradas</string>
+    <string name="allow_allowed_numbers" formatted="false">Permitir todos los números aprobados</string>
+    <string name="allow_allowed_numbers_desc" formatted="false">Permitir todas las llamadas entrantes de números en su lista de permitidos</string>
+    <string name="allow_block" formatted="false">Permitir/Bloquear</string>
+    <string name="allow_blocked_numbers" formatted="false">Pausar bloqueo de lista negra</string>
+    <string name="allow_blocked_numbers_desc" formatted="false">Permitir temporalmente llamadas de números en su lista de bloqueados</string>
+    <string name="allow_non_exceeded_numbers" formatted="false">Permitir números no excedidos</string>
+    <string name="allow_non_exceeded_numbers_description" formatted="false">Permitir automáticamente números que no excedan el umbral de conteo</string>
+    <string name="allow_regex_allow_rules" formatted="false">Habilitar reglas de permiso con expresiones regulares</string>
+    <string name="allow_regex_allow_rules_desc" formatted="false">Habilitar la coincidencia de patrones con expresiones regulares para las reglas de permiso</string>
+    <string name="allow_regex_allow_rules_description" formatted="false">Habilitar reglas de permiso basadas en regex</string>
+    <string name="allow_regex_block_rules" formatted="false">Habilitar reglas de bloqueo con expresiones regulares</string>
+    <string name="allow_regex_block_rules_desc" formatted="false">Habilitar la coincidencia de patrones con expresiones regulares para las reglas de bloqueo</string>
+    <string name="allow_regex_block_rules_description" formatted="false">Habilitar reglas de bloqueo basadas en regex</string>
+    <string name="allow_rule" formatted="false">Regla de permiso</string>
+    <string name="allow_rules" formatted="false">Reglas de permiso</string>
+    <string name="allowed_blocked_rule" formatted="false">Regla de Permitir/Bloquear</string>
+    <string name="allowed_blocked_rule_edit_dialog_title" formatted="false">Editar regla de Permitir/Bloquear</string>
+    <string name="allowed_blocked_rule_management" formatted="false">Gestión de reglas de Permitir/Bloquear</string>
+    <string name="allowed_blocked_rules_info" formatted="false">Las reglas permitidas/bloqueadas se utilizan para relacionar las llamadas con números de teléfono específicos, que tienen la máxima prioridad.</string>
+    <string name="and_more_items" formatted="false">y {count} elementos más</string>
+    <string name="answer_then_hangup" formatted="false">Responder y luego colgar</string>
+    <string name="answer_then_hangup_description" formatted="false">Automatically answer the incoming call and then immediately hang up to terminate it</string>
+    <string name="app_name" formatted="false">Your Call Your Rule</string>
+    <string name="application_software" formatted="false">Software de aplicación</string>
+    <string name="apply" formatted="false">Aplicar</string>
+    <string name="approved" formatted="false">APROBADO</string>
+    <string name="audit_stream_log" formatted="false">Audit Stream Log</string>
+    <string name="authorization_failed_check_credentials_message" formatted="false">Error de autorización: Por favor, compruebe el ID y la clave del cliente</string>
+    <string name="authorization_failed_message" formatted="false">Error de autorización</string>
+    <string name="authorization_success_message" formatted="false">Autorización exitosa</string>
+    <string name="authorize_login_button" formatted="false">Autorizar inicio de sesión</string>
+    <string name="auto_cancel_notification" formatted="false">Cancelar Notificación Automáticamente</string>
+    <string name="auto_cancel_notification_description" formatted="false">Si está marcada, la notificación se descartará automáticamente cuando el usuario la toque.</string>
+    <string name="auto_sync_label" formatted="false">Sincronización automática</string>
+    <string name="auto_update" formatted="false">Actualización automática</string>
+    <string name="auto_update_description" formatted="false">Establecer intervalos de actualización automática para las suscripciones o actualizar manualmente</string>
+    <string name="auto_update_settings" formatted="false">Ajustes de actualización automática</string>
+    <string name="auto_update_subtitle" formatted="false">Administrar las actualizaciones automáticas de reglas y complementos</string>
+    <string name="auto_update_title" formatted="false">Actualización automática</string>
+    <string name="auto_warranty_scam" formatted="false">Auto Warranty Scam</string>
+    <string name="automotive_industry" formatted="false">Industria automotriz</string>
+    <string name="avatar" formatted="false">Avatar</string>
+    <string name="avatar_border_color" formatted="false">Color del borde del avatar</string>
+    <string name="avatar_border_size" formatted="false">Tamaño del borde del avatar</string>
+    <string name="avatar_icon_sizes_setting" formatted="false">Tamaños de avatar e icono</string>
+    <string name="avatar_position" formatted="false">Posición del avatar</string>
+    <string name="avatar_size" formatted="false">Tamaño del avatar</string>
+    <string name="axis_position" formatted="false">Posición del {axis}</string>
+    <string name="background_gradient_setting" formatted="false">Gradiente de fondo</string>
+    <string name="background_opacity" formatted="false">Background Opacity</string>
+    <string name="backup" formatted="false">Copia de seguridad</string>
+    <string name="backup_and_restore" formatted="false">Copia de seguridad y restauración</string>
+    <string name="backup_and_restore_subtitle" formatted="false">Copia de seguridad o restaura los datos de la aplicación</string>
+    <string name="backup_and_restore_title" formatted="false">Copia de seguridad y restauración</string>
+    <string name="backup_failed" formatted="false">Copia de seguridad fallida</string>
+    <string name="backup_settings" formatted="false">Ajustes de copia de seguridad</string>
+    <string name="backup_to_cloud" formatted="false">Copia de seguridad en la nube</string>
+    <string name="backup_to_cloud_failed" formatted="false">Error al realizar la copia de seguridad en la nube: {error}</string>
+    <string name="backup_to_cloud_success" formatted="false">Copia de seguridad en la nube realizada con éxito</string>
+    <string name="bank" formatted="false">Banco</string>
+    <string name="basic_info" formatted="false">Información básica</string>
+    <string name="basic_rule_filter" formatted="false">Filtro de regla básica</string>
+    <string name="basic_rule_filter_subtitle" formatted="false">Filtra llamadas usando lista negra/lista blanca y expresiones regulares</string>
+    <string name="basic_rule_filtering" formatted="false">Filtrado de regla básica</string>
+    <string name="basic_rule_filtering_explanation" formatted="false">• Filtrado de regla básica: reglas de filtrado basadas en lista negra, lista blanca y regex</string>
+    <string name="batch_delete_contacts_confirm" formatted="false">¿Estás seguro de que quieres eliminar {count} contactos seleccionados?</string>
+    <string name="batch_delete_labels_confirm" formatted="false">¿Estás seguro de que quieres eliminar {count} etiquetas?</string>
+    <string name="battery_optimization_permission" formatted="false">Optimización de batería</string>
+    <string name="battery_optimization_permission_description" formatted="false">Permite que la aplicación se ejecute en segundo plano para proporcionar servicios como la identificación de llamadas.</string>
+    <string name="black_white_list" formatted="false">Lista Negra/Blanca</string>
+    <string name="blacklist" formatted="false">Lista negra</string>
+    <string name="blacklisting_and_whitelisting" formatted="false">Lista negra y lista blanca</string>
+    <string name="block" formatted="false">Bloquear</string>
+    <string name="block_action_description" formatted="false">Las llamadas se bloquearán y se mostrarán en el registro de llamadas.</string>
+    <string name="block_calls" formatted="false">Bloquear llamadas</string>
+    <string name="block_international_calls" formatted="false">coincide con números que no comienzan con + o 00</string>
+    <string name="block_international_calls_title" formatted="false">Bloquear llamadas internacionales</string>
+    <string name="block_mobile_numbers" formatted="false">coincide con números que no comienzan con 13-19</string>
+    <string name="block_mobile_numbers_title" formatted="false">Bloquear números de móvil</string>
+    <string name="block_number" formatted="false">Número de Bloqueo</string>
+    <string name="block_number_success" formatted="false">Número bloqueado con éxito</string>
+    <string name="block_premium_rate_numbers" formatted="false">coincide con números que no comienzan con 118 o 120-190</string>
+    <string name="block_premium_rate_numbers_title" formatted="false">Bloquear números de tarifa premium</string>
+    <string name="block_rule" formatted="false">Regla de bloqueo</string>
+    <string name="block_rules" formatted="false">Reglas de bloqueo</string>
+    <string name="block_specific_area_codes" formatted="false">coincide con números que comienzan con 0 + 2-3 dígitos</string>
+    <string name="block_specific_area_codes_title" formatted="false">Bloquear códigos de área específicos:</string>
+    <string name="block_type_analysis_title" formatted="false">Análisis del tipo de bloqueo</string>
+    <string name="blocked" formatted="false">Bloqueado</string>
+    <string name="blocked_call_body" formatted="false">Llamada bloqueada de {phoneNumber}</string>
+    <string name="blocked_call_notifications" formatted="false">Notificaciones de Llamadas Bloqueadas</string>
+    <string name="blocked_call_notifications_description" formatted="false">Muestra información sobre llamadas bloqueadas.</string>
+    <string name="blocked_call_title" formatted="false">Llamada bloqueada</string>
+    <string name="blocked_calls" formatted="false">Llamadas bloqueadas</string>
+    <string name="blocked_calls_title" formatted="false">Llamadas bloqueadas</string>
+    <string name="blocked_spam_calls" formatted="false">Llamadas de spam bloqueadas</string>
+    <string name="blocking_trend" formatted="false">Tendencia de bloqueo</string>
+    <string name="both" formatted="false">Ambos</string>
+    <string name="bulk_delete" formatted="false">Eliminar contactos por lotes</string>
+    <string name="bulk_delete_contacts" formatted="false">Eliminar contactos por lotes</string>
+    <string name="bulk_delete_labels" formatted="false">Eliminar etiquetas en bloque</string>
+    <string name="call" formatted="false">Llamar</string>
+    <string name="call_blocking" formatted="false">Bloqueo de llamadas</string>
+    <string name="call_details" formatted="false">Detalles de la Llamada</string>
+    <string name="call_filter_rules" formatted="false">Reglas del filtro de llamadas</string>
+    <string name="call_filter_rules_description" formatted="false">Establecer reglas básicas para el filtrado de llamadas</string>
+    <string name="call_filter_settings" formatted="false">Configuración del filtro de llamadas</string>
+    <string name="call_frequency_interception_subtitle" formatted="false">Establecer límites de frecuencia de llamadas y reglas de bloqueo</string>
+    <string name="call_frequency_interception_title" formatted="false">Interceptación de frecuencia de llamadas</string>
+    <string name="call_history" formatted="false">Historial de llamadas</string>
+    <string name="call_history_info_desc" formatted="false">Aquí se muestra su historial de llamadas, incluidas las llamadas entrantes, salientes y perdidas.</string>
+    <string name="call_history_info_title" formatted="false">Historial de llamadas</string>
+    <string name="call_history_tab" formatted="false">Historial de llamadas</string>
+    <string name="call_redirection_settings_subtitle" formatted="false">Protect against toll fraud, 3s timeout fallback &amp; in-car mode</string>
+    <string name="call_redirection_settings_title" formatted="false">Call Redirection &amp; Outbound Scam Protection</string>
+    <string name="call_screening_permission" formatted="false">Permiso de detección de llamadas</string>
+    <string name="call_screening_permission_description" formatted="false">Se utiliza para detectar y bloquear llamadas no deseadas.</string>
+    <string name="call_screening_permission_not_granted" formatted="false">Permiso de detección de llamadas no concedido, puede afectar la funcionalidad de la aplicación.</string>
+    <string name="call_statistics" formatted="false">Estadísticas de llamadas</string>
+    <string name="call_time" formatted="false">Hora de la Llamada</string>
+    <string name="call_type" formatted="false">Tipo de Llamada</string>
+    <string name="call_type_answered" formatted="false">Contestada</string>
+    <string name="call_type_blocked" formatted="false">Bloqueada</string>
+    <string name="call_type_icon_color" formatted="false">Color del icono de tipo de llamada</string>
+    <string name="call_type_missed" formatted="false">Llamada perdida</string>
+    <string name="call_type_outgoing" formatted="false">Saliente</string>
+    <string name="call_type_position" formatted="false">Posición del tipo de llamada</string>
+    <string name="call_type_rejected" formatted="false">Rechazada</string>
+    <string name="call_type_silenced" formatted="false">Silenciada</string>
+    <string name="call_type_unknown" formatted="false">Desconocida</string>
+    <string name="callback" formatted="false">Devolver llamada</string>
+    <string name="caller_id_app" formatted="false">Aplicación de identificación de llamadas</string>
+    <string name="caller_id_customization_subtitle" formatted="false">Personalizar el diseño del identificador de llamadas</string>
+    <string name="caller_id_customization_title" formatted="false">Personalizar el identificador de llamadas</string>
+    <string name="caller_id_display_mode" formatted="false">Modo de visualización del identificador de llamadas</string>
+    <string name="caller_id_enhancement" formatted="false">Mejora del identificador de llamadas</string>
+    <string name="caller_id_marked_by_count" formatted="false">Marcado por {count}</string>
+    <string name="caller_id_notification_title" formatted="false">Información de llamada entrante</string>
+    <string name="caller_id_preview" formatted="false">Vista previa del identificador de llamadas</string>
+    <string name="caller_id_settings_subtitle" formatted="false">Para configurar la notificación de llamadas entrantes y el modo de visualización</string>
+    <string name="caller_id_settings_title" formatted="false">Configuración de ID de llamada</string>
+    <string name="calling_number_failed" formatted="false">Error al llamar al número</string>
+    <string name="cancel" formatted="false">Cancelar</string>
+    <string name="cancel_button" formatted="false">Cancelar</string>
+    <string name="cancel_local_notification" formatted="false">Cerrar notificaciones locales</string>
+    <string name="cancel_local_notification_description" formatted="false">Cerrar notificaciones locales automáticamente</string>
+    <string name="car_rental" formatted="false">Alquiler de coches</string>
+    <string name="carrier" formatted="false">Proveedor</string>
+    <string name="carrier_color" formatted="false">Color del proveedor</string>
+    <string name="carrier_font_size" formatted="false">Tamaño de fuente del proveedor</string>
+    <string name="carrier_position" formatted="false">Posición del proveedor</string>
+    <string name="change_label" formatted="false">Cambiar etiqueta</string>
+    <string name="change_plugin_status_failed" formatted="false">Error al cambiar el estado del complemento: {error}</string>
+    <string name="change_subscription_status_failed" formatted="false">Error al cambiar el estado de la suscripción: {error}</string>
+    <string name="charity" formatted="false">Organización benéfica</string>
+    <string name="chart_one_week_ago" formatted="false">Hace 1 semana</string>
+    <string name="chart_three_days_ago" formatted="false">Hace 3 días</string>
+    <string name="chart_today" formatted="false">Hoy</string>
+    <string name="check_file_format" formatted="false">Por favor, compruebe el formato del archivo o los permisos</string>
+    <string name="check_permission_failed" formatted="false">Error al comprobar los permisos: {error}</string>
+    <string name="choose_default_intercept_action" formatted="false">Elija la acción de interceptación predeterminada</string>
+    <string name="clear_all_call_logs" formatted="false">Borrar todos los registros de llamadas</string>
+    <string name="clear_all_call_logs_confirmation" formatted="false">Confirme para borrar todos los registros de llamadas</string>
+    <string name="clear_all_notifications" formatted="false">Borrar todas las notificaciones</string>
+    <string name="clear_all_notifications_confirmation" formatted="false">Confirmar para borrar todas las notificaciones</string>
+    <string name="clear_button" formatted="false">Borrar</string>
+    <string name="clear_filter" formatted="false">Borrar filtro</string>
+    <string name="clear_label_filter_button" formatted="false">Borrar filtro de etiqueta</string>
+    <string name="close_button" formatted="false">Cerrar</string>
+    <string name="cloud_backup" formatted="false">Copia de seguridad en la nube</string>
+    <string name="cloud_sync" formatted="false">Sincronización en la nube</string>
+    <string name="cloud_sync_and_backup_title" formatted="false">Sincronización y copia de seguridad en la nube</string>
+    <string name="cloud_sync_service" formatted="false">Servicio de sincronización en la nube</string>
+    <string name="cloud_sync_settings_subtitle" formatted="false">Configure WebDAV, OneDrive y Google Drive</string>
+    <string name="cloud_sync_settings_title" formatted="false">Ajustes de sincronización en la nube</string>
+    <string name="cloud_sync_title" formatted="false">Sincronización en la nube</string>
+    <string name="cluster_onboarding_description" formatted="false">Configure your device role in the cluster for seamless cross-device synchronization.</string>
+    <string name="cluster_onboarding_title" formatted="false">Device Cluster Setup</string>
+    <string name="collection" formatted="false">Cobro de deudas</string>
+    <string name="color_picker_title" formatted="false">Elegir color</string>
+    <string name="community_impact" formatted="false">Impacto Comunitario</string>
+    <string name="community_participation" formatted="false">Participación Comunitaria</string>
+    <string name="community_threat_intelligence" formatted="false">Community Threat Intelligence</string>
+    <string name="community_votes" formatted="false">Votos de la comunidad</string>
+    <string name="community_voting_started" formatted="false">Votación Comunitaria Iniciada</string>
+    <string name="community_voting_started_body" formatted="false">Una nueva propuesta de eliminación para {phoneNumber} ahora está abierta para la votación de la comunidad.</string>
+    <string name="completed" formatted="false">COMPLETADO</string>
+    <string name="config_management" formatted="false">Gestión de la configuración</string>
+    <string name="config_saved" formatted="false">Configuration Saved!</string>
+    <string name="config_updated" formatted="false">Configuración actualizada</string>
+    <string name="configuration_advice" formatted="false">A través de una configuración adecuada, puede establecer diferentes estrategias de filtrado para tarjetas SIM de trabajo y personales.</string>
+    <string name="configure_backup_options" formatted="false">Configurar opciones de copia de seguridad</string>
+    <string name="configure_cloud_sync_service" formatted="false">Configurar servicio de sincronización en la nube</string>
+    <string name="configure_cloud_sync_service_message" formatted="false">Por favor, configure un servicio de sincronización en la nube para habilitar la sincronización multidispositivo.</string>
+    <string name="configure_sim_card_filter_rules" formatted="false">Configurar reglas de filtrado de la tarjeta SIM</string>
+    <string name="confirm" formatted="false">Confirmar</string>
+    <string name="confirm_button" formatted="false">Confirmar</string>
+    <string name="confirm_delete" formatted="false">Confirmar eliminación</string>
+    <string name="confirm_delete_label" formatted="false">¿Está seguro de que desea eliminar la etiqueta &quot;{name}&quot;?</string>
+    <string name="confirm_delete_plugin" formatted="false">¿Está seguro de que desea eliminar el plugin &quot;{name}&quot;?</string>
+    <string name="confirm_delete_plugins" formatted="false">¿Está seguro de que desea eliminar {count} plugins?</string>
+    <string name="confirm_delete_rule_message" formatted="false">¿Está seguro de que desea eliminar esta regla? Esta acción no se puede deshacer.</string>
+    <string name="confirm_delete_sms_filter_rule" formatted="false">¿Está seguro de que desea eliminar esta regla de filtro de SMS?</string>
+    <string name="confirm_delete_sms_rule" formatted="false">¿Está seguro de que desea eliminar esta regla de SMS?</string>
+    <string name="confirm_delete_subscriptions" formatted="false">¿Está seguro de que desea eliminar {name}?</string>
+    <string name="confirm_password" formatted="false">Confirmar contraseña</string>
+    <string name="connected_cluster_nodes_list" formatted="false">Connected Cluster Device Nodes:</string>
+    <string name="connected_status" formatted="false">Conectado</string>
+    <string name="connection_failed_check_credentials_message" formatted="false">Error de conexión: Por favor, compruebe la dirección del servidor, el nombre de usuario y la contraseña</string>
+    <string name="connection_failed_message" formatted="false">Error de conexión</string>
+    <string name="connection_status_label" formatted="false">Estado de la conexión</string>
+    <string name="connection_string" formatted="false">Connection String (URI)</string>
+    <string name="connection_string_helper" formatted="false">Only needed for \'Initialize Database\'</string>
+    <string name="connection_success_message" formatted="false">Conexión exitosa</string>
+    <string name="consensus_pass_rate" formatted="false">Consensus Pass Rate</string>
+    <string name="contact_add_success" formatted="false">Contacto añadido exitosamente</string>
+    <string name="contact_deleted" formatted="false">Contacto eliminado</string>
+    <string name="contact_name_label" formatted="false">Nombre</string>
+    <string name="contact_not_found" formatted="false">Contacto no encontrado</string>
+    <string name="contact_subscription_description" formatted="false">Suscríbete a listas de contactos a través de URL, actualiza automáticamente la información y las etiquetas de los contactos. Admite datos en formato JSON.</string>
+    <string name="contact_update_success" formatted="false">Contacto actualizado exitosamente</string>
+    <string name="contact_us" formatted="false">Contáctenos</string>
+    <string name="contacts" formatted="false">Contactos</string>
+    <string name="contacts_deleted" formatted="false">{count} contactos eliminados</string>
+    <string name="contacts_management" formatted="false">Gestión de contactos</string>
+    <string name="contacts_permission" formatted="false">Permiso de contactos</string>
+    <string name="contacts_permission_description" formatted="false">Se utiliza para identificar llamadas de contactos.</string>
+    <string name="contacts_tab" formatted="false">Contactos</string>
+    <string name="container_width" formatted="false">Ancho del contenedor</string>
+    <string name="content" formatted="false">Contenido</string>
+    <string name="content_regex" formatted="false">Regex del contenido</string>
+    <string name="count_color" formatted="false">Color del conteo</string>
+    <string name="count_font_size" formatted="false">Tamaño de fuente del conteo</string>
+    <string name="count_position" formatted="false">Posición del conteo</string>
+    <string name="count_threshold_description" formatted="false">Establezca el umbral de conteo mínimo requerido para activar las acciones de filtrado</string>
+    <string name="count_threshold_label" formatted="false">Umbral de conteo</string>
+    <string name="country" formatted="false">País</string>
+    <string name="country_and_rule_library_group_title" formatted="false">Country &amp; Rule Library Settings</string>
+    <string name="country_code_hint" formatted="false">p. ej., US, CN, GB</string>
+    <string name="country_code_label" formatted="false">Código de país (ISO 3166-1 alfa-2) *</string>
+    <string name="country_code_required" formatted="false">Se requiere el código de país</string>
+    <string name="country_code_two_letters" formatted="false">Código de país (ISO 3166-1 alfa-2) *</string>
+    <string name="country_data_disclaimer" formatted="false">Tenga en cuenta: Es posible que la base de datos no incluya datos para todos los países o regiones específicos.</string>
+    <string name="country_name_color" formatted="false">Color del nombre del país</string>
+    <string name="country_name_font_size" formatted="false">Tamaño de fuente del nombre del país</string>
+    <string name="country_region_name_position" formatted="false">Posición del nombre del país/región</string>
+    <string name="country_sync_settings_subtitle" formatted="false">Seleccione países para la sincronización de datos</string>
+    <string name="country_sync_settings_title" formatted="false">Configuración de sincronización de la base de datos basada en el país</string>
+    <string name="create_proposal" formatted="false">Crear propuesta</string>
+    <string name="create_proposal_title" formatted="false">Crear propuesta de eliminación</string>
+    <string name="created_at" formatted="false">Creado: {date}</string>
+    <string name="created_rules" formatted="false">Reglas creadas</string>
+    <string name="critical" formatted="false">Crítico</string>
+    <string name="critical_issues" formatted="false">Problemas Críticos</string>
+    <string name="csv_format" formatted="false">Formato CSV</string>
+    <string name="current_device_label" formatted="false">Etiqueta del dispositivo actual</string>
+    <string name="current_device_title" formatted="false">Dispositivo actual</string>
+    <string name="current_language" formatted="false">Idioma actual</string>
+    <string name="current_mark_count" formatted="false">Conteo actual de Marks</string>
+    <string name="custom" formatted="false">Personalizado</string>
+    <string name="custom_action_description" formatted="false">Realizar una acción personalizada.</string>
+    <string name="customer_service" formatted="false">Servicio al Cliente</string>
+    <string name="dashboard_tab" formatted="false">Tablero</string>
+    <string name="data_analysis" formatted="false">Análisis de datos</string>
+    <string name="data_load_failure" formatted="false">Error al cargar los datos: {error}</string>
+    <string name="data_loading_failed" formatted="false">Error al cargar los datos: {error}</string>
+    <string name="data_migration" formatted="false">Migración de datos</string>
+    <string name="data_migration_description" formatted="false">Esta función le permite transferir todos sus datos entre dispositivos. Actualmente, puede utilizar las funciones de copia de seguridad y restauración para migrar sus datos manualmente.</string>
+    <string name="data_source_disclaimer" formatted="false">Los números provienen de internet y de envíos de usuarios. No podemos garantizar que un número, una vez eliminado, no sea reenviado por otros usuarios o fuentes. Por favor, busque y verifique activamente la información.</string>
+    <string name="data_source_reminder" formatted="false">Recordatorio de la fuente de datos</string>
+    <string name="database_sync_title" formatted="false">Sincronización de la base de datos</string>
+    <string name="days" formatted="false">{count, plural, =1{1 día} other{{count} días}}</string>
+    <string name="days_ago" formatted="false">{count,plural, =1{Hace 1 día} other{Hace {count} días}}</string>
+    <string name="days_vip" formatted="false">{days} Días VIP</string>
+    <string name="db_init_success" formatted="false">Database Initialized Successfully!</string>
+    <string name="debt_collection" formatted="false">Cobro de deudas</string>
+    <string name="deep_link_confirm_button" formatted="false">Confirm Import</string>
+    <string name="deep_link_default_plugin_name" formatted="false">External Plugin</string>
+    <string name="deep_link_default_sub_name" formatted="false">External Rule Subscription</string>
+    <string name="deep_link_detected_title" formatted="false">External Import Request Detected</string>
+    <string name="deep_link_empty_url_error" formatted="false">URL is empty, cannot import</string>
+    <string name="deep_link_import_failed" formatted="false">Import failed: {error}</string>
+    <string name="deep_link_import_success" formatted="false">✅ Imported successfully</string>
+    <string name="deep_link_import_title" formatted="false">Import {type}</string>
+    <string name="deep_link_name_label" formatted="false">Name: {name}</string>
+    <string name="deep_link_plugin_download_failed" formatted="false">Failed to download or parse plugin script</string>
+    <string name="deep_link_type_label" formatted="false">Type: {type}</string>
+    <string name="deep_link_type_plugin" formatted="false">Plugin</string>
+    <string name="deep_link_type_subscription" formatted="false">Rule Subscription</string>
+    <string name="deep_link_url_label" formatted="false">URL: {url}</string>
+    <string name="default_notifications" formatted="false">Notificaciones Predeterminadas</string>
+    <string name="default_notifications_description" formatted="false">Canal de notificaciones predeterminado para la aplicación.</string>
+    <string name="delete" formatted="false">Eliminar</string>
+    <string name="delete_button" formatted="false">Eliminar</string>
+    <string name="delete_contact" formatted="false">Eliminar contacto</string>
+    <string name="delete_contact_confirm" formatted="false">¿Está seguro de que desea eliminar a {name}?</string>
+    <string name="delete_failed" formatted="false">Error al eliminar: {error}</string>
+    <string name="delete_label" formatted="false">Eliminar etiqueta</string>
+    <string name="delete_label_failed" formatted="false">Error al eliminar la etiqueta: {error}</string>
+    <string name="delete_plugin" formatted="false">Eliminar plugin</string>
+    <string name="delete_plugin_failed" formatted="false">Error al eliminar el plugin: {error}</string>
+    <string name="delete_plugins" formatted="false">Eliminar plugins</string>
+    <string name="delete_plugins_failed" formatted="false">Error al eliminar los plugins: {error}</string>
+    <string name="delete_rule" formatted="false">Eliminar regla</string>
+    <string name="delete_rule_failed" formatted="false">Error al eliminar la regla: {error}</string>
+    <string name="delete_selected" formatted="false">Eliminar selección</string>
+    <string name="delete_subscription" formatted="false">Eliminar suscripción</string>
+    <string name="delete_subscription_confirm" formatted="false">¿Está seguro de que desea eliminar la suscripción &quot;{name}&quot;?</string>
+    <string name="delete_subscription_failed" formatted="false">Error al eliminar la suscripción: {error}</string>
+    <string name="delete_success" formatted="false">Eliminación exitosa</string>
+    <string name="deletion_proposal" formatted="false">Propuesta de eliminación</string>
+    <string name="deletion_proposal_created" formatted="false">Propuesta de Eliminación Creada</string>
+    <string name="deletion_proposal_created_body" formatted="false">Su propuesta de eliminación para {phoneNumber} ha sido enviada para revisión de la comunidad.</string>
+    <string name="deletion_proposal_description" formatted="false">Proponga números para su eliminación que violen las pautas de la comunidad. Su participación ayuda a mantener la plataforma segura.</string>
+    <string name="deletion_proposal_notification_description" formatted="false">Notificaciones sobre los resultados y actualizaciones de la votación de la propuesta de eliminación.</string>
+    <string name="deletion_proposals" formatted="false">Propuestas de eliminación</string>
+    <string name="delivery" formatted="false">Entrega</string>
+    <string name="description" formatted="false">Descripción</string>
+    <string name="detailed_settings_title" formatted="false">Ajustes Detallados</string>
+    <string name="device_cluster_control_panel_title" formatted="false">Device Cluster &amp; Initialization Control Panel</string>
+    <string name="device_i_d_label" formatted="false">ID del dispositivo</string>
+    <string name="device_management_subtitle" formatted="false">Administrar la sincronización multidispositivo</string>
+    <string name="device_management_title" formatted="false">Administración de dispositivos</string>
+    <string name="device_model_label" formatted="false">Modelo de dispositivo</string>
+    <string name="device_name" formatted="false">Nombre del dispositivo</string>
+    <string name="device_name_label" formatted="false">Nombre del dispositivo</string>
+    <string name="device_renamed_successfully_message" formatted="false">Dispositivo renombrado con éxito</string>
+    <string name="device_unregistered_successfully_message" formatted="false">Dispositivo dado de baja con éxito</string>
+    <string name="devices_synchronized_successfully_message" formatted="false">Dispositivos sincronizados con éxito</string>
+    <string name="dialog_title" formatted="false">Explicación del patrón Regex</string>
+    <string name="different_from_local_counter" formatted="false">Esta función es diferente del filtro de contador local, ya que se centra en patrones de llamadas repetidas en un corto período de tiempo en lugar de contar las marcas a largo plazo.</string>
+    <string name="disable_global_plugins" formatted="false">Desactivar plugins globales</string>
+    <string name="disabled" formatted="false">Desactivado</string>
+    <string name="disabled_status" formatted="false">Desactivado</string>
+    <string name="disconnect_button" formatted="false">Desconectar</string>
+    <string name="disconnect_failed_message" formatted="false">Error al desconectar</string>
+    <string name="disconnected_message" formatted="false">Desconectado</string>
+    <string name="disconnected_status" formatted="false">Desconectado</string>
+    <string name="done" formatted="false">Hecho</string>
+    <string name="dual_sim_advice" formatted="false">Esta función es particularmente útil para teléfonos con doble SIM para establecer diferentes estrategias de filtrado para tarjetas SIM de trabajo y personales.</string>
+    <string name="dual_sim_distribution" formatted="false">Dual-SIM Interception Distribution</string>
+    <string name="duration15_min" formatted="false">15 min</string>
+    <string name="duration1_hour" formatted="false">1 hr</string>
+    <string name="duration2_hours" formatted="false">2 hrs</string>
+    <string name="duration30_min" formatted="false">30 min</string>
+    <string name="dynamic_filter_rules_description" formatted="false">Supports dynamic registration of local count threshold, remote risk rules, time window, and SIM slot rules via FilterUiRegistry.</string>
+    <string name="dynamic_filter_rules_title" formatted="false">Dynamic Filter Rules &amp; Plug-in Engine</string>
+    <string name="e164_number" formatted="false">Número E.164</string>
+    <string name="earlier" formatted="false">Anterior</string>
+    <string name="earned_temp_vip" formatted="false">VIP temporal ganado</string>
+    <string name="ecommerce" formatted="false">Comercio electrónico</string>
+    <string name="edit" formatted="false">Editar</string>
+    <string name="edit_contact" formatted="false">Editar contacto</string>
+    <string name="edit_label" formatted="false">Editar etiqueta</string>
+    <string name="edit_phone_rule" formatted="false">Editar regla de teléfono</string>
+    <string name="edit_rule" formatted="false">Editar regla</string>
+    <string name="edit_script" formatted="false">Editar script</string>
+    <string name="edit_script_for" formatted="false">Editar script para {pluginName}</string>
+    <string name="edit_subscription" formatted="false">Editar suscripción</string>
+    <string name="education" formatted="false">Educación</string>
+    <string name="element_positions_setting" formatted="false">Posiciones de los elementos</string>
+    <string name="elements_settings_title" formatted="false">Ajustes de Elementos</string>
+    <string name="email" formatted="false">Correo electrónico</string>
+    <string name="enable_call_filter" formatted="false">Habilitar filtro de llamadas</string>
+    <string name="enable_call_filter_description" formatted="false">Cuando está habilitado, las llamadas entrantes se verifican con la lista de reglas a continuación. Las reglas de filtrado de llamadas no se sincronizan entre dispositivos de forma predeterminada.</string>
+    <string name="enable_encryption" formatted="false">Habilitar cifrado</string>
+    <string name="enable_encryption_description" formatted="false">Cifrar archivos de copia de seguridad</string>
+    <string name="enable_filtering" formatted="false">Habilitar Filtrado</string>
+    <string name="enable_fraud_alert" formatted="false">Habilitar alerta de fraude</string>
+    <string name="enable_fraud_alert_description" formatted="false">Alerta de posibles llamadas de estafa</string>
+    <string name="enable_global_plugins" formatted="false">Habilitar plugins globales</string>
+    <string name="enable_local_count_filter" formatted="false">Habilitar protección por umbral de marcas locales</string>
+    <string name="enable_local_count_filter_description" formatted="false">Bloquear llamadas entrantes cuando el recuento de reportes locales supere el umbral</string>
+    <string name="enable_local_notification" formatted="false">Usar notificación local</string>
+    <string name="enable_local_notification_description" formatted="false">Cuando está habilitado, las notificaciones para mensajes filtrados se mostrarán en el dispositivo</string>
+    <string name="enable_location_summary" formatted="false">Ubicación</string>
+    <string name="enable_mute_rules" formatted="false">Silenciar llamadas interceptadas</string>
+    <string name="enable_mute_rules_desc" formatted="false">Silenciar el tono de llamada para las llamadas interceptadas en lugar de rechazarlas</string>
+    <string name="enable_none_action_rules" formatted="false">Solo registrar y marcar (Sin interrupción)</string>
+    <string name="enable_none_action_rules_desc" formatted="false">Registrar y marcar las coincidencias de llamadas sin tomar ninguna acción de interrupción</string>
+    <string name="enable_remote_number_filter" formatted="false">Habilitar protección por umbral de consulta en la nube</string>
+    <string name="enable_remote_number_filter_description" formatted="false">Bloquear llamadas entrantes cuando el recuento de reportes en la nube supere el umbral</string>
+    <string name="enable_rule" formatted="false">Habilitar Regla</string>
+    <string name="enable_security_message" formatted="false">Habilitar mensaje de seguridad</string>
+    <string name="enable_sms_filter" formatted="false">Habilitar Filtrado de SMS</string>
+    <string name="enable_sms_filter_description" formatted="false">Cuando está habilitado, los mensajes se filtrarán automáticamente según las reglas</string>
+    <string name="enable_time_interception" formatted="false">Habilitar Intercepción de Tiempo</string>
+    <string name="enable_time_interception_description" formatted="false">Bloquear llamadas repetidas del mismo número en poco tiempo</string>
+    <string name="enable_time_interceptor" formatted="false">Habilitar Interceptor de Tiempo</string>
+    <string name="enable_vibration" formatted="false">Habilitar vibración</string>
+    <string name="enable_vibration_description" formatted="false">Vibrar cuando se sospecha que la llamada es una llamada de estafa</string>
+    <string name="enabled" formatted="false">Activado</string>
+    <string name="enabled_status" formatted="false">Activado</string>
+    <string name="end_call_immediately" formatted="false">Bloquear inmediatamente</string>
+    <string name="end_color" formatted="false">Color de Finalización</string>
+    <string name="end_date" formatted="false">Fecha de Finalización</string>
+    <string name="enhanced_filter_instructions_title" formatted="false">Sistema de Filtro Mejorado</string>
+    <string name="enhanced_filter_settings" formatted="false">Configuración de Filtro Mejorado</string>
+    <string name="enhanced_filter_settings_title" formatted="false">Configuración de Filtro Mejorado</string>
+    <string name="enhanced_filter_system_description" formatted="false">El sistema de filtro mejorado admite tanto reglas globales como configuraciones de filtrado por tarjeta SIM.</string>
+    <string name="enter_both_phone_number_and_regex_pattern_message" formatted="false">Por favor, ingrese tanto el número de teléfono como el patrón regex.</string>
+    <string name="enter_contact_name" formatted="false">Por favor, ingrese el nombre del contacto</string>
+    <string name="enter_device_name" formatted="false">Ingrese el nombre del dispositivo</string>
+    <string name="enter_email_optional" formatted="false">Ingrese el correo electrónico (opcional)</string>
+    <string name="enter_encryption_password_hint" formatted="false">Ingrese la contraseña de encriptación</string>
+    <string name="enter_icon_code" formatted="false">Ingrese el código del icono</string>
+    <string name="enter_name" formatted="false">Ingrese el nombre del contacto</string>
+    <string name="enter_new_device_name_hint" formatted="false">Ingrese un nuevo nombre para este dispositivo</string>
+    <string name="enter_password_again" formatted="false">Ingrese la Contraseña Nuevamente</string>
+    <string name="enter_phone_number" formatted="false">Ingrese el número de teléfono</string>
+    <string name="enter_phone_number_hint" formatted="false">Ingrese el número de teléfono para probar</string>
+    <string name="enter_phone_number_multiple" formatted="false">Por favor, ingrese el número de teléfono, varios números separados por comas</string>
+    <string name="enter_phone_number_to_start_search" formatted="false">Ingrese el número de teléfono para iniciar la búsqueda</string>
+    <string name="enter_phone_number_to_verify" formatted="false">Ingrese el número de teléfono para verificar</string>
+    <string name="enter_plugin_description" formatted="false">Ingrese la descripción del complemento</string>
+    <string name="enter_plugin_name" formatted="false">Ingrese el Nombre del Plugin</string>
+    <string name="enter_plugin_url" formatted="false">Ingrese la dirección URL del plugin</string>
+    <string name="enter_regex_hint" formatted="false">Ingrese el patrón regex</string>
+    <string name="enter_rule_name_and_pattern_message" formatted="false">Por favor, introduzca el nombre de la regla y el patrón regex.</string>
+    <string name="enter_rule_name_hint" formatted="false">Introduzca el nombre de la regla</string>
+    <string name="enter_search_content" formatted="false">Por favor, introduzca el contenido de búsqueda</string>
+    <string name="enter_subscription_name" formatted="false">Introduzca el nombre de la suscripción</string>
+    <string name="enter_subscription_url" formatted="false">Introduzca la URL de la suscripción</string>
+    <string name="enter_sync_folder_name_hint" formatted="false">Por favor, introduzca el nombre de la carpeta de sincronización (predeterminado: NotificationManager)</string>
+    <string name="enter_valid_name_and_url" formatted="false">Por favor, introduzca un nombre y una URL válidos</string>
+    <string name="enter_valid_url" formatted="false">Por favor, introduzca una URL válida</string>
+    <string name="enter_version" formatted="false">Introducir versión</string>
+    <string name="enter_web_d_a_v_password_hint" formatted="false">Por favor, introduzca la contraseña de WebDAV</string>
+    <string name="enter_web_d_a_v_server_address_hint" formatted="false">Por favor, introduzca la dirección del servidor WebDAV</string>
+    <string name="enter_web_d_a_v_username_hint" formatted="false">Por favor, introduzca el nombre de usuario de WebDAV</string>
+    <string name="entertainment" formatted="false">Entretenimiento</string>
+    <string name="entity_export_failed" formatted="false">Error al exportar {entityTypeName}: {error}</string>
+    <string name="entity_export_success" formatted="false">{entityTypeName} exportado correctamente</string>
+    <string name="entity_import_failed" formatted="false">Error al importar {entityTypeName}: {error}</string>
+    <string name="entity_import_success" formatted="false">{entityTypeName} importado correctamente, total de {count} registros importados</string>
+    <string name="entry_point_view_title" formatted="false">Vista del punto de entrada</string>
+    <string name="error_loading_settings" formatted="false">Error loading settings</string>
+    <string name="error_message" formatted="false">Error: {error}</string>
+    <string name="error_occurred_message" formatted="false">Ocurrió un error: {error}</string>
+    <string name="error_prefix" formatted="false">Error</string>
+    <string name="error_renaming_device_message" formatted="false">Error al renombrar el dispositivo: {error}</string>
+    <string name="error_synchronizing_devices_message" formatted="false">Error al sincronizar los dispositivos: {error}</string>
+    <string name="error_unregistering_device_message" formatted="false">Error al anular el registro del dispositivo: {error}</string>
+    <string name="example_block400_prefix" formatted="false">p. ej. Bloquear números con prefijo 400</string>
+    <string name="example_block_marketing_sms" formatted="false">p. ej. Bloquear SMS de marketing</string>
+    <string name="example_content_regex_hint" formatted="false">Ejemplo de Regex de Contenido</string>
+    <string name="example_coupon_promotion_discount" formatted="false">p. ej. .*(cupón|promoción|descuento).*</string>
+    <string name="example_family_friends" formatted="false">p. ej. Familia, Amigos, etc.</string>
+    <string name="example_phone_number" formatted="false">p. ej. 10086, 12345, etc.</string>
+    <string name="example_regex400_prefix" formatted="false">Ejemplo de regex para el prefijo 400</string>
+    <string name="example_sender_regex_hint" formatted="false">Ejemplo</string>
+    <string name="exchange" formatted="false">Intercambio</string>
+    <string name="exchange_failed" formatted="false">Error al intercambiar: {error}</string>
+    <string name="exchange_now" formatted="false">Intercambiar ahora</string>
+    <string name="exchange_success" formatted="false">Intercambiado con éxito por {description}, fecha de caducidad: {expiryDate}</string>
+    <string name="exchange_vip" formatted="false">Intercambiar VIP</string>
+    <string name="expected_call_active_desc" formatted="false">Temporarily allowing all unknown calls ({remaining} remaining)</string>
+    <string name="expected_call_add_tile" formatted="false">Add &quot;Expected Call&quot; to Quick Settings Tile</string>
+    <string name="expected_call_inactive_desc" formatted="false">Temporarily exempt block rules while awaiting deliveries</string>
+    <string name="expected_call_title" formatted="false">Expected Call · Temporary Exemption</string>
+    <string name="expiry_time" formatted="false">Tiempo de caducidad: {time}</string>
+    <string name="export" formatted="false">Exportar</string>
+    <string name="export_all_application_settings" formatted="false">Exportar todos los ajustes de la aplicación</string>
+    <string name="export_all_rule_configurations" formatted="false">Exportar todas las configuraciones de reglas</string>
+    <string name="export_config" formatted="false">Exportar Configuración</string>
+    <string name="export_contacts" formatted="false">Exportar Contactos</string>
+    <string name="export_data" formatted="false">Exportar Datos</string>
+    <string name="export_entity" formatted="false">Exportar {entityTypeName}</string>
+    <string name="export_failed" formatted="false">Error al exportar</string>
+    <string name="export_failure" formatted="false">Error al exportar la configuración</string>
+    <string name="export_feature_coming_soon" formatted="false">La función de exportación estará disponible próximamente</string>
+    <string name="export_labels" formatted="false">Exportar etiquetas</string>
+    <string name="export_labels_failed" formatted="false">Error al exportar etiquetas: {error}</string>
+    <string name="export_plugin_list" formatted="false">Exportar lista de plugins</string>
+    <string name="export_plugin_list_failed" formatted="false">Error al exportar la lista de plugins: {error}</string>
+    <string name="export_rules" formatted="false">Exportar reglas</string>
+    <string name="export_sms_rules" formatted="false">Exportar reglas de SMS</string>
+    <string name="export_statistics_data" formatted="false">Exportar datos de estadísticas</string>
+    <string name="export_successlly" formatted="false">Configuración exportada correctamente</string>
+    <string name="failed_to_add_rule" formatted="false">Error al agregar regla: {error}</string>
+    <string name="failed_to_add_sms_subscription" formatted="false">Error al agregar suscripción de SMS: {error}</string>
+    <string name="failed_to_backup_settings" formatted="false">Error al hacer copia de seguridad de la configuración: {error}</string>
+    <string name="failed_to_decrypt_backup_file" formatted="false">Error al descifrar el archivo de copia de seguridad</string>
+    <string name="failed_to_delete_sms_rule" formatted="false">Error al eliminar la regla de SMS: {error}</string>
+    <string name="failed_to_export_rules" formatted="false">Error al exportar reglas: {error}</string>
+    <string name="failed_to_get_caller_id_info" formatted="false">Error al obtener información del identificador de llamadas: {error}</string>
+    <string name="failed_to_import_rules" formatted="false">Error al importar reglas: {error}</string>
+    <string name="failed_to_load_settings_schema" formatted="false">Failed to load settings schema: {error}</string>
+    <string name="failed_to_restore_settings" formatted="false">Error al restaurar la configuración</string>
+    <string name="failed_to_restore_settings_with_error" formatted="false">Error al restaurar la configuración: {error}</string>
+    <string name="failed_to_toggle_rule_status" formatted="false">Error al cambiar el estado de la regla: {error}</string>
+    <string name="false_positive_clean" formatted="false">False Positive Cleanup</string>
+    <string name="favorite_contacts" formatted="false">Contactos favoritos</string>
+    <string name="feature" formatted="false">Característica</string>
+    <string name="feature_add_rules" formatted="false">• Agregar reglas específicas para números de teléfono</string>
+    <string name="feature_center" formatted="false">Centro de funciones</string>
+    <string name="feature_enable_disable" formatted="false">• Activar/desactivar diferentes filtros por SIM</string>
+    <string name="feature_list_title" formatted="false">Funciones:</string>
+    <string name="feature_manage_rules" formatted="false">• Administrar listas de reglas por SIM</string>
+    <string name="features" formatted="false">Funciones</string>
+    <string name="fetching_caller_id_info" formatted="false">Obteniendo información del identificador de llamadas...</string>
+    <string name="field_is_required" formatted="false">This field is required</string>
+    <string name="file_saved_to" formatted="false">Archivo guardado en: {path}</string>
+    <string name="filter" formatted="false">Filtrar</string>
+    <string name="filter_and_sort_title" formatted="false">Filtrar y Ordenar</string>
+    <string name="filter_by" formatted="false">Filtrar Por</string>
+    <string name="filter_by_action" formatted="false">Filtrar por acción</string>
+    <string name="filter_by_label" formatted="false">Filtrar por etiqueta</string>
+    <string name="filter_control_panel_title" formatted="false">Panel de control de filtros</string>
+    <string name="filter_control_subtitle" formatted="false">Administrar el estado de encendido/apagado de todos los filtros</string>
+    <string name="filter_control_title" formatted="false">Control de filtro</string>
+    <string name="filter_explanation" formatted="false">Explicación del filtro</string>
+    <string name="filter_management" formatted="false">Gestión de filtros</string>
+    <string name="filter_management_description" formatted="false">Establecer filtros de llamadas</string>
+    <string name="filter_name" formatted="false">Nombre del filtro</string>
+    <string name="filter_priority_note" formatted="false">Nota: Existen relaciones de prioridad entre los filtros, consulte la documentación de ayuda para obtener más detalles.</string>
+    <string name="filter_s_m_s" formatted="false">Filtrar SMS</string>
+    <string name="filter_settings" formatted="false">Ajustes del filtro</string>
+    <string name="filter_settings_title" formatted="false">Ajustes del filtro</string>
+    <string name="filter_toggle_instructions" formatted="false">Activar o desactivar los filtros para esta ranura SIM:</string>
+    <string name="filter_toggle_status" formatted="false">{status} filtro: {filterName}</string>
+    <string name="filter_type" formatted="false">Tipo de filtro</string>
+    <string name="filter_verified_owner" formatted="false">Filtrar Propietario Verificado</string>
+    <string name="filtered" formatted="false">Filtrado</string>
+    <string name="final_risk" formatted="false">Riesgo Final</string>
+    <string name="financial" formatted="false">Financiero</string>
+    <string name="flexible_combination_feature" formatted="false">• Combinaciones flexibles: Activar/desactivar filtros por ranura SIM</string>
+    <string name="font_sizes_setting" formatted="false">Tamaños de fuente</string>
+    <string name="found_rules" formatted="false">Se encontraron {count} reglas</string>
+    <string name="fraud_aler_setting_subtitle" formatted="false">Para configurar la alerta de fraude</string>
+    <string name="fraud_aler_setting_title" formatted="false">Configuración de alerta de fraude</string>
+    <string name="fraud_alert" formatted="false">ALERTA DE FRAUDE: cuelgue la llamada</string>
+    <string name="fraud_alert_title" formatted="false">Alerta de fraude</string>
+    <string name="fraud_alerts" formatted="false">Alertas de Fraude</string>
+    <string name="fraud_alerts_description" formatted="false">Muestra advertencias para posibles llamadas fraudulentas.</string>
+    <string name="fraud_scam_likely" formatted="false">Es probable que sea un fraude o una estafa</string>
+    <string name="free" formatted="false">Gratis</string>
+    <string name="function_settings_title" formatted="false">Ajustes de función</string>
+    <string name="general_update_failure" formatted="false">Error al actualizar: {error}</string>
+    <string name="get_free" formatted="false">Obtener gratis</string>
+    <string name="github" formatted="false">GitHub</string>
+    <string name="global_filter_description" formatted="false">Configurar filtros globales para todas las tarjetas SIM:</string>
+    <string name="global_filter_feature" formatted="false">• Filtros globales: Reglas básicas para todas las llamadas entrantes</string>
+    <string name="global_filter_settings" formatted="false">Ajustes del filtro global</string>
+    <string name="global_settings" formatted="false">Ajustes globales</string>
+    <string name="google_drive_auth_description" formatted="false">Autorizar usando el ID de cliente y la clave de Google Drive configurados por el sistema</string>
+    <string name="google_drive_config_title" formatted="false">Configuración de Google Drive</string>
+    <string name="government" formatted="false">Gobierno</string>
+    <string name="grant_necessary_permissions" formatted="false">Conceder los permisos necesarios</string>
+    <string name="grant_permissions" formatted="false">Conceder permisos</string>
+    <string name="granted" formatted="false">Concedido</string>
+    <string name="granted_temp_purchase_with_expiry" formatted="false">Se te han concedido {days} días de privilegios de compra temporales. Fecha de caducidad: {expiryDate}</string>
+    <string name="guidelines_label" formatted="false">Directrices</string>
+    <string name="has_temp_privilege_with_expiry" formatted="false">Ya tienes privilegios temporales, fecha de caducidad: {expiryDate}</string>
+    <string name="has_vip_privilege_except_ads" formatted="false">Ya tienes privilegios VIP (excepto para anuncios)</string>
+    <string name="headhunter" formatted="false">Cazatalentos</string>
+    <string name="healthcare" formatted="false">Healthcare</string>
+    <string name="height" formatted="false">Altura</string>
+    <string name="high" formatted="false">Alto</string>
+    <string name="high_risk" formatted="false">Alto Riesgo</string>
+    <string name="home_tab" formatted="false">Inicio</string>
+    <string name="hours_ago" formatted="false">{count,plural, =1{Hace 1 hora} other{Hace {count} horas}}</string>
+    <string name="hours_duration" formatted="false">{count, plural, =0{0 horas} =1{1 hora} other{{count} horas}}</string>
+    <string name="how_it_works_point1" formatted="false">• El sistema permitirá automáticamente las llamadas del mismo número dentro del período de tiempo establecido</string>
+    <string name="how_it_works_point2" formatted="false">• Los períodos de tiempo más cortos resultan en una intercepción más estricta; los períodos de tiempo más largos resultan en una intercepción más flexible</string>
+    <string name="how_it_works_point3" formatted="false">• El sistema verifica los registros de llamadas para determinar si es una llamada repetida</string>
+    <string name="how_it_works_title" formatted="false">Cómo funciona:</string>
+    <string name="icon_code_optional" formatted="false">Código de icono (opcional)</string>
+    <string name="icon_size" formatted="false">Tamaño del icono</string>
+    <string name="import" formatted="false">Importar</string>
+    <string name="import_config" formatted="false">Importar configuración</string>
+    <string name="import_contacts" formatted="false">Importar contactos</string>
+    <string name="import_entity" formatted="false">Importar {entityTypeName}</string>
+    <string name="import_export" formatted="false">Importar/Exportar</string>
+    <string name="import_export_contacts" formatted="false">Importar/Exportar contactos</string>
+    <string name="import_export_contacts_tooltip" formatted="false">Importar/Exportar contactos</string>
+    <string name="import_export_description" formatted="false">Importar o exportar datos de {entityTypeName}</string>
+    <string name="import_export_rules" formatted="false">Importar/Exportar reglas</string>
+    <string name="import_export_title" formatted="false">Importar/Exportar</string>
+    <string name="import_failed" formatted="false">Error al importar: {error}</string>
+    <string name="import_failure" formatted="false">Error al importar la configuración</string>
+    <string name="import_feature_coming_soon" formatted="false">La función de importación estará disponible próximamente</string>
+    <string name="import_labels" formatted="false">Importar etiquetas</string>
+    <string name="import_labels_failed" formatted="false">Error al importar etiquetas: {error}</string>
+    <string name="import_plugin_list" formatted="false">Importar lista de plugins</string>
+    <string name="import_plugin_list_failed" formatted="false">Error al importar la lista de plugins: {error}</string>
+    <string name="import_plugin_success" formatted="false">Se importaron {count} plugins correctamente</string>
+    <string name="import_rule_configurations_from_file" formatted="false">Importar configuraciones de reglas desde un archivo</string>
+    <string name="import_rules" formatted="false">Importar reglas</string>
+    <string name="import_success" formatted="false">Importación exitosa</string>
+    <string name="important" formatted="false">Importante</string>
+    <string name="important_notice_title" formatted="false">Aviso Importante</string>
+    <string name="incoming_call_intercept_action" formatted="false">Acción de intercepción de llamada entrante</string>
+    <string name="incorrect_password" formatted="false">Contraseña incorrecta</string>
+    <string name="init_db_button" formatted="false">Initialize Database</string>
+    <string name="initial_setup_custom_url_hint" formatted="false">Enter custom config JSON URL</string>
+    <string name="initial_setup_custom_url_load" formatted="false">Load Config</string>
+    <string name="initial_setup_desc" formatted="false">Seleccione las bibliotecas de reglas regionales que desea bloquear. Estas reglas le ayudan a bloquear automáticamente llamadas comunes de ventas y estafas en su región.</string>
+    <string name="initial_setup_deselect_all" formatted="false">Borrar selección</string>
+    <string name="initial_setup_detected_location" formatted="false">Recommended for your location</string>
+    <string name="initial_setup_get_failed" formatted="false">Error al obtener la configuración</string>
+    <string name="initial_setup_go_to_settings" formatted="false">Go to Settings</string>
+    <string name="initial_setup_retry" formatted="false">Reintentar</string>
+    <string name="initial_setup_save" formatted="false">Configuración seleccionada en un clic</string>
+    <string name="initial_setup_save_failed" formatted="false">Error al guardar la configuración: {error}</string>
+    <string name="initial_setup_save_success" formatted="false">✅ Configuración guardada con éxito, las reglas se obtendrán automáticamente pronto</string>
+    <string name="initial_setup_saving" formatted="false">Guardando...</string>
+    <string name="initial_setup_search_hint" formatted="false">Buscar conjunto de reglas o país...</string>
+    <string name="initial_setup_select_all" formatted="false">Seleccionar todo</string>
+    <string name="initial_setup_selected_count" formatted="false">{count} seleccionado(s)</string>
+    <string name="initial_setup_settings_hint" formatted="false">Tip: You can re-open this setup page anytime in Settings.</string>
+    <string name="initial_setup_skip" formatted="false">Omitir</string>
+    <string name="initial_setup_source_cdn" formatted="false">CDN Mirror</string>
+    <string name="initial_setup_source_custom" formatted="false">Custom URL</string>
+    <string name="initial_setup_source_github" formatted="false">GitHub (Raw)</string>
+    <string name="initial_setup_source_title" formatted="false">Data Source</string>
+    <string name="initial_setup_title" formatted="false">Configuración de Biblioteca de Reglas</string>
+    <string name="initializing" formatted="false">Inicializando</string>
+    <string name="installed" formatted="false">Instalado</string>
+    <string name="insufficient_marks" formatted="false">Marcas insuficientes</string>
+    <string name="insurance" formatted="false">Seguro</string>
+    <string name="intercept_action" formatted="false">Acción de intercepción</string>
+    <string name="interception_action_settings_subtitle" formatted="false">Establecer cómo se manejan las llamadas bloqueadas</string>
+    <string name="interception_action_settings_title" formatted="false">Configuración de acción de intercepción</string>
+    <string name="interception_time_interval" formatted="false">Intervalo de tiempo de intercepción</string>
+    <string name="internet" formatted="false">Internet</string>
+    <string name="interval_set_success" formatted="false">Intervalo de actualización de {service} establecido en {days} días</string>
+    <string name="invalid_content_regex" formatted="false">Regex de contenido no válido</string>
+    <string name="invalid_exchange_rule" formatted="false">Regla de intercambio inválida</string>
+    <string name="invalid_label" formatted="false">Etiqueta no válida</string>
+    <string name="invalid_regex_pattern" formatted="false">Patrón regex no válido</string>
+    <string name="invalid_sender_regex" formatted="false">Regex de remitente no válida</string>
+    <string name="invalid_sim_data" formatted="false">Datos SIM no válidos</string>
+    <string name="ip_country" formatted="false">País de IP</string>
+    <string name="is_number_match" formatted="false">Número Coincide</string>
+    <string name="is_roaming" formatted="false">En Roaming</string>
+    <string name="join_the_telegram_channel_and_group_for_more_info" formatted="false">Únete al Canal y Grupo de Telegram para más información</string>
+    <string name="json_format" formatted="false">Formato JSON</string>
+    <string name="just_now" formatted="false">Recién ahora</string>
+    <string name="keep_all_versions" formatted="false">Conservar todas las versiones</string>
+    <string name="keep_all_versions_description" formatted="false">Conserva todas las versiones históricas de cada copia de seguridad</string>
+    <string name="label" formatted="false">Etiqueta</string>
+    <string name="label_action_description" formatted="false">Agregue una etiqueta a la llamada para facilitar la identificación.</string>
+    <string name="label_added_successfully" formatted="false">Etiqueta &quot;{name}&quot; añadida correctamente</string>
+    <string name="label_categories" formatted="false">Categorías de etiquetas</string>
+    <string name="label_deleted" formatted="false">Etiqueta eliminada</string>
+    <string name="label_description" formatted="false">Las etiquetas te ayudan a administrar mejor los contactos, añade etiquetas personalizadas a los números de teléfono para una fácil identificación de llamadas y mensajes.</string>
+    <string name="label_filter_tooltip" formatted="false">Filtro de etiquetas</string>
+    <string name="label_icon_color" formatted="false">Color del icono de la etiqueta</string>
+    <string name="label_management" formatted="false">Administración de etiquetas</string>
+    <string name="label_not_found" formatted="false">Etiqueta no encontrada</string>
+    <string name="label_tag" formatted="false">Etiqueta: {labelId}</string>
+    <string name="label_update_failed" formatted="false">Error al actualizar la etiqueta: {error}</string>
+    <string name="label_update_success" formatted="false">Etiqueta &quot;$labelText&quot; actualizada correctamente</string>
+    <string name="labels" formatted="false">Etiquetas</string>
+    <string name="labels_color" formatted="false">Color de las etiquetas</string>
+    <string name="labels_deleted" formatted="false">{count} etiquetas eliminadas</string>
+    <string name="labels_exported_successfully" formatted="false">Etiquetas exportadas correctamente</string>
+    <string name="labels_font_size" formatted="false">Tamaño de fuente de las etiquetas</string>
+    <string name="labels_imported_successfully" formatted="false">Se importaron {count} etiquetas correctamente</string>
+    <string name="labels_position" formatted="false">Posición de las etiquetas</string>
+    <string name="language_settings" formatted="false">Ajustes de idioma</string>
+    <string name="language_settings_subtitle" formatted="false">Cambiar el idioma de visualización de la aplicación</string>
+    <string name="language_settings_title" formatted="false">Ajustes de idioma</string>
+    <string name="last_sync_label" formatted="false">Última sincronización</string>
+    <string name="last_updated" formatted="false">Última actualización: {date}</string>
+    <string name="leave_empty_to_use_default" formatted="false">Leave empty to use default</string>
+    <string name="lifetime_membership" formatted="false">Membresía de por vida</string>
+    <string name="lifetime_membership_description" formatted="false">Compra única, desbloquea permanentemente todas las funciones premium y futuras actualizaciones</string>
+    <string name="list_view" formatted="false">Vista de Lista</string>
+    <string name="live_activities_settings_title" formatted="false">Ajustes de Actividades en Vivo</string>
+    <string name="live_activities_test_end_activity" formatted="false">Finalizar Actividad</string>
+    <string name="live_activities_test_send_new_activity" formatted="false">Enviar Nueva Actividad</string>
+    <string name="live_activities_test_title" formatted="false">Prueba de Actividades en Vivo</string>
+    <string name="live_activities_test_update_activity" formatted="false">Actualizar Actividad</string>
+    <string name="live_activity_controls_title" formatted="false">Controles de Actividad en Vivo</string>
+    <string name="live_activity_mode" formatted="false">Actividad en Vivo</string>
+    <string name="live_activity_mode_description" formatted="false">Muestra la información de la llamada como una notificación persistente en la pantalla de bloqueo y en la Dynamic Island (iOS).</string>
+    <string name="live_notification_customization_subtitle" formatted="false">Personaliza la apariencia de las notificaciones en vivo.</string>
+    <string name="live_notification_customization_title" formatted="false">Personalización de Notificación en Vivo</string>
+    <string name="live_stream" formatted="false">LIVE STREAM</string>
+    <string name="load_contacts_failed" formatted="false">Error al cargar los contactos: {error}</string>
+    <string name="load_data_failed" formatted="false">Error al cargar los datos</string>
+    <string name="load_label_failed" formatted="false">Error al cargar las etiquetas: {error}</string>
+    <string name="load_labels_failed" formatted="false">Error al cargar las etiquetas: {error}</string>
+    <string name="load_mark_count_failed" formatted="false">Error al cargar los números de teléfono marcados: {error}</string>
+    <string name="load_marked_phones_failed" formatted="false">Error al cargar los teléfonos marcados: {error}</string>
+    <string name="load_plugins_failed" formatted="false">Error al cargar los plugins: {error}</string>
+    <string name="load_settings_failed" formatted="false">Error al cargar la configuración: {error}</string>
+    <string name="load_sms_rules_failed" formatted="false">Error al cargar las reglas de SMS: {error}</string>
+    <string name="load_status_failed_message" formatted="false">Error al cargar el estado</string>
+    <string name="load_subscriptions_failed" formatted="false">Error al cargar las suscripciones: {error}</string>
+    <string name="loading" formatted="false">Cargando...</string>
+    <string name="loading_ad" formatted="false">Cargando Anuncio...</string>
+    <string name="loading_tags" formatted="false">Cargando etiquetas...</string>
+    <string name="loan" formatted="false">Préstamo</string>
+    <string name="local_count_filter" formatted="false">Protección por umbral de marcas locales</string>
+    <string name="local_count_filter_description" formatted="false">Bloquear automáticamente las llamadas que superen el umbral de reportes locales</string>
+    <string name="local_count_filter_explanation_content" formatted="false">El filtro de conteo local analiza los registros del historial de llamadas para identificar y bloquear automáticamente las llamadas spam frecuentes.</string>
+    <string name="local_count_filter_explanation_title" formatted="false">Explicación del filtro de conteo local</string>
+    <string name="local_count_filter_how_it_works_point1" formatted="false">• Determine si desea bloquear según el valor de conteo del número</string>
+    <string name="local_count_filter_how_it_works_point2" formatted="false">• Cuando el conteo de un número supera el umbral establecido, puede optar por bloquearlo automáticamente</string>
+    <string name="local_count_filter_how_it_works_point3" formatted="false">• Puede permitir selectivamente los números que no superen el umbral</string>
+    <string name="local_count_filter_how_it_works_point4" formatted="false">• Puede elegir si desea registrar todos los registros de consultas</string>
+    <string name="local_count_filter_settings" formatted="false">Configuración del filtro de conteo local</string>
+    <string name="local_count_filter_use_cases" formatted="false">Este filtro es particularmente adecuado para identificar llamadas spam con marcación automática y llamadas de marketing.</string>
+    <string name="local_count_filtering" formatted="false">Filtrado de conteo local</string>
+    <string name="local_count_filtering_explanation" formatted="false">• Filtrado de conteo local: reglas de filtrado basadas en el conteo de marcado local</string>
+    <string name="local_counter_filter" formatted="false">Filtro de contador local</string>
+    <string name="local_counter_filter_subtitle" formatted="false">Filtrar automáticamente las llamadas spam según la frecuencia de las llamadas</string>
+    <string name="local_database_sync_subtitle" formatted="false">Sync data across devices</string>
+    <string name="local_database_sync_title" formatted="false">Local Database Sync</string>
+    <string name="local_device_suffix" formatted="false">(This Device)</string>
+    <string name="local_filter_settings" formatted="false">Configuración del filtro local</string>
+    <string name="local_first_privacy_description" formatted="false">Call logs and contacts are processed 100% locally on your phone. Number tags are shared only when you voluntarily mark spam and choose to submit.</string>
+    <string name="local_first_privacy_title" formatted="false">Local-First &amp; Zero Automatic Upload</string>
+    <string name="local_notification_disabled" formatted="false">Notificación local desactivada</string>
+    <string name="local_notification_enabled" formatted="false">Notificación local activada</string>
+    <string name="local_services" formatted="false">Servicios locales</string>
+    <string name="location" formatted="false">Ubicación</string>
+    <string name="location_color" formatted="false">Color de la ubicación</string>
+    <string name="location_font_size" formatted="false">Tamaño de fuente de la ubicación</string>
+    <string name="location_icon_color" formatted="false">Color del icono de ubicación</string>
+    <string name="location_position" formatted="false">Posición de la ubicación</string>
+    <string name="log" formatted="false">Registro</string>
+    <string name="log_action_description" formatted="false">Registre la información de la llamada sin realizar ninguna otra acción.</string>
+    <string name="log_all_local_queries" formatted="false">Registrar todas las consultas locales</string>
+    <string name="log_all_local_queries_description" formatted="false">Registrar registros para todas las consultas de números locales</string>
+    <string name="log_all_remote_queries" formatted="false">Registrar todas las consultas remotas</string>
+    <string name="log_all_remote_queries_description" formatted="false">Registrar todas las operaciones de consulta de números remotos</string>
+    <string name="low" formatted="false">Bajo</string>
+    <string name="low_risk" formatted="false">Bajo Riesgo</string>
+    <string name="manage" formatted="false">Administrar contactos</string>
+    <string name="manage_favorite_contacts" formatted="false">Administrar contactos favoritos</string>
+    <string name="manage_filter_rules" formatted="false">Administrar reglas de filtro</string>
+    <string name="manage_filter_rules_description" formatted="false">Agregar, editar o eliminar reglas de filtro de SMS</string>
+    <string name="manual_entry" formatted="false">Información de entrada manual</string>
+    <string name="mark_count" formatted="false">Recuento de marcas</string>
+    <string name="mark_counts" formatted="false">Recuentos de marcas</string>
+    <string name="mark_exchange" formatted="false">Marcar intercambio</string>
+    <string name="mark_more_numbers_for_more" formatted="false">Marca más números para obtener más marks</string>
+    <string name="mark_phone" formatted="false">Marcar número de teléfono</string>
+    <string name="mark_phone_failed" formatted="false">Error al marcar el número de teléfono: {error}</string>
+    <string name="mark_phone_management_title" formatted="false">Administración de marcado</string>
+    <string name="mark_phone_success" formatted="false">Número de teléfono marcado correctamente</string>
+    <string name="marked_by_count" formatted="false">Marcado por {count}</string>
+    <string name="marked_phones_list" formatted="false">Números de teléfono marcados</string>
+    <string name="marks_insufficient" formatted="false">Marcas insuficientes para intercambiar</string>
+    <string name="master_and_overrides" formatted="false">Controles Maestros</string>
+    <string name="master_and_overrides_desc" formatted="false">Configuración de reglas globales</string>
+    <string name="master_device_help" formatted="false">Only the master device can initialize the database structure.</string>
+    <string name="master_device_label" formatted="false">Is Master Device (Admin)</string>
+    <string name="master_permission_help" formatted="false">Role: Primary device is authorized to initialize global databases and coordinate sync.</string>
+    <string name="master_role_description" formatted="false">Can initialize global databases and manage cloud synchronization keys.</string>
+    <string name="master_role_title" formatted="false">Primary Device</string>
+    <string name="master_slave_onboarding_description" formatted="false">Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.</string>
+    <string name="master_slave_onboarding_title" formatted="false">Device Cluster &amp; Primary/Secondary Roles</string>
+    <string name="match_failed_message" formatted="false">La coincidencia falló.</string>
+    <string name="match_numbers_with_special_characters" formatted="false">coincide con un formato de número específico</string>
+    <string name="match_numbers_with_special_characters_title" formatted="false">Coincidir números con caracteres especiales:</string>
+    <string name="match_specific_digit_patterns" formatted="false">coincide con el formato XXX-XXXX-XXXX</string>
+    <string name="match_specific_digit_patterns_title" formatted="false">Coincidir patrones de dígitos específicos:</string>
+    <string name="match_successful_message" formatted="false">¡Coincidencia exitosa!</string>
+    <string name="medical" formatted="false">Médico</string>
+    <string name="medium" formatted="false">Medio</string>
+    <string name="medium_risk" formatted="false">Riesgo Medio</string>
+    <string name="membership_center" formatted="false">Centro de membresía</string>
+    <string name="membership_privileges" formatted="false">Privilegios de membresía</string>
+    <string name="message_background_color" formatted="false">Color de fondo del mensaje</string>
+    <string name="message_color" formatted="false">Color del mensaje</string>
+    <string name="message_font_size" formatted="false">Tamaño de fuente del mensaje</string>
+    <string name="message_position" formatted="false">Posición del mensaje</string>
+    <string name="migration_tool" formatted="false">Herramienta de migración</string>
+    <string name="minutes" formatted="false">minutos</string>
+    <string name="minutes_ago" formatted="false">{count,plural, =1{Hace 1 minuto} other{Hace {count} minutos}}</string>
+    <string name="moderate" formatted="false">Moderado</string>
+    <string name="month" formatted="false">Mes</string>
+    <string name="monthly" formatted="false">Mensual</string>
+    <string name="monthly_call_count" formatted="false">Llamadas mensuales</string>
+    <string name="monthly_membership" formatted="false">Membresía mensual</string>
+    <string name="monthly_membership_description" formatted="false">Desbloquea todas las funciones premium, renovación automática mensual</string>
+    <string name="monthly_total" formatted="false">Total mensual</string>
+    <string name="more_options" formatted="false">Más opciones</string>
+    <string name="mute" formatted="false">Silenciar</string>
+    <string name="name" formatted="false">Nombre</string>
+    <string name="name_and_phone_number_cannot_be_empty" formatted="false">El nombre y el número de teléfono no pueden estar vacíos</string>
+    <string name="name_cannot_be_empty" formatted="false">El nombre no puede estar vacío</string>
+    <string name="name_color" formatted="false">Color del nombre</string>
+    <string name="name_font_size" formatted="false">Tamaño de fuente del nombre</string>
+    <string name="name_position" formatted="false">Posición del nombre</string>
+    <string name="name_unknown" formatted="false">Nombre: Desconocido</string>
+    <string name="national_number" formatted="false">Número nacional</string>
+    <string name="need_vip_access" formatted="false">Necesitas acceso VIP para usar esta función</string>
+    <string name="new_vote_received" formatted="false">Nuevo Voto Recibido</string>
+    <string name="new_vote_received_body" formatted="false">Alguien votó para {voteType} la eliminación de {phoneNumber}. Votos actuales: {totalVotes}.</string>
+    <string name="next_step" formatted="false">Siguiente</string>
+    <string name="no_action" formatted="false">Sin acción</string>
+    <string name="no_action_rules" formatted="false">Sin reglas de acción</string>
+    <string name="no_active_cloud_sync_service_message" formatted="false">No hay ningún servicio de sincronización en la nube activo</string>
+    <string name="no_activity" formatted="false">Sin Actividad</string>
+    <string name="no_ads" formatted="false">Sin anuncios</string>
+    <string name="no_allowed_blocked_rules" formatted="false">No se encontraron reglas permitidas/bloqueadas</string>
+    <string name="no_blocked_type_data" formatted="false">No hay datos de tipo bloqueado disponibles</string>
+    <string name="no_call_records" formatted="false">Sin registros de llamadas</string>
+    <string name="no_contacts_yet" formatted="false">Aún no hay contactos</string>
+    <string name="no_data" formatted="false">Sin datos</string>
+    <string name="no_devices_registered_message" formatted="false">No hay dispositivos registrados</string>
+    <string name="no_labels" formatted="false">Aún no hay etiquetas</string>
+    <string name="no_marked_phones" formatted="false">No hay números de teléfono marcados</string>
+    <string name="no_matching_contacts_found" formatted="false">No se encontraron contactos coincidentes</string>
+    <string name="no_matching_numbers_found" formatted="false">No se encontraron números coincidentes</string>
+    <string name="no_matching_rules" formatted="false">No hay {ruleType} coincidentes</string>
+    <string name="no_notifications" formatted="false">No hay notificaciones</string>
+    <string name="no_other_nodes_found" formatted="false">No other device nodes discovered</string>
+    <string name="no_phone_rules" formatted="false">No se encontraron reglas de teléfono</string>
+    <string name="no_plugins" formatted="false">Aún no hay plugins</string>
+    <string name="no_proposals_found" formatted="false">No se encontraron propuestas</string>
+    <string name="no_regex_rules" formatted="false">No se encontraron reglas de regex</string>
+    <string name="no_rules" formatted="false">Aún no hay {ruleType}</string>
+    <string name="no_rules_prompt" formatted="false">No se encontraron reglas, por favor agregue reglas</string>
+    <string name="no_rules_to_export" formatted="false">No hay reglas para exportar</string>
+    <string name="no_sim_card_detected" formatted="false">No se detectó ninguna tarjeta SIM</string>
+    <string name="no_sim_cards_detected" formatted="false">No se detectaron tarjetas SIM</string>
+    <string name="no_sms_filter_rules_yet" formatted="false">Aún no hay reglas de filtro de SMS</string>
+    <string name="no_sms_rules_yet" formatted="false">Aún no hay reglas de SMS</string>
+    <string name="no_subscriptions" formatted="false">No hay suscripciones</string>
+    <string name="no_valid_sms_rules_found_in_file" formatted="false">No se encontraron reglas de SMS válidas en el archivo</string>
+    <string name="none" formatted="false">Ninguno</string>
+    <string name="none_action_description" formatted="false">No se tomará ninguna acción especial para la llamada.</string>
+    <string name="none_service_type" formatted="false">Ninguno</string>
+    <string name="normal_user" formatted="false">Usuario normal</string>
+    <string name="not_granted" formatted="false">No concedido</string>
+    <string name="not_verified_text" formatted="false">No verificado</string>
+    <string name="notification_frequency_hours" formatted="false">Frecuencia de Notificación (Horas)</string>
+    <string name="notification_frequency_title" formatted="false">Frecuencia de Notificación</string>
+    <string name="notification_mode" formatted="false">Modo de notificación</string>
+    <string name="notification_mode_description" formatted="false">Mostrar información de la persona que llama en la barra de notificaciones</string>
+    <string name="notification_permission" formatted="false">Permiso de notificación</string>
+    <string name="notification_permission_description" formatted="false">Se utiliza para mostrar las notificaciones de llamadas y mensajes entrantes.</string>
+    <string name="notification_settings" formatted="false">Configuración de notificaciones</string>
+    <string name="notification_settings_title" formatted="false">Configuración de notificaciones</string>
+    <string name="notification_instructions" formatted="false">Instrucciones:
+1. Toca &quot;ENVIAR&quot; para crear o actualizar una notificación.
+2. Ve a tu pantalla de inicio o desliza hacia abajo la bandeja de notificaciones para ver el resultado.
+3. Toca &quot;FINALIZAR&quot; para descartar la notificación.</string>
+    <string name="notifications" formatted="false">Notificaciones</string>
+    <string name="notify" formatted="false">Notificar</string>
+    <string name="notify_action_description" formatted="false">Enviar una notificación cuando se reciba una llamada.</string>
+    <string name="number" formatted="false">Número</string>
+    <string name="number_color" formatted="false">Color del número</string>
+    <string name="number_font_size" formatted="false">Tamaño de fuente del número</string>
+    <string name="number_format" formatted="false">Formato de número</string>
+    <string name="number_invalid_format" formatted="false">Formato de número no válido</string>
+    <string name="number_position" formatted="false">Posición del número</string>
+    <string name="number_search" formatted="false">Búsqueda de número</string>
+    <string name="number_type_color" formatted="false">Color del tipo de número</string>
+    <string name="number_type_font_size" formatted="false">Tamaño de fuente del tipo de número</string>
+    <string name="number_type_position" formatted="false">Posición del tipo de número</string>
+    <string name="ok_button" formatted="false">Aceptar</string>
+    <string name="onboarding_complete_description" formatted="false">Su administrador de seguridad de llamadas está listo, ¡comience a disfrutar de una experiencia de llamadas segura!</string>
+    <string name="onboarding_language_description" formatted="false">Elija su idioma preferido para la mejor experiencia.</string>
+    <string name="onboarding_permissions_description" formatted="false">Para brindar un servicio completo, necesitamos los siguientes permisos:</string>
+    <string name="onboarding_powerful_spam_blocking_description" formatted="false">Bloqueo con un clic de llamadas y mensajes de spam, personalice las reglas de bloqueo y brinde un entorno tranquilo.</string>
+    <string name="onboarding_smart_caller_id_description" formatted="false">Identifique automáticamente las llamadas desconocidas, marque los números sospechosos y proteja la seguridad de sus llamadas.</string>
+    <string name="onboarding_welcome_description" formatted="false">Su experto en administración de llamadas, que brinda servicios integrales de identificación y bloqueo de llamadas.</string>
+    <string name="one_drive_auth_description" formatted="false">Autorizar usando la clave y el ID de cliente de OneDrive configurados por el sistema</string>
+    <string name="one_drive_config_title" formatted="false">Configuración de OneDrive</string>
+    <string name="online_caller_id_subscription" formatted="false">Suscripción al identificador de llamadas en línea</string>
+    <string name="open_app_settings" formatted="false">Abrir la configuración de la aplicación</string>
+    <string name="open_app_settings_failed" formatted="false">No se pudo abrir la configuración de la aplicación: {error}</string>
+    <string name="open_in_web_view" formatted="false">Abrir en WebView</string>
+    <string name="operation_failed" formatted="false">Operación fallida: {error}</string>
+    <string name="operation_failure" formatted="false">Operación fallida</string>
+    <string name="operation_success" formatted="false">Operación exitosa</string>
+    <string name="oppose" formatted="false">Oponerse</string>
+    <string name="oppose_count" formatted="false">Oposición ({opposeCount})</string>
+    <string name="opposed" formatted="false">OPUESTO</string>
+    <string name="other" formatted="false">Otro</string>
+    <string name="our_other_apps" formatted="false">Nuestras otras aplicaciones</string>
+    <string name="overlay_mode" formatted="false">Ventana flotante</string>
+    <string name="overlay_mode_description" formatted="false">Mostrar información de la persona que llama en una ventana flotante</string>
+    <string name="overlay_permission" formatted="false">Permiso de superposición</string>
+    <string name="overlay_permission_description" formatted="false">Se utiliza para mostrar la superposición de llamadas entrantes.</string>
+    <string name="overlay_settings_subtitle" formatted="false">Configure overlay window style, PIP preview &amp; draw over app permissions</string>
+    <string name="overlay_settings_title" formatted="false">Overlay / Floating Window &amp; Permissions</string>
+    <string name="overview" formatted="false">Resumen</string>
+    <string name="participant_count" formatted="false">%1$d Participants</string>
+    <string name="password" formatted="false">Contraseña</string>
+    <string name="password_cannot_be_empty" formatted="false">La contraseña no puede estar vacía</string>
+    <string name="password_label" formatted="false">Contraseña</string>
+    <string name="passwords_do_not_match" formatted="false">Las contraseñas no coinciden</string>
+    <string name="pattern" formatted="false">Patrón</string>
+    <string name="peak_harassment_hours" formatted="false">Peak Harassment Hours</string>
+    <string name="pending" formatted="false">PENDIENTE</string>
+    <string name="pending_proposals" formatted="false">Propuestas Pendientes</string>
+    <string name="pending_proposals_body" formatted="false">Tienes {count, plural, =0 {ninguna propuesta pendiente} one {1 propuesta pendiente} other {{count} propuestas pendientes}}.</string>
+    <string name="pending_sync" formatted="false">Sincronización pendiente</string>
+    <string name="period_month" formatted="false">Mes</string>
+    <string name="period_week" formatted="false">Semana</string>
+    <string name="period_year" formatted="false">Año</string>
+    <string name="permission_denied" formatted="false">Solicitud de permiso denegada</string>
+    <string name="permission_granted" formatted="false">Permiso concedido</string>
+    <string name="permission_management" formatted="false">Gestión de permisos</string>
+    <string name="permission_subtitle" formatted="false">Administrar permisos de superposición y optimización de batería</string>
+    <string name="permission_title" formatted="false">Permisos especiales</string>
+    <string name="phone_calls_tab" formatted="false">Teléfono</string>
+    <string name="phone_number" formatted="false">Número de teléfono</string>
+    <string name="phone_number_cannot_be_empty" formatted="false">El número de teléfono no puede estar vacío</string>
+    <string name="phone_number_hint" formatted="false">Ingrese el número de teléfono</string>
+    <string name="phone_number_label" formatted="false">Número de teléfono</string>
+    <string name="phone_number_min_digits" formatted="false">El número de teléfono debe tener al menos 7 dígitos</string>
+    <string name="phone_number_required" formatted="false">Se requiere el número de teléfono</string>
+    <string name="phone_number_type" formatted="false">Tipo de Número de Teléfono</string>
+    <string name="phone_number_type_fixed_line" formatted="false">Línea fija</string>
+    <string name="phone_number_type_fixed_line_or_mobile" formatted="false">Fijo o móvil</string>
+    <string name="phone_number_type_mobile" formatted="false">Móvil</string>
+    <string name="phone_number_type_pager" formatted="false">Buscapersonas</string>
+    <string name="phone_number_type_personal_number" formatted="false">Número personal</string>
+    <string name="phone_number_type_premium_rate" formatted="false">Tarifa premium</string>
+    <string name="phone_number_type_shared_cost" formatted="false">Costo compartido</string>
+    <string name="phone_number_type_toll_free" formatted="false">Llamada gratuita</string>
+    <string name="phone_number_type_uan" formatted="false">UAN</string>
+    <string name="phone_number_type_unknown" formatted="false">Desconocido</string>
+    <string name="phone_number_type_voicemail" formatted="false">Correo de voz</string>
+    <string name="phone_number_type_voip" formatted="false">VoIP</string>
+    <string name="phone_permission" formatted="false">Permiso telefónico</string>
+    <string name="phone_permission_description" formatted="false">Se utiliza para identificar y bloquear las llamadas entrantes.</string>
+    <string name="phone_rule" formatted="false">Regla de teléfono</string>
+    <string name="phone_rule_management" formatted="false">Gestión de reglas telefónicas</string>
+    <string name="phone_rule_subscription" formatted="false">Suscripción a reglas telefónicas</string>
+    <string name="phone_rules_info" formatted="false">Las reglas telefónicas se utilizan para relacionar las llamadas con números de teléfono específicos, que tienen una prioridad más baja. Algunos provienen de las suscripciones de phoneRule</string>
+    <string name="phone_subscription" formatted="false">Suscripción telefónica</string>
+    <string name="phone_subscription_rules_description" formatted="false">Suscríbase a listas de reglas telefónicas a través de URL para actualizar automáticamente las reglas de la lista blanca y la lista negra. Admite archivos de reglas en formato JSON.</string>
+    <string name="please_enter_at_least_one_number" formatted="false">Por favor, ingrese al menos un número.</string>
+    <string name="please_select_label_and_enter_valid_phone" formatted="false">Por favor, seleccione una etiqueta e introduzca un número de teléfono válido</string>
+    <string name="plugin_added_success" formatted="false">Plugin &quot;{name}&quot; añadido correctamente</string>
+    <string name="plugin_deleted" formatted="false">Plugin eliminado</string>
+    <string name="plugin_description" formatted="false">Descripción del complemento</string>
+    <string name="plugin_i_d" formatted="false">ID</string>
+    <string name="plugin_label" formatted="false">Etiqueta del complemento</string>
+    <string name="plugin_latest_version" formatted="false">El plugin ya está en la última versión</string>
+    <string name="plugin_list_export_success" formatted="false">Lista de plugins exportada correctamente</string>
+    <string name="plugin_management" formatted="false">Gestión de plugins</string>
+    <string name="plugin_management_subtitle" formatted="false">Administre y configure plugins de terceros</string>
+    <string name="plugin_name" formatted="false">Nombre del plugin</string>
+    <string name="plugin_rules_info" formatted="false">Por seguridad, utilice solo complementos de fuentes confiables. ¡Siéntase libre de utilizar nuestras plantillas para crear sus propios complementos personalizados!</string>
+    <string name="plugin_service" formatted="false">Servicio de plugins</string>
+    <string name="plugin_test_page_title" formatted="false">Prueba de plugin</string>
+    <string name="plugin_u_r_l" formatted="false">URL</string>
+    <string name="plugin_update_success" formatted="false">Plugin actualizado correctamente</string>
+    <string name="plugin_url" formatted="false">URL del plugin</string>
+    <string name="plugin_version" formatted="false">Versión del plugin</string>
+    <string name="plugins_deleted" formatted="false">{count} plugins eliminados correctamente.</string>
+    <string name="political" formatted="false">Político</string>
+    <string name="powerful_spam_blocking" formatted="false">Bloqueo de spam potente</string>
+    <string name="previous_step" formatted="false">Anterior</string>
+    <string name="primary_permission_help" formatted="false">Requires full permissions for call and SMS processing.</string>
+    <string name="primary_role_description" formatted="false">Acts as the primary hub, managing rules and synchronization.</string>
+    <string name="primary_role_title" formatted="false">Primary</string>
+    <string name="prioritize_remote_action" formatted="false">Priorizar la configuración de acción remota</string>
+    <string name="prioritize_remote_action_description" formatted="false">Priorizar la configuración de acciones desde la base de datos remota</string>
+    <string name="processed" formatted="false">Procesado</string>
+    <string name="processing" formatted="false">Procesando...</string>
+    <string name="processing_operation" formatted="false">Procesando...</string>
+    <string name="proposal_approved" formatted="false">Propuesta Aprobada ✅</string>
+    <string name="proposal_approved_body" formatted="false">La propuesta de eliminación para {phoneNumber} ha sido aprobada por la comunidad ({supportPercentage}% de apoyo, {totalVotes} votos).</string>
+    <string name="proposal_created" formatted="false">Propuesta creada con éxito</string>
+    <string name="proposal_details" formatted="false">Detalles de la Propuesta</string>
+    <string name="proposal_not_found" formatted="false">Propuesta no encontrada</string>
+    <string name="proposal_processed" formatted="false">Esta propuesta ha sido procesada</string>
+    <string name="proposal_rejected" formatted="false">Propuesta Rechazada ❌</string>
+    <string name="proposal_rejected_body" formatted="false">La propuesta de eliminación para {phoneNumber} ha sido rechazada por la comunidad ({supportPercentage}% de apoyo, {totalVotes} votos).</string>
+    <string name="proposal_statistics" formatted="false">Estadísticas de la propuesta</string>
+    <string name="provide_detailed_explanation" formatted="false">Proporciona una explicación detallada (mínimo 10 caracteres)</string>
+    <string name="public_safety" formatted="false">Public Safety</string>
+    <string name="purchase" formatted="false">Comprar</string>
+    <string name="purchase_subtitle" formatted="false">Para comprar el servicio</string>
+    <string name="purchase_title" formatted="false">Compra</string>
+    <string name="quarterly_membership" formatted="false">Membresía trimestral</string>
+    <string name="quarterly_membership_description" formatted="false">Desbloquea todas las funciones premium, renovación automática trimestral</string>
+    <string name="ready" formatted="false">¡Listo!</string>
+    <string name="realtime_shield_active" formatted="false">Realtime Shield Active</string>
+    <string name="reason" formatted="false">Razón</string>
+    <string name="reason_inaccurate_info" formatted="false">Información inexacta</string>
+    <string name="reason_min_characters" formatted="false">La razón debe tener al menos 10 caracteres</string>
+    <string name="reason_not_in_service" formatted="false">Fuera de servicio</string>
+    <string name="reason_other" formatted="false">Otro</string>
+    <string name="reason_outdated" formatted="false">Número obsoleto</string>
+    <string name="reason_privacy" formatted="false">Problema de privacidad</string>
+    <string name="reason_required" formatted="false">Se requiere una razón</string>
+    <string name="reason_wrongly_identified" formatted="false">Identificado erróneamente</string>
+    <string name="recruiter" formatted="false">Reclutador</string>
+    <string name="redeem_vip_with_marks" formatted="false">Canjear VIP con Marks</string>
+    <string name="redirect" formatted="false">Redirigir</string>
+    <string name="redirect_action_description" formatted="false">Redirija la llamada a un número específico.</string>
+    <string name="refresh" formatted="false">Actualizar</string>
+    <string name="refresh_permission_status" formatted="false">Actualizar el estado del permiso</string>
+    <string name="refresh_proposals" formatted="false">Actualizar Propuestas</string>
+    <string name="refresh_tooltip" formatted="false">Actualizar</string>
+    <string name="regex_error_message" formatted="false">Error de Regex: {error}</string>
+    <string name="regex_pattern" formatted="false">Patrón Regex</string>
+    <string name="regex_pattern_explanation" formatted="false">Explicación del patrón Regex</string>
+    <string name="regex_pattern_explanation_button" formatted="false">Explicación del patrón Regex</string>
+    <string name="regex_pattern_label" formatted="false">Patrón Regex</string>
+    <string name="regex_patterns_for_phone_number_matching" formatted="false">Patrones Regex para la coincidencia de números de teléfono</string>
+    <string name="regex_rule" formatted="false">Regla Regex</string>
+    <string name="regex_rule_add_failed" formatted="false">Error al agregar la regla regex: {error}</string>
+    <string name="regex_rule_add_success" formatted="false">Regla regex agregada correctamente</string>
+    <string name="regex_rule_management" formatted="false">Gestión de reglas Regex</string>
+    <string name="regex_rule_name_pattern_required" formatted="false">El nombre de la regla y el patrón regex no pueden estar vacíos</string>
+    <string name="regex_rules" formatted="false">Reglas Regex</string>
+    <string name="regex_rules_info" formatted="false">Las reglas de expresiones regulares se utilizan para filtrar llamadas basadas en patrones de expresiones regulares.</string>
+    <string name="regex_tester_title" formatted="false">Probador Regex</string>
+    <string name="region" formatted="false">Región</string>
+    <string name="registered_devices_title" formatted="false">Dispositivos Registrados</string>
+    <string name="reject_all_calls" formatted="false">Rechazar todas las llamadas</string>
+    <string name="reject_all_calls_description" formatted="false">Cuando está habilitado, todas las llamadas se rechazarán con la máxima prioridad</string>
+    <string name="reject_all_numbers" formatted="false">Rechazar todas las llamadas entrantes</string>
+    <string name="reject_all_numbers_desc" formatted="false">Rechazar todas las llamadas entrantes con la máxima prioridad</string>
+    <string name="reject_exceeded_numbers" formatted="false">Rechazar números excedidos</string>
+    <string name="reject_exceeded_numbers_description" formatted="false">Rechaza automáticamente los números que exceden el umbral de conteo</string>
+    <string name="rejected" formatted="false">RECHAZADO</string>
+    <string name="remote_filter_settings" formatted="false">Ajustes del filtro remoto</string>
+    <string name="remote_filter_settings_page_title" formatted="false">Ajustes del filtro de números remotos</string>
+    <string name="remote_number_filter" formatted="false">Protección por umbral de consulta en la nube</string>
+    <string name="remote_number_filter_description" formatted="false">Bloquear automáticamente las llamadas que superen el umbral de reportes en la nube</string>
+    <string name="remote_number_filter_subtitle" formatted="false">Identifique llamadas de spam utilizando la base de datos en la nube y los informes de la comunidad</string>
+    <string name="remote_number_filtering" formatted="false">Filtrado de números remotos</string>
+    <string name="remote_number_filtering_explanation" formatted="false">• Filtrado de números remotos: Reglas de filtrado basadas en información de la base de datos remota</string>
+    <string name="remove_ads" formatted="false">Eliminar anuncios</string>
+    <string name="remove_ads_description" formatted="false">Elimina permanentemente todos los anuncios en la aplicación para una experiencia más fluida</string>
+    <string name="remove_ads_title" formatted="false">Eliminar anuncios</string>
+    <string name="remove_from_favorites" formatted="false">Eliminar de favoritos</string>
+    <string name="removed_from_favorites" formatted="false">Eliminado de los contactos favoritos</string>
+    <string name="rename_device_title" formatted="false">Renombrar dispositivo</string>
+    <string name="reporting_guidelines" formatted="false">• Solo informa sobre números que sean genuinamente problemáticos
+• Proporciona razones precisas y detalladas
+• Elige el nivel de riesgo adecuado según la gravedad
+• Los informes falsos pueden dar lugar a restricciones de la cuenta</string>
+    <string name="request_all_permissions" formatted="false">Solicitar todos los permisos</string>
+    <string name="request_permission" formatted="false">Solicitar permiso</string>
+    <string name="request_permission_failed" formatted="false">Error al solicitar el permiso: {error}</string>
+    <string name="required_field" formatted="false">Required</string>
+    <string name="required_init_field" formatted="false">Required for initialization</string>
+    <string name="required_marks" formatted="false">{count} Marcas</string>
+    <string name="reset" formatted="false">Restablecer</string>
+    <string name="response_latency" formatted="false">Response Latency</string>
+    <string name="restore" formatted="false">Restaurar</string>
+    <string name="restore_application_settings_from_backup" formatted="false">Restaurar la configuración de la aplicación desde la copia de seguridad</string>
+    <string name="restore_from_cloud" formatted="false">Restaurar desde la nube</string>
+    <string name="restore_from_cloud_failed" formatted="false">Error al restaurar desde la nube: {error}</string>
+    <string name="restore_from_cloud_success" formatted="false">Restaurado correctamente desde la nube</string>
+    <string name="restore_purchases" formatted="false">Restaurar compras</string>
+    <string name="restore_settings" formatted="false">Restaurar configuración</string>
+    <string name="restore_settings_confirmation" formatted="false">Esto reemplazará toda su configuración actual. ¿Está seguro de que desea continuar?</string>
+    <string name="result" formatted="false">Resultado</string>
+    <string name="retry" formatted="false">Reintentar</string>
+    <string name="rewarded_ad_service" formatted="false">Servicio de Anuncios Recompensados</string>
+    <string name="ridesharing" formatted="false">Viajes compartidos</string>
+    <string name="risk" formatted="false">Riesgo</string>
+    <string name="risk_level" formatted="false">Nivel de riesgo</string>
+    <string name="risk_level_critical" formatted="false">Crítico</string>
+    <string name="risk_level_high" formatted="false">Alto</string>
+    <string name="risk_level_label" formatted="false">Nivel de Riesgo</string>
+    <string name="risk_level_low" formatted="false">Bajo</string>
+    <string name="risk_level_medium" formatted="false">Medio</string>
+    <string name="risk_level_very_low" formatted="false">Muy Bajo</string>
+    <string name="robocall" formatted="false">Llamada automática</string>
+    <string name="rule_action" formatted="false">Acción de regla</string>
+    <string name="rule_action_breakdown" formatted="false">Rule Action Distribution</string>
+    <string name="rule_add_success" formatted="false">Regla agregada con éxito</string>
+    <string name="rule_added_success" formatted="false">Regla agregada con éxito</string>
+    <string name="rule_delete_confirm_content" formatted="false">¿Está seguro de que desea eliminar este {ruleType}?</string>
+    <string name="rule_delete_confirm_title" formatted="false">Eliminar regla</string>
+    <string name="rule_delete_failed" formatted="false">Error al eliminar regla: {error}</string>
+    <string name="rule_delete_success" formatted="false">Regla eliminada con éxito</string>
+    <string name="rule_deleted_successfully" formatted="false">Regla eliminada con éxito</string>
+    <string name="rule_disabled_successfully" formatted="false">Regla deshabilitada con éxito</string>
+    <string name="rule_enabled_successfully" formatted="false">Regla habilitada con éxito</string>
+    <string name="rule_load_failed" formatted="false">Error al cargar reglas: {error}</string>
+    <string name="rule_management" formatted="false">Gestión de reglas</string>
+    <string name="rule_name" formatted="false">Nombre de la regla</string>
+    <string name="rule_name_and_content_regex_cannot_be_empty" formatted="false">El nombre de la regla y la expresión regular del contenido no pueden estar vacíos</string>
+    <string name="rule_name_and_phone_number_cannot_be_empty" formatted="false">El nombre de la regla y el número de teléfono no pueden estar vacíos</string>
+    <string name="rule_name_hint" formatted="false">p. ej., Familia, Amigos, etc.</string>
+    <string name="rule_name_label" formatted="false">Nombre de la regla</string>
+    <string name="rule_name_required" formatted="false">El nombre de la regla y el número de teléfono no pueden estar vacíos</string>
+    <string name="rule_not_exist" formatted="false">La regla no existe o ha sido eliminada</string>
+    <string name="rule_not_found" formatted="false">Regla no encontrada: {error}</string>
+    <string name="rule_saved_success_message" formatted="false">¡Regla guardada exitosamente!</string>
+    <string name="rule_status_changed" formatted="false">Regla {status} exitosamente</string>
+    <string name="rule_store_title" formatted="false">Rule Store</string>
+    <string name="rule_toggle_failed" formatted="false">Operación fallida: {error}</string>
+    <string name="rule_toggle_success" formatted="false">Regla {status} exitosamente</string>
+    <string name="rule_type" formatted="false">Rule Type</string>
+    <string name="rule_update_failed" formatted="false">Error al actualizar la regla: {error}</string>
+    <string name="rule_update_success" formatted="false">Regla actualizada exitosamente</string>
+    <string name="rule_verification" formatted="false">Verificación de reglas</string>
+    <string name="rules_exported_successfully" formatted="false">Reglas exportadas exitosamente</string>
+    <string name="rules_exported_to" formatted="false">Reglas exportadas a: {path}</string>
+    <string name="rules_imported" formatted="false">Reglas importadas exitosamente</string>
+    <string name="rules_imported_successfully" formatted="false">{count} reglas importadas exitosamente</string>
+    <string name="save" formatted="false">Guardar</string>
+    <string name="save_button" formatted="false">Guardar</string>
+    <string name="save_button_text" formatted="false">Guardar</string>
+    <string name="save_failed" formatted="false">Error al guardar: {error}</string>
+    <string name="save_script" formatted="false">Guardar script</string>
+    <string name="save_settings" formatted="false">Guardar ajustes</string>
+    <string name="scam_fraud" formatted="false">Scam &amp; Fraud</string>
+    <string name="scams_likely" formatted="false">Posible fraude</string>
+    <string name="script_saved" formatted="false">Script guardado</string>
+    <string name="scroll_speed" formatted="false">Velocidad de desplazamiento</string>
+    <string name="scrolling_security_message_settings" formatted="false">Configuración de mensajes de seguridad de desplazamiento</string>
+    <string name="search" formatted="false">Buscar</string>
+    <string name="search_by_name_or_phone_number" formatted="false">Buscar por nombre o número de teléfono</string>
+    <string name="search_contact_subscriptions_hint" formatted="false">Buscar suscripciones de contactos</string>
+    <string name="search_contacts" formatted="false">Buscar contactos</string>
+    <string name="search_error" formatted="false">Error de búsqueda: {error}</string>
+    <string name="search_hint" formatted="false">Buscar...</string>
+    <string name="search_labels_hint" formatted="false">Buscar etiquetas</string>
+    <string name="search_marked_phones_hint" formatted="false">Buscar teléfonos marcados</string>
+    <string name="search_phone_rules_hint" formatted="false">Buscar reglas de teléfono</string>
+    <string name="search_plugins_hint" formatted="false">Buscar complementos</string>
+    <string name="search_proposals" formatted="false">Buscar Propuestas</string>
+    <string name="search_regex_rules_hint" formatted="false">Buscar reglas de expresiones regulares</string>
+    <string name="search_subscriptions_hint" formatted="false">Buscar suscripciones</string>
+    <string name="secondary_permission_help" formatted="false">Requires sync and notification permissions only.</string>
+    <string name="secondary_role_description" formatted="false">Acts as a secondary node, receiving rules and reporting state.</string>
+    <string name="secondary_role_title" formatted="false">Secondary</string>
+    <string name="security_message" formatted="false">No confíe en ninguna llamada telefónica. Siempre verifique los números de atención al cliente de forma independiente. Nunca comparta contraseñas, códigos de verificación, números de tarjeta o información personal.</string>
+    <string name="select_action" formatted="false">Selecciona la acción</string>
+    <string name="select_action_when_blocking_calls" formatted="false">Seleccione la acción al bloquear llamadas</string>
+    <string name="select_action_when_rule_matches" formatted="false">Seleccione la acción cuando la regla coincida</string>
+    <string name="select_all" formatted="false">Seleccionar todo</string>
+    <string name="select_country" formatted="false">Seleccionar país</string>
+    <string name="select_export_format" formatted="false">Seleccionar formato de exportación</string>
+    <string name="select_label" formatted="false">Seleccionar etiqueta</string>
+    <string name="select_label_and_enter_phone_number" formatted="false">Por favor, seleccione una etiqueta e introduzca un número de teléfono válido</string>
+    <string name="select_language" formatted="false">Seleccionar idioma</string>
+    <string name="select_multiple" formatted="false">Seleccionar múltiple</string>
+    <string name="select_sim_card" formatted="false">Seleccionar tarjeta SIM</string>
+    <string name="select_tags" formatted="false">Seleccionar etiquetas</string>
+    <string name="select_target_service" formatted="false">Selecciona el servicio objetivo</string>
+    <string name="select_trusted_data_source" formatted="false">Por favor, seleccione fuentes de datos confiables</string>
+    <string name="select_your_language" formatted="false">Seleccione su idioma</string>
+    <string name="selected_items" formatted="false">{count} elementos seleccionados</string>
+    <string name="selected_label" formatted="false">Seleccionado:</string>
+    <string name="sender" formatted="false">Remitente</string>
+    <string name="sender_regex_optional" formatted="false">Regex del remitente (opcional)</string>
+    <string name="separate_sims" formatted="false">SIMs Separadas</string>
+    <string name="separate_sims_desc" formatted="false">Habilitar reglas de filtrado independientes para cada tarjeta SIM</string>
+    <string name="server_address_label" formatted="false">Dirección del servidor</string>
+    <string name="service_type_contact" formatted="false">Suscripción de contacto</string>
+    <string name="service_type_label" formatted="false">Tipo de servicio</string>
+    <string name="service_type_phone" formatted="false">Suscripción telefónica</string>
+    <string name="service_type_plugin" formatted="false">Actualización de plugin</string>
+    <string name="service_type_sms" formatted="false">Suscripción SMS</string>
+    <string name="service_update_failure" formatted="false">{error}</string>
+    <string name="set_delay_time" formatted="false">Establecer Tiempo de Retraso</string>
+    <string name="set_encryption_password" formatted="false">Establecer contraseña de cifrado</string>
+    <string name="settings" formatted="false">Ajustes</string>
+    <string name="settings_backed_up_to" formatted="false">Copia de seguridad de la configuración en: {path}</string>
+    <string name="settings_backup" formatted="false">Copia de seguridad de la configuración</string>
+    <string name="settings_restored_successfully" formatted="false">Configuración restaurada correctamente. Por favor, reinicie la aplicación para que los cambios surtan efecto.</string>
+    <string name="settings_save_failed" formatted="false">Error al guardar la configuración: {error}</string>
+    <string name="settings_saved" formatted="false">Ajustes guardados</string>
+    <string name="settings_tab" formatted="false">Ajustes</string>
+    <string name="settings_title" formatted="false">Ajustes</string>
+    <string name="setup" formatted="false">Configuración</string>
+    <string name="show_all_contacts" formatted="false">Mostrar todos los contactos</string>
+    <string name="show_favorites" formatted="false">Mostrar favoritos</string>
+    <string name="silence" formatted="false">Silencio</string>
+    <string name="silence_action_description" formatted="false">Las llamadas se silenciarán, pero se mostrarán en el registro de llamadas.</string>
+    <string name="silence_and_no_answer" formatted="false">Silenciar tono</string>
+    <string name="silence_no_answer" formatted="false">Silenciar sin contestar</string>
+    <string name="silent_call_voice_clone" formatted="false">Clon de voz de llamada silenciosa</string>
+    <string name="silent_rules" formatted="false">Reglas silenciosas</string>
+    <string name="sim_card" formatted="false">Tarjeta SIM {simNumber}</string>
+    <string name="sim_card_color" formatted="false">Color de la tarjeta SIM</string>
+    <string name="sim_card_configuration_explanation" formatted="false">• Configuración de la tarjeta SIM: establezca reglas de filtrado independientes para cada tarjeta SIM</string>
+    <string name="sim_card_filter_rules" formatted="false">Reglas de filtrado de la tarjeta SIM</string>
+    <string name="sim_card_filter_rules_description" formatted="false">Establezca diferentes reglas de filtrado basadas en las ranuras de la tarjeta SIM</string>
+    <string name="sim_card_font_size" formatted="false">Tamaño de fuente de la tarjeta SIM</string>
+    <string name="sim_card_position" formatted="false">Posición de la tarjeta SIM</string>
+    <string name="sim_card_title" formatted="false">Tarjeta SIM</string>
+    <string name="sim_country" formatted="false">País de la SIM</string>
+    <string name="sim_info" formatted="false">SIM {slotNumber} - {countryIso}</string>
+    <string name="sim_rule_instructions" formatted="false">Las reglas de ranura SIM le permiten configurar reglas de filtrado independientes para cada ranura SIM.</string>
+    <string name="sim_rule_instructions_title" formatted="false">Reglas de ranura SIM</string>
+    <string name="sim_rules_not_found" formatted="false">Reglas de la SIM no encontradas</string>
+    <string name="sim_slot" formatted="false">Ranura SIM</string>
+    <string name="sim_slot1" formatted="false">SIM 1,-{countryIso}</string>
+    <string name="sim_slot2" formatted="false">SIM 2,-{countryIso}</string>
+    <string name="sim_slot_filter_description" formatted="false">Configure reglas de filtrado independientes para cada tarjeta SIM:</string>
+    <string name="sim_slot_filter_settings_title" formatted="false">Configuración de filtro de ranura SIM {slotNumber}</string>
+    <string name="sim_slot_management" formatted="false">Gestión de ranuras SIM</string>
+    <string name="sim_slot_position" formatted="false">Posición de la ranura SIM {slotNumber}</string>
+    <string name="sim_slot_rule_feature" formatted="false">• Reglas de ranura SIM: Estrategias de filtrado independientes por SIM</string>
+    <string name="sim_slot_rule_list_title" formatted="false">Lista de reglas de ranura SIM</string>
+    <string name="sim_slot_rule_management" formatted="false">Reglas de ranura SIM</string>
+    <string name="sim_slot_rules" formatted="false">Reglas de la Ranura SIM</string>
+    <string name="sim_slot_title" formatted="false">Ranura SIM {slotNumber}</string>
+    <string name="sim_state" formatted="false">Estado de la SIM</string>
+    <string name="skip" formatted="false">Omitir</string>
+    <string name="slave_permission_help" formatted="false">Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.</string>
+    <string name="slave_role_description" formatted="false">Inherits cloud keys from Primary device without repeating initial setup.</string>
+    <string name="slave_role_title" formatted="false">Secondary Device</string>
+    <string name="smart_caller_id" formatted="false">Identificación inteligente de llamadas</string>
+    <string name="sms" formatted="false">SMS</string>
+    <string name="sms_filter_description" formatted="false">El filtrado de SMS le ayuda a filtrar automáticamente los mensajes de spam y a mantener limpia su lista de mensajes. Puede establecer reglas de filtro y métodos de notificación.</string>
+    <string name="sms_filter_disabled" formatted="false">Filtrado de SMS desactivado</string>
+    <string name="sms_filter_enabled" formatted="false">Filtrado de SMS activado</string>
+    <string name="sms_filter_rule_added_successfully" formatted="false">Regla de filtro de SMS añadida correctamente</string>
+    <string name="sms_filter_rules" formatted="false">Reglas de filtro de SMS</string>
+    <string name="sms_filter_settings" formatted="false">Configuración de filtro de SMS</string>
+    <string name="sms_management" formatted="false">Gestión de SMS</string>
+    <string name="sms_permission" formatted="false">Permiso de SMS</string>
+    <string name="sms_permission_description" formatted="false">Se utiliza para filtrar mensajes de spam.</string>
+    <string name="sms_rule_added_successfully" formatted="false">Regla de SMS añadida correctamente</string>
+    <string name="sms_rule_deleted_successfully" formatted="false">Regla de SMS eliminada correctamente</string>
+    <string name="sms_rule_load_failed" formatted="false">Error al cargar las reglas de SMS: {error}</string>
+    <string name="sms_rule_management" formatted="false">Gestión de reglas de SMS</string>
+    <string name="sms_rule_subscription" formatted="false">Suscripción a reglas de SMS</string>
+    <string name="sms_subscription" formatted="false">Suscripción a SMS</string>
+    <string name="sms_subscription_added_successfully" formatted="false">Suscripción a SMS añadida correctamente</string>
+    <string name="sms_subscription_rules_description" formatted="false">Suscríbase a listas de reglas de SMS a través de URL, admitiendo la coincidencia de expresiones regulares. Puede establecer acciones de bloqueo o permiso.</string>
+    <string name="sms_tab" formatted="false">SMS</string>
+    <string name="some_permissions_denied" formatted="false">Algunas solicitudes de permiso fueron denegadas</string>
+    <string name="sort_by" formatted="false">Ordenar Por</string>
+    <string name="sort_least_popular" formatted="false">Ordenar Menos Popular</string>
+    <string name="sort_most_popular" formatted="false">Ordenar Más Popular</string>
+    <string name="sort_newest" formatted="false">Ordenar Más Reciente</string>
+    <string name="sort_oldest" formatted="false">Ordenar Más Antiguo</string>
+    <string name="spam_likely" formatted="false">Probablemente spam</string>
+    <string name="start_color" formatted="false">Color de inicio</string>
+    <string name="start_date" formatted="false">Fecha de inicio</string>
+    <string name="start_using" formatted="false">Empezar</string>
+    <string name="stat_answered" formatted="false">Respondidas</string>
+    <string name="stat_blocked" formatted="false">Bloqueadas</string>
+    <string name="statistics" formatted="false">Estadísticas</string>
+    <string name="statistics_page_title" formatted="false">Análisis de datos</string>
+    <string name="status_connected" formatted="false">Connected / Configured</string>
+    <string name="status_label" formatted="false">Status</string>
+    <string name="status_not_configured" formatted="false">Not Configured</string>
+    <string name="stir_color" formatted="false">Color STIR</string>
+    <string name="stir_failed" formatted="false">Verificación fallida</string>
+    <string name="stir_font_size" formatted="false">Tamaño de fuente STIR</string>
+    <string name="stir_not_verified" formatted="false">STIR Not Pass</string>
+    <string name="stir_position" formatted="false">Posición STIR</string>
+    <string name="stir_unknown" formatted="false">Estado de verificación desconocido</string>
+    <string name="stir_verification" formatted="false">Verificación STIR/SHAKEN</string>
+    <string name="stir_verification_body" formatted="false">{stirResultMessage} para el número {phoneNumber}</string>
+    <string name="stir_verification_description" formatted="false">Muestra los resultados de la verificación STIR/SHAKEN para los números.</string>
+    <string name="stir_verification_title" formatted="false">Verificación STIR/SHAKEN</string>
+    <string name="stir_verified" formatted="false">STIR Pass</string>
+    <string name="storage_permission" formatted="false">Permiso de almacenamiento</string>
+    <string name="storage_permission_description" formatted="false">Se utiliza para guardar la configuración y las reglas.</string>
+    <string name="submit" formatted="false">Enviar</string>
+    <string name="subscribe" formatted="false">Suscribirse</string>
+    <string name="subscription_add_success" formatted="false">Suscripción &quot;{name}&quot; añadida correctamente</string>
+    <string name="subscription_delete_confirm_content" formatted="false">¿Estás seguro de que quieres eliminar esta suscripción?</string>
+    <string name="subscription_delete_confirm_title" formatted="false">Eliminar suscripción</string>
+    <string name="subscription_delete_failed" formatted="false">Error al eliminar la suscripción: {error}</string>
+    <string name="subscription_delete_success" formatted="false">Suscripción eliminada</string>
+    <string name="subscription_deleted" formatted="false">Suscripción eliminada</string>
+    <string name="subscription_load_failed" formatted="false">Error al cargar las suscripciones: {error}</string>
+    <string name="subscription_name" formatted="false">Nombre de la suscripción</string>
+    <string name="subscription_name_and_url_cannot_be_empty" formatted="false">El nombre y la URL de la suscripción no pueden estar vacíos</string>
+    <string name="subscription_name_hint" formatted="false">Introduce el nombre de la suscripción</string>
+    <string name="subscription_status_change_failed" formatted="false">Error al cambiar el estado de la suscripción: {error}</string>
+    <string name="subscription_update_failed" formatted="false">Error al actualizar la suscripción: {error}</string>
+    <string name="subscription_update_success" formatted="false">Suscripción actualizada correctamente</string>
+    <string name="subscription_url" formatted="false">URL de la suscripción</string>
+    <string name="subscription_url_hint" formatted="false">Introduce la URL de la suscripción</string>
+    <string name="successfully_imported_rules" formatted="false">Se importaron {count} reglas correctamente</string>
+    <string name="supabase_anon_key" formatted="false">Anon Key</string>
+    <string name="supabase_anon_key_hint" formatted="false">API Key, anon public key</string>
+    <string name="supabase_project_url" formatted="false">Supabase Project URL</string>
+    <string name="support" formatted="false">Soporte</string>
+    <string name="support_count" formatted="false">Apoyo ({supportCount})</string>
+    <string name="support_sync" formatted="false">Sincronización de soporte</string>
+    <string name="supported" formatted="false">APOYADO</string>
+    <string name="survey" formatted="false">Encuesta</string>
+    <string name="sync_call_history" formatted="false">Sync Call History</string>
+    <string name="sync_call_history_subtitle" formatted="false">Include private call logs in sync</string>
+    <string name="sync_devices_button" formatted="false">Sincronizar dispositivos</string>
+    <string name="sync_failed" formatted="false">Error de sincronización</string>
+    <string name="sync_failed_message" formatted="false">Error de sincronización</string>
+    <string name="sync_folder_name_label" formatted="false">Nombre de la carpeta de sincronización</string>
+    <string name="sync_interval_label" formatted="false">Auto-sync Interval</string>
+    <string name="sync_interval_value" formatted="false">Every {hours} hours</string>
+    <string name="sync_now" formatted="false">Sincronizar ahora</string>
+    <string name="sync_now_button" formatted="false">Sincronizar ahora</string>
+    <string name="sync_status_title" formatted="false">Estado de sincronización</string>
+    <string name="sync_status_updated_message" formatted="false">Estado de sincronización actualizado</string>
+    <string name="sync_success" formatted="false">Sync Complete. Sent: {pushed}, Received: {pulled}</string>
+    <string name="sync_success_message" formatted="false">Sincronización exitosa</string>
+    <string name="sync_with_cloud_storage" formatted="false">Sincronizar con el almacenamiento en la nube</string>
+    <string name="synced" formatted="false">Sincronizado</string>
+    <string name="synchronized" formatted="false">Sincronizado</string>
+    <string name="syncing" formatted="false">Sincronizando...</string>
+    <string name="system_features" formatted="false">Características del sistema:</string>
+    <string name="system_settings_title" formatted="false">Configuración del sistema</string>
+    <string name="tab_all" formatted="false">Todos</string>
+    <string name="tab_answered" formatted="false">Contestadas</string>
+    <string name="tab_blocked" formatted="false">Bloqueadas</string>
+    <string name="tab_missed" formatted="false">Perdidas</string>
+    <string name="tab_outgoing" formatted="false">Salientes</string>
+    <string name="tag_label" formatted="false">Etiqueta: {tag}</string>
+    <string name="takeaway" formatted="false">Comida para llevar</string>
+    <string name="telecommunication" formatted="false">Telecomunicación</string>
+    <string name="telegram" formatted="false">Telegram</string>
+    <string name="telemarketing" formatted="false">Telemarketing</string>
+    <string name="temp_purchase_expired" formatted="false">El privilegio de compra temporal ha caducado</string>
+    <string name="temporary_vip" formatted="false">VIP temporal</string>
+    <string name="test_button" formatted="false">PRUEBA</string>
+    <string name="test_connection_button" formatted="false">Probar conexión</string>
+    <string name="test_plugin" formatted="false">Probar complemento</string>
+    <string name="text_colors_setting" formatted="false">Colores de texto y etiqueta</string>
+    <string name="theme_dark" formatted="false">Dark</string>
+    <string name="theme_light" formatted="false">Light</string>
+    <string name="theme_settings_subtitle" formatted="false">Elige tu tema favorito</string>
+    <string name="theme_settings_title" formatted="false">Configuración del tema</string>
+    <string name="theme_system" formatted="false">System</string>
+    <string name="this_app_is_a_powerful_caller_id_tool_that_allows" formatted="false">Esta aplicación es una poderosa herramienta de identificación de llamadas que te permite identificar y bloquear llamadas no deseadas.</string>
+    <string name="this_week" formatted="false">Esta semana</string>
+    <string name="time_interceptor" formatted="false">Protección contra llamadas frecuentes</string>
+    <string name="time_interceptor_description" formatted="false">Bloquear llamadas repetidas del mismo número en poco tiempo</string>
+    <string name="time_interceptor_explanation" formatted="false">• Interceptor de tiempo: Intercepta/permite llamadas repetidas en un corto tiempo</string>
+    <string name="time_interceptor_explanation_content" formatted="false">La función de intercepción de frecuencia de llamadas analiza la frecuencia de las llamadas para identificar e interceptar/permitir automáticamente las llamadas de spam frecuentes.</string>
+    <string name="time_interceptor_explanation_title" formatted="false">Explicación de la intercepción de frecuencia de llamadas</string>
+    <string name="time_interceptor_settings_title" formatted="false">Configuración de la intercepción de frecuencia de llamadas</string>
+    <string name="time_window_description" formatted="false">Establece el tamaño de la ventana de tiempo para permitir llamadas repetidas. Se permitirán las llamadas del mismo número dentro de esta ventana</string>
+    <string name="time_window_label" formatted="false">Ventana de tiempo de intercepción (minutos): {minutes}</string>
+    <string name="timeline_view" formatted="false">Vista de Cronología</string>
+    <string name="times_unit" formatted="false">times</string>
+    <string name="today" formatted="false">Hoy</string>
+    <string name="top_triggered_rules" formatted="false">Top Triggered Rules</string>
+    <string name="total" formatted="false">Total</string>
+    <string name="total_blocked" formatted="false">Total bloqueadas</string>
+    <string name="total_pending_proposals" formatted="false">Total de Propuestas Pendientes</string>
+    <string name="total_proposals" formatted="false">Propuestas totales</string>
+    <string name="total_votes" formatted="false">Total: {count}</string>
+    <string name="transfer_data_between_devices_or_platforms" formatted="false">Transferir datos entre dispositivos o plataformas</string>
+    <string name="travel_ticketing" formatted="false">Venta de billetes de viaje</string>
+    <string name="tutorial" formatted="false">Tutorial</string>
+    <string name="type" formatted="false">Tipo</string>
+    <string name="unassigned_s_i_m_card" formatted="false">Tarjeta SIM no asignada</string>
+    <string name="unblock" formatted="false">Desbloquear</string>
+    <string name="unblock_number" formatted="false">Desbloquear Número</string>
+    <string name="unblock_number_confirmation" formatted="false">¿Estás seguro de que quieres desbloquear a {phoneNumber}?</string>
+    <string name="unblock_number_failed" formatted="false">Error al desbloquear el número</string>
+    <string name="unblock_number_success" formatted="false">Número desbloqueado con éxito</string>
+    <string name="unblocked" formatted="false">Desbloqueado</string>
+    <string name="unknown" formatted="false">Desconocido</string>
+    <string name="unknown_tag" formatted="false">Etiqueta: Desconocida</string>
+    <string name="unregister_button" formatted="false">Anular registro</string>
+    <string name="unregister_device_confirmation_message" formatted="false">¿Está seguro de que desea anular el registro de {deviceName}?</string>
+    <string name="unregister_device_title" formatted="false">Anular registro del dispositivo</string>
+    <string name="unsupported_file_format" formatted="false">Formato de archivo no compatible</string>
+    <string name="update" formatted="false">Actualizar</string>
+    <string name="update_all_now" formatted="false">Actualizar todo ahora</string>
+    <string name="update_contact_failed" formatted="false">Error al actualizar el contacto: {error}</string>
+    <string name="update_favorite_status" formatted="false">Actualizar estado de favorito</string>
+    <string name="update_interval" formatted="false">Intervalo de actualización</string>
+    <string name="update_now" formatted="false">Actualizar ahora</string>
+    <string name="update_plugin" formatted="false">Actualizar plugin</string>
+    <string name="update_plugin_failed" formatted="false">Error al actualizar el plugin: {error}</string>
+    <string name="update_rule_failed" formatted="false">Error al actualizar la regla: {error}</string>
+    <string name="update_subscription_failed" formatted="false">Error al actualizar la suscripción: {error}</string>
+    <string name="update_success" formatted="false">{service} actualizado correctamente ({count} reglas)</string>
+    <string name="upgrade_to_vip" formatted="false">Actualizar a VIP</string>
+    <string name="use_cases_point1" formatted="false">• Identificar llamadas spam de rellamada automática</string>
+    <string name="use_cases_point2" formatted="false">• Interceptar llamadas de marketing que llaman varias veces en un corto período</string>
+    <string name="use_cases_point3" formatted="false">• Prevenir el bombardeo telefónico y el acoso</string>
+    <string name="use_cases_title" formatted="false">Casos de uso:</string>
+    <string name="use_global_settings" formatted="false">Usar configuración global</string>
+    <string name="use_local_notification" formatted="false">Usar notificaciones locales</string>
+    <string name="use_local_notification_description" formatted="false">Habilitar las notificaciones locales para las llamadas entrantes</string>
+    <string name="use_standard_regex_syntax_to_define_patterns_examples" formatted="false">Utilice la sintaxis de expresiones regulares estándar para definir patrones. Ejemplos:</string>
+    <string name="use_stir_notification" formatted="false">Usar la notificación de STIR</string>
+    <string name="user_database_sync_subtitle" formatted="false">Manage local Drift, Cloudflare D1 &amp; Supabase node sync</string>
+    <string name="user_database_sync_title" formatted="false">User Database &amp; Supabase Sync</string>
+    <string name="user_guide_subtitle" formatted="false">Review all feature cards and interactive configurations anytime</string>
+    <string name="user_guide_title" formatted="false">User Guide &amp; Manual</string>
+    <string name="username_label" formatted="false">Nombre de usuario</string>
+    <string name="verification_failed_text" formatted="false">Fallido</string>
+    <string name="verification_report" formatted="false">Informe de Verificación</string>
+    <string name="verified_text" formatted="false">Verificado</string>
+    <string name="verify" formatted="false">Verificar</string>
+    <string name="version" formatted="false">Versión: {version}</string>
+    <string name="very_high" formatted="false">Muy Alto</string>
+    <string name="very_low" formatted="false">Muy Bajo</string>
+    <string name="view_details" formatted="false">Ver Detalles</string>
+    <string name="vip3_days_with_ads" formatted="false">VIP de 3 días con anuncios (solo sincronización)</string>
+    <string name="vip5_days_no_ads" formatted="false">VIP de 5 días con todas las funciones y sin publicidad</string>
+    <string name="vip7_days_no_ads" formatted="false">VIP de 7 días con todas las funciones y sin publicidad</string>
+    <string name="vip_access_subtitle" formatted="false">Watch ads for free or purchase VIP</string>
+    <string name="vip_exchange_description" formatted="false">Intercambiar membresía VIP con conteos de marcado de números de teléfono</string>
+    <string name="vip_exchange_service" formatted="false">Servicio de Intercambio VIP</string>
+    <string name="vip_exchange_title" formatted="false">Marcar intercambio VIP</string>
+    <string name="vip_privilege_progress" formatted="false">VIP Privilege Progress</string>
+    <string name="vip_user" formatted="false">Usuario VIP</string>
+    <string name="voice_clone_scam" formatted="false">Voice Clone Scam</string>
+    <string name="voice_recognition" formatted="false">Reconocimiento de voz</string>
+    <string name="vote_agree" formatted="false">A favor</string>
+    <string name="vote_count" formatted="false">Conteo de Votos</string>
+    <string name="vote_disagree" formatted="false">En contra</string>
+    <string name="vote_submitted" formatted="false">Voto enviado con éxito</string>
+    <string name="voted" formatted="false">Votado</string>
+    <string name="votes_with_percentage" formatted="false">{totalVotes} votos ({supportPercentage}% de apoyo)</string>
+    <string name="voting_completed" formatted="false">Votación Completada</string>
+    <string name="voting_completed_body" formatted="false">La votación comunitaria para {phoneNumber} ha finalizado. Resultado: {result} ({supportPercentage}% de apoyo).</string>
+    <string name="waiting_for_more_votes" formatted="false">Esperando más votos de la comunidad</string>
+    <string name="watch_ad" formatted="false">Ver anuncio</string>
+    <string name="watch_ad_for_temp" formatted="false">Ver anuncio para privilegios temporales</string>
+    <string name="watch_ad_for_temp_description" formatted="false">Mira un anuncio corto para desbloquear temporalmente algunas funciones premium</string>
+    <string name="watch_more_ads_for_temp_vip" formatted="false">Necesitas ver {count} anuncios más para obtener privilegios VIP temporales</string>
+    <string name="web_d_a_v_config_title" formatted="false">Configuración WebDAV</string>
+    <string name="week" formatted="false">Semana</string>
+    <string name="welcome" formatted="false">Bienvenido</string>
+    <string name="whitelist" formatted="false">Lista blanca</string>
+    <string name="width" formatted="false">Ancho</string>
+    <string name="wildcard_matching_description" formatted="false">Use \'.\' para que coincida con cualquier carácter (p. ej., \'123.456\' coincide con 123-456)</string>
+    <string name="wildcard_matching_title" formatted="false">Coincidencia de comodines:</string>
+    <string name="wildcard_support_for_flexible_filtering" formatted="false">Soporte de comodines para filtrado flexible</string>
+    <string name="window_size_setting" formatted="false">Tamaño de la ventana</string>
+    <string name="year" formatted="false">Año</string>
+    <string name="yesterday" formatted="false">Ayer</string>
 </resources>

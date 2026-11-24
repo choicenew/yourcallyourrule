@@ -164,7 +164,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                     )
                     Spacer(modifier = GlanceModifier.width(6.dp))
                     Text(
-                        text = localizedContext.getString(R.string.widget_blocked_today),
+                        text = localizedContext.getString(R.string.total_blocked),
                         style = TextStyle(
                             fontSize = (12f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
@@ -180,7 +180,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                         .padding(horizontal = 8.dp, vertical = 4.dp)
                 ) {
                     Text(
-                        text = "$blockedCallsCount ${localizedContext.getString(R.string.widget_times_unit)}",
+                        text = "$blockedCallsCount ${localizedContext.getString(R.string.times_unit)}",
                         style = TextStyle(
                             fontSize = (10f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
@@ -201,7 +201,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                     )
                     Spacer(modifier = GlanceModifier.width(6.dp))
                     Text(
-                        text = localizedContext.getString(R.string.widget_dashboard_overview_title),
+                        text = localizedContext.getString(R.string.overview),
                         style = TextStyle(
                             fontSize = (14f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
@@ -216,7 +216,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                             .padding(horizontal = 10.dp, vertical = 4.dp)
                     ) {
                         Text(
-                            text = if (protectionStatus == "active") "● ${localizedContext.getString(R.string.widget_status_active)}" else "🛡️ ${localizedContext.getString(R.string.widget_smart_mode)}",
+                            text = if (protectionStatus == "active") "● ${localizedContext.getString(R.string.active_proposals)}" else "🛡️ ${localizedContext.getString(R.string.smart_caller_id)}",
                             style = TextStyle(
                                 fontSize = (10f * fontScale).sp,
                                 fontWeight = FontWeight.Bold,
@@ -238,7 +238,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                             .padding(10.dp)
                     ) {
                         Text(
-                            text = localizedContext.getString(R.string.widget_blocked_today),
+                            text = localizedContext.getString(R.string.total_blocked),
                             style = TextStyle(
                                 fontSize = (10f * fontScale).sp,
                                 color = ColorProvider(secondaryTextColor)
@@ -256,7 +256,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                             )
                             Spacer(modifier = GlanceModifier.width(3.dp))
                             Text(
-                                text = localizedContext.getString(R.string.widget_times_unit),
+                                text = localizedContext.getString(R.string.times_unit),
                                 style = TextStyle(
                                     fontSize = (10f * fontScale).sp,
                                     color = ColorProvider(secondaryTextColor)
@@ -275,7 +275,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                             .padding(10.dp)
                     ) {
                         Text(
-                            text = localizedContext.getString(R.string.widget_passed_today),
+                            text = localizedContext.getString(R.string.unblocked),
                             style = TextStyle(
                                 fontSize = (10f * fontScale).sp,
                                 color = ColorProvider(secondaryTextColor)
@@ -293,7 +293,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                             )
                             Spacer(modifier = GlanceModifier.width(3.dp))
                             Text(
-                                text = localizedContext.getString(R.string.widget_times_unit),
+                                text = localizedContext.getString(R.string.times_unit),
                                 style = TextStyle(
                                     fontSize = (10f * fontScale).sp,
                                     color = ColorProvider(secondaryTextColor)
@@ -344,7 +344,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "📜 ${localizedContext.getString(R.string.widget_view_logs)}",
+                        text = "📜 ${localizedContext.getString(R.string.clear_all_call_logs)}",
                         style = TextStyle(
                             fontSize = (11.5f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
