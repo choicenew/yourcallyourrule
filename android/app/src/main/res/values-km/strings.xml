@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">How It Works:</string>
     <string name="icon_code_optional" formatted="false">Icon Code (Optional)</string>
     <string name="icon_size" formatted="false">Icon Size</string>
-    <string name="import" formatted="false">Import</string>
+    <string name="import_action" formatted="false">Import</string>
     <string name="import_config" formatted="false">Import Configuration</string>
     <string name="import_contacts" formatted="false">Import Contacts</string>
     <string name="import_entity" formatted="false">នាំចូល {entityTypeName}</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">ធ្វើសមកាលកម្មបានជោគជ័យ</string>
     <string name="sync_with_cloud_storage" formatted="false">ធ្វើសមកាលកម្មជាមួយ Cloud Storage</string>
     <string name="synced" formatted="false">ធ្វើសមកាលកម្មហើយ</string>
-    <string name="synchronized" formatted="false">បាន​ធ្វើ​សមកាលកម្ម</string>
+    <string name="synchronized_action" formatted="false">បាន​ធ្វើ​សមកាលកម្ម</string>
     <string name="syncing" formatted="false">កំពុង​ធ្វើ​សមកាលកម្ម...</string>
     <string name="system_features" formatted="false">លក្ខណៈពិសេសប្រព័ន្ធ៖</string>
     <string name="system_settings_title" formatted="false">ការកំណត់ប្រព័ន្ធ</string>

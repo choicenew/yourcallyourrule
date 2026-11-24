@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">Cómo funciona:</string>
     <string name="icon_code_optional" formatted="false">Código de icono (opcional)</string>
     <string name="icon_size" formatted="false">Tamaño del icono</string>
-    <string name="import" formatted="false">Importar</string>
+    <string name="import_action" formatted="false">Importar</string>
     <string name="import_config" formatted="false">Importar configuración</string>
     <string name="import_contacts" formatted="false">Importar contactos</string>
     <string name="import_entity" formatted="false">Importar {entityTypeName}</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">Sincronización exitosa</string>
     <string name="sync_with_cloud_storage" formatted="false">Sincronizar con el almacenamiento en la nube</string>
     <string name="synced" formatted="false">Sincronizado</string>
-    <string name="synchronized" formatted="false">Sincronizado</string>
+    <string name="synchronized_action" formatted="false">Sincronizado</string>
     <string name="syncing" formatted="false">Sincronizando...</string>
     <string name="system_features" formatted="false">Características del sistema:</string>
     <string name="system_settings_title" formatted="false">Configuración del sistema</string>

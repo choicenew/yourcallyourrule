@@ -1,6 +1,18 @@
 import 'dart:convert';
 import 'dart:io';
 
+/// Java / Android 资源保留关键字集合 (Reserved Keywords)
+/// 任何属于 Java 关键字或内部保留命名的属性，均不能作为 Android 资源名称 (R.string.<name>)
+const Set<String> _reservedJavaKeywords = {
+  'abstract', 'assert', 'boolean', 'break', 'byte', 'case', 'catch', 'char',
+  'class', 'const', 'continue', 'default', 'do', 'double', 'else', 'enum',
+  'extends', 'final', 'finally', 'float', 'for', 'goto', 'if', 'implements',
+  'import', 'instanceof', 'int', 'interface', 'long', 'native', 'new', 'package',
+  'private', 'protected', 'public', 'return', 'short', 'static', 'strictfp',
+  'super', 'switch', 'synchronized', 'this', 'throw', 'throws', 'transient',
+  'try', 'void', 'volatile', 'while', 'true', 'false', 'null'
+};
+
 /// 统一跨平台国际化同步引擎
 /// 负责从单一事实来源 (Single Source of Truth: lib/l10n/app_*.arb)
 /// 自动生成并同步到 Android 原生 res/values-*/strings.xml
@@ -102,7 +114,13 @@ void _syncAndroidStrings(
 
     // 100% 数据驱动：由 ARB 资产文件全量导出 Android strings.xml
     for (final key in sortedKeys) {
-      final xmlKey = _camelToSnake(key);
+      var xmlKey = _camelToSnake(key);
+
+      // 避免 Java 保留字导致 AAPT 编译报错（例如 import -> r_import / import_action）
+      if (_reservedJavaKeywords.contains(xmlKey)) {
+        xmlKey = '${xmlKey}_action';
+      }
+
       final val = strings[key] ?? fallbackStrings[key] ?? '';
       writeXmlItem(xmlKey, val);
 
@@ -130,9 +148,15 @@ String _getAndroidFolderName(String locale) {
 
 String _escapeXml(String input) {
   var clean = input;
+  // 1. 消除 XML 1.0 非法控制字符 (如 \u0000 - \u0008, \u000B, \u000C, \u000E - \u001F)
+  clean = clean.replaceAll(RegExp(r'[\x00-\x08\x0B\x0C\x0E-\x1F]'), '');
+
+  // 2. 消除任何可能存在的多重反斜杠
   while (clean.contains(r"\'") || clean.contains(r'\"') || clean.contains(r'\\')) {
     clean = clean.replaceAll(r"\'", "'").replaceAll(r'\"', '"').replaceAll(r'\\', r'\');
   }
+
+  // 3. 遵照 AAPT 规范转义
   return clean
       .replaceAll('&', '&amp;')
       .replaceAll('<', '&lt;')

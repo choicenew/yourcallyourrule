@@ -2187,12 +2187,12 @@
   "@processed": {
     "description": "A label for the processed status."
   },
-  "filterAndSortTitle": "Chu\u0002\u0003\u0007\u0006a na Panga",
-  "filterVerifiedOwner": "Chu\u0002\u0003\u0007\u0006a Mmiliki Aliye\u0002\u0003\u0007\u0006afutwa",
+  "filterAndSortTitle": "Chuja na Panga",
+  "filterVerifiedOwner": "Chuja Mmiliki Aliyechaguliwa",
   "@filterVerifiedOwner": {
     "description": "A checkbox to toggle whether to filter verified owners."
   },
-  "filterBy": "Chu\u0002\u0003\u0007\u0006a Kwa",
+  "filterBy": "Chuja Kwa",
   "@filterBy": {
     "description": "A label for the filter by dropdown."
   },

@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">Indlela Esebenza Ngayo:</string>
     <string name="icon_code_optional" formatted="false">Ikhowudi Ye-icon (Oyakhetha)</string>
     <string name="icon_size" formatted="false">Ubungakanani Be-icon</string>
-    <string name="import" formatted="false">Ngenisa</string>
+    <string name="import_action" formatted="false">Ngenisa</string>
     <string name="import_config" formatted="false">Ngenisa Ulungiselelo</string>
     <string name="import_contacts" formatted="false">Ngenisa Abafowunelwa</string>
     <string name="import_entity" formatted="false">Ngenisa {entityTypeName}</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">Uvumelaniso luphumelele</string>
     <string name="sync_with_cloud_storage" formatted="false">Vumelanisa noGcino lweLifu</string>
     <string name="synced" formatted="false">Ingqamaniswe</string>
-    <string name="synchronized" formatted="false">Kuvumelanisiwe</string>
+    <string name="synchronized_action" formatted="false">Kuvumelanisiwe</string>
     <string name="syncing" formatted="false">Kuvumelanisa...</string>
     <string name="system_features" formatted="false">Iimpawu zeNkqubo:</string>
     <string name="system_settings_title" formatted="false">Izicwangciso zeNkqubo</string>

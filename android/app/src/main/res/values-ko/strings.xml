@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">작동 방식:</string>
     <string name="icon_code_optional" formatted="false">아이콘 코드 (선택 사항)</string>
     <string name="icon_size" formatted="false">아이콘 크기</string>
-    <string name="import" formatted="false">가져오기</string>
+    <string name="import_action" formatted="false">가져오기</string>
     <string name="import_config" formatted="false">구성 가져오기</string>
     <string name="import_contacts" formatted="false">연락처 가져오기</string>
     <string name="import_entity" formatted="false">{entityTypeName} 가져오기</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">동기화 성공</string>
     <string name="sync_with_cloud_storage" formatted="false">클라우드 스토리지와 동기화</string>
     <string name="synced" formatted="false">동기화됨</string>
-    <string name="synchronized" formatted="false">동기화됨</string>
+    <string name="synchronized_action" formatted="false">동기화됨</string>
     <string name="syncing" formatted="false">동기화 중...</string>
     <string name="system_features" formatted="false">시스템 기능:</string>
     <string name="system_settings_title" formatted="false">시스템 설정</string>

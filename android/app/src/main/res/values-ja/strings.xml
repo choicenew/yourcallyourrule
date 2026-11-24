@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">仕組み:</string>
     <string name="icon_code_optional" formatted="false">アイコンコード（オプション）</string>
     <string name="icon_size" formatted="false">アイコンサイズ</string>
-    <string name="import" formatted="false">インポート</string>
+    <string name="import_action" formatted="false">インポート</string>
     <string name="import_config" formatted="false">設定をインポート</string>
     <string name="import_contacts" formatted="false">連絡先をインポート</string>
     <string name="import_entity" formatted="false">{entityTypeName}をインポート</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">同期に成功しました</string>
     <string name="sync_with_cloud_storage" formatted="false">クラウドストレージと同期</string>
     <string name="synced" formatted="false">同期済み</string>
-    <string name="synchronized" formatted="false">同期済み</string>
+    <string name="synchronized_action" formatted="false">同期済み</string>
     <string name="syncing" formatted="false">同期中...</string>
     <string name="system_features" formatted="false">システム機能：</string>
     <string name="system_settings_title" formatted="false">システム設定</string>

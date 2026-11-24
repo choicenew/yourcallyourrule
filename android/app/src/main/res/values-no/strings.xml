@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">Slik fungerer det:</string>
     <string name="icon_code_optional" formatted="false">Ikonkode (valgfritt)</string>
     <string name="icon_size" formatted="false">Ikonstørrelse</string>
-    <string name="import" formatted="false">Importer</string>
+    <string name="import_action" formatted="false">Importer</string>
     <string name="import_config" formatted="false">Importer konfigurasjon</string>
     <string name="import_contacts" formatted="false">Importer kontakter</string>
     <string name="import_entity" formatted="false">Importer {entityTypeName}</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">Synkronisering vellykket</string>
     <string name="sync_with_cloud_storage" formatted="false">Synkroniser med skytjenester</string>
     <string name="synced" formatted="false">Synkronisert</string>
-    <string name="synchronized" formatted="false">Synkronisert</string>
+    <string name="synchronized_action" formatted="false">Synkronisert</string>
     <string name="syncing" formatted="false">Synkroniserer...</string>
     <string name="system_features" formatted="false">Systemfunksjoner:</string>
     <string name="system_settings_title" formatted="false">Systeminnstillinger</string>

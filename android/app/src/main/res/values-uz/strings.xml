@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">Qanday ishlaydi:</string>
     <string name="icon_code_optional" formatted="false">Belgilar kodi (ixtiyoriy)</string>
     <string name="icon_size" formatted="false">Belgilar o\'lchami</string>
-    <string name="import" formatted="false">Import qilish</string>
+    <string name="import_action" formatted="false">Import qilish</string>
     <string name="import_config" formatted="false">Konfiguratsiyani import qilish</string>
     <string name="import_contacts" formatted="false">Kontaktlarni import qilish</string>
     <string name="import_entity" formatted="false">{entityTypeName}ni import qilish</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">Sinxronlash muvaffaqiyatli</string>
     <string name="sync_with_cloud_storage" formatted="false">Bulutli xotira bilan sinxronlash</string>
     <string name="synced" formatted="false">Sinxronlashtirilgan</string>
-    <string name="synchronized" formatted="false">Sinxronlangan</string>
+    <string name="synchronized_action" formatted="false">Sinxronlangan</string>
     <string name="syncing" formatted="false">Sinxronlanmoqda...</string>
     <string name="system_features" formatted="false">Tizim funksiyalari:</string>
     <string name="system_settings_title" formatted="false">Tizim sozlamalari</string>

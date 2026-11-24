@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">Cách hoạt động:</string>
     <string name="icon_code_optional" formatted="false">Mã biểu tượng (Tùy chọn)</string>
     <string name="icon_size" formatted="false">Kích thước biểu tượng</string>
-    <string name="import" formatted="false">Nhập</string>
+    <string name="import_action" formatted="false">Nhập</string>
     <string name="import_config" formatted="false">Nhập cấu hình</string>
     <string name="import_contacts" formatted="false">Nhập danh bạ</string>
     <string name="import_entity" formatted="false">Nhập {entityTypeName}</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">Đồng bộ thành công</string>
     <string name="sync_with_cloud_storage" formatted="false">Đồng bộ với Kho lưu trữ đám mây</string>
     <string name="synced" formatted="false">Đã đồng bộ</string>
-    <string name="synchronized" formatted="false">Đã đồng bộ hóa</string>
+    <string name="synchronized_action" formatted="false">Đã đồng bộ hóa</string>
     <string name="syncing" formatted="false">Đang đồng bộ hóa...</string>
     <string name="system_features" formatted="false">Tính năng hệ thống:</string>
     <string name="system_settings_title" formatted="false">Cài đặt hệ thống</string>

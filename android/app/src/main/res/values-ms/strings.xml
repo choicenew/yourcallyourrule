@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">Cara Ia Berfungsi:</string>
     <string name="icon_code_optional" formatted="false">Kod Ikon (Pilihan)</string>
     <string name="icon_size" formatted="false">Saiz Ikon</string>
-    <string name="import" formatted="false">Import</string>
+    <string name="import_action" formatted="false">Import</string>
     <string name="import_config" formatted="false">Import Konfigurasi</string>
     <string name="import_contacts" formatted="false">Import Kenalan</string>
     <string name="import_entity" formatted="false">Import {entityTypeName}</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">Sinci berjaya</string>
     <string name="sync_with_cloud_storage" formatted="false">Sinci dengan Storan Awan</string>
     <string name="synced" formatted="false">Disandarkan</string>
-    <string name="synchronized" formatted="false">Disincci</string>
+    <string name="synchronized_action" formatted="false">Disincci</string>
     <string name="syncing" formatted="false">Menyinci...</string>
     <string name="system_features" formatted="false">Ciri Sistem:</string>
     <string name="system_settings_title" formatted="false">Tetapan Sistem</string>

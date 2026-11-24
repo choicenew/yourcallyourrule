@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">यह कैसे काम करता है:</string>
     <string name="icon_code_optional" formatted="false">आइकन कोड (वैकल्पिक)</string>
     <string name="icon_size" formatted="false">आइकन आकार</string>
-    <string name="import" formatted="false">आयात</string>
+    <string name="import_action" formatted="false">आयात</string>
     <string name="import_config" formatted="false">विन्यास आयात करें</string>
     <string name="import_contacts" formatted="false">संपर्क आयात करें</string>
     <string name="import_entity" formatted="false">{entityTypeName} आयात करें</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">सिंक सफल</string>
     <string name="sync_with_cloud_storage" formatted="false">क्लाउड स्टोरेज के साथ सिंक करें</string>
     <string name="synced" formatted="false">सिंक किया गया</string>
-    <string name="synchronized" formatted="false">सिंक्रनाइज़्ड</string>
+    <string name="synchronized_action" formatted="false">सिंक्रनाइज़्ड</string>
     <string name="syncing" formatted="false">सिंकिंग...</string>
     <string name="system_features" formatted="false">सिस्टम फ़ीचर्स:</string>
     <string name="system_settings_title" formatted="false">सिस्टम सेटिंग्स</string>

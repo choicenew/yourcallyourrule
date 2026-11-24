@@ -582,8 +582,8 @@
     <string name="field_is_required" formatted="false">This field is required</string>
     <string name="file_saved_to" formatted="false">Faili imehifadhiwa katika: {path}</string>
     <string name="filter" formatted="false">Chuja</string>
-    <string name="filter_and_sort_title" formatted="false">Chua na Panga</string>
-    <string name="filter_by" formatted="false">Chua Kwa</string>
+    <string name="filter_and_sort_title" formatted="false">Chuja na Panga</string>
+    <string name="filter_by" formatted="false">Chuja Kwa</string>
     <string name="filter_by_action" formatted="false">Chuja kwa Tendo</string>
     <string name="filter_by_label" formatted="false">Chuja kwa Lebo</string>
     <string name="filter_control_panel_title" formatted="false">Jopo la Udhibiti wa Kichujio</string>
@@ -600,7 +600,7 @@
     <string name="filter_toggle_instructions" formatted="false">Wezesha au zima vichujio kwa sehemu hii ya SIM:</string>
     <string name="filter_toggle_status" formatted="false">Kichujio cha {status}: {filterName}</string>
     <string name="filter_type" formatted="false">Aina ya Kichujio</string>
-    <string name="filter_verified_owner" formatted="false">Chua Mmiliki Aliyeafutwa</string>
+    <string name="filter_verified_owner" formatted="false">Chuja Mmiliki Aliyechaguliwa</string>
     <string name="filtered" formatted="false">Kichujio kimetumika</string>
     <string name="final_risk" formatted="false">Hatari ya Mwisho</string>
     <string name="financial" formatted="false">Fedha</string>
@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">Jinsi Inavyofanya Kazi:</string>
     <string name="icon_code_optional" formatted="false">Nambari ya Aikoni (Si lazima)</string>
     <string name="icon_size" formatted="false">Ukubwa wa Aikoni</string>
-    <string name="import" formatted="false">Agiza</string>
+    <string name="import_action" formatted="false">Agiza</string>
     <string name="import_config" formatted="false">Agiza Sanidi</string>
     <string name="import_contacts" formatted="false">Agiza Wwasiliani</string>
     <string name="import_entity" formatted="false">Leta {entityTypeName}</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">Sawazishi imekamilika</string>
     <string name="sync_with_cloud_storage" formatted="false">Sawazisha na Hifadhi ya Wingu</string>
     <string name="synced" formatted="false">Imesawazishwa</string>
-    <string name="synchronized" formatted="false">Imeunganishwa</string>
+    <string name="synchronized_action" formatted="false">Imeunganishwa</string>
     <string name="syncing" formatted="false">Inaunganishwa...</string>
     <string name="system_features" formatted="false">Vipengele vya Mfumo:</string>
     <string name="system_settings_title" formatted="false">Mipangilio ya Mfumo</string>

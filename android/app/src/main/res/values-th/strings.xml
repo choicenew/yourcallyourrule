@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">วิธีการทำงาน:</string>
     <string name="icon_code_optional" formatted="false">รหัสไอคอน (ไม่บังคับ)</string>
     <string name="icon_size" formatted="false">ขนาดไอคอน</string>
-    <string name="import" formatted="false">นำเข้า</string>
+    <string name="import_action" formatted="false">นำเข้า</string>
     <string name="import_config" formatted="false">นำเข้าการกำหนดค่า</string>
     <string name="import_contacts" formatted="false">นำเข้าผู้ติดต่อ</string>
     <string name="import_entity" formatted="false">นำเข้า {entityTypeName}</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">การซิงค์สำเร็จ</string>
     <string name="sync_with_cloud_storage" formatted="false">ซิงค์กับที่เก็บข้อมูลบนคลาวด์</string>
     <string name="synced" formatted="false">ซิงค์แล้ว</string>
-    <string name="synchronized" formatted="false">ซิงโครไนซ์แล้ว</string>
+    <string name="synchronized_action" formatted="false">ซิงโครไนซ์แล้ว</string>
     <string name="syncing" formatted="false">กำลังซิงค์...</string>
     <string name="system_features" formatted="false">คุณสมบัติของระบบ:</string>
     <string name="system_settings_title" formatted="false">การตั้งค่าระบบ</string>

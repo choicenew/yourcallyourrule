@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">یہ کیسے کام کرتا ہے:</string>
     <string name="icon_code_optional" formatted="false">آئیکن کوڈ (اختیاری)</string>
     <string name="icon_size" formatted="false">آئیکن کا سائز</string>
-    <string name="import" formatted="false">درآمد کریں</string>
+    <string name="import_action" formatted="false">درآمد کریں</string>
     <string name="import_config" formatted="false">کنفیگریشن درآمد کریں</string>
     <string name="import_contacts" formatted="false">رابطے درآمد کریں</string>
     <string name="import_entity" formatted="false">{entityTypeName} درآمد کریں</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">مطابقت پذیری کامیاب</string>
     <string name="sync_with_cloud_storage" formatted="false">کلاؤڈ سٹوریج کے ساتھ مطابقت پذیری کریں</string>
     <string name="synced" formatted="false">مطابقت پذیر</string>
-    <string name="synchronized" formatted="false">مطابقت پذیر</string>
+    <string name="synchronized_action" formatted="false">مطابقت پذیر</string>
     <string name="syncing" formatted="false">مطابقت پذیری ہو رہی ہے...</string>
     <string name="system_features" formatted="false">سسٹم کی خصوصیات:</string>
     <string name="system_settings_title" formatted="false">سسٹم کی ترتیبات</string>

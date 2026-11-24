@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">Hoe Het Werkt:</string>
     <string name="icon_code_optional" formatted="false">Icoon Code (Optioneel)</string>
     <string name="icon_size" formatted="false">Icoon Grootte</string>
-    <string name="import" formatted="false">Importeren</string>
+    <string name="import_action" formatted="false">Importeren</string>
     <string name="import_config" formatted="false">Configuratie Importeren</string>
     <string name="import_contacts" formatted="false">Contacten Importeren</string>
     <string name="import_entity" formatted="false">Importeer {entityTypeName}</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">Synchronisatie succesvol</string>
     <string name="sync_with_cloud_storage" formatted="false">Synchroniseren met Cloudopslag</string>
     <string name="synced" formatted="false">Gesynchroniseerd</string>
-    <string name="synchronized" formatted="false">Gesynchroniseerd</string>
+    <string name="synchronized_action" formatted="false">Gesynchroniseerd</string>
     <string name="syncing" formatted="false">Synchroniseren...</string>
     <string name="system_features" formatted="false">Systeembeloningen:</string>
     <string name="system_settings_title" formatted="false">Systeeminstellingen</string>

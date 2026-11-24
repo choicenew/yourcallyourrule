@@ -647,7 +647,7 @@
     <string name="how_it_works_title" formatted="false">Как это работает:</string>
     <string name="icon_code_optional" formatted="false">Код значка (Необязательно)</string>
     <string name="icon_size" formatted="false">Размер значка</string>
-    <string name="import" formatted="false">Импорт</string>
+    <string name="import_action" formatted="false">Импорт</string>
     <string name="import_config" formatted="false">Импорт конфигурации</string>
     <string name="import_contacts" formatted="false">Импорт контактов</string>
     <string name="import_entity" formatted="false">Импортировать {entityTypeName}</string>
@@ -1377,7 +1377,7 @@
     <string name="sync_success_message" formatted="false">Синхронизация успешна</string>
     <string name="sync_with_cloud_storage" formatted="false">Синхронизация с облачным хранилищем</string>
     <string name="synced" formatted="false">Синхронизировано</string>
-    <string name="synchronized" formatted="false">Синхронизировано</string>
+    <string name="synchronized_action" formatted="false">Синхронизировано</string>
     <string name="syncing" formatted="false">Синхронизация...</string>
     <string name="system_features" formatted="false">Системные функции:</string>
     <string name="system_settings_title" formatted="false">Настройки системы</string>
