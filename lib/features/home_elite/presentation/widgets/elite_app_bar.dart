@@ -60,7 +60,7 @@ class EliteAppBar extends ConsumerWidget {
     final theme = Theme.of(context);
     final asyncStats = ref.watch(homeStatsProvider);
     final isProtectionActive = asyncStats.value?.isProtectionActive ?? true;
-    final commercialState = ref.watch(commercialNotifierProvider).value;
+    final commercialState = ref.watch(commercialProvider).value;
     final isVip = (commercialState?.isPurchased == true || commercialState?.isAdFree == true) || defaultAdPolicyManager.isVipUser;
 
     return Container(

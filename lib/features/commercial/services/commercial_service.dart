@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:pyro_ads_protocol/pyro_ads_protocol.dart';
@@ -13,7 +12,7 @@ part 'commercial_service.g.dart';
 
 @Riverpod(keepAlive: true)
 CommercialHub commercialHub(Ref ref) {
-  final notifier = ref.watch(commercialNotifierProvider.notifier);
+  final notifier = ref.watch(commercialProvider.notifier);
   final hub = CommercialHub(commercialNotifier: notifier);
   CommercialHub.init(commercialNotifier: notifier);
   return hub;
@@ -22,7 +21,7 @@ CommercialHub commercialHub(Ref ref) {
 /// 全局 VIP 用户特权响应式 Provider
 @Riverpod(keepAlive: true)
 bool isVipUser(Ref ref) {
-  final commercialState = ref.watch(commercialNotifierProvider).value;
+  final commercialState = ref.watch(commercialProvider).value;
   return (commercialState?.isPurchased == true || commercialState?.isAdFree == true) || defaultAdPolicyManager.isVipUser;
 }
 
