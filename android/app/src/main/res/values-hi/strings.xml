@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">कुल ब्लॉक</string>
     <string name="total_pending_proposals" formatted="false">कुल लंबित प्रस्ताव</string>
     <string name="total_proposals" formatted="false">कुल प्रस्ताव</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">कुल: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">डिवाइस या प्लेटफ़ॉर्म के बीच डेटा स्थानांतरित करें</string>
     <string name="travel_ticketing" formatted="false">यात्रा टिकटिंग</string>

@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">總封鎖</string>
     <string name="total_pending_proposals" formatted="false">待處理提案總數</string>
     <string name="total_proposals" formatted="false">建議總數</string>
+    <string name="total_rules" formatted="false">规则总数</string>
     <string name="total_votes" formatted="false">總數: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">在裝置或平台之間傳輸數據</string>
     <string name="travel_ticketing" formatted="false">旅遊票務</string>

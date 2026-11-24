@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">총 차단됨</string>
     <string name="total_pending_proposals" formatted="false">총 보류 중인 제안</string>
     <string name="total_proposals" formatted="false">총 제안</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">총: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">기기 또는 플랫폼 간 데이터 전송</string>
     <string name="travel_ticketing" formatted="false">여행 티켓팅</string>

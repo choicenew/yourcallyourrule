@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">Gesamt blockiert</string>
     <string name="total_pending_proposals" formatted="false">Anzahl der ausstehenden Vorschläge</string>
     <string name="total_proposals" formatted="false">Gesamtzahl der Vorschläge</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">Gesamt: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">Daten zwischen Geräten oder Plattformen übertragen</string>
     <string name="travel_ticketing" formatted="false">Reisetickets</string>

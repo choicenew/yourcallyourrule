@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">Σύνολο Αποκλεισμένων</string>
     <string name="total_pending_proposals" formatted="false">Σύνολο Προτάσεων σε Εκκρεμότητα</string>
     <string name="total_proposals" formatted="false">Σύνολο Προτάσεων</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">Σύνολο: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">Μεταφορά δεδομένων μεταξύ συσκευών ή πλατφορμών</string>
     <string name="travel_ticketing" formatted="false">Εισιτήρια Ταξιδίων</string>

@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">Kokku blokeeritud</string>
     <string name="total_pending_proposals" formatted="false">Ootel ettepanekuid kokku</string>
     <string name="total_proposals" formatted="false">Ettepanekuid kokku</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">Kokku: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">Edastage andmeid seadmete või platvormide vahel</string>
     <string name="travel_ticketing" formatted="false">Reisipiletid</string>

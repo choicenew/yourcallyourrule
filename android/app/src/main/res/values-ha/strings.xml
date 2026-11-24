@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">Jimillar Abubuwan Da Aka Hana</string>
     <string name="total_pending_proposals" formatted="false">Jimillar Shawarwari Masu Jiran Aiki</string>
     <string name="total_proposals" formatted="false">Jimillar Shawara</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">Jimilla: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">Canja bayanai tsakanin na\'urori ko dandamali</string>
     <string name="travel_ticketing" formatted="false">Tikitin Tafiya</string>

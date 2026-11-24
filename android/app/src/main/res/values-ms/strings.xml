@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">Jumlah Disekat</string>
     <string name="total_pending_proposals" formatted="false">Jumlah Cadangan Tertunda</string>
     <string name="total_proposals" formatted="false">Jumlah Cadangan</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">Jumlah: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">Pindahkan data antara peranti atau platform</string>
     <string name="travel_ticketing" formatted="false">Penetapan Tiket Perjalanan</string>

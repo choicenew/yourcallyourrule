@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">บล็อกทั้งหมด</string>
     <string name="total_pending_proposals" formatted="false">ข้อเสนอที่รอดำเนินการทั้งหมด</string>
     <string name="total_proposals" formatted="false">ข้อเสนอทั้งหมด</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">ทั้งหมด: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">ถ่ายโอนข้อมูลระหว่างอุปกรณ์หรือแพลตฟอร์ม</string>
     <string name="travel_ticketing" formatted="false">ตั๋วเดินทาง</string>

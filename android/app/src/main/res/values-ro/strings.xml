@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">Total blocat</string>
     <string name="total_pending_proposals" formatted="false">Total propuneri în așteptare</string>
     <string name="total_proposals" formatted="false">Total propuneri</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">Total: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">Transferă date între dispozitive sau platforme</string>
     <string name="travel_ticketing" formatted="false">Bilete de călătorie</string>

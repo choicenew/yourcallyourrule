@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">کل مسدود شده</string>
     <string name="total_pending_proposals" formatted="false">إجمالي الاقتراحات قيد الانتظار</string>
     <string name="total_proposals" formatted="false">إجمالي الاقتراحات</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">الإجمالي: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">انتقال داده بین دستگاه ها یا پلتفرم ها</string>
     <string name="travel_ticketing" formatted="false">بلیط سفر</string>

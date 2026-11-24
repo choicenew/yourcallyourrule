@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">Totalt blokeret</string>
     <string name="total_pending_proposals" formatted="false">Totale afventende forslag</string>
     <string name="total_proposals" formatted="false">Totale forslag</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">Total: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">Overfør data mellem enheder eller platforme</string>
     <string name="travel_ticketing" formatted="false">Rejsebillettering</string>

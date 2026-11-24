@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">合計ブロック</string>
     <string name="total_pending_proposals" formatted="false">保留中の提案の合計</string>
     <string name="total_proposals" formatted="false">提案の合計</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">合計: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">デバイスまたはプラットフォーム間でデータを転送する</string>
     <string name="travel_ticketing" formatted="false">旅行のチケット</string>

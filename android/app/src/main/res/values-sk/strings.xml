@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">Celkom blokovaných</string>
     <string name="total_pending_proposals" formatted="false">Celkový počet čakajúcich návrhov</string>
     <string name="total_proposals" formatted="false">Celkový počet návrhov</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">Celkom: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">Preniesť dáta medzi zariadeniami alebo platformami</string>
     <string name="travel_ticketing" formatted="false">Cestovné lístky</string>

@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">Isamba Esivinjwe</string>
     <string name="total_pending_proposals" formatted="false">Iziphakamiso Ezilindile Eziyisiyonke</string>
     <string name="total_proposals" formatted="false">Iziphakamiso Eziyisiyonke</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">Ingqikithi: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">Dlulisa idatha phakathi kwamadivayisi noma amapulatifomu</string>
     <string name="travel_ticketing" formatted="false">Amathikithi Wokuvakasha</string>

@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">মোট ব্লক করা</string>
     <string name="total_pending_proposals" formatted="false">মোট মুলতবি প্রস্তাব</string>
     <string name="total_proposals" formatted="false">মোট প্রস্তাব</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">মোট: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">ডিভাইস বা প্ল্যাটফর্মের মধ্যে ডেটা স্থানান্তর করুন</string>
     <string name="travel_ticketing" formatted="false">ভ্রমণ টিকিট</string>

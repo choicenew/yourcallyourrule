@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">总拦截</string>
     <string name="total_pending_proposals" formatted="false">待处理提议总数</string>
     <string name="total_proposals" formatted="false">总提议数</string>
+    <string name="total_rules" formatted="false">规则总数</string>
     <string name="total_votes" formatted="false">总计: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">在设备或平台之间传输数据</string>
     <string name="travel_ticketing" formatted="false">旅游票务</string>

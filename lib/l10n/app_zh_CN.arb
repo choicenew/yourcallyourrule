@@ -2366,5 +2366,6 @@
   "failedToLoadSettingsSchema": "加载设置架构失败: {error}",
   "backgroundOpacity": "背景不透明度",
   "timesUnit": "次",
-  "participantCount": "%1$d 人已参与"
+  "participantCount": "%1$d 人已参与",
+  "totalRules": "规则总数"
 }

@@ -175,7 +175,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                         .padding(horizontal = 8.dp, vertical = 4.dp)
                 ) {
                     Text(
-                        text = "$totalRules ${localizedContext.getString(R.string.rules)}",
+                        text = "$totalRules ${localizedContext.getString(R.string.total_rules)}",
                         style = TextStyle(
                             fontSize = (10f * fontScale).sp,
                             fontWeight = FontWeight.Bold,
@@ -234,7 +234,7 @@ class RulesSyncGlanceWidget : GlanceAppWidget() {
                             .padding(10.dp)
                     ) {
                         Text(
-                            text = localizedContext.getString(R.string.rules),
+                            text = localizedContext.getString(R.string.total_rules),
                             style = TextStyle(
                                 fontSize = (10f * fontScale).sp,
                                 color = ColorProvider(secondaryTextColor)

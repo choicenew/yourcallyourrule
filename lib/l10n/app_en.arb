@@ -2532,5 +2532,6 @@
   "clusterOnboardingDescription": "Configure your device role in the cluster for seamless cross-device synchronization.",
   "backgroundOpacity": "Background Opacity",
   "timesUnit": "times",
-  "participantCount": "%1$d Participants"
+  "participantCount": "%1$d Participants",
+  "totalRules": "Total Rules"
 }

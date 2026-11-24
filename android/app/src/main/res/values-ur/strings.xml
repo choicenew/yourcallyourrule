@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">کل بلاک شدہ</string>
     <string name="total_pending_proposals" formatted="false">کل زیر التواء تجاویز</string>
     <string name="total_proposals" formatted="false">کل تجاویز</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">کل: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">آلات یا پلیٹ فارمز کے درمیان ڈیٹا منتقل کریں</string>
     <string name="travel_ticketing" formatted="false">ٹریول ٹکٹنگ</string>

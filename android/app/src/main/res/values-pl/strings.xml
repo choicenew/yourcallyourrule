@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">Łącznie zablokowanych</string>
     <string name="total_pending_proposals" formatted="false">Łącznie oczekujących propozycji</string>
     <string name="total_proposals" formatted="false">Łącznie propozycji</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">Łącznie: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">Przesyłaj dane między urządzeniami lub platformami</string>
     <string name="travel_ticketing" formatted="false">Bilety podróżne</string>

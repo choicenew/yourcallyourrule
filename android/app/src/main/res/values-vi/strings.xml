@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">Tổng số đã chặn</string>
     <string name="total_pending_proposals" formatted="false">Tổng số đề xuất đang chờ</string>
     <string name="total_proposals" formatted="false">Tổng số đề xuất</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">Tổng cộng: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">Chuyển dữ liệu giữa các thiết bị hoặc nền tảng</string>
     <string name="travel_ticketing" formatted="false">Vé du lịch</string>

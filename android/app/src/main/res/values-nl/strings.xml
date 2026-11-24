@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">Totaal Geblokkeerd</string>
     <string name="total_pending_proposals" formatted="false">Totaal openstaande voorstellen</string>
     <string name="total_proposals" formatted="false">Totaal voorstellen</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">Totaal: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">Gegevens overdragen tussen apparaten of platforms</string>
     <string name="travel_ticketing" formatted="false">Reisticketverkoop</string>

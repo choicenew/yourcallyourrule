@@ -1420,6 +1420,7 @@
     <string name="total_blocked" formatted="false">סה&quot;כ נחסמו</string>
     <string name="total_pending_proposals" formatted="false">סה&quot;כ הצעות ממתינות</string>
     <string name="total_proposals" formatted="false">סה&quot;כ הצעות</string>
+    <string name="total_rules" formatted="false">Total Rules</string>
     <string name="total_votes" formatted="false">סה&quot;כ: {count}</string>
     <string name="transfer_data_between_devices_or_platforms" formatted="false">העבר נתונים בין מכשירים או פלטפורמות</string>
     <string name="travel_ticketing" formatted="false">כרטיסי נסיעה</string>
