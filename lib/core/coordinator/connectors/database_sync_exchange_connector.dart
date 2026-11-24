@@ -4,7 +4,7 @@ import 'package:pyro_cloud_drive_googledrive/pyro_cloud_drive_googledrive.dart';
 import 'package:pyro_cloud_drive_hub/pyro_cloud_drive_hub.dart';
 import 'package:pyro_cloud_drive_onedrive/pyro_cloud_drive_onedrive.dart';
 import 'package:pyro_cloud_drive_webdav/pyro_cloud_drive_webdav.dart';
-import 'package:pyro_device_master_slave_hub/pyro_device_master_slave_hub.dart';
+import 'package:pyro_device_primary_secondary_hub/pyro_device_primary_secondary_hub.dart';
 import 'package:pyro_sync_hub/pyro_sync_hub.dart';
 import 'package:pyro_user_database_hub/pyro_user_database_hub.dart';
 import 'package:yourcallyourrule/features/cloud_drive/providers/cloud_sync_provider.dart';
@@ -12,7 +12,7 @@ import 'package:yourcallyourrule/features/cloud_drive/services/environment.dart'
 import '../app_coordinator.dart';
 
 final userDatabaseHubProvider = Provider<UserDatabaseHub>((ref) => UserDatabaseHub());
-final deviceMasterSlaveHubProvider = Provider<DeviceMasterSlaveHub>((ref) => DeviceMasterSlaveHub());
+final deviceClusterHubProvider = Provider<DeviceClusterHub>((ref) => DeviceClusterHub());
 final syncHubProvider = Provider<SyncHub>((ref) => SyncHub());
 
 final databaseSyncExchangeConnectorProvider = Provider<DatabaseSyncExchangeConnector>((ref) {
@@ -22,7 +22,7 @@ final databaseSyncExchangeConnectorProvider = Provider<DatabaseSyncExchangeConne
     coordinator: coordinator,
     userDatabaseHub: ref.watch(userDatabaseHubProvider),
     cloudDriveHub: ref.watch(cloudDriveHubProvider),
-    deviceMasterSlaveHub: ref.watch(deviceMasterSlaveHubProvider),
+    deviceClusterHub: ref.watch(deviceClusterHubProvider),
     syncHub: ref.watch(syncHubProvider),
   );
 });
@@ -38,7 +38,7 @@ class DatabaseSyncExchangeConnector {
   final AppCoordinator coordinator;
   final UserDatabaseHub userDatabaseHub;
   final CloudDriveHub cloudDriveHub;
-  final DeviceMasterSlaveHub deviceMasterSlaveHub;
+  final DeviceClusterHub deviceClusterHub;
   final SyncHub syncHub;
 
   const DatabaseSyncExchangeConnector({
@@ -46,7 +46,7 @@ class DatabaseSyncExchangeConnector {
     required this.coordinator,
     required this.userDatabaseHub,
     required this.cloudDriveHub,
-    required this.deviceMasterSlaveHub,
+    required this.deviceClusterHub,
     required this.syncHub,
   });
 

@@ -86,6 +86,6 @@ class PredefinedLabelsNotifier extends _$PredefinedLabelsNotifier {
 
 @riverpod
 Future<PredefinedLabel?> predefinedLabelById(Ref ref, String id) async {
-  final notifier = ref.watch(predefinedLabelsNotifierProvider.notifier);
+  final notifier = ref.watch(predefinedLabelsProvider.notifier);
   return await notifier.getLabelById(id);
 }

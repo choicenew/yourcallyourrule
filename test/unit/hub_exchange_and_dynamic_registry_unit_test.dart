@@ -7,7 +7,7 @@ import 'package:pyro_cloud_drive_hub/pyro_cloud_drive_hub.dart';
 import 'package:pyro_user_database_hub/pyro_user_database_hub.dart';
 import 'package:pyro_user_database_cloudflare/pyro_user_database_cloudflare.dart';
 import 'package:pyro_phone_call_filter_hub/pyro_phone_call_filter_hub.dart';
-import 'package:pyro_device_master_slave_protocol/pyro_device_master_slave_protocol.dart';
+import 'package:pyro_device_primary_secondary_protocol/pyro_device_primary_secondary_protocol.dart';
 
 import 'package:yourcallyourrule/core/coordinator/filter_ui_registry.dart';
 import 'package:yourcallyourrule/core/coordinator/package_connectors_initializer.dart';

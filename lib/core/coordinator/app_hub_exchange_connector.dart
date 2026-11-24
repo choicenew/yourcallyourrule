@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_cloud_drive_hub/pyro_cloud_drive_hub.dart';
 import 'package:pyro_user_database_hub/pyro_user_database_hub.dart';
 import 'package:pyro_central_database_hub/pyro_central_database_hub.dart';
-import 'package:pyro_device_master_slave_hub/pyro_device_master_slave_hub.dart';
+import 'package:pyro_device_primary_secondary_hub/pyro_device_primary_secondary_hub.dart';
 import 'package:pyro_sync_hub/pyro_sync_hub.dart';
 import 'package:pyro_crowdsourcing_arbiter/pyro_crowdsourcing_arbiter.dart';
 
@@ -44,7 +44,7 @@ final appHubExchangeConnectorProvider = Provider<AppHubExchangeConnector>((ref) 
     coordinator: coordinator,
     userDatabaseHub: ref.watch(userDatabaseHubProvider),
     cloudDriveHub: ref.watch(cloudDriveHubProvider),
-    deviceMasterSlaveHub: ref.watch(deviceMasterSlaveHubProvider),
+    deviceClusterHub: ref.watch(deviceClusterHubProvider),
     syncHub: ref.watch(syncHubProvider),
   );
   final crowdsourcing = CrowdsourcingExchangeConnector(
@@ -92,7 +92,7 @@ class AppHubExchangeConnector {
   CentralDatabaseHub get centralDatabaseHub => centralDatabase.centralDatabaseHub;
   UserDatabaseHub get userDatabaseHub => databaseSync.userDatabaseHub;
   CloudDriveHub get cloudDriveHub => databaseSync.cloudDriveHub;
-  DeviceMasterSlaveHub get deviceMasterSlaveHub => databaseSync.deviceMasterSlaveHub;
+  DeviceClusterHub get deviceClusterHub => databaseSync.deviceClusterHub;
   SyncHub get syncHub => databaseSync.syncHub;
   CrowdsourcingArbiterService get crowdsourcingArbiter => crowdsourcing.arbiter;
 

@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:pyro_app_launch_guard/pyro_app_launch_guard.dart';
 import 'package:pyro_cloud_drive_ui/pyro_cloud_drive_ui.dart' as cloud_ui;
-import 'package:pyro_device_master_slave_ui/pyro_device_master_slave_ui.dart' as device_ui;
+import 'package:pyro_device_primary_secondary_ui/pyro_device_primary_secondary_ui.dart' as device_ui;
 import 'package:pyro_sms_ui/pyro_sms_ui.dart';
 import 'package:pyro_phone_call_interception_policy_ui/pyro_phone_call_interception_policy_ui.dart' as policy_ui;
 import 'package:yourcallyourrule/core/coordinator/package_connectors_initializer.dart';

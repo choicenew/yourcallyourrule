@@ -1,7 +1,6 @@
-import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:uuid/uuid.dart';
-import 'package:pyro_device_master_slave_protocol/pyro_device_master_slave_protocol.dart';
+import 'package:pyro_device_primary_secondary_protocol/pyro_device_primary_secondary_protocol.dart';
 import 'package:yourcallyourrule/features/config/data/repositories/config_repository.dart';
 
 abstract class DeviceManagementService {
@@ -72,14 +71,17 @@ class DeviceManagementServiceImpl implements DeviceManagementService {
     }
 
     final config = await _configRepository.getConfig(_registeredDevicesKey);
-    final String? devicesJson = config?['value'] as String?;
+    final rawDevices = config?['devices'];
 
-    if (devicesJson != null) {
+    if (rawDevices is List) {
       try {
-        final List<dynamic> devicesList = jsonDecode(devicesJson);
         _registeredDevices.clear();
-        for (final json in devicesList) {
-          _registeredDevices.add(DeviceNode.fromJson(json as Map<String, dynamic>));
+        for (final item in rawDevices) {
+          if (item is Map<String, dynamic>) {
+            _registeredDevices.add(DeviceNode.fromJson(item));
+          } else if (item is Map) {
+            _registeredDevices.add(DeviceNode.fromJson(Map<String, dynamic>.from(item)));
+          }
         }
       } catch (e) {
         debugPrint('Error parsing registered devices: $e');
@@ -141,7 +143,7 @@ class DeviceManagementServiceImpl implements DeviceManagementService {
   }
 
   Future<void> _saveRegisteredDevices() async {
-    final jsonList = _registeredDevices.map((d) => d.toJson()).toList();
-    await _configRepository.saveConfig(_registeredDevicesKey, {'value': jsonEncode(jsonList)});
+    final list = _registeredDevices.map((d) => d.toJson()).toList();
+    await _configRepository.saveConfig(_registeredDevicesKey, {'devices': list});
   }
 }

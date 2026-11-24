@@ -1,8 +1,8 @@
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pyro_device_master_slave_ui/pyro_device_master_slave_ui.dart' hide AppLocalizations;
-import 'package:pyro_device_master_slave/pyro_device_master_slave.dart';
-import 'package:pyro_device_master_slave_protocol/pyro_device_master_slave_protocol.dart';
+import 'package:pyro_device_primary_secondary_ui/pyro_device_primary_secondary_ui.dart' hide AppLocalizations;
+import 'package:pyro_device_primary_secondary/pyro_device_primary_secondary.dart';
+import 'package:pyro_device_primary_secondary_protocol/pyro_device_primary_secondary_protocol.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 /// 设备集群管理页面 —— 100% 渲染包内自注册标准控制面板，100% 接入标准 AppLocalizations

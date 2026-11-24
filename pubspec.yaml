@@ -331,14 +331,14 @@ dependencies:
     path: packages/phone_country_sync/pyro_phone_country_sync_ui
 
 
-  pyro_device_master_slave_protocol:
-    path: packages/device/pyro_device_master_slave_protocol
-  pyro_device_master_slave_hub:
-    path: packages/device/pyro_device_master_slave_hub
-  pyro_device_master_slave:
-    path: packages/device/pyro_device_master_slave
-  pyro_device_master_slave_ui:
-    path: packages/device/pyro_device_master_slave_ui
+  pyro_device_primary_secondary_protocol:
+    path: packages/device/pyro_device_primary_secondary_protocol
+  pyro_device_primary_secondary_hub:
+    path: packages/device/pyro_device_primary_secondary_hub
+  pyro_device_primary_secondary:
+    path: packages/device/pyro_device_primary_secondary
+  pyro_device_primary_secondary_ui:
+    path: packages/device/pyro_device_primary_secondary_ui
 
   pyro_phone_contacts_protocol:
     path: packages/phone_contacts/pyro_phone_contacts_protocol
