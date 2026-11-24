@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:pyro_ads_protocol/pyro_ads_protocol.dart';
@@ -13,6 +14,7 @@ part 'commercial_service.g.dart';
 @Riverpod(keepAlive: true)
 CommercialHub commercialHub(Ref ref) {
   final notifier = ref.watch(commercialProvider.notifier);
+  CommercialService.registerCommercialNotifier(notifier);
   final hub = CommercialHub(commercialNotifier: notifier);
   CommercialHub.init(commercialNotifier: notifier);
   return hub;
@@ -35,6 +37,12 @@ CommercialService commercialService(Ref ref) {
 class CommercialService {
   CommercialService();
 
+  static CommercialNotifier? _cachedNotifier;
+  static void registerCommercialNotifier(CommercialNotifier notifier) {
+    _cachedNotifier = notifier;
+  }
+  static CommercialNotifier? get commercialNotifier => _cachedNotifier;
+
   /// 初始化商业化服务与广告连接器
   Future<void> initialize() async {
     // 1. 根据环境自动选择 官方测试 ID 或 线上生产 ID，物理防止 AdMob 封号
@@ -52,6 +60,29 @@ class CommercialService {
 
     // 3. 完美挂载商业广告连接器
     CommercialAdConnectors.ensureAdConnectorsMounted();
+
+    // 4. 激活底层内购与支付监听引擎 (PurchaseEngine)
+    // 监听 purchaseStream 并自动处理 PurchaseStatus.purchased / restored
+    try {
+      final available = await InAppPurchase.instance.isAvailable();
+      if (available) {
+        InAppPurchase.instance.purchaseStream.listen((purchaseDetailsList) {
+          for (final purchaseDetails in purchaseDetailsList) {
+            if (purchaseDetails.status == PurchaseStatus.purchased ||
+                purchaseDetails.status == PurchaseStatus.restored) {
+              CommercialService.commercialNotifier?.updatePurchasedStatus(true);
+              if (purchaseDetails.pendingCompletePurchase) {
+                InAppPurchase.instance.completePurchase(purchaseDetails);
+              }
+            } else if (purchaseDetails.status == PurchaseStatus.error) {
+              debugPrint('[CommercialService] 内购交易失败: ${purchaseDetails.error}');
+            }
+          }
+        });
+      }
+    } catch (e) {
+      debugPrint('[CommercialService] 初始化 InAppPurchase 监听失败: $e');
+    }
 
     debugPrint('[CommercialService] 主 App 商业化中枢服务挂载初始化完成');
   }

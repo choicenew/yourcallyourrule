@@ -62,6 +62,7 @@ class AppWidgetSyncService extends _$AppWidgetSyncService {
 
       final callStats = ref.read(callStatisticsProvider);
       final blockedCallsCount = callStats.blockedCallsCount;
+      final passedCallsCount = callStats.allowRulesCount;
       final sim1Count = callStats.simSlotDistribution[0] ?? callStats.simSlotDistribution[1] ?? 0;
       final sim2Count = callStats.simSlotDistribution[2] ?? 0;
       final peakHours = callStats.peakHoursRange.isNotEmpty ? callStats.peakHoursRange : '--';
@@ -77,6 +78,8 @@ class AppWidgetSyncService extends _$AppWidgetSyncService {
       await prefs.setString('widget_last_sync', lastSyncTime);
       await prefs.setString('widget_service_type', serviceType);
       await prefs.setInt('widget_blocked_calls_count', blockedCallsCount);
+      await prefs.setInt('widget_passed_calls_count', passedCallsCount);
+      await prefs.setString('widget_protection_status', 'active');
       await prefs.setInt('widget_sim1_count', sim1Count);
       await prefs.setInt('widget_sim2_count', sim2Count);
       await prefs.setString('widget_peak_hours', peakHours);

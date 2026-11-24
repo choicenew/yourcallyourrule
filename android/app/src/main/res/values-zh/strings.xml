@@ -19,6 +19,9 @@
     <string name="widget_last_sync">上次同步</string>
     <string name="widget_total_rules">规则总数</string>
     <string name="widget_blocked_today">今日拦截</string>
+    <string name="widget_passed_today">今日放行</string>
+    <string name="widget_protection_status">防护状态</string>
+    <string name="widget_status_active">已激活</string>
     <string name="widget_peak_hours">高峰时段</string>
     <string name="widget_sim_distribution">双卡分布</string>
     <string name="widget_risk_high">高危</string>

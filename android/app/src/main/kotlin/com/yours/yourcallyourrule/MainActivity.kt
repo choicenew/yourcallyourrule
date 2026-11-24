@@ -50,6 +50,7 @@ class MainActivity : FlutterActivity() {
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, "com.yours.yourcallyourrule/app_widget_sync").setMethodCallHandler { call, result ->
             when (call.method) {
                 "setSystemLanguage" -> com.yours.yourcallyourrule.widget.WidgetLanguageManager.handleSetSystemLanguage(this, call, result)
+                "updateAppWidgetState" -> com.yours.yourcallyourrule.widget.WidgetLanguageManager.handleUpdateAppWidgetState(this, result)
                 else -> result.notImplemented()
             }
         }

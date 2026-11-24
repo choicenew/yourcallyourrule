@@ -96,8 +96,6 @@ class _RegexTestPageState extends ConsumerState<RegexTestPage> {
             ],
             const SizedBox(height: 14),
             const AdsInlineBanner(),
-            const SizedBox(height: 14),
-            const AdsInlineBanner(),
           ],
         ),
       ),

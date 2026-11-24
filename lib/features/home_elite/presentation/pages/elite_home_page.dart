@@ -61,14 +61,18 @@ class _EliteHomePageState extends ConsumerState<EliteHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         heroTag: 'rule_library_setup_fab',
         backgroundColor: Theme.of(context).colorScheme.primary,
         foregroundColor: Theme.of(context).colorScheme.onPrimary,
         elevation: 4,
-        tooltip: AppLocalizations.of(context).initialSetupTitle,
+        tooltip: AppLocalizations.of(context).ruleStoreTitle,
         onPressed: () => context.pushNamed(AppRouter.initialSetup),
-        child: const Icon(Icons.storefront_rounded),
+        icon: const Icon(Icons.storefront_rounded),
+        label: Text(
+          AppLocalizations.of(context).ruleStoreTitle,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
+        ),
       ),
       bottomNavigationBar: BottomNavigation(
         currentIndex: _currentNavIndex,

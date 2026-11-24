@@ -19,6 +19,9 @@
     <string name="widget_last_sync">Last Sync</string>
     <string name="widget_total_rules">Total Rules</string>
     <string name="widget_blocked_today">Blocked Today</string>
+    <string name="widget_passed_today">Allowed Today</string>
+    <string name="widget_protection_status">Protection</string>
+    <string name="widget_status_active">Active</string>
     <string name="widget_peak_hours">Peak Hours</string>
     <string name="widget_sim_distribution">SIM Distribution</string>
     <string name="widget_risk_high">High</string>

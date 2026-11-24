@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
@@ -368,14 +369,20 @@ class _GenericTimelineListWithAdsPageState<T> extends ConsumerState<GenericTimel
       return emptyWidget;
     }
 
+    final totalCount = widget.items.length + (widget.items.length / widget.adInterval).floor();
+    final builder = PyroAdListUtils.buildListWithAds(
+      items: widget.items,
+      adBuilder: widget.adBuilder,
+      itemBuilder: (context, item) => _buildItemWidget(context, item),
+      adInterval: widget.adInterval,
+      shouldShowAds: true,
+    );
+
     return ListView.builder(
       padding: const EdgeInsets.symmetric(vertical: 8),
       physics: const AlwaysScrollableScrollPhysics(),
-      itemCount: widget.items.length,
-      itemBuilder: (context, index) {
-        final item = widget.items[index];
-        return _buildItemWidget(context, item);
-      },
+      itemCount: totalCount,
+      itemBuilder: builder,
     );
   }
 

@@ -33,6 +33,20 @@ object WidgetLanguageManager {
         }
     }
 
+    fun handleUpdateAppWidgetState(context: Context, result: MethodChannel.Result) {
+        val appContext = context.applicationContext
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                RulesSyncGlanceWidget().updateIfInstalled(appContext)
+                DashboardOverviewGlanceWidget().updateIfInstalled(appContext)
+                CommunityJudgeGlanceWidget().updateIfInstalled(appContext)
+            } catch (e: Exception) {
+                Log.e(TAG, "Batch widget state update failed: ${e.message}")
+            }
+        }
+        result.success(true)
+    }
+
     fun handleSetSystemLanguage(context: Context, call: MethodCall, result: MethodChannel.Result) {
         val localeCode = call.argument<String>("locale") ?: "system"
         val prefs = context.getSharedPreferences("yourcallrule_widget_prefs", Context.MODE_PRIVATE)

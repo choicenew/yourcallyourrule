@@ -118,6 +118,8 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
         val size = LocalSize.current
 
         val blockedCallsCount = state[KEY_BLOCKED_CALLS_COUNT] ?: 0
+        val passedCallsCount = state[KEY_PASSED_CALLS_COUNT] ?: 0
+        val protectionStatus = state[KEY_PROTECTION_STATUS] ?: "active"
         val sim1Count = state[KEY_SIM1_COUNT] ?: 0
         val sim2Count = state[KEY_SIM2_COUNT] ?: 0
         val peakHours = state[KEY_PEAK_HOURS] ?: "--"
@@ -131,6 +133,7 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
         val secondaryTextColor = if (isDark || alphaFloat <= 0.3f) Color(0xFFA1A1AA) else Color(0xFF64748B)
         val innerBentoBg = if (isDark) Color(0x2527272A) else Color(0x10000000)
         val redColor = Color(0xFFEF4444)
+        val emeraldColor = Color(0xFF10B981)
         val blueColor = Color(0xFF3B82F6)
 
         val isCompact = size.width < 180.dp
@@ -208,16 +211,16 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                     Spacer(modifier = GlanceModifier.defaultWeight())
                     Box(
                         modifier = GlanceModifier
-                            .background(Color(0x203B82F6))
+                            .background(if (protectionStatus == "active") Color(0x2010B981) else Color(0x203B82F6))
                             .cornerRadius(12.dp)
                             .padding(horizontal = 10.dp, vertical = 4.dp)
                     ) {
                         Text(
-                            text = "🛡️ ${localizedContext.getString(R.string.widget_smart_mode)}",
+                            text = if (protectionStatus == "active") "● ${localizedContext.getString(R.string.widget_status_active)}" else "🛡️ ${localizedContext.getString(R.string.widget_smart_mode)}",
                             style = TextStyle(
                                 fontSize = (10f * fontScale).sp,
                                 fontWeight = FontWeight.Bold,
-                                color = ColorProvider(blueColor)
+                                color = ColorProvider(if (protectionStatus == "active") emeraldColor else blueColor)
                             )
                         )
                     }
@@ -249,6 +252,43 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
                                     fontSize = (22f * fontScale).sp,
                                     fontWeight = FontWeight.Bold,
                                     color = ColorProvider(redColor)
+                                )
+                            )
+                            Spacer(modifier = GlanceModifier.width(3.dp))
+                            Text(
+                                text = localizedContext.getString(R.string.widget_times_unit),
+                                style = TextStyle(
+                                    fontSize = (10f * fontScale).sp,
+                                    color = ColorProvider(secondaryTextColor)
+                                )
+                            )
+                        }
+                    }
+
+                    Spacer(modifier = GlanceModifier.width(8.dp))
+
+                    Column(
+                        modifier = GlanceModifier
+                            .defaultWeight()
+                            .background(innerBentoBg)
+                            .cornerRadius(12.dp)
+                            .padding(10.dp)
+                    ) {
+                        Text(
+                            text = localizedContext.getString(R.string.widget_passed_today),
+                            style = TextStyle(
+                                fontSize = (10f * fontScale).sp,
+                                color = ColorProvider(secondaryTextColor)
+                            )
+                        )
+                        Spacer(modifier = GlanceModifier.height(2.dp))
+                        Row(verticalAlignment = Alignment.Bottom) {
+                            Text(
+                                text = "$passedCallsCount",
+                                style = TextStyle(
+                                    fontSize = (22f * fontScale).sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = ColorProvider(emeraldColor)
                                 )
                             )
                             Spacer(modifier = GlanceModifier.width(3.dp))
@@ -327,6 +367,8 @@ class DashboardOverviewGlanceWidget : GlanceAppWidget() {
 
     companion object {
         val KEY_BLOCKED_CALLS_COUNT = androidx.datastore.preferences.core.intPreferencesKey("widget_blocked_calls_count")
+        val KEY_PASSED_CALLS_COUNT = androidx.datastore.preferences.core.intPreferencesKey("widget_passed_calls_count")
+        val KEY_PROTECTION_STATUS = androidx.datastore.preferences.core.stringPreferencesKey("widget_protection_status")
         val KEY_SIM1_COUNT = androidx.datastore.preferences.core.intPreferencesKey("widget_sim1_count")
         val KEY_SIM2_COUNT = androidx.datastore.preferences.core.intPreferencesKey("widget_sim2_count")
         val KEY_PEAK_HOURS = androidx.datastore.preferences.core.stringPreferencesKey("widget_peak_hours")

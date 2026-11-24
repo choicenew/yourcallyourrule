@@ -1,13 +1,18 @@
+import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pyro_phone_rules_protocol/pyro_phone_rules_protocol.dart';
 import 'package:pyro_ads_hub/pyro_ads_hub.dart';
+import 'package:yourcallyourrule/features/common/dialogs/filter_dialogs.dart';
 import 'package:yourcallyourrule/features/common/router/app_router.dart';
 import 'package:yourcallyourrule/features/common/value_objects/rule_action.dart';
 import 'package:yourcallyourrule/features/common/widgets/generic_list_page.dart';
 import 'package:yourcallyourrule/features/phone_rules/services/regex_service.dart';
+import 'package:yourcallyourrule/features/phone_rules/utils/regex_hint.dart';
 import 'package:yourcallyourrule/features/phone_rules/utils/rule_action_display_utils.dart';
+import 'package:yourcallyourrule/features/phone_rules/widgets/regex_ai_skills_dialog.dart';
 import 'package:yourcallyourrule/generated/app_localizations.dart';
 
 final regexRulesListProvider = FutureProvider.autoDispose<List<RegexRuleEntity>>((ref) async {
@@ -27,6 +32,7 @@ class _RegexRulePageState extends ConsumerState<RegexRulePage> {
   String _searchKeyword = '';
   final Set<String> _selectedRuleIds = {};
   bool _isMultiSelectMode = false;
+  RuleActionType? _selectedActionType;
 
   void _onSearchChanged(String keyword) {
     setState(() {
@@ -202,6 +208,60 @@ class _RegexRulePageState extends ConsumerState<RegexRulePage> {
     ref.invalidate(regexRulesListProvider);
   }
 
+  void _showRegexPatternExplanationDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(
+          AppLocalizations.of(context).regexPatternExplanation,
+          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+              color: Theme.of(context).colorScheme.onSurface,
+              fontWeight: FontWeight.w600),
+        ),
+        backgroundColor: Theme.of(context).colorScheme.surfaceContainerLowest,
+        content: const SingleChildScrollView(
+          child: RegexPatternHint(),
+        ),
+        actions: [
+          FilledButton.tonal(
+            onPressed: () => Navigator.pop(ctx),
+            style: FilledButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+              foregroundColor: Theme.of(context).colorScheme.onSurface,
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            ),
+            child: Text(AppLocalizations.of(context).closeButton),
+          ),
+        ],
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
+    );
+  }
+
+  Future<void> _exportRules() async {
+    final l10n = AppLocalizations.of(context);
+    final service = ref.read(regexServiceProvider);
+    final rules = await service.getAllRegexRules();
+    if (rules.isEmpty) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.noRulesToExport)),
+        );
+      }
+      return;
+    }
+    final jsonStr = jsonEncode(rules.map((r) => r.toMap()).toList());
+    await Clipboard.setData(ClipboardData(text: jsonStr));
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(l10n.rulesExportedSuccessfully),
+          backgroundColor: Colors.green,
+        ),
+      );
+    }
+  }
+
   void _showMoreOptions() {
     final l10n = AppLocalizations.of(context);
     showModalBottomSheet(
@@ -211,11 +271,53 @@ class _RegexRulePageState extends ConsumerState<RegexRulePage> {
           mainAxisSize: MainAxisSize.min,
           children: [
             ListTile(
+              leading: const Icon(Icons.add_rounded),
+              title: Text(l10n.addRegexRule),
+              onTap: () {
+                Navigator.pop(ctx);
+                _showAddOrEditRegexDialog();
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.filter_list_rounded),
+              title: Text(l10n.filterByAction),
+              onTap: () {
+                Navigator.pop(ctx);
+                showActionFilterDialog(context, (type) {
+                  setState(() => _selectedActionType = type);
+                });
+              },
+            ),
+            ListTile(
               leading: const Icon(Icons.science_outlined),
               title: Text(l10n.regexTesterTitle),
               onTap: () {
                 Navigator.pop(ctx);
                 context.pushNamed(AppRouter.regexTest);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.help_outline_rounded),
+              title: Text(l10n.regexPatternExplanationButton),
+              onTap: () {
+                Navigator.pop(ctx);
+                _showRegexPatternExplanationDialog(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.psychology_rounded),
+              title: const Text('AI Skills'),
+              onTap: () {
+                Navigator.pop(ctx);
+                RegexAiSkillsDialog.show(context);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.file_download_outlined),
+              title: Text(l10n.exportRules),
+              onTap: () {
+                Navigator.pop(ctx);
+                _exportRules();
               },
             ),
           ],
@@ -237,45 +339,84 @@ class _RegexRulePageState extends ConsumerState<RegexRulePage> {
           width: 1.1,
         ),
       ),
-      child: Row(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            padding: const EdgeInsets.all(6.0),
-            decoration: BoxDecoration(
-              color: primaryColor.withValues(alpha: 0.12),
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            child: Icon(
-              Icons.code_rounded,
-              color: primaryColor,
-              size: 20,
-            ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(6.0),
+                decoration: BoxDecoration(
+                  color: primaryColor.withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Icon(
+                  Icons.code_rounded,
+                  color: primaryColor,
+                  size: 20,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l10n.regexRuleManagement,
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w800,
+                        color: primaryColor,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      l10n.regexRulesInfo,
+                      style: TextStyle(
+                        fontSize: 12.5,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        height: 1.35,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  l10n.regexRuleManagement,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w800,
-                    color: primaryColor,
-                  ),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              OutlinedButton.icon(
+                onPressed: () => _showRegexPatternExplanationDialog(context),
+                icon: const Icon(Icons.help_outline_rounded, size: 16),
+                label: Text(l10n.regexPatternExplanationButton),
+                style: OutlinedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                  visualDensity: VisualDensity.compact,
                 ),
-                const SizedBox(height: 4),
-                Text(
-                  l10n.regexRulesInfo,
-                  style: TextStyle(
-                    fontSize: 12.5,
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    height: 1.35,
-                  ),
+              ),
+              OutlinedButton.icon(
+                onPressed: () => context.pushNamed(AppRouter.regexTest),
+                icon: const Icon(Icons.science_outlined, size: 16),
+                label: Text(l10n.regexTesterTitle),
+                style: OutlinedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                  visualDensity: VisualDensity.compact,
                 ),
-              ],
-            ),
+              ),
+              OutlinedButton.icon(
+                onPressed: () => RegexAiSkillsDialog.show(context),
+                icon: const Icon(Icons.psychology_rounded, size: 16),
+                label: const Text('AI Skills'),
+                style: OutlinedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                  visualDensity: VisualDensity.compact,
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -388,14 +529,20 @@ class _RegexRulePageState extends ConsumerState<RegexRulePage> {
 
     return rulesAsync.when(
       data: (rules) {
-        final filteredRules = _searchKeyword.isEmpty
-            ? rules
-            : rules.where((r) {
-                final name = r.name.toLowerCase();
-                final pattern = r.pattern.toLowerCase();
-                final kw = _searchKeyword.toLowerCase();
-                return name.contains(kw) || pattern.contains(kw);
-              }).toList();
+        final filteredRules = rules.where((r) {
+          if (_selectedActionType != null && r.actionType != _selectedActionType!.name) {
+            return false;
+          }
+          if (_searchKeyword.isNotEmpty) {
+            final name = r.name.toLowerCase();
+            final pattern = r.pattern.toLowerCase();
+            final kw = _searchKeyword.toLowerCase();
+            if (!name.contains(kw) && !pattern.contains(kw)) {
+              return false;
+            }
+          }
+          return true;
+        }).toList();
 
         return GenericListPage<RegexRuleEntity>(
           title: l10n.regexRuleManagement,

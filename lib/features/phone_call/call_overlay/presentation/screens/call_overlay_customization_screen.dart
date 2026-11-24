@@ -96,9 +96,7 @@ class _CallOverlayCustomizationScreenState
                     child: ListView(
                       padding: const EdgeInsets.all(16),
                       children: [
-                        const Divider(),
                         const AdsInlineBanner(),
-                        const Divider(),
                         // 设置项
                         _buildExpansionTile(
                             AppLocalizations.of(context).windowSizeSetting,
@@ -156,6 +154,19 @@ class _CallOverlayCustomizationScreenState
   }
   /// 显示预览浮窗 (纯原生系统级悬浮窗)
   Future<void> _showPreview(BuildContext context) async {
+    final hasPermission = await FloatingWindowAndroid.isPermissionGranted();
+    if (!hasPermission) {
+      final granted = await FloatingWindowAndroid.requestPermission();
+      if (!granted) {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(AppLocalizations.of(context).permissionDenied)),
+          );
+        }
+        return;
+      }
+    }
+
     final overlayHandlerAsync = ref.read(overlayHandlerProvider);
     if (!overlayHandlerAsync.hasValue) {
       return;

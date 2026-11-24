@@ -175,7 +175,6 @@ class _VerificationPageState extends ConsumerState<VerificationPage> {
                 const SizedBox(height: 16),
               ],
             ],
-            const AdsInlineBanner(),
             const SizedBox(height: 14),
             const AdsInlineBanner(),
             const SizedBox(height: 24),

@@ -65,6 +65,28 @@ class OutboundBlockedLabelsSettingCard extends ConsumerWidget {
             l10n.callRedirectionSettingsSubtitle,
             style: TextStyle(fontSize: 12, color: theme.colorScheme.onSurfaceVariant),
           ),
+          const SizedBox(height: 8),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            decoration: BoxDecoration(
+              color: theme.colorScheme.errorContainer.withValues(alpha: 0.25),
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: theme.colorScheme.error.withValues(alpha: 0.25)),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(Icons.shield_outlined, size: 16, color: theme.colorScheme.error),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    '呼出防伪/外呼保护说明：当您拨打电话或点击回拨时，系统将检测目标号码是否属于勾选的高危/吸费标签。若命中将主动拦截并弹出二次确认预警，防止意外误拨与回拨吸费诈骗陷阱。',
+                    style: TextStyle(fontSize: 12, color: theme.colorScheme.onErrorContainer, height: 1.35),
+                  ),
+                ),
+              ],
+            ),
+          ),
           const SizedBox(height: 14),
           Wrap(
             spacing: 6,

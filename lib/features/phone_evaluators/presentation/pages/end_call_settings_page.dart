@@ -92,6 +92,28 @@ class EndCallSettingsPage extends ConsumerWidget {
                           l10n.chooseDefaultInterceptAction,
                           style: TextStyle(fontSize: 13, color: theme.colorScheme.onSurfaceVariant),
                         ),
+                        const SizedBox(height: 8),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.primaryContainer.withValues(alpha: 0.35),
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: theme.colorScheme.primary.withValues(alpha: 0.2)),
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(Icons.info_outline_rounded, size: 16, color: theme.colorScheme.primary),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Text(
+                                  '呼入场景说明：针对来电进行实时研判。当号码命中拦截规则或恶意标签时，将执行指定的处置动作（如立即挂断阻断响铃、接听后立即挂断消耗对方额度、或静音响铃避免打扰）。',
+                                  style: TextStyle(fontSize: 12, color: theme.colorScheme.onPrimaryContainer, height: 1.35),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                         const SizedBox(height: 14),
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
