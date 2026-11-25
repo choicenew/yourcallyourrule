@@ -53,12 +53,41 @@ class _CallOverlayEntryState extends ConsumerState<CallOverlayEntry> {
     }
 
     return asyncConfig.when(
-      data: (config) => CallOverlayContentBuilder.buildCallOverlayContent(
-        context: context,
-        config: config,
-        callerIdData: _callerIdData!,
-        simInfo: _simInfo,
-        stirInfo: _stirInfo,
+      data: (config) => Material(
+        color: Colors.transparent,
+        child: Container(
+          width: config.windowWidth,
+          height: config.windowHeight,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [config.backgroundColorStart, config.backgroundColorEnd],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: Colors.white.withValues(alpha: 0.25),
+              width: 1.2,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.3),
+                blurRadius: 12,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: CallOverlayContentBuilder.buildCallOverlayContent(
+              context: context,
+              config: config,
+              callerIdData: _callerIdData!,
+              simInfo: _simInfo,
+              stirInfo: _stirInfo,
+            ),
+          ),
+        ),
       ),
       loading: () => const SizedBox.shrink(),
       error: (e, s) => const SizedBox.shrink(),

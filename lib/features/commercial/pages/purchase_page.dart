@@ -68,8 +68,20 @@ class _PurchasePageState extends ConsumerState<PurchasePage> {
       if (response.productDetails.isNotEmpty) {
         final param = PurchaseParam(productDetails: response.productDetails.first);
         await InAppPurchase.instance.buyNonConsumable(purchaseParam: param);
+      } else {
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Product "$productId" not found in store')),
+          );
+        }
       }
-    } catch (_) {}
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Purchase error: $e')),
+        );
+      }
+    }
   }
 
   @override

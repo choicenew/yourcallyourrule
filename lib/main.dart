@@ -9,6 +9,7 @@ import 'package:pyro_device_primary_secondary_ui/pyro_device_primary_secondary_u
 import 'package:pyro_sms_ui/pyro_sms_ui.dart';
 import 'package:pyro_phone_call_interception_policy_ui/pyro_phone_call_interception_policy_ui.dart' as policy_ui;
 import 'package:yourcallyourrule/core/coordinator/package_connectors_initializer.dart';
+import 'package:yourcallyourrule/features/commercial/services/commercial_service.dart';
 import 'package:yourcallyourrule/core/coordinator/app_hub_exchange_connector.dart';
 import 'package:yourcallyourrule/features/common/error/logger.dart';
 import 'package:yourcallyourrule/features/sync/services/background_sync_service.dart';
@@ -84,6 +85,8 @@ Future<void> main() async {
 
       if (!isOverlayMode) {
         container.read(backgroundSyncServiceProvider).initialize();
+        container.read(commercialHubProvider);
+        container.read(commercialServiceProvider).initialize();
       }
 
       container.read(foregroundSyncServiceProvider).syncIfNeeded();
