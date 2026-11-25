@@ -23,8 +23,6 @@ class CallFilterSettingsWidget extends ConsumerWidget {
 
     return Column(
       children: [
-        const AdsInlineBanner(),
-        const SizedBox(height: 12),
         Container(
           padding: const EdgeInsets.symmetric(vertical: 6.0),
           decoration: BoxDecoration(

@@ -1,4 +1,5 @@
 import 'package:material_ui/material_ui.dart';
+import 'package:pyro_ads_hub/pyro_ads_hub.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pyro_sim_hub/pyro_sim_hub.dart';
 
@@ -151,6 +152,11 @@ class EnhancedFilterSettingsPageState extends ConsumerState<EnhancedFilterSettin
               subtitle: Text(AppLocalizations.of(context).remoteNumberFilterSubtitle),
               trailing: const Icon(Icons.chevron_right),
               onTap: _navigateToRemoteFilterSettings,
+            ),
+            const Divider(),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.0),
+              child: AdsInlineBanner(),
             ),
             const Divider(),
             ListTile(
