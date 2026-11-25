@@ -167,11 +167,7 @@ class _CallOverlayCustomizationScreenState
       }
     }
 
-    final overlayHandlerAsync = ref.read(overlayHandlerProvider);
-    if (!overlayHandlerAsync.hasValue) {
-      return;
-    }
-    final overlayHandler = overlayHandlerAsync.value!;
+    final overlayHandler = await ref.read(overlayHandlerProvider.future);
     
     final mockData = CallOverlayMockData.mockCallerIdData();
     final stirInfo = CallOverlayMockData.mockStirInfoData();
