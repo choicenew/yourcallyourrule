@@ -236,10 +236,21 @@ class _PurchasePageState extends ConsumerState<PurchasePage> {
         child: ElevatedButton.icon(
           onPressed: () async {
             await InAppPurchase.instance.restorePurchases();
+            await Future.delayed(const Duration(milliseconds: 800));
+            final isVip = ref.read(isVipUserProvider);
             if (context.mounted) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Purchases restored successfully')),
-              );
+              if (isVip) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Purchases restored successfully')),
+                );
+                if (Navigator.of(context).canPop()) {
+                  Navigator.of(context).pop();
+                }
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('No active purchases found to restore')),
+                );
+              }
             }
           },
           icon: const Icon(Icons.restore_rounded),
