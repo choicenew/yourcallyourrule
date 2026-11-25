@@ -2533,5 +2533,7 @@
   "backgroundOpacity": "Background Opacity",
   "timesUnit": "times",
   "participantCount": "%1$d Participants",
-  "totalRules": "Total Rules"
+  "totalRules": "Total Rules",
+  "incomingCallScenarioDescription": "Incoming call scenario: Evaluates calls in real time. When a number matches a blocking rule or malicious label, the specified action is executed (e.g. hang up immediately, answer then hang up, or silence without ringing).",
+  "labelActionPolicySubtitle": "Return different interception actions based on call labels"
 }

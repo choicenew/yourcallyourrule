@@ -4213,13 +4213,13 @@ abstract class AppLocalizations {
   /// No description provided for @masterPermissionHelp.
   ///
   /// In en, this message translates to:
-  /// **'Permission: Master device allowed to initialize global database'**
+  /// **'Role: Primary device is authorized to initialize global databases and coordinate sync.'**
   String get masterPermissionHelp;
 
   /// No description provided for @slavePermissionHelp.
   ///
   /// In en, this message translates to:
-  /// **'Permission: Slave device possesses all cloud keys, skipping duplicate initialization'**
+  /// **'Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.'**
   String get slavePermissionHelp;
 
   /// No description provided for @connectedClusterNodesList.
@@ -4240,11 +4240,40 @@ abstract class AppLocalizations {
   /// **'(This Device)'**
   String get localDeviceSuffix;
 
+  /// No description provided for @masterSlaveOnboardingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Device Cluster & Primary/Secondary Roles'**
   String get masterSlaveOnboardingTitle;
+
+  /// No description provided for @masterSlaveOnboardingDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.'**
   String get masterSlaveOnboardingDescription;
+
+  /// No description provided for @masterRoleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Primary Device'**
   String get masterRoleTitle;
+
+  /// No description provided for @masterRoleDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Can initialize global databases and manage cloud synchronization keys.'**
   String get masterRoleDescription;
+
+  /// No description provided for @slaveRoleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Secondary Device'**
   String get slaveRoleTitle;
+
+  /// No description provided for @slaveRoleDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Inherits cloud keys from Primary device without repeating initial setup.'**
   String get slaveRoleDescription;
 
   /// No description provided for @oneDriveAuthDescription.
@@ -5495,12 +5524,6 @@ abstract class AppLocalizations {
   /// **'Silent Call Voice Clone'**
   String get silentCallVoiceClone;
 
-  String get autoWarrantyScam => 'Auto Warranty Scam';
-  String get voiceCloneScam => 'Voice Clone Scam';
-  String get aiRobocall => 'AI Robocall';
-  String get publicSafety => 'Public Safety';
-  String get healthcare => 'Healthcare';
-
   /// No description provided for @silentRules.
   ///
   /// In en, this message translates to:
@@ -6082,6 +6105,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Telecommunication'**
   String get telecommunication;
+
+  /// No description provided for @autoWarrantyScam.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto Warranty Scam'**
+  String get autoWarrantyScam;
+
+  /// No description provided for @voiceCloneScam.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice Clone Scam'**
+  String get voiceCloneScam;
+
+  /// No description provided for @aiRobocall.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Robocall'**
+  String get aiRobocall;
+
+  /// No description provided for @publicSafety.
+  ///
+  /// In en, this message translates to:
+  /// **'Public Safety'**
+  String get publicSafety;
+
+  /// No description provided for @healthcare.
+  ///
+  /// In en, this message translates to:
+  /// **'Healthcare'**
+  String get healthcare;
 
   /// No description provided for @telegram.
   ///
@@ -9003,25 +9056,155 @@ abstract class AppLocalizations {
   /// **'Peak Harassment Hours'**
   String get peakHarassmentHours;
 
-  String get expectedCallTitle => 'Expected Call · Temporary Exemption';
-  String expectedCallActiveDesc(String remaining) => 'Temporarily allowing all unknown calls ($remaining remaining)';
-  String get expectedCallInactiveDesc => 'Temporarily exempt block rules while awaiting deliveries';
-  String get expectedCallAddTile => 'Add "Expected Call" to Quick Settings Tile';
-  String get duration15Min => '15 min';
-  String get duration30Min => '30 min';
-  String get duration1Hour => '1 hr';
-  String get duration2Hours => '2 hrs';
-  String get callRedirectionSettingsTitle => 'Call Redirection & Outbound Scam Protection';
-  String get callRedirectionSettingsSubtitle => 'Protect against toll fraud, 3s timeout fallback & in-car mode';
-  String get ruleStoreTitle => 'Rule Store';
-  String get primaryRoleTitle => 'Primary';
-  String get secondaryRoleTitle => 'Secondary';
-  String get primaryRoleDescription => 'Acts as the primary hub, managing rules and synchronization.';
-  String get secondaryRoleDescription => 'Acts as a secondary node, receiving rules and reporting state.';
-  String get primaryPermissionHelp => 'Requires full permissions for call and SMS processing.';
-  String get secondaryPermissionHelp => 'Requires sync and notification permissions only.';
-  String get clusterOnboardingTitle => 'Device Cluster Setup';
-  String get clusterOnboardingDescription => 'Configure your device role in the cluster for seamless cross-device synchronization.';
+  /// No description provided for @expectedCallTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Expected Call · Temporary Exemption'**
+  String get expectedCallTitle;
+
+  /// No description provided for @expectedCallActiveDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Temporarily allowing all unknown calls ({remaining} remaining)'**
+  String expectedCallActiveDesc(String remaining);
+
+  /// No description provided for @expectedCallInactiveDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Temporarily exempt block rules while awaiting deliveries'**
+  String get expectedCallInactiveDesc;
+
+  /// No description provided for @expectedCallAddTile.
+  ///
+  /// In en, this message translates to:
+  /// **'Add \"Expected Call\" to Quick Settings Tile'**
+  String get expectedCallAddTile;
+
+  /// No description provided for @duration15Min.
+  ///
+  /// In en, this message translates to:
+  /// **'15 min'**
+  String get duration15Min;
+
+  /// No description provided for @duration30Min.
+  ///
+  /// In en, this message translates to:
+  /// **'30 min'**
+  String get duration30Min;
+
+  /// No description provided for @duration1Hour.
+  ///
+  /// In en, this message translates to:
+  /// **'1 hr'**
+  String get duration1Hour;
+
+  /// No description provided for @duration2Hours.
+  ///
+  /// In en, this message translates to:
+  /// **'2 hrs'**
+  String get duration2Hours;
+
+  /// No description provided for @callRedirectionSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Call Redirection & Outbound Scam Protection'**
+  String get callRedirectionSettingsTitle;
+
+  /// No description provided for @callRedirectionSettingsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Protect against toll fraud, 3s timeout fallback & in-car mode'**
+  String get callRedirectionSettingsSubtitle;
+
+  /// No description provided for @ruleStoreTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rule Store'**
+  String get ruleStoreTitle;
+
+  /// No description provided for @primaryRoleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Primary'**
+  String get primaryRoleTitle;
+
+  /// No description provided for @secondaryRoleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Secondary'**
+  String get secondaryRoleTitle;
+
+  /// No description provided for @primaryRoleDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Acts as the primary hub, managing rules and synchronization.'**
+  String get primaryRoleDescription;
+
+  /// No description provided for @secondaryRoleDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Acts as a secondary node, receiving rules and reporting state.'**
+  String get secondaryRoleDescription;
+
+  /// No description provided for @primaryPermissionHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Requires full permissions for call and SMS processing.'**
+  String get primaryPermissionHelp;
+
+  /// No description provided for @secondaryPermissionHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Requires sync and notification permissions only.'**
+  String get secondaryPermissionHelp;
+
+  /// No description provided for @clusterOnboardingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Device Cluster Setup'**
+  String get clusterOnboardingTitle;
+
+  /// No description provided for @clusterOnboardingDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Configure your device role in the cluster for seamless cross-device synchronization.'**
+  String get clusterOnboardingDescription;
+
+  /// No description provided for @backgroundOpacity.
+  ///
+  /// In en, this message translates to:
+  /// **'Background Opacity'**
+  String get backgroundOpacity;
+
+  /// No description provided for @timesUnit.
+  ///
+  /// In en, this message translates to:
+  /// **'times'**
+  String get timesUnit;
+
+  /// No description provided for @participantCount.
+  ///
+  /// In en, this message translates to:
+  /// **'%1\$d Participants'**
+  String get participantCount;
+
+  /// No description provided for @totalRules.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Rules'**
+  String get totalRules;
+
+  /// No description provided for @incomingCallScenarioDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Incoming call scenario: Evaluates calls in real time. When a number matches a blocking rule or malicious label, the specified action is executed (e.g. hang up immediately, answer then hang up, or silence without ringing).'**
+  String get incomingCallScenarioDescription;
+
+  /// No description provided for @labelActionPolicySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Return different interception actions based on call labels'**
+  String get labelActionPolicySubtitle;
 }
 
 class _AppLocalizationsDelegate

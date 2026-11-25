@@ -2524,5 +2524,7 @@
   "backgroundOpacity": "背景不透明度",
   "timesUnit": "次",
   "participantCount": "%1$d 人已参与",
-  "totalRules": "规则总数"
+  "totalRules": "规则总数",
+  "incomingCallScenarioDescription": "呼入场景说明：针对来电进行实时研判。当号码命中拦截规则或恶意标签时，将执行指定的处置动作（如立即挂断阻断响铃、接听后立即挂断消耗对方额度、或静音响铃避免打扰）。",
+  "labelActionPolicySubtitle": "根据不同的来电标签返回对应的拦截处理结果"
 }

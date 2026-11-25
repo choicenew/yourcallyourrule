@@ -2307,11 +2307,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get masterPermissionHelp =>
-      'Permission: Master device allowed to initialize global database';
+      'Role: Primary device is authorized to initialize global databases and coordinate sync.';
 
   @override
   String get slavePermissionHelp =>
-      'Permission: Slave device possesses all cloud keys, skipping duplicate initialization';
+      'Role: Secondary device holds all cloud encryption keys and receives sync without re-initialization.';
 
   @override
   String get connectedClusterNodesList => 'Connected Cluster Device Nodes:';
@@ -2321,6 +2321,28 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get localDeviceSuffix => '(This Device)';
+
+  @override
+  String get masterSlaveOnboardingTitle =>
+      'Device Cluster & Primary/Secondary Roles';
+
+  @override
+  String get masterSlaveOnboardingDescription =>
+      'Understand Primary vs. Secondary device roles to easily sync database structures and cloud keys across multiple devices.';
+
+  @override
+  String get masterRoleTitle => 'Primary Device';
+
+  @override
+  String get masterRoleDescription =>
+      'Can initialize global databases and manage cloud synchronization keys.';
+
+  @override
+  String get slaveRoleTitle => 'Secondary Device';
+
+  @override
+  String get slaveRoleDescription =>
+      'Inherits cloud keys from Primary device without repeating initial setup.';
 
   @override
   String get oneDriveAuthDescription =>
@@ -3364,6 +3386,21 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get telecommunication => 'Telecommunicatie';
+
+  @override
+  String get autoWarrantyScam => 'Auto Warranty Scam';
+
+  @override
+  String get voiceCloneScam => 'Voice Clone Scam';
+
+  @override
+  String get aiRobocall => 'AI Robocall';
+
+  @override
+  String get publicSafety => 'Public Safety';
+
+  @override
+  String get healthcare => 'Healthcare';
 
   @override
   String get telegram => 'Telegram';
@@ -5047,4 +5084,92 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get peakHarassmentHours => 'Peak Harassment Hours';
+
+  @override
+  String get expectedCallTitle => 'Expected Call · Temporary Exemption';
+
+  @override
+  String expectedCallActiveDesc(String remaining) {
+    return 'Temporarily allowing all unknown calls ($remaining remaining)';
+  }
+
+  @override
+  String get expectedCallInactiveDesc =>
+      'Temporarily exempt block rules while awaiting deliveries';
+
+  @override
+  String get expectedCallAddTile =>
+      'Add \"Expected Call\" to Quick Settings Tile';
+
+  @override
+  String get duration15Min => '15 min';
+
+  @override
+  String get duration30Min => '30 min';
+
+  @override
+  String get duration1Hour => '1 hr';
+
+  @override
+  String get duration2Hours => '2 hrs';
+
+  @override
+  String get callRedirectionSettingsTitle =>
+      'Call Redirection & Outbound Scam Protection';
+
+  @override
+  String get callRedirectionSettingsSubtitle =>
+      'Protect against toll fraud, 3s timeout fallback & in-car mode';
+
+  @override
+  String get ruleStoreTitle => 'Rule Store';
+
+  @override
+  String get primaryRoleTitle => 'Primary';
+
+  @override
+  String get secondaryRoleTitle => 'Secondary';
+
+  @override
+  String get primaryRoleDescription =>
+      'Acts as the primary hub, managing rules and synchronization.';
+
+  @override
+  String get secondaryRoleDescription =>
+      'Acts as a secondary node, receiving rules and reporting state.';
+
+  @override
+  String get primaryPermissionHelp =>
+      'Requires full permissions for call and SMS processing.';
+
+  @override
+  String get secondaryPermissionHelp =>
+      'Requires sync and notification permissions only.';
+
+  @override
+  String get clusterOnboardingTitle => 'Device Cluster Setup';
+
+  @override
+  String get clusterOnboardingDescription =>
+      'Configure your device role in the cluster for seamless cross-device synchronization.';
+
+  @override
+  String get backgroundOpacity => 'Background Opacity';
+
+  @override
+  String get timesUnit => 'times';
+
+  @override
+  String get participantCount => '%1\$d Participants';
+
+  @override
+  String get totalRules => 'Total Rules';
+
+  @override
+  String get incomingCallScenarioDescription =>
+      'Incoming call scenario: Evaluates calls in real time. When a number matches a blocking rule or malicious label, the specified action is executed (e.g. hang up immediately, answer then hang up, or silence without ringing).';
+
+  @override
+  String get labelActionPolicySubtitle =>
+      'Return different interception actions based on call labels';
 }

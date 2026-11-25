@@ -2194,7 +2194,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get masterPermissionHelp => '角色: 主设备 (Primary) 拥有全局数据库初始化与协同同步权限。';
 
   @override
-  String get slavePermissionHelp => '角色: 从属设备 (Secondary) 具备全量云端安全密钥，直接接收同步，免除重复初始化。';
+  String get slavePermissionHelp =>
+      '角色: 从属设备 (Secondary) 具备全量云端安全密钥，直接接收同步，免除重复初始化。';
 
   @override
   String get connectedClusterNodesList => '集群已接入设备节点列表:';
@@ -2216,15 +2217,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get masterRoleTitle => '主设备 (Primary)';
 
   @override
-  String get masterRoleDescription =>
-      '具备全局数据库初始化权限，统一管理云端密钥与协同同步。';
+  String get masterRoleDescription => '具备全局数据库初始化权限，统一管理云端密钥与协同同步。';
 
   @override
   String get slaveRoleTitle => '从属设备 (Secondary)';
 
   @override
-  String get slaveRoleDescription =>
-      '直接继承主设备云端安全密钥，免去重复繁琐的初始化步骤。';
+  String get slaveRoleDescription => '直接继承主设备云端安全密钥，免去重复繁琐的初始化步骤。';
 
   @override
   String get oneDriveAuthDescription => '使用系统配置的 OneDrive 客户端 ID 和密钥进行授权';
@@ -2902,21 +2901,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get silentCallVoiceClone => '静音呼叫语音克隆';
 
   @override
-  String get autoWarrantyScam => '汽车质保诈骗';
-
-  @override
-  String get voiceCloneScam => 'AI拟声诈骗';
-
-  @override
-  String get aiRobocall => 'AI机器人外呼';
-
-  @override
-  String get publicSafety => '公共安全与应急';
-
-  @override
-  String get healthcare => '医疗健康就诊';
-
-  @override
   String get silentRules => '静音规则';
 
   @override
@@ -3243,6 +3227,21 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get telecommunication => '电信';
+
+  @override
+  String get autoWarrantyScam => '汽车质保诈骗';
+
+  @override
+  String get voiceCloneScam => 'AI拟声诈骗';
+
+  @override
+  String get aiRobocall => 'AI机器人外呼';
+
+  @override
+  String get publicSafety => '公共安全与应急';
+
+  @override
+  String get healthcare => '医疗健康就诊';
 
   @override
   String get telegram => 'Telegram';
@@ -4864,7 +4863,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get expectedCallTitle => '期待电话 · 临时放行';
 
   @override
-  String expectedCallActiveDesc(String remaining) => '正在临时放行所有未知来电 (剩余 $remaining)';
+  String expectedCallActiveDesc(String remaining) {
+    return '正在临时放行所有未知来电 (剩余 $remaining)';
+  }
 
   @override
   String get expectedCallInactiveDesc => '等外卖/快递时临时豁免拦截规则';
@@ -4897,25 +4898,44 @@ class AppLocalizationsZh extends AppLocalizations {
   String get primaryRoleTitle => '主设备';
 
   @override
-  String get secondaryRoleTitle => '协同从设备';
+  String get secondaryRoleTitle => '从设备';
 
   @override
-  String get primaryRoleDescription => '作为集群中枢主节点，全权管理规则制定、拦截判定与数据同步。';
+  String get primaryRoleDescription => '具备全局数据库初始化与规则协同管理权限。';
 
   @override
-  String get secondaryRoleDescription => '作为从属辅助节点，接收同步规则并上报设备状态。';
+  String get secondaryRoleDescription => '直接继承主设备规则与云端密钥，免除重复初始化。';
 
   @override
-  String get primaryPermissionHelp => '需要通话与短信全部核心权限以确保主设备实时拦截。';
+  String get primaryPermissionHelp => '主设备需要完整电话与短信处理权限。';
 
   @override
-  String get secondaryPermissionHelp => '仅需同步与通知权限即可实现多端协同。';
+  String get secondaryPermissionHelp => '从设备仅需要同步与通知相关权限。';
 
   @override
-  String get clusterOnboardingTitle => '设备集群拓扑配置';
+  String get clusterOnboardingTitle => '设备集群与节点角色分配';
 
   @override
-  String get clusterOnboardingDescription => '选择本台设备在跨端协同集群中的定位与角色，支持随时切换。';
+  String get clusterOnboardingDescription => '配置本设备在多设备集群中的角色分工，实现无缝协同同步。';
+
+  @override
+  String get backgroundOpacity => '背景不透明度';
+
+  @override
+  String get timesUnit => '次';
+
+  @override
+  String get participantCount => '%1\$d 人已参与';
+
+  @override
+  String get totalRules => '规则总数';
+
+  @override
+  String get incomingCallScenarioDescription =>
+      '呼入场景说明：针对来电进行实时研判。当号码命中拦截规则或恶意标签时，将执行指定的处置动作（如立即挂断阻断响铃、接听后立即挂断消耗对方额度、或静音响铃避免打扰）。';
+
+  @override
+  String get labelActionPolicySubtitle => '根据不同的来电标签返回对应的拦截处理结果';
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -7741,21 +7761,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get silentCallVoiceClone => '静音呼叫语音克隆';
 
   @override
-  String get autoWarrantyScam => '汽车质保诈骗';
-
-  @override
-  String get voiceCloneScam => 'AI拟声诈骗';
-
-  @override
-  String get aiRobocall => 'AI机器人外呼';
-
-  @override
-  String get publicSafety => '公共安全与应急';
-
-  @override
-  String get healthcare => '医疗健康就诊';
-
-  @override
   String get silentRules => '静音规则';
 
   @override
@@ -9578,6 +9583,25 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get masterAndOverridesDesc => '全局规则设置';
+
+  @override
+  String get backgroundOpacity => '背景不透明度';
+
+  @override
+  String get timesUnit => '次';
+
+  @override
+  String get participantCount => '%1\$d 人已参与';
+
+  @override
+  String get totalRules => '规则总数';
+
+  @override
+  String get incomingCallScenarioDescription =>
+      '呼入场景说明：针对来电进行实时研判。当号码命中拦截规则或恶意标签时，将执行指定的处置动作（如立即挂断阻断响铃、接听后立即挂断消耗对方额度、或静音响铃避免打扰）。';
+
+  @override
+  String get labelActionPolicySubtitle => '根据不同的来电标签返回对应的拦截处理结果';
 }
 
 /// The translations for Chinese, as used in Hong Kong (`zh_HK`).
@@ -14307,61 +14331,16 @@ class AppLocalizationsZhHk extends AppLocalizationsZh {
   String get masterAndOverridesDesc => '全域規則設定';
 
   @override
-  String get expectedCallTitle => '期待电话 · 临时放行';
+  String get backgroundOpacity => '背景不透明度';
 
   @override
-  String expectedCallActiveDesc(String remaining) => '正在临时放行所有未知来电 (剩余 $remaining)';
+  String get timesUnit => '次';
 
   @override
-  String get expectedCallInactiveDesc => '等外卖/快递时临时豁免拦截规则';
+  String get participantCount => '%1\$d 人已参与';
 
   @override
-  String get expectedCallAddTile => '添加“期待电话”至系统下拉控制中心 (Quick Settings Tile)';
-
-  @override
-  String get duration15Min => '15分钟';
-
-  @override
-  String get duration30Min => '30分钟';
-
-  @override
-  String get duration1Hour => '1小时';
-
-  @override
-  String get duration2Hours => '2小时';
-
-  @override
-  String get callRedirectionSettingsTitle => '呼出防诈重定向与确认';
-
-  @override
-  String get callRedirectionSettingsSubtitle => '防范回拨吸费诈骗、3秒超时兜底与车载模式保护';
-
-  @override
-  String get ruleStoreTitle => '规则库商店';
-
-  @override
-  String get primaryRoleTitle => '主设备';
-
-  @override
-  String get secondaryRoleTitle => '协同从设备';
-
-  @override
-  String get primaryRoleDescription => '作为集群中枢主节点，全权管理规则制定、拦截判定与数据同步。';
-
-  @override
-  String get secondaryRoleDescription => '作为从属辅助节点，接收同步规则并上报设备状态。';
-
-  @override
-  String get primaryPermissionHelp => '需要通话与短信全部核心权限以确保主设备实时拦截。';
-
-  @override
-  String get secondaryPermissionHelp => '仅需同步与通知权限即可实现多端协同。';
-
-  @override
-  String get clusterOnboardingTitle => '设备集群拓扑配置';
-
-  @override
-  String get clusterOnboardingDescription => '选择本台设备在跨端协同集群中的定位与角色，支持随时切换。';
+  String get totalRules => '规则总数';
 }
 
 /// The translations for Chinese, as used in Macao (`zh_MO`).
@@ -19091,61 +19070,16 @@ class AppLocalizationsZhMo extends AppLocalizationsZh {
   String get masterAndOverridesDesc => '全域規則設定';
 
   @override
-  String get expectedCallTitle => '期待电话 · 临时放行';
+  String get backgroundOpacity => '背景不透明度';
 
   @override
-  String expectedCallActiveDesc(String remaining) => '正在临时放行所有未知来电 (剩余 $remaining)';
+  String get timesUnit => '次';
 
   @override
-  String get expectedCallInactiveDesc => '等外卖/快递时临时豁免拦截规则';
+  String get participantCount => '%1\$d 人已参与';
 
   @override
-  String get expectedCallAddTile => '添加“期待电话”至系统下拉控制中心 (Quick Settings Tile)';
-
-  @override
-  String get duration15Min => '15分钟';
-
-  @override
-  String get duration30Min => '30分钟';
-
-  @override
-  String get duration1Hour => '1小时';
-
-  @override
-  String get duration2Hours => '2小时';
-
-  @override
-  String get callRedirectionSettingsTitle => '呼出防诈重定向与确认';
-
-  @override
-  String get callRedirectionSettingsSubtitle => '防范回拨吸费诈骗、3秒超时兜底与车载模式保护';
-
-  @override
-  String get ruleStoreTitle => '规则库商店';
-
-  @override
-  String get primaryRoleTitle => '主设备';
-
-  @override
-  String get secondaryRoleTitle => '协同从设备';
-
-  @override
-  String get primaryRoleDescription => '作为集群中枢主节点，全权管理规则制定、拦截判定与数据同步。';
-
-  @override
-  String get secondaryRoleDescription => '作为从属辅助节点，接收同步规则并上报设备状态。';
-
-  @override
-  String get primaryPermissionHelp => '需要通话与短信全部核心权限以确保主设备实时拦截。';
-
-  @override
-  String get secondaryPermissionHelp => '仅需同步与通知权限即可实现多端协同。';
-
-  @override
-  String get clusterOnboardingTitle => '设备集群拓扑配置';
-
-  @override
-  String get clusterOnboardingDescription => '选择本台设备在跨端协同集群中的定位与角色，支持随时切换。';
+  String get totalRules => '规则总数';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -23876,59 +23810,14 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get masterAndOverridesDesc => '全域規則設定';
 
   @override
-  String get expectedCallTitle => '期待电话 · 临时放行';
+  String get backgroundOpacity => '背景不透明度';
 
   @override
-  String expectedCallActiveDesc(String remaining) => '正在临时放行所有未知来电 (剩余 $remaining)';
+  String get timesUnit => '次';
 
   @override
-  String get expectedCallInactiveDesc => '等外卖/快递时临时豁免拦截规则';
+  String get participantCount => '%1\$d 人已参与';
 
   @override
-  String get expectedCallAddTile => '添加“期待电话”至系统下拉控制中心 (Quick Settings Tile)';
-
-  @override
-  String get duration15Min => '15分钟';
-
-  @override
-  String get duration30Min => '30分钟';
-
-  @override
-  String get duration1Hour => '1小时';
-
-  @override
-  String get duration2Hours => '2小时';
-
-  @override
-  String get callRedirectionSettingsTitle => '呼出防诈重定向与确认';
-
-  @override
-  String get callRedirectionSettingsSubtitle => '防范回拨吸费诈骗、3秒超时兜底与车载模式保护';
-
-  @override
-  String get ruleStoreTitle => '规则库商店';
-
-  @override
-  String get primaryRoleTitle => '主设备';
-
-  @override
-  String get secondaryRoleTitle => '协同从设备';
-
-  @override
-  String get primaryRoleDescription => '作为集群中枢主节点，全权管理规则制定、拦截判定与数据同步。';
-
-  @override
-  String get secondaryRoleDescription => '作为从属辅助节点，接收同步规则并上报设备状态。';
-
-  @override
-  String get primaryPermissionHelp => '需要通话与短信全部核心权限以确保主设备实时拦截。';
-
-  @override
-  String get secondaryPermissionHelp => '仅需同步与通知权限即可实现多端协同。';
-
-  @override
-  String get clusterOnboardingTitle => '设备集群拓扑配置';
-
-  @override
-  String get clusterOnboardingDescription => '选择本台设备在跨端协同集群中的定位与角色，支持随时切换。';
+  String get totalRules => '规则总数';
 }

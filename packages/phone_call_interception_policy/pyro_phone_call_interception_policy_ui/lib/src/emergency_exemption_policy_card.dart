@@ -153,11 +153,6 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                     ],
                   ),
                 ),
-                IconButton(
-                  tooltip: l10n.addEmergencyNumberButton,
-                  icon: const Icon(Icons.add_circle_outline_rounded, color: Colors.red),
-                  onPressed: () => _showAddNumberDialog(context),
-                ),
                 Switch(
                   value: config.enabled,
                   onChanged: (val) {
@@ -165,6 +160,23 @@ class _EmergencyExemptionPolicyCardState extends State<EmergencyExemptionPolicyC
                   },
                 ),
               ],
+            ),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton.icon(
+                onPressed: () => _showAddNumberDialog(context),
+                icon: const Icon(Icons.add_circle_outline_rounded, size: 18, color: Colors.red),
+                label: Text(
+                  l10n.addEmergencyNumberButton,
+                  style: const TextStyle(color: Colors.red, fontWeight: FontWeight.w600),
+                ),
+                style: OutlinedButton.styleFrom(
+                  side: BorderSide(color: Colors.red.withValues(alpha: 0.4)),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                ),
+              ),
             ),
 
             if (widget.isCurrentlyExempted) ...[

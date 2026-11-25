@@ -24,7 +24,7 @@ class EndCallSettingsPage extends ConsumerWidget {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context);
     final cardTitle = l10n.interceptionActionSettingsTitle;
-    final cardSubtitle = l10n.interceptionActionSettingsSubtitle;
+    final cardSubtitle = l10n.labelActionPolicySubtitle;
 
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
@@ -107,7 +107,7 @@ class EndCallSettingsPage extends ConsumerWidget {
                               const SizedBox(width: 8),
                               Expanded(
                                 child: Text(
-                                  '呼入场景说明：针对来电进行实时研判。当号码命中拦截规则或恶意标签时，将执行指定的处置动作（如立即挂断阻断响铃、接听后立即挂断消耗对方额度、或静音响铃避免打扰）。',
+                                  l10n.incomingCallScenarioDescription,
                                   style: TextStyle(fontSize: 12, color: theme.colorScheme.onPrimaryContainer, height: 1.35),
                                 ),
                               ),
