@@ -73,7 +73,7 @@ Future<void> main() async {
     container.read(callEventListenerProvider);
 
     container.read(notificationServiceProvider);
-    container.read(appHubExchangeConnectorProvider);
+    container.read(appHubExchangeConnectorProvider).initializeConnectorBridge();
     container.read(overlayControlHandlerProvider);
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
