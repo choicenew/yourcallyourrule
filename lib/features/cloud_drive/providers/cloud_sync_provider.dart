@@ -1,14 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:pyro_cloud_drive_hub/pyro_cloud_drive_hub.dart';
+import 'package:pyro_cloud_drive_ui/pyro_cloud_drive_ui.dart' show cloudDriveHubProvider;
+
+export 'package:pyro_cloud_drive_ui/pyro_cloud_drive_ui.dart' show cloudDriveHubProvider;
 
 part 'cloud_sync_provider.g.dart';
-
-/// 绑定 pyro_cloud_drive_hub 驱动中枢 Provider
-@Riverpod(keepAlive: true)
-CloudDriveHub cloudDriveHub(Ref ref) {
-  return CloudDriveHub();
-}
 
 @Riverpod(keepAlive: true)
 CloudDriveAdapter? activeCloudDriver(Ref ref) {
